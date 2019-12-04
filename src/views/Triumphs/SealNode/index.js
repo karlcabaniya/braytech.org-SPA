@@ -89,7 +89,7 @@ class SealNode extends React.Component {
           {sealCommonality ? (
             <div className='commonality'>
               <h4>{t('Seal commonality')}</h4>
-              <div className='value'>{sealCommonality}%</div>
+              <div className='value'>{sealCommonality.toLocaleString(this.props.i18n.language)}%</div>
               <div className='description'>
                 {t("The seal's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
               </div>

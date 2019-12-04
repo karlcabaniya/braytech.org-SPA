@@ -140,7 +140,7 @@ class Mode extends React.Component {
           {mini ? (
             <div>
               <div className='name'>{t('Points')}</div>
-              <div className='value'>{characterProgressions[characterId].progressions[hash].currentProgress.toLocaleString('en-us')}</div>
+              <div className='value'>{characterProgressions[characterId].progressions[hash].currentProgress.toLocaleString(this.props.i18n.language)}</div>
             </div>
           ) : null}
           {!mini ? (

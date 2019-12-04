@@ -141,7 +141,7 @@ class Collectibles extends React.Component {
                 </div>
                 <div className='text'>
                   <div className='name'>{definitionCollectible.displayProperties.name}</div>
-                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[definitionCollectible.hash] ? manifest.statistics.collections[definitionCollectible.hash] : `0.00`}%</div>
+                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[definitionCollectible.hash] ? manifest.statistics.collections[definitionCollectible.hash].toLocaleString(this.props.i18n.language) : Number('0.00').toLocaleString(this.props.i18n.language, {minimumFractionDigits: 2, maximumFractionDigits: 2})}%</div>
                 </div>
                 {inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
               </li>
@@ -212,7 +212,7 @@ class Collectibles extends React.Component {
                 </div>
                 <div className='text'>
                   <div className='name'>Classified</div>
-                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash] : `0.00`}%</div>
+                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash].toLocaleString(this.props.i18n.language) : Number('0.00').toLocaleString(this.props.i18n.language), {minimumFractionDigits: 2, maximumFractionDigits: 2}}%</div>
                 </div>
               </li>
             );
@@ -233,7 +233,7 @@ class Collectibles extends React.Component {
                 </div>
                 <div className='text'>
                   <div className='name'>{collectibleDefinition.displayProperties.name}</div>
-                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash] : `0.00`}%</div>
+                  <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash].toLocaleString(this.props.i18n.language) : Number('0.00').toLocaleString(this.props.i18n.language, {minimumFractionDigits: 2, maximumFractionDigits: 2})}%</div>
                 </div>
                 {inspect && collectibleDefinition.itemHash ? <Link to={{ pathname: `/inspect/${collectibleDefinition.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
               </li>
@@ -287,7 +287,7 @@ class Collectibles extends React.Component {
             </div>
             <div className='text'>
               <div className='name'>{collectibleDefinition.displayProperties.name}</div>
-              <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash] : `0.00`}%</div>
+              <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash].toLocaleString(this.props.i18n.language) : Number('0.00').toLocaleString(this.props.i18n.language, {minimumFractionDigits: 2, maximumFractionDigits: 2})}%</div>
             </div>
             {link && selfLinkFrom && !inspect ? <ProfileLink to={{ pathname: link, state: { from: selfLinkFrom } }} /> : null}
             {inspect && collectibleDefinition.itemHash ? <Link to={{ pathname: `/inspect/${collectibleDefinition.itemHash}`, state: { from: selfLinkFrom } }} /> : null}

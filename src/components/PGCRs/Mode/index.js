@@ -154,20 +154,20 @@ class Mode extends React.Component {
               <div className='minor-stats'>
                 <div className='stat'>
                   <div className='name'>{manifest.DestinyHistoricalStatsDefinition['efficiency'].statName}</div>
-                  <div className='value'>{Number.parseFloat(stats.efficiency.basic.value).toFixed(2)}</div>
+                  <div className='value'>{Number.parseFloat(stats.efficiency.basic.value).toLocaleString(this.props.i18n.language, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
                 </div>
                 <div className='stat'>
                   <div className='name'>{manifest.DestinyHistoricalStatsDefinition['kills'].statName}</div>
-                  <div className='value'>{stats.kills.basic.value.toLocaleString('en-us')}</div>
+                  <div className='value'>{stats.kills.basic.value.toLocaleString(this.props.i18n.language)}</div>
                 </div>
                 <div className='stat'>
                   <div className='name'>{manifest.DestinyHistoricalStatsDefinition['deaths'].statName}</div>
-                  <div className='value'>{stats.deaths.basic.value.toLocaleString('en-us')}</div>
+                  <div className='value'>{stats.deaths.basic.value.toLocaleString(this.props.i18n.language)}</div>
                 </div>
               </div>
               <div className='stat kdr'>
                 <div className='name'>K/D</div>
-                <div className='value'>{Number.parseFloat(stats.killsDeathsRatio.basic.value).toFixed(2)}</div>
+                <div className='value'>{Number.parseFloat(stats.killsDeathsRatio.basic.value).toLocaleString(this.props.i18n.language, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
               </div>
             </>
           ) : <div className='no-stats'><div>{t('No stats available')}</div></div>}

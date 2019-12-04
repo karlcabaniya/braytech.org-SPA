@@ -239,16 +239,16 @@ class Roster extends React.Component {
                       </div>
                     )}
                   </li>
-                  <li className='col triumphScore'>{triumphScore.toLocaleString('en-us')}</li>
-                  <li className='col progression glory'>{gloryPoints.toLocaleString('en-us')}</li>
+                  <li className='col triumphScore'>{triumphScore.toLocaleString(this.props.i18n.language)}</li>
+                  <li className='col progression glory'>{gloryPoints.toLocaleString(this.props.i18n.language)}</li>
                   <li className='col progression valor'>
-                    {valorPoints.toLocaleString('en-us')} {valorResets ? <div className='resets'>({valorResets})</div> : null}
+                    {valorPoints.toLocaleString(this.props.i18n.language)} {valorResets ? <div className='resets'>({valorResets})</div> : null}
                   </li>
                   <li className='col progression infamy'>
-                    {infamyPoints.toLocaleString('en-us')} {infamyResets ? <div className='resets'>({infamyResets})</div> : null}
+                    {infamyPoints.toLocaleString(this.props.i18n.language)} {infamyResets ? <div className='resets'>({infamyResets})</div> : null}
                   </li>
                   <li className='col weeklyXp'>
-                    <span>{weeklyXp.toLocaleString('en-us')}</span> / {(characterIds.length * 5000).toLocaleString('en-us')}
+                    <span>{weeklyXp.toLocaleString(this.props.i18n.language)}</span> / {(characterIds.length * 5000).toLocaleString(this.props.i18n.language)}
                   </li>
                 </>
               ) : (

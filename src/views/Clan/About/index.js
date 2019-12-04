@@ -99,7 +99,7 @@ class AboutView extends React.Component {
         <div className='module about'>
           <div className='name'>{group.name}</div>
           <div className='members'>
-            {t('Founded')} {moment(group.creationDate).format('MMMM YYYY')} / {group.memberCount} {t('Members')}
+            {t('Founded')} {moment(group.creationDate).locale(this.props.i18n.language).format('MMMM YYYY')} / {group.memberCount} {t('Members')}
           </div>
           <Markdown className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} source={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} />
         </div>

@@ -277,14 +277,14 @@ class Index extends React.Component {
               <div className='module stats'>
                 <ul>
                   <li>
-                    <div className='value'>{manifest.statistics.general.tracking.toLocaleString('en-us')}</div>
+                    <div className='value'>{manifest.statistics.general.tracking.toLocaleString(this.props.i18n.language)}</div>
                     <div className='name'>Tracked players</div>
                     <div className='description'>
                       <p>Number of players VOLUSPA is tracking through their activities and accomplishments</p>
                     </div>
                   </li>
                   <li>
-                    <div className='value'>{manifest.statistics.general.playedSeason.toLocaleString('en-us')}</div>
+                    <div className='value'>{manifest.statistics.general.playedSeason.toLocaleString(this.props.i18n.language)}</div>
                     <div className='name'>Played season</div>
                     <div className='description'>
                       <p>Number of tracked players who've played this season</p>

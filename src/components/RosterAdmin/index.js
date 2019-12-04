@@ -442,7 +442,7 @@ class RosterAdmin extends React.Component {
                         : null}
                     </li>
                     <li className='col weeklyXp'>
-                      <span>{weeklyXp.toLocaleString('en-us')}</span> / {(characterIds.length * 5000).toLocaleString('en-us')}
+                      <span>{weeklyXp.toLocaleString(this.props.i18n.language)}</span> / {(characterIds.length * 5000).toLocaleString(this.props.i18n.language)}
                     </li>
                     <li className='col rank'>{m.memberType && utils.groupMemberTypeToString(m.memberType)}</li>
                     <li className='col actions'>

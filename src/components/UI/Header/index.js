@@ -434,11 +434,11 @@ class Header extends React.Component {
                     <div className='module stats'>
                       <ul>
                         <li>
-                          <div className='value'>{manifest.statistics.general.tracking.toLocaleString('en-us')}</div>
+                          <div className='value'>{manifest.statistics.general.tracking.toLocaleString(this.props.i18n.language)}</div>
                           <div className='name'>{t('Tracked players')}</div>
                         </li>
                         <li>
-                          <div className='value'>{manifest.statistics.general.playedSeason.toLocaleString('en-us')}</div>
+                          <div className='value'>{manifest.statistics.general.playedSeason.toLocaleString(this.props.i18n.language)}</div>
                           <div className='name'>{t('Played season')}</div>
                         </li>
                       </ul>
