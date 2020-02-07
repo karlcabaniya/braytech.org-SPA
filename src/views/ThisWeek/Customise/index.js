@@ -539,12 +539,12 @@ class Customise extends React.Component {
                               {col.mods.map((mod, i) => {
                                 if (!this.modules[mod.component]) {
                                   return (
-                                    <div key={mod.id} className={cx('module', 'button', { disabled: group.id === 'head' })}>
+                                    <div key={mod.id} className='module button'>
                                       <div className='text'>
                                         <div className='name'>{t('Error')}</div>
                                         <div className='description'>{t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}</div>
                                       </div>
-                                      <Button className='remove' disabled={group.id === 'head'} onClick={this.handler_removeMod(col.id, mod.id)}>
+                                      <Button className='remove' onClick={this.handler_removeMod(col.id, mod.id)}>
                                         <i className='segoe-uniE1061' />
                                       </Button>
                                     </div>

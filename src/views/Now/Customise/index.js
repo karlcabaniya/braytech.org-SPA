@@ -89,7 +89,7 @@ const getCols = cols => {
 export const moduleRules = {
   full: ['SeasonPass'],
   double: ['SeasonArtifact', 'Challenges'],
-  head: ['Flashpoint', 'DailyVanguardModifiers', 'HeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown']
+  head: ['Flashpoint', 'DailyVanguardModifiers', 'DailyHeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown']
 };
 
 class Customise extends React.Component {
@@ -369,7 +369,7 @@ class Customise extends React.Component {
       name: this.props.t('Vanguard Ops'),
       description: this.props.t('Active modifiers for Vanguard operations')
     },
-    HeroicStoryMissions: {
+    DailyHeroicStoryMissions: {
       name: manifest.DestinyPresentationNodeDefinition[3028486709] && manifest.DestinyPresentationNodeDefinition[3028486709].displayProperties && manifest.DestinyPresentationNodeDefinition[3028486709].displayProperties.name,
       description: this.props.t('Revisit the trials of times past. Reconcile with these emotions and challenge yourself to do better.')
     },
@@ -495,12 +495,12 @@ class Customise extends React.Component {
                               {col.mods.map((mod, i) => {
                                 if (!this.modules[mod.component]) {
                                   return (
-                                    <div key={mod.id} className={cx('module', 'button', { disabled: group.id === 'head' })}>
+                                    <div key={mod.id} className='module button'>
                                       <div className='text'>
                                         <div className='name'>{t('Error')}</div>
                                         <div className='description'>{t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}</div>
                                       </div>
-                                      <Button className='remove' disabled={group.id === 'head'} onClick={this.handler_removeMod(col.id, mod.id)}>
+                                      <Button className='remove' onClick={this.handler_removeMod(col.id, mod.id)}>
                                         <i className='segoe-uniE1061' />
                                       </Button>
                                     </div>

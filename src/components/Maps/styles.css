@@ -33,6 +33,7 @@
 
 .map-omega.loading .control {
   opacity: 0;
+  pointer-events: none;
 }
 
 html.backdropfilter .map-omega .control li {

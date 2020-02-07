@@ -5,8 +5,8 @@ import Moment from 'react-moment';
 
 import manifest from '../../../utils/manifest';
 import packageJSON from '../../../../package.json';
-import { ReactComponent as Patreon } from '../../PatreonDevice.svg';
-import { ReactComponent as PayPal } from '../../PayPalDevice.svg';
+import { ReactComponent as Patreon } from '../../../svg/miscellaneous/patreon-device.svg';
+import { ReactComponent as PayPal } from '../../../svg/miscellaneous/paypal-device.svg';
 
 import './styles.css';
 

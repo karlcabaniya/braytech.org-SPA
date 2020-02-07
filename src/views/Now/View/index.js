@@ -9,8 +9,8 @@ import { DestinyKey } from '../../../components/UI/Button';
 
 import Flashpoint from '../../../components/UserModules/Flashpoint';
 import Challenges from '../../../components/UserModules/Challenges';
-import HeroicStoryMissions from '../../../components/UserModules/HeroicStoryMissions';
 import BlackArmoryForges from '../../../components/UserModules/BlackArmoryForges';
+import DailyHeroicStoryMissions from '../../../components/UserModules/DailyHeroicStoryMissions';
 import DailyVanguardModifiers from '../../../components/UserModules/DailyVanguardModifiers';
 import Ranks from '../../../components/UserModules/Ranks';
 import SeasonPass from '../../../components/UserModules/SeasonPass';
@@ -47,8 +47,8 @@ class Now extends React.Component {
     DailyVanguardModifiers: {
       reference: DailyVanguardModifiers
     },
-    HeroicStoryMissions: {
-      reference: HeroicStoryMissions
+    DailyHeroicStoryMissions: {
+      reference: DailyHeroicStoryMissions
     },
     SeasonArtifact: {
       reference: SeasonArtifact

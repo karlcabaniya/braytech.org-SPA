@@ -44,4 +44,11 @@ export default function runOnceTasks() {
     ls.update('history.tasks', { id: 'adjustLayouts_february032020' });
   }
 
+  if (!history.find(t => t.id === 'adjustLayouts_february082020')) {
+
+    ls.set('setting.layouts', JSON.parse(JSON.stringify(ls.get('setting.layouts')).replace(/HeroicStoryMissions/g, 'DailyHeroicStoryMissions')));
+
+    ls.update('history.tasks', { id: 'adjustLayouts_february082020' });
+  }
+
 }

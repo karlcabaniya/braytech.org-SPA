@@ -11,9 +11,9 @@ import MemberLink from '../../components/MemberLink';
 import userFlair from '../../data/userFlair';
 import Button from '../../components/UI/Button';
 
-import { ReactComponent as Patreon } from '../../components/PatreonDevice.svg';
 import captainsLog from '../../data/captainsLog';
 
+import { ReactComponent as Patreon } from '../../svg/miscellaneous/braytech-device.svg';
 import { ReactComponent as highlightClan } from '../../svg/miscellaneous/highlight-clan.svg';
 import { ReactComponent as highlightCollections } from '../../svg/miscellaneous/highlight-collections.svg';
 import { ReactComponent as highlightTriumphs } from '../../svg/miscellaneous/highlight-triumphs.svg';

@@ -10,7 +10,7 @@ import * as enums from '../../utils/destinyEnums';
 import Spinner from '../../components/UI/Spinner';
 import { BungieAuthMini } from '../../components/BungieAuth';
 import ProfileSearch from '../../components/ProfileSearch';
-import { ReactComponent as Logo } from '../../components/BraytechDevice.svg';
+import { ReactComponent as Logo } from '../../svg/miscellaneous/braytech-device.svg';
 
 import ProfileError from './ProfileError';
 import Profile from './Profile';

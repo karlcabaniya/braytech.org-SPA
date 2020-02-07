@@ -10,7 +10,7 @@ import * as utils from '../../../utils/destinyUtils';
 
 import './styles.css';
 
-class HeroicStoryMissions extends React.Component {
+class DailyHeroicStoryMissions extends React.Component {
   render() {
     const { t, member } = this.props;
     const characterActivities = member.data.profile.characterActivities.data;
@@ -91,4 +91,4 @@ export default compose(
     mapStateToProps
   ),
   withTranslation()
-)(HeroicStoryMissions);
+)(DailyHeroicStoryMissions);

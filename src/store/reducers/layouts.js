@@ -30,8 +30,8 @@ export const defaultState = {
             id: 'head-col-2',
             mods: [
               {
-                id: 'HeroicStoryMissions-0',
-                component: 'HeroicStoryMissions'
+                id: 'DailyHeroicStoryMissions-0',
+                component: 'DailyHeroicStoryMissions'
               }
             ]
           },
