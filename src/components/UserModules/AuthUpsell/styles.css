@@ -70,6 +70,18 @@
 }
 
 .auth-upsell .feature-sell li .text .description {
+
+}
+
+.auth-upsell .actions {
+  display: grid;
+  grid-template-columns: max-content min-content;
+  justify-content: space-between;
+  gap: 3px;
+}
+
+.auth-upsell .actions .button i {
+  animation: cta-sparkle 1.5s both infinite;
 }
 
 @media screen and (max-width: 1024px) {
@@ -85,5 +97,9 @@
 
   .auth-upsell .headline {
     font-size: 22px;
+  }
+
+  .auth-upsell .actions {
+    grid-template-columns: auto;
   }
 }

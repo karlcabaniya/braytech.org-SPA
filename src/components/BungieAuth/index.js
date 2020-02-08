@@ -35,7 +35,7 @@ class BungieAuth extends React.Component {
       // if (tokens && tokens.ErrorCode === 1 && tokens.Response) {
       //   this.props.setAuth(tokens.Response);
       // }
-        
+
       this.getMemberships();
     }
   };
@@ -75,6 +75,18 @@ class BungieAuth extends React.Component {
         }));
       }
     }
+  };
+
+  handler_goToBungie = e => {
+    window.location = authUrl;
+  };
+
+  handler_forget = e => {
+    this.props.resetAuth();
+    
+    this.setState({
+      memberships: false
+    });
   };
 
   componentDidMount() {
@@ -156,15 +168,7 @@ class BungieAuth extends React.Component {
               </div>
             </div>
             <h4>{t('Authentication data')}</h4>
-            <Button
-              text={t('Forget me')}
-              action={() => {
-                this.props.resetAuth();
-                this.setState({
-                  memberships: false
-                });
-              }}
-            />
+            <Button text={t('Forget me')} action={this.handler_forget} />
             <div className='info'>
               <p>{t('Delete the authentication data stored on your device. While unnecessary, this function is provided for your peace of mind.')}</p>
             </div>
@@ -186,23 +190,19 @@ class BungieAuth extends React.Component {
                   t('Unknown error')
                 )}
               </div>
-              <Button
-                text={t('Authenticate')}
-                action={() => {
-                  window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-                }}
-              />
+              <Button cta action={this.handler_goToBungie}>
+                <div className='text'>{t('Authenticate')}</div>
+                <i className='segoe-uniE0AB' />
+              </Button>
             </div>
           );
         } else {
           return (
             <div className='bungie-auth'>
-              <Button
-                text={t('Authenticate')}
-                action={() => {
-                  window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-                }}
-              />
+              <Button cta action={this.handler_goToBungie}>
+                <div className='text'>{t('Authenticate')}</div>
+                <i className='segoe-uniE0AB' />
+              </Button>
             </div>
           );
         }
@@ -226,6 +226,10 @@ class BungieAuthMini extends React.Component {
     if (response.error && response.error === 'invalid_grant') {
       this.props.resetAuth();
     }
+  };
+
+  handler_goToBungie = e => {
+    window.location = authUrl;
   };
 
   getMemberships = async () => {
@@ -327,23 +331,19 @@ class BungieAuthMini extends React.Component {
                   t('Unknown error')
                 )}
               </div>
-              <Button
-                text={t('Authenticate')}
-                action={() => {
-                  window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-                }}
-              />
+              <Button cta action={this.handler_goToBungie}>
+                <div className='text'>{t('Authenticate')}</div>
+                <i className='segoe-uniE0AB' />
+              </Button>
             </div>
           );
         } else {
           return (
             <div className='bungie-auth'>
-              <Button
-                text={t('Authenticate')}
-                action={() => {
-                  window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-                }}
-              />
+              <Button cta action={this.handler_goToBungie}>
+                <div className='text'>{t('Authenticate')}</div>
+                <i className='segoe-uniE0AB' />
+              </Button>
             </div>
           );
         }
@@ -352,38 +352,32 @@ class BungieAuthMini extends React.Component {
   }
 }
 
+const authUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
+
 class BungieAuthButton extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    this.mounted = true;
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
-  }
+  handler_goToBungie = e => {
+    window.location = authUrl;
+  };
 
   render() {
     const { t } = this.props;
 
     return (
       <div className='bungie-auth'>
-        <Button
-          text={t('Login with Bungie.net')}
-          action={() => {
-            window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-          }}
-        />
+        <Button cta action={this.handler_goToBungie}>
+          <div className='text'>{t('Login with Bungie.net')}</div>
+          <i className='segoe-uniE0AB' />
+        </Button>
       </div>
     );
   }
 }
 
 class NoAuth extends React.Component {
+  handler_goToBungie = e => {
+    window.location = authUrl;
+  };
+
   render() {
     const { t, inline } = this.props;
 
@@ -396,12 +390,10 @@ class NoAuth extends React.Component {
               <p>{t('Some features of Braytech require your written permission to activate, generally to protect your privacy.')}</p>
               <p>{t('To use this feature, please tell Bungie that you approve. No personal information is shared by doing so—only an authentication code with which you may interact with more API endpoints.')}</p>
             </div>
-            <Button
-              text={t('Authenticate')}
-              action={() => {
-                window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-              }}
-            />
+            <Button cta action={this.handler_goToBungie}>
+              <div className='text'>{t('Authenticate')}</div>
+              <i className='segoe-uniE0AB' />
+            </Button>
           </div>
         </div>
       </div>
@@ -444,6 +436,10 @@ class DiffProfile extends React.Component {
         }));
       }
     }
+  };
+
+  handler_goToBungie = e => {
+    window.location = authUrl;
   };
 
   componentDidMount() {
@@ -502,12 +498,10 @@ class DiffProfile extends React.Component {
               t('Unknown error')
             )}
           </div>
-          <Button
-            text={t('Authenticate')}
-            action={() => {
-              window.location = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
-            }}
-          />
+          <Button cta action={this.handler_goToBungie}>
+            <div className='text'>{t('Authenticate')}</div>
+            <i className='segoe-uniE0AB' />
+          </Button>
         </div>
       );
     } else {

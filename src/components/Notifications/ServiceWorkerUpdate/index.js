@@ -8,7 +8,7 @@ import Button from '../../UI/Button';
 import './styles.css';
 
 class ServiceWorkerUpdate extends React.Component {
-  refreshApp = () => {
+  handler_reload = e => {
     window.location.reload();
   }
 
@@ -23,7 +23,7 @@ class ServiceWorkerUpdate extends React.Component {
               {t('An update for Braytech is available. Please restart the app to start using it immediately.')}
             </div>
             <div className='action'>
-              <Button text={t('Restart Braytech')} action={this.refreshApp} />
+              <Button text={t('Restart Braytech')} action={this.handler_reload} />
             </div>
           </div>
         </div>

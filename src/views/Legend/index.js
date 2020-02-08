@@ -56,7 +56,7 @@ class Legend extends React.Component {
     this.mounted = false;
   }
 
-  handler_generate = () => {
+  handler_generate = e => {
     const viewport = this.props.viewport;
     const page = this.ref_page.current;
 

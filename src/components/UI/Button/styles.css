@@ -19,6 +19,7 @@
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.2px;
   font-size: 16px;
   cursor: pointer;
   transition: opacity 0.25s, color 0.25s, background-color 0.25s, box-shadow 0.25s;
@@ -99,4 +100,36 @@
 
 .button.disabled:hover::after {
   box-shadow: 0 0 0 2px transparent;
+}
+
+.button.cta {
+  justify-content: space-between;
+  grid-auto-flow: column;
+  padding: 0 1rem;
+}
+
+.button.cta .text {
+  padding: 0 2rem 0 0;
+}
+
+.button.cta i {
+  animation: cta-sparkle 1.5s both infinite;
+}
+
+@keyframes cta-sparkle {
+  0% {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
 }

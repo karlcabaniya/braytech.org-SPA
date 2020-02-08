@@ -1,7 +1,7 @@
 import * as ls from '../../utils/localStorage';
 import notifications from '../../data/notifications';
 
-const history = ls.get('history.notifications') ? ls.get('history.notifications') : [];
+const history = ls.get('history.notifications') || [];
 const timeAtInit = new Date().getTime();
 const defaultState = {
   objects: (notifications && notifications.filter(n => {

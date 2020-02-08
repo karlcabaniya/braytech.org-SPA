@@ -45,7 +45,7 @@ class PostmasterCapacity extends React.Component {
       return null;
     }
 
-    if (auth && auth.destinyMemberships.find(m => m.membershipId === member.membershipId) && member.data.profile.profileInventory) {
+    if (auth && auth.destinyMemberships.find(m => m.membershipId === member.membershipId) && member.data.profile.profileInventory.data?.items) {
 
       const inventory = member.data.profile.profileInventory.data.items.slice().concat(member.data.profile.characterInventories.data[member.characterId].items);
 

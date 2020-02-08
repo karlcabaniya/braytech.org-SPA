@@ -500,7 +500,7 @@ class Customise extends React.Component {
                                         <div className='name'>{t('Error')}</div>
                                         <div className='description'>{t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}</div>
                                       </div>
-                                      <Button className='remove' onClick={this.handler_removeMod(col.id, mod.id)}>
+                                      <Button className='remove' action={this.handler_removeMod(col.id, mod.id)}>
                                         <i className='segoe-uniE1061' />
                                       </Button>
                                     </div>
@@ -529,7 +529,7 @@ class Customise extends React.Component {
                                           <div className='description'>{description}</div>
                                         </div>
                                         {settings ? <ModulesSettings settings={settings} column={col.id} mod={mod.id} setSettings={this.handler_setSettings} /> : null}
-                                        <Button className='remove' onClick={this.handler_removeMod(col.id, mod.id)}>
+                                        <Button className='remove' action={this.handler_removeMod(col.id, mod.id)}>
                                           <i className='segoe-uniE1061' />
                                         </Button>
                                       </div>
@@ -545,7 +545,7 @@ class Customise extends React.Component {
                       </div>
                     );
                   })}
-                  {group.id === 'head' ? null : <Button className='remove row' text={t('Remove group')} onClick={this.handler_removeGroup(group.id)} />}
+                  {group.id === 'head' ? null : <Button className='remove row' text={t('Remove group')} action={this.handler_removeGroup(group.id)} />}
                 </div>
               );
             })}
@@ -556,13 +556,13 @@ class Customise extends React.Component {
             <div />
             <ul>
               <li>
-                <Button onClick={this.handler_resetLayout}>
+                <Button action={this.handler_resetLayout}>
                   <DestinyKey type='more' />
                   {t('Reset')}
                 </Button>
               </li>
               <li>
-                <Button onClick={this.handler_addGroup}>
+                <Button action={this.handler_addGroup}>
                   <DestinyKey type='accept' />
                   {t('Add group')}
                 </Button>
@@ -616,7 +616,7 @@ class ModulesSelector extends React.Component {
     if (!disabled && expanded) {
       return (
         <div className='modules-selector expanded'>
-          <Button text={t('Cancel')} onClick={this.handler_compress} />
+          <Button text={t('Cancel')} action={this.handler_compress} />
           <div className='list'>
             {Object.keys(modules).map(key => {
               const { name, description, used, limit, instances } = modules[key];
@@ -641,7 +641,7 @@ class ModulesSelector extends React.Component {
     } else {
       return (
         <div className='modules-selector'>
-          <Button text={t('Add module')} disabled={disabled} onClick={this.handler_expand} />
+          <Button text={t('Add module')} disabled={disabled} action={this.handler_expand} />
         </div>
       );
     }

@@ -5,6 +5,7 @@ import member from './reducers/member.js';
 import auth from './reducers/auth.js';
 import groupMembers from './reducers/groupMembers.js';
 import notifications from './reducers/notifications.js';
+import tips from './reducers/tips.js';
 import refreshService from './reducers/refreshService.js';
 import PGCRcache from './reducers/PGCRcache.js';
 import triumphs from './reducers/triumphs.js';
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   auth,
   groupMembers,
   notifications,
+  tips,
   refreshService,
   PGCRcache,
   triumphs,

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
 import { BungieAuthButton } from '../../BungieAuth';
+import DismissTip from '../../UI/DismissTip';
 
 import './styles.css';
 
@@ -55,7 +56,10 @@ class AuthUpsell extends React.Component {
             </li>
           </ul>
         </div>
-        <BungieAuthButton />
+        <div className='actions'>
+          <BungieAuthButton />
+          <DismissTip value='AuthUpsellModule' />
+        </div>
       </div>
     );
   }

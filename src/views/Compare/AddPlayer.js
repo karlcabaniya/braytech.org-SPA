@@ -28,7 +28,7 @@ class AddPlayer extends React.Component {
     }
   }
 
-  handler_profileClick = (membershipType, membershipId, displayName) => {
+  handler_profileClick = (membershipType, membershipId, displayName) => e => {
     if (this.mounted) {
       this.props.action(membershipType, membershipId, displayName);
       this.setState({

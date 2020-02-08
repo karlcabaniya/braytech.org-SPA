@@ -83,7 +83,7 @@ class Now extends React.Component {
   };
 
   render() {
-    const { t, auth, layout } = this.props;
+    const { t, auth, layout, tips } = this.props;
 
     const resetTime = '17:00:00Z';
 
@@ -145,7 +145,7 @@ class Now extends React.Component {
       userHead,
       {
         className: ['full', 'auth-upsell'],
-        condition: !auth,
+        condition: auth ? false : !auth && tips.indexOf('AuthUpsellModule') < 0 ? true : false,
         components: ['AuthUpsell']
       },
       ...userBody
@@ -246,7 +246,8 @@ class Now extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     auth: state.auth,
-    layout: state.layouts.now
+    layout: state.layouts.now,
+    tips: state.tips
   };
 }
 

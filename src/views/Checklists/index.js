@@ -38,7 +38,7 @@ export class Checklists extends React.Component {
     };
   }
 
-  toggleCompleted = () => {
+  handler_toggleCompleted = e => {
     let currentState = this.props.collectibles;
     let newState = {
       hideCompletedChecklistItems: !currentState.hideCompletedChecklistItems
@@ -93,7 +93,7 @@ export class Checklists extends React.Component {
     const visible = lists.slice(sliceStart, sliceEnd);
 
     const toggleCompletedLink = (
-      <Button action={this.toggleCompleted}>
+      <Button action={this.handler_toggleCompleted}>
         {this.props.collectibles.hideCompletedChecklistItems ? (
           <>
             <i className='segoe-uniF16E' />

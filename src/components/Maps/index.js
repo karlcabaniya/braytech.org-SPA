@@ -364,7 +364,7 @@ class Maps extends React.Component {
             </ul>
           </div>
         </div>
-        {viewport.width > 600 ? (
+        {viewport.width > 6000 ? (
           <div className='control zoom visible'>
             <ul className='list'>
               <li className={cx('linked', { disabled: this.state.zoom === 2 })} onClick={this.handler_zoomIncrease}>
@@ -378,6 +378,11 @@ class Maps extends React.Component {
                 </div>
               </li>
             </ul>
+          </div>
+        ) : null}
+        {viewport.width > 600 ? (
+          <div className='control inspector visible'>
+            
           </div>
         ) : null}
       </div>

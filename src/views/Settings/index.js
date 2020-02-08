@@ -141,12 +141,12 @@ class Settings extends React.Component {
     this.props.setTrackedTriumphs([]);
   };
 
-  handler_resetProfileHistory = e => {
-    ls.set('history.profiles', []);
+  handler_resetTipsState = e => {
+    this.props.setTips([]);
   };
 
-  handler_resetTipsState = e => {
-    ls.set('history.tips', []);
+  handler_resetProfileHistory = e => {
+    ls.set('history.profiles', []);
   };
 
   handler_resetNotificationsState = e => {
@@ -397,11 +397,14 @@ function mapDispatchToProps(dispatch) {
     setMaps: value => {
       dispatch({ type: 'SET_MAPS', payload: value });
     },
-    resetLayouts: value => {
-      dispatch({ type: 'RESET_LAYOUTS', payload: value });
-    },
     setThree: value => {
       dispatch({ type: 'SET_THREE', payload: value });
+    },
+    setTips: value => {
+      dispatch({ type: 'SET_TIPS', payload: value });
+    },
+    resetLayouts: value => {
+      dispatch({ type: 'RESET_LAYOUTS', payload: value });
     }
   };
 }
