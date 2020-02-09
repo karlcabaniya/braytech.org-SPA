@@ -16,6 +16,7 @@ import { ReactComponent as CrucibleIconSupremacy } from '../../../svg/crucible/s
 import { ReactComponent as CrucibleIconLockdown } from '../../../svg/crucible/lockdown.svg';
 import { ReactComponent as CrucibleIconMomentumControl } from '../../../svg/crucible/momentum-control.svg';
 import { ReactComponent as CrucibleIconDoubles } from '../../../svg/crucible/doubles.svg';
+import { ReactComponent as CrucibleIconCrimsonDoubles } from '../../../svg/crucible/crimson-doubles.svg';
 import { ReactComponent as CrucibleIconSurvival } from '../../../svg/crucible/elimination.svg';
 import { ReactComponent as CrucibleIconIronBanner } from '../../../svg/crucible/iron-banner.svg';
 
@@ -34,7 +35,8 @@ const crucibleRotators = [
   1457072306, // Showdown
   3239164160, // Lockdown
   // 740422335, // Survival
-  920826395 // Doubles
+  920826395,  // Doubles
+  1358255449, // Crimson Doubles
 ];
 
 const crucibleModeIcons = {
@@ -43,14 +45,15 @@ const crucibleModeIcons = {
   3780095688: <CrucibleIconSupremacy />,
   1219083526: <CrucibleIconTeamScorched />,
   4209226441: <CrucibleIconDefault />,
-  952904835: <CrucibleIconMomentumControl />,
+  952904835:  <CrucibleIconMomentumControl />,
   1102379070: <CrucibleIconMayhem />,
   3011324617: <CrucibleIconBreakthrough />,
   3646079260: <CrucibleIconCountdown />,
   1457072306: <CrucibleIconShowdown />,
   3239164160: <CrucibleIconLockdown />,
-  740422335: <CrucibleIconSurvival />,
-  920826395: <CrucibleIconDoubles />
+  740422335:  <CrucibleIconSurvival />,
+  920826395:  <CrucibleIconDoubles />,
+  1358255449: <CrucibleIconCrimsonDoubles />
 };
 
 class CrucibleRotators extends React.Component {

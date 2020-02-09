@@ -15,6 +15,7 @@ import { ReactComponent as CrucibleIconSurvival } from '../../../svg/crucible/su
 import { ReactComponent as CrucibleIconRumble } from '../../../svg/crucible/rumble.svg';
 import { ReactComponent as CrucibleIconMayhem } from '../../../svg/crucible/mayhem.svg';
 import { ReactComponent as CrucibleIconDoubles } from '../../../svg/crucible/doubles.svg';
+import { ReactComponent as CrucibleIconCrimsonDoubles } from '../../../svg/crucible/crimson-doubles.svg';
 import { ReactComponent as CrucibleIconBreakthrough } from '../../../svg/crucible/breakthrough.svg';
 import { ReactComponent as CrucibleIconClash } from '../../../svg/crucible/clash.svg';
 import { ReactComponent as CrucibleIconShowdown } from '../../../svg/crucible/showdown.svg';
@@ -80,6 +81,10 @@ class Mode extends React.Component {
       {
         modes: [50],
         icon: <CrucibleIconDoubles />
+      },
+      {
+        modes: [15],
+        icon: <CrucibleIconCrimsonDoubles />
       },
       {
         modes: [31],

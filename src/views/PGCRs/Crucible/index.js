@@ -52,6 +52,9 @@ class Crucible extends React.Component {
       doubles: {
         mode: 50
       },
+      crimsonDoubles: {
+        mode: 15
+      },
       supremacy: {
         mode: 31
       },

@@ -7,6 +7,8 @@ import cx from 'classnames';
 import { ProfileLink } from '../../../components/ProfileLink';
 import { DestinyKey } from '../../../components/UI/Button';
 
+import CustomiseTip from '../../../components/UserModules/CustomiseTip';
+
 import Flashpoint from '../../../components/UserModules/Flashpoint';
 import Events from '../../../components/UserModules/Events';
 import WeeklyVanguardSinge from '../../../components/UserModules/WeeklyVanguardSinge';
@@ -35,6 +37,9 @@ class ThisWeek extends React.Component {
   }
 
   components = {
+    CustomiseTip: {
+      reference: CustomiseTip
+    },
     Flashpoint: {
       reference: Flashpoint
     },
@@ -83,7 +88,7 @@ class ThisWeek extends React.Component {
   };
 
   render() {
-    const { t, layout } = this.props;
+    const { t, layout, tips } = this.props;
 
     const resetTime = '17:00:00Z';
 
@@ -179,7 +184,15 @@ class ThisWeek extends React.Component {
         };
       });
 
-    const modules = [userHead, ...userBody];
+    const modules = [
+      userHead,
+      {
+        className: ['full', 'tip', 'customise-tip'],
+        condition: tips.indexOf('CustomiseTipModule') < 0,
+        components: ['CustomiseTip']
+      },
+      ...userBody
+    ];
 
     return (
       <>
@@ -278,7 +291,8 @@ function mapStateToProps(state, ownProps) {
     member: state.member,
     auth: state.auth,
     layout: state.layouts['this-week'],
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
+    tips: state.tips
   };
 }
 

@@ -29,8 +29,20 @@
   margin-bottom: 3rem;
 }
 
-#now .group.head + .group.full {
+#now .group.head + .group.full,
+#now .group.full + .group.full {
   margin: 0;
+}
+
+#now .group.full.tip {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+#now .group.full.tip .wrap {
+  grid-column: 2/4;
 }
 
 #now .group.head .module .text p {
@@ -113,9 +125,6 @@
 
 
 
-
-
-
 @media screen and (max-width: 1440px) {
   #now .group:not(.full) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -123,6 +132,14 @@
 
   #now .group.double-pear {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  #now .group.full.tip {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  #now .group.full.tip .wrap {
+    grid-column: 2/5;
   }
 }
 
@@ -132,6 +149,20 @@
   }
 
   #now .group.double-pear {
+    grid-template-columns: 1fr;
+  }
+
+  #now .group.full.tip {
+    grid-template-columns: 1fr;
+  }
+
+  #now .group.full.tip .wrap {
+    grid-column: unset;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  #now .group.full.tip {
     grid-template-columns: 1fr;
   }
 }
@@ -154,6 +185,13 @@
 
   #now .group:not(.full):last-child {
     margin-bottom: 2rem;
+  }
+  
+  #now .group.full.tip {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   #now .column.double {

@@ -31,8 +31,122 @@
 .list.modes li .icon svg .falling-2,
 .list.modes li .icon svg .falling-3 {
   transform-origin: center center;
-  /* animation: rotate-linear 2s infinite linear; */
   animation: crucible-modes-falling-leaf 3s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+/* crimson doubles icon */
+.list.modes li .icon svg .petals path {
+  opacity: 0;
+  transform-origin: center center;
+  animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
+}
+
+.list.modes li .icon svg .petals path:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(4) {
+  animation-delay: 2s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(5) {
+  animation-delay: 2.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(6) {
+  animation-delay: 3s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(7) {
+  animation-delay: 3.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(8) {
+  animation-delay: 4s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(9) {
+  animation-delay: 4.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(10) {
+  animation-delay: 5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(11) {
+  animation-delay: 5.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(12) {
+  animation-delay: 6s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(13) {
+  animation-delay: 6.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(14) {
+  animation-delay: 7s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(15) {
+  animation-delay: 7.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(16) {
+  animation-delay: 8s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(17) {
+  animation-delay: 8.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(18) {
+  animation-delay: 9s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(19) {
+  animation-delay: 9.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(20) {
+  animation-delay: 10s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(21) {
+  animation-delay: 10.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(22) {
+  animation-delay: 11s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(23) {
+  animation-delay: 11.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(24) {
+  animation-delay: 12s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(25) {
+  animation-delay: 12.5s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(26) {
+  animation-delay: 13s;
+}
+
+.list.modes li .icon svg .petals path:nth-child(27) {
+  animation-delay: 13.5s;
 }
 
 .list.modes li .icon svg .falling-2 {

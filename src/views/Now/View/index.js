@@ -7,6 +7,9 @@ import cx from 'classnames';
 import { ProfileLink } from '../../../components/ProfileLink';
 import { DestinyKey } from '../../../components/UI/Button';
 
+import AuthUpsell from '../../../components/UserModules/AuthUpsell';
+import CustomiseTip from '../../../components/UserModules/CustomiseTip';
+
 import Flashpoint from '../../../components/UserModules/Flashpoint';
 import Challenges from '../../../components/UserModules/Challenges';
 import BlackArmoryForges from '../../../components/UserModules/BlackArmoryForges';
@@ -17,7 +20,6 @@ import SeasonPass from '../../../components/UserModules/SeasonPass';
 import SeasonArtifact from '../../../components/UserModules/SeasonArtifact';
 import Vendor from '../../../components/UserModules/Vendor';
 import VendorSpiderMaterials from '../../../components/UserModules/VendorSpiderMaterials';
-import AuthUpsell from '../../../components/UserModules/AuthUpsell';
 import Transitory from '../../../components/UserModules/Transitory';
 import CharacterEquipment from '../../../components/UserModules/CharacterEquipment';
 import SeasonCountdown from '../../../components/UserModules/SeasonCountdown';
@@ -37,6 +39,9 @@ class Now extends React.Component {
   components = {
     AuthUpsell: {
       reference: AuthUpsell
+    },
+    CustomiseTip: {
+      reference: CustomiseTip
     },
     Flashpoint: {
       reference: Flashpoint
@@ -144,7 +149,12 @@ class Now extends React.Component {
     const modules = [
       userHead,
       {
-        className: ['full', 'auth-upsell'],
+        className: ['full', 'tip', 'customise-tip'],
+        condition: tips.indexOf('CustomiseTipModule') < 0,
+        components: ['CustomiseTip']
+      },
+      {
+        className: ['full', 'tip', 'auth-upsell'],
         condition: auth ? false : !auth && tips.indexOf('AuthUpsellModule') < 0 ? true : false,
         components: ['AuthUpsell']
       },
