@@ -9,21 +9,15 @@ import './styles.css';
 
 class Module extends React.Component {
   render() {
-    const { t, member } = this.props;
+    const { member, progressionHash = 2772425241 } = this.props;
+
     const characterProgressions = member.data.profile.characterProgressions.data;
     const characterRecords = member.data.profile.characterRecords.data;
     const profileRecords = member.data.profile.profileRecords.data.records;
 
     return (
       <div className='user-module ranks'>
-        <div className='sub-header'>
-          <div>{t('Ranks')}</div>
-        </div>
-        <div className='ranks'>
-          {[2772425241, 2626549951, 2000925172].map(hash => {
-            return <Ranks key={hash} hash={hash} data={{ membershipType: member.membershipType, membershipId: member.membershipId, characterId: member.characterId, characters: member.data.profile.characters.data, characterProgressions, characterRecords, profileRecords }} />;
-          })}
-        </div>
+        <Ranks hash={progressionHash} data={{ membershipType: member.membershipType, membershipId: member.membershipId, characterId: member.characterId, characters: member.data.profile.characters.data, characterProgressions, characterRecords, profileRecords }} />
       </div>
     );
   }

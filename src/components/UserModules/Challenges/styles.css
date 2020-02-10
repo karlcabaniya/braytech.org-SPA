@@ -1,7 +1,8 @@
 .user-module.challenges > ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  column-gap: 3rem;
+  row-gap: 2rem;
 }
 
 .user-module.challenges > ul > li {
@@ -64,6 +65,8 @@
 @media screen and (max-width: 600px) {
   .user-module.challenges > ul {
     grid-template-columns: 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
   }
 
   .user-module.challenges ul li .activity .text .description {

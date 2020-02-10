@@ -93,7 +93,8 @@ class NotificationLink extends React.Component {
       let isError,
         image,
         actions = state.actions || [];
-      if (state && state.error && state.javascript && state.javascript.message === 'maintenance') {
+      
+      if (state && state.error && state.javascript?.message === 'maintenance') {
         image = '/static/images/extracts/ui/01A3-00001EE8.PNG';
         actions = [
           {
@@ -107,7 +108,7 @@ class NotificationLink extends React.Component {
       } else if (state && state.error) {
         isError = true;
         image = '/static/images/extracts/ui/010A-00000552.PNG';
-      } else if (state.displayProperties && state.displayProperties.image) {
+      } else if (state && state.displayProperties?.image) {
         image = state.displayProperties.image;
       } else {
         image = '/static/images/extracts/ui/010A-00000554.PNG';
@@ -121,7 +122,7 @@ class NotificationLink extends React.Component {
         }
       ];
 
-      if (state.displayProperties && state.displayProperties.prompt) {
+      if (state && state.displayProperties?.prompt) {
         return (
           <div id='notification-overlay' className={cx({ error: isError })}>
             <div className='wrapper-outer'>
@@ -173,7 +174,7 @@ class NotificationLink extends React.Component {
         );
       } else {
         return (
-          <div key={state.id} id='notification-bar' className={cx({ error: isError })} onClick={this.deactivateOverlay}>
+          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{'--timeout': `${state.displayProperties?.timeout || 4}s`}} onClick={this.deactivateOverlay}>
             <div className='wrapper-outer'>
               <div className='background'>
                 <div className='border-top'>

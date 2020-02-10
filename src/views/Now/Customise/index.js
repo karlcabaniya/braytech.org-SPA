@@ -89,7 +89,7 @@ const getCols = cols => {
 export const moduleRules = {
   full: ['SeasonPass'],
   double: ['SeasonArtifact', 'Challenges'],
-  head: ['Flashpoint', 'DailyVanguardModifiers', 'DailyHeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown']
+  head: ['Flashpoint', 'DailyVanguardModifiers', 'DailyHeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown', 'AltarsOfSorrow']
 };
 
 class Customise extends React.Component {
@@ -105,6 +105,18 @@ class Customise extends React.Component {
     };
   };
 
+  pushNotification = value => {
+    this.props.pushNotification({
+      date: new Date().toISOString(),
+      expiry: 86400000,
+      displayProperties: {
+        name: 'Braytech',
+        description: value,
+        timeout: 10
+      }
+    });
+  }
+
   onDragEnd = result => {
     const { source, destination } = result;
 
@@ -117,8 +129,9 @@ class Customise extends React.Component {
     
 
     // prevents modules being added or moved to columns with "full" modules i.e. SeasonPass or "double" modules
-    if (!(sourceList.group.id === destinationList.group.id && sourceList.col.id === destinationList.col.id) && destinationList.group.cols.filter(c => c.mods.filter(m => moduleRules.full.filter(f => f === m.component).length || moduleRules.double.filter(f => f === m.component).length).length).length) {
-      console.log('User attempted to add/move module to group with full/double module');
+    if (destinationList.col.mods.filter(m => moduleRules.full.filter(f => f === m.component).length || moduleRules.double.filter(f => f === m.component).length).length) {
+      this.pushNotification(this.props.t('Double and full-width modules are column exlcusives. Try adding a module to another column.'));
+      
       return;
     };
 
@@ -146,11 +159,23 @@ class Customise extends React.Component {
       });
     } else {
       // enforces 1 module limit on header group
-      if (destinationList.col.mods.length && destinationList.group.id === 'head') return;
+      if (destinationList.col.mods.length && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t('The header group supports no more than one module per column.'));
+
+        return;
+      }
       // no full or double mods in header group
-      if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component) || moduleRules.double.includes(m.component)) && destinationList.group.id === 'head') return;
+      if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component) || moduleRules.double.includes(m.component)) && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t('The header group supports single column modules only.'));
+
+        return;
+      }
       // permit only approved mods to head
-      if (!moduleRules.head.includes(sourceList.col.mods[source.index].component) && destinationList.group.id === 'head') return;
+      if (!moduleRules.head.includes(sourceList.col.mods[source.index].component) && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t("That module isn't allowed here."));
+
+        return;
+      }
       // force full mods to first column
       if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component))) {
         destination.droppableId = destinationList.group.cols[0].id;
@@ -383,7 +408,22 @@ class Customise extends React.Component {
     },
     Ranks: {
       name: this.props.t('Ranks'),
-      description: this.props.t('Competive multiplayer progression information')
+      description: this.props.t('Competive multiplayer progression information'),
+      limit: 3,
+      settings: [
+        {
+          id: 'progressionHash',
+          name: 'Progression',
+          options: {
+            name: hash => manifest.DestinyProgressionDefinition[hash].displayProperties.name.replace('Rank',''),
+            values: [
+              2772425241,
+              2626549951,
+              2000925172
+            ]
+          }
+        }
+      ]
     },
     Vendor: {
       name: this.props.t('Vendor'),
@@ -711,6 +751,17 @@ function mapDispatchToProps(dispatch) {
           value
         }
       });
+    },
+    resetLayout: value => {
+      dispatch({
+        type: 'RESET_LAYOUTS',
+        payload: {
+          target: 'this-week'
+        }
+      });
+    },
+    pushNotification: value => {
+      dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
     }
   };
 }

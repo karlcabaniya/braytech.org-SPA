@@ -68,12 +68,13 @@ class Vendor extends React.Component {
 
     if (auth && auth.destinyMemberships.find(m => m.membershipId === member.membershipId) && this.state.loading) {
       return (
-        <>
-          <div className='module-header'>
-            <div className='sub-name'>{definitionVendor.displayProperties.name}</div>
+        <div className='user-module vendor'>
+          <div className='sub-header'>
+            <div>{t('Vendor')}</div>
           </div>
+          <h3>{definitionVendor.displayProperties.name}</h3>
           <Spinner />
-        </>
+        </div>
       );
     }
 

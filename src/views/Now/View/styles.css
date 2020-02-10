@@ -130,25 +130,7 @@
 
 
 
-#now .module .ranks {
-  margin: 25px 0 0;
-}
 
-#now .module .ranks > div {
-  position: relative;
-  font-size: 14px;
-  line-height: 10px;
-}
-
-#now .module .clan-roster {
-  position: relative;
-}
-
-#now .module .clan-roster .refresh {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
 #now .seasonal-artifact .tiers {
   margin: 0 0 20px;

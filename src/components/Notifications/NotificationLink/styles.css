@@ -259,8 +259,35 @@ html.backdropfilter #notification-bar .background .acrylic {
   right: 0;
   width: 100%;
   height: 100%;
+  background-color: rgb(255, 255, 255);
+  animation: animation-bar var(--timeout) linear 0s 1 forwards;
+}
+
+@keyframes animation-bar {
+  0%, 60% {
+    width: 100%;
+    opacity: 1;
+    box-shadow: 0 0 60px 10px rgb(255, 255, 255);
+  }
+  90% {
+    opacity: 0.4;
+  }
+  94% {
+    opacity: 0.2;
+  }
+  98% {
+    opacity: 0.1;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+    box-shadow: 0 0 60px 10px rgba(220, 80, 59, 0);
+  }
+}
+
+#notification-bar.error .background .border-top .inner {
   background-color: rgb(220, 81, 59);
-  animation: animation-bar-error 4s linear 0s 1 forwards;
+  animation: animation-bar-error var(--timeout) linear 0s 1 forwards;
 }
 
 @keyframes animation-bar-error {

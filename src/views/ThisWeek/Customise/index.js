@@ -148,6 +148,18 @@ class Customise extends React.Component {
     };
   };
 
+  pushNotification = value => {
+    this.props.pushNotification({
+      date: new Date().toISOString(),
+      expiry: 86400000,
+      displayProperties: {
+        name: 'Braytech',
+        description: value,
+        timeout: 10
+      }
+    });
+  }
+
   onDragEnd = result => {
     const { source, destination } = result;
 
@@ -157,8 +169,8 @@ class Customise extends React.Component {
     const destinationList = this.getList(destination.droppableId);
 
     // prevents modules being added or moved to columns with "full" modules i.e. SeasonPass or "double" modules
-    if (!(sourceList.group.id === destinationList.group.id && sourceList.col.id === destinationList.col.id) && destinationList.group.cols.filter(c => c.mods.filter(m => moduleRules.full.filter(f => f === m.component).length || moduleRules.double.filter(f => f === m.component).length).length).length) {
-      console.log('User attempted to add/move module to group with full/double module');
+    if (destinationList.col.mods.filter(m => moduleRules.full.filter(f => f === m.component).length || moduleRules.double.filter(f => f === m.component).length).length) {
+      this.pushNotification(this.props.t('Double and full-width modules are column exlcusives. Try adding a module to another column.'));
       
       return;
     };
@@ -187,11 +199,23 @@ class Customise extends React.Component {
       });
     } else {
       // enforces 1 module limit on header group
-      if (destinationList.col.mods.length && destinationList.group.id === 'head') return;
+      if (destinationList.col.mods.length && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t('The header group supports no more than one module per column.'));
+
+        return;
+      }
       // no full or double mods in header group
-      if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component) || moduleRules.double.includes(m.component)) && destinationList.group.id === 'head') return;
+      if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component) || moduleRules.double.includes(m.component)) && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t('The header group supports single column modules only.'));
+
+        return;
+      }
       // permit only approved mods to head
-      if (!moduleRules.head.includes(sourceList.col.mods[source.index].component) && destinationList.group.id === 'head') return;
+      if (!moduleRules.head.includes(sourceList.col.mods[source.index].component) && destinationList.group.id === 'head') {
+        this.pushNotification(this.props.t("That module isn't allowed here."));
+
+        return;
+      }
       // force full mods to first column
       if (sourceList.col.mods.find(m => moduleRules.full.includes(m.component))) {
         destination.droppableId = destinationList.group.cols[0].id;
@@ -763,6 +787,9 @@ function mapDispatchToProps(dispatch) {
           target: 'this-week'
         }
       });
+    },
+    pushNotification: value => {
+      dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
     }
   };
 }
