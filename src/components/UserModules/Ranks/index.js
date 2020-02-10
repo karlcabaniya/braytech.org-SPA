@@ -7,7 +7,7 @@ import Ranks from '../../Ranks';
 
 import './styles.css';
 
-class RanksComp extends React.Component {
+class Module extends React.Component {
   render() {
     const { t, member } = this.props;
     const characterProgressions = member.data.profile.characterProgressions.data;
@@ -40,4 +40,4 @@ export default compose(
     mapStateToProps
   ),
   withTranslation()
-)(RanksComp);
+)(Module);

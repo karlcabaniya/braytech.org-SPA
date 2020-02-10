@@ -229,12 +229,9 @@ class Index extends React.Component {
                 <p>Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.</p>
                 <p>By supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.</p>
               </div>
-              <Button
-                text={t('Become a Patron')}
-                action={() => {
-                  window.open('https://www.patreon.com/braytech', '_blank');
-                }}
-              />
+              <a className='button' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
+                <div className='text'>{t('Become a Patron')}</div>
+              </a>
             </div>
             <div className='module tags'>
               {this.supporters.map((m, k) => <MemberLink key={k} id={m.user} hideFlair />)}

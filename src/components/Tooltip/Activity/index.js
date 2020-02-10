@@ -313,12 +313,12 @@ class Activity extends React.Component {
       if (modeFiltered === 'forge') {
         activityTypeDisplay = {
           ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name || t('Unknown'),
-          description: definitionActivityPlaylist?.displayProperties.description || t('Unknown'),
-          mode: definitionActivityType && definitionActivityType.displayProperties && definitionActivityType.displayProperties.name,
-          activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
+          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity?.displayProperties.name || t('Unknown'),
+          description: definitionActivityPlaylist?.displayProperties.description || definitionActivity?.displayProperties.description || t('Unknown'),
+          mode: definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
+          activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity?.activityLightLevel,
           className: 'forge',
-          pgcrImage: definitionActivityPlaylist?.pgcrImage,
+          pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity?.pgcrImage,
           icon: <span className='destiny-black_armory_forge' />
         };
       }

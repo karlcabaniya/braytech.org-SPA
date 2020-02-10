@@ -85,7 +85,7 @@
   padding: 2rem;
   display: flex;
   justify-content: space-between;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .list.reports li > .head .detail > div:last-child {
@@ -95,8 +95,8 @@
 .list.reports li > .head .detail .map,
 .list.reports li > .head .detail .ago {
   margin: 5px 0 0;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .list.reports li > .head .standing {
@@ -712,20 +712,20 @@
     display: none;
   }
 
-  .list.reports li > .basic .mode {
-    min-width: unset;
+  .list.reports li > .basic .mode,
+  .list.reports li > .basic .map {
     font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
+  .list.reports li > .basic .mode {
+    min-width: unset;
+  }
+
   .list.reports li > .basic .map {
     text-align: right;
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   
   .list.reports li > .head {
@@ -734,11 +734,17 @@
   }
 
   .list.reports li > .head .detail {
-    font-size: 14px;
+    padding: 1rem;
+    font-size: 16px;
   }
 
   .list.reports li > .head .detail > div:first-child {
     grid-template-columns: calc(38px + 10px) auto;
+  }
+
+  .list.reports li > .head .detail .map,
+  .list.reports li > .head .detail .ago {
+    font-size: 14px;
   }
 
   .list.reports li > .head .detail .icon {
