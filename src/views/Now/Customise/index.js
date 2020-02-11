@@ -86,6 +86,17 @@ const getCols = cols => {
   }
 }
 
+const getUniqueGroupID = groups => {
+  const bodies = groups.filter(g => g.type === 'body');
+
+  let unique = 0;
+  while (bodies.filter(g => g.id === `body-${unique}`).length) {
+    unique++;
+  }
+
+  return unique;
+}
+
 export const moduleRules = {
   full: ['SeasonPass'],
   double: ['SeasonArtifact', 'Challenges'],
@@ -231,7 +242,8 @@ class Customise extends React.Component {
 
   handler_addGroup = e => {
     this.setState(p => {
-      const groupId = this.state.groups.filter(g => g.type === 'body').length + 1;
+      const groupId = getUniqueGroupID(p.groups);
+
       const group = {
         id: `body-${groupId}`,
         type: 'body',
@@ -413,7 +425,6 @@ class Customise extends React.Component {
       settings: [
         {
           id: 'progressionHash',
-          name: 'Progression',
           options: {
             name: hash => manifest.DestinyProgressionDefinition[hash].displayProperties.name.replace('Rank',''),
             values: [
@@ -480,7 +491,11 @@ class Customise extends React.Component {
     Transitory: {
       name: this.props.t('Fireteam'),
       description: this.props.t("Track your fireteam")
-    }
+    },
+    // Clan: {
+    //   name: this.props.t('Clan'),
+    //   description: this.props.t("Track your fireteam")
+    // }
   };
 
   inUse = key => {

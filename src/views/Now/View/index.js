@@ -24,6 +24,7 @@ import Transitory from '../../../components/UserModules/Transitory';
 import CharacterEquipment from '../../../components/UserModules/CharacterEquipment';
 import SeasonCountdown from '../../../components/UserModules/SeasonCountdown';
 import AltarsOfSorrow from '../../../components/UserModules/AltarsOfSorrow';
+import Clan from '../../../components/UserModules/Clan';
 
 import { moduleRules } from '../Customise';
 
@@ -67,6 +68,9 @@ class Now extends React.Component {
     BlackArmoryForges: {
       reference: BlackArmoryForges
     },
+    AltarsOfSorrow: {
+      reference: AltarsOfSorrow
+    },
     Vendor: {
       reference: Vendor
     },
@@ -82,8 +86,8 @@ class Now extends React.Component {
     Transitory: {
       reference: Transitory
     },
-    AltarsOfSorrow: {
-      reference: AltarsOfSorrow
+    Clan: {
+      reference: Clan
     }
   };
 

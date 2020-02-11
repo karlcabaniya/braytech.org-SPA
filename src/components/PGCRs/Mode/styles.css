@@ -274,4 +274,8 @@
     line-height: 14px;
   }
 
+  .list.modes li .text .no-stats {
+    font-size: 12px;
+  }
+
 }

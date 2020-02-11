@@ -51,8 +51,9 @@
   }
 
   .group.customise-tip .icon {
-    right: 0;
+    right: -4rem;
     top: -4rem;
     height: calc(100% + 8rem);
+    opacity: 0.3;
   }
 }

@@ -86,6 +86,17 @@ const getCols = cols => {
   }
 }
 
+const getUniqueGroupID = groups => {
+  const bodies = groups.filter(g => g.type === 'body');
+
+  let unique = 0;
+  while (bodies.filter(g => g.id === `body-${unique}`).length) {
+    unique++;
+  }
+
+  return unique;
+}
+
 export const moduleRules = {
   full: ['Nightfalls'],
   double: ['DreamingCityShatteredThrone', 'Events'],
@@ -271,7 +282,8 @@ class Customise extends React.Component {
 
   handler_addGroup = e => {
     this.setState(p => {
-      const groupId = this.state.groups.filter(g => g.type === 'body').length + 1;
+      const groupId = getUniqueGroupID(p.groups);
+      
       const group = {
         id: `body-${groupId}`,
         type: 'body',

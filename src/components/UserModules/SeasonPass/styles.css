@@ -65,6 +65,7 @@
 #now .module .season-pass .page .button .text {
   padding: 0;
   width: 100%;
+  text-align: center;
 }
 
 #now .module .season-pass .rewards {
