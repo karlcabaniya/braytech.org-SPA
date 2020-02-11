@@ -1,86 +1,114 @@
 {
   "de": {
-    "translated": 402,
-    "notTranslated": 236,
+    "translated": 401,
+    "notTranslated": 241,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "debug": {
-    "translated": 638,
+    "translated": 642,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "en": {
-    "translated": 638,
+    "translated": 642,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "es-mx": {
-    "translated": 614,
-    "notTranslated": 24,
+    "translated": 613,
+    "notTranslated": 29,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "es": {
-    "translated": 614,
-    "notTranslated": 24,
+    "translated": 613,
+    "notTranslated": 29,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "fr": {
-    "translated": 542,
-    "notTranslated": 96,
+    "translated": 541,
+    "notTranslated": 101,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "it": {
-    "translated": 618,
-    "notTranslated": 20,
+    "translated": 617,
+    "notTranslated": 25,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "ja": {
-    "translated": 577,
-    "notTranslated": 61,
+    "translated": 576,
+    "notTranslated": 66,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "ko": {
-    "translated": 605,
-    "notTranslated": 33,
+    "translated": 604,
+    "notTranslated": 38,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 638,
+    "notTranslated": 642,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "pt-br": {
-    "translated": 623,
-    "notTranslated": 15,
+    "translated": 622,
+    "notTranslated": 20,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "ru": {
-    "translated": 575,
-    "notTranslated": 63,
+    "translated": 574,
+    "notTranslated": 68,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "zh-chs": {
-    "translated": 504,
-    "notTranslated": 134,
+    "translated": 503,
+    "notTranslated": 139,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   },
   "zh-cht": {
-    "translated": 409,
-    "notTranslated": 229,
+    "translated": 408,
+    "notTranslated": 234,
     "added": [],
-    "removed": []
+    "removed": [
+      "Test"
+    ]
   }
 }

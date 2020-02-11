@@ -6,31 +6,20 @@ import Customise from './Customise';
 
 import './styles.css';
 
+const views = {
+  default: {
+    name: '',
+    component: View
+  },
+  customise: {
+    name: 'customise',
+    component: Customise
+  }
+};
+
 class ThisWeek extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
   render() {
-
-    const views = {
-      'default': {
-        'name': '',
-        'component': View
-      },
-      'customise': {
-        'name': 'customise',
-        'component': Customise
-      }
-    };
-    
-    const view = this.props.match.params.view && views[this.props.match.params.view] && this.props.match.params.view || 'default';
+    const view = (this.props.match.params.view && views[this.props.match.params.view] && this.props.match.params.view) || 'default';
 
     let ViewComponent = views[view].component;
 
@@ -38,7 +27,7 @@ class ThisWeek extends React.Component {
       <div className={cx('view', views[view].name)} id='this-week'>
         <ViewComponent {...this.props} />
       </div>
-    )
+    );
   }
 }
 

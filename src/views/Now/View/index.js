@@ -9,6 +9,7 @@ import { DestinyKey } from '../../../components/UI/Button';
 
 import AuthUpsell from '../../../components/UserModules/AuthUpsell';
 import CustomiseTip from '../../../components/UserModules/CustomiseTip';
+import Test from '../../../components/UserModules/Test';
 
 import Flashpoint from '../../../components/UserModules/Flashpoint';
 import Challenges from '../../../components/UserModules/Challenges';
@@ -38,6 +39,9 @@ class Now extends React.Component {
   }
 
   components = {
+    Test: {
+      reference: Test
+    },
     AuthUpsell: {
       reference: AuthUpsell
     },

@@ -698,7 +698,7 @@ class ModulesSelector extends React.Component {
         <div className='modules-selector expanded'>
           <Button text={t('Cancel')} action={this.handler_compress} />
           <div className='list'>
-            {Object.keys(modules).filter(key => !headOverride?.cols.filter(c => c.mods.filter(m => m.component === key).length).length).map(key => {
+            {Object.keys(modules).filter(key => !headOverride?.cols.filter(c => c.mods.filter(m => m.component === key).length).length).sort((a, b) => modules[a].used - modules[b].used).map(key => {
               const { name, description, used, limit, instances } = modules[key];
 
               const unavailable = groupType === 'head' && !moduleRules.head.includes(key);

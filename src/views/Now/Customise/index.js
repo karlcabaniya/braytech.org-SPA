@@ -398,6 +398,10 @@ class Customise extends React.Component {
   }
 
   modules = {
+    // Test: {
+    //   name: 'Test',
+    //   description: ''
+    // },
     Flashpoint: {
       name: manifest.DestinyMilestoneDefinition[463010297] && manifest.DestinyMilestoneDefinition[463010297].displayProperties && manifest.DestinyMilestoneDefinition[463010297].displayProperties.name,
       description: manifest.DestinyMilestoneDefinition[463010297] && manifest.DestinyMilestoneDefinition[463010297].displayProperties && manifest.DestinyMilestoneDefinition[463010297].displayProperties.description
@@ -673,7 +677,7 @@ class ModulesSelector extends React.Component {
         <div className='modules-selector expanded'>
           <Button text={t('Cancel')} action={this.handler_compress} />
           <div className='list'>
-            {Object.keys(modules).map(key => {
+            {Object.keys(modules).sort((a, b) => modules[a].used - modules[b].used).map(key => {
               const { name, description, used, limit, instances } = modules[key];
 
               const unavailable = groupType === 'head' && !moduleRules.head.includes(key);
