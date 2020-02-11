@@ -141,7 +141,7 @@ class Customise extends React.Component {
 
     // prevents modules being added or moved to columns with "full" modules i.e. SeasonPass or "double" modules
     if (destinationList.col.mods.filter(m => moduleRules.full.filter(f => f === m.component).length || moduleRules.double.filter(f => f === m.component).length).length) {
-      this.pushNotification(this.props.t('Double and full-width modules are column exlcusives. Try adding a module to another column.'));
+      this.pushNotification(this.props.t('Double and full-width modules are column exclusives. Try adding a module to another column.'));
       
       return;
     };
