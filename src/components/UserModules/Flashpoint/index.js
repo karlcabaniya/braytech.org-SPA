@@ -51,6 +51,19 @@ class Flashpoint extends React.Component {
     const milestones = member.data.milestones;
 
     const definitionMilestoneFlashpoint = manifest.DestinyMilestoneDefinition[463010297];
+
+    if (!milestones) {
+      return (
+        <div className='user-module flashpoint'>
+          <div className='page-header'>
+            <div className='sub-name'>{definitionMilestoneFlashpoint.displayProperties && definitionMilestoneFlashpoint.displayProperties.name}</div>
+            <div className='name'>{t('Unknown')}</div>
+          </div>
+          <div className='info'>{t('Beep-boop?')}</div>
+        </div>
+      );
+    }
+
     const milestoneFlashpointQuestItem = milestones[463010297].availableQuests && milestones[463010297].availableQuests.length && manifest.DestinyMilestoneDefinition[463010297].quests[milestones[463010297].availableQuests[0].questItemHash];
     const destinationHash = milestoneFlashpointQuestItem.destinationHash;
 

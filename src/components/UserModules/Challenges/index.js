@@ -172,15 +172,26 @@ class Challenges extends React.Component {
                       ) : null}
                     </div>
                     <div className={cx('challenges', { completed: !challenge.objectives.filter(o => !o.complete).length })}>
-                      {challenge.objectives.map((objective, o) => (
-                        <div key={o} className='challenge'>
-                          <div className='text'>
-                            <p>{manifest.DestinyObjectiveDefinition[objective.objectiveHash].displayProperties.description}</p>
+                      {challenge.objectives.map((objective, o) => {
+                        const rewards = manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find(c => c.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
+
+                        return (
+                          <div key={o} className='challenge'>
+                            <div className='objective'>
+                              <div className='text'>
+                                <p>{manifest.DestinyObjectiveDefinition[objective.objectiveHash].displayProperties.description}</p>
+                              </div>
+                              <ProgressBar key={o} {...objective} />
+                              {/* <p>{objective.objectiveHash}</p> */}
+                            </div>
+                            {rewards.length ? (
+                              <div className={cx('rewards', { pinnacle: rewards.filter(r => r.itemHash === 73143230).length })}>
+                                {rewards.map(r => manifest.DestinyInventoryItemDefinition[r.itemHash]?.displayProperties.name).join(', ')}
+                              </div>
+                            ) : null}
                           </div>
-                          <ProgressBar key={o} {...objective} />
-                          {/* <p>{objective.objectiveHash}</p> */}
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </li>
                 );

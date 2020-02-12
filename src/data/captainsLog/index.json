@@ -983,5 +983,10 @@
     "date": "2020-02-06T16:16:18.840Z",
     "version": "2.16.2",
     "content": "- a fix\n- some imporvements"
+  },
+  {
+    "date": "2020-02-12T15:50:59.792Z",
+    "version": "2.17.0",
+    "content": "- removed Braytech's dependency on Destiny's _GetPublicMilestones_ API endpoint\n- added a new icon for _Crimson Doubles_\n- vastly improved user feedback when customising _Now_ and _This Week_ view modules in addition to making layouts more flexible\n- remade _Ranks_ module with new icons\n- improved _Challenges_ module, displays rewards\n- added a _Tips_ component to help new and old users to better use Braytech\n- performance improvements\n- language improvements\n- and like, more still"
   }
 ]

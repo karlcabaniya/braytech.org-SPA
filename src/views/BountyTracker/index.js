@@ -97,6 +97,9 @@ class BountyTracker extends React.Component {
           console.log(`Couldn't determine vendor hash: ${item.itemHash}`);
         }
 
+        const masterworked = enums.enumerateItemState(item.state).masterworked;
+        const tracked = enums.enumerateItemState(item.state).tracked;
+
         const objectives = [];
         definitionItem.objectives &&
           definitionItem.objectives.objectiveHashes.forEach(hash => {
@@ -148,7 +151,8 @@ class BountyTracker extends React.Component {
                       className={cx(
                         {
                           linked: true,
-                          masterworked: enums.enumerateItemState(item.state).masterworked,
+                          masterworked,
+                          tracked,
                           tooltip: (enableTooltip && viewport.width > 600) || (enableTooltip && !isQuest),
                           exotic: definitionItem.inventory?.tierType === 6
                         },

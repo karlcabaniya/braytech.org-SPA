@@ -14,6 +14,7 @@ import * as paths from '../../utils/paths';
 import Button from '../UI/Button';
 import Spinner from '../UI/Spinner';
 import ObservedImage from '../ObservedImage';
+import { ReactComponent as CrossSaveIcon } from '../../svg/miscellaneous/cross-save.svg';
 
 import './styles.css';
 
@@ -83,7 +84,7 @@ class BungieAuth extends React.Component {
 
   handler_forget = e => {
     this.props.resetAuth();
-    
+
     this.setState({
       memberships: false
     });
@@ -152,7 +153,11 @@ class BungieAuth extends React.Component {
                         <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
                       </div>
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
-                      {m.crossSaveOverride === m.membershipType ? <div className='crosssave' /> : null}
+                      {m.crossSaveOverride === m.membershipType ? (
+                        <div className='cross-save'>
+                          <CrossSaveIcon />
+                        </div>
+                      ) : null}
                       <Link
                         to='/character-select'
                         onClick={e => {
@@ -301,7 +306,11 @@ class BungieAuthMini extends React.Component {
                         <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
                       </div>
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
-                      {m.crossSaveOverride === m.membershipType ? <div className='crosssave' /> : null}
+                      {m.crossSaveOverride === m.membershipType ? (
+                        <div className='cross-save'>
+                          <CrossSaveIcon />
+                        </div>
+                      ) : null}
                       <Link
                         to='/character-select'
                         onClick={e => {
@@ -522,7 +531,11 @@ class DiffProfile extends React.Component {
                             <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
                           </div>
                           <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
-                          {m.crossSaveOverride === m.membershipType ? <div className='crosssave' /> : null}
+                          {m.crossSaveOverride === m.membershipType ? (
+                            <div className='cross-save'>
+                              <CrossSaveIcon />
+                            </div>
+                          ) : null}
                           <Link
                             to='/character-select'
                             onClick={e => {

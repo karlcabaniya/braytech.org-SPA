@@ -100,7 +100,7 @@ class NotificationLink extends React.Component {
           {
             type: 'external',
             target: 'https://twitter.com/BungieHelp',
-            text: 'View post',
+            text: 'Go to Twitter',
             key: 'accept',
             dismiss: false
           }

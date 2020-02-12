@@ -7,6 +7,7 @@ import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
+import * as bungie from '../../utils/bungie';
 import { itemComponents } from '../../utils/destinyItems/itemComponents';
 import ObservedImage from '../../components/ObservedImage';
 import { NoAuth, DiffProfile } from '../../components/BungieAuth';
@@ -15,18 +16,21 @@ import QuestLine from '../../components/QuestLine';
 import Spinner from '../../components/UI/Spinner';
 import ProgressBar from '../../components/UI/ProgressBar';
 import { DestinyKey } from '../../components/UI/Button';
+import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
 
 import './styles.css';
 
 class Quests extends React.Component {
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0);
+
     this.props.rebindTooltips();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.hash !== this.props.hash) {
       window.scrollTo(0, 0);
+
       this.props.rebindTooltips();
     }
   }
@@ -54,6 +58,9 @@ class Quests extends React.Component {
 
         const vendorSource = definitionItem.sourceData?.vendorSources?.length && definitionItem.sourceData.vendorSources[0] && definitionItem.sourceData.vendorSources[0].vendorHash;
 
+        const masterworked = enums.enumerateItemState(item.state).masterworked;
+        const tracked = enums.enumerateItemState(item.state).tracked;
+
         return {
           ...item,
           name: definitionItem.displayProperties?.name,
@@ -66,7 +73,8 @@ class Quests extends React.Component {
               className={cx(
                 {
                   linked: true,
-                  masterworked: enums.enumerateItemState(item.state).masterworked,
+                  masterworked,
+                  tracked,
                   tooltip: (enableTooltip && viewport.width > 600) || (enableTooltip && !isQuest),
                   exotic: definitionItem.inventory?.tierType === 6
                 },
@@ -79,6 +87,11 @@ class Quests extends React.Component {
               <div className='icon'>
                 <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
               </div>
+              {tracked ? (
+                <div className='track'>
+                  <TrackingIcon />
+                </div>
+              ) : null}
               {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
               {item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length === 0 ? <div className='completed' /> : null}
               {item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length > 0 && nowMs + 7200 * 1000 > expiryMs ? <div className='expires-soon' /> : null}

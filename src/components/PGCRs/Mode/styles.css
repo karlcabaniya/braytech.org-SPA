@@ -35,10 +35,15 @@
 }
 
 /* crimson doubles icon */
+.list.modes li .icon svg .petals {
+  opacity: 1 !important;
+}
+
 .list.modes li .icon svg .petals path {
   opacity: 0;
   transform-origin: center center;
   animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
+  fill: #ff76b3 !important;
 }
 
 .list.modes li .icon svg .petals path:nth-child(1) {

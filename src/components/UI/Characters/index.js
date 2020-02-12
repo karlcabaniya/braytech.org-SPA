@@ -6,11 +6,12 @@ import cx from 'classnames';
 import Moment from 'react-moment';
 
 import manifest from '../../../utils/manifest';
-import ObservedImage from '../../ObservedImage';
-import * as utils from '../../../utils/destinyUtils';
 import { removeMemberIds } from '../../../utils/paths';
+import * as utils from '../../../utils/destinyUtils';
 import ProgressBar from '../../UI/ProgressBar';
 import Button from '../../../components/UI/Button';
+import ObservedImage from '../../ObservedImage';
+import { ReactComponent as SealTitleIcon } from '../../../svg/miscellaneous/seal-title.svg';
 
 import './styles.css';
 
@@ -63,7 +64,12 @@ class Characters extends React.Component {
                 <div className='light'>{character.light}</div>
                 <ProgressBar hideCheck {...progressSeasonalRank} />
               </Button>
-              {character.titleRecordHash ? <div className={cx('title', { colourised })}>{manifest.DestinyRecordDefinition[character.titleRecordHash].titleInfo.titlesByGenderHash[character.genderHash]}</div> : null}
+              {character.titleRecordHash ? <div className={cx('title', { colourised })}>
+                <div className='icon'>
+                  <SealTitleIcon />
+                </div>
+                <div className='text'>{manifest.DestinyRecordDefinition[character.titleRecordHash].titleInfo.titlesByGenderHash[character.genderHash]}</div>
+              </div> : null}
               <div className='state'>{state}</div>
             </div>
           );
