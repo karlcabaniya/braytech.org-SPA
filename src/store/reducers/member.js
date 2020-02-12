@@ -44,7 +44,7 @@ async function loadMember(membershipType, membershipId, characterId) {
 
     // console.log('member reducer', data);
 
-    ['profile', 'groups', 'milestones'].forEach(key => {
+    ['profile', 'groups'].forEach(key => {
       
       if (!data[key].ErrorCode || data[key].ErrorCode !== 1) {
         

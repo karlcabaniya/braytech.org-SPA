@@ -22,7 +22,7 @@ class Raid extends React.Component {
       gos: {
         name: manifest.DestinyActivityDefinition[2659723068].displayProperties.name,
         description: manifest.DestinyActivityDefinition[2659723068].displayProperties.description,
-        challenge: characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068) && characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068).modifierHashes,
+        challenge: (characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068) && characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068).modifierHashes) || [],
         collectibles: [1988948484],
         triumphs: [],
         challenges: {
@@ -153,8 +153,8 @@ class Raid extends React.Component {
       levi: {
         name: manifest.DestinyActivityDefinition[89727599].displayProperties.name,
         description: manifest.DestinyActivityDefinition[89727599].displayProperties.description,
-        challenge: milestones[3660836525] && milestones[3660836525].activities && milestones[3660836525].activities.length && milestones[3660836525].activities[0].modifierHashes,
-        phaseOrder: milestones[3660836525] && milestones[3660836525].activities && milestones[3660836525].activities.length && milestones[3660836525].activities[0].phaseHashes,
+        challenge: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].modifierHashes) || [],
+        phaseOrder: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].phaseHashes) || [],
         phases: {
           3847906370: {
             name: t('The Pleasure Gardens'),
@@ -201,6 +201,9 @@ class Raid extends React.Component {
     };
 
     const leviathanStyle = key => {
+
+      const records = [...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].triumphs) || []), ...data[key].triumphs];
+
       return (
         <div className='user-module raid'>
           <div className='sub-header'>
@@ -225,7 +228,7 @@ class Raid extends React.Component {
               );
             })}
           </ul>
-          {data[key].phases ? (
+          {data[key].phaseOrder?.length ? (
             <>
               <h4>{t('Rotation')}</h4>
               <ul className='list modifiers'>
@@ -249,11 +252,11 @@ class Raid extends React.Component {
           <ul className='list collection-items'>
             <Collectibles selfLinkFrom='/this-week' hashes={data[key].collectibles} />
           </ul>
-          {(data[key].challenges[data[key].challenge[0]].triumphs || []).concat(data[key].triumphs).length ? (
+          {records.length ? (
             <>
               <h4>{t('Triumphs')}</h4>
               <ul className='list record-items'>
-                <Records selfLinkFrom='/this-week' hashes={(data[key].challenges[data[key].challenge[0]] || []).triumphs.concat(data[key].triumphs)} ordered />
+                <Records selfLinkFrom='/this-week' hashes={records} ordered />
               </ul>
             </>
           ) : null}

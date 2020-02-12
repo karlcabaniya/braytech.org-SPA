@@ -121,14 +121,14 @@ class RefreshService extends React.Component {
       return;
     }
 
-    const { membershipType, membershipId, characterId } = this.props.member;
+    const { membershipType, membershipId, characterId, data: previousMemberLoad } = this.props.member;
 
     try {
       this.setState({ loading: true });
 
       const data = await getMember(membershipType, membershipId, true);
 
-      ['profile', 'groups', 'milestones'].forEach(key => {
+      ['profile', 'groups'].forEach(key => {
         if (data[key].ErrorCode !== 1) {
           throw new Error(data[key].ErrorCode);
         }
@@ -144,7 +144,7 @@ class RefreshService extends React.Component {
             data: {
               profile: data.profile.Response,
               groups: data.groups.Response,
-              milestones: data.milestones.Response
+              milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones
             }
           }
         });

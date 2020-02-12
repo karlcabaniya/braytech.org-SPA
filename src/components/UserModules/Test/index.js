@@ -15,7 +15,7 @@ class Test extends React.Component {
     const characterRecords = member.data.profile.characterRecords.data;
     const profileRecords = member.data.profile.profileRecords.data.records;
 
-    console.log(Object.values(member.data.milestones).map(m => ({name: manifest.DestinyMilestoneDefinition[m.milestoneHash].displayProperties.name, ...m, def: manifest.DestinyMilestoneDefinition[m.milestoneHash] })))
+    console.log(member.data.milestones && Object.values(member.data.milestones).map(m => ({name: manifest.DestinyMilestoneDefinition[m.milestoneHash].displayProperties.name, ...m, def: manifest.DestinyMilestoneDefinition[m.milestoneHash] })))
 
     return (
       <div className='user-module ranks'>
