@@ -202,7 +202,7 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   height: 100%;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
   background-repeat: no-repeat;
   background-size: 200%;
 }
@@ -211,14 +211,14 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   0% {
     background-position-x: 200%;
   }
-  100% {
+  66%, 100% {
     background-position-x: -200%;
   }
 }
 
 #header.profile-header .background.update-flash::after {
-  opacity: 1;
-  animation: animation-update-flash 2.7s linear 0s 1 forwards;
+  opacity: 0.3;
+  animation: animation-update-flash 3.6s linear 0s 1 forwards;
 }
 
 #header.profile-header .background .image {

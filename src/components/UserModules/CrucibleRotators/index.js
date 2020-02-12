@@ -36,7 +36,7 @@ const crucibleRotators = [
   3239164160, // Lockdown
   // 740422335, // Survival
   920826395,  // Doubles
-  1358255449, // Crimson Doubles
+  3633915199, // Crimson Doubles
 ];
 
 const crucibleModeIcons = {
@@ -53,7 +53,7 @@ const crucibleModeIcons = {
   3239164160: <CrucibleIconLockdown />,
   740422335:  <CrucibleIconSurvival />,
   920826395:  <CrucibleIconDoubles />,
-  1358255449: <CrucibleIconCrimsonDoubles />
+  3633915199: <CrucibleIconCrimsonDoubles />
 };
 
 class CrucibleRotators extends React.Component {
@@ -61,16 +61,16 @@ class CrucibleRotators extends React.Component {
     const { t, member } = this.props;
     const characterActivities = member.data.profile.characterActivities.data;
 
-    // console.log(characterActivities[member.characterId].availableActivities.map(a => {
-    //   if (!a.activityHash) return false;
-    //   const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
+    console.log(characterActivities[member.characterId].availableActivities.map(a => {
+      if (!a.activityHash) return false;
+      const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
 
-    //   return {
-    //     name: definitionActivity.displayProperties.name,
-    //     ...a,
-    //     definitionActivity
-    //   }
-    // }));
+      return {
+        name: definitionActivity.displayProperties.name,
+        ...a,
+        definitionActivity
+      }
+    }));
     
     const featuredCrucibleModes = characterActivities[member.characterId].availableActivities.filter(a => {
       if (!a.activityHash) return false;

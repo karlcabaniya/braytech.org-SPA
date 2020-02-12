@@ -80,10 +80,15 @@
   }
 }
 
+.activity-mode-icons .petals {
+  opacity: 1 !important;
+}
+
 .activity-mode-icons .petals path {
   opacity: 0;
   transform-origin: center center;
   animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
+  fill: #ff76b3 !important;
 }
 
 .activity-mode-icons .petals path:nth-child(1) {

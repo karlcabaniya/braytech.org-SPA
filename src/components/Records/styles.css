@@ -204,123 +204,83 @@
 }
 
 .list.record-items li.tracked {
-  background-color: rgba(90, 163, 102, 0.15);
-  box-shadow: inset 0 0 0 2px hsl(130, 40%, 50%);
+  background-color: rgba(182, 238, 129, 0.15);
+  box-shadow: inset 0 0 0 2px #b5fc73;
 }
 
 .list.record-items li.linked.tracked:hover {
-  background-color: rgba(90, 163, 102, 0.6);
+  background-color: rgba(182, 238, 129, 0.6);
 }
 
-.list.record-items li .track-this {
+.list.record-items li .track {
   position: absolute;
-  top: -1px;
-  right: 100px;
-  width: 24px;
-  height: 24px;
+  top: 1px;
+  right: 120px;
+  width: 22px;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.25s;
   z-index: 5;
 }
 
-.list.record-items li:hover .track-this {
-  opacity: 1;
-}
-
-.list.record-items li.tracked .track-this {
-  opacity: 1;
-}
-
-.list.record-items li .track-this::before,
-.list.record-items li .track-this div::before,
-.list.record-items li .track-this div::after {
-  content: ' ';
-  position: absolute;
+.list.record-items li .track svg {
   width: 100%;
-  height: 100%;
-  font-family: 'Braytech' !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 20px;
-  display: grid;
-  align-content: center;
-  justify-content: center;
+  height: auto;
+  pointer-events: none;
+  overflow: visible;
 }
 
-.list.record-items li .track-this::before {
-  content: "\e9e8";
-  color: hsl(130, 29%, 60%);
+.list.record-items li:hover .track {
+  opacity: 1;
 }
 
-.list.record-items li .track-this div::before {
-  left: 5px;
-  top: 4px;
-  height: 14px;
-  width: 14px;
-  border-radius: 100%;
-  background-color: hsl(130, 29%, 40%);
+.list.record-items li.tracked .track {
+  opacity: 1;
 }
 
-.list.record-items li .track-this div::after {
-  content: "\e9e6";
-  color: hsl(130, 29%, 60%);
+.list.record-items li.tracked .track .grid {
+  transform-origin: center center;
+  transform-box: fill-box;
+  animation: rotate-linear 3s both infinite linear;
 }
 
-.list.record-items li.tracked  .track-this div::after {
-  content: "\e9e6";
-  position: absolute;
-  left: 5px;
-  top: 4px;
-  height: 14px;
-  width: 14px;
-  color: hsl(130, 29%, 60%);
-  animation: animation-tracked-rotate 3s linear infinite;
+.list.record-items li.tracked .track .pulse path {
+  transform-origin: center center;
+  animation: tracked-pulse 4s linear infinite;
+  stroke-width: 10px !important;
 }
 
-.list.record-items li.tracked .track-this::after {
-  content: ' ';
-  position: absolute;
-  left: 5px;
-  top: 4px;
-  height: 14px;
-  width: 14px;
-  animation: animation-tracked-pulse 3s linear infinite;
-  border-radius: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="5" stroke="white" stroke-width="0.2" fill="transparent" /></svg>');
-  background-size: cover;
-  background-repeat: no-repeat;
+.list.record-items li.tracked .track .pulse path:last-child {
+  animation-delay: 0.3s;
 }
 
-@keyframes animation-tracked-pulse {
+@keyframes tracked-rotate-sleep {
+  0% {
+    transform: rotate(0deg);
+  }
+  66% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tracked-pulse {
   0% {
     transform: scale(0);
     opacity: 0;
   }
-  50% {
-    transform: scale(0);
+  80% {
+    transform: scale(1);
     opacity: 0;
   }
-  85% {
+  90% {
     opacity: 1;
   }
   100% {
-    transform: scale(5);
+    transform: scale(7);
     opacity: 0;
-  }
-}
-
-@keyframes animation-tracked-rotate {
-  from {
-    transform: rotate(-360deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }
 
@@ -383,7 +343,7 @@
 
 @media screen and (max-width: 1024px) {
 
-  .list.record-items li .track-this {
+  .list.record-items li .track {
     opacity: 1;
   }
   

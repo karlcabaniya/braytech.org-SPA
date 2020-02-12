@@ -11,10 +11,11 @@ import manifest from '../../utils/manifest';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import * as paths from '../../utils/paths';
 import dudRecords from '../../data/dudRecords';
-import ObservedImage from '../ObservedImage';
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
+import ObservedImage from '../ObservedImage';
+import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
 
 import './styles.css';
 
@@ -127,7 +128,7 @@ class Records extends React.Component {
     }
   }
 
-  trackThisClick = e => {
+  handler_toggleTrack = e => {
     let tracked = this.props.triumphs.tracked;
     let hashToTrack = parseInt(e.currentTarget.dataset.hash, 10);
     let target = tracked.indexOf(hashToTrack);
@@ -415,8 +416,8 @@ class Records extends React.Component {
               })}
             >
               {!enumerateRecordState(enumerableState).recordRedeemed && enumerateRecordState(enumerableState).objectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
-                <div className='track-this' onClick={this.trackThisClick} data-hash={definitionRecord.hash}>
-                  <div />
+                <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
+                  <TrackingIcon />
                 </div>
               ) : null}
               <div className='properties'>

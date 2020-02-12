@@ -17,8 +17,21 @@ import ProgressBar from '../UI/ProgressBar';
 import './styles.css';
 
 class QuestLine extends React.Component {
-  getRewardsQuestLine = questLine => {
-    let rewards = (questLine.value && questLine.value.itemValue && questLine.value.itemValue.length && questLine.value.itemValue.filter(v => v.itemHash !== 0)) || [];
+  getRewardsQuestLine = (questLine, classType) => {
+    let rewards = (
+      questLine.value?.itemValue?.length &&
+      questLine.value.itemValue.filter(v =>
+        v.itemHash !== 0 &&
+        (
+          (
+            manifest.DestinyInventoryItemDefinition[v.itemHash].classType < 3 &&
+            manifest.DestinyInventoryItemDefinition[v.itemHash].classType === classType
+          ) ||
+          manifest.DestinyInventoryItemDefinition[v.itemHash].classType > 2 ||
+          manifest.DestinyInventoryItemDefinition[v.itemHash].classType === undefined
+        )
+      )
+    ) || [];
 
     if (rewardsQuestLineOverrides[questLine.hash]) rewards = rewardsQuestLineOverrides[questLine.hash];
 
@@ -31,7 +44,7 @@ class QuestLine extends React.Component {
   };
 
   getSetDataQuestLine = questLine => {
-    let setData = (questLine.setData && questLine.setData.itemList && questLine.setData.itemList.length && questLine.setData.itemList) || [];
+    let setData = (questLine.setData?.itemList?.length && questLine.setData.itemList) || [];
 
     if (setDataQuestLineOverrides[questLine.hash]) setData = setDataQuestLineOverrides[questLine.hash];
 
@@ -39,7 +52,9 @@ class QuestLine extends React.Component {
   };
 
   render() {
-    const { t, member, item } = this.props;
+    const { t, member, item } = this.props;    
+    const characters = member.data.profile.characters.data;
+    const character = characters.find(c => c.characterId === member.characterId);
     const itemComponents = member.data.profile.itemComponents;
     const characterUninstancedItemComponents = member.data.profile.characterUninstancedItemComponents[member.characterId].objectives.data;
 
@@ -107,7 +122,7 @@ class QuestLine extends React.Component {
 
       const descriptionQuestLine = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
 
-      const rewardsQuestLine = this.getRewardsQuestLine(questLine);
+      const rewardsQuestLine = this.getRewardsQuestLine(questLine, character.classType);
       const rewardsQuestStep = (steps && steps.length && steps.filter(s => s.active) && steps.filter(s => s.active).length && steps.filter(s => s.active)[0].definitionStep && steps.filter(s => s.active)[0].definitionStep.value && steps.filter(s => s.active)[0].definitionStep.value.itemValue && steps.filter(s => s.active)[0].definitionStep.value.itemValue.length && steps.filter(s => s.active)[0].definitionStep.value.itemValue.filter(v => v.itemHash !== 0)) || [];
 
       // const checklistEntry = lookup({ key: 'pursuitHash', value: definitionItem.hash });

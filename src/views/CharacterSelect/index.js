@@ -78,11 +78,11 @@ class CharacterSelect extends React.Component {
           </div>
         </div>
         <div className='padder'>
+          <div className='device'>
+            <Logo />
+          </div>
           {reverseUI && profileCharacterSelect && !error ? (
             <div className='module profile'>
-              <div className='device'>
-                <Logo />
-              </div>
               {profileCharacterSelect}
             </div>
           ) : null}
@@ -96,9 +96,6 @@ class CharacterSelect extends React.Component {
           </div>
           {!reverseUI && profileCharacterSelect && !error ? (
             <div className='module profile'>
-              <div className='device'>
-                <Logo />
-              </div>
               {profileCharacterSelect}
             </div>
           ) : null}

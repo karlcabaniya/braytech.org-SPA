@@ -203,6 +203,13 @@ export const EquipItem = async body =>
     body
   });
 
+export const SetItemLockState = async body =>
+  apiRequest(`/Platform/Destiny2/Actions/Items/SetLockState/`, {
+    withAuth: true,
+    method: 'post',
+    body
+  });
+
 export const ClaimSeasonPassReward = async body =>
   apiRequest(`/Platform/Destiny2/Actions/Seasons/ClaimReward/`, {
     withAuth: true,

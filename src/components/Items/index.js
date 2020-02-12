@@ -12,6 +12,7 @@ import { stats } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
 import ObservedImage from '../../components/ObservedImage';
 import ProgressBar from '../../components/UI/ProgressBar';
+import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
 
 import './styles.css';
 
@@ -54,6 +55,7 @@ class Items extends React.Component {
       const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enums.enumerateVendorItemStatus(item.saleStatus);
 
       const masterworked = enums.enumerateItemState(item.state).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter(s => s.value > 9).length : item.masterwork?.stats?.filter(s => s.value >= 9).length));
+      const tracked = enums.enumerateItemState(item.state).tracked;
 
       output.push({
         name: definitionItem.displayProperties && definitionItem.displayProperties.name,
@@ -66,6 +68,7 @@ class Items extends React.Component {
                 tooltip: !this.props.disableTooltip,
                 linked: true,
                 masterworked,
+                tracked,
                 exotic: definitionItem.inventory && definitionItem.inventory.tierType === 6,
                 'no-border': (definitionItem.uiItemDisplayStyle === 'ui_display_style_engram' && item.bucketHash !== 3284755031) || (definitionItem.itemCategoryHashes && definitionItem.itemCategoryHashes.includes(268598612)) || (definitionItem.itemCategoryHashes && definitionItem.itemCategoryHashes.includes(18)) || noBorder,
                 unavailable: (vendorItemStatus && !vendorItemStatus.success) || item.unavailable
@@ -84,6 +87,11 @@ class Items extends React.Component {
             <div className='icon'>
               <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
             </div>
+            {tracked ? (
+              <div className='track'>
+                <TrackingIcon />
+              </div>
+            ) : null}
             {asPanels ? (
               <div className='text'>
                 <div className='name'>{definitionItem.displayProperties.name}</div>
