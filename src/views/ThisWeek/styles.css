@@ -40,7 +40,6 @@
 
 #this-week .group.full.tip {
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 2rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -154,7 +153,6 @@
   
   #this-week .group.full.tip {
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }

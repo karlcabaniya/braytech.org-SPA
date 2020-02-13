@@ -115,38 +115,6 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#index .patreon-cta {
-  background-color: #f96854;
-  display: none;
-}
-
-#index .row.patreon-cta > .wrapper {
-  padding: 12px 3rem;
-  align-items: center;
-  justify-content: space-between;
-  grid-template-columns: max-content max-content;
-}
-
-#index .row.patreon-cta .button {
-  margin: 0;
-}
-
-#index .row.patreon-cta .device {
-  height: 100%;
-  pointer-events: none;
-}
-
-#index .row.patreon-cta .device svg {
-  fill: #ffffff;
-  opacity: 0.3;
-  width: auto;
-  height: 100%;
-}
-
-#index .row.patreon-cta .device svg circle {
-  fill: #ffffff;
-}
-
 #index .row .module.stats ul {
   margin: 2rem 0 0;
   display: grid;

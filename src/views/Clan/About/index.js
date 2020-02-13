@@ -6,35 +6,35 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
+import Roster from '../../../components/Roster';
 import ObservedImage from '../../../components/ObservedImage';
 import ClanBanner from '../../../components/UI/ClanBanner';
 import Spinner from '../../../components/UI/Spinner';
 import ProgressBar from '../../../components/UI/ProgressBar';
 import Checkbox from '../../../components/UI/Checkbox';
-import Roster from '../../../components/Roster';
 
 import ClanViewsLinks from '../ClanViewsLinks';
 
 import './styles.css';
 
-class BannerPerks extends React.Component {
-  render() {
-    const { level } = this.props;
+function BannerPerks(props) {
+  const { level } = props;
 
-    const definitionBanner = manifest.DestinyInventoryItemDefinition[2873099163];
-    const perks =
-      definitionBanner &&
-      definitionBanner.sockets.socketEntries
-        .map((entry, i) => {
-          if (definitionBanner.sockets.socketCategories.find(socketCategory => socketCategory.socketCategoryHash === 3898156960) && definitionBanner.sockets.socketCategories.find(socketCategory => socketCategory.socketCategoryHash === 3898156960).socketIndexes.includes(i)) {
-            return entry;
-          } else {
-            return false;
-          }
-        })
-        .filter(t => t);
+  const definitionBanner = manifest.DestinyInventoryItemDefinition[2873099163];
+  const perks =
+    definitionBanner &&
+    definitionBanner.sockets.socketEntries
+      .map((entry, i) => {
+        if (definitionBanner.sockets.socketCategories.find(socketCategory => socketCategory.socketCategoryHash === 3898156960) && definitionBanner.sockets.socketCategories.find(socketCategory => socketCategory.socketCategoryHash === 3898156960).socketIndexes.includes(i)) {
+          return entry;
+        } else {
+          return false;
+        }
+      })
+      .filter(t => t);
 
-    return <ul className='banner-perks'>
+  return (
+    <ul className='banner-perks'>
       {perks.map((perk, i) => {
         const definitionPerk = manifest.DestinyInventoryItemDefinition[perk.singleInitialItemHash];
 
@@ -48,10 +48,10 @@ class BannerPerks extends React.Component {
               <div className='description'>{definitionPerk.displayProperties.description}</div>
             </div>
           </li>
-        )
+        );
       })}
-    </ul>;
-  }
+    </ul>
+  );
 }
 
 class AboutView extends React.Component {
@@ -92,8 +92,9 @@ class AboutView extends React.Component {
         <ClanViewsLinks {...this.props} />
         <div className='module banner'>
           <ClanBanner bannerData={group.clanInfo.clanBannerData} />
-          <Link className='button customise' to={`/clan-banner-builder/${group.clanInfo.clanBannerData.decalBackgroundColorId}/${group.clanInfo.clanBannerData.decalColorId}/${group.clanInfo.clanBannerData.decalId}/${group.clanInfo.clanBannerData.gonfalonColorId}/${group.clanInfo.clanBannerData.gonfalonDetailColorId}/${group.clanInfo.clanBannerData.gonfalonDetailId}/${group.clanInfo.clanBannerData.gonfalonId}/`}>
+          <Link className='button cta customise' to={`/clan-banner-builder/${group.clanInfo.clanBannerData.decalBackgroundColorId}/${group.clanInfo.clanBannerData.decalColorId}/${group.clanInfo.clanBannerData.decalId}/${group.clanInfo.clanBannerData.gonfalonColorId}/${group.clanInfo.clanBannerData.gonfalonDetailColorId}/${group.clanInfo.clanBannerData.gonfalonDetailId}/${group.clanInfo.clanBannerData.gonfalonId}/`}>
             <div className='text'>{t('Clan Banner Builder')}</div>
+            <i className='segoe-uniE0AB' />
           </Link>
         </div>
         <div className='module about'>
@@ -107,25 +108,7 @@ class AboutView extends React.Component {
           <div className='sub-header'>
             <div>{t('Progression')}</div>
           </div>
-          {clanLevel.level === clanLevel.levelCap ? (
-            <ProgressBar
-              classNames='level-6'
-              progress='1'
-              completionValue='1'
-              description={`${t('Level')} ${clanLevel.level}`}
-              hideCheck
-              hideFraction
-              chunky
-            />
-          ) : (
-            <ProgressBar
-              progress={clanLevel.progressToNextLevel}
-              completionValue={clanLevel.nextLevelAt}
-              description={`${t('Level')} ${clanLevel.level}`}
-              hideCheck
-              chunky
-            />
-          )}
+          {clanLevel.level === clanLevel.levelCap ? <ProgressBar classNames='level-6' progress='1' completionValue='1' description={`${t('Level')} ${clanLevel.level}`} hideCheck hideFraction chunky /> : <ProgressBar progress={clanLevel.progressToNextLevel} completionValue={clanLevel.nextLevelAt} description={`${t('Level')} ${clanLevel.level}`} hideCheck chunky />}
           <h4>{t('Banner Perks')}</h4>
           <BannerPerks level={clanLevel.level} />
           <h4>{t('Engrams')}</h4>
