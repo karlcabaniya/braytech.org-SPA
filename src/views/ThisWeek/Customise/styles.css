@@ -47,6 +47,7 @@
   height: unset;
   min-height: 38px;
   padding: 1rem;
+  user-select: none;
 }
 
 #this-week.customise .group.user .module:last-child {

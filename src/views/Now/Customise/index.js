@@ -440,6 +440,22 @@ class Customise extends React.Component {
         }
       ]
     },
+    Transitory: {
+      name: this.props.t('Fireteam'),
+      description: this.props.t("Track your fireteam")
+    },
+    Clan: {
+      name: this.props.t('Clan'),
+      description: this.props.t("Keep a keen eye on what your clan is up to")
+    },
+    Challenges: {
+      name: this.props.t('Challenges'),
+      description: this.props.t("Activities offering powerful rewards")
+    },
+    CharacterEquipment: {
+      name: this.props.t('Character equipment'),
+      description: this.props.t("Inspect your character's loadout and stat totals")
+    },
     Vendor: {
       name: this.props.t('Vendor'),
       description: this.props.t('Status and inventory for vendors'),
@@ -472,10 +488,6 @@ class Customise extends React.Component {
       name: this.props.t('Spider: Material Exchange'),
       description: this.props.t("Monitor Spider's materials closely")
     },
-    Challenges: {
-      name: this.props.t('Challenges'),
-      description: this.props.t("Activities offering powerful rewards")
-    },
     SeasonArtifact: {
       name: this.props.t('Seasonal artifact'),
       description: this.props.t("Display your seaonal artifact's configuration and its progression")
@@ -487,19 +499,7 @@ class Customise extends React.Component {
     SeasonCountdown: {
       name: this.props.t('Season countdown'),
       description: this.props.t('Time until next season is live')
-    },
-    CharacterEquipment: {
-      name: this.props.t('Character equipment'),
-      description: this.props.t("Inspect your character's loadout and stat totals")
-    },
-    Transitory: {
-      name: this.props.t('Fireteam'),
-      description: this.props.t("Track your fireteam")
-    },
-    // Clan: {
-    //   name: this.props.t('Clan'),
-    //   description: this.props.t("Track your fireteam")
-    // }
+    }
   };
 
   inUse = key => {
