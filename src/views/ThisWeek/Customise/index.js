@@ -70,7 +70,7 @@ const getListStyle = isDraggingOver => ({
   background: isDraggingOver ? 'rgba(255, 255, 255, 0.2)' : ''
 });
 
-const getCols = cols => {
+export const getCols = cols => {
   const full = cols.findIndex(c => c.mods.find(m => moduleRules.full.includes(m.component)));
   const doubleIndexes = cols.map((c, i) => c.mods.filter(m => moduleRules.double.includes(m.component)).length ? i : -1).filter(i => i > -1);
   const doubleCount = cols.filter(c => c.mods.find(m => moduleRules.double.includes(m.component))).length;

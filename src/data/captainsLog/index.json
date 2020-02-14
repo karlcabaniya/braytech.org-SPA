@@ -567,12 +567,12 @@
   {
     "date": "2019-07-27T08:34:07.644Z",
     "version": "2.7.17",
-    "content": "- many, many language updates\n- beta emotes collection added"
+    "content": "- many, many i18n updates\n- beta emotes collection added"
   },
   {
     "date": "2019-07-29T17:31:29.033Z",
     "version": "2.7.18",
-    "content": "- language updates\n- tooltip updates"
+    "content": "- i18n updates\n- tooltip updates"
   },
   {
     "date": "2019-08-04T06:29:27.580Z",
@@ -622,7 +622,7 @@
   {
     "date": "2019-08-26T09:19:48.419Z",
     "version": "2.8.8",
-    "content": "- a brand new index page.\n- other minor improvements\n- icons stuff\n- language updates\n- high res display stuff"
+    "content": "- a brand new index page.\n- other minor improvements\n- icons stuff\n- i18n updates\n- high res display stuff"
   },
   {
     "date": "2019-08-26T14:30:59.712Z",
@@ -987,6 +987,11 @@
   {
     "date": "2020-02-12T15:50:59.792Z",
     "version": "2.17.0",
-    "content": "- removed Braytech's dependency on Destiny's _GetPublicMilestones_ API endpoint\n- added a new icon for _Crimson Doubles_\n- vastly improved user feedback when customising _Now_ and _This Week_ view modules in addition to making layouts more flexible\n- remade _Ranks_ module with new icons\n- improved _Challenges_ module, displays rewards\n- added a _Tips_ component to help new and old users to better use Braytech\n- performance improvements\n- language improvements\n- and like, more still"
+    "content": "- removed Braytech's dependency on Destiny's _GetPublicMilestones_ API endpoint\n- added a new icon for _Crimson Doubles_\n- vastly improved user feedback when customising _Now_ and _This Week_ view modules in addition to making layouts more flexible\n- remade _Ranks_ module with new icons\n- improved _Challenges_ module, displays rewards\n- added a _Tips_ component to help new and old users to better use Braytech\n- performance improvements\n- i18n improvements\n- and like, more still"
+  },
+  {
+    "date": "2020-02-14T20:40:21.581Z",
+    "version": "2.17.5",
+    "content": "- huge i18n improvments\n- user modules inprovements"
   }
 ]

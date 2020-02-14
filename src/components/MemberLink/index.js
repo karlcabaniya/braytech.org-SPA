@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import * as entities from 'entities';
 
-import { t, duration } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
@@ -320,7 +320,9 @@ class MemberLink extends React.Component {
                     <div className='module'>
                       <div className='names'>
                         <div className='displayName'>{this.state.all.data.profile.data && this.state.all.data.profile.data.userInfo.displayName}</div>
-                        <div className='groupName'>{this.state.all.data.group ? entities.decodeHTML(this.state.all.data.group.name) : null}</div>
+                        {this.state.all.data.group ? (
+                          <div className='groupName'>{entities.decodeHTML(this.state.all.data.group.name)}</div>
+                        ) : null}
                         <Flair type={membershipType} id={membershipId} />
                       </div>
                       <div className='basics'>
