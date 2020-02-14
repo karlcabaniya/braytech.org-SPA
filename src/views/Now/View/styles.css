@@ -61,6 +61,7 @@
 #now .module .list.activities li .time {
   color: rgba(255, 255, 255, 0.6);
   grid-column: 2/3;
+  text-transform: lowercase;
 }
 
 /* #now .module .list.activities li .light {

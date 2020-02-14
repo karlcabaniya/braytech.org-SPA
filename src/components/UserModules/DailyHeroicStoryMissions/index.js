@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 
+import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as utils from '../../../utils/destinyUtils';
 
@@ -12,7 +11,7 @@ import './styles.css';
 
 class DailyHeroicStoryMissions extends React.Component {
   render() {
-    const { t, member } = this.props;
+    const { member } = this.props;
     const characterActivities = member.data.profile.characterActivities.data;
 
     const knownStoryActivities = [129918239, 271962655, 589157009, 1023966646, 1070049743, 1132291813, 1259766043, 1313648352, 1513386090, 1534123682, 1602328239, 1872813880, 1882259272, 1906514856, 2000185095, 2146977720, 2568845238, 2660895412, 2772894447, 2776154899, 3008658049, 3205547455, 3271773240, 4009655461, 4234327344, 4237009519, 4244464899, 2962137994];
@@ -37,9 +36,7 @@ class DailyHeroicStoryMissions extends React.Component {
         </div>
         <div className='text'>
           <p>
-            <em>
-              {t('Revisit the trials of times past. Reconcile with these emotions and challenge yourself to do better.')}
-            </em>
+            <em>{t('Revisit the trials of times past. Reconcile with these emotions and challenge yourself to do better.')}</em>
           </p>
         </div>
         <h4>{t('Available activities')}</h4>
@@ -62,10 +59,7 @@ class DailyHeroicStoryMissions extends React.Component {
                           <span className={gameVersion.displayProperties.icon} />
                         </div>
                       ) : null}
-                      <div className='time'>{definitionActivity.timeToComplete ? <>{t('{{minutes}} Minutes', { minutes: definitionActivity.timeToComplete || 0 })}</> : null}</div>
-                      {/* <div className='light'>
-                        <span>{definitionActivity.activityLightLevel}</span>
-                      </div> */}
+                      <div className='time'>{definitionActivity.timeToComplete ? <>{duration({ minutes: definitionActivity.timeToComplete || 0 }, { unit: 'minutes', abbreviated: true })}</> : null}</div>
                     </div>
                   </li>
                 )
@@ -86,9 +80,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps
-  ),
-  withTranslation()
-)(DailyHeroicStoryMissions);
+export default connect(mapStateToProps)(DailyHeroicStoryMissions);

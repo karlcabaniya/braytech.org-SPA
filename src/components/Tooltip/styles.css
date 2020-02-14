@@ -115,6 +115,10 @@
   font-family: var(--fontText);
 }
 
+#tooltip .frame .highlight span {
+  text-transform: lowercase;
+}
+
 #tooltip .black {
   background-color: rgba(0, 0, 0, 0.75);
 }

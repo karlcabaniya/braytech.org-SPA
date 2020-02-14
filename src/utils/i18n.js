@@ -54,11 +54,25 @@ export default i18next;
 export const t = (key, options) =>
   i18next.t(key, options || { skipInterpolation: true });
 
-export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, unit) => {
+export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, abbreviated = false } = {}) => {
   const string = [];
 
-  if (unit && unit === 'days') {
-    string.push(days === 1 ? t('1 Day') : t('{{days}} Days', { days }));
+  if (unit === 'days') {
+    if (abbreviated) {
+      string.push(days === 1 ? t('1 Day') : t('{{days}} Days', { days }));
+    } else {
+      string.push(days === 1 ? t('1 Day') : t('{{days}} Days', { days }));
+    }
+  
+    return string.join(' ');
+  }
+
+  if (unit === 'minutes') {
+    if (abbreviated) {
+      string.push(minutes === 1 ? t('1 Min') : t('{{minutes}} Mins', { minutes }));
+    } else {
+      string.push(minutes === 1 ? t('1 Minute') : t('{{minutes}} Minutes', { minutes }));
+    }
   
     return string.join(' ');
   }

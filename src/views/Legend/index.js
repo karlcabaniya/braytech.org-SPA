@@ -588,7 +588,7 @@ class Legend extends React.Component {
                   <div className='name sub'>{t('Season rank')}</div>
                 </div>
                 <div className='col'>
-                  <div className='value'>{duration({ days: timePlayed }, 'days')}</div>
+                  <div className='value'>{duration({ days: timePlayed }, { unit: 'days' })}</div>
                   <div className='name sub'>{t('Time played')}</div>
                 </div>
                 <div className='col'>
