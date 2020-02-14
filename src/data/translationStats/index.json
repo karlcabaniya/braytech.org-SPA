@@ -1,128 +1,249 @@
 {
   "de": {
     "translated": 397,
-    "notTranslated": 248,
-    "added": [],
+    "notTranslated": 254,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "debug": {
-    "translated": 645,
+    "translated": 651,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "en": {
-    "translated": 645,
+    "translated": 651,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "es-mx": {
-    "translated": 601,
-    "notTranslated": 44,
-    "added": [],
+    "translated": 599,
+    "notTranslated": 52,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "es": {
-    "translated": 630,
-    "notTranslated": 15,
-    "added": [],
+    "translated": 628,
+    "notTranslated": 23,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "fr": {
-    "translated": 529,
-    "notTranslated": 116,
-    "added": [],
+    "translated": 527,
+    "notTranslated": 124,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "it": {
-    "translated": 605,
-    "notTranslated": 40,
-    "added": [],
+    "translated": 603,
+    "notTranslated": 48,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "ja": {
-    "translated": 564,
-    "notTranslated": 81,
-    "added": [],
+    "translated": 562,
+    "notTranslated": 89,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "ko": {
-    "translated": 592,
-    "notTranslated": 53,
-    "added": [],
+    "translated": 590,
+    "notTranslated": 61,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 645,
-    "added": [],
+    "notTranslated": 651,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "pt-br": {
-    "translated": 610,
-    "notTranslated": 35,
-    "added": [],
+    "translated": 608,
+    "notTranslated": 43,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "ru": {
-    "translated": 562,
-    "notTranslated": 83,
-    "added": [],
+    "translated": 609,
+    "notTranslated": 42,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "Keep a keen eye on what your clan is up to",
+      "key",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires",
+      "hour",
+      "hours"
     ]
   },
   "zh-chs": {
-    "translated": 491,
-    "notTranslated": 154,
-    "added": [],
+    "translated": 489,
+    "notTranslated": 162,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   },
   "zh-cht": {
     "translated": 404,
-    "notTranslated": 241,
-    "added": [],
+    "notTranslated": 247,
+    "added": [
+      "1 Hr",
+      "1 Min",
+      "1 Sec",
+      "Expired.",
+      "Expires in {{duration}}.",
+      "{{hours}} Hrs",
+      "{{minutes}} Mins",
+      "{{seconds}} Secs"
+    ],
     "removed": [
-      "{{number}} mins",
-      "{{number}} minutes"
+      "Expired",
+      "Expires"
     ]
   }
 }

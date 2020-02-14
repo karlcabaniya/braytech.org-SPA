@@ -160,7 +160,7 @@ class Roster extends React.Component {
                           {lastActivityString}
                           <span>
                             {moment(lastPlayed)
-                              .locale('relative-sml')
+                              .locale('rel-abr')
                               .fromNow(true)}
                           </span>
                         </div>
@@ -168,7 +168,7 @@ class Roster extends React.Component {
                     ) : (
                       <div>
                         {moment(lastPlayed)
-                          .locale('relative-sml')
+                          .locale('rel-abr')
                           .fromNow()}
                       </div>
                     )}

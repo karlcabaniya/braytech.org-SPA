@@ -480,7 +480,7 @@ class RosterAdmin extends React.Component {
                             {lastActivityString}
                             <span>
                               {moment(lastPlayed)
-                                .locale('relative-sml')
+                                .locale('rel-abr')
                                 .fromNow(true)}
                             </span>
                           </div>
@@ -488,7 +488,7 @@ class RosterAdmin extends React.Component {
                       ) : (
                         <div>
                           {moment(lastPlayed)
-                            .locale('relative-sml')
+                            .locale('rel-abr')
                             .fromNow()}
                         </div>
                       )}
@@ -496,7 +496,7 @@ class RosterAdmin extends React.Component {
                     <li className='col joinDate'>
                       {!m.pending
                         ? moment(m.joinDate)
-                            .locale('relative-sml')
+                            .locale('rel-abr')
                             .fromNow()
                         : null}
                     </li>

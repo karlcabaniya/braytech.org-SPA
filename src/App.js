@@ -103,16 +103,16 @@ class App extends React.Component {
 
     let momentLocale = this.currentLanguage;
     if (this.currentLanguage === 'zh-chs') momentLocale = 'zh-cn';
-    if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-tw';
+    if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-cn';
 
     moment.locale(momentLocale);
 
     if (['zh-cn', 'zh-tw'].indexOf(momentLocale) > -1) {
-      moment.defineLocale('relative-sml', {
+      moment.defineLocale('rel-abr', {
         parentLocale: momentLocale
       });
     } else {
-      moment.defineLocale('relative-sml', {
+      moment.defineLocale('rel-abr', {
         parentLocale: momentLocale,
         relativeTime: {
           future: 'in %s',

@@ -1,7 +1,6 @@
 import React from 'react';
-import i18n from 'i18next';
-import Moment from 'react-moment';
 
+import { t, duration, timestampToDuration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
@@ -97,7 +96,7 @@ const Default = props => {
   if (rewards.length) {
     blocks.push(
       <div className='rewards'>
-        <div>{i18n.t('Rewards')}</div>
+        <div>{t('Rewards')}</div>
         <ul>{rewards}</ul>
       </div>
     );
@@ -109,10 +108,10 @@ const Default = props => {
       <div className='expiry'>
         {timestampExpiry > timestamp ? (
           <>
-            {i18n.t('Expires')} <Moment fromNow>{expirationDate}</Moment>.
+            {t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate)) })}
           </>
         ) : (
-          <>{i18n.t('Expired')}.</>
+          <>{t('Expired.')}</>
         )}
       </div>
     );
@@ -122,7 +121,7 @@ const Default = props => {
   if (quantity && definitionItem.inventory && definitionItem.inventory.maxStackSize > 1 && quantity === definitionItem.inventory.maxStackSize) {
     blocks.push(
       <div className='quantity'>
-        {i18n.t('Quantity')}: <span>{quantity}</span> <span className='max'>({i18n.t('max')})</span>
+        {t('Quantity')}: <span>{quantity}</span> <span className='max'>({t('max')})</span>
       </div>
     );
   }

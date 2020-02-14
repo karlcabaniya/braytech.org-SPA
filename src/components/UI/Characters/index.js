@@ -1,10 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
-import Moment from 'react-moment';
 
+import { fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { removeMemberIds } from '../../../utils/paths';
 import * as utils from '../../../utils/destinyUtils';
@@ -37,7 +35,7 @@ class Characters extends React.Component {
           const state = (
             <>
               <div className='activity'>{lastActivity.lastActivityString}</div>
-              <Moment fromNow>{lastActivity.lastPlayed}</Moment>
+              <time>{fromNow(lastActivity.lastPlayed)}</time>
             </>
           );
 
@@ -85,7 +83,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Characters);
+export default connect(mapStateToProps)(Characters);
