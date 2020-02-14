@@ -161,19 +161,19 @@ class Clan extends React.Component {
             <ul>
               <li>
                 <ul>
-                  <li>{t('{{number}} hours', { number: 24 })}</li>
+                  <li>{t('{{hours}} Hours', { hours: 24 })}</li>
                   <li>{_24h}</li>
                 </ul>
               </li>
               <li>
                 <ul>
-                  <li>{t('{{number}} days', { number: 7 })}</li>
+                  <li>{t('{{days}} Days', { days: 7 })}</li>
                   <li>{_7d}</li>
                 </ul>
               </li>
               <li>
                 <ul>
-                  <li>{t('{{number}} month', { number: 1 })}</li>
+                  <li>{t('{{month}} Month', { month: 1 })}</li>
                   <li>{_1m}</li>
                 </ul>
               </li>

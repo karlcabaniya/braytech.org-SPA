@@ -62,7 +62,7 @@ class DailyHeroicStoryMissions extends React.Component {
                           <span className={gameVersion.displayProperties.icon} />
                         </div>
                       ) : null}
-                      <div className='time'>{definitionActivity.timeToComplete ? <>{t('{{number}} mins', { number: definitionActivity.timeToComplete || 0 })}</> : null}</div>
+                      <div className='time'>{definitionActivity.timeToComplete ? <>{t('{{minutes}} Minutes', { minutes: definitionActivity.timeToComplete || 0 })}</> : null}</div>
                       {/* <div className='light'>
                         <span>{definitionActivity.activityLightLevel}</span>
                       </div> */}
