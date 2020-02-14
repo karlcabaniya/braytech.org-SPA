@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import moment from 'moment';
 
+import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
 import './styles.css';
@@ -52,9 +51,6 @@ class SeasonCountdown extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-    const { days, hours, minutes, seconds } = this.state;
-
     const profile = this.props.member.data.profile.profile.data;
     const definitionSeason = manifest.DestinySeasonDefinition[profile.currentSeasonHash];
 
@@ -70,21 +66,7 @@ class SeasonCountdown extends React.Component {
         </div>
         <div className='time'>
           <div className='line' />
-          <div className='text'>
-            {days > 0 ? (
-              <>
-                {days} {days === 1 ? t('day') : t('days')} {hours} {hours === 1 ? t('hour') : t('hours')}
-              </>
-            ) : hours > 0 ? (
-              <>
-                {hours} {hours === 1 ? t('hour') : t('hours')} {minutes} {minutes === 1 ? t('minute') : t('minutes')}
-              </>
-            ) : (
-              <>
-                {minutes} {minutes === 1 ? t('minute') : t('minutes')} {seconds} {seconds === 1 ? t('second') : t('seconds')}
-              </>
-            )}
-          </div>
+          <div className='text'>{duration(this.state)}</div>
           <div className='line' />
         </div>
       </div>
@@ -98,4 +80,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(SeasonCountdown);
+export default connect(mapStateToProps)(SeasonCountdown);

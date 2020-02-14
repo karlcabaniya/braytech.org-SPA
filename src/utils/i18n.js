@@ -1,5 +1,5 @@
 import React from 'react';
-import i18n from 'i18next';
+import i18next from 'i18next';
 import backend from 'i18next-xhr-backend';
 import { initReactI18next } from 'react-i18next';
 
@@ -19,7 +19,7 @@ function setCurrentLanguage(lang) {
   ls.set('setting.language', lang);
 }
 
-i18n
+i18next
   .use(backend)
   .use(initReactI18next)
   .init({
@@ -46,7 +46,43 @@ i18n
     }
   });
 
-i18n.getCurrentLanguage = getCurrentLanguage;
-i18n.setCurrentLanguage = setCurrentLanguage;
+  i18next.getCurrentLanguage = getCurrentLanguage;
+  i18next.setCurrentLanguage = setCurrentLanguage;
 
-export default i18n;
+export default i18next;
+
+export const t = (key, options) =>
+  i18next.t(key, options || { skipInterpolation: true });
+
+export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, unit) => {
+  const string = [];
+
+  if (unit && unit === 'days') {
+    string.push(days === 1 ? t('1 Day') : t('{{days}} Days', { days }));
+  
+    return string.join(' ');
+  }
+
+  if (days > 0) {
+    string.push(days === 1 ? t('1 Day') : t('{{days}} Days', { days }));
+    string.push(hours === 1 ? t('1 Hour') : t('{{hours}} Hours', { hours }));
+  }
+
+  if (days < 1 && hours > 0 && minutes > 0) {
+    string.push(hours === 1 ? t('1 Hour') : t('{{hours}} Hours', { hours }));
+    string.push(minutes === 1 ? t('1 Minute') : t('{{minutes}} Minutes', { minutes }));
+  }
+
+  if (days < 1 && hours < 1 && minutes > 0) {
+    string.push(minutes === 1 ? t('1 Minute') : t('{{minutes}} Minutes', { minutes }));
+    string.push(seconds === 1 ? t('1 Second') : t('{{seconds}} Seconds', { seconds }));
+  }
+
+  if (days < 1 && hours < 1 && minutes < 1) {
+    string.push(seconds === 1 ? t('1 Second') : t('{{seconds}} Seconds', { seconds }));
+  }
+  
+  return string.join(' ');
+}
+
+console.log(duration({days: 20, hours: 2, minutes: 20, seconds: 38}))

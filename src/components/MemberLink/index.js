@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 import * as entities from 'entities';
 
+import { t, duration } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
@@ -275,7 +274,6 @@ class MemberLink extends React.Component {
 
   render() {
     const { membershipType, membershipId } = this.state.member;
-    const { t } = this.props;
 
     const options = {
       characterId: this.props.characterId,
@@ -334,7 +332,7 @@ class MemberLink extends React.Component {
                           <div>
                             <div className='name'>{t('Time played across characters')}</div>
                             <div className='value'>
-                              {timePlayed} {timePlayed === 1 ? t('day played') : t('days played')}
+                              {timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}
                             </div>
                           </div>
                           <div>
@@ -564,10 +562,6 @@ class MemberLinkButton extends React.Component {
 //   }
 // }
 
-MemberLinkButton = compose(withTranslation())(MemberLinkButton);
-
 // MemberLinkButton2 = compose(withTranslation())(MemberLinkButton2);
-
-MemberLink = compose(withTranslation())(MemberLink);
 
 export default MemberLink;
