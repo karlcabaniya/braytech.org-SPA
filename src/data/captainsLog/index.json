@@ -993,5 +993,10 @@
     "date": "2020-02-14T20:40:21.581Z",
     "version": "2.17.5",
     "content": "- huge i18n improvments\n- user modules inprovements"
+  },
+  {
+    "date": "2020-02-16T05:04:34.575Z",
+    "version": "2.17.8",
+    "content": "- Patreon automation"
   }
 ]

@@ -88,10 +88,10 @@ class App extends React.Component {
     // We do these as early as possible - we don't want to wait
     // for the component to mount before starting the web requests
     this.startupRequests = window.navigator.onLine && {
-      storedManifest: timed('storedManifest', this.getStoredManifest()),
+      storedManifest: timed('getStoredManifest', this.getStoredManifest()),
       manifestIndex: timed('GetDestinyManifest', bungie.GetDestinyManifest({ errors: { hide: true } })),
       bungieSettings: timed('GetCommonSettings', bungie.GetCommonSettings({ errors: { hide: true } })),
-      voluspaStatistics: timed('statistics', voluspa.GetStatistics())
+      voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics())
     };
 
     const profile = ls.get('setting.profile');

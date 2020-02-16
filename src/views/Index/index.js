@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
-import userFlair from '../../data/userFlair';
 import Button from '../../components/UI/Button';
 
 import captainsLog from '../../data/captainsLog';

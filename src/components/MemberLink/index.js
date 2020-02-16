@@ -6,7 +6,7 @@ import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
-import userFlair from '../../data/userFlair';
+import { primaryFlair } from '../../utils/flair';
 import store from '../../store';
 import ObservedImage from '../ObservedImage';
 import Spinner from '../UI/Spinner';
@@ -506,8 +506,7 @@ class MemberLinkButton extends React.Component {
   render() {
     const { member, basic, options, handler } = this.props;
 
-    const flair = userFlair.find(f => f.user === member.membershipId);
-    const primaryFlair = flair && flair.trophies.find(t => t.primary);
+    const flair = primaryFlair(member.membershipId);
 
     let characterBasic;
     if (basic.data) {
@@ -521,9 +520,9 @@ class MemberLinkButton extends React.Component {
 
     return (
       <div className={cx('member-link', { wait: !(!basic.loading && basic.data) })} onClick={handler}>
-        {!options.hideFlair && primaryFlair ? (
-          <div className={cx('user-flair', primaryFlair.classnames)}>
-            <i className={primaryFlair.icon} />
+        {!options.hideFlair && flair ? (
+          <div className={cx('user-flair', flair.classnames)}>
+            <i className={flair.icon} />
           </div>
         ) : null}
         <div className='emblem'>
