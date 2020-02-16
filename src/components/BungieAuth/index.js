@@ -42,39 +42,55 @@ class PatreonAssociation extends React.Component {
   }
 
   handler_onSearchChange = e => {
-    this.setState({
-      value: e.target.value,
-      valid: RegExpEmail.test(e.target.value)
-    });
-  };
-
-  handler_onSearchKeyPress = e => {
-    // If they pressed enter, ignore the debounce and search right meow. MEOW, SON.
-    if (e.key === 'Enter') this.setAssociation.flush();
+    if (this.mounted) {
+      this.setState({
+        value: e.target.value,
+        valid: RegExpEmail.test(e.target.value)
+      });
+    }
   };
 
   handler_onSubmit = e => {
     e.preventDefault();
 
     this.setAssociation();
-  }
+  };
 
-  setAssociation = debounce(async () => {
+  setAssociation = async () => {
     const membershipIds = this.props.destinyMemberships.map(m => m.membershipId);
+    const primaryMembershipId = this.props.primaryMembershipId;
     const email = this.state.value;
 
     if (!membershipIds.length || email === '') return;
 
-    this.setState({
-      loading: true
-    });
+    if (this.mounted) {
+      this.setState({
+        loading: true
+      });
+    }
 
-    await voluspa.PostPatreon({ membershipIds, email });
+    const response = await voluspa.PostPatreon({ membershipIds, primaryMembershipId, email });
 
-    this.setState({
-      loading: false
-    });
-  });
+    if (this.mounted) {
+      this.setState(p => ({
+        loading: false,
+        value: response.ErrorCode === 1 && response.Response ? '' : p.value
+      }));
+    }
+
+    if (response.ErrorCode === 1 && response.Response) {
+      this.props.pushNotification({
+        date: new Date().toISOString(),
+        expiry: 86400000,
+        displayProperties: {
+          name: 'Braytech',
+          description: t('Thanks! Your email is now associated with your profiles'),
+          timeout: 10
+        }
+      });
+      this.props.handler();
+    }
+  };
 
   render() {
     const { loading, error, value, valid } = this.state;
@@ -83,16 +99,19 @@ class PatreonAssociation extends React.Component {
       <div className='bungie-auth'>
         <h4>{t('Patreon association')}</h4>
         <div className='patreon'>
-          <Markdown className='text' source={`Some Patreon tiers include rewards in the form of _flair_ which is displayed at the side of your player name.\nEnable display of relevant flair by entering the same email associated with your Patreon account.`} />
+          <Markdown className='text' source={`Some Patreon tiers include rewards in the form of _flair_ which is displayed at the side of your player name.\nEnable display of relevant flair by entering the email associated with your Patreon account.`} />
           <form onSubmit={this.handler_onSubmit}>
             <div className='form'>
               <div className='field'>
-                <input onChange={this.handler_onSearchChange} type='email' required placeholder={t('chonky_zuzuvala69@hotmail.reef')} pattern='^\S+@\S+\.\S+$' spellCheck='false' value={value} onKeyPress={this.handler_onSearchKeyPress} />
+                <input id='email' onChange={this.handler_onSearchChange} type='email' required placeholder={t('chonky_zuzuvala69@hotmail.reef')} pattern='^\S+@\S+\.\S+$' spellCheck='false' value={value} />
               </div>
             </div>
             <div className='actions'>
-              <Button text={t('Cancel')} action={this.props.handler} />
-              {loading ? <Spinner mini /> : <Button text={t('Set')} action={this.handler_onSubmit} type='submit' disabled={!valid} />}
+              <div>
+                <Button text={t('Cancel')} action={this.props.handler} />
+                <Button text={t('Set')} action={this.handler_onSubmit} type='submit' disabled={!valid || loading} />
+              </div>
+              <div>{loading ? <Spinner mini /> : null}</div>
             </div>
           </form>
         </div>
@@ -210,7 +229,7 @@ class BungieAuth extends React.Component {
     }
 
     if (patreon) {
-      return <PatreonAssociation {...memberships} handler={this.handler_patreon} />;
+      return <PatreonAssociation {...memberships} handler={this.handler_patreon} pushNotification={this.props.pushNotification} />;
     }
 
     if (loading) {
@@ -661,6 +680,9 @@ function mapDispatchToProps(dispatch) {
     },
     resetAuth: () => {
       dispatch({ type: 'RESET_AUTH' });
+    },
+    pushNotification: value => {
+      dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
     }
   };
 }

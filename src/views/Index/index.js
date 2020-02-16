@@ -32,8 +32,8 @@ class Index extends React.Component {
       log: 0
     };
 
-    this.logs = captainsLog.slice().reverse();
-    this.supporters = this.shuffle(userFlair.slice().filter(m => m.trophies.find(t => t.classnames.includes('patron'))));
+    this.logs = [...captainsLog].reverse();
+    this.supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta]);
   }
 
   componentDidMount() {
@@ -225,7 +225,7 @@ class Index extends React.Component {
               </a>
             </div>
             <div className='module tags'>
-              {this.supporters.map((m, k) => <MemberLink key={k} id={m.user} hideFlair />)}
+              {this.supporters.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
             </div>
           </div>
         </div>

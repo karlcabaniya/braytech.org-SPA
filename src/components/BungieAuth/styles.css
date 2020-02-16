@@ -131,11 +131,12 @@
 
 
 
-.bungie-auth .patreon .actions {
+.bungie-auth .patreon .actions,
+.bungie-auth .patreon .actions div {
   display: grid;
   grid-auto-flow: column;
   gap: 3px;
-  justify-content: left;
+  justify-content: space-between;
 }
 
 .bungie-auth .patreon form {

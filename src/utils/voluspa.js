@@ -13,14 +13,22 @@ export function PostMember(payload) {
 
 export function PostPatreon(payload) {
   try {
-    fetch('https://voluspa.braytech.org/patreon/set', {
+    return fetch('https://voluspa.braytech.org/patreon/set', {
       method: 'POST',
       cache: 'no-cache',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
-    });
+    }).then(async request => {
+      if (request.ok) {
+        const response = await request.json();
+
+        return response;
+      } else {
+        return false;
+      }
+    });    
   } catch (e) {}
 }
 
