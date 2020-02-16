@@ -91,7 +91,7 @@ class App extends React.Component {
       storedManifest: timed('storedManifest', this.getStoredManifest()),
       manifestIndex: timed('GetDestinyManifest', bungie.GetDestinyManifest({ errors: { hide: true } })),
       bungieSettings: timed('GetCommonSettings', bungie.GetCommonSettings({ errors: { hide: true } })),
-      voluspaStatistics: timed('statistics', voluspa.statistics())
+      voluspaStatistics: timed('statistics', voluspa.GetStatistics())
     };
 
     const profile = ls.get('setting.profile');
@@ -291,12 +291,12 @@ class App extends React.Component {
                           <RedirectRoute path='/quests' />
 
                           <Route path='/character-select' exact component={CharacterSelect} />
-                          <Route path='/pgcr/:instanceId?' exact render={route => <PGCR {...route} />} />
+                          <Route path='/pgcr/:instanceId?' exact component={PGCR} />
                           <Route path='/inspect/:hash?' exact component={Inspect} />
                           <Route path='/read/:kind?/:hash?' exact component={Read} />
                           <Route path='/compare/:object?' exact component={Compare} />
-                          <Route path='/maps/:map?/:highlight?' render={route => <Maps {...route} />} />
-                          <Route path='/legend' exact render={route => <Legend {...route} />} />
+                          <Route path='/maps/:map?/:highlight?' component={Maps} />
+                          <Route path='/legend' exact component={Legend} />
                           <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                           <Route path='/faq' exact component={FAQ} />
                           <Route path='/credits' exact component={Credits} />

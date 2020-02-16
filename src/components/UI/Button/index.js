@@ -1,6 +1,4 @@
 import React from 'react';
-// import { compose } from 'redux';
-// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -78,7 +76,7 @@ class DestinyKey extends React.Component {
 
 class Button extends React.Component {
   render() {
-    const { className, text, children, action, cta, disabled, lined, anchor } = this.props;
+    const { className, text, children, action, cta, disabled, lined, anchor, type } = this.props;
 
     if (anchor) {
       return (
@@ -88,7 +86,7 @@ class Button extends React.Component {
       );
     } else {
       return (
-        <button className={cx('button', className, { lined, disabled, cta })} onClick={action || undefined}>
+        <button className={cx('button', className, { lined, disabled, cta })} onClick={action || undefined} type={type || 'button'}>
           {text ? <div className='text'>{text}</div> : children}
         </button>
       );

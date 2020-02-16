@@ -52,7 +52,7 @@ class GroupSearch extends React.Component {
       if (this.mounted) {
         result = responseUtils.groupScrubber(result);
         this.setState({ result: result, searching: false });
-        voluspa.store({ groupId: result.detail.groupId });
+        voluspa.PostMember({ groupId: result.detail.groupId });
       }
     } catch (e) {
       // If we get an error here it's usually because somebody is being cheeky
