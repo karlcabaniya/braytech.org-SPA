@@ -216,7 +216,7 @@
   position: absolute;
   top: 1px;
   right: 120px;
-  width: 22px;
+  width: 20px;
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.25s;

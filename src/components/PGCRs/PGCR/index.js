@@ -7,6 +7,7 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
+import * as utils from '../../../utils/destinyUtils';
 import { Button, DestinyKey } from '../../UI/Button';
 import MemberLink from '../../MemberLink';
 
@@ -101,54 +102,6 @@ class ReportItem extends React.Component {
     const gloryPoints = characterProgressions[characterId].progressions[2000925172].currentProgress.toLocaleString();
     const valorPoints = characterProgressions[characterId].progressions[2626549951].currentProgress.toLocaleString();
     const infamyPoints = characterProgressions[characterId].progressions[2772425241].currentProgress.toLocaleString();
-
-    const infamySeasons = [{ recordHash: 3901785488, objectiveHash: 4210654397 }].map(season => {
-
-      const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-      const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-      season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-      return season;
-    });
-
-    const valorSeasons = [
-      {
-        recordHash: 1341325320,
-        objectiveHash: 1089010148
-      },
-      {
-        recordHash: 2462707519,
-        objectiveHash: 2048068317
-      },
-      {
-        recordHash: 3666883430,
-        objectiveHash: 3211089622
-      },
-      {
-        recordHash: 2110987253,
-        objectiveHash: 1898743615
-      },
-      {
-        recordHash: 510151900,
-        objectiveHash: 2011701344
-      }
-    ].map(season => {
-
-      const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-      const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-      season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-      return season;
-    });
-
-    const valorResets = valorSeasons.reduce((a, v) => a + v.resets, 0).toLocaleString();
-    const infamyResets = infamySeasons.reduce((a, v) => a + v.resets, 0).toLocaleString();
     
     return {
       points: {
@@ -157,8 +110,8 @@ class ReportItem extends React.Component {
         infamyPoints
       },
       resets: {
-        valorResets,
-        infamyResets
+        valorResets: utils.calculateResets(3882308435, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal,
+        infamyResets: utils.calculateResets(2772425241, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal
       }
     };
   };

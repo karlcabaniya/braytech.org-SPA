@@ -279,7 +279,7 @@ export function DefaultDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Melee kills')}</div>
               </li>
               <li>{killsMelee}</li>
@@ -290,7 +290,7 @@ export function DefaultDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Grenade kills')}</div>
               </li>
               <li>{killsGrenade}</li>
@@ -301,7 +301,7 @@ export function DefaultDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Super kills')}</div>
               </li>
               <li>{killsSuper}</li>
@@ -489,7 +489,7 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Melee kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsMelee', type: 'value', extended: true }, entry)}</li>
@@ -500,7 +500,7 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Grenade kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsGrenade', type: 'value', extended: true }, entry)}</li>
@@ -511,7 +511,7 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Super kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsSuper', type: 'value', extended: true }, entry)}</li>
@@ -777,7 +777,7 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Melee kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsMelee', type: 'value', extended: true }, entry)}</li>
@@ -788,7 +788,7 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Grenade kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsGrenade', type: 'value', extended: true }, entry)}</li>
@@ -799,7 +799,7 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li className='double'>
-                <div></div>
+                <div></div>
                 <div>{t('Super kills')}</div>
               </li>
               <li>{formatValue({ key: 'weaponKillsSuper', type: 'value', extended: true }, entry)}</li>
