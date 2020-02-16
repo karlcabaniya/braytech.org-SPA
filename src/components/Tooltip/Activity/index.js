@@ -539,7 +539,7 @@ class Activity extends React.Component {
               {activityTypeDisplay.suggestion ? <div className='highlight'>{activityTypeDisplay.suggestion}</div> : null}
               {definitionActivity.timeToComplete ? (
                 <div className='highlight'>
-                  {t('Approximate length')}: {t('{{number}} minutes', { number: definitionActivity.timeToComplete || 0 })}
+                  {t('Approximate length')}: <span>{t('{{minutes}} Minutes', { minutes: definitionActivity.timeToComplete || 0 })}</span>
                 </div>
               ) : null}
               {activityTypeDisplay.activityLightLevel ? (

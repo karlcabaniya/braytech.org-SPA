@@ -192,6 +192,9 @@ export const GetMembershipDataForCurrentUser = async (access = false) =>
       Authorization: access && `Bearer ${access}`
     }
   });
+  
+export const GetMembershipDataById = async options =>
+  apiRequest(`/Platform/User/GetMembershipsById/${options.params.membershipId}/${options.params.membershipType}/`, options);
 
 export const GetProfile = async options =>
   apiRequest(`/Platform/Destiny2/${options.params.membershipType}/Profile/${options.params.membershipId}/?components=${options.params.components}`, options);

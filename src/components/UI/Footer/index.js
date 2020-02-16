@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
-import Moment from 'react-moment';
 
+import { t, fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import packageJSON from '../../../../package.json';
 import { ReactComponent as Patreon } from '../../../svg/miscellaneous/patreon-device.svg';
@@ -12,7 +11,7 @@ import './styles.css';
 
 class Footer extends React.Component {
   render() {
-    const { t, linkOnClick, minimal } = this.props;
+    const { linkOnClick, minimal } = this.props;
 
     return (
       <div id='footer'>
@@ -20,7 +19,7 @@ class Footer extends React.Component {
           <div>
             <div>© 2020 <a className='hyperlink' href='https://thomchap.com.au' target='_blank' rel='noopener noreferrer'>Tom Chapman</a></div>
             <div>{t('Version')} <span>{packageJSON.version}</span></div>
-            {manifest.statistics.general ? <div>{t('VOLUSPA last indexed')} <Moment fromNow>{manifest.statistics.general.status.lastScraped}</Moment></div> : null}
+            {manifest.statistics.general ? <div>{t('VOLUSPA last indexed')} {fromNow(manifest.statistics.general.status.lastScraped)}</div> : null}
           </div>
           <ul>
             {!minimal ? (
@@ -64,4 +63,4 @@ class Footer extends React.Component {
   }
 }
 
-export default withTranslation()(Footer);
+export default Footer;

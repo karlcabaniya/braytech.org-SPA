@@ -1,4 +1,4 @@
-export function store(payload) {
+export function PostMember(payload) {
   try {
     fetch('https://voluspa.braytech.org/enqueue/store', {
       method: 'POST',
@@ -11,7 +11,28 @@ export function store(payload) {
   } catch (e) {}
 }
 
-export async function statistics(payload) {
+export function PostPatreon(payload) {
+  try {
+    return fetch('https://voluspa.braytech.org/patreon/set', {
+      method: 'POST',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    }).then(async request => {
+      if (request.ok) {
+        const response = await request.json();
+
+        return response;
+      } else {
+        return false;
+      }
+    });    
+  } catch (e) {}
+}
+
+export async function GetStatistics() {
   try {
     const request = await fetch('https://voluspa.braytech.org/statistics', {
       method: 'GET',
@@ -25,7 +46,7 @@ export async function statistics(payload) {
   } catch (e) {}
 }
 
-export async function gearAsset(reference_id) {
+export async function GetGearAsset(reference_id) {
   try {
     const request = await fetch(`https://voluspa.braytech.org/manifest/gear-asset/?reference_id=${reference_id}`, {
       method: 'GET',
@@ -35,15 +56,6 @@ export async function gearAsset(reference_id) {
       }
     });
 
-    // if (request.ok) {
-    //   const response = await request.json();
-
-    //   if (response.ErrorCode === 1) {
-    //     return response.Response;
-    //   } else {
-    //     return false;
-    //   }
-    // } else {
     if (request.ok) {
       const response = await request.json();
 
@@ -51,58 +63,5 @@ export async function gearAsset(reference_id) {
     } else {
       return false;
     }
-  } catch (e) {}
-}
-
-class VoluspaError extends Error {
-  constructor(request) {
-    super(request.Message);
-
-    this.errorCode = request.ErrorCode;
-    this.errorStatus = request.ErrorStatus;
-  }
-}
-
-export async function leaderboard(sort = 'triumphScore', offset = 0, limit = 10) {
-  try {
-    const request = await fetch(`https://voluspa.braytech.org/leaderboards/?sort=${sort}&limit=${limit}&offset=${offset}`).then(r => r.json());
-
-    if (request.ErrorCode !== 1) {
-      throw new VoluspaError(request);
-    }
-
-    return request.Response;
-  } catch (e) {}
-}
-
-export async function leaderboardGroup(groupId = false, sort = 'triumphScore') {
-  if (!groupId) {
-    return {};
-  }
-
-  try {
-    const request = await fetch(`https://voluspa.braytech.org/leaderboards/?groupId=${groupId}&sort=${sort}`).then(r => r.json());
-
-    if (request.ErrorCode !== 1) {
-      throw new VoluspaError(request);
-    }
-
-    return request.Response;
-  } catch (e) {}
-}
-
-export async function leaderboardPosition(membershipType = false, membershipId = false) {
-  if (!membershipType || !membershipId) {
-    return {};
-  }
-
-  try {
-    const request = await fetch(`https://voluspa.braytech.org/leaderboards/position?membershipType=${membershipType}&membershipId=${membershipId}`).then(r => r.json());
-
-    if (request.ErrorCode !== 1) {
-      throw new VoluspaError(request);
-    }
-
-    return request.Response;
   } catch (e) {}
 }

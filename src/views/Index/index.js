@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
-import userFlair from '../../data/userFlair';
 import Button from '../../components/UI/Button';
 
 import captainsLog from '../../data/captainsLog';
@@ -32,8 +31,8 @@ class Index extends React.Component {
       log: 0
     };
 
-    this.logs = captainsLog.slice().reverse();
-    this.supporters = this.shuffle(userFlair.slice().filter(m => m.trophies.find(t => t.classnames.includes('patron'))));
+    this.logs = [...captainsLog].reverse();
+    this.supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta]);
   }
 
   componentDidMount() {
@@ -167,16 +166,6 @@ class Index extends React.Component {
             </div>
           </div>
         </div>
-        <div className='row patreon-cta'>
-          <div className='wrapper'>
-            <div className='device'>
-              <Patreon />
-            </div>
-            <a className='button' href='https://www.patreon.com/braytech' rel='noreferrer noopener'>
-              <div className='text'>{t('Become a Patron')}</div>
-            </a>
-          </div>
-        </div>
         <div className='row about'>
           <div className='wrapper'>
             <div className='module'>
@@ -229,12 +218,13 @@ class Index extends React.Component {
                 <p>Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.</p>
                 <p>By supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.</p>
               </div>
-              <a className='button' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
+              <a className='button cta' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
                 <div className='text'>{t('Become a Patron')}</div>
+                <i className='segoe-uniE0AB' />
               </a>
             </div>
             <div className='module tags'>
-              {this.supporters.map((m, k) => <MemberLink key={k} id={m.user} hideFlair />)}
+              {this.supporters.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
             </div>
           </div>
         </div>

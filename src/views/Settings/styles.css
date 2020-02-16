@@ -5,12 +5,12 @@
   width: 100%;
 }
 
-#settings > .module.head {
+#settings .module.head {
   padding: calc(4rem + 40px) 3rem 3rem;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#settings > .module.head .page-header {
+#settings .module.head .page-header {
   margin-bottom: 0rem;
 }
 
@@ -47,7 +47,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-#settings > .padder {
+#settings .buff {
   width: 100%;
   padding: 3rem;
   display: grid;
@@ -55,34 +55,34 @@
   grid-gap: 3rem;
 }
 
-#settings > .padder > .module:first-child {
+#settings .buff .module:first-child {
   grid-column: 1/3;
 }
 
 @media screen and (max-width: 1500px) {
-  #settings > .padder {
+  #settings .buff {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (max-width: 1024px) {
-  #settings > .padder {
+  #settings .buff {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (max-width: 600px) {
-  #settings > .module.head {
+  #settings .module.head {
     padding: calc(3rem + 40px) 2rem 2rem;
   }
 
-  #settings > .padder {
+  #settings .buff {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 2rem;
     padding: 2rem;
   }
 
-  #settings > .padder > .module:first-child {
+  #settings .buff .module:first-child {
     grid-column: unset;
   }
 }

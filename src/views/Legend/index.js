@@ -1,13 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 import html2canvas from 'html2canvas';
-import i18n from 'i18next';
 
+import { t, duration } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
@@ -83,10 +81,10 @@ class Legend extends React.Component {
   themes = {
     bnet: {
       name: 'Bungie.net',
-      description: i18n.t('In the modern though timeless style of Bungie.net itself'),
+      description: t('In the modern though timeless style of Bungie.net itself'),
       variants: [
         {
-          name: i18n.t('Destiny 2 colours'),
+          name: t('Destiny 2 colours'),
           background: {
             src: '/static/images/legend/010A_0623_00.jpg'
           },
@@ -118,7 +116,7 @@ class Legend extends React.Component {
           ]
         },
         {
-          name: i18n.t('Destiny 1 colours'),
+          name: t('Destiny 1 colours'),
           background: {
             src: '/static/images/legend/010A_0623_00.jpg'
           },
@@ -140,8 +138,8 @@ class Legend extends React.Component {
       ]
     },
     mono: {
-      name: i18n.t('Monotone'),
-      description: i18n.t('A single colour–or none–at various saturations and luminances'),
+      name: t('Monotone'),
+      description: t('A single colour–or none–at various saturations and luminances'),
       variants: [
         {
           dyes: [
@@ -393,7 +391,7 @@ class Legend extends React.Component {
   }
 
   render() {
-    const { t, member, location } = this.props;
+    const { member, location } = this.props;
 
     if (member && member.characterId && member.data) {
       const characters = member.data.profile.characters.data;
@@ -590,9 +588,7 @@ class Legend extends React.Component {
                   <div className='name sub'>{t('Season rank')}</div>
                 </div>
                 <div className='col'>
-                  <div className='value'>
-                    {timePlayed} {timePlayed === 1 ? t('day') : t('days')}
-                  </div>
+                  <div className='value'>{duration({ days: timePlayed }, { unit: 'days' })}</div>
                   <div className='name sub'>{t('Time played')}</div>
                 </div>
                 <div className='col'>
@@ -851,4 +847,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Legend);
+export default connect(mapStateToProps)(Legend);

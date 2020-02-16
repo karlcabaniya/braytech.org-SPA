@@ -47,43 +47,82 @@ export const defaultState = {
         ]
       },
       {
-        id: 'body-1',
+        id: 'body-0',
         type: 'body',
         cols: [
           {
-            id: 'body-1-col-0',
+            id: 'body-0-col-0',
             mods: [
               {
-                id: 'SeasonArtifact-0',
+                id: 'SeasonArtifact-1',
                 component: 'SeasonArtifact'
               }
             ]
           },
           {
-            id: 'body-1-col-1',
+            id: 'body-0-col-1',
+            mods: []
+          },
+          {
+            id: 'body-0-col-2',
             mods: [
               {
-                id: 'Ranks-0',
-                component: 'Ranks'
+                id: 'Transitory-1',
+                component: 'Transitory'
+              },
+              {
+                id: 'Clan-1',
+                component: 'Clan'
               }
             ]
           },
           {
-            id: 'body-1-col-2',
-            mods: []
-          },
-          {
-            id: 'body-1-col-3',
-            mods: []
+            id: 'body-0-col-3',
+            mods: [
+              {
+                id: 'SeasonCountdown-1',
+                component: 'SeasonCountdown'
+              },
+              {
+                id: 'Ranks-1',
+                component: 'Ranks',
+                settings: [
+                  {
+                    id: 'progressionHash',
+                    value: 2000925172
+                  }
+                ]
+              },
+              {
+                id: 'Ranks-2',
+                component: 'Ranks',
+                settings: [
+                  {
+                    id: 'progressionHash',
+                    value: 2626549951
+                  }
+                ]
+              },
+              {
+                id: 'Ranks-3',
+                component: 'Ranks',
+                settings: [
+                  {
+                    id: 'progressionHash',
+                    value: 2772425241
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
       {
-        id: 'body-2',
+        id: 'body-1',
         type: 'body',
         cols: [
           {
-            id: 'body-2-col-0',
+            id: 'body-1-col-0',
             mods: [
               {
                 id: 'SeasonPass-0',
@@ -92,15 +131,15 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-2-col-1',
+            id: 'body-1-col-1',
             mods: []
           },
           {
-            id: 'body-2-col-2',
+            id: 'body-1-col-2',
             mods: []
           },
           {
-            id: 'body-2-col-3',
+            id: 'body-1-col-3',
             mods: []
           }
         ]
@@ -132,11 +171,11 @@ export const defaultState = {
         ]
       },
       {
-        id: 'body-1',
+        id: 'body-0',
         type: 'body',
         cols: [
           {
-            id: 'body-1-col-0',
+            id: 'body-0-col-0',
             mods: [
               {
                 id: 'Nightfalls-1',
@@ -145,25 +184,25 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-1-col-1',
+            id: 'body-0-col-1',
             mods: []
           },
           {
-            id: 'body-1-col-2',
+            id: 'body-0-col-2',
             mods: []
           },
           {
-            id: 'body-1-col-3',
+            id: 'body-0-col-3',
             mods: []
           }
         ]
       },
       {
-        id: 'body-2',
+        id: 'body-1',
         type: 'body',
         cols: [
           {
-            id: 'body-2-col-0',
+            id: 'body-1-col-0',
             mods: [
               {
                 id: 'Raid-1',
@@ -178,7 +217,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-2-col-1',
+            id: 'body-1-col-1',
             mods: [
               {
                 id: 'Raid-2',
@@ -193,7 +232,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-2-col-2',
+            id: 'body-1-col-2',
             mods: [
               {
                 id: 'Raid-3',
@@ -208,7 +247,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-2-col-3',
+            id: 'body-1-col-3',
             mods: [
               {
                 id: 'Raid-4',
@@ -225,11 +264,11 @@ export const defaultState = {
         ]
       },
       {
-        id: 'body-3',
+        id: 'body-2',
         type: 'body',
         cols: [
           {
-            id: 'body-3-col-0',
+            id: 'body-2-col-0',
             mods: [
               {
                 id: 'DreamingCityAscendantChallenge-1',
@@ -238,7 +277,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-3-col-1',
+            id: 'body-2-col-1',
             mods: [
               {
                 id: 'DreamingCityCurse-1',
@@ -247,7 +286,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-3-col-2',
+            id: 'body-2-col-2',
             mods: [
               {
                 id: 'DreamingCityShatteredThrone-1',
@@ -256,17 +295,17 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-3-col-3',
+            id: 'body-2-col-3',
             mods: []
           }
         ]
       },
       {
-        id: 'body-4',
+        id: 'body-3',
         type: 'body',
         cols: [
           {
-            id: 'body-4-col-0',
+            id: 'body-3-col-0',
             mods: [
               {
                 id: 'Menagerie-1',
@@ -275,7 +314,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-4-col-1',
+            id: 'body-3-col-1',
             mods: [
               {
                 id: 'Reckoning-1',
@@ -284,7 +323,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-4-col-2',
+            id: 'body-3-col-2',
             mods: [
               {
                 id: 'EscalationProtocol-1',
@@ -293,7 +332,7 @@ export const defaultState = {
             ]
           },
           {
-            id: 'body-4-col-3',
+            id: 'body-3-col-3',
             mods: []
           }
         ]

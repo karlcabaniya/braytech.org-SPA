@@ -1,11 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy, groupBy } from 'lodash';
-import Moment from 'react-moment';
 import cx from 'classnames';
 
+import { t, duration, timestampToDuration } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
 import { itemComponents } from '../../utils/destinyItems/itemComponents';
@@ -60,7 +58,7 @@ class BountyTracker extends React.Component {
   }
 
   process = (items = [], isQuest = false, enableTooltip = true) => {
-    const { t, member, viewport } = this.props;
+    const { member, viewport } = this.props;
 
     const nowMs = new Date().getTime();
 
@@ -189,10 +187,10 @@ class BountyTracker extends React.Component {
                     {item.itemComponents?.objectives?.length && item.itemComponents.objectives.filter(o => !o.complete).length > 0 && expirationDate ? (
                       timestampExpiry > timestamp ? (
                         <>
-                          {t('Expires')} <Moment fromNow>{expirationDate}</Moment>.
+                          {t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate), { relative: true }) })}
                         </>
                       ) : (
-                        <>{t('Expired')}.</>
+                        <>{t('Expired.')}</>
                       )
                     ) : null}
                   </div>
@@ -217,7 +215,7 @@ class BountyTracker extends React.Component {
   };
 
   render() {
-    const { t, member, auth, viewport } = this.props;
+    const { member, auth, viewport } = this.props;
 
     if (viewport.width < 940) {
       return (
@@ -384,4 +382,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(BountyTracker);
+export default connect(mapStateToProps, mapDispatchToProps)(BountyTracker);

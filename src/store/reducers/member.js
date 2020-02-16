@@ -74,7 +74,7 @@ async function loadMember(membershipType, membershipId, characterId) {
       }
     });
 
-    voluspa.store({ membershipId, membershipType });
+    voluspa.PostMember({ membershipId, membershipType });
 
   } catch (error) {
 

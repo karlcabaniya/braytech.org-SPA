@@ -1,13 +1,13 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
 
+import { t, duration } from '../../utils/i18n';
 import * as utils from '../../utils/destinyUtils';
 import Characters from '../../components/UI/Characters';
 import Flair from '../../components/UI/Flair';
 
 class Profile extends React.Component {
   render() {
-    const { t, member, location } = this.props;
+    const { member, location } = this.props;
 
     const groups = member.data.groups.results;
 
@@ -30,7 +30,7 @@ class Profile extends React.Component {
             </div>
             <div>
               <div className='value'>
-                {timePlayed} {timePlayed === 1 ? t('day played') : t('days played')}
+                {timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}
               </div>
               <div className='name'>{t('Time played across characters')}</div>
             </div>
@@ -50,4 +50,4 @@ class Profile extends React.Component {
   }
 }
 
-export default withTranslation()(Profile);
+export default Profile;

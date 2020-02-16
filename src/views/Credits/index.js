@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
-import userFlair from '../../data/userFlair';
 
 import './styles.css';
 
@@ -15,7 +15,7 @@ class Credits extends React.Component {
 
     this.state = {};
 
-    this.supporters = this.shuffle(userFlair.slice().filter(m => m.trophies.find(t => t.classnames.includes('patron'))));
+    this.supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta]);
   }
 
   thanks = [
@@ -101,7 +101,7 @@ class Credits extends React.Component {
             <div>{t('Patreon supporters')}</div>
           </div>
           <div className='tags'>
-            {this.supporters.map((m, k) => <MemberLink key={k} id={m.user} hideFlair />)}
+            {this.supporters.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
           </div>
         </div>
       </div>

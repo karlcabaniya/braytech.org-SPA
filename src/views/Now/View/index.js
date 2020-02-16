@@ -27,7 +27,7 @@ import SeasonCountdown from '../../../components/UserModules/SeasonCountdown';
 import AltarsOfSorrow from '../../../components/UserModules/AltarsOfSorrow';
 import Clan from '../../../components/UserModules/Clan';
 
-import { moduleRules } from '../Customise';
+import { moduleRules, getCols } from '../Customise';
 
 import './styles.css';
 
@@ -188,10 +188,9 @@ class Now extends React.Component {
                 return null;
               }
             } else {
-              const groupFullSpan = group.cols.findIndex(c => c.mods.find(m => moduleRules.full.includes(m.component)));
               const groupDoubleSpan = group.cols.filter(c => c.mods.find(m => moduleRules.double.includes(m.component))).length;
 
-              const cols = groupFullSpan > -1 ? group.cols.slice(0, 1) : groupDoubleSpan ? groupDoubleSpan < 2 ? group.cols.slice(0, 3) : group.cols.filter(c => c.mods.find(m => moduleRules.double.includes(m.component))) : group.cols;
+              const cols = getCols(group.cols);
 
               return (
                 <div key={g} className={cx('group', ...(group.className || []), { 'double-pear': groupDoubleSpan > 1 } )}>

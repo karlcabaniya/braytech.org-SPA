@@ -191,7 +191,7 @@ class Settings extends React.Component {
             <div className='name'>{t('Settings')}</div>
           </div>
         </div>
-        <div className='padder'>
+        <div className='buff'>
           <div className='module'>
             <div className='sub-header sub'>
               <div>{t('Bungie.net profile')}</div>

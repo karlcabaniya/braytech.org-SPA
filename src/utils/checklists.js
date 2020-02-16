@@ -2,7 +2,7 @@ import React from 'react';
 import { orderBy } from 'lodash';
 
 import store from '../store';
-import i18n from './i18n';
+import { t } from './i18n';
 
 import data from '../data/lowlines/checklists';
 import manifest from './manifest';
@@ -40,10 +40,10 @@ export const checklists = {
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
       sortBy: ['completed', 'destination', 'bubble', 'name'],
-      checklistItemName: i18n.t('Adventure'),
-      checklistItemName_plural: i18n.t('Adventures'),
+      checklistItemName: t('Adventure'),
+      checklistItemName_plural: t('Adventures'),
       checklistIcon: 'destiny-adventure',
-      checklistProgressDescription: i18n.t('Adventures undertaken'),
+      checklistProgressDescription: t('Adventures undertaken'),
       ...options
     }),
   // region chests
@@ -79,10 +79,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Region Chest'),
-      checklistItemName_plural: i18n.t('Region Chests'),
+      checklistItemName: t('Region Chest'),
+      checklistItemName_plural: t('Region Chests'),
       checklistIcon: 'destiny-region_chests',
-      checklistProgressDescription: i18n.t('Chests opened'),
+      checklistProgressDescription: t('Chests opened'),
       ...options
     }),
   // lost sectors
@@ -118,10 +118,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Lost Sector'),
-      checklistItemName_plural: i18n.t('Lost Sectors'),
+      checklistItemName: t('Lost Sector'),
+      checklistItemName_plural: t('Lost Sectors'),
       checklistIcon: 'destiny-lost_sectors',
-      checklistProgressDescription: i18n.t('Discovered'),
+      checklistProgressDescription: t('Discovered'),
       ...options
     }),
   // ahamkara bones
@@ -156,10 +156,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Ahamkara Bones'),
-      checklistItemName_plural: i18n.t('Ahamkara Bones'),
+      checklistItemName: t('Ahamkara Bones'),
+      checklistItemName_plural: t('Ahamkara Bones'),
       checklistIcon: 'destiny-ahamkara_bones',
-      checklistProgressDescription: i18n.t('Bones found'),
+      checklistProgressDescription: t('Bones found'),
       ...options
     }),
   // corrupted eggs
@@ -187,10 +187,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Corrupted Egg'),
-      checklistItemName_plural: i18n.t('Corrupted Eggs'),
+      checklistItemName: t('Corrupted Egg'),
+      checklistItemName_plural: t('Corrupted Eggs'),
       checklistIcon: 'destiny-corrupted_eggs',
-      checklistProgressDescription: i18n.t('Eggs destroyed'),
+      checklistProgressDescription: t('Eggs destroyed'),
       ...options
     }),
   // cat statues
@@ -218,10 +218,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Cat Statue'),
-      checklistItemName_plural: i18n.t('Cat Statues'),
+      checklistItemName: t('Cat Statue'),
+      checklistItemName_plural: t('Cat Statues'),
       checklistIcon: 'destiny-cat_statues',
-      checklistProgressDescription: i18n.t('Feline friends satisfied'),
+      checklistProgressDescription: t('Feline friends satisfied'),
       ...options
     }),
   // jade rabbits
@@ -250,10 +250,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Jade Rabbit'),
-      checklistItemName_plural: i18n.t('Jade Rabbits'),
+      checklistItemName: t('Jade Rabbit'),
+      checklistItemName_plural: t('Jade Rabbits'),
       checklistIcon: 'destiny-jade_rabbit_2',
-      checklistProgressDescription: i18n.t('Rabbits with rice cake'),
+      checklistProgressDescription: t('Rabbits with rice cake'),
       ...options
     }),
   // sleeper nodes
@@ -283,10 +283,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Sleeper Node'),
-      checklistItemName_plural: i18n.t('Sleeper Nodes'),
+      checklistItemName: t('Sleeper Node'),
+      checklistItemName_plural: t('Sleeper Nodes'),
       checklistIcon: 'destiny-sleeper_nodes',
-      checklistProgressDescription: i18n.t('Nodes hacked'),
+      checklistProgressDescription: t('Nodes hacked'),
       ...options
     }),
   // ghost scans
@@ -314,10 +314,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Ghost Scan'),
-      checklistItemName_plural: i18n.t('Ghost Scans'),
+      checklistItemName: t('Ghost Scan'),
+      checklistItemName_plural: t('Ghost Scans'),
       checklistIcon: 'destiny-ghost',
-      checklistProgressDescription: i18n.t('Scans performed'),
+      checklistProgressDescription: t('Scans performed'),
       ...options
     }),
   // latent memories
@@ -345,10 +345,10 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: i18n.t('Lost Memory Fragment'),
-      checklistItemName_plural: i18n.t('Lost Memory Fragments'),
+      checklistItemName: t('Lost Memory Fragment'),
+      checklistItemName_plural: t('Lost Memory Fragments'),
       checklistIcon: 'destiny-lost_memory_fragments',
-      checklistProgressDescription: i18n.t('Memories resolved'),
+      checklistProgressDescription: t('Memories resolved'),
       ...options
     }),
   // lore: ghost stories
@@ -383,11 +383,11 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
-      checklistItemName_plural: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
+      checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
+      checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
       checklistIcon: 'destiny-lore_scholar',
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004869.png',
-      checklistProgressDescription: i18n.t('Stories read'),
+      checklistProgressDescription: t('Stories read'),
       ...options
     }),
   // lore: awoken of the reef
@@ -422,11 +422,11 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
-      checklistItemName_plural: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
+      checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
+      checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
       checklistIcon: 'destiny-lore_scholar',
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004874.png',
-      checklistProgressDescription: i18n.t('Crystals resolved'),
+      checklistProgressDescription: t('Crystals resolved'),
       ...options
     }),
   // lore: forsaken prince
@@ -445,7 +445,7 @@ export const checklists = {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
 
         if (!definitionDestination) {
-          return <em>{i18n.t('Forsaken campaign')}</em>;
+          return <em>{t('Forsaken campaign')}</em>;
         }
 
         const definitionBubble = definitionDestination.bubbles.find(b => b.hash === i.bubbleHash);
@@ -466,11 +466,11 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
-      checklistItemName_plural: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
+      checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
+      checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
       checklistIcon: 'destiny-lore_scholar',
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004886.png',
-      checklistProgressDescription: i18n.t('Data caches decrypted'),
+      checklistProgressDescription: t('Data caches decrypted'),
       ...options
     }),
   // lore: lunas lost
@@ -512,11 +512,11 @@ export const checklists = {
 
         return [activityName, bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
-      checklistItemName_plural: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
+      checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
+      checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
       checklistIcon: 'destiny-lore_scholar',
       checklistImage: '/static/images/extracts/ui/checklists/0597_02D2_00.png',
-      checklistProgressDescription: i18n.t('Ghost fragments recovered'),
+      checklistProgressDescription: t('Ghost fragments recovered'),
       ...options
     }),
   // lore: inquisition of the damned
@@ -558,11 +558,11 @@ export const checklists = {
 
         return [activityName, bubbleName, destinationName, placeName].filter(s => s).join(', ');
       },
-      checklistItemName: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
-      checklistItemName_plural: `${i18n.t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
+      checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
+      checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
       checklistIcon: 'destiny-lore_scholar',
       checklistImage: '/static/images/extracts/ui/checklists/0597_02CC_00.png',
-      checklistProgressDescription: i18n.t('Necrotic cyphers collected'),
+      checklistProgressDescription: t('Necrotic cyphers collected'),
       ...options
     })
 };

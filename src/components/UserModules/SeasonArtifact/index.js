@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 import moment from 'moment';
 
+import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { seasonalMods } from '../../../utils/destinyEnums';
 import Items from '../../Items';
@@ -57,8 +56,7 @@ class SeasonArtifact extends React.Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds } = this.state;
-    const { t, member } = this.props;
+    const member = this.props.member;
     const profile = member.data.profile.profile.data;
     const profileProgression = member.data.profile.profileProgression.data;
     const characterEquipment = member.data.profile.characterEquipment.data[member.characterId].items;
@@ -193,7 +191,9 @@ class SeasonArtifact extends React.Component {
           <div className='progression'>
             <h4>{t('Season')}</h4>
             <p>
-              <em>{t('{{seasonName}} has {{timeRemaining}} remaining.', { seasonName: manifest.DestinySeasonDefinition[profile.currentSeasonHash]?.displayProperties?.name, timeRemaining: days > 0 ? `${days} ${days === 1 ? t('day') : t('days')} ${hours} ${hours === 1 ? t('hour') : t('hours')}` : hours > 0 ? `${hours} ${hours === 1 ? t('hour') : t('hours')} ${minutes} ${minutes === 1 ? t('minute') : t('minutes')}` : `${minutes} ${minutes === 1 ? t('minute') : t('minutes')} ${seconds} ${seconds === 1 ? t('second') : t('seconds')}` })}</em>
+              <em>{t('{{seasonName}} has {{timeRemaining}} remaining.', {
+                seasonName: manifest.DestinySeasonDefinition[profile.currentSeasonHash]?.displayProperties?.name, timeRemaining: duration(this.state)
+              })}</em>
             </p>
             <h4>{t('Progression')}</h4>
             <p>
@@ -246,4 +246,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(SeasonArtifact);
+export default connect(mapStateToProps, mapDispatchToProps)(SeasonArtifact);

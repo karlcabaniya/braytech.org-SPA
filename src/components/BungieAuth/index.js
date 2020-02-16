@@ -1,15 +1,18 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { Redirect, Link, withRouter } from 'react-router-dom';
+import { debounce } from 'lodash';
 import cx from 'classnames';
 import Moment from 'react-moment';
+import Markdown from 'react-markdown';
 import queryString from 'query-string';
 
 import store from '../../store';
+import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
-import * as destinyEnums from '../../utils/destinyEnums';
+import * as voluspa from '../../utils/voluspa';
+import * as enums from '../../utils/destinyEnums';
 import * as paths from '../../utils/paths';
 import Button from '../UI/Button';
 import Spinner from '../UI/Spinner';
@@ -18,6 +21,105 @@ import { ReactComponent as CrossSaveIcon } from '../../svg/miscellaneous/cross-s
 
 import './styles.css';
 
+const RegExpEmail = new RegExp(/^\S+@\S+\.\S+$/);
+
+class PatreonAssociation extends React.Component {
+  state = {
+    loading: false,
+    error: false,
+    value: '',
+    valid: false
+  };
+
+  componentDidMount() {
+    this.mounted = true;
+
+    window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  handler_onSearchChange = e => {
+    if (this.mounted) {
+      this.setState({
+        value: e.target.value,
+        valid: RegExpEmail.test(e.target.value)
+      });
+    }
+  };
+
+  handler_onSubmit = e => {
+    e.preventDefault();
+
+    this.setAssociation();
+  };
+
+  setAssociation = async () => {
+    const membershipIds = this.props.destinyMemberships.map(m => m.membershipId);
+    const primaryMembershipId = this.props.primaryMembershipId;
+    const email = this.state.value;
+
+    if (!membershipIds.length || email === '') return;
+
+    if (this.mounted) {
+      this.setState({
+        loading: true
+      });
+    }
+
+    const response = await voluspa.PostPatreon({ membershipIds, primaryMembershipId, email });
+
+    if (this.mounted) {
+      this.setState(p => ({
+        loading: false,
+        value: response.ErrorCode === 1 && response.Response ? '' : p.value
+      }));
+    }
+
+    if (response.ErrorCode === 1 && response.Response) {
+      this.props.pushNotification({
+        date: new Date().toISOString(),
+        expiry: 86400000,
+        displayProperties: {
+          name: 'Braytech',
+          description: t('Thanks! Your email is now associated with your profiles'),
+          timeout: 10
+        }
+      });
+      this.props.handler();
+    }
+  };
+
+  render() {
+    const { loading, error, value, valid } = this.state;
+
+    return (
+      <div className='bungie-auth'>
+        <h4>{t('Patreon association')}</h4>
+        <div className='patreon'>
+          <Markdown className='text' source={`Some Patreon tiers include rewards in the form of _flair_ which is displayed at the side of your player name.\nEnable display of relevant flair by entering the email associated with your Patreon account.`} />
+          <form onSubmit={this.handler_onSubmit}>
+            <div className='form'>
+              <div className='field'>
+                <input id='email' onChange={this.handler_onSearchChange} type='email' required placeholder={t('chonky_zuzuvala69@hotmail.reef')} pattern='^\S+@\S+\.\S+$' spellCheck='false' value={value} />
+              </div>
+            </div>
+            <div className='actions'>
+              <div>
+                <Button text={t('Cancel')} action={this.props.handler} />
+                <Button text={t('Set')} action={this.handler_onSubmit} type='submit' disabled={!valid || loading} />
+              </div>
+              <div>{loading ? <Spinner mini /> : null}</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
 class BungieAuth extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +127,8 @@ class BungieAuth extends React.Component {
     this.state = {
       loading: true,
       memberships: false,
-      error: false
+      error: false,
+      patreon: false
     };
   }
 
@@ -33,10 +136,6 @@ class BungieAuth extends React.Component {
     await bungie.GetOAuthAccessToken(`client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&grant_type=authorization_code&code=${code}`);
 
     if (this.mounted) {
-      // if (tokens && tokens.ErrorCode === 1 && tokens.Response) {
-      //   this.props.setAuth(tokens.Response);
-      // }
-
       this.getMemberships();
     }
   };
@@ -90,6 +189,12 @@ class BungieAuth extends React.Component {
     });
   };
 
+  handler_patreon = e => {
+    this.setState(p => ({
+      patreon: !p.patreon
+    }));
+  };
+
   componentDidMount() {
     this.mounted = true;
 
@@ -114,13 +219,17 @@ class BungieAuth extends React.Component {
   }
 
   render() {
-    const { t, location } = this.props;
-    const { loading, memberships, error } = this.state;
+    const { location } = this.props;
+    const { loading, memberships, error, patreon } = this.state;
 
     const code = queryString.parse(location.search) && queryString.parse(location.search).code;
 
     if (code) {
       return <Redirect to='/settings' />;
+    }
+
+    if (patreon) {
+      return <PatreonAssociation {...memberships} handler={this.handler_patreon} pushNotification={this.props.pushNotification} />;
     }
 
     if (loading) {
@@ -150,7 +259,7 @@ class BungieAuth extends React.Component {
                   return (
                     <li key={m.membershipId} className='linked'>
                       <div className='icon'>
-                        <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
+                        <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
                       </div>
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
@@ -176,6 +285,10 @@ class BungieAuth extends React.Component {
             <Button text={t('Forget me')} action={this.handler_forget} />
             <div className='info'>
               <p>{t('Delete the authentication data stored on your device. While unnecessary, this function is provided for your peace of mind.')}</p>
+            </div>
+            <Button text={t('Patreon association')} action={this.handler_patreon} />
+            <div className='info'>
+              <p>{t('Associate this Bungie.net profile with a Patreon account')}</p>
             </div>
           </div>
         );
@@ -288,7 +401,6 @@ class BungieAuthMini extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
     const { loading, memberships, error } = this.state;
 
     if (loading) {
@@ -303,7 +415,7 @@ class BungieAuthMini extends React.Component {
                   return (
                     <li key={m.membershipId} className='linked'>
                       <div className='icon'>
-                        <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
+                        <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
                       </div>
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
@@ -369,8 +481,6 @@ class BungieAuthButton extends React.Component {
   };
 
   render() {
-    const { t } = this.props;
-
     return (
       <div className='bungie-auth'>
         <Button cta action={this.handler_goToBungie}>
@@ -388,7 +498,7 @@ class NoAuth extends React.Component {
   };
 
   render() {
-    const { t, inline } = this.props;
+    const { inline } = this.props;
 
     return (
       <div className={cx('bungie-auth', 'no-auth', { inline })}>
@@ -466,7 +576,7 @@ class DiffProfile extends React.Component {
   }
 
   render() {
-    const { t, inline, location } = this.props;
+    const { inline, location } = this.props;
     const { loading, memberships, error } = this.state;
     const pathname = paths.removeMemberIds(location.pathname);
 
@@ -528,7 +638,7 @@ class DiffProfile extends React.Component {
                       return (
                         <li key={m.membershipId} className='linked'>
                           <div className='icon'>
-                            <span className={`destiny-platform_${destinyEnums.platforms[m.membershipType]}`} />
+                            <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
                           </div>
                           <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                           {m.crossSaveOverride === m.membershipType ? (
@@ -570,18 +680,19 @@ function mapDispatchToProps(dispatch) {
     },
     resetAuth: () => {
       dispatch({ type: 'RESET_AUTH' });
+    },
+    pushNotification: value => {
+      dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
     }
   };
 }
 
-BungieAuth = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(BungieAuth);
+BungieAuth = connect(mapStateToProps, mapDispatchToProps)(BungieAuth);
 
-BungieAuthMini = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(BungieAuthMini);
+BungieAuthMini = connect(mapStateToProps, mapDispatchToProps)(BungieAuthMini);
 
-BungieAuthButton = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(BungieAuthButton);
+BungieAuthButton = connect(mapStateToProps, mapDispatchToProps)(BungieAuthButton);
 
-NoAuth = compose(withTranslation())(NoAuth);
-
-DiffProfile = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation(), withRouter)(DiffProfile);
+DiffProfile = compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(DiffProfile);
 
 export { BungieAuth, BungieAuthMini, BungieAuthButton, NoAuth, DiffProfile };

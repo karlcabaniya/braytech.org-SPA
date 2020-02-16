@@ -160,7 +160,7 @@ class Roster extends React.Component {
                           {lastActivityString}
                           <span>
                             {moment(lastPlayed)
-                              .locale('relative-sml')
+                              .locale('rel-abr')
                               .fromNow(true)}
                           </span>
                         </div>
@@ -168,7 +168,7 @@ class Roster extends React.Component {
                     ) : (
                       <div>
                         {moment(lastPlayed)
-                          .locale('relative-sml')
+                          .locale('rel-abr')
                           .fromNow()}
                       </div>
                     )}
@@ -361,7 +361,7 @@ class Roster extends React.Component {
       });
     }
 
-    if (mini && groupMembers.members.filter(member => member.isOnline).length < 1) {
+    if (mini && showOnline && groupMembers.members.filter(member => member.isOnline).length < 1) {
       return (
         <div className='roster'>
           <div className='info'>{t("There's no one here right now.")}</div>
@@ -411,8 +411,9 @@ class Roster extends React.Component {
                 })}
           </ul>
           {mini ? (
-            <ProfileLink className='button' to='/clan/roster'>
+            <ProfileLink className='button cta' to='/clan/roster'>
               <div className='text'>{t('See full roster')}</div>
+              <i className='segoe-uniE0AB' />
             </ProfileLink>
           ) : null}
         </>
