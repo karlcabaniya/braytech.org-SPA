@@ -21,77 +21,9 @@ const icons = {
 };
 
 class Mode extends React.Component {
-  calculateResets = progressionHash => {
-    if (progressionHash === 2626549951) {
-      // if valor adjust hash
-      progressionHash = 3882308435;
-    }
-
-    const { characterId, characterProgressions, characterRecords, profileRecords } = this.props.data;
-
-    const infamySeasons = [{ recordHash: 3901785488, objectiveHash: 4210654397 }].map(season => {
-      const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-      const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-      season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-      return season;
-    });
-
-    const valorSeasons = [
-      {
-        recordHash: 1341325320,
-        objectiveHash: 1089010148
-      },
-      {
-        recordHash: 2462707519,
-        objectiveHash: 2048068317
-      },
-      {
-        recordHash: 3666883430,
-        objectiveHash: 3211089622
-      },
-      {
-        recordHash: 2110987253,
-        objectiveHash: 1898743615
-      },
-      {
-        recordHash: 510151900,
-        objectiveHash: 2011701344
-      }
-    ].map(season => {
-      const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-      const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-      season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-      return season;
-    });
-
-    return {
-      resetsSeason: characterProgressions[characterId].progressions[progressionHash] && Number.isInteger(characterProgressions[characterId].progressions[progressionHash].currentResetCount) ? characterProgressions[characterId].progressions[progressionHash].currentResetCount : '?',
-      // resetsTotal:
-      //   characterProgressions[characterId].progressions[progressionHash] && characterProgressions[characterId].progressions[progressionHash].seasonResets
-      //     ? characterProgressions[characterId].progressions[progressionHash].seasonResets.reduce((acc, curr) => {
-      //         if (curr.season > 3) {
-      //           return acc + curr.resets;
-      //         } else {
-      //           return acc;
-      //         }
-      //       }, 0)
-      //     : '?'
-      // // this doesn't work anymore
-      resetsTotal: (progressionHash === 3882308435 ? valorSeasons : infamySeasons).reduce((a, v) => a + v.resets, 0)
-    };
-  };
-
   render() {
     const { t, hash } = this.props;
-    const { characterId, characterProgressions } = this.props.data;
+    const { characterId, characterProgressions, characterRecords, profileRecords } = this.props.data;
 
     const extras = {
       2772425241: {
@@ -129,7 +61,7 @@ class Mode extends React.Component {
         progressStepDescription_split[1];
     }
 
-    const { resetsTotal, resetsSeason } = this.calculateResets(hash);
+    const { resetsTotal, resetsSeason } = utils.calculateResets(hash, characterId, characterProgressions, characterRecords, profileRecords);
 
     return (
       <div className={cx('rank', extras[hash].class)}>

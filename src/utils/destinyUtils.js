@@ -61,6 +61,11 @@ export function collectionTotal(data) {
 }
 
 export const calculateResets = (progressionHash, characterId, characterProgressions, characterRecords, profileRecords) => {
+  if (progressionHash === 2626549951) {
+    // if valor adjust hash
+    progressionHash = 3882308435;
+  }
+  
   const infamySeasons = [{ recordHash: 3901785488, objectiveHash: 4210654397 }].map(season => {
     const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
 
@@ -92,6 +97,10 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
     {
       recordHash: 510151900,
       objectiveHash: 2011701344
+    },
+    {
+      recordHash: 2282573299,
+      objectiveHash: 18453481
     }
   ].map(season => {
     const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
@@ -105,7 +114,7 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
   });
 
   return {
-    current: characterProgressions[characterId].progressions[progressionHash] && Number.isInteger(characterProgressions[characterId].progressions[progressionHash].currentResetCount) ? characterProgressions[characterId].progressions[progressionHash].currentResetCount : '?',
+    resetsSeason: characterProgressions[characterId].progressions[progressionHash] && Number.isInteger(characterProgressions[characterId].progressions[progressionHash].currentResetCount) ? characterProgressions[characterId].progressions[progressionHash].currentResetCount : '?',
     // total:
     //   characterProgressions[characterId].progressions[progressionHash] && characterProgressions[characterId].progressions[progressionHash].seasonResets
     //     ? characterProgressions[characterId].progressions[progressionHash].seasonResets.reduce((acc, curr) => {
@@ -116,7 +125,7 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
     //         }
     //       }, 0)
     //     : '?'
-    total: (progressionHash === 3882308435 ? valorSeasons : infamySeasons).reduce((a, v) => a + v.resets, 0)
+    resetsTotal: (progressionHash === 3882308435 ? valorSeasons : infamySeasons).reduce((a, v) => a + v.resets, 0)
   };
 };
 
