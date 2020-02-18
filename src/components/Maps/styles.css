@@ -5,6 +5,10 @@
   color: #ffffff;
 }
 
+.map-omega.loading {
+  pointer-events: none;
+}
+
 .map-omega .loading {
   position: absolute;
   top: 0;

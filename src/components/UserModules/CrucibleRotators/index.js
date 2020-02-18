@@ -61,16 +61,16 @@ class CrucibleRotators extends React.Component {
     const { t, member } = this.props;
     const characterActivities = member.data.profile.characterActivities.data;
 
-    console.log(characterActivities[member.characterId].availableActivities.map(a => {
-      if (!a.activityHash) return false;
-      const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
+    // console.log(characterActivities[member.characterId].availableActivities.map(a => {
+    //   if (!a.activityHash) return false;
+    //   const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
 
-      return {
-        name: definitionActivity.displayProperties.name,
-        ...a,
-        definitionActivity
-      }
-    }));
+    //   return {
+    //     name: definitionActivity.displayProperties.name,
+    //     ...a,
+    //     definitionActivity
+    //   }
+    // }));
     
     const featuredCrucibleModes = characterActivities[member.characterId].availableActivities.filter(a => {
       if (!a.activityHash) return false;

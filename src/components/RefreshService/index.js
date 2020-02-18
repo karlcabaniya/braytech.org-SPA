@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import store from '../../store';
-import * as utils from '../../utils/destinyUtils';
 import getMember from '../../utils/getMember';
-import Spinner from '../UI/Spinner';
 
 import './styles.css';
 
@@ -12,10 +9,6 @@ const AUTO_REFRESH_INTERVAL = 30 * 1000;
 const TIMEOUT = 60 * 60 * 1000;
 
 class RefreshService extends React.Component {
-  state = {
-    loading: false
-  }
-
   componentDidMount() {
     // start the countdown
     this.init();
@@ -23,17 +16,9 @@ class RefreshService extends React.Component {
 
   componentDidUpdate(prevProps) {
     // if previous member prop data doesn't equal current member prop data, if config service was turned off/on
-    if (prevProps.member.data !== this.props.member.data || this.props.member.stale || prevProps.refreshService.config.enabled !== this.props.refreshService.config.enabled) {
-      // if config service was turned off/on
-      if (prevProps.refreshService.config.enabled !== this.props.refreshService.config.enabled) {
-        if (this.props.refreshService.config.enabled) {
-          this.init();
-        } else {
-          this.quit();
-        }
-
-        // member data is stale -> go now
-      } else if (this.props.member.stale) {
+    if (prevProps.member.data !== this.props.member.data || this.props.member.stale) {
+      // member data is stale -> go now
+      if (this.props.member.stale) {
         this.track();
         this.service();
 
@@ -50,34 +35,23 @@ class RefreshService extends React.Component {
   }
 
   render() {
-    const { location } = this.props;
-    const { loading } = this.state;
-
-    if (loading && utils.isProfileRoute(location)) {
-      return (
-        <div id='refresh-service'>
-          <Spinner mini />
-        </div>
-      );
-    } else {
-      return null;
-    }
+    return null;
   }
 
   init() {
-    if (this.props.member.membershipId && this.props.refreshService.config.enabled) {
+    if (this.props.member.membershipId) {
       this.track();
 
-      document.addEventListener('click', this.clickHandler);
-      document.addEventListener('visibilitychange', this.visibilityHandler);
+      document.addEventListener('click', this.handler_click);
+      document.addEventListener('visibilitychange', this.handler_visibility);
 
       this.startInterval();
     }
   }
 
   quit() {
-    document.removeEventListener('click', this.clickHandler);
-    document.removeEventListener('visibilitychange', this.visibilityHandler);
+    document.removeEventListener('click', this.handler_click);
+    document.removeEventListener('visibilitychange', this.handler_visibility);
 
     this.clearInterval();
   }
@@ -98,11 +72,11 @@ class RefreshService extends React.Component {
     window.clearInterval(this.refreshAccountDataInterval);
   }
 
-  clickHandler = () => {
+  handler_click = () => {
     this.track();
   };
 
-  visibilityHandler = () => {
+  handler_visibility = () => {
     if (document.hidden === false) {
       this.track();
       this.service();
@@ -112,7 +86,7 @@ class RefreshService extends React.Component {
   service = async () => {
 
     // service is already asking for fresh data
-    if (this.state.loading) {
+    if (this.props.refreshService.loading) {
       return;
     }
 
@@ -122,9 +96,10 @@ class RefreshService extends React.Component {
     }
 
     const { membershipType, membershipId, characterId, data: previousMemberLoad } = this.props.member;
+      
+    this.props.setState(true);
 
     try {
-      this.setState({ loading: true });
 
       const data = await getMember(membershipType, membershipId, true);
 
@@ -135,26 +110,22 @@ class RefreshService extends React.Component {
       });
 
       if (data) {
-        store.dispatch({
-          type: 'MEMBER_LOADED',
-          payload: {
-            membershipType,
-            membershipId,
-            characterId,
-            data: {
-              profile: data.profile.Response,
-              groups: data.groups.Response,
-              milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones
-            }
+        this.props.setMember({
+          membershipType,
+          membershipId,
+          characterId,
+          data: {
+            profile: data.profile.Response,
+            groups: data.groups.Response,
+            milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones
           }
         });
       }
-
-      this.setState({ loading: false });
-
     } catch (e) {
       console.warn(`Error while refreshing profile - ignoring`, e);
     }
+
+    this.props.setState(false);
   };
 }
 
@@ -165,4 +136,15 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(RefreshService);
+function mapDispatchToProps(dispatch) {
+  return {
+    setMember: payload => {
+      dispatch({ type: 'MEMBER_LOADED', payload });
+    },
+    setState: loading => {
+      dispatch({ type: 'SET_REFRESH_STATE', payload: { loading } });
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RefreshService);

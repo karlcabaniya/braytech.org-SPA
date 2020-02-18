@@ -487,6 +487,14 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+#tooltip .description .destination:last-child {
+  padding: 0;
+}
+
+#tooltip .description:last-child .destination:last-child {
+  padding: 0;
+}
+
 #tooltip .energy {
   padding: 0 16px;
   color: #fff;

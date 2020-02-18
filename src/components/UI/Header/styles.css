@@ -365,6 +365,11 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   transition: width 1s;
 }
 
+#header.profile-header .characters .list li .spinner {
+  position: absolute;
+  right: 0;
+}
+
 #header.profile-header .characters .list li:hover {
   background-color: rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 1);

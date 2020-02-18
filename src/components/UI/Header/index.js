@@ -10,6 +10,7 @@ import { ProfileNavLink } from '../../ProfileLink';
 import ProgressBar from '../../UI/ProgressBar';
 import Footer from '../Footer';
 import { EmblemIcon, EmblemBackground } from '../Emblem/';
+import Spinner from '../Spinner';
 
 import './styles.css';
 
@@ -88,7 +89,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { t, location, viewport, member } = this.props;
+    const { t, location, viewport, member, refreshService } = this.props;
 
     const isProfileRoute = utils.isProfileRoute(location);
 
@@ -275,6 +276,7 @@ class Header extends React.Component {
                     {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderType)} / <span className='light'>{character.light}</span>
                   </div>
                   <ProgressBar hideCheck {...progressSeasonalRank} />
+                  {refreshService.loading ? <Spinner mini /> : null}
                   <Link
                     to={{
                       pathname: '/character-select',
@@ -461,6 +463,7 @@ class Header extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
+    refreshService: state.refreshService,
     theme: state.theme,
     viewport: state.viewport
   };

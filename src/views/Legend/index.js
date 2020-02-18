@@ -396,6 +396,7 @@ class Legend extends React.Component {
     if (member && member.characterId && member.data) {
       const characters = member.data.profile.characters.data;
       const character = characters.find(c => c.characterId === member.characterId);
+      const characterProgressions = member.data.profile.characterProgressions.data;
       const profileRecords = member.data.profile.profileRecords.data.records;
       const characterRecords = member.data.profile.characterRecords.data;
       const groups = member.data.groups.results;
@@ -409,48 +410,8 @@ class Legend extends React.Component {
         }, 0) / 1440
       );
 
-      const infamySeasons = [{ recordHash: 3901785488, objectiveHash: 4210654397 }].map(season => {
-        const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-        const recordScope = definitionRecord.scope || 0;
-        const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-        season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-        return season;
-      });
-
-      const valorSeasons = [
-        {
-          recordHash: 1341325320,
-          objectiveHash: 1089010148
-        },
-        {
-          recordHash: 2462707519,
-          objectiveHash: 2048068317
-        },
-        {
-          recordHash: 3666883430,
-          objectiveHash: 3211089622
-        },
-        {
-          recordHash: 2110987253,
-          objectiveHash: 1898743615
-        },
-        {
-          recordHash: 510151900,
-          objectiveHash: 2011701344
-        }
-      ].map(season => {
-        const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
-
-        const recordScope = definitionRecord.scope || 0;
-        const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
-
-        season.resets = (recordData && recordData.objectives && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash) && recordData.objectives.find(o => o.objectiveHash === season.objectiveHash).progress) || 0;
-
-        return season;
-      });
+      const valor = utils.calculateResets(2626549951, member.characterId, characterProgressions, characterRecords, profileRecords);
+      const infamy = utils.calculateResets(2772425241, member.characterId, characterProgressions, characterRecords, profileRecords);
 
       const time = new Date().toISOString();
 
@@ -600,11 +561,11 @@ class Legend extends React.Component {
                   <div className='name sub'>{t('Collection total')}</div>
                 </div>
                 <div className='col'>
-                  <div className='value'>{valorSeasons.reduce((a, v) => a + v.resets, 0)}</div>
+                  <div className='value'>{valor.resetsTotal}</div>
                   <div className='name sub'>{t('Valor resets')}</div>
                 </div>
                 <div className='col'>
-                  <div className='value'>{infamySeasons.reduce((a, v) => a + v.resets, 0)}</div>
+                  <div className='value'>{infamy.resetsTotal}</div>
                   <div className='name sub'>{t('Infamy resets')}</div>
                 </div>
                 <div className='line' />

@@ -1,19 +1,11 @@
-import * as ls from '../../utils/localStorage';
-
 const defaultState = {
-  config: {
-    enabled: true,
-    frequency: 30
-  }
+  loading: false
 };
 
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
-    case 'SET_REFRESH_OPTIONS':
-      ls.set('setting.refreshService', {
-        ...state,
-        ...action.payload
-      });
+    case 'SET_REFRESH_STATE':
+
       return {
         ...state,
         ...action.payload
