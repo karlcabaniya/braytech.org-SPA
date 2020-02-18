@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as paths from '../../../utils/paths';
+import { commonality } from '../../../utils/destinyUtils';
 import * as enums from '../../../utils/destinyEnums';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
@@ -136,6 +136,15 @@ class BadgeNode extends React.Component {
             {completed > 0 ? <h4 className='completed'>{t('Badge completed')}</h4> : <h4>{t('Badge progress')}</h4>}
             {progress}
           </div>
+          {manifest.statistics.triumphs?.[definitionBadge.completionRecordHash] ? (
+            <div className='commonality'>
+              <h4>{t('Badge commonality')}</h4>
+              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionBadge.completionRecordHash}>{commonality(manifest.statistics.triumphs?.[definitionBadge.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
+              <div className='description'>
+                {t("The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
+              </div>
+            </div>
+          ) : null}
         </div>
         <div className='entries' ref={this.entries}>
           <div className='class-nodes'>

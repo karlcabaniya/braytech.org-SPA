@@ -24,6 +24,10 @@ export function totalInfamy() {
   }, 0);
 }
 
+export function commonality(players = 0) {
+  return players / manifest.statistics.general.scraped * 100;
+}
+
 export function collectionTotal(data) {
   if (!data.profileCollectibles || !data.characterCollectibles) {
     console.warn('No data provided to destinyUtils.collectionTotal');

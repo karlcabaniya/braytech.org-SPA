@@ -998,5 +998,10 @@
     "date": "2020-02-16T05:04:34.575Z",
     "version": "2.17.8",
     "content": "- Patreon automation"
+  },
+  {
+    "date": "2020-02-18T07:48:34.080Z",
+    "version": "2.17.12",
+    "content": "- Big changes to how commonality is displayed in addition to a whole new rarity ranking view called _Commonality_."
   }
 ]

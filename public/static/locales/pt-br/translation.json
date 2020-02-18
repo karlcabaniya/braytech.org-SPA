@@ -58,7 +58,7 @@
   "Ascendant Challenge": "Desafio Ascendente",
   "#####Associate this Bungie.net profile with a Patreon account": "🌐",
   "Associated memberships": "Contas associadas",
-  "At current, {{number}} players are indexed by VOLUSPA.": "No momento, {{number}} jogadores estão sendo analisados por VOLUSPA.",
+  "At current, {{players}} players are indexed by VOLUSPA.": "No momento, {{players}} jogadores estão sendo analisados por VOLUSPA.",
   "Attempt to unregister the installed service worker. If successful, reloading the app will allow a new service worker to take its place.": "Tentar desregistrar o service worker instalado. Se obtiver sucesso, recarregar o app permitirá que um novo service worker tome o seu lugar.",
   "Attempt to update the service worker immediately. This function will disable the button temporarily. You may continue to use Braytech while it attempts to update in the background. If successful, you will be prompted to restart the app.": "Tentar atualizar o service worker imediatamente. Essa função vai desativar o botão temporariamente. Você poderá continuar usando o Braytech enquanto ele é atualizado em segundo plano. Se obtiver sucesso, você será pedido para reiniciar o app.",
   "Authenticate": "Autenticar",

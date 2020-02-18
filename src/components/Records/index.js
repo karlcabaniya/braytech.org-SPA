@@ -8,6 +8,7 @@ import { orderBy } from 'lodash';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
+import { commonality } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import * as paths from '../../utils/paths';
 import dudRecords from '../../data/dudRecords';
@@ -198,8 +199,8 @@ class Records extends React.Component {
         recordState.objectives = definitionRecord.objectiveHashes.map((hash, i) => {
           const data = recordData && recordData.objectives.find(o => o.objectiveHash === hash);
 
-          recordState.completion.value += data.completionValue;
-          recordState.completion.progress += data.progress;
+          recordState.completion.value += data?.completionValue || 0;
+          recordState.completion.progress += data?.progress || 0;
 
           return {
             ...data,
@@ -224,16 +225,20 @@ class Records extends React.Component {
         recordState.completion.distance = distance.progress / distance.completion;
       }
 
-      if (definitionRecord.intervalInfo && definitionRecord.intervalInfo.intervalObjectives && definitionRecord.intervalInfo.intervalObjectives.length) {
+      if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
         recordState.intervals = definitionRecord.intervalInfo.intervalObjectives.map((interval, i) => {
-          const data = recordData && recordData.intervalObjectives.find(o => o.objectiveHash === interval.intervalObjectiveHash);
+          const definitionInterval = manifest.DestinyObjectiveDefinition[interval.intervalObjectiveHash];
+          const data = (recordData && recordData.intervalObjectives.find(o => o.objectiveHash === interval.intervalObjectiveHash)) || {};
           const unredeemed = i + 1 > recordData.intervalsRedeemedCount && data.complete;
 
           return {
+            objectiveHash: definitionInterval.hash,
+            completionValue: definitionInterval.completionValue,
+            progress: 0,
             ...data,
             unredeemed,
             score: interval.intervalScoreValue,
-            el: <ProgressBar key={`${hash}${i}`} {...data} />
+            el: <ProgressBar key={definitionInterval.hash} {...data} />
           };
         });
 
@@ -427,9 +432,9 @@ class Records extends React.Component {
                 <div className='text'>
                   <div className='name'>{definitionRecord.displayProperties.name}</div>
                   <div className='meta'>
-                    {manifest.statistics.triumphs && manifest.statistics.triumphs[definitionRecord.hash] ? (
-                      <div className='commonality tooltip' data-hash='commonality' data-type='braytech'>
-                        {manifest.statistics.triumphs[definitionRecord.hash].toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                    {manifest.statistics.triumphs ? (
+                      <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
+                        {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
                       </div>
                     ) : null}
                     {recordState.intervals.length && recordState.intervals.filter(i => i.complete).length !== recordState.intervals.length ? (

@@ -341,15 +341,15 @@
   margin: 3rem 0 0;
 }
 
-#collections .node.badge .children .until h4 {
+#collections .node.badge .children h4 {
   margin: 0 0 1rem;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-#collections .node.badge .children .until h4.completed {
-  color: rgb(206, 174, 51);
+#collections .node.badge .children h4.completed {
+  color: #e0ce85;
   font-family: var(--fontText);
 }
 
@@ -425,6 +425,30 @@
 #collections .node.badge .children .progress .bar.completed .fill {
   background-color: rgb(206, 174, 51);
 }
+
+#collections .node.badge .children .commonality {
+  margin: 2rem 0 0;
+}
+
+#collections .node.badge .children .commonality h4 {
+  margin: 0 0 10px;
+}
+
+#collections .node.badge .children .commonality .value {
+  font-size: 18px;
+  margin: 0 0 6px;
+  display: inline-block;
+}
+
+#collections .node.badge .children .commonality .description {
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+
 
 #collections .node.badge .entries {
   padding-top: calc(2rem + 1px);
@@ -538,8 +562,8 @@
     padding: 0;
   }
 
-  #collections .node.badge .children .until {
-    margin: 3rem 0 2rem;
+  #collections .node.badge .children .commonality {
+    margin: 2rem 0;
   }
 }
 

@@ -5,6 +5,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
+import { badgeImages } from '../../../utils/destinyEnums';
 import ObservedImage from '../../../components/ObservedImage';
 import Collectibles from '../../../components/Collectibles';
 import Search from '../../../components/Search';
@@ -85,13 +86,13 @@ class Root extends React.Component {
 
     // badges
     parentBadges.children.presentationNodes.forEach(child => {
-      const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
+      const definitionBadge = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
       const classStates = [];
 
       let fullComplete = 0;
       let semiComplete = false;
 
-      definitionNode.children.presentationNodes.forEach(nodeChild => {
+      definitionBadge.children.presentationNodes.forEach(nodeChild => {
         const definitionNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChild.presentationNodeHash];
 
         const sweep = [];
@@ -122,24 +123,24 @@ class Root extends React.Component {
       });
 
       if (semiComplete) {
-        badgesStates.push(definitionNode.displayProperties.name);
+        badgesStates.push(definitionBadge.displayProperties.name);
       }
 
       badges.push(
         <li
-          key={definitionNode.hash}
+          key={definitionBadge.hash}
           className={cx('badge', 'linked', {
             semiComplete: semiComplete,
             fullComplete: fullComplete === 3,
             tooltip: viewport.width > 600
           })}
-          data-hash={definitionNode.hash}
+          data-hash={definitionBadge.hash}
           data-type='collections-badge'
         >
-          <ProfileLink to={`/collections/badge/${definitionNode.hash}`}>
-            <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionNode.originalIcon}`} />
+          <ProfileLink to={`/collections/badge/${definitionBadge.hash}`}>
+            <ObservedImage className='image icon' src={badgeImages[definitionBadge.hash] ? `/static/images/extracts/badges/${badgeImages[definitionBadge.hash]}` : `https://www.bungie.net${definitionBadge.displayProperties.icon}`} />
             <div className='text'>
-              <div>{definitionNode.displayProperties.name}</div>
+              <div>{definitionBadge.displayProperties.name}</div>
             </div>
           </ProfileLink>
         </li>

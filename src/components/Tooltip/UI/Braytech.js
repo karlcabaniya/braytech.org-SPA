@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import manifest from '../../../utils/manifest';
 
 const Braytech = (props) => {
-  const { t, itemHash } = props;
+  const { t, itemHash, relatedHash } = props;
 
   const definition = manifest.BraytechDefinition[itemHash];
 
@@ -19,10 +19,16 @@ const Braytech = (props) => {
           <pre>{description}</pre>
         </div>
       ) : null}
-      {itemHash === 'commonality' ? <div className='line' /> : null}
-      {itemHash === 'commonality' && manifest.statistics.general ? (
+      {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? <div className='line' /> : null}
+      {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? (
         <div className='description'>
-          <p>{t('At current, {{number}} players are indexed by VOLUSPA.', { number: manifest.statistics.general.scraped.toLocaleString() })}</p>
+          <p>{t('{{players}} players have completed this.', { players: manifest.statistics.triumphs[relatedHash]?.toLocaleString() || 0 })}</p>
+        </div>
+      ) : null}
+      {itemHash === 'commonality' ? <div className='line' /> : null}
+      {itemHash === 'commonality' ? (
+        <div className='description'>
+          <p>{t('At current, {{players}} players are indexed by VOLUSPA.', { players: manifest.statistics.general.scraped.toLocaleString() })}</p>
         </div>
       ) : null}
     </>

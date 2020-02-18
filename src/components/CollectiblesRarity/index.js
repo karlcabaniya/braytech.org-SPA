@@ -7,9 +7,10 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
+import { commonality } from '../../utils/destinyUtils';
+import { enumerateCollectibleState } from '../../utils/destinyEnums';
 import { ProfileLink } from '../ProfileLink';
 import ObservedImage from '../ObservedImage';
-import { enumerateCollectibleState } from '../../utils/destinyEnums';
 
 class CollectiblesRarity extends React.Component {
   selfLink = hash => {
@@ -65,7 +66,7 @@ class CollectiblesRarity extends React.Component {
     let collectiblesRequested = this.props.hashes.filter(h => h);
 
     collectiblesRequested.forEach(hash => {
-      let collectibleDefinition = manifest.DestinyCollectibleDefinition[hash];
+      let definitionCollectible = manifest.DestinyCollectibleDefinition[hash];
 
       let link = this.selfLink(hash);
 
@@ -91,25 +92,25 @@ class CollectiblesRarity extends React.Component {
       }
 
       output.push({
-        rarity: manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash] : 100,
+        rarity: manifest.statistics.collections && manifest.statistics.collections[definitionCollectible.hash] ? manifest.statistics.collections[definitionCollectible.hash] : 100,
         el: (
           <li
-            key={collectibleDefinition.hash}
+            key={definitionCollectible.hash}
             className={cx('tooltip', {
               linked: link && this.props.selfLinkFrom,
               completed: !enumerateCollectibleState(state).notAcquired
             })}
-            data-hash={collectibleDefinition.itemHash}
+            data-hash={definitionCollectible.itemHash}
           >
             <div className='icon'>
-              <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${collectibleDefinition.displayProperties.icon}`} />
+              <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
             </div>
             <div className='text'>
-              <div className='name'>{collectibleDefinition.displayProperties.name}</div>
-              <div className='commonality'>{manifest.statistics.collections && manifest.statistics.collections[collectibleDefinition.hash] ? manifest.statistics.collections[collectibleDefinition.hash] : `0.00`}%</div>
+              <div className='name'>{definitionCollectible.displayProperties.name}</div>
+              <div className='commonality'>{manifest.statistics.collections?.[definitionCollectible.hash] ? commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : `0.00`}%</div>
             </div>
             {link && this.props.selfLinkFrom && !inspect ? <ProfileLink to={{ pathname: link, state: { from: this.props.selfLinkFrom } }} /> : null}
-            {inspect && collectibleDefinition.itemHash ? <Link to={{ pathname: `/inspect/${collectibleDefinition.itemHash}`, state: { from: this.props.selfLinkFrom } }} /> : null}
+            {inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: this.props.selfLinkFrom } }} /> : null}
           </li>
         )
       });

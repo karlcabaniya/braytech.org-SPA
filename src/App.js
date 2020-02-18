@@ -16,6 +16,7 @@ import 'moment/locale/pl';
 import 'moment/locale/pt-br';
 import 'moment/locale/ru';
 import 'moment/locale/zh-cn';
+import 'moment/locale/zh-tw';
 
 import './Core.css';
 import './App.css';
@@ -56,6 +57,7 @@ import Legend from './views/Legend';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
 import PGCR from './views/PGCR';
 import Compare from './views/Compare';
+import Commonality from './views/Commonality';
 
 import Test from './views/Test';
 import TestThree from './views/TestThree';
@@ -103,7 +105,7 @@ class App extends React.Component {
 
     let momentLocale = this.currentLanguage;
     if (this.currentLanguage === 'zh-chs') momentLocale = 'zh-cn';
-    if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-cn';
+    if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-tw';
 
     moment.locale(momentLocale);
 
@@ -281,29 +283,34 @@ class App extends React.Component {
                         <Route render={route => <Header {...route} {...this.state} {...this.props} />} />
                         <Switch>
                           <RedirectRoute path='/clan' />
-                          <RedirectRoute path='/character' exact />
-                          <RedirectRoute path='/checklists' exact />
                           <RedirectRoute path='/collections/' />
                           <RedirectRoute path='/triumphs' />
+                          <RedirectRoute path='/checklists' exact />
+                          <RedirectRoute path='/character' exact />
                           <RedirectRoute path='/this-week' />
-                          <RedirectRoute path='/reports' />
                           <RedirectRoute path='/now' />
                           <RedirectRoute path='/quests' />
+                          <RedirectRoute path='/reports' />
 
                           <Route path='/character-select' exact component={CharacterSelect} />
+
+                          <Route path='/maps/:map?/:highlight?' component={Maps} />
+                          <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
                           <Route path='/pgcr/:instanceId?' exact component={PGCR} />
                           <Route path='/inspect/:hash?' exact component={Inspect} />
                           <Route path='/read/:kind?/:hash?' exact component={Read} />
                           <Route path='/compare/:object?' exact component={Compare} />
-                          <Route path='/maps/:map?/:highlight?' component={Maps} />
                           <Route path='/legend' exact component={Legend} />
+
+                          <Route path='/commonality' exact component={Commonality} />
                           <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                           <Route path='/faq' exact component={FAQ} />
                           <Route path='/credits' exact component={Credits} />
-                          <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
+
                           <Route path='/oob' component={OOB} />
                           <Route path='/test' component={Test} />
                           <Route path='/three' component={TestThree} />
+
                           <Route path='/' component={Index} />
                         </Switch>
                       </>

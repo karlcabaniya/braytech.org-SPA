@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
+import { commonality } from '../../../utils/destinyUtils';
 import { enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
 import ObservedImage from '../../../components/ObservedImage';
 import Records from '../../../components/Records';
@@ -49,8 +50,6 @@ class SealNode extends React.Component {
 
     const title = !definitionCompletionRecord.redacted && definitionCompletionRecord.titleInfo && definitionCompletionRecord.titleInfo.titlesByGenderHash[character.genderHash];
 
-    const sealCommonality = manifest.statistics.seals && manifest.statistics.seals[definitionSeal.hash];
-
     return (
       <div className='node seal'>
         <div className='children'>
@@ -86,10 +85,10 @@ class SealNode extends React.Component {
               </div>
             </div>
           </div>
-          {sealCommonality ? (
+          {manifest.statistics.triumphs?.[definitionSeal.completionRecordHash] ? (
             <div className='commonality'>
               <h4>{t('Seal commonality')}</h4>
-              <div className='value'>{sealCommonality.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
+              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionSeal.completionRecordHash}>{commonality(manifest.statistics.triumphs?.[definitionSeal.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
               <div className='description'>
                 {t("The seal's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
               </div>

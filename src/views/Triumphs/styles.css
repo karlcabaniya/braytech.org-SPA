@@ -147,7 +147,7 @@
 }
 
 #triumphs .node.seal .children h4.completed {
-  color: rgb(206, 174, 51);
+  color: #e0ce85;
   font-family: var(--fontText);
 }
 
@@ -219,9 +219,14 @@
   margin: 2rem 0 0;
 }
 
+#triumphs .node.seal .children .commonality h4 {
+  margin: 0 0 10px;
+}
+
 #triumphs .node.seal .children .commonality .value {
   font-size: 18px;
   margin: 0 0 6px;
+  display: inline-block;
 }
 
 #triumphs .node.seal .children .commonality .description {

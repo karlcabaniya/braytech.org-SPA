@@ -22,6 +22,7 @@ class UI extends React.Component {
       itemHash: this.props.hash,
       itemInstanceId: this.props.instanceid,
       itemComponents: null,
+      relatedHash: this.props.related,
       quantity: parseInt(this.props.quantity || 1, 10),
       state: parseInt(this.props.state || 0, 10),
       rarity: 'common',
