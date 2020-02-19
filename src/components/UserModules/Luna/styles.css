@@ -22,7 +22,8 @@
 }
 
 .user-module.lunar .story-mission .name {
-  margin: 0 0 3px;
+  font-size: 16px;
+  margin: 0 0 8px;
 }
 
 .user-module.lunar .story-mission .description {

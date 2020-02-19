@@ -18,7 +18,7 @@ class Transitory extends React.Component {
     this.getTransitoryResponse();
   }
 
-  componentWillDsmount() {
+  componentWillUnmount() {
     this.mounted = false;
   }
 
@@ -35,11 +35,13 @@ class Transitory extends React.Component {
   getTransitoryResponse = async () => {
     const { member } = this.props;
 
-    if (!this.mounted) return;
-
-    this.setState({
-      loading: true
-    });
+    if (!this.mounted) {
+      return;
+    } else {
+      this.setState({
+        loading: true
+      });
+    }    
 
     const response = await bungie
       .GetProfile({

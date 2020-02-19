@@ -71,6 +71,11 @@
 #triumphs .list.parents li .displayProperties .name {
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.8);
+  transition: color 0.25s;
+}
+
+#triumphs .list.parents li:hover .displayProperties .name {
+  color: #fff;
 }
 
 #triumphs .list.parents li .displayProperties .progress {
