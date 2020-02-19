@@ -1,86 +1,177 @@
 {
   "de": {
     "translated": 397,
-    "notTranslated": 259,
-    "added": [],
+    "notTranslated": 265,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 656,
+    "translated": 662,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "en": {
-    "translated": 656,
+    "translated": 662,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 599,
-    "notTranslated": 57,
-    "added": [],
+    "notTranslated": 63,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "es": {
     "translated": 655,
-    "notTranslated": 1,
-    "added": [],
+    "notTranslated": 7,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "fr": {
     "translated": 527,
-    "notTranslated": 129,
-    "added": [],
+    "notTranslated": 135,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "it": {
     "translated": 656,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 6,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "ja": {
     "translated": 562,
-    "notTranslated": 94,
-    "added": [],
+    "notTranslated": 100,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "ko": {
     "translated": 590,
-    "notTranslated": 66,
-    "added": [],
+    "notTranslated": 72,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 656,
-    "added": [],
+    "notTranslated": 662,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "pt-br": {
     "translated": 608,
-    "notTranslated": 48,
-    "added": [],
+    "notTranslated": 54,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "ru": {
     "translated": 609,
-    "notTranslated": 47,
-    "added": [],
+    "notTranslated": 53,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 489,
-    "notTranslated": 167,
-    "added": [],
+    "notTranslated": 173,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 404,
-    "notTranslated": 252,
-    "added": [],
+    "notTranslated": 258,
+    "added": [
+      "A summary of Destiny's most rare records and collectibles",
+      "Badge commonality",
+      "Commonality",
+      "Records",
+      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
+      "{{players}} players have completed this."
+    ],
     "removed": []
   }
 }
