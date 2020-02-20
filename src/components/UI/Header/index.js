@@ -245,14 +245,9 @@ class Header extends React.Component {
       }
     ];
 
-    let viewsInline = false;
-    if (viewport.width >= 1280) {
-      viewsInline = true;
-    }
+    const viewsInline = viewport.width >= 1280;
 
-    let profileEl = null;
-
-    let isActive = (match, location) => {
+    const isActive = (match, location) => {
       if (match) {
         return true;
       } else {
@@ -260,88 +255,14 @@ class Header extends React.Component {
       }
     };
 
-    if (isProfileRoute && member.data) {
-      const profile = member.data.profile.profile.data;
-      const characters = member.data.profile.characters.data;
-      const character = characters.find(character => character.characterId === member.characterId);
+    const profile = member.data?.profile?.profile.data;
+    const characters = member.data?.profile?.characters.data;
+    const character = characters?.find(character => character.characterId === member.characterId);
 
-      const progressSeasonalRank = utils.progressionSeasonRank(member);
-
-      profileEl = (
-        <div className='profile'>
-          <div className={cx('background', { 'update-flash': this.state.updateFlash })}>
-            <EmblemBackground hash={character.emblemHash} />
-          </div>
-          <div className='ui'>
-            <div className='characters'>
-              <ul className='list'>
-                <li>
-                  <div className='icon'>
-                    <EmblemIcon hash={character.emblemHash} />
-                  </div>
-                  <div className='displayName'>{profile.userInfo.displayName}</div>
-                  <div className='basics'>
-                    {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderType)} / <span className='light'>{character.light}</span>
-                  </div>
-                  <ProgressBar hideCheck {...progressSeasonalRank} />
-                  {refreshService.loading ? <Spinner mini /> : null}
-                  <Link
-                    to={{
-                      pathname: '/character-select',
-                      state: { from: this.props.location }
-                    }}
-                  />
-                </li>
-              </ul>
-            </div>
-            {viewsInline ? (
-              <div className='views'>
-                <ul>
-                  {views
-                    .filter(v => v.inline)
-                    .map(view => {
-                      if (view.profile) {
-                        return (
-                          <li key={view.slug}>
-                            <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact}>
-                              {view.name}
-                            </ProfileNavLink>
-                          </li>
-                        );
-                      } else if (view.hidden) {
-                        return (
-                          <li key='more'>
-                            <Link
-                              to={view.slug}
-                              onClick={e => {
-                                e.preventDefault();
-                                this.openNav();
-                              }}
-                            >
-                              {view.name}
-                            </Link>
-                          </li>
-                        );
-                      } else {
-                        return (
-                          <li key={view.slug}>
-                            <NavLink to={view.slug} exact={view.exact}>
-                              {view.name}
-                            </NavLink>
-                          </li>
-                        );
-                      }
-                    })}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      );
-    }
+    const progressSeasonalRank = member?.data && utils.progressionSeasonRank(member);
 
     return (
-      <div id='header' className={cx(this.props.theme.selected, { 'profile-header': profileEl, navOpen: this.state.navOpen })}>
+      <div id='header' className={cx(this.props.theme.selected, { 'profile-header': isProfileRoute, navOpen: this.state.navOpen })}>
         <div className='braytech'>
           <div className='wrapper'>
             <div className='logo'>
@@ -351,7 +272,7 @@ class Header extends React.Component {
               </Link>
             </div>
             {!viewsInline || this.state.navOpen ? this.navOverlayLink(this.state.navOpen) : null}
-            {!profileEl && viewsInline && !this.state.navOpen ? (
+            {!isProfileRoute && viewsInline && !this.state.navOpen ? (
               <div className='ui'>
                 <div className='views'>
                   <ul>
@@ -396,7 +317,77 @@ class Header extends React.Component {
             ) : null}
           </div>
         </div>
-        {profileEl}
+        {isProfileRoute && character ? (
+          <div className='profile'>
+            <div className={cx('background', { 'update-flash': this.state.updateFlash })}>
+              <EmblemBackground hash={character.emblemHash} />
+            </div>
+            <div className='ui'>
+              <div className='characters'>
+                <ul className='list'>
+                  <li>
+                    <div className='icon'>
+                      <EmblemIcon hash={character.emblemHash} />
+                    </div>
+                    <div className='displayName'>{profile.userInfo.displayName}</div>
+                    <div className='basics'>
+                      {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderType)} / <span className='light'>{character.light}</span>
+                    </div>
+                    <ProgressBar hideCheck {...progressSeasonalRank} />
+                    <Spinner className={refreshService.loading ? 'visible' : undefined} mini />
+                    <Link
+                      to={{
+                        pathname: '/character-select',
+                        state: { from: this.props.location }
+                      }}
+                    />
+                  </li>
+                </ul>
+              </div>
+              {viewsInline ? (
+                <div className='views'>
+                  <ul>
+                    {views
+                      .filter(v => v.inline)
+                      .map(view => {
+                        if (view.profile) {
+                          return (
+                            <li key={view.slug}>
+                              <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact}>
+                                {view.name}
+                              </ProfileNavLink>
+                            </li>
+                          );
+                        } else if (view.hidden) {
+                          return (
+                            <li key='more'>
+                              <Link
+                                to={view.slug}
+                                onClick={e => {
+                                  e.preventDefault();
+                                  this.openNav();
+                                }}
+                              >
+                                {view.name}
+                              </Link>
+                            </li>
+                          );
+                        } else {
+                          return (
+                            <li key={view.slug}>
+                              <NavLink to={view.slug} exact={view.exact}>
+                                {view.name}
+                              </NavLink>
+                            </li>
+                          );
+                        }
+                      })}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
         {this.state.navOpen ? (
           <div className='nav' ref={this.navEl}>
             <div className='wrap'>

@@ -33,17 +33,23 @@ class BlackArmoryForges extends React.Component {
           </p>
         </div>
         <h4>{t('Available activities')}</h4>
-        <ul className='list activities'>
-          {dailyBlackArmoryForges.map((a, i) => {
-            const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
+        {dailyBlackArmoryForges.length ? (
+          <ul className='list activities'>
+            {dailyBlackArmoryForges.map((a, i) => {
+              const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
 
-            return (
-              <li key={i} className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={a.activityHash}>
-                <div className='name'>{definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown')}</div>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={i} className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={a.activityHash}>
+                  <div className='name'>{definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown')}</div>
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <div className='info'>
+            {t("There aren't any activities available to you. Perhaps you don't meet the requirements...")}
+          </div>
+        )}
       </div>
     );
   }

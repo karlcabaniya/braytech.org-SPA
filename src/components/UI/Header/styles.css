@@ -368,6 +368,11 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
 #header.profile-header .characters .list li .spinner {
   position: absolute;
   right: 0;
+  opacity: 0;
+}
+
+#header.profile-header .characters .list li .spinner.visible {
+  opacity: 0.5;
 }
 
 #header.profile-header .characters .list li:hover {

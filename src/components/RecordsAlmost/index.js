@@ -42,7 +42,9 @@ class RecordsAlmost extends React.Component {
     Object.entries(records).forEach(([key, record]) => {
       const hash = parseInt(key, 10);
 
-      if (collectibles.hideDudRecords && dudRecords.indexOf(hash) > -1) return;
+      if (collectibles.hideDudRecords && dudRecords.indexOf(hash) > -1) {
+        return;
+      }
 
       if (manifest.DestinyRecordDefinition[hash].redacted) {
         return;
@@ -58,6 +60,9 @@ class RecordsAlmost extends React.Component {
 
       let completionValueTotal = 0;
       let progressValueTotal = 0;
+      
+      let completionValueDiviser = 0;
+      let progressValueDecimal = 0;
 
       if (record.intervalObjectives) {
         // console.log(record)
@@ -66,27 +71,39 @@ class RecordsAlmost extends React.Component {
         // interval record all completed
         if (!nextIncomplete) return;
 
-        let v = parseInt(nextIncomplete.completionValue, 10);
-        let p = parseInt(nextIncomplete.progress, 10);
+        const c = nextIncomplete.completionValue;
+        const p = nextIncomplete.progress;
 
-        completionValueTotal = completionValueTotal + v;
-        progressValueTotal = progressValueTotal + (p > v ? v : p); // prevents progress values that are greater than the completion value from affecting the average
-
+        completionValueTotal = completionValueTotal + c;
+        progressValueTotal = progressValueTotal + (p > c ? c : p);
+        
+        completionValueDiviser += 1;
+        progressValueDecimal += p / c;
       } else if (record.objectives) {
         record.objectives.forEach(obj => {
-          let v = parseInt(obj.completionValue, 10);
-          let p = parseInt(obj.progress, 10);
+          const c = obj.completionValue;
+          const p = obj.progress;
 
-          completionValueTotal = completionValueTotal + v;
-          progressValueTotal = progressValueTotal + (p > v ? v : p); // prevents progress values that are greater than the completion value from affecting the average
+          completionValueTotal = completionValueTotal + c;
+          progressValueTotal = progressValueTotal + (p > c ? c : p);
+
+          completionValueDiviser += 1;
+          // if (hash === 452100546) console.log(p, c)
+          progressValueDecimal += Math.min(p / c, 1)
         });
       } else {
         return;
       }
 
-      const distance = progressValueTotal / completionValueTotal;
+      // const distance = progressValueTotal / completionValueTotal;
 
-      if (distance >= 1.0) {
+      // if (distance >= 1.0) {
+      //   return;
+      // }
+
+      const distance = progressValueDecimal / completionValueDiviser;
+
+      if (distance >= completionValueDiviser) {
         return;
       }
 
@@ -98,6 +115,8 @@ class RecordsAlmost extends React.Component {
       if (definitionRecord && definitionRecord.completionInfo) {
         score = definitionRecord.completionInfo.ScoreValue;
       }
+
+      // if (hash === 452100546) console.log(definitionRecord.displayProperties.name, distance, progressValueDecimal, completionValueDiviser)
 
       almost.push({
         distance,
@@ -120,13 +139,12 @@ class RecordsAlmost extends React.Component {
     return (
       <>
         <ul className={cx('list record-items')}>
-          {almost.map(r => {
-            return r.element;
-          })}
+          {almost.map(r => r.element)}
         </ul>
         {this.props.pageLink ? (
-          <ProfileLink className='button' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
+          <ProfileLink className='button cta' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
             <div className='text'>{t('See next {{limit}}', { limit: 200 })}</div>
+            <i className='segoe-uniE0AB' />
           </ProfileLink>
         ) : null}
       </>
