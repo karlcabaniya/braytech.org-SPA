@@ -1,7 +1,9 @@
 import * as ls from '../../utils/localStorage';
 
-let lsState = ls.get('setting.theme') ? ls.get('setting.theme') : false;
-lsState = lsState && lsState.selected ? lsState : { selected: 'light-mode' };
+const saved = ls.get('setting.theme') ? ls.get('setting.theme') : false;
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+const initial = saved?.selected ? saved : { selected: prefersDark ? 'dark-mode' : 'light-mode' };
 
 function updateScrollbars(selected) {
   let root = document.documentElement;
@@ -14,7 +16,7 @@ function updateScrollbars(selected) {
   }
 }
 
-export default function reducer(state = lsState, action) {
+export default function reducer(state = initial, action) {
   switch (action.type) {
     case 'SET_THEME':
       ls.set('setting.theme', {
