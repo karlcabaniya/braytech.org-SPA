@@ -159,6 +159,8 @@ class Records extends React.Component {
 
       if (!definitionRecord) return;
 
+      // console.log(definitionRecord.displayProperties.name);
+      
       const recordScope = definitionRecord.scope || 0;
       const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
@@ -174,11 +176,7 @@ class Records extends React.Component {
       }
 
       const recordState = {
-        completion: {
-          value: 0,
-          progress: 0,
-          distance: 0
-        },
+        distance: 0,
         score: {
           value: 0,
           progress: 0,
@@ -199,9 +197,6 @@ class Records extends React.Component {
         recordState.objectives = definitionRecord.objectiveHashes.map((hash, i) => {
           const data = recordData && recordData.objectives.find(o => o.objectiveHash === hash);
 
-          recordState.completion.value += data?.completionValue || 0;
-          recordState.completion.progress += data?.progress || 0;
-
           return {
             ...data,
             score: definitionRecord.completionInfo.ScoreValue,
@@ -212,17 +207,17 @@ class Records extends React.Component {
         const distance = recordState.objectives.reduce(
           (a, v) => {
             return {
-              completion: (a.completion += v.completionValue || 0),
-              progress: (a.progress += v.progress || 0)
+              completionValueDiviser: a.completionValueDiviser += 1,
+              progressValueDecimal: (a.progressValueDecimal += Math.min(v.progress / v.completionValue, 1) || 0)
             };
           },
           {
-            completion: 0,
-            progress: 0
+            completionValueDiviser: 0,
+            progressValueDecimal: 0
           }
         );
 
-        recordState.completion.distance = distance.progress / distance.completion;
+        recordState.distance = distance.progressValueDecimal / distance.completionValueDiviser;
       }
 
       if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
@@ -257,11 +252,10 @@ class Records extends React.Component {
         };
 
         recordState.objectives = [...recordState.intervals.slice(-1)];
+        
+        const nextIncomplete = recordData && recordData.intervalObjectives.find(o => !o.complete);
 
-        recordState.completion.value += recordState.objectives[0].completionValue;
-        recordState.completion.progress += recordState.objectives[0].progress;
-
-        recordState.completion.distance = recordState.intervals[recordState.intervals.length - 1].progress / recordState.intervals[recordState.intervals.length - 1].completionValue;
+        recordState.distance = nextIncomplete && Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
 
         const lastInterval = recordState.intervals[recordState.intervals.length - 1];
 
@@ -315,6 +309,8 @@ class Records extends React.Component {
         );
       }
 
+      // console.log(recordState.distance)
+
       // if (definitionRecord.hash === 810213052) console.log(recordState);
 
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
@@ -327,12 +323,12 @@ class Records extends React.Component {
         return;
       }
 
-      let ref = highlight === definitionRecord.hash ? this.scrollToRecordRef : null;
+      const ref = highlight === definitionRecord.hash ? this.scrollToRecordRef : null;
 
       if (definitionRecord.redacted) {
         recordsOutput.push({
           completed: enumerateRecordState(enumerableState).recordRedeemed,
-          progressDistance: recordState.completion.distance,
+          progressDistance: recordState.distance,
           hash: definitionRecord.hash,
           element: (
             <li
@@ -404,7 +400,7 @@ class Records extends React.Component {
 
         recordsOutput.push({
           completed: enumerateRecordState(enumerableState).recordRedeemed,
-          progressDistance: recordState.completion.distance,
+          progressDistance: recordState.distance,
           hash: definitionRecord.hash,
           element: (
             <li

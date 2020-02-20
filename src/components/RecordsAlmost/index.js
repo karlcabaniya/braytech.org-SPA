@@ -57,49 +57,25 @@ class RecordsAlmost extends React.Component {
       if (enumerateRecordState(record.state).invisible || enumerateRecordState(record.state).recordRedeemed) {
         return;
       }
-
-      let completionValueTotal = 0;
-      let progressValueTotal = 0;
       
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;
 
       if (record.intervalObjectives) {
-        // console.log(record)
         const nextIncomplete = record.intervalObjectives.find(o => !o.complete);
 
-        // interval record all completed
         if (!nextIncomplete) return;
-
-        const c = nextIncomplete.completionValue;
-        const p = nextIncomplete.progress;
-
-        completionValueTotal = completionValueTotal + c;
-        progressValueTotal = progressValueTotal + (p > c ? c : p);
         
         completionValueDiviser += 1;
-        progressValueDecimal += p / c;
+        progressValueDecimal += Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
       } else if (record.objectives) {
-        record.objectives.forEach(obj => {
-          const c = obj.completionValue;
-          const p = obj.progress;
-
-          completionValueTotal = completionValueTotal + c;
-          progressValueTotal = progressValueTotal + (p > c ? c : p);
-
+        record.objectives.forEach(objective => {
           completionValueDiviser += 1;
-          // if (hash === 452100546) console.log(p, c)
-          progressValueDecimal += Math.min(p / c, 1)
+          progressValueDecimal += Math.min(objective.progress / objective.completionValue, 1);
         });
       } else {
         return;
       }
-
-      // const distance = progressValueTotal / completionValueTotal;
-
-      // if (distance >= 1.0) {
-      //   return;
-      // }
 
       const distance = progressValueDecimal / completionValueDiviser;
 
