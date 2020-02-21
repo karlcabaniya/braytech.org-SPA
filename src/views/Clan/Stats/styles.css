@@ -60,6 +60,9 @@
 #clan .module.views.scopes .list li .text {
   padding: 0 1rem;
   letter-spacing: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #clan .module.views.scopes .list li.active .text {

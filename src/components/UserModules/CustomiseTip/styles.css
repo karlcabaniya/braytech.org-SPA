@@ -35,6 +35,10 @@
   font-size: 16px;
 }
 
+.group.customise-tip .button .text {
+  white-space: nowrap;
+}
+
 @media screen and (max-width: 1024px) {
   .group.customise-tip .icon {
     right: 4rem;

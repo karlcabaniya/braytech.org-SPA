@@ -1,177 +1,153 @@
 {
   "de": {
-    "translated": 397,
-    "notTranslated": 265,
+    "translated": 396,
+    "notTranslated": 267,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "debug": {
-    "translated": 662,
+    "translated": 663,
     "notTranslated": 0,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "en": {
-    "translated": 662,
+    "translated": 663,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "es-mx": {
-    "translated": 599,
-    "notTranslated": 63,
+    "translated": 661,
+    "notTranslated": 2,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "es": {
-    "translated": 655,
-    "notTranslated": 7,
+    "translated": 661,
+    "notTranslated": 2,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "fr": {
-    "translated": 527,
-    "notTranslated": 135,
+    "translated": 561,
+    "notTranslated": 102,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "it": {
-    "translated": 656,
-    "notTranslated": 6,
+    "translated": 661,
+    "notTranslated": 2,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "ja": {
-    "translated": 562,
-    "notTranslated": 100,
+    "translated": 616,
+    "notTranslated": 47,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "ko": {
-    "translated": 590,
-    "notTranslated": 72,
+    "translated": 589,
+    "notTranslated": 74,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 662,
+    "notTranslated": 663,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "pt-br": {
-    "translated": 608,
-    "notTranslated": 54,
+    "translated": 607,
+    "notTranslated": 56,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "ru": {
-    "translated": 609,
-    "notTranslated": 53,
+    "translated": 658,
+    "notTranslated": 5,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "zh-chs": {
-    "translated": 489,
-    "notTranslated": 173,
+    "translated": 488,
+    "notTranslated": 175,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   },
   "zh-cht": {
-    "translated": 404,
-    "notTranslated": 258,
+    "translated": 403,
+    "notTranslated": 260,
     "added": [
-      "A summary of Destiny's most rare records and collectibles",
-      "Badge commonality",
-      "Commonality",
-      "Records",
-      "The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.",
-      "{{players}} players have completed this."
+      "Primeval kills",
+      "See all {{members}} members"
     ],
-    "removed": []
+    "removed": [
+      "See all {{count}}"
+    ]
   }
 }

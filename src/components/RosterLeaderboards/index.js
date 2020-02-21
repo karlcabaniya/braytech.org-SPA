@@ -1,13 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 import moment from 'moment';
 
+import { t, duration } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
-import * as ls from '../../utils/localStorage';
 import * as bungie from '../../utils/bungie';
 import getGroupMembers from '../../utils/getGroupMembers';
 import { ProfileNavLink, ProfileLink } from '../ProfileLink';
@@ -51,7 +49,7 @@ class RosterLeaderboards extends React.Component {
       const responses = await Promise.all(
         groupMembers.members.map(async member => {
           try {
-            const response = await bungie.GetHistoricalStats(member.destinyUserInfo.membershipType, member.destinyUserInfo.membershipId, '0', '1', '4,18,46,63,75,69,70,77', '0');
+            const response = await bungie.GetHistoricalStats(member.destinyUserInfo.membershipType, member.destinyUserInfo.membershipId, '0', '1', '4,5,18,37,46,63,75,77,82', '0');
 
             if (response && response.ErrorCode === 1) {
               return {
@@ -78,15 +76,15 @@ class RosterLeaderboards extends React.Component {
 
   scopes = [
     {
-      name: 'Quickplay',
-      value: 'pvpQuickplay'
+      name: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
+      value: 'allPvP'
     },
     {
-      name: 'Competitive',
-      value: 'pvpCompetitive'
+      name: manifest.DestinyActivityModeDefinition[2239249083].displayProperties.name,
+      value: 'survival'
     },
     {
-      name: 'Gambit',
+      name: manifest.DestinyActivityModeDefinition[1848252830].displayProperties.name,
       value: 'pvecomp_gambit',
       statIds: [
         {
@@ -125,7 +123,7 @@ class RosterLeaderboards extends React.Component {
       ]
     },
     {
-      name: 'Gambit Prime',
+      name: manifest.DestinyActivityModeDefinition[1418469392].displayProperties.name,
       value: 'pvecomp_mamba',
       statIds: [
         {
@@ -164,19 +162,23 @@ class RosterLeaderboards extends React.Component {
       ]
     },
     {
-      name: 'Strikes',
+      name: manifest.DestinyActivityModeDefinition[2394616003].displayProperties.name,
       value: 'allStrikes'
     },
     {
-      name: 'Nightfalls',
+      name: manifest.DestinyActivityModeDefinition[547513715].displayProperties.name,
       value: 'scored_nightfall'
     },
     {
-      name: 'Menagerie',
+      name: manifest.DestinyActivityModeDefinition[400075666].displayProperties.name,
       value: 'caluseum'
     },
     {
-      name: 'Raids',
+      name: manifest.DestinyActivityModeDefinition[608898761].displayProperties.name,
+      value: 'dungeon'
+    },
+    {
+      name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name,
       value: 'raid'
     }
   ];
@@ -254,12 +256,12 @@ class RosterLeaderboards extends React.Component {
       type: 'integer'
     },
     {
-      name: 'Primeval Damage',
+      name: t('Primeval damage'),
       value: 'primevalDamage',
       type: 'integer'
     },
     {
-      name: 'Primeval Kills',
+      name: t('Primeval kills'),
       value: 'primevalKills',
       type: 'integer'
     }
@@ -334,7 +336,7 @@ class RosterLeaderboards extends React.Component {
     }, [])).find(s => s.value === statId);
 
     if (stat && stat.type === 'moment') {
-      return moment.duration(value, 'seconds').humanize();
+      return duration({ hours: Math.ceil(value / 3600) }, { unit: 'hours', abbreviated: true });
     } else if (stat && stat.type === 'distance') {
       return Math.floor(value) + 'm';
     } else if (stat && stat.type === 'integer') {
@@ -345,8 +347,6 @@ class RosterLeaderboards extends React.Component {
   }
 
   elScopes = scope => {
-    const { t } = this.props;
-
     const scopes = this.scopes.map(s => {
       return (
         <li key={s.value} className={cx('linked', { active: scope === s.value })}>
@@ -367,7 +367,7 @@ class RosterLeaderboards extends React.Component {
   };
 
   elBoards = (scopeId, statId) => {
-    const { t, member, groupMembers } = this.props;
+    const { member, groupMembers } = this.props;
 
     if (statId) {
       const definitionStat = manifest.DestinyHistoricalStatsDefinition[statId];
@@ -430,7 +430,7 @@ class RosterLeaderboards extends React.Component {
                   })}
                 </ul>
                 <ProfileLink className='button' to={`/clan/stats/${scopeId}/${statId}`}>
-                  <div className='text'>{t('See all {{count}}', { count: groupMembers.members.length })}</div>
+                  <div className='text'>{t('See all {{members}} members', { members: groupMembers.members.length })}</div>
                 </ProfileLink>
               </div>
             )
@@ -441,7 +441,7 @@ class RosterLeaderboards extends React.Component {
   };
 
   render() {
-    const { t, scopeId, statId } = this.props;
+    const { scopeId, statId } = this.props;
 
     if (!this.state.loading) {
       const knownScope = this.scopes.find(s => s.value === scopeId);
@@ -523,10 +523,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(
-  connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  ),
-  withTranslation()
-)(RosterLeaderboards);
+  )(RosterLeaderboards);
