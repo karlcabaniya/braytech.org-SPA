@@ -48,21 +48,22 @@ class ClanBanner extends React.Component {
   }
 
   buildBannerConfig = (clanBannerData = this.props.bannerData) => {
-    let decals = manifest.DestinyClanBannerDefinition.Decals.find(decal => decal.imageHash === clanBannerData.decalId);
-    let decalPrimaryColor = manifest.DestinyClanBannerDefinition.DecalPrimaryColors.find(color => color.colorHash === clanBannerData.decalColorId);
-    let decalSecondaryColor = manifest.DestinyClanBannerDefinition.DecalSecondaryColors.find(color => color.colorHash === clanBannerData.decalBackgroundColorId);
+    const decals = manifest.DestinyClanBannerDefinition.Decals.find(decal => decal.imageHash === clanBannerData.decalId);
+    const decalPrimaryColor = manifest.DestinyClanBannerDefinition.DecalPrimaryColors.find(color => color.colorHash === clanBannerData.decalColorId);
+    const decalSecondaryColor = manifest.DestinyClanBannerDefinition.DecalSecondaryColors.find(color => color.colorHash === clanBannerData.decalBackgroundColorId);
+
+    const gonfalon = manifest.DestinyClanBannerDefinition.Gonfalons.find(gonfalon => gonfalon.imageHash === clanBannerData.gonfalonId);
+    const gonfalonColor = manifest.DestinyClanBannerDefinition.GonfalonColors.find(color => color.colorHash === clanBannerData.gonfalonColorId);
+
+    const gonfalonDetail = manifest.DestinyClanBannerDefinition.GonfalonDetails.find(gonfalon => gonfalon.imageHash === clanBannerData.gonfalonDetailId);
+    const gonfalonDetailColor = manifest.DestinyClanBannerDefinition.GonfalonDetailColors.find(color => color.colorHash === clanBannerData.gonfalonDetailColorId);
+    
     this.bannerConfig.DecalFgImage.src = decals.foregroundImagePath;
     this.bannerConfig.DecalFgImage.color = `${decalPrimaryColor.red}, ${decalPrimaryColor.green}, ${decalPrimaryColor.blue}, ${Math.min(decalPrimaryColor.alpha, 1)}`;
     this.bannerConfig.DecalBgImage.src = decals.backgroundImagePath;
     this.bannerConfig.DecalBgImage.color = `${decalSecondaryColor.red}, ${decalSecondaryColor.green}, ${decalSecondaryColor.blue}, ${Math.min(decalSecondaryColor.alpha, 1)}`;
-
-    let gonfalon = manifest.DestinyClanBannerDefinition.Gonfalons.find(gonfalon => gonfalon.imageHash === clanBannerData.gonfalonId);
-    let gonfalonColor = manifest.DestinyClanBannerDefinition.GonfalonColors.find(color => color.colorHash === clanBannerData.gonfalonColorId);
     this.bannerConfig.GonfalonImage.src = gonfalon.foregroundImagePath;
     this.bannerConfig.GonfalonImage.color = `${gonfalonColor.red}, ${gonfalonColor.green}, ${gonfalonColor.blue}, ${Math.min(gonfalonColor.alpha, 1)}`;
-
-    let gonfalonDetail = manifest.DestinyClanBannerDefinition.GonfalonDetails.find(gonfalon => gonfalon.imageHash === clanBannerData.gonfalonDetailId);
-    let gonfalonDetailColor = manifest.DestinyClanBannerDefinition.GonfalonDetailColors.find(color => color.colorHash === clanBannerData.gonfalonDetailColorId);
     this.bannerConfig.GonfalonDetailImage.src = gonfalonDetail.foregroundImagePath;
     this.bannerConfig.GonfalonDetailImage.color = `${gonfalonDetailColor.red}, ${gonfalonDetailColor.green}, ${gonfalonDetailColor.blue}, ${Math.min(gonfalonDetailColor.alpha, 1)}`;
 
@@ -73,7 +74,13 @@ class ClanBanner extends React.Component {
   };
 
   componentDidMount() {
+    this.mounted = true;
+
     this.buildBannerConfig();
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   componentDidUpdate(prevProps) {

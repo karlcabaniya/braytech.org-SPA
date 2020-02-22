@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
-import store from '../../store';
 import * as ls from '../../utils/localStorage';
 import * as enums from '../../utils/destinyEnums';
 import Spinner from '../../components/UI/Spinner';
@@ -22,16 +21,16 @@ class CharacterSelect extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  characterClick = characterId => e => {
+  handler_clickCharacter = characterId => e => {
     const { membershipType, membershipId } = this.props.member;
 
     ls.set('setting.profile', { membershipType, membershipId, characterId });
   };
 
-  handler_profileClick = (membershipType, membershipId, displayName) => async e => {
+  handler_clickProfile = (membershipType, membershipId, displayName) => async e => {
     window.scrollTo(0, 0);
 
-    store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType, membershipId } });
+    this.props.setMember({ membershipType, membershipId });
 
     if (displayName) {
       ls.update('history.profiles', { membershipType, membershipId, displayName }, true, 9);
@@ -39,7 +38,7 @@ class CharacterSelect extends React.Component {
   };
 
   resultsListItems = profiles => profiles.map((p, i) => (
-    <li key={i} className='linked' onClick={this.handler_profileClick(p.membershipType, p.membershipId, p.displayName)}>
+    <li key={i} className='linked' onClick={this.handler_clickProfile(p.membershipType, p.membershipId, p.displayName)}>
       <div className='icon'>
         <span className={`destiny-platform_${enums.platforms[p.membershipType]}`} />
       </div>
@@ -64,7 +63,7 @@ class CharacterSelect extends React.Component {
             <div className='sub-header'>
               <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
             </div>
-            {member.data && <Profile member={member} onCharacterClick={this.characterClick} location={location} />}
+            {member.data && <Profile member={member} onCharacterClick={this.handler_clickCharacter} location={location} />}
           </>
         ) : null}
       </>
@@ -112,7 +111,15 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    setMember: value => {
+      dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: value });
+    }
+  };
+}
+
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   withTranslation()
 )(CharacterSelect);

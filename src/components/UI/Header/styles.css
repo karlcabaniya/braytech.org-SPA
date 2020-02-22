@@ -369,6 +369,7 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   position: absolute;
   right: 0;
   opacity: 0;
+  z-index: 4;
 }
 
 #header.profile-header .characters .list li .spinner.visible {

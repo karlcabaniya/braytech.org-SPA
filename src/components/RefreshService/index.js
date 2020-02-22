@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import getMember from '../../utils/getMember';
 
-import './styles.css';
-
 const AUTO_REFRESH_INTERVAL = 30 * 1000;
 const TIMEOUT = 60 * 60 * 1000;
 

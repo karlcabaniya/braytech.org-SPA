@@ -43,6 +43,10 @@
   text-align: right;
 }
 
+.list.reports li:not(.isExpanded) {
+  cursor: pointer;
+}
+
 .list.reports li.isExpanded {
   height: unset;
   display: block;

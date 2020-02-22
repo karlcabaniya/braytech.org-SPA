@@ -36,11 +36,11 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  // window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  //   window.__REDUX_DEVTOOLS_EXTENSION__({
-  //     actionsBlacklist: [],
-  //     // trace: true
-  //   })
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__({
+      actionsBlacklist: ['PGCR_LOADED', 'PGCR_LOADING'],
+      trace: true
+    })
 );
 
 export default store;

@@ -86,7 +86,32 @@ class Crucible extends React.Component {
       }));
     }
 
-    let [stats_allPvP, stats_core, stats_rotator] = await Promise.all([bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.crucible.all).map(m => m.mode), '0'), bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.crucible.core).map(m => m.mode), '0'), bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.crucible.rotator).map(m => m.mode), '0')]);
+    let [stats_allPvP, stats_core, stats_rotator] = await Promise.all([
+      bungie.GetHistoricalStats(
+        member.membershipType,
+        member.membershipId,
+        member.characterId,
+        '1',
+        Object.values(this.crucible.all).map(m => m.mode),
+        '0'
+      ),
+      bungie.GetHistoricalStats(
+        member.membershipType,
+        member.membershipId,
+        member.characterId,
+        '1',
+        Object.values(this.crucible.core).map(m => m.mode),
+        '0'
+      ),
+      bungie.GetHistoricalStats(
+        member.membershipType,
+        member.membershipId,
+        member.characterId,
+        '1',
+        Object.values(this.crucible.rotator).map(m => m.mode),
+        '0'
+      )
+    ]);
 
     stats_allPvP = (stats_allPvP && stats_allPvP.ErrorCode === 1 && stats_allPvP.Response) || [];
     stats_core = (stats_core && stats_core.ErrorCode === 1 && stats_core.Response) || [];
@@ -140,6 +165,7 @@ class Crucible extends React.Component {
 
   componentDidMount() {
     this.mounted = true;
+    console.log(this.props.member)
 
     this.refreshData();
     this.startInterval();
@@ -171,7 +197,7 @@ class Crucible extends React.Component {
 
   render() {
     const { t } = this.props;
-    
+
     const offset = parseInt(this.props.offset, 10);
 
     return (
@@ -195,7 +221,9 @@ class Crucible extends React.Component {
             <div className='content'>
               {Object.values(this.crucible.all.allPvP).length > 1 ? (
                 <ul className='list modes'>
-                  {Object.values(this.crucible.core).map(m => <Mode key={m.mode} stats={m} root='/reports/crucible' />)}
+                  {Object.values(this.crucible.core).map(m => (
+                    <Mode key={m.mode} stats={m} root='/reports/crucible' />
+                  ))}
                 </ul>
               ) : (
                 <Spinner mini />
@@ -207,7 +235,9 @@ class Crucible extends React.Component {
             <div className='content'>
               {Object.values(this.crucible.all.allPvP).length > 1 ? (
                 <ul className='list modes'>
-                  {Object.values(this.crucible.rotator).map(m => <Mode key={m.mode} stats={m} root='/reports/crucible' />)}
+                  {Object.values(this.crucible.rotator).map(m => (
+                    <Mode key={m.mode} stats={m} root='/reports/crucible' />
+                  ))}
                 </ul>
               ) : (
                 <Spinner mini />
@@ -235,7 +265,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Crucible);
+export default compose(connect(mapStateToProps), withTranslation())(Crucible);

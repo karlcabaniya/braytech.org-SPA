@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import store from '../store';
-
 import Clan from '../views/Clan';
 import Character from '../views/Character';
 import PGCRs from '../views/PGCRs';
@@ -23,10 +21,7 @@ class ProfileRoutes extends React.Component {
   componentDidMount() {
     const { membershipId, membershipType, characterId } = this.props.match.params;
     
-    store.dispatch({
-      type: 'MEMBER_SET_BY_PROFILE_ROUTE',
-      payload: { membershipType, membershipId, characterId }
-    });
+    this.props.setMember({ membershipType, membershipId, characterId });
   }
 
   render() {
@@ -78,4 +73,12 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(mapStateToProps)(ProfileRoutes);
+function mapDispatchToProps(dispatch) {
+  return {
+    setMember: value => {
+      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileRoutes);

@@ -16,40 +16,29 @@
 }
 
 .list.checklist-items li .button {
-  grid-row: 1/3;
-  grid-column: 2/3;
-  width: calc(100% - 12px);
-  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 38px;
+  height: 38px;
   justify-content: center;
-  margin: 0 0 0 12px;
   padding: 0;
-  opacity: 0;
   pointer-events: none;
 }
 
 .list.checklist-items li:hover .button {
-  opacity: 1;
   pointer-events: unset;
 }
 
-.list.checklist-items li .button a {
-  position: relative;
-  width: inherit;
-  height: inherit;
-  padding: 0 0.4rem;
+.list.checklist-items li .button {
   opacity: 0;
 }
 
-.list.checklist-items li .button a span {
-  line-height: 1.3;
-  font-size: 16px;
+.list.checklist-items li:hover .button {
+  opacity: 0.8;
 }
 
-.list.checklist-items li:hover .button a {
-  opacity: 0.6;
-}
-
-.list.checklist-items li:hover .button a:hover {
+.list.checklist-items li:hover .button:hover {
   opacity: 1;
 }
 

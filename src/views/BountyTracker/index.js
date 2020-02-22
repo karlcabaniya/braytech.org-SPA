@@ -47,12 +47,14 @@ class BountyTracker extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+
     this.props.rebindTooltips();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.hash !== this.props.hash) {
       window.scrollTo(0, 0);
+      
       this.props.rebindTooltips();
     }
   }
