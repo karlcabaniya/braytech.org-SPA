@@ -1,8 +1,6 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import moment from 'moment';
@@ -22,15 +20,14 @@ import './Core.css';
 import './App.css';
 import './components/PresentationNode.css';
 
-import './utils/i18n';
+import i18n from './utils/i18n';
 import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
 import * as ls from './utils/localStorage';
-import GoogleAnalytics from './components/GoogleAnalytics';
-import store from './store';
 import manifest from './utils/manifest';
 
+import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/UI/Header';
 import Tooltip from './components/Tooltip';
 import Footer from './components/UI/Footer';
@@ -62,6 +59,7 @@ import Commonality from './views/Commonality';
 import Test from './views/Test';
 import TestThree from './views/TestThree';
 
+// Redirects /triumphs to /0/0000000000/0000000000/triumphs
 const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
 
 // Print timings of promises to console (and performance logger)
@@ -75,7 +73,7 @@ async function timed(name, promise) {
 
 class App extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       status: {
         code: false,
@@ -83,8 +81,8 @@ class App extends React.Component {
       }
     };
 
-    this.currentLanguage = props.i18n.getCurrentLanguage();
-
+    // Get stored language
+    this.currentLanguage = i18n.getCurrentLanguage();
     if (this.currentLanguage === 'debug') this.currentLanguage = 'en';
 
     // We do these as early as possible - we don't want to wait
@@ -96,13 +94,11 @@ class App extends React.Component {
       voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics())
     };
 
+    // Set initial profile to saved profile but may be overridden by URL
     const profile = ls.get('setting.profile');
+    if (profile) this.props.setMember(profile);
 
-    store.dispatch({
-      type: 'MEMBER_SET_BY_PROFILE_ROUTE',
-      payload: profile
-    });
-
+    // #region Moment locale init
     let momentLocale = this.currentLanguage;
     if (this.currentLanguage === 'zh-chs') momentLocale = 'zh-cn';
     if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-tw';
@@ -134,17 +130,19 @@ class App extends React.Component {
         }
       });
     }
+    // #endregion
   }
 
-  updateViewport = () => {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    store.dispatch({ type: 'VIEWPORT_CHANGED', payload: { width, height } });
+  // Called on window resize and dispatches changes to redux
+  hanlder_resizeViewport = () => {
+    this.props.setViewport({ width: window.innerWidth, height: window.innerHeight });
   };
 
+  // Upon App.js mount; bind window reisze handler, 
+  // check if client online, start fetching manifest
   async componentDidMount() {
-    this.updateViewport();
-    window.addEventListener('resize', this.updateViewport);
+    this.hanlder_resizeViewport();
+    window.addEventListener('resize', this.hanlder_resizeViewport);
 
     if (!window.navigator.onLine) {
       this.setState({ status: { code: 'navigator_offline' } });
@@ -244,7 +242,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateViewport);
+    window.removeEventListener('resize', this.hanlder_resizeViewport);
   }
 
   render() {
@@ -266,7 +264,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route
           render={route => (
-            <div className={cx('wrapper', this.props.theme.selected, { standalone: window.matchMedia('(display-mode: standalone)').matches })}>
+            <div className={cx('wrapper', this.props.theme.selected, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate {...this.props} />
               <NotificationLink />
               <NotificationProgress />
@@ -340,7 +338,15 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    setViewport: value => {
+      dispatch({ type: 'VIEWPORT_CHANGED', payload: value });
+    },
+    setMember: value => {
+      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

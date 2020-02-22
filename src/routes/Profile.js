@@ -19,6 +19,10 @@ import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';
 
 class ProfileRoutes extends React.Component {
   componentDidMount() {
+    
+  }
+
+  componentWillMount() {
     const { membershipId, membershipType, characterId } = this.props.match.params;
     
     this.props.setMember({ membershipType, membershipId, characterId });

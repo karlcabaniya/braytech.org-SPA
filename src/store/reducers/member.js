@@ -102,6 +102,7 @@ export default function memberReducer(state = defaultState, action) {
 
     // Otherwise, make sure the character ID is in sync with what we're being
     // told by the profile route. In most cases this will be a no-op.
+    if (state.characterId !== characterId) console.log('Updating characterId')
     return { ...state, characterId };
   }
 
