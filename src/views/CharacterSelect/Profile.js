@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { t, duration } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
 import * as utils from '../../utils/destinyUtils';
 import Characters from '../../components/UI/Characters';
 import Flair from '../../components/UI/Flair';
@@ -44,7 +44,7 @@ class Profile extends React.Component {
             </div>
           </div>
         </div>
-        <Characters member={member} location={location} characterClick={this.props.onCharacterClick} />
+        <Characters member={member} location={location} onClickCharacter={this.props.onClickCharacter} />
       </div>
     );
   }

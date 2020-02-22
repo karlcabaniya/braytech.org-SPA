@@ -19,13 +19,15 @@ import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';
 
 class ProfileRoutes extends React.Component {
   componentDidMount() {
+    const { membershipId, membershipType, characterId } = this.props.match.params;
     
+    console.log(`Before Crucible view mount: update characterId to ${characterId}`);
+    
+    this.props.setMember({ membershipType, membershipId, characterId });
   }
 
   componentWillMount() {
-    const { membershipId, membershipType, characterId } = this.props.match.params;
-    
-    this.props.setMember({ membershipType, membershipId, characterId });
+    // this has been deprecated
   }
 
   render() {

@@ -63,7 +63,7 @@ class CharacterSelect extends React.Component {
             <div className='sub-header'>
               <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
             </div>
-            {member.data && <Profile member={member} onCharacterClick={this.handler_clickCharacter} location={location} />}
+            {member.data && <Profile member={member} onClickCharacter={this.handler_clickCharacter} location={location} />}
           </>
         ) : null}
       </>

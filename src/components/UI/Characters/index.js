@@ -49,7 +49,7 @@ class Characters extends React.Component {
                 className='linked'
                 anchor
                 to={to}
-                action={this.props.characterClick(character.characterId)}
+                action={this.props.onClickCharacter(character.characterId)}
               >
                 <ObservedImage
                   className={cx('image', 'emblem', {
