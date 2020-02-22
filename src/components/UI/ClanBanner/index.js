@@ -1,51 +1,60 @@
 import React from 'react';
 import cx from 'classnames';
+import { isEqual } from 'lodash';
 
 import manifest from '../../../utils/manifest';
 import Spinner from '../../UI/Spinner';
 
 import './styles.css';
 
+function loadImage(url) {
+  return new Promise(resolve => {
+    const image = new Image();
+    image.onload = e => {
+      resolve(image);
+    };
+    image.onerror = async e => {
+      resolve(loadImage('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII='));
+    }
+    image.src = url;
+  });
+}
+
 class ClanBanner extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    loading: true
+  };
 
-    this.state = {
-      loading: false,
-      loaded: 0
-    };
-
-    this.bannerConfig = {
-      DecalBgImage: {
-        src: false,
-        color: false,
-        el: false
-      },
-      DecalFgImage: {
-        src: false,
-        color: false,
-        el: false
-      },
-      GonfalonImage: {
-        src: false,
-        color: false,
-        el: false
-      },
-      GonfalonDetailImage: {
-        src: false,
-        color: false,
-        el: false
-      },
-      StandImage: {
-        src: '/img/bannercreator/FlagStand00.png',
-        el: false
-      },
-      FlagOverlay: {
-        src: '/img/bannercreator/flag_overlay.png',
-        el: false
-      }
-    };
-  }
+  bannerConfig = {
+    DecalBgImage: {
+      src: false,
+      color: false,
+      el: false
+    },
+    DecalFgImage: {
+      src: false,
+      color: false,
+      el: false
+    },
+    GonfalonImage: {
+      src: false,
+      color: false,
+      el: false
+    },
+    GonfalonDetailImage: {
+      src: false,
+      color: false,
+      el: false
+    },
+    StandImage: {
+      src: '/img/bannercreator/FlagStand00.png',
+      el: false
+    },
+    FlagOverlay: {
+      src: '/img/bannercreator/flag_overlay.png',
+      el: false
+    }
+  };
 
   buildBannerConfig = (clanBannerData = this.props.bannerData) => {
     const decals = manifest.DestinyClanBannerDefinition.Decals.find(decal => decal.imageHash === clanBannerData.decalId);
@@ -67,10 +76,7 @@ class ClanBanner extends React.Component {
     this.bannerConfig.GonfalonDetailImage.src = gonfalonDetail.foregroundImagePath;
     this.bannerConfig.GonfalonDetailImage.color = `${gonfalonDetailColor.red}, ${gonfalonDetailColor.green}, ${gonfalonDetailColor.blue}, ${Math.min(gonfalonDetailColor.alpha, 1)}`;
 
-    this.setState(p => ({
-      loading: false,
-      loaded: 0
-    }));
+    this.doLoad();
   };
 
   componentDidMount() {
@@ -83,64 +89,71 @@ class ClanBanner extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.bannerData !== this.props.bannerData) {
-      this.buildBannerConfig(this.props.bannerData);
-    }
+  doLoad = async () => {
+    this.setState({ loading: true });
 
-    if (prevProps.bannerData === this.props.bannerData && this.state.loaded === 0 && !this.state.loading) {
-      Object.keys(this.bannerConfig).forEach(key => {
-        let image = this.bannerConfig[key];
-        let cache = new Image();
-        image.el = cache;
-        cache.onload = () => {
-          this.setState(p => ({
-            loading: p.loaded + 1 === 6 ? false : true,
-            loaded: p.loaded + 1
-          }));
+    const images = await Promise.all(
+      Object.keys(this.bannerConfig).map(async key => {
+
+        const src = key === 'StandImage' ? '/static/images/extracts/flair/FlagStand01.png' : 'https://www.bungie.net' + this.bannerConfig[key].src;
+        
+        return {
+          key,
+          el: await loadImage(src)
         };
-        cache.src = key === 'StandImage' ? '/static/images/extracts/flair/FlagStand01.png' : 'https://www.bungie.net' + image.src;
-      });
+      })
+    );
+
+    images.forEach(({ key, el }) => {
+      this.bannerConfig[key].el = el;
+    });
+    
+    this.setState({ loading: false });
+  }
+
+  componentDidUpdate(p, s) {
+    if (!isEqual(p.bannerData, this.props.bannerData)) {
+      this.buildBannerConfig(this.props.bannerData);
     }
   }
 
   render() {
-    let canvasWidth = 410;
-    let canvasHeight = 700;
+    const canvasWidth = 410;
+    const canvasHeight = 700;
 
-    if (this.state.loaded === 6) {
-      let canvasFinal = this.refs.canvas;
-      let ctxFinal = canvasFinal.getContext('2d');
+    if (!this.state.loading) {
+      const canvasFinal = this.refs.canvas;
+      const ctxFinal = canvasFinal.getContext('2d');
 
-      let canvasGonfalon = document.createElement('canvas');
+      const canvasGonfalon = document.createElement('canvas');
       canvasGonfalon.height = canvasHeight;
       canvasGonfalon.width = canvasWidth;
-      let ctxGonfalon = canvasGonfalon.getContext('2d');
+      const ctxGonfalon = canvasGonfalon.getContext('2d');
 
-      let canvasGonfalonDetail = document.createElement('canvas');
+      const canvasGonfalonDetail = document.createElement('canvas');
       canvasGonfalonDetail.height = canvasHeight;
       canvasGonfalonDetail.width = canvasWidth;
-      let ctxGonfalonDetail = canvasGonfalonDetail.getContext('2d');
+      const ctxGonfalonDetail = canvasGonfalonDetail.getContext('2d');
 
-      let canvasDecalBg = document.createElement('canvas');
+      const canvasDecalBg = document.createElement('canvas');
       canvasDecalBg.height = canvasHeight;
       canvasDecalBg.width = canvasWidth;
-      let ctxDecalBg = canvasDecalBg.getContext('2d');
+      const ctxDecalBg = canvasDecalBg.getContext('2d');
 
-      let canvasDecalFg = document.createElement('canvas');
+      const canvasDecalFg = document.createElement('canvas');
       canvasDecalFg.height = canvasHeight;
       canvasDecalFg.width = canvasWidth;
-      let ctxDecalFg = canvasDecalFg.getContext('2d');
+      const ctxDecalFg = canvasDecalFg.getContext('2d');
 
-      let canvasCombined = document.createElement('canvas');
+      const canvasCombined = document.createElement('canvas');
       canvasCombined.height = canvasHeight;
       canvasCombined.width = canvasWidth;
-      let ctxCombined = canvasCombined.getContext('2d');
+      const ctxCombined = canvasCombined.getContext('2d');
 
-      let canvasMasked = document.createElement('canvas');
+      const canvasMasked = document.createElement('canvas');
       canvasMasked.height = canvasHeight;
       canvasMasked.width = canvasWidth;
-      let ctxMasked = canvasMasked.getContext('2d');
+      const ctxMasked = canvasMasked.getContext('2d');
 
       ctxFinal.clearRect(0, 0, canvasWidth, canvasHeight);
 
@@ -180,9 +193,11 @@ class ClanBanner extends React.Component {
       ctxFinal.drawImage(this.bannerConfig.StandImage.el, -1, 1);
     }
 
+    console.log(this.state, this.bannerConfig)
+
     return (
-      <div className={cx('clan-banner', { loading: this.state.loaded < 6 } )}>
-        {this.state.loaded !== 6 ? <Spinner /> : null}
+      <div className={cx('clan-banner', { loading: this.state.loading } )}>
+        {this.state.loading ? <Spinner /> : null}
         <canvas ref='canvas' width={canvasWidth} height={canvasHeight} />
       </div>
     );
