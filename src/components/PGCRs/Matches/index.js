@@ -27,14 +27,14 @@ class Matches extends React.Component {
   }
 
   cacheMachine = async (mode, characterId) => {
-    const { member, auth, PGCRcache, limit = 15, offset = 0 } = this.props;
+    const { member, auth, pgcr, limit = 15, offset = 0 } = this.props;
 
-    let charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map(c => c.characterId);
+    const charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map(c => c.characterId);
 
     // console.log(charactersIds)
 
-    let requests = charactersIds.map(async c => {
-      let response = await bungie.GetActivityHistory({
+    const requests = charactersIds.map(async c => {
+      const response = await bungie.GetActivityHistory({
         params: {
           membershipType: member.membershipType,
           membershipId: member.membershipId,
@@ -60,33 +60,30 @@ class Matches extends React.Component {
 
     if (this.mounted) {
       this.setState(p => {
-        let identifier = mode ? mode : 'all';
+        const identifier = mode ? mode : 'all';
         p.cacheState[identifier] = activities.length;
         p.instances = activities.map(a => a.activityDetails.instanceId);
         return p;
       });
     }
 
-    let PGCRs = activities.map(async activity => {
-      if (PGCRcache[member.membershipId] && activity && !PGCRcache[member.membershipId].find(pgcr => pgcr.activityDetails.instanceId === activity.activityDetails.instanceId)) {
+    const reports = activities.map(async activity => {
+      if (pgcr[member.membershipId] && activity && !pgcr[member.membershipId].find(pgcr => pgcr.activityDetails.instanceId === activity.activityDetails.instanceId)) {
         return getPGCR(member.membershipId, activity.activityDetails.instanceId);
-      } else if (!PGCRcache[member.membershipId] && activity) {
+      } else if (!pgcr[member.membershipId] && activity) {
         return getPGCR(member.membershipId, activity.activityDetails.instanceId);
       } else {
         return true;
       }
     });
 
-    return await Promise.all(PGCRs);
+    return await Promise.all(reports);
   };
 
   run = async force => {
     const { member, mode } = this.props;
 
-    let run = !this.state.loading;
-    if (force) {
-      run = true;
-    }
+    const run = force ? true : !this.state.loading;
 
     if (run) {
       // console.log('matches refresh start');
@@ -116,7 +113,7 @@ class Matches extends React.Component {
   };
 
   scrollToMatchesHandler = e => {
-    let element = document.getElementById('matches');
+    const element = document.getElementById('matches');
     element.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -158,27 +155,27 @@ class Matches extends React.Component {
   }
 
   render() {
-    const { t, member, PGCRcache, mode, offset, root } = this.props;
+    const { t, member, pgcr, mode, offset, root } = this.props;
     const { loading, instances } = this.state;
 
     // get PGCRs for current membership
-    let PGCRs = PGCRcache[member.membershipId] || [];
+    let reports = pgcr[member.membershipId] || [];
 
     // filter available PGCRs and ensure uniqueness
-    PGCRs = PGCRs
+    reports = reports
       .filter(pgcr => instances.includes(pgcr.activityDetails.instanceId))
       .filter((obj, pos, arr) => {
         return arr.map(mapObj => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos;
       });
     
     // ensure order
-    PGCRs = orderBy(PGCRs, [pgcr => pgcr.period], ['desc']);
+    reports = orderBy(reports, [pgcr => pgcr.period], ['desc']);
 
-    return PGCRs.length ? (
+    return reports.length ? (
       <div className='matches'>
         {loading ? <Spinner mini /> : null}
         <ul className='list reports'>
-          {PGCRs.map((r, i) => (
+          {reports.map((r, i) => (
             <PGCR key={r.activityDetails.instanceId} report={r} />
           ))}
         </ul>
@@ -197,7 +194,7 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     auth: state.auth,
-    PGCRcache: state.PGCRcache
+    pgcr: state.pgcr
   };
 }
 

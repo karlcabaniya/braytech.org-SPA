@@ -84,7 +84,7 @@ class RefreshService extends React.Component {
   service = async () => {
 
     // service is already asking for fresh data
-    if (this.props.refreshService.loading) {
+    if (this.props.refresh.loading) {
       return;
     }
 
@@ -130,7 +130,7 @@ class RefreshService extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    refreshService: state.refreshService
+    refresh: state.refresh
   };
 }
 

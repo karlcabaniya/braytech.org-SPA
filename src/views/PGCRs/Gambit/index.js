@@ -147,7 +147,7 @@ class Gambit extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    PGCRcache: state.PGCRcache
+    pgcr: state.pgcr
   };
 }
 

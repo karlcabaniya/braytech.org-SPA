@@ -5,7 +5,7 @@ import theme from './reducers/theme.js';
 import tips from './reducers/tips.js';
 import auth from './reducers/auth.js';
 import member from './reducers/member.js';
-import group from './reducers/group.js';
+import groupMembers from './reducers/groupMembers.js';
 import refresh from './reducers/refresh.js';
 import notifications from './reducers/notifications.js';
 import pgcr from './reducers/pgcr.js';
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   tips,
   auth,
   member,
-  group,
+  groupMembers,
   refresh,
   notifications,
   pgcr,

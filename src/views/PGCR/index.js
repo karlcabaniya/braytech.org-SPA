@@ -3,7 +3,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
-import manifest from '../../utils/manifest';
 import getPGCR from '../../utils/getPGCR';
 
 import { ReportItem } from '../../components/PGCRs/PGCR';
@@ -51,11 +50,10 @@ class PGCR extends React.Component {
   };
 
   getReport = async (membershipId, instanceId) => {
-    const { PGCRcache } = this.props;
 
-    if (PGCRcache[membershipId] && !PGCRcache[membershipId].find(pgcr => pgcr.activityDetails.instanceId === instanceId)) {
+    if (this.props.pgcr[membershipId] && !this.props.pgcr[membershipId].find(pgcr => pgcr.activityDetails.instanceId === instanceId)) {
       return getPGCR(membershipId, instanceId);
-    } else if (!PGCRcache[membershipId] && instanceId) {
+    } else if (!this.props.pgcr[membershipId] && instanceId) {
       return getPGCR(membershipId, instanceId);
     } else {
       ////////// ??
@@ -64,12 +62,12 @@ class PGCR extends React.Component {
   };
 
   render() {
-    const { t, PGCRcache, match } = this.props;
+    const { pgcr, match } = this.props;
     const { instanceId } = match.params;
 
     const { loading, membershipId } = this.state;
 
-    const report = !loading && PGCRcache[membershipId] && PGCRcache[membershipId].find(pgcr => pgcr.activityDetails.instanceId === instanceId);
+    const report = !loading && pgcr[membershipId] && pgcr[membershipId].find(pgcr => pgcr.activityDetails.instanceId === instanceId);
 
     console.log(report);
 
@@ -100,7 +98,7 @@ class PGCR extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    PGCRcache: state.PGCRcache
+    pgcr: state.pgcr
   };
 }
 
