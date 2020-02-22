@@ -165,7 +165,6 @@ class Crucible extends React.Component {
 
   componentDidMount() {
     this.mounted = true;
-    console.log('Crucible view mounted')
 
     this.refreshData();
     this.startInterval();

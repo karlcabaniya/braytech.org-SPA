@@ -21,13 +21,7 @@ class ProfileRoutes extends React.Component {
   componentDidMount() {
     const { membershipId, membershipType, characterId } = this.props.match.params;
     
-    console.log(`Before Crucible view mount: update characterId to ${characterId}`);
-    
-    this.props.setMember({ membershipType, membershipId, characterId });
-  }
-
-  componentWillMount() {
-    // this has been deprecated
+    this.props.setMemberByRoute({ membershipType, membershipId, characterId });
   }
 
   render() {
@@ -81,7 +75,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMember: value => {
+    setMemberByRoute: value => {
       dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
     }
   };

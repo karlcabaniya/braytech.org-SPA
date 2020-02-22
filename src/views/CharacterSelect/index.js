@@ -24,6 +24,8 @@ class CharacterSelect extends React.Component {
   handler_clickCharacter = characterId => e => {
     const { membershipType, membershipId } = this.props.member;
 
+    this.props.setMemberCharacterId({ membershipType, membershipId, characterId });
+
     ls.set('setting.profile', { membershipType, membershipId, characterId });
   };
 
@@ -115,6 +117,12 @@ function mapDispatchToProps(dispatch) {
   return {
     setMember: value => {
       dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: value });
+    },
+    setMemberByRoute: value => {
+      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
+    },
+    setMemberCharacterId: value => {
+      dispatch({ type: 'MEMBER_SET_CHARACTERID', payload: value });
     }
   };
 }

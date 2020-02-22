@@ -96,7 +96,7 @@ class App extends React.Component {
 
     // Set initial profile to saved profile but may be overridden by URL
     const profile = ls.get('setting.profile');
-    if (profile) this.props.setMember(profile);
+    if (profile) this.props.setMemberByRoute(profile);
 
     // #region Moment locale init
     let momentLocale = this.currentLanguage;
@@ -343,7 +343,7 @@ function mapDispatchToProps(dispatch) {
     setViewport: value => {
       dispatch({ type: 'VIEWPORT_CHANGED', payload: value });
     },
-    setMember: value => {
+    setMemberByRoute: value => {
       dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
     }
   };

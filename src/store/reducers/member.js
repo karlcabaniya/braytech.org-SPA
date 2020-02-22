@@ -92,7 +92,7 @@ export default function memberReducer(state = defaultState, action) {
   // Sometimes a number - let's just make it a string all the time
   const membershipType = action.payload.membershipType && action.payload.membershipType.toString();
 
-  if (action.type === 'MEMBER_SET_BY_PROFILE_ROUTE') {
+  if (action.type === 'MEMBER_SET_BY_PROFILE_ROUTE' || action.type === 'MEMBER_SET_CHARACTERID') {
     const membershipLoadNeeded = (!state.data && !state.loading) || state.membershipId !== membershipId || state.membershipType !== membershipType;
 
     // If our data doesn't exist and isn't currently loading, or if our
