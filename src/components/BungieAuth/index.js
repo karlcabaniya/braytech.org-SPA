@@ -258,9 +258,7 @@ class BungieAuth extends React.Component {
                 {memberships.destinyMemberships.map(m => {
                   return (
                     <li key={m.membershipId} className='linked'>
-                      <div className='icon'>
-                        <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
-                      </div>
+                      <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
@@ -414,9 +412,7 @@ class BungieAuthMini extends React.Component {
                 {memberships.destinyMemberships.map(m => {
                   return (
                     <li key={m.membershipId} className='linked'>
-                      <div className='icon'>
-                        <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
-                      </div>
+                      <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
@@ -637,9 +633,7 @@ class DiffProfile extends React.Component {
                     {memberships.destinyMemberships.map(m => {
                       return (
                         <li key={m.membershipId} className='linked'>
-                          <div className='icon'>
-                            <span className={`destiny-platform_${enums.platforms[m.membershipType]}`} />
-                          </div>
+                          <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
                           <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                           {m.crossSaveOverride === m.membershipType ? (
                             <div className='cross-save'>

@@ -43,7 +43,7 @@
   text-align: right;
 }
 
-.list.reports li:not(.isExpanded) {
+.list.reports > li:not(.isExpanded) {
   cursor: pointer;
 }
 
@@ -381,6 +381,14 @@
 
 .list.reports li .entries .list.fireteam.stacked:hover::before {
   opacity: 0.8;
+}
+
+.wrapper.dark-mode .list.reports li .entries .list.fireteam.stacked::before {
+  opacity: 0.2;
+}
+
+.wrapper.dark-mode .list.reports li .entries .list.fireteam.stacked:hover::before {
+  opacity: 0.4;
 }
 
 .list.reports li .entries .team > li:not(.team-head) {
@@ -849,7 +857,7 @@
   }
 
   .list.reports li .entries .list .detail .group.kills ul li ul {
-    grid-template-columns: 2fr repeat(3, 40px);
+    grid-template-columns: 2fr repeat(3, 25px);
   }
 
   .list.reports li .entries .list .detail .group.medals ul li ul {

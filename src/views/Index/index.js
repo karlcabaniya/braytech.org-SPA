@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import Moment from 'react-moment';
 
+import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
 
 import captainsLog from '../../data/captainsLog';
 
-import { ReactComponent as Patreon } from '../../svg/miscellaneous/braytech-device.svg';
+import { ReactComponent as Patreon } from '../../svg/miscellaneous/patreon-device.svg';
 import { ReactComponent as highlightClan } from '../../svg/miscellaneous/highlight-clan.svg';
 import { ReactComponent as highlightCollections } from '../../svg/miscellaneous/highlight-collections.svg';
 import { ReactComponent as highlightTriumphs } from '../../svg/miscellaneous/highlight-triumphs.svg';
@@ -23,6 +21,57 @@ import { ReactComponent as highlightQuests } from '../../svg/miscellaneous/highl
 import { ReactComponent as highlightReports } from '../../svg/miscellaneous/highlight-reports.svg';
 
 import './styles.css';
+
+const highlights = [
+  {
+    name: t('Clan'),
+    desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
+    slug: '/clan',
+    icon: highlightClan
+  },
+  {
+    name: t('Collections'),
+    desc: t('Items your Guardian has acquired over their lifetime'),
+    slug: '/collections',
+    icon: highlightCollections
+  },
+  {
+    name: t('Triumphs'),
+    desc: t('Records your Guardian has achieved through their trials'),
+    slug: '/triumphs',
+    icon: highlightTriumphs
+  },
+  {
+    name: t('Checklists'),
+    desc: t('Ghost scans and item checklists spanning the Sol system'),
+    slug: '/checklists',
+    icon: highlightChecklists
+  },
+  {
+    name: t('Maps'),
+    desc: t('Interactive maps charting checklists and other notable destinations'),
+    slug: '/maps',
+    icon: highlightMaps
+  },
+  {
+    name: t('This Week'),
+    desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
+    slug: '/this-week',
+    icon: highlightThisWeek
+  },
+  {
+    name: t('Quests'),
+    desc: t('Track your pursuits, including quests and bounties'),
+    slug: '/quests',
+    icon: highlightQuests
+  },
+  {
+    name: t('Reports'),
+    desc: t('Explore and filter your Post Game Carnage Reports in detail'),
+    slug: '/reports',
+    icon: highlightReports
+  }
+];
 
 class Index extends React.Component {
   constructor() {
@@ -84,59 +133,7 @@ class Index extends React.Component {
   };
 
   render() {
-    const { t } = this.props;
-
-    const highlights = [
-      {
-        name: t('Clan'),
-        desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
-        slug: '/clan',
-        icon: highlightClan
-      },
-      {
-        name: t('Collections'),
-        desc: t('Items your Guardian has acquired over their lifetime'),
-        slug: '/collections',
-        icon: highlightCollections
-      },
-      {
-        name: t('Triumphs'),
-        desc: t('Records your Guardian has achieved through their trials'),
-        slug: '/triumphs',
-        icon: highlightTriumphs
-      },
-      {
-        name: t('Checklists'),
-        desc: t('Ghost scans and item checklists spanning the Sol system'),
-        slug: '/checklists',
-        icon: highlightChecklists
-      },
-      {
-        name: t('Maps'),
-        desc: t('Interactive maps charting checklists and other notable destinations'),
-        slug: '/maps',
-        icon: highlightMaps
-      },
-      {
-        name: t('This Week'),
-        desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
-        slug: '/this-week',
-        icon: highlightThisWeek
-      },
-      {
-        name: t('Quests'),
-        desc: t('Track your pursuits, including quests and bounties'),
-        slug: '/quests',
-        icon: highlightQuests
-      },
-      {
-        name: t('Reports'),
-        desc: t('Explore and filter your Post Game Carnage Reports in detail'),
-        slug: '/reports',
-        icon: highlightReports
-      }
-    ];
-
+    
     return (
       <div className='view' id='index'>
         <div className='row header'>
@@ -253,4 +250,4 @@ class Index extends React.Component {
   }
 }
 
-export default compose(withTranslation())(Index);
+export default Index;

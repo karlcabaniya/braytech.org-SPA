@@ -25,16 +25,16 @@
   },
   "warmind": {
     "displayProperties": {
-      "name": "Darth Sidious",
+      "name": "Superintendent",
       "description": "Tom Chapman, creador e ingeniero de Braytech."
     },
     "itemType": 1,
     "itemTypeDisplayName": "Administrador"
   },
-  "patron-vip": {
+  "patron-veteran": {
     "displayProperties": {
-      "name": "Patron VIP",
-      "description": "Un apreciado y muy generoso mecenas de Braytech."
+      "name": "Praxic Order",
+      "description": "This Guardian is a beacon of light who, through their actions, have proven themmselves to value bravery and service above all else."
     },
     "itemType": 1,
     "itemTypeDisplayName": "Reconocimiento"

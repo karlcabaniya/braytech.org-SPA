@@ -1,13 +1,34 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import * as enums from '../../../utils/destinyEnums';
 import * as flair from '../../../utils/flair';
 
+import { ReactComponent as Braytech } from '../../../svg/miscellaneous/braytech-device.svg';
+import { ReactComponent as Superintendent } from '../../../svg/miscellaneous/superintendent.svg';
+
 import './styles.css';
+
+const icons = {
+  braytech: <Braytech />,
+  veteran: <Braytech />,
+  superintendent: <Superintendent />
+};
+
+function FlairPrimary({ id }) {
+  const primary = flair.primaryFlair(id);
+
+  if (!primary) {
+    return null;
+  }
+
+  return (
+    <div className={cx('flair', 'primary', primary.classNames)}>
+      {icons[primary.icon]}
+    </div>
+  );
+}
 
 class Flair extends React.Component {
   componentDidMount() {
@@ -16,17 +37,17 @@ class Flair extends React.Component {
 
   render() {
     const { type, id } = this.props;
-    
+
     return (
       <div className='stamps'>
         <div className='tooltip' data-hash={`platform_${enums.platforms[type]}`} data-type='braytech'>
-          <i className={`destiny-platform_${enums.platforms[type]}`} />
+          <div className={cx('icon', `destiny-platform_${enums.platforms[type]}`)} />
         </div>
         {flair.stamps.map((stamp, s) => {
           if (stamp.condition(id)) {
             return (
               <div key={s} className='tooltip' data-hash={stamp.hash} data-type='braytech'>
-                <i className={cx(stamp.icon, stamp.classnames)} />
+                <div className={cx('icon', 'flair', stamp.classNames)}>{icons[stamp.icon]}</div>
               </div>
             );
           } else {
@@ -52,10 +73,8 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(Flair);
+Flair = connect(mapStateToProps, mapDispatchToProps)(Flair);
+
+export { Flair, FlairPrimary };
+
+export default Flair;

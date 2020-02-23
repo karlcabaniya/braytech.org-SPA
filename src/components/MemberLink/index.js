@@ -6,13 +6,12 @@ import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
-import { primaryFlair } from '../../utils/flair';
 import store from '../../store';
 import ObservedImage from '../ObservedImage';
 import Spinner from '../UI/Spinner';
 import { Button, DestinyKey } from '../UI/Button';
 import Characters from '../UI/Characters';
-import Flair from '../UI/Flair';
+import { Flair, FlairPrimary } from '../UI/Flair';
 
 import './styles.css';
 
@@ -506,8 +505,6 @@ class MemberLinkButton extends React.Component {
   render() {
     const { member, basic, options, handler } = this.props;
 
-    const flair = primaryFlair(member.membershipId);
-
     let characterBasic;
     if (basic.data) {
       if (options.characterId) {
@@ -520,11 +517,7 @@ class MemberLinkButton extends React.Component {
 
     return (
       <div className={cx('member-link', { wait: !(!basic.loading && basic.data) })} onClick={handler}>
-        {!options.hideFlair && flair ? (
-          <div className={cx('user-flair', flair.classnames)}>
-            <i className={flair.icon} />
-          </div>
-        ) : null}
+        {!options.hideFlair ? <FlairPrimary id={member.membershipId} /> : null}
         <div className='emblem'>
           {!basic.loading && basic.data ? (
             options.showClassIcon ? (

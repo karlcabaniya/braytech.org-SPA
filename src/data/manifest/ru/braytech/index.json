@@ -33,16 +33,16 @@
   },
   "warmind": {
     "displayProperties": {
-      "name": "Darth Sidious",
+      "name": "Superintendent",
       "description": "Томас Чепмен, создатель и разработчик Braytech."
     },
     "itemType": 1,
     "itemTypeDisplayName": "Администратор"
   },
-  "patron-vip": {
+  "patron-veteran": {
     "displayProperties": {
-      "name": "VIP Патрон",
-      "description": "Очень ценный и преданный патрон Braytech."
+      "name": "Praxic Order",
+      "description": "This Guardian is a beacon of light who, through their actions, have proven themmselves to value bravery and service above all else."
     },
     "itemType": 1,
     "itemTypeDisplayName": "Патрон"

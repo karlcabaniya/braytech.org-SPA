@@ -4,23 +4,23 @@ export const stamps = [
   {
     hash: 'warmind',
     primary: true,
-    icon: 'destiny-uniF129',
-    classnames: 'me',
+    icon: 'superintendent',
+    classNames: 'opacity-50 superintendent static-loop',
     condition: membershipId => ['4611686018449662397'].indexOf(membershipId) > -1
   },
   {
-    hash: 'patron-vip',
+    hash: 'patron-veteran',
     primary: true,
-    icon: 'destiny-clovis_bray_device',
-    classnames: 'patron one-hundo',
-    condition: membershipId => manifest.statistics.patrons.alpha.indexOf(membershipId) > -1
+    icon: 'veteran',
+    classNames: 'opacity-75 patron veteran',
+    condition: membershipId => manifest.statistics.patrons.alpha.indexOf(membershipId) > -1 || membershipId === '4611686018449662397'
   },
   {
     hash: 'patron',
     primary: true,
-    icon: 'destiny-clovis_bray_device',
-    classnames: 'patron',
-    condition: membershipId => manifest.statistics.patrons.beta.indexOf(membershipId) > -1
+    icon: 'braytech',
+    classNames: 'opacity-50 patron',
+    condition: membershipId => manifest.statistics.patrons.beta.indexOf(membershipId) > -1 || manifest.statistics.patrons.alpha.indexOf(membershipId) > -1
   }
 ];
 
