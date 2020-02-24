@@ -1,153 +1,335 @@
 {
   "de": {
-    "translated": 396,
-    "notTranslated": 267,
+    "translated": 382,
+    "notTranslated": 269,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "debug": {
-    "translated": 663,
+    "translated": 651,
     "notTranslated": 0,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "en": {
-    "translated": 663,
+    "translated": 651,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "es-mx": {
-    "translated": 661,
-    "notTranslated": 2,
+    "translated": 647,
+    "notTranslated": 4,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "es": {
-    "translated": 661,
-    "notTranslated": 2,
+    "translated": 647,
+    "notTranslated": 4,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "fr": {
-    "translated": 561,
-    "notTranslated": 102,
+    "translated": 560,
+    "notTranslated": 91,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "it": {
-    "translated": 661,
-    "notTranslated": 2,
+    "translated": 647,
+    "notTranslated": 4,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "ja": {
-    "translated": 616,
-    "notTranslated": 47,
+    "translated": 603,
+    "notTranslated": 48,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "ko": {
-    "translated": 589,
-    "notTranslated": 74,
+    "translated": 575,
+    "notTranslated": 76,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 663,
+    "notTranslated": 651,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "pt-br": {
-    "translated": 607,
-    "notTranslated": 56,
+    "translated": 593,
+    "notTranslated": 58,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "ru": {
-    "translated": 658,
-    "notTranslated": 5,
+    "translated": 644,
+    "notTranslated": 7,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "zh-chs": {
-    "translated": 488,
-    "notTranslated": 175,
+    "translated": 474,
+    "notTranslated": 177,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   },
   "zh-cht": {
-    "translated": 403,
-    "notTranslated": 260,
+    "translated": 389,
+    "notTranslated": 262,
     "added": [
-      "Primeval kills",
-      "See all {{members}} members"
+      "Add player",
+      "Badge"
     ],
     "removed": [
-      "See all {{count}}"
+      "Delivered",
+      "Each suggestion is manually reviewed by me, Tom, before being published. Once published, others may vote on it, potentially affecting its priority.",
+      "Hello Guardian! Braytech's feature set is largely user-inspired. You can directly impact the direction in which Braytech develops by sharing your points of pain and pleasure.",
+      "I know reading sucks, but it's really helpful to me if you check first for previous suggestions before sending your own.",
+      "In development",
+      "Make a new suggestion",
+      "Not planned",
+      "Remain anonymous",
+      "Scrap it",
+      "Send for review",
+      "Suggestion box",
+      "upvote",
+      "upvotes",
+      "Use this opportunity to go on the record and make your voice heard."
     ]
   }
 }
