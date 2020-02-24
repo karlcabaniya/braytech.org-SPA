@@ -5,14 +5,15 @@ import cx from 'classnames';
 import * as enums from '../../../utils/destinyEnums';
 import * as flair from '../../../utils/flair';
 
-import { ReactComponent as Braytech } from '../../../svg/miscellaneous/braytech-device.svg';
+import { ReactComponent as ClovisBray } from '../../../svg/miscellaneous/clovis-bray.svg';
+import { ReactComponent as Warmind } from '../../../svg/destinations/hellas-basin-1_monochrome.svg';
 import { ReactComponent as Superintendent } from '../../../svg/miscellaneous/superintendent.svg';
 
 import './styles.css';
 
 const icons = {
-  braytech: <Braytech />,
-  veteran: <Braytech />,
+  braytech: <ClovisBray />,
+  veteran: <Warmind />,
   superintendent: <Superintendent />
 };
 

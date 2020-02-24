@@ -216,7 +216,7 @@ class ReportItem extends React.Component {
 
               return (
                 <ul key={team.teamId} className='team'>
-                  <li className={cx('team-head', team.teamId === 17 ? 'alpha' : 'bravo')}>
+                  <li className={cx('header team', team.teamId === 17 ? 'alpha' : 'bravo')}>
                     <div className='team name'>{team.teamId === 17 ? t('Alpha team') : t('Bravo team')}</div>
                     <EntryHeader activityDetails={report.activityDetails} team />                    
                     <div className='team score hideInline'>{team.score.basic.displayValue}</div>
@@ -233,7 +233,7 @@ class ReportItem extends React.Component {
             })
           ) : (
             <ul className='team'>
-              <li className={cx('team-head')}>
+              <li className={cx('header team')}>
                 <div className='team name' />
                 <EntryHeader activityDetails={report.activityDetails} team />
                 <div className='team score hideInline' />

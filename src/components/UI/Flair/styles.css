@@ -99,28 +99,23 @@
 }
 
 .stamps .icon.destiny-platform_xbox {
-  background-color: hsl(122, 39%, 39%);
-  color: hsl(122, 39%, 60%);
+  background-color: #4CAF50;
 }
 
 .stamps .icon.destiny-platform_playstation {
-  background-color: hsl(231, 48%, 33%);
-  color: hsl(231, 48%, 54%);
+  background-color: #3F51B5;
 }
 
 .stamps .icon.destiny-platform_steam {
-  background-color: hsl(202, 71%, 22%);
-  color: hsl(202, 71%, 40%);
+  background-color: #165b83;
 }
 
 .stamps .icon.destiny-platform_battlenet {
-  background-color: hsl(199, 100%, 30%);
-  color: hsl(199, 100%, 50%);
+  background-color: #009ae4;
 }
 
 .stamps .icon.destiny-platform_stadia {
-  background-color: hsl(350, 70%, 41%);
-  color: hsl(350, 70%, 61%);
+  background-color: #da2b48;
 }
 
 .stamps div svg {
@@ -130,15 +125,19 @@
 }
 
 .stamps .icon.patron {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: hsl(213, 100%, 63%);
 }
 
 .stamps .icon.veteran {
-  background-color: hsl(4, 89%, 27%);
+  background-color: hsl(39, 100%, 50%);
 }
 
 .stamps .icon.veteran svg {
-  fill: hsl(4, 89%, 37%);
+  transform: scale(1.2);
+}
+
+.stamps .icon.veteran svg g {
+  opacity: 1 !important;
 }
 
 .stamps .icon.superintendent {

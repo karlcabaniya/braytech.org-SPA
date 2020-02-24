@@ -78,16 +78,16 @@
 }
 
 #tooltip .frame.ui .header .name {
-  font-size: 21px;
+  /* font-size: 21px; */
 }
 
 #tooltip .header .kind {
   margin: 4px 0 0;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 #tooltip .header .rarity {
-  opacity: 0.4;
+  opacity: 0.3;
   text-align: right;
 }
 

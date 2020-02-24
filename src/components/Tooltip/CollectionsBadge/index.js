@@ -110,7 +110,7 @@ class CollectionsBadge extends React.Component {
             <div className='header'>
               <div className='name'>{definitionBadge.displayProperties.name}</div>
               <div>
-                <div className='kind'>{manifest.DestinyPresentationNodeDefinition[498211331].displayProperties.name}</div>
+                <div className='kind'>{t('Badge')}</div>
               </div>
             </div>
             <div className='black'>

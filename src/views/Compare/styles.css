@@ -131,7 +131,6 @@
 #compare .data .list.member .remove {
   position: relative;
   padding: 0;
-  display: grid;
   justify-content: center;
 }
 

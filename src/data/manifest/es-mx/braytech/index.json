@@ -1,72 +1,71 @@
 {
-    "platform_xbox": {
-      "displayProperties": {
-        "name": "Xbox",
-        "description": "La plataforma a la que pertenece este perfil."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Plataforma"
+  "platform_xbox": {
+    "displayProperties": {
+      "name": "Xbox",
+      "description": "La plataforma a la que pertenece este perfil."
     },
-    "platform_playstation": {
-      "displayProperties": {
-        "name": "Playstation",
-        "description": "La plataforma a la que pertenece este perfil."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Plataforma"
+    "itemType": 1,
+    "itemTypeDisplayName": "Plataforma"
+  },
+  "platform_playstation": {
+    "displayProperties": {
+      "name": "Playstation",
+      "description": "La plataforma a la que pertenece este perfil."
     },
-    "platform_pc": {
-      "displayProperties": {
-        "name": "PC",
-        "description": "La plataforma a la que pertenece este perfil."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Plataforma"
+    "itemType": 1,
+    "itemTypeDisplayName": "Plataforma"
+  },
+  "platform_pc": {
+    "displayProperties": {
+      "name": "PC",
+      "description": "La plataforma a la que pertenece este perfil."
     },
-    "warmind": {
-      "displayProperties": {
-        "name": "Superintendent",
-        "description": "Tom Chapman, creador e ingeniero de Braytech."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Administrador"
+    "itemType": 1,
+    "itemTypeDisplayName": "Plataforma"
+  },
+  "warmind": {
+    "displayProperties": {
+      "name": "Superintendent",
+      "description": "Tom Chapman, creator and engineer of Braytech."
     },
-    "patron-veteran": {
-      "displayProperties": {
-        "name": "Praxic Order",
-        "description": "This Guardian is a beacon of light who, through their actions, have proven themmselves to value bravery and service above all else."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Reconocimiento"
+    "itemType": 1,
+    "itemTypeDisplayName": "Artificial Intelligence"
+  },
+  "patron-veteran": {
+    "displayProperties": {
+      "name": "Subroutine",
+      "description": "This Guardian is a beacon of light who, through their actions, have proven themselves to value bravery and service above all else."
     },
-    "patron": {
-      "displayProperties": {
-        "name": "Patron",
-        "description": "Un generoso mecenas de Braytech."
-      },
-      "itemType": 1,
-      "itemTypeDisplayName": "Reconocimiento"
+    "itemType": 1,
+    "itemTypeDisplayName": "Patron Reward"
+  },
+  "patron": {
+    "displayProperties": {
+      "name": "Researcher",
+      "description": "A technical fellow at Clovis Bray, this Guardian seeks to improve Braytech."
     },
-    "commonality": {
-      "displayProperties": {
-        "name": "Rareza",
-        "description": "Una representación del número de jugadores que adquirieron o canjeado este triunfo."
-      },
-      "itemType": 1
+    "itemType": 1,
+    "itemTypeDisplayName": "Patron Reward"
+  },
+  "commonality": {
+    "displayProperties": {
+      "name": "Rareza",
+      "description": "Una representación del número de jugadores que adquirieron o canjeado este triunfo."
     },
-    "score": {
-      "displayProperties": {
-        "name": "Valor en puntos",
-        "description": "El valor en puntos de este triunfo."
-      },
-      "itemType": 1
+    "itemType": 1
+  },
+  "score": {
+    "displayProperties": {
+      "name": "Valor en puntos",
+      "description": "El valor en puntos de este triunfo."
     },
-    "character_bound": {
-      "displayProperties": {
-        "name": "Enlazado al personaje",
-        "description": "Estos elementos están vinculados a un personaje. Esto significa que cada personaje los descubre individualmente."
-      },
-      "itemType": 1
-    }
+    "itemType": 1
+  },
+  "character_bound": {
+    "displayProperties": {
+      "name": "Enlazado al personaje",
+      "description": "Estos elementos están vinculados a un personaje. Esto significa que cada personaje los descubre individualmente."
+    },
+    "itemType": 1
   }
-  
+}

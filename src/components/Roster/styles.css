@@ -154,18 +154,16 @@
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  background-color: hsl(198, 33%, 44%);
-  color: hsl(198, 33%, 64%);
+  color: #fff;
+  background-color: #4b7f95;
 }
 
 .list.roster .row > ul .col.lastCharacter .icon .destiny-class_hunter {
-  background-color: hsl(26, 25%, 40%);
-  color: hsl(26, 25%, 60%);
+  background-color: #7f624c;
 }
 
 .list.roster .row > ul .col.lastCharacter .icon .destiny-class_warlock {
-  background-color: hsl(164, 48%, 32%);
-  color: hsl(164, 48%, 52%);
+  background-color: #2a7863;
 }
 
 .list.roster .row > ul .col.lastCharacter .icon:nth-child(2) div {

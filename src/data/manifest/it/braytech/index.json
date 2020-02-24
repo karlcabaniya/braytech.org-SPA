@@ -26,26 +26,26 @@
   "warmind": {
     "displayProperties": {
       "name": "Superintendent",
-      "description": "Tom Chapman, creatore e ingeniere di Braytech."
+      "description": "Tom Chapman, creator and engineer of Braytech."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Amministratore"
+    "itemTypeDisplayName": "Artificial Intelligence"
   },
   "patron-veteran": {
     "displayProperties": {
-      "name": "Praxic Order",
-      "description": "This Guardian is a beacon of light who, through their actions, have proven themmselves to value bravery and service above all else."
+      "name": "Subroutine",
+      "description": "This Guardian is a beacon of light who, through their actions, have proven themselves to value bravery and service above all else."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Raccomandazione"
+    "itemTypeDisplayName": "Patron Reward"
   },
   "patron": {
     "displayProperties": {
-      "name": "Patron",
-      "description": "Un generoso patron di Braytech."
+      "name": "Researcher",
+      "description": "A technical fellow at Clovis Bray, this Guardian seeks to improve Braytech."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Raccomandazione"
+    "itemTypeDisplayName": "Patron Reward"
   },
   "commonality": {
     "displayProperties": {

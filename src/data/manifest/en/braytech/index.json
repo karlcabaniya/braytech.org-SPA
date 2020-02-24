@@ -45,23 +45,23 @@
       "description": "Tom Chapman, creator and engineer of Braytech."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Admin"
+    "itemTypeDisplayName": "Artificial Intelligence"
   },
   "patron-veteran": {
     "displayProperties": {
-      "name": "Praxic Order",
-      "description": "This Guardian is a beacon of light who, through their actions, have proven themmselves to value bravery and service above all else."
+      "name": "Subroutine",
+      "description": "This Guardian is a beacon of light who, through their actions, have proven themselves to value bravery and service above all else."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Commendation"
+    "itemTypeDisplayName": "Patron Reward"
   },
   "patron": {
     "displayProperties": {
-      "name": "Patron",
-      "description": "A generous patron of Braytech."
+      "name": "Researcher",
+      "description": "A technical fellow at Clovis Bray, this Guardian seeks to improve Braytech."
     },
     "itemType": 1,
-    "itemTypeDisplayName": "Commendation"
+    "itemTypeDisplayName": "Patron Reward"
   },
   "commonality": {
     "displayProperties": {

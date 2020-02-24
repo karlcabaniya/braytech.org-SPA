@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
-import { compose } from 'redux';
+import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import * as enums from '../../utils/destinyEnums';
 import ProfileSearch from '../../components/ProfileSearch';
 import Button from '../../components/UI/Button';
@@ -28,6 +28,14 @@ class AddPlayer extends React.Component {
     }
   }
 
+  handler_hideSearch = e => {
+    if (this.mounted) {
+      this.setState({
+        showSearch: false
+      });
+    }
+  }
+
   handler_profileClick = (membershipType, membershipId, displayName) => e => {
     if (this.mounted) {
       this.props.action(membershipType, membershipId, displayName);
@@ -44,9 +52,7 @@ class AddPlayer extends React.Component {
     
     return (
       <li key={i} className='linked'>
-        <div className='icon'>
-          <span className={`destiny-platform_${enums.platforms[p.membershipType]}`} />
-        </div>
+        <div className={cx('icon', `destiny-platform_${enums.platforms[p.membershipType]}`)} />
         <div className='displayName'>{p.displayName}</div>
         <Link to={queryString ? `/compare/${object}?members=${queryString}` : `/compare/${object}`} />
       </li>
@@ -59,8 +65,13 @@ class AddPlayer extends React.Component {
     if (showSearch) {
       return (
         <div className='column add-player'>
-          <ul className='list'>
+          <ul className='list member'>
             <li />
+            <li>
+              <Button className='remove' action={this.handler_hideSearch}>
+                <i className='segoe-uniE8BB' />
+              </Button>
+            </li>
           </ul>
           <ProfileSearch resultsListItems={this.resultsListItems} />
         </div>
@@ -68,7 +79,7 @@ class AddPlayer extends React.Component {
     } else {
       return (
         <div className='column add-player'>
-          <Button text='Add player' action={this.handler_showSearch} />
+          <Button text={t('Add player')} action={this.handler_showSearch} />
         </div>
       );
     }
@@ -76,4 +87,4 @@ class AddPlayer extends React.Component {
   }
 }
 
-export default compose(withTranslation(), withRouter)(AddPlayer);
+export default withRouter(AddPlayer);

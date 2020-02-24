@@ -24,10 +24,6 @@
   padding: 20px 16px 26px;
 }
 
-#tooltip .frame.activity .header .text .kind {
-  color: rgba(255, 255, 255, 0.4);
-}
-
 #tooltip .frame.activity .black {
   background-color: hsla(var(--commonDark), 0.9);
 }

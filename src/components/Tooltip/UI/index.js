@@ -12,7 +12,7 @@ import Braytech from './Braytech';
 
 const woolworths = {
   braytech: Braytech
-}
+};
 
 class UI extends React.Component {
   render() {
@@ -64,7 +64,7 @@ class UI extends React.Component {
         <div className={cx('frame', 'ui', item.rarity)}>
           <div className='header'>
             <div className='name'>{definition.displayProperties?.name || definition.statName}</div>
-            <div></div>
+            {definition.itemTypeDisplayName ? <div className='kind'>{definition.itemTypeDisplayName}</div> : <div />}
           </div>
           <div className='black'>
             {this.props.viewport.width <= 600 && definition.screenshot ? (
@@ -88,7 +88,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(UI);
+export default compose(connect(mapStateToProps), withTranslation())(UI);
