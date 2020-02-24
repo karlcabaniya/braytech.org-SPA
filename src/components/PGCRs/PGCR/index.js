@@ -17,19 +17,24 @@ import { EntryHeader, EntryDetail } from './EntryRow';
 import './styles.css';
 
 const unfinishableActivityModes = [
-  6 // Patrol
+  6,  // Patrol
+  76, // Reckoning
 ];
 
-class ReportItem extends React.Component {
-  constructor(props) {
-    super(props);
+const headInViewport = function(element) {
+  const bounding = element.getBoundingClientRect();
 
-    this.state = {
-      expandedReport: Boolean(this.props.expanded),
-      expandedPlayers: [],
-      playerCache: []
-    };
+  return bounding.top >= 0;
+}
+
+class ReportItem extends React.Component {
+  state = {
+    expandedReport: Boolean(this.props.expanded),
+    expandedPlayers: [],
+    playerCache: []
   }
+
+  ref_parent = React.createRef();
 
   handler_expand = e => {
     this.setState(p => ({
@@ -46,6 +51,10 @@ class ReportItem extends React.Component {
       expandedReport: false,
       expandedPlayers: []
     }));
+
+    if (!headInViewport(this.ref_parent.current)) {
+      this.ref_parent.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   updatePlayerCache = () => {
@@ -149,9 +158,8 @@ class ReportItem extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.expandedReport !== this.state.expandedReport || prevState.expandedPlayers !== this.state.expandedPlayers) {
-      console.log('rebinding tooltips for report item')
+  componentDidUpdate(p, s) {
+    if (s.expandedReport !== this.state.expandedReport || s.expandedPlayers !== this.state.expandedPlayers) {
       this.props.rebindTooltips();
     }
   }
@@ -171,12 +179,6 @@ class ReportItem extends React.Component {
 
     const entry = characterIds && report.entries.find(entry => characterIds.includes(entry.characterId));
     const standing = entry && entry.values.standing && entry.values.standing.basic.value !== undefined ? entry.values.standing.basic.value : -1;
-
-
-
-
-
-
 
 
     const entries = report.entries.map(entry => {
@@ -273,7 +275,7 @@ class ReportItem extends React.Component {
     );
 
     return (
-      <li key={report.activityDetails.instanceId} className={cx('linked', { isExpanded: expandedReport, standing: standing > -1, victory: standing === 0 })} onClick={!expandedReport ? this.handler_expand : undefined}>
+      <li key={report.activityDetails.instanceId} ref={this.ref_parent} className={cx('linked', { isExpanded: expandedReport, standing: standing > -1, victory: standing === 0 })} onClick={!expandedReport ? this.handler_expand : undefined}>
       {!expandedReport ? <ReportHeader characterIds={characterIds} {...report} /> : body}
       </li>
     );

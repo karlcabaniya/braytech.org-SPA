@@ -120,7 +120,7 @@ class ReportHeader extends React.Component {
         <div className='mode'>{modeExtra?.name || definitionMode?.displayProperties?.name}</div>
         <div className='map'>{definitionActivity?.displayProperties?.name}</div>
         <div className='ago'>
-          <Moment fromNow>{realEndTime}</Moment>
+          <Moment fromNow withTitle>{realEndTime}</Moment>
         </div>
       </div>
     );
@@ -236,7 +236,7 @@ class ReportHeaderLarge extends React.Component {
           <div>
             <div className='duration'>{entry.values.activityDurationSeconds.basic.displayValue}</div>
             <div className='ago'>
-              <Moment fromNow>{realEndTime}</Moment>
+              <Moment fromNow withTitle>{realEndTime}</Moment>
             </div>
           </div>
         </div>

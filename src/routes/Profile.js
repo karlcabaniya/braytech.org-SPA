@@ -24,6 +24,13 @@ class ProfileRoutes extends React.Component {
     this.props.setMemberByRoute({ membershipType, membershipId, characterId });
   }
 
+  // bounces the view back up when changing profiles
+  componentDidUpdate(p, s) {
+    if (!this.props.member.data) {
+      window.scrollTo(0, 0);
+    }
+  }
+
   render() {
     const { member, location, match } = this.props;
     // console.log(member, location, match);

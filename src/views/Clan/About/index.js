@@ -84,10 +84,7 @@ class AboutView extends React.Component {
     const weeklyClanEngramsDefinition = manifest.DestinyMilestoneDefinition[4253138191].rewards[1064137897].rewardEntries;
     const weeklyRewardState = this.state.weeklyRewardState;
 
-    let rewardState = null;
-    if (weeklyRewardState) {
-      rewardState = weeklyRewardState.rewards.find(reward => reward.rewardCategoryHash === 1064137897).entries;
-    }
+    const rewardState = weeklyRewardState?.rewards?.find(reward => reward.rewardCategoryHash === 1064137897).entries || [];
 
     return (
       <>
@@ -115,7 +112,7 @@ class AboutView extends React.Component {
           <BannerPerks level={clanLevel.level} />
           <h4>{t('Engrams')}</h4>
           <ul className='clan-rewards'>
-            {rewardState ? (
+            {rewardState.length ? (
               rewardState.map(reward => (
                 <li key={reward.rewardEntryHash}>
                   <Checkbox checked={reward.earned} text={weeklyClanEngramsDefinition[reward.rewardEntryHash].displayProperties.name} />

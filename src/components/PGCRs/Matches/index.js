@@ -14,24 +14,16 @@ import PGCR from '../PGCR';
 import './styles.css';
 
 class Matches extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      cacheState: {},
-      instances: []
-    };
-
-    this.running = false;
-  }
+  state = {
+    loading: false,
+    cacheState: {},
+    instances: []
+  };
 
   cacheMachine = async (mode, characterId) => {
     const { member, auth, pgcr, limit = 15, offset = 0 } = this.props;
 
     const charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map(c => c.characterId);
-
-    // console.log(charactersIds)
 
     const requests = charactersIds.map(async c => {
       const response = await bungie.GetActivityHistory({
@@ -97,10 +89,10 @@ class Matches extends React.Component {
               return this.cacheMachine(m, member.characterId);
             })
           : [await this.cacheMachine(false, member.characterId)];
-      
+
         await Promise.all(ignition);
       } catch (e) {
-        if (e.message === 'privacy' && this.mounted) this.setState({ loading: false });
+        if (this.mounted && e.message === 'privacy') this.setState({ loading: false });
       }
 
       if (this.mounted) this.setState({ loading: false });
@@ -112,13 +104,13 @@ class Matches extends React.Component {
     }
   };
 
-  scrollToMatchesHandler = e => {
-    const element = document.getElementById('matches');
-    element.scrollIntoView({ behavior: 'smooth' });
+  handler_scrollToMatches = e => {
+    document.getElementById('matches').scrollIntoView({ behavior: 'smooth' });
   };
 
   componentDidMount() {
     this.mounted = true;
+    this.running = false;
 
     this.run();
     this.startInterval();
@@ -155,7 +147,7 @@ class Matches extends React.Component {
   }
 
   render() {
-    const { t, member, pgcr, mode, offset, root } = this.props;
+    const { t, member, pgcr, mode, offset, limit = 15, root } = this.props;
     const { loading, instances } = this.state;
 
     // get PGCRs for current membership
@@ -163,13 +155,14 @@ class Matches extends React.Component {
 
     // filter available PGCRs and ensure uniqueness
     reports = reports
+      .filter(r => (mode && r.activityDetails.modes.indexOf(mode) > -1) || !mode)
       .filter(pgcr => instances.includes(pgcr.activityDetails.instanceId))
-      .filter((obj, pos, arr) => {
-        return arr.map(mapObj => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos;
-      });
-    
+      .filter((obj, pos, arr) => arr.map(mapObj => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos);
+
     // ensure order
     reports = orderBy(reports, [pgcr => pgcr.period], ['desc']);
+
+    console.log(reports);
 
     return reports.length ? (
       <div className='matches'>
@@ -180,13 +173,17 @@ class Matches extends React.Component {
           ))}
         </ul>
         <div className='pages'>
-          <Button classNames='previous' text={t('Previous page')} disabled={loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={this.scrollToMatchesHandler} />
-          <Button classNames='next' text={t('Next page')} disabled={loading} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={this.scrollToMatchesHandler} />
+          <Button classNames='previous' text={t('Previous page')} disabled={loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={this.handler_scrollToMatches} />
+          <Button classNames='next' text={t('Next page')} disabled={loading || reports.length < limit} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={this.handler_scrollToMatches} />
         </div>
       </div>
     ) : loading ? (
       <Spinner />
-    ) : null;
+    ) : (
+      <div className='matches'>
+        <div className='info'>{t('No reports available')}</div>
+      </div>
+    );
   }
 }
 
@@ -198,7 +195,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Matches);
+export default compose(connect(mapStateToProps), withTranslation())(Matches);

@@ -91,7 +91,7 @@ class Header extends React.Component {
   render() {
     const { t, location, viewport, member, refresh } = this.props;
 
-    const isProfileRoute = utils.isProfileRoute(location);
+    const isProfileRoute = utils.isProfileRoute(location) && member.data;
 
     const views = [
       {
