@@ -20,7 +20,7 @@ export const stamps = [
     primary: true,
     icon: 'braytech',
     classNames: 'opacity-60 patron',
-    condition: membershipId => manifest.statistics.patrons.beta.indexOf(membershipId) > -1 || manifest.statistics.patrons.alpha.indexOf(membershipId) > -1 || membershipId === '4611686018475809531'
+    condition: membershipId => manifest.statistics.patrons.beta.indexOf(membershipId) > -1
   }
 ];
 

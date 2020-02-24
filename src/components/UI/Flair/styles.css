@@ -75,6 +75,29 @@
   }
 }
 
+.flair.veteran svg .perimeter {
+  transform-origin: center center;
+  animation: veteran-loop-1 10s linear 0s infinite;
+}
+
+@keyframes veteran-loop-1 {
+  0%, 20% {
+    transform: scale(1);
+  }
+  21%, 40% {
+    transform: scale(0.9);
+  }
+  41%, 60% {
+    transform: scale(1) rotate(360deg);
+  }
+  61%, 80% {
+    transform: scale(1.1);
+  }
+  81%, 100% {
+    transform: scale(1);
+  }
+}
+
 
 
 
@@ -129,7 +152,7 @@
 }
 
 .stamps .icon.veteran {
-  background-color: hsl(39, 100%, 50%);
+  background-color: hsl(21, 100%, 50%);
 }
 
 .stamps .icon.veteran svg {

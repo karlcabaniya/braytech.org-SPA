@@ -72,6 +72,7 @@
   height: 70%;
   width: auto;
   fill: #ffffff;
+  overflow: visible;
 }
 
 .member-link > .flair.patron.veteran svg g {

@@ -1007,6 +1007,11 @@
   {
     "date": "2020-02-22T16:05:42.269Z",
     "version": "2.17.19",
-    "content": "- changes to Braytech's underlying architecture\n- language improvments and updates\n- other improvements and fixes"
+    "content": "- changes to Braytech's underlying architecture\n- language improvments and updates\n- other improvements and fixes\n- clan banner component rewrite"
+  },
+  {
+    "date": "2020-02-24T10:06:19.286Z",
+    "version": "2.17.21",
+    "content": "- user flair updates\n- _Compare_ view improvements"
   }
 ]

@@ -55,23 +55,25 @@ function BannerPerks(props) {
 }
 
 class AboutView extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      weeklyRewardState: false
-    };
+  state = {
+    weeklyRewardState: false
   }
 
   async componentDidMount() {
+    this.mounted = true;
+    
     window.scrollTo(0, 0);
 
     const groupId = this.props.group.groupId;
     const groupWeeklyRewardState = await bungie.GetClanWeeklyRewardState(groupId);
 
-    if (groupWeeklyRewardState && groupWeeklyRewardState.ErrorCode === 1) {
+    if (this.mounted && groupWeeklyRewardState && groupWeeklyRewardState.ErrorCode === 1) {
       this.setState({ weeklyRewardState: groupWeeklyRewardState.Response });
     }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   render() {

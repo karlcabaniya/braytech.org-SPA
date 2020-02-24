@@ -3,7 +3,7 @@
   <g id="Layer_2" data-name="Layer 2">
     <g id="Hellas_Basin" data-name="Hellas Basin">
       <g>
-        <g id="core" style="opacity: 0.4">
+        <g class="core" style="opacity: 0.4">
           <polygon points="78.157 56.214 54.251 32.371 54.251 20.548 90.638 56.214 54.251 92.065 54.289 79.763 78.157 56.214" style="fill: #fff"/>
           <polygon points="75.733 56.214 54.286 77.402 54.235 65.469 63.49 56.215 54.27 47.392 54.27 35.026 75.733 56.214" style="fill: #fff"/>
           <polygon points="64.419 27.903 56.091 19.565 106.822 19.565 98.486 27.903 64.419 27.903" style="fill: #fff"/>
@@ -13,7 +13,7 @@
           <polygon points="42.403 27.903 50.731 19.565 0 19.565 8.336 27.903 42.403 27.903" style="fill: #fff"/>
           <polygon points="40.544 29.88 10.313 29.88 18.92 38.215 31.646 38.215 40.544 29.88" style="fill: #fff"/>
         </g>
-        <g id="perimeter" style="opacity: 0.4">
+        <g class="perimeter" style="opacity: 0.4">
           <path d="M89.25519,76.2141l-3.36334-1.44216L72.618,88.04571,73.78812,91.106,57.35873,107.53534,55.30139,99.375l41.7993-41.23554,8.5251,2.062Z" style="fill: #fff"/>
           <polygon points="87.4 43.636 90.001 43.636 93.778 39.858 106.01 52.216 97.985 54.223 87.4 43.636" style="fill: #fff"/>
           <polygon points="58.203 14.812 57.334 13.961 62.146 9.149 67.807 14.81 58.203 14.812" style="fill: #fff"/>

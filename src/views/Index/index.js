@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import Moment from 'react-moment';
 
-import { t } from '../../utils/i18n';
+import { t, fromNow } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
@@ -232,9 +232,7 @@ class Index extends React.Component {
               <div className='text'>
                 <div className='number'>{this.logs[this.state.log].version}</div>
                 <div className='time'>
-                  <Moment fromNow withTitle>
-                    {this.logs[this.state.log].date}
-                  </Moment>
+                  {fromNow(this.logs[this.state.log].date)}
                 </div>
               </div>
               <div className='buttons'>

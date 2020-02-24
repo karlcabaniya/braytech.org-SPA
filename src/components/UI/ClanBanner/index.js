@@ -193,8 +193,6 @@ class ClanBanner extends React.Component {
       ctxFinal.drawImage(this.bannerConfig.StandImage.el, -1, 1);
     }
 
-    console.log(this.state, this.bannerConfig)
-
     return (
       <div className={cx('clan-banner', { loading: this.state.loading } )}>
         {this.state.loading ? <Spinner /> : null}

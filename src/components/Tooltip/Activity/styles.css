@@ -5,7 +5,7 @@
   background-color: transparent;
   color: #fff;
   padding: 0;
-  border-top: 2px solid #a3a3a3;
+  border-top: 2px solid #d6d6d6;
 }
 
 #tooltip .frame.activity .header .icon {
@@ -41,7 +41,7 @@
 }
 
 #tooltip .frame.activity.raid .header {
-  border-top-color: #000;
+  border-top-color: #363636;
 }
 
 #tooltip .frame.activity.raid .header .icon {
