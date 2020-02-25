@@ -178,6 +178,7 @@ class Quests extends React.Component {
             <div className='module'>
               <div className='sub-header'>
                 <div>{t('Bounties')}</div>
+                {filteredInventory.length > 30 ? <div>{filteredInventory.length}/63</div> : null}
               </div>
               {bounties.length ? (
                 <ul className='list inventory-items'>{bounties.map(i => i.el)}</ul>
@@ -190,6 +191,7 @@ class Quests extends React.Component {
             <div className='module'>
               <div className='sub-header'>
                 <div>{t('Quests')}</div>
+                {filteredInventory.length > 30 ? <div>{filteredInventory.length}/63</div> : null}
               </div>
               {quests.length ? (
                 <ul className='list inventory-items'>{quests.concat(questsItems).map(i => i.el)}</ul>

@@ -119,6 +119,7 @@
 
 .stamps .icon::before {
   font-size: 18px;
+  color: #fff;
 }
 
 .stamps .icon.destiny-platform_xbox {

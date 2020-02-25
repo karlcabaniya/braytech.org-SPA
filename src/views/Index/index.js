@@ -74,20 +74,18 @@ const highlights = [
 ];
 
 class Index extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      log: 0
-    };
-
-    this.logs = [...captainsLog].reverse();
-    this.supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta]);
+  state = {
+    log: 0
   }
 
-  componentDidMount() {
-    window.scrollTo(0, 0);
+  logs = [...captainsLog].reverse();
 
+  supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter(m => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
+
+  componentDidMount() {
     this.mounted = true;
+    
+    window.scrollTo(0, 0);    
   }
 
   componentWillUnmount() {
@@ -118,8 +116,9 @@ class Index extends React.Component {
     if (this.state.log + 1 === this.logs.length) {
       return;
     }
-    this.setState(prev => ({
-      log: prev.log + 1
+
+    this.setState(p => ({
+      log: p.log + 1
     }));
   };
 
@@ -127,8 +126,9 @@ class Index extends React.Component {
     if (this.state.log === 0) {
       return;
     }
-    this.setState(prev => ({
-      log: prev.log - 1
+    
+    this.setState(p => ({
+      log: p.log - 1
     }));
   };
 

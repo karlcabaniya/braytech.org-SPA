@@ -394,6 +394,12 @@ class BungieAuthMini extends React.Component {
     }
   }
 
+  handler_loadMembership = membership => e => {
+    window.scrollTo(0, 0);
+
+    store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: membership });
+  };
+
   componentWillUnmount() {
     this.mounted = false;
   }
@@ -419,12 +425,7 @@ class BungieAuthMini extends React.Component {
                           <CrossSaveIcon />
                         </div>
                       ) : null}
-                      <Link
-                        to='/character-select'
-                        onClick={e => {
-                          store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType: m.membershipType, membershipId: m.membershipId } });
-                        }}
-                      />
+                      <Link to='/character-select' onClick={this.handler_loadMembership({ membershipType: m.membershipType, membershipId: m.membershipId })} />
                     </li>
                   );
                 })}

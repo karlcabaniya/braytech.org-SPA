@@ -2,8 +2,8 @@
   margin: 0 0 calc(1rem + 24px);
 }
 
-.index-search.has-results {
-  margin: 0 0 calc(2rem + 24px);
+.index-search.has-results .list li:last-child:not(:first-child) {
+  margin: 0 0 1rem;
 }
 
 .index-search .list.record-items {
