@@ -73,8 +73,26 @@
   margin: 0;
 }
 
+@keyframes highlight-wave {
+  0% {
+    background-position-x: 200%;
+  }
+  100% {
+    background-position-x: -200%;
+  }
+}
+
 .list.collection-items li.highlight::before {
-  animation: animation-background-highlight 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 400%;
+  animation: highlight-wave 2s linear 0s infinite forwards;
+}
+
+.list.collection-items li.highlight:hover::before {
+  background: rgba(255, 255, 255, 0.2) linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 400%;
 }
 
 .list.collection-items .all-completed {

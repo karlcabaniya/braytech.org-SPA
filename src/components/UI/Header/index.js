@@ -45,14 +45,14 @@ class Header extends React.Component {
         if (this.mounted) {
           this.setState({ updateFlash: false });
         }
-      }, 2700);
+      }, 4000);
     }
     if (this.state.navOpen) {
       this.navEl.current.addEventListener('touchmove', this.nav_touchMove, true);
     }
   }
 
-  toggleNav = () => {
+  handler_toggleNav = () => {
     if (!this.state.navOpen) {
       this.setState({ navOpen: true });
     } else {
@@ -60,27 +60,27 @@ class Header extends React.Component {
     }
   };
 
-  closeNav = () => {
+  handler_closeNav = () => {
     if (this.state.navOpen) {
       this.setState({ navOpen: false });
     }
   };
 
-  openNav = () => {
+  handler_openNav = () => {
     this.setState({ navOpen: true });
   };
 
   navOverlayLink = state => {
     if (state) {
       return (
-        <div className='trigger' onClick={this.toggleNav}>
+        <div className='trigger' onClick={this.handler_toggleNav}>
           <i className='segoe-uniE106' />
           {this.props.t('Exit')}
         </div>
       );
     } else {
       return (
-        <div className='trigger' onClick={this.toggleNav}>
+        <div className='trigger' onClick={this.handler_toggleNav}>
           <i className='segoe-uniEA55' />
           {this.props.t('Views')}
         </div>
@@ -266,7 +266,7 @@ class Header extends React.Component {
         <div className='braytech'>
           <div className='wrapper'>
             <div className='logo'>
-              <Link to='/' onClick={this.closeNav}>
+              <Link to='/' onClick={this.handler_closeNav}>
                 <span className='destiny-clovis_bray_device' />
                 {process.env.REACT_APP_BETA === 'true' ? 'Braytech Beta' : 'Braytech'}
               </Link>
@@ -294,7 +294,7 @@ class Header extends React.Component {
                                 to={view.slug}
                                 onClick={e => {
                                   e.preventDefault();
-                                  this.openNav();
+                                  this.handler_openNav();
                                 }}
                               >
                                 {view.name}
@@ -365,7 +365,7 @@ class Header extends React.Component {
                                 to={view.slug}
                                 onClick={e => {
                                   e.preventDefault();
-                                  this.openNav();
+                                  this.handler_openNav();
                                 }}
                               >
                                 {view.name}
@@ -402,7 +402,7 @@ class Header extends React.Component {
                             <li key={view.slug}>
                               <div className='name'>{view.name}</div>
                               <div className='description'>{view.desc}</div>
-                              <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact} onClick={this.closeNav} />
+                              <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
                         } else {
@@ -410,7 +410,7 @@ class Header extends React.Component {
                             <li key={view.slug}>
                               <div className='name'>{view.name}</div>
                               <div className='description'>{view.desc}</div>
-                              <NavLink to={view.slug} exact={view.exact} onClick={this.closeNav} />
+                              <NavLink to={view.slug} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
                         }
@@ -429,7 +429,7 @@ class Header extends React.Component {
                             <li key={view.slug}>
                               <div className='name'>{view.name}</div>
                               <div className='description'>{view.desc}</div>
-                              <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact} onClick={this.closeNav} />
+                              <ProfileNavLink to={view.slug} isActive={isActive} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
                         } else {
@@ -437,7 +437,7 @@ class Header extends React.Component {
                             <li key={view.slug}>
                               <div className='name'>{view.name}</div>
                               <div className='description'>{view.desc}</div>
-                              <NavLink to={view.slug} exact={view.exact} onClick={this.closeNav} />
+                              <NavLink to={view.slug} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
                         }
@@ -450,7 +450,7 @@ class Header extends React.Component {
                   Ishtar Collective
                 </div> */}
               </div>
-              <Footer minimal linkOnClick={this.closeNav} />
+              <Footer minimal linkOnClick={this.handler_closeNav} />
             </div>
           </div>
         ) : null}

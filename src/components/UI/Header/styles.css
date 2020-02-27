@@ -202,9 +202,9 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   height: 100%;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background-size: 400% 400%;
   background-repeat: no-repeat;
-  background-size: 200%;
 }
 
 @keyframes animation-update-flash {
@@ -212,13 +212,13 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
     background-position-x: 200%;
   }
   66%, 100% {
+    opacity: 1;
     background-position-x: -200%;
   }
 }
 
 #header.profile-header .background.update-flash::after {
-  opacity: 1;
-  animation: animation-update-flash 3.6s linear 0s 1 forwards;
+  animation: animation-update-flash 4s linear 0s 1 forwards;
 }
 
 #header.profile-header .background .image {
@@ -798,13 +798,13 @@ html.backdropfilter #header .nav {
   }
 
   #header.profile-header .characters .list li .basics .light {
-    margin: 0 0 0 13px;
+    margin: 0 0 0 10px;
   }
 
   #header.profile-header .characters .list li .basics .light::before {
-    top: 0px;
-    left: -9px;
-    font-size: 7px;
+    top: 1px;
+    left: -7px;
+    font-size: 6px;
   }
 
   #header.profile-header .characters .list li .progress-bar {
