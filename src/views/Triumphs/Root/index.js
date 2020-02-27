@@ -101,6 +101,7 @@ class Root extends React.Component {
       }
 
       const states = [];
+
       definitionSeal.children.records.forEach(record => {
         const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
         const recordScope = definitionRecord.scope || 0;
@@ -115,10 +116,15 @@ class Root extends React.Component {
       let nodeProgress = profileRecords[definitionSeal.completionRecordHash] && profileRecords[definitionSeal.completionRecordHash].objectives[0].progress;
       let nodeTotal = profileRecords[definitionSeal.completionRecordHash] && profileRecords[definitionSeal.completionRecordHash].objectives[0].completionValue;
 
-      // // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
+      // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
       if (definitionSeal.hash === 1002334440) {
         nodeProgress = states.filter(s => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
         nodeTotal = 23;
+      }
+      
+      // undying seal
+      if (definitionSeal.hash === 3303651244 && nodeProgress !== nodeTotal) {
+        return;
       }
 
       const isComplete = nodeTotal && nodeProgress === nodeTotal ? true : false;

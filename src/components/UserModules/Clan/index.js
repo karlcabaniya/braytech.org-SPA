@@ -135,9 +135,9 @@ class Clan extends React.Component {
     const _7d = roster.filter(m => m.isOnline || new Date(m.lastPlayed).getTime() >= (_now - 86400000 * 7)).length;
     const _1m = roster.filter(m => m.isOnline || new Date(m.lastPlayed).getTime() >= (_now - 86400000 * 31)).length;
 
-    const _titans = roster.filter(m => m.preferredClass === 0).length / roster.length * 100;
-    const _hunters = roster.filter(m => m.preferredClass === 1).length / roster.length * 100;
-    const _warlocks = roster.filter(m => m.preferredClass === 2).length / roster.length * 100;
+    const _titans = roster.filter(m => m.preferredClass === 0).length / roster.length * 100 || 0;
+    const _hunters = roster.filter(m => m.preferredClass === 1).length / roster.length * 100 || 0;
+    const _warlocks = roster.filter(m => m.preferredClass === 2).length / roster.length * 100 || 0;
 
     return (
       <div className='user-module clan'>

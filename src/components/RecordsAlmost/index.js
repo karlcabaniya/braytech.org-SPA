@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import orderBy from 'lodash/orderBy';
+import { orderBy } from 'lodash';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import dudRecords from '../../data/dudRecords';
 import { enumerateRecordState } from '../../utils/destinyEnums';
@@ -19,12 +18,12 @@ class RecordsAlmost extends React.Component {
   }
 
   render() {
-    const { t, member, collectibles, sort, limit } = this.props;
+    const { member, collectibles, sort, limit } = this.props;
     const characterRecords = member && member.data.profile.characterRecords.data;
     const profileRecords = member && member.data.profile.profileRecords.data.records;
 
     let almost = [];
-    let ignores = [];
+    const ignores = [];
 
     // ignore collections badges
     manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.badgesRootNode].children.presentationNodes.forEach(child => {
@@ -34,10 +33,15 @@ class RecordsAlmost extends React.Component {
       });
     });
 
-    let records = {
+    // ignore MMXIX bullshit
+    manifest.DestinyPresentationNodeDefinition[1002334440].children.records.forEach(record => {
+      ignores.push(record.recordHash)
+    });
+
+    const records = {
       ...profileRecords,
       ...characterRecords[member.characterId].records
-    }
+    };
 
     Object.entries(records).forEach(([key, record]) => {
       const hash = parseInt(key, 10);
@@ -57,7 +61,7 @@ class RecordsAlmost extends React.Component {
       if (enumerateRecordState(record.state).invisible || enumerateRecordState(record.state).recordRedeemed) {
         return;
       }
-      
+
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;
 
@@ -65,7 +69,7 @@ class RecordsAlmost extends React.Component {
         const nextIncomplete = record.intervalObjectives.find(o => !o.complete);
 
         if (!nextIncomplete) return;
-        
+
         completionValueDiviser += 1;
         progressValueDecimal += Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
       } else if (record.objectives) {
@@ -114,9 +118,7 @@ class RecordsAlmost extends React.Component {
 
     return (
       <>
-        <ul className={cx('list record-items')}>
-          {almost.map(r => r.element)}
-        </ul>
+        <ul className={cx('list record-items')}>{almost.map(r => r.element)}</ul>
         {this.props.pageLink ? (
           <ProfileLink className='button cta' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
             <div className='text'>{t('See next {{limit}}', { limit: 200 })}</div>
@@ -135,7 +137,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(RecordsAlmost);
+export default connect(mapStateToProps)(RecordsAlmost);

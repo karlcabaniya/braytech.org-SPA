@@ -1,12 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
-import { withTranslation } from 'react-i18next';
 
+import { t } from '../../../utils/i18n';
 import RecordsAlmost from '../../../components/RecordsAlmost';
 
 class AlmostComplete extends React.Component {
   render() {
-    const { t, sort } = this.props;
+    const { sort } = this.props;
 
     return (
       <>
@@ -21,6 +20,4 @@ class AlmostComplete extends React.Component {
   }
 }
 
-export default compose(
-  withTranslation()
-)(AlmostComplete);
+export default AlmostComplete;

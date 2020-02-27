@@ -643,7 +643,7 @@
 
 #tooltip .frame.ui .header {
   background-color: hsla(0, 0%, 0%, 0.9);
-  border-top: 5px solid rgba(214, 214, 214, 0.8);
+  border-top: 5px solid rgb(204, 204, 204);
   color: #fff;
 }
 
@@ -743,8 +743,6 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #tooltip .frame .vendor-costs {

@@ -87,15 +87,12 @@
   top: 4px;
   left: -16px;
   font-family: 'Braytech' !important;
-  speak: none;
   font-size: 15px;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .character-emblem .wrapper .level {

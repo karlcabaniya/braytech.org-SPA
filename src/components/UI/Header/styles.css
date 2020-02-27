@@ -318,25 +318,24 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
 
 #header.profile-header .characters .list li .basics .light {
   position: relative;
-  margin: 0 0 0 14px;
+  margin: 0 0 0 12px;
   font-weight: 500;
+  letter-spacing: 0.2px;
   color: #e5d163;
 }
 
 #header.profile-header .characters .list li .basics .light::before {
   content: 'l';
   position: absolute;
-  top: 1px;
-  left: -10px;
+  top: 2px;
+  left: -8px;
   font-family: 'Braytech' !important;
-  font-size: 8px;
+  font-size: 7px;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 #header.profile-header .characters .list li .progress-bar {

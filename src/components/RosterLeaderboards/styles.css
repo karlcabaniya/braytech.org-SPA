@@ -60,8 +60,6 @@
   font-size: 14px;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   z-index: 2;
   pointer-events: none;
 }

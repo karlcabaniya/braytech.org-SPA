@@ -132,7 +132,7 @@
   content: '\e90f';
   position: absolute;
   top: 12px;
-  left: -24px;
+  left: -14px;
   font-family: 'Braytech' !important;
   font-style: normal;
   font-weight: normal;
@@ -140,8 +140,6 @@
   font-size: 14px;
   text-transform: none;
   line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   z-index: 2;
   pointer-events: none;
 }

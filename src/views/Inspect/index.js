@@ -122,7 +122,7 @@ class Inspect extends React.Component {
     if (item.primaryStat && item.itemComponents && item.itemComponents.instance?.primaryStat) {
       item.primaryStat.value = item.itemComponents.instance.primaryStat.value;
     } else if (item.primaryStat && member && member.data) {
-      let character = member.data.profile.characters.data.find(c => c.characterId === member.characterId);
+      let character = member.data.profile.characters.data.find(characrer => characrer.characterId === member.characterId);
 
       item.primaryStat.value = Math.floor((942 / 973) * character.light);
     }
@@ -135,13 +135,13 @@ class Inspect extends React.Component {
     const DamageTypeSVG = damageTypeMap[damageTypeHash]?.svg;
 
     const preparedSockets = item.sockets?.socketCategories?.reduce((a, v) => {
-      v.sockets.forEach(s => {
-        if (s.plugOptions.filter(p => p.isOrnament).length) {
-          s.plugOptions.splice(0, 0, s.plug);
+      v.sockets.forEach(socket => {
+        if (socket.plugOptions.filter(plug => plug.isOrnament).length) {
+          socket.plugOptions.splice(0, 0, socket.plug);
         }
       });
 
-      const modCategory = a.find(c => c.category.categoryStyle === 2);
+      const modCategory = a.find(category => category.category.categoryStyle === 2);
 
       if (modCategory) {
         modCategory.sockets.push(...v.sockets);
@@ -152,8 +152,8 @@ class Inspect extends React.Component {
       }
     }, []);
 
-    const displayStats = (item.stats && item.stats.length && !item.stats.find(s => s.statHash === -1000)) || (item.stats && item.stats.length && item.stats.find(s => s.statHash === -1000 && s.value !== 0));
-    const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter(s => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem).length;
+    const displayStats = (item.stats && item.stats.length && !item.stats.find(stat => stat.statHash === -1000)) || (item.stats && item.stats.length && item.stats.find(stat => stat.statHash === -1000 && stat.value !== 0));
+    const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter(socket => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug?.plugItem).length;
 
     const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
 
@@ -193,15 +193,15 @@ class Inspect extends React.Component {
                   </div>
                 </div> : null}
                 <div className='stats'>
-                  {item.stats.map(s => {
+                  {item.stats.map(stat => {
                     // map through stats
 
-                    const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [s.statHash]);
+                    const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [stat.statHash]);
 
-                    const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, s);
-                    const masterworkValue = (item.masterwork && item.masterwork.stats?.find(m => m.hash === s.statHash) && item.masterwork.stats?.find(m => m.hash === s.statHash).value) || armor2MasterworkValue || 0;
+                    const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, stat);
+                    const masterworkValue = (item.masterwork && item.masterwork.stats?.find(m => m.hash === stat.statHash) && item.masterwork.stats?.find(m => m.hash === stat.statHash).value) || armor2MasterworkValue || 0;
 
-                    let baseBar = s.value;
+                    let baseBar = stat.value;
 
                     if (moddedValue) {
                       baseBar -= moddedValue;
@@ -222,19 +222,19 @@ class Inspect extends React.Component {
                     }
 
                     return (
-                      <div key={s.statHash} className='stat'>
-                        <div className='name'>{s.statHash === -1000 ? t('Total') : s.displayProperties.name}</div>
-                        <div className={cx('value', { bar: s.bar })}>
-                          {s.bar ? (
+                      <div key={stat.statHash} className='stat'>
+                        <div className='name'>{stat.statHash === -1000 ? t('Total') : stat.displayProperties.name}</div>
+                        <div className={cx('value', { bar: stat.bar })}>
+                          {stat.bar ? (
                             <>
                               {segments.map(([value, className], i) => (
-                                <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / s.maximumValue)))}%` }} />
+                                <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / stat.maximumValue)))}%` }} />
                               ))}
-                              <div className='int'>{s.value}</div>
+                              <div className='int'>{stat.value}</div>
                             </>
                           ) : (
                             <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
-                              {s.value} {statsMs.includes(s.statHash) && 'ms'}
+                              {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
                             </div>
                           )}
                         </div>
@@ -246,32 +246,35 @@ class Inspect extends React.Component {
             ) : null}
             {displaySockets ? (
               <div className='sockets'>
-                {preparedSockets.map((c, i) => {
+                {preparedSockets.map((category, c) => {
                   return (
-                    <div className={cx('row', 'category', { mods: c.category.categoryStyle === 2 })} key={i}>
-                      <div className='category-name'>{c.category.displayProperties.name}</div>
+                    <div className={cx('row', 'category', { mods: category.category.categoryStyle === 2 })} key={c}>
+                      <div className='category-name'>{category.category.displayProperties.name}</div>
                       <div className='category-sockets'>
-                        {c.sockets
-                          .filter(s => !s.isTracker)
-                          .map((s, i) => {
+                        {category.sockets
+                          .filter(socket => !socket.isTracker)
+                          .map((socket, s) => {
                             const expanded = false; // TODO lol
 
                             // if mods and socket expanded by user OR if mods and a single plug option OR if not mods i.e. perks lol
-                            if ((c.category.categoryStyle === 2 && expanded) || (c.category.categoryStyle === 2 && s.plugOptions.length < 2) || c.category.categoryStyle !== 2) {
+                            // ^ ????
+
+                            // armor perks and armor tier (and shader?)
+                            if ((category.category.categoryStyle === 2 && expanded) || (category.category.categoryStyle === 2 && socket.plugOptions.length < 2) || category.category.categoryStyle !== 2) {
                               return (
-                                <div className={cx('socket', { intrinsic: s.isIntrinsic, columned: c.category.categoryStyle !== 2 && s.plugOptions.length > 9 })} key={i}>
-                                  {s.plugOptions.map((p, i) => {
+                                <div className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.category.categoryStyle !== 2 && socket.plugOptions.length > 9 })} key={s}>
+                                  {socket.plugOptions.map((plug, p) => {
                                     const selectedSockets = query.sockets?.split('/');
                                     const socketsString = item.sockets.sockets.map(socket => (selectedSockets && Number(selectedSockets[socket.socketIndex])) || '');
   
-                                    socketsString[s.socketIndex] = p.plugItem.hash;
+                                    socketsString[socket.socketIndex] = plug.plugItem.hash;
   
                                     const socketLink = `/inspect/${item.itemHash}?sockets=${socketsString.join('/')}`;
   
                                     return (
-                                      <div key={i} className={cx('plug', 'tooltip', { active: p.isActive })} data-hash={p.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(s.socketIndex, p.plugItem.hash)}>
+                                      <div key={p} className={cx('plug', 'tooltip', { active: plug.isActive })} data-hash={plug.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(socket.socketIndex, plug.plugItem.hash)}>
                                         <div className='icon'>
-                                          <ObservedImage src={`https://www.bungie.net${p.plugItem.displayProperties.icon}`} />
+                                          <ObservedImage src={`https://www.bungie.net${plug.plugItem.displayProperties.icon}`} />
                                         </div>
                                         <Link to={socketLink} />
                                       </div>
@@ -281,19 +284,19 @@ class Inspect extends React.Component {
                               );
                             } else {
                               return (
-                                <div className={cx('socket', { intrinsic: s.isIntrinsic, columned: c.category.categoryStyle !== 2 && s.plugOptions.length > 9 })} key={i}>
-                                  {s.plugOptions.filter(o => o.plugItem?.hash === s.plug.plugItem?.hash).map((p, i) => {
+                                <div className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.category.categoryStyle !== 2 && socket.plugOptions.length > 9 })} key={s}>
+                                  {socket.plugOptions.filter(o => o.plugItem?.hash === socket.plug.plugItem?.hash).map((plug, p) => {
                                     const selectedSockets = query.sockets?.split('/');
                                     const socketsString = item.sockets.sockets.map(socket => (selectedSockets && Number(selectedSockets[socket.socketIndex])) || '');
   
-                                    socketsString[s.socketIndex] = p.plugItem.hash;
+                                    socketsString[socket.socketIndex] = plug.plugItem.hash;
   
                                     const socketLink = `/inspect/${item.itemHash}?sockets=${socketsString.join('/')}`;
   
                                     return (
-                                      <div key={i} className={cx('plug', 'tooltip', { active: p.isActive })} data-hash={p.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(s.socketIndex, p.plugItem.hash)}>
+                                      <div key={p} className={cx('plug', 'tooltip', { active: plug.isActive })} data-hash={plug.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(socket.socketIndex, plug.plugItem.hash)}>
                                         <div className='icon'>
-                                          <ObservedImage src={`https://www.bungie.net${p.plugItem.displayProperties.icon}`} />
+                                          <ObservedImage src={`https://www.bungie.net${plug.plugItem.displayProperties.icon}`} />
                                         </div>
                                         <Link to={socketLink} />
                                       </div>

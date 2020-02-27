@@ -20,16 +20,28 @@ function formatValue(column, entry, playerCache = []) {
     }
   } else if (column.extended) {
     // from the extended stats value
-    return column.round ? Number.parseFloat(entry.extended.values[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : entry.extended.values[column.key].basic[column.type].toLocaleString();
+    if (column.round) {
+      return Number.parseFloat(entry.extended.values[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    } else {
+      return entry.extended.values[column.key].basic[column.type].toLocaleString();
+    }    
   } else if (column.async) {
     // async profile data
     const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId);
     return cache && cache[column.key] ? cache[column.key] : '–';
   } else if (column.root) {
     // entry object root
-    return column.round ? Number.parseFloat(entry[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : entry[column.key].basic[column.type].toLocaleString();
+    if (column.round) {
+      return Number.parseFloat(entry[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    } else {
+      return entry[column.key].basic[column.type].toLocaleString();
+    }
   } else {
-    return column.round ? Number.parseFloat(entry.values[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : entry.values[column.key].basic[column.type].toLocaleString();
+    if (column.round) {
+      return Number.parseFloat(entry.values[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    } else {
+      return entry.values[column.key].basic[column.type].toLocaleString();
+    }
   }
 }
 
@@ -673,7 +685,7 @@ export function GambitDetail(props) {
     {
       key: 'primevalHealing',
       name: t('Primeval healing'),
-      type: 'value',
+      type: 'displayValue',
       extended: true
     }
   ];

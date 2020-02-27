@@ -2,17 +2,13 @@
   "de": {
     "translated": 382,
     "notTranslated": 270,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 652,
     "notTranslated": 0,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -22,91 +18,69 @@
     "removed": []
   },
   "es-mx": {
-    "translated": 647,
-    "notTranslated": 5,
-    "added": [
-      "No reports available"
-    ],
+    "translated": 652,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "es": {
-    "translated": 647,
-    "notTranslated": 5,
-    "added": [
-      "No reports available"
-    ],
+    "translated": 652,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "fr": {
     "translated": 560,
     "notTranslated": 92,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "it": {
     "translated": 651,
     "notTranslated": 1,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "ja": {
     "translated": 603,
     "notTranslated": 49,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "ko": {
     "translated": 575,
     "notTranslated": 77,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "pl": {
     "translated": 0,
     "notTranslated": 652,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "pt-br": {
     "translated": 593,
     "notTranslated": 59,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "ru": {
     "translated": 644,
     "notTranslated": 8,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-chs": {
     "translated": 474,
     "notTranslated": 178,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-cht": {
     "translated": 389,
     "notTranslated": 263,
-    "added": [
-      "No reports available"
-    ],
+    "added": [],
     "removed": []
   }
 }

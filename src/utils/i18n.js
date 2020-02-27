@@ -47,13 +47,12 @@ i18next
     }
   });
 
-  i18next.getCurrentLanguage = getCurrentLanguage;
-  i18next.setCurrentLanguage = setCurrentLanguage;
+i18next.getCurrentLanguage = getCurrentLanguage;
+i18next.setCurrentLanguage = setCurrentLanguage;
 
 export default i18next;
 
-export const t = (key, options) =>
-  i18next.t(key, options || { skipInterpolation: true });
+export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
 
 const durationKeys = {
   days: {
@@ -72,7 +71,7 @@ const durationKeys = {
     single: t('1 Second'),
     plural: seconds => t('{{seconds}} Seconds', { seconds })
   }
-}
+};
 
 const durationKeysAbr = {
   days: {
@@ -91,6 +90,10 @@ const durationKeysAbr = {
     single: t('1 Sec'),
     plural: seconds => t('{{seconds}} Secs', { seconds })
   }
+};
+
+function finalString(value) {
+  return value.toLocaleString();
 }
 
 export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false } = {}) => {
@@ -100,68 +103,68 @@ export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { un
 
   if (relative) {
     if (days > 0) {
-      string.push(days === 1 ? keys.days.single : keys.days.plural(days));
-  
+      string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+
       return string.join(' ');
     } else if (days < 1 && hours > 0) {
-      string.push(hours === 1 ? keys.hours.single : keys.hours.plural(hours));
-  
+      string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+
       return string.join(' ');
     } else if (days < 1 && hours < 1 && minutes > 0) {
-      string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(minutes));
-  
+      string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+
       return string.join(' ');
     } else {
-      string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(seconds));
-  
+      string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
+
       return string.join(' ');
     }
   }
 
   if (unit === 'days') {
-    string.push(days === 1 ? keys.days.single : keys.days.plural(days));
-  
+    string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+
     return string.join(' ');
   }
 
   if (unit === 'hours') {
-    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(hours));
-  
+    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+
     return string.join(' ');
   }
 
   if (unit === 'minutes') {
-    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(minutes));
-  
+    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+
     return string.join(' ');
   }
 
   if (days > 0) {
-    string.push(days === 1 ? keys.days.single : keys.days.plural(days));
-    if (hours > 0) string.push(hours === 1 ? keys.hours.single : keys.hours.plural(hours));
+    string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+    if (hours > 0) string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
   }
-  
+
   if (days < 1 && hours > 0) {
-    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(hours));
-    if (minutes > 0) string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(minutes));
+    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+    if (minutes > 0) string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
   }
-  
+
   if (days < 1 && hours < 1 && minutes > 0) {
-    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(minutes));
-    if (seconds > 0) string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(seconds));
+    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+    if (seconds > 0) string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
   }
-  
+
   if (days < 1 && hours < 1 && minutes < 1) {
-    string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(seconds));
+    string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
   }
-  
+
   return string.join(' ');
-}
+};
 
 export const timestampToDuration = (timestamp, start = moment()) => {
   const end = moment(timestamp);
   const duration = moment.duration(end.diff(start));
-  
+
   return {
     years: duration.get('years'),
     months: duration.get('months'),
@@ -170,13 +173,17 @@ export const timestampToDuration = (timestamp, start = moment()) => {
     minutes: duration.get('minutes'),
     seconds: duration.get('seconds'),
     milliseconds: duration.get('milliseconds')
-  }
-}
+  };
+};
 
 export const fromNow = (timestamp, abbreviated = false) => {
   if (abbreviated) {
-    return moment(timestamp).locale('rel-abr').fromNow();
+    return moment(timestamp)
+      .locale('rel-abr')
+      .fromNow();
   } else {
-    return moment(timestamp).locale(['zh-chs', 'zh-cht'].indexOf(i18next.language) > -1 ? 'zh-cn' : i18next.language).fromNow();
+    return moment(timestamp)
+      .locale(['zh-chs', 'zh-cht'].indexOf(i18next.language) > -1 ? 'zh-cn' : i18next.language)
+      .fromNow();
   }
-}
+};
