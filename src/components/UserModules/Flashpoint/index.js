@@ -9,7 +9,7 @@ import './styles.css';
 
 import { ReactComponent as ArcadianValley } from '../../../svg/destinations/arcadian-valley-2_monochrome.svg';
 import { ReactComponent as NewPacificArcology } from '../../../svg/destinations/new-pacific-arcology-2_monochrome.svg';
-import { ReactComponent as EuropeanDeadZone } from '../../../svg/destinations/european-dead-zone-1_monochrome.svg';
+import { ReactComponent as EuropeanDeadZone } from '../../../svg/destinations/european-dead-zone-3_monochrome.svg';
 import { ReactComponent as TheTangledShore } from '../../../svg/destinations/the-tangled-shore-1_monochrome.svg';
 import { ReactComponent as HellasBasin } from '../../../svg/destinations/hellas-basin-1_monochrome.svg';
 import { ReactComponent as FieldsOfGlass } from '../../../svg/destinations/fields-of-glass-1_monochrome.svg';

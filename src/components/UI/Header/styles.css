@@ -209,7 +209,10 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
 
 @keyframes animation-update-flash {
   0% {
-    background-position-x: 200%;
+    background-position-x: 100%;
+  }
+  33% {
+    opacity: 1;
   }
   66%, 100% {
     opacity: 1;
@@ -802,7 +805,7 @@ html.backdropfilter #header .nav {
   }
 
   #header.profile-header .characters .list li .basics .light::before {
-    top: 1px;
+    top: 2px;
     left: -7px;
     font-size: 6px;
   }
