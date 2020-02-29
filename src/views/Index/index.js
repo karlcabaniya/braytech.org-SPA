@@ -180,20 +180,20 @@ class Index extends React.Component {
                 <p>Braytech is a stringent exercise in mimicking—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!</p>
               </div>
             </div>
-            {manifest.statistics.general ? (
+            {manifest.statistics.scrapes?.last?.tracking ? (
               <div className='module stats'>
                 <h3>{t('VOLUSPA statistics')}</h3>
                 <ReactMarkdown className='description' source={`For the most part, Braytech is a front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifiers and regularly collates statistics based upon them. These stats are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the stat that denotes how common an article is amongst players.`} />
                 <ul>
                   <li>
-                    <div className='value'>{manifest.statistics.general.tracking.toLocaleString()}</div>
+                    <div className='value'>{manifest.statistics.scrapes.last.tracking.toLocaleString()}</div>
                     <div className='name'>{t('Tracked players')}</div>
                     <div className='description'>
                       <p>{t('Number of players VOLUSPA is tracking through their activities and accomplishments')}</p>
                     </div>
                   </li>
                   <li>
-                    <div className='value'>{manifest.statistics.general.playedSeason.toLocaleString()}</div>
+                    <div className='value'>{manifest.statistics.scrapes.last.season.toLocaleString()}</div>
                     <div className='name'>{t('Played season')}</div>
                     <div className='description'>
                       <p>{t("Number of tracked players who've played this season")}</p>
