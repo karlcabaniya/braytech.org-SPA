@@ -25,7 +25,7 @@ export function totalInfamy() {
 }
 
 export function commonality(players = 0) {
-  return players / manifest.statistics.general.scraped * 100;
+  return players / (manifest.statistics.scrapes?.last?.members || 10 * 10000) * 100;
 }
 
 export function collectionTotal(data) {

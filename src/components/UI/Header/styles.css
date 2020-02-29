@@ -806,7 +806,7 @@ html.backdropfilter #header .nav {
 
   #header.profile-header .characters .list li .basics .light::before {
     top: 2px;
-    left: -7px;
+    left: -6px;
     font-size: 6px;
   }
 

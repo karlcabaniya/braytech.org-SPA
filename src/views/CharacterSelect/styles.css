@@ -202,9 +202,9 @@
     padding: calc(3rem + 40px) 2rem 2rem;
   }
 
-  #character-select .module .sub-header ~ .sub-header {
+  /* #character-select .module .sub-header ~ .sub-header {
     margin: 2rem 0 1rem;
-  }
+  } */
 
   #character-select .error {
     margin: 0 0 2rem;
