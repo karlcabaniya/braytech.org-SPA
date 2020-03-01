@@ -295,29 +295,33 @@ class App extends React.Component {
 
                           <Route path='/character-select' exact component={CharacterSelect} />
 
-                          <Route path='/maps/:map?/:highlight?' component={Maps} />
-                          <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
-                          <Route path='/pgcr/:instanceId?' exact component={PGCR} />
-                          <Route path='/read/:kind?/:hash?' exact component={Read} />
-                          <Route path='/compare/:object?' exact component={Compare} />
-                          
                           <ErrorBoundary>
                             <Suspense fallback={<SuspenseLoading />}>
+
+                              <Route path='/maps/:map?/:highlight?' component={Maps} />
+                              <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
+                              <Route path='/pgcr/:instanceId?' exact component={PGCR} />
+                              <Route path='/read/:kind?/:hash?' exact component={Read} />
+                              <Route path='/compare/:object?' exact component={Compare} />
+                            
+                            
                               <Route path='/legend' exact component={Legend} />
                               <Route path='/inspect/:hash?' exact component={Inspect} />
                               <Route path='/three' component={TestThree} />
+                              
+
+                              <Route path='/commonality' exact component={Commonality} />
+                              <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
+                              <Route path='/faq' exact component={FAQ} />
+                              <Route path='/credits' exact component={Credits} />
+
+                              <Route path='/oob' component={OOB} />
+                              <Route path='/test' component={Test} />
+
+                              <Route path='/' component={Index} />
+                              
                             </Suspense>
                           </ErrorBoundary>
-
-                          <Route path='/commonality' exact component={Commonality} />
-                          <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
-                          <Route path='/faq' exact component={FAQ} />
-                          <Route path='/credits' exact component={Credits} />
-
-                          <Route path='/oob' component={OOB} />
-                          <Route path='/test' component={Test} />
-
-                          <Route path='/' component={Index} />
                         </Switch>
                       </>
                     )}
