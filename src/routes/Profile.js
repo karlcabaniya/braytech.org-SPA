@@ -14,7 +14,7 @@ import Quests from '../views/Quests';
 import BountyTracker from '../views/BountyTracker';
 
 import Header from '../components/UI/Header';
-import Spinner from '../components/UI/Spinner';
+import { SuspenseLoading } from '../components/Loading';
 import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';
 
 class ProfileRoutes extends React.Component {
@@ -45,9 +45,7 @@ class ProfileRoutes extends React.Component {
       return (
         <>
           <Route path='/' render={route => <Header route={route} {...this.state} {...this.props} />} />
-          <div className='view profile-route-loading'>
-            <Spinner />
-          </div>
+          <SuspenseLoading />
         </>
       );
     }

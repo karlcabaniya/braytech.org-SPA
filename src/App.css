@@ -713,17 +713,3 @@ html.backdropfilter .wrapper.dark-mode .sticky-nav {
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
-
-.view.profile-route-loading {
-  display: grid;
-  min-height: calc(100vh - 82px);
-  padding: 3rem;
-  justify-content: center;
-  align-content: center;
-}
-
-@media screen and (max-width: 600px) {
-  .view.profile-route-loading {
-    padding: 2rem;
-  }
-}

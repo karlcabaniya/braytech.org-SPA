@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import cx from 'classnames';
@@ -35,11 +35,12 @@ import NotificationLink from './components/Notifications/NotificationLink';
 import NotificationProgress from './components/Notifications/NotificationProgress';
 import ServiceWorkerUpdate from './components/Notifications/ServiceWorkerUpdate';
 import RefreshService from './components/RefreshService';
+import ErrorBoundary from './components/ErrorBoundary';
+import { AppLoading, SuspenseLoading } from './components/Loading';
 
 import ProfileRoutes from './routes/Profile';
 import ArchivesRoutes from './routes/Archives';
 
-import Loading from './views/Loading';
 import Index from './views/Index';
 import CharacterSelect from './views/CharacterSelect';
 import Settings from './views/Settings';
@@ -50,7 +51,6 @@ import OOB from './views/OOB';
 import Inspect from './views/Inspect';
 import Read from './views/Read';
 import Maps from './views/Maps';
-import Legend from './views/Legend';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
 import PGCR from './views/PGCR';
 import Compare from './views/Compare';
@@ -58,6 +58,9 @@ import Commonality from './views/Commonality';
 
 import Test from './views/Test';
 import TestThree from './views/TestThree';
+
+// Lazy components
+const Legend = React.lazy(() => import('./views/Legend'));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
 const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
@@ -254,7 +257,7 @@ class App extends React.Component {
       // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
       return (
         <div className={cx('wrapper', this.props.theme.selected)}>
-          <Loading state={this.state.status} />
+          <AppLoading state={this.state.status} />
           <NotificationLink />
         </div>
       );
@@ -298,7 +301,12 @@ class App extends React.Component {
                           <Route path='/inspect/:hash?' exact component={Inspect} />
                           <Route path='/read/:kind?/:hash?' exact component={Read} />
                           <Route path='/compare/:object?' exact component={Compare} />
-                          <Route path='/legend' exact component={Legend} />
+                          
+                          <ErrorBoundary>
+                            <Suspense fallback={<SuspenseLoading />}>
+                              <Route path='/legend' exact component={Legend} />
+                            </Suspense>
+                          </ErrorBoundary>
 
                           <Route path='/commonality' exact component={Commonality} />
                           <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
