@@ -13,7 +13,6 @@ import Now from '../views/Now';
 import Quests from '../views/Quests';
 import BountyTracker from '../views/BountyTracker';
 
-import Header from '../components/UI/Header';
 import { SuspenseLoading } from '../components/Loading';
 import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';
 
@@ -42,18 +41,12 @@ class ProfileRoutes extends React.Component {
     }
 
     if (!member.data) {
-      return (
-        <>
-          <Route path='/' render={route => <Header route={route} {...this.state} {...this.props} />} />
-          <SuspenseLoading />
-        </>
-      );
+      return <SuspenseLoading />;
     }
 
     return (
       <>
         <PostmasterCapacity />
-        <Route path='/' render={route => <Header route={route} {...this.state} {...this.props} />} />
         <Switch>
           <Route path={`${match.url}/clan/:view?/:subView?/:subSubView?`} exact render={route => <Clan view={route.match.params.view} subView={route.match.params.subView} subSubView={route.match.params.subSubView} />} />
           <Route path={`${match.url}/checklists`} exact component={Checklists} />

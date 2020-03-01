@@ -18,7 +18,6 @@ class ArchivesRoutes extends React.Component {
     return (
       <>
         <PostmasterCapacity />
-        <Route path='/' render={route => <Header route={route} {...this.state} {...this.props} />} />
         <Switch>
           <Route path={`${match.url}/eververse`} component={Eververse} />
           <Route path={`${match.url}/manifest`} component={Manifest} />

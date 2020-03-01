@@ -57,13 +57,30 @@ import Commonality from './views/Commonality';
 
 import Test from './views/Test';
 
+function slowImport(value, ms = 2000) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(value), ms);
+  });
+}
+
 // Lazy components
-const Legend = React.lazy(() => import('./views/Legend'));
-const Inspect = React.lazy(() => import('./views/Inspect'));
-const TestThree = React.lazy(() => import('./views/TestThree'));
+const Legend = React.lazy(() => slowImport(import('./views/Legend')));
+const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
+const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
 const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
+
+// Wrap lazy-loaded components with react-router and ErrorBoundary component
+const SuspenseRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest}>
+    <ErrorBoundary>
+      <Suspense fallback={<SuspenseLoading />}>
+        <Component />
+      </Suspense>
+    </ErrorBoundary>
+  </Route>
+);
 
 // Print timings of promises to console (and performance logger)
 // if we're running in development mode.
@@ -77,6 +94,7 @@ async function timed(name, promise) {
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       status: {
         code: false,
@@ -272,60 +290,47 @@ class App extends React.Component {
               <NotificationLink />
               <NotificationProgress />
 
-              <Tooltip {...route} onRef={ref => (this.TooltipComponent = ref)} />
+              <Tooltip {...route} onRef={ref => this.TooltipComponent = ref} />
               <Route component={GoogleAnalytics.GoogleAnalytics} />
+
               <div className='main'>
+                <Route component={Header} />
+                
                 <Switch>
-                  <Route path='/:membershipType([1|2|3|4|5])/:membershipId([0-9]+)/:characterId([0-9]+)?' render={route => <ProfileRoutes {...route} />} />
+                  <Route path='/:membershipType([1|2|3|4|5])/:membershipId([0-9]+)/:characterId([0-9]+)?' component={ProfileRoutes} />
                   <Route path='/archives' component={ArchivesRoutes} />
-                  <Route
-                    render={() => (
-                      <>
-                        <Route render={route => <Header {...route} {...this.state} {...this.props} />} />
-                        <Switch>
-                          <RedirectRoute path='/clan' />
-                          <RedirectRoute path='/collections/' />
-                          <RedirectRoute path='/triumphs' />
-                          <RedirectRoute path='/checklists' exact />
-                          <RedirectRoute path='/character' exact />
-                          <RedirectRoute path='/this-week' />
-                          <RedirectRoute path='/now' />
-                          <RedirectRoute path='/quests' />
-                          <RedirectRoute path='/reports' />
 
-                          <Route path='/character-select' exact component={CharacterSelect} />
+                  <RedirectRoute path='/clan' />
+                  <RedirectRoute path='/collections/' />
+                  <RedirectRoute path='/triumphs' />
+                  <RedirectRoute path='/checklists' exact />
+                  <RedirectRoute path='/character' exact />
+                  <RedirectRoute path='/this-week' />
+                  <RedirectRoute path='/now' />
+                  <RedirectRoute path='/quests' />
+                  <RedirectRoute path='/reports' />
 
-                          <ErrorBoundary>
-                            <Suspense fallback={<SuspenseLoading />}>
+                  <Route path='/character-select' exact component={CharacterSelect} />
 
-                              <Route path='/maps/:map?/:highlight?' component={Maps} />
-                              <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
-                              <Route path='/pgcr/:instanceId?' exact component={PGCR} />
-                              <Route path='/read/:kind?/:hash?' exact component={Read} />
-                              <Route path='/compare/:object?' exact component={Compare} />
-                            
-                            
-                              <Route path='/legend' exact component={Legend} />
-                              <Route path='/inspect/:hash?' exact component={Inspect} />
-                              <Route path='/three' component={TestThree} />
-                              
+                  <Route path='/maps/:map?/:highlight?' component={Maps} />
+                  <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
+                  <Route path='/pgcr/:instanceId?' exact component={PGCR} />
+                  <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
+                  <Route path='/read/:kind?/:hash?' exact component={Read} />
+                  <Route path='/compare/:object?' exact component={Compare} />
+                  <SuspenseRoute path='/legend' exact component={Legend} />
+                  
+                  <Route path='/commonality' exact component={Commonality} />
+                  <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
+                  <Route path='/faq' exact component={FAQ} />
+                  <Route path='/credits' exact component={Credits} />
 
-                              <Route path='/commonality' exact component={Commonality} />
-                              <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
-                              <Route path='/faq' exact component={FAQ} />
-                              <Route path='/credits' exact component={Credits} />
+                  <Route path='/oob' component={OOB} />
+                  <Route path='/test' component={Test} />
+                  <SuspenseRoute path='/three' exact component={TestThree} />
 
-                              <Route path='/oob' component={OOB} />
-                              <Route path='/test' component={Test} />
-
-                              <Route path='/' component={Index} />
-                              
-                            </Suspense>
-                          </ErrorBoundary>
-                        </Switch>
-                      </>
-                    )}
-                  />
+                  <Route path='/' component={Index} />
+                          
                 </Switch>
               </div>
 
