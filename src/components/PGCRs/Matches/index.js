@@ -162,8 +162,6 @@ class Matches extends React.Component {
     // ensure order
     reports = orderBy(reports, [pgcr => pgcr.period], ['desc']);
 
-    console.log(reports);
-
     return reports.length ? (
       <div className='matches'>
         {loading ? <Spinner mini /> : null}

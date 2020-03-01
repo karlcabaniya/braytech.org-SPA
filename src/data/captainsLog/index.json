@@ -1018,5 +1018,10 @@
     "date": "2020-02-25T04:01:29.492Z",
     "version": "2.17.24",
     "content": "- user experience improvements i.e. view _may_ scroll to top on button action to avoid disorientating user\n- other minor adjustments"
+  },
+  {
+    "date": "2020-03-01T12:07:34.286Z",
+    "version": "2.18.0",
+    "content": "- performed code splitting"
   }
 ]
