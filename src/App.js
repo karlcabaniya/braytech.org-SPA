@@ -48,7 +48,6 @@ import FAQ from './views/FAQ';
 import Credits from './views/Credits';
 import OOB from './views/OOB';
 
-import Inspect from './views/Inspect';
 import Read from './views/Read';
 import Maps from './views/Maps';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
@@ -57,10 +56,11 @@ import Compare from './views/Compare';
 import Commonality from './views/Commonality';
 
 import Test from './views/Test';
-import TestThree from './views/TestThree';
 
 // Lazy components
 const Legend = React.lazy(() => import('./views/Legend'));
+const Inspect = React.lazy(() => import('./views/Inspect'));
+const TestThree = React.lazy(() => import('./views/TestThree'));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
 const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
@@ -298,13 +298,14 @@ class App extends React.Component {
                           <Route path='/maps/:map?/:highlight?' component={Maps} />
                           <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
                           <Route path='/pgcr/:instanceId?' exact component={PGCR} />
-                          <Route path='/inspect/:hash?' exact component={Inspect} />
                           <Route path='/read/:kind?/:hash?' exact component={Read} />
                           <Route path='/compare/:object?' exact component={Compare} />
                           
                           <ErrorBoundary>
                             <Suspense fallback={<SuspenseLoading />}>
                               <Route path='/legend' exact component={Legend} />
+                              <Route path='/inspect/:hash?' exact component={Inspect} />
+                              <Route path='/three' component={TestThree} />
                             </Suspense>
                           </ErrorBoundary>
 
@@ -315,7 +316,6 @@ class App extends React.Component {
 
                           <Route path='/oob' component={OOB} />
                           <Route path='/test' component={Test} />
-                          <Route path='/three' component={TestThree} />
 
                           <Route path='/' component={Index} />
                         </Switch>
