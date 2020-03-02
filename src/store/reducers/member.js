@@ -137,7 +137,7 @@ export default function memberReducer(state = defaultState, action) {
       // console.log(characterId);
       return {
         ...state,
-        characterId: state.characterId ? state.characterId : data.profile.characters.data[0].characterId,
+        characterId: state.characterId ? state.characterId : data.profile.characters.data.length && data.profile.characters.data[0].characterId ? data.profile.characters.data[0].characterId : false,
         data: { ...state.data, ...data },
         prevData: state.data,
         loading: false,

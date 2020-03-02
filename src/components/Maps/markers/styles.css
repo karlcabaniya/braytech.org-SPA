@@ -70,7 +70,7 @@
   opacity: 0.4;
 }
 
-.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker:not(.native):not(.has-screenshot)::before {
+.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker:not(.native):not(.checklistId-4178338182):not(.has-screenshot)::before {
   content: ' ';
   position: absolute;
   top: -100%;

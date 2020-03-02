@@ -1,5 +1,4 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { Marker } from 'react-leaflet';
@@ -81,4 +80,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps))(Runtime);
+export default connect(mapStateToProps)(Runtime);

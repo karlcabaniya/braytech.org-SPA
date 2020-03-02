@@ -1,29 +1,29 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
+import { t } from '../../../utils/i18n';
 import Button from '../../UI/Button';
 
 import './styles.css';
 
 class ServiceWorkerUpdate extends React.Component {
   handler_reload = e => {
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
   }
 
   render() {
-    const { t, updateAvailable } = this.props;
+    const { updateAvailable } = this.props;
 
     if (updateAvailable) {
       return (
         <div id="service-worker-update">
           <div className='wrapper'>
             <div className='text'>
-              {t('An update for Braytech is available. Please restart the app to start using it immediately.')}
+              {t('An update for Braytech is available. Please reload the app to start using it immediately.')}
             </div>
             <div className='action'>
-              <Button text={t('Restart Braytech')} action={this.handler_reload} />
+              <Button text={t('Reload')} action={this.handler_reload} />
             </div>
           </div>
         </div>
@@ -34,7 +34,4 @@ class ServiceWorkerUpdate extends React.Component {
   }
 }
 
-export default compose(
-  connect(),
-  withTranslation()
-)(ServiceWorkerUpdate);
+export default ServiceWorkerUpdate;

@@ -42,16 +42,10 @@ class Static extends React.Component {
 
         if (node.type === 'title') {
           const definitionDestination = maps[this.props.id].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
-          const definitionBubble = bubble.hash && definitionDestination && definitionDestination.bubbles && definitionDestination.bubbles.find(b => b.hash === bubble.hash);
+          const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find(b => b.hash === bubble.hash);
+          const definitionName = definitionBubble && definitionBubble.displayProperties?.name !== '' && definitionBubble.displayProperties.name;
 
-          let name = bubble.name;
-          if (definitionBubble && definitionBubble.displayProperties.name && definitionBubble.displayProperties.name !== '') {
-            name = definitionBubble.displayProperties.name;
-          }
-
-          if (bubble.sub) {
-            name = `<i class='segoe-uniE1761'></i> ${name}`
-          }
+          const name = (bubble.sub && definitionName && `<i class='segoe-uniE1761'></i> ${definitionName}`) || definitionName || bubble.name;
 
           const icon = marker.text(['interaction-none', bubble.type], name);
 
@@ -61,9 +55,7 @@ class Static extends React.Component {
 
           return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'fast-travel') {
-          const icon = marker.iconFastTravel({}, ['interaction-none']);
-
-          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'forge') {
           const icon = marker.iconForge({ hash: node.activityHash, playlist: node.playlistHash, table: 'DestinyActivityDefinition' }, []);
 

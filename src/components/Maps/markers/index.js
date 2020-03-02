@@ -85,30 +85,6 @@ export const text = (classNames = [], name) => {
   });
 };
 
-export const iconFastTravel = (tooltip = {}, classNames = []) => {
-  const html = (
-    <div className='wrapper'>
-      <div className='fast-travel'>
-        <div className='shadow' />
-        <div className='star' />
-        <div className='outline' />
-        <div className='square'>
-          <div className='sq tl' />
-          <div className='sq tr' />
-          <div className='sq bl' />
-          <div className='sq br' />
-        </div>
-        <div className='triangles' />
-      </div>
-    </div>
-  );
-
-  return L.divIcon({
-    className: ['icon-marker', 'native'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html)
-  });
-};
-
 export const iconForge = (tooltip = {}, classNames = []) => {
   const html = (
     <div className='wrapper'>
@@ -142,3 +118,28 @@ export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
     html: ReactDOMServer.renderToString(html)
   });
 };
+
+
+
+export const iconFastTravel = L.divIcon({
+  className: 'icon-marker native interaction-none',
+  html: ReactDOMServer.renderToString(
+    <div className='wrapper'>
+      <div className='fast-travel'>
+        <div className='shadow' />
+        <div className='star' />
+        <div className='outline' />
+        <div className='square'>
+          <div className='sq tl' />
+          <div className='sq tr' />
+          <div className='sq bl' />
+          <div className='sq br' />
+        </div>
+        <div className='triangles' />
+      </div>
+    </div>
+  )
+});
+
+
+

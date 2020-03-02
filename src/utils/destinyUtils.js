@@ -134,7 +134,7 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
 };
 
 export function progressionSeasonRank(member) {
-  if (!member?.data || !member.data.profile?.characterProgressions?.data || !member.data.profile?.characters?.data) {
+  if (!member?.data || !member.data.profile?.characterProgressions?.data || !member.data.profile?.characters?.data || !member.data.profile?.characters?.data.length) {
     console.warn('No member data provided');
     
     return false;
