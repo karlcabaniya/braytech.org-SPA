@@ -26,20 +26,66 @@ import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
 // import CharacterActivities from './Nodes/CharacterActivities';
+import Inspect from './Inspect';
 
 import './styles.css';
 
 class Maps extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    loading: true,
+    error: false,
+    viewport: undefined,
+    ui: {
+      destinations: false,
+      characters: false,
+      inspect: {
+        checklistId: 2360931290,
+        checklistHash: 81948082
+      }
+    }
+  };
 
-    this.state = {
-      loading: true,
-      error: false,
-      viewport: this.getInitialViewport(this.resolveDestination(this.props.params.map).id),
-      ui: {
-        destinations: false,
-        characters: false
+  static getDerivedStateFromProps(p, s) {
+    // If viewport defined, skip.
+    if (s.viewport) {
+      return null;
+    }
+
+    // Prepare to define viewport based on props i.e. route params
+    const resolved = utils.resolveDestination(p.params.map).id;
+
+    let center = utils.getMapCenter(resolved);
+    let zoom = 0;
+
+    if (p.params.highlight) {
+      const map = maps[resolved].map;
+      const hash = parseInt(p.params.highlight, 10);
+
+      const checklistLookup = lookup({ key: 'checklistHash', value: hash });
+      const recordLookup = lookup({ key: 'recordHash', value: hash });
+
+      const entry = (checklistLookup && checklistLookup.checklistId && checklistLookup) || (recordLookup && recordLookup.checklistId && recordLookup);
+
+      const checklist = entry && entry.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
+      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
+
+      if (checklistItem && checklistItem.points && checklistItem.points.length && checklistItem.points[0]) {
+        const markerY = checklistItem.points[0].y || 0;
+        const markerX = checklistItem.points[0].x || 0;
+
+        center = [map.height / 2 + markerY, map.width / 2 + markerX];
+      }
+    }
+
+    // Initially display more on high DPI mobile devices
+    if (p.viewport.width <= 600) {
+      zoom = -1;
+    }
+
+    return {
+      viewport: {
+        center,
+        zoom
       }
     };
   }
@@ -60,79 +106,35 @@ class Maps extends React.Component {
     }
   }
 
-  resolveDestination = (map = false) => {
-    const destinationById = map && utils.destinations.find(d => d.id === map);
-    const destinationByHash = map && utils.destinations.find(d => d.destinationHash === parseInt(map, 10));
-
-    if (destinationById) {
-      return destinationById;
-    } else if (destinationByHash) {
-      return destinationByHash;
-    } else {
-      return utils.destinations.find(d => d.default);
-    }
-  };
-
-  getMapCenter = id => {
-    if (!maps[id]) return [0, 0];
-
-    const map = maps[id].map;
-
-    const centerYOffset = -(map.center && map.center.y) || 0;
-    const centerXOffset = (map.center && map.center.x) || 0;
-
-    const center = [map.height / 2 + centerYOffset, map.width / 2 + centerXOffset];
-
-    return center;
-  };
-
-  getInitialViewport = id => {
-    let center = this.getMapCenter(id);
-    let zoom = 0;
-
-    if (this.props.params.highlight) {
-      const map = maps[id].map;
-      const hash = parseInt(this.props.params.highlight, 10);
-
-      const checklistLookup = lookup({ key: 'checklistHash', value: hash });
-      const recordLookup = lookup({ key: 'recordHash', value: hash });
-
-      const entry = (checklistLookup && checklistLookup.checklistId && checklistLookup) || (recordLookup && recordLookup.checklistId && recordLookup);
-
-      const checklist = entry && entry.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
-      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
-
-      if (checklistItem && checklistItem.points && checklistItem.points.length && checklistItem.points[0]) {
-        const markerY = checklistItem.points[0].y || 0;
-        const markerX = checklistItem.points[0].x || 0;
-
-        center = [map.height / 2 + markerY, map.width / 2 + markerX];
-      }
-    }
-
-    if (this.props.viewport.width <= 600) {
-      zoom = -1;
-    }
-
-    return {
-      center,
-      zoom
-    }
-  };
-
   setDestination = destination => {
-    const resolved = this.resolveDestination(destination);
+    const resolved = utils.resolveDestination(destination);
 
     this.setState(p => ({
       viewport: {
         ...p.viewport,
-        center: this.getMapCenter(resolved.id)
+        center: utils.getMapCenter(resolved.id)
       }
     }));
   };
 
-  handler_map_viewportChanged = viewport => {
-    if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
+  handler_hideInspect = e => {
+    this.setState(p => ({
+      ui: {
+        ...p.ui,
+        inspect: false
+      }
+    }));
+  };
+
+  handler_showInspect = props => e => {
+    this.setState(p => ({
+      ui: {
+        ...p.ui,
+        inspect: {
+          ...props
+        }
+      }
+    }));
   };
 
   handler_zoomIncrease = e => {
@@ -155,7 +157,7 @@ class Maps extends React.Component {
 
   handler_toggleDestinationsList = e => {
     const href = e.target.href;
-    const id = this.resolveDestination(this.props.params.map).id;
+    const id = utils.resolveDestination(this.props.params.map).id;
 
     if (href.includes(id)) {
       this.setState(p => {
@@ -249,7 +251,7 @@ class Maps extends React.Component {
   handler_map_mouseDown = e => {
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
-    const destination = this.resolveDestination(this.props.params.map).id;
+    const destination = utils.resolveDestination(this.props.params.map).id;
 
     const map = maps[destination].map;
 
@@ -277,6 +279,10 @@ class Maps extends React.Component {
     console.log(JSON.stringify({ x: originalX, y: originalY }));
   };
 
+  handler_map_viewportChanged = viewport => {
+    if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
+  };
+
   handler_map_viewportChange = e => {
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
@@ -286,35 +292,22 @@ class Maps extends React.Component {
   render() {
     const { member, viewport, settings, params } = this.props;
 
-    const destination = this.resolveDestination(params.map);
+    const destination = utils.resolveDestination(params.map);
     const map = maps[destination.id].map;
-    const bounds = [[0, 0], [map.height, map.width]];
+    const bounds = [
+      [0, 0],
+      [map.height, map.width]
+    ];
 
     return (
       <div className={cx('map-omega', `zoom-${this.state.viewport.zoom}`, { loading: this.state.loading, debug: settings.debug, 'highlight-no-screenshot': settings.noScreenshotHighlight })}>
         <div className='leaflet-pane leaflet-background-pane tinted'>
           <BackgroundLayer {...destination} />
         </div>
-        <Map
-          viewport={this.state.viewport}
-          minZoom='-2'
-          maxZoom='2'
-          maxBounds={bounds}
-          crs={L.CRS.Simple}
-          attributionControl={false}
-          zoomControl={false}
-          zoomAnimation={false}
-          onViewportChange={this.handler_map_viewportChange}
-          onViewportChanged={this.handler_map_viewportChanged}
-          onLayerAdd={this.handler_map_layerAdd}
-          onMove={this.handler_map_move}
-          onMoveEnd={this.handler_map_moveEnd}
-          onZoomEnd={this.handler_map_zoomEnd}
-          onMouseDown={this.handler_map_mouseDown}
-        >
+        <Map viewport={this.state.viewport} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
           <Layers {...destination} ready={this.handler_map_layersReady} />
           <Static {...destination} />
-          <Checklists {...destination} highlight={params.highlight} />
+          <Checklists {...destination} highlight={params.highlight} handler={this.handler_showInspect} />
           <Runtime {...destination} />
           {/* <CharacterActivities {...destination} /> */}
         </Map>
@@ -380,11 +373,7 @@ class Maps extends React.Component {
             </ul>
           </div>
         ) : null}
-        {viewport.width > 600 ? (
-          <div className='control inspector visible'>
-            
-          </div>
-        ) : null}
+        {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );
   }
@@ -410,10 +399,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(Maps);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Maps);

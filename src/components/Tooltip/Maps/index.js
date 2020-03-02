@@ -70,7 +70,7 @@ class Checklist extends React.Component {
                 {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}
               </div>
               <div>
-                <div className='kind'>{t(checklist.checklistItemName)}</div>
+                <div className='kind'>{checklist.checklistItemName}</div>
               </div>
             </div>
           </div>

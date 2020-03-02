@@ -40,9 +40,10 @@
   pointer-events: none;
 }
 
-html.backdropfilter .map-omega .control li {
+html.backdropfilter .map-omega .control li,
+html.backdropfilter .map-omega .acrylic {
   background-color: transparent;
-  backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
+  backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
 .map-omega .control .list li::before {
@@ -196,6 +197,79 @@ html.backdropfilter .map-omega .control li {
   font-size: 12px;
   justify-content: center;
 }
+
+
+
+.map-omega .control.inspector {
+  position: fixed;
+  top: calc(3rem + 40px);
+  right: 3rem;
+  width: calc(100% - 310px - 9rem);
+  max-width: 640px;
+  z-index: 2;
+}
+
+.map-omega .control.inspector::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.2);
+}
+
+.map-omega .control.inspector .header {
+  height: 38px;
+  padding: 0 0 0 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.map-omega .control.inspector .header span {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.map-omega .control.inspector .header span::before {
+  content: ' // ';
+}
+
+.map-omega .control.inspector .header .close {
+  position: relative;
+  padding: 0;
+  justify-content: center;
+  width: 38px;
+}
+
+.map-omega .control.inspector .screenshot {
+  position: relative;
+  padding-bottom: 56%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.map-omega .control.inspector .screenshot .image {
+  background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .map-omega .leaflet-container  {
   background-color: transparent;

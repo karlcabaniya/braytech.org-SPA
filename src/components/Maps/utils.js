@@ -1,3 +1,5 @@
+import maps from '../../data/lowlines/maps/destinations';
+
 export const destinations = [
   {
     id: 'tower',
@@ -41,3 +43,29 @@ export const destinations = [
     destinationHash: 2779202173
   }
 ];
+
+export function resolveDestination(map = false) {
+  const destinationById = map && destinations.find(d => d.id === map);
+  const destinationByHash = map && destinations.find(d => d.destinationHash === parseInt(map, 10));
+
+  if (destinationById) {
+    return destinationById;
+  } else if (destinationByHash) {
+    return destinationByHash;
+  } else {
+    return destinations.find(d => d.default);
+  }
+}
+
+export function getMapCenter(id) {
+  if (!maps[id]) return [0, 0];
+
+  const map = maps[id].map;
+
+  const centerYOffset = -(map.center && map.center.y) || 0;
+  const centerXOffset = (map.center && map.center.x) || 0;
+
+  const center = [map.height / 2 + centerYOffset, map.width / 2 + centerXOffset];
+
+  return center;
+}
