@@ -57,10 +57,14 @@ import Commonality from './views/Commonality';
 
 import Test from './views/Test';
 
-function slowImport(value, ms = 2000) {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(value), ms);
-  });
+export function slowImport(value, ms = 3000) {
+  if (process.env.NODE_ENV === 'development') {
+    return new Promise(resolve => {
+      setTimeout(() => resolve(value), ms);
+    });
+  } else {
+    return value;
+  }  
 }
 
 // Lazy components
@@ -72,7 +76,7 @@ const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
 
 // Wrap lazy-loaded components with react-router and ErrorBoundary component
-const SuspenseRoute = ({ component: Component, ...rest }) => (
+export const SuspenseRoute = ({ component: Component, ...rest }) => (
   <Route {...rest}>
     <ErrorBoundary>
       <Suspense fallback={<SuspenseLoading />}>

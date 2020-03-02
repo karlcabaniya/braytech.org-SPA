@@ -36,8 +36,8 @@ class Checklist extends React.Component {
     const locatedActivityName = checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash] && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
 
     const locatedStrings = {
-      'lost-sector': t('Located inside lost sector'),
-      'strike': `${t('Located inside strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
+      'lost-sector': t('Located inside Lost Sector'),
+      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
       'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
     }
 
@@ -87,7 +87,7 @@ class Checklist extends React.Component {
             ) : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.locationExt}</div>
-              {description ? <pre>{description}</pre> : null}
+              {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
           </div>
@@ -122,8 +122,8 @@ class Record extends React.Component {
     const locatedActivityName = checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash] && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
 
     const locatedStrings = {
-      'lost-sector': t('Located inside lost sector'),
-      'strike': `${t('Located inside strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
+      'lost-sector': t('Located inside Lost Sector'),
+      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
       'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
     }
     
@@ -176,7 +176,7 @@ class Record extends React.Component {
             ) : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.locationExt}</div>
-              {description ? <pre>{description}</pre> : null}
+              {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
           </div>
@@ -212,8 +212,8 @@ class Node extends React.Component {
     const locatedActivityName = node.location.within && node.location.within.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash] && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties.name
 
     const locatedStrings = {
-      'lost-sector': t('Located inside lost sector'),
-      'strike': `${t('Located inside strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
+      'lost-sector': t('Located inside Lost Sector'),
+      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
       'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
     }
     

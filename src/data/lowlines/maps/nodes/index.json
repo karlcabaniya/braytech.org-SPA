@@ -833,7 +833,8 @@
       "name": "The Chosen's Choice",
       "number": 3
     },
-    "description": false
+    "description": false,
+    "activityHash": 851841785
   },
   {
     "checklistId": 1420597821,
@@ -1148,7 +1149,7 @@
     "checklistId": 1697465175,
     "checklistHash": 3156467474,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_10.jpg",
     "debug": {
       "name": "Outskirts",
       "number": 10
@@ -1159,7 +1160,7 @@
     "checklistId": 1697465175,
     "checklistHash": 2473593253,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_11.jpg",
     "debug": {
       "name": "Outskirts",
       "number": 11
@@ -1170,7 +1171,7 @@
     "checklistId": 1697465175,
     "checklistHash": 505173108,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_12.jpg",
     "debug": {
       "name": "Outskirts",
       "number": 12
@@ -1203,7 +1204,7 @@
     "checklistId": 1697465175,
     "checklistHash": 1116639056,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_15.jpg",
     "debug": {
       "name": "Winding Cove",
       "number": 15
@@ -1236,7 +1237,7 @@
     "checklistId": 1697465175,
     "checklistHash": 97796737,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_18.jpg",
     "debug": {
       "name": "Firebase Hades",
       "number": 18
@@ -1280,7 +1281,7 @@
     "checklistId": 1697465175,
     "checklistHash": 2482079866,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_22.jpg",
     "debug": {
       "name": "Sunken Isles",
       "number": 22
@@ -1324,7 +1325,7 @@
     "checklistId": 1697465175,
     "checklistHash": 908643859,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_26.jpg",
     "debug": {
       "name": "Trostland",
       "number": 26
@@ -2422,34 +2423,37 @@
     "checklistId": 2360931290,
     "checklistHash": 2799709240,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_33.jpg",
     "debug": {
       "name": "Pyramidion",
       "number": 33
     },
-    "description": false
+    "description": "Guarded by a Vex Harpy, this object lies in the corner of a large space before you turn left and pass through a warp gate.",
+    "activityHash": 4261351281
   },
   {
     "checklistId": 2360931290,
     "checklistHash": 619741013,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_34.jpg",
     "debug": {
       "name": "Pyramidion",
       "number": 34
     },
-    "description": false
+    "description": "In a tight corner of a large space where three plates must be captured in order to push forward and onwards through another warp gate.",
+    "activityHash": 4261351281
   },
   {
     "checklistId": 2360931290,
     "checklistHash": 81948082,
     "recordHash": null,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_35.jpg",
     "debug": {
       "name": "Pyramidion",
       "number": 35
     },
-    "description": false
+    "description": "After passing through the final warp gate, you find yourself on a large ramp. Before facing _The Genesis Mind_, make a hard right at the bottom of the ramp. Climb a small sand beach and head into the shadow of the construct.",
+    "activityHash": 4261351281
   },
   {
     "checklistId": 2360931290,
@@ -3513,7 +3517,8 @@
       "name": "EX-077 Command",
       "number": 135
     },
-    "description": false
+    "description": false,
+    "activityHash": 2971335647
   },
   {
     "checklistId": 2360931290,
@@ -3524,7 +3529,8 @@
       "name": "Prodromus Down",
       "number": 136
     },
-    "description": false
+    "description": false,
+    "activityHash": 2971335647
   },
   {
     "checklistId": 2360931290,
@@ -3535,7 +3541,8 @@
       "name": "Prodromus Down",
       "number": 137
     },
-    "description": false
+    "description": false,
+    "activityHash": 2971335647
   },
   {
     "checklistId": 2360931290,
