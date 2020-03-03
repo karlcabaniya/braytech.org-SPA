@@ -12,7 +12,6 @@ import checklists from '../../utils/checklists';
 
 import './styles.css';
 
-
 function getItemsPerPage(width) {
   if (width >= 1600) return 5;
   if (width >= 1200) return 4;
@@ -23,18 +22,25 @@ function getItemsPerPage(width) {
 }
 
 const ListButton = p => (
-  <li key={p.checklistName} className={cx('linked', { active: p.visible })} onClick={p.onClick}>
+  <li key={p.checklistId} className={cx('linked', { active: p.visible })} onClick={p.onClick}>
     {p.checklistImage ? <ObservedImage className='image' src={p.checklistImage} /> : <div className={p.checklistIcon} />}
   </li>
 );
 
 export class Checklists extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    page: 0,
+    itemsPerPage: null
+  };
 
-    this.state = {
+  static getDerivedStateFromProps(p, s) {
+    if (s.itemsPerPage) {
+      return null;
+    }
+
+    return {
       page: 0,
-      itemsPerPage: getItemsPerPage(props.viewport.width)
+      itemsPerPage: getItemsPerPage(p.viewport.width)
     };
   }
 
@@ -67,23 +73,7 @@ export class Checklists extends React.Component {
     const { t } = this.props;
     const { page, itemsPerPage } = this.state;
 
-    const lists = [
-      checklists[1697465175](),
-      checklists[3142056444](),
-      checklists[4178338182](),
-      checklists[2360931290](),
-      checklists[365218222](),
-      checklists[2955980198](),
-      checklists[2609997025](),
-      checklists[1297424116](),
-      checklists[2726513366](),
-      checklists[1912364094](),
-      checklists[1420597821](),
-      checklists[3305936921](),
-      checklists[655926402](),
-      checklists[4285512244](),
-      checklists[2474271317]()
-    ];
+    const lists = [checklists[1697465175](), checklists[3142056444](), checklists[4178338182](), checklists[2360931290](), checklists[365218222](), checklists[2955980198](), checklists[2609997025](), checklists[1297424116](), checklists[2726513366](), checklists[1912364094](), checklists[1420597821](), checklists[3305936921](), checklists[655926402](), checklists[4285512244](), checklists[2474271317]()];
 
     // console.log(lists)
 
@@ -158,10 +148,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(Checklists);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Checklists);
