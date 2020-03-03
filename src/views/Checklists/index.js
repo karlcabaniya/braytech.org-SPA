@@ -39,8 +39,8 @@ export class Checklists extends React.Component {
   }
 
   handler_toggleCompleted = e => {
-    let currentState = this.props.collectibles;
-    let newState = {
+    const currentState = this.props.collectibles;
+    const newState = {
       hideCompletedChecklistItems: !currentState.hideCompletedChecklistItems
     };
 
@@ -57,7 +57,7 @@ export class Checklists extends React.Component {
     }
   }
 
-  changeSkip = index => {
+  handler_changeSkip = index => e => {
     this.setState({
       page: Math.floor(index / this.state.itemsPerPage)
     });
@@ -87,8 +87,8 @@ export class Checklists extends React.Component {
 
     // console.log(lists)
 
-    let sliceStart = parseInt(page, 10) * itemsPerPage;
-    let sliceEnd = sliceStart + itemsPerPage;
+    const sliceStart = parseInt(page, 10) * itemsPerPage;
+    const sliceEnd = sliceStart + itemsPerPage;
 
     const visible = lists.slice(sliceStart, sliceEnd);
 
@@ -114,13 +114,13 @@ export class Checklists extends React.Component {
           <div className={cx('padder', 'cols-' + this.state.itemsPerPage)}>
             <div className='module views'>
               <ul className='list'>
-                {lists.map((list, i) => (
-                  <ListButton checklistItemName_plural={list.checklistName} checklistIcon={list.checklistIcon} checklistImage={list.checklistImage} key={i} visible={visible.includes(list)} onClick={() => this.changeSkip(i)} />
+                {lists.map((list, l) => (
+                  <ListButton key={list.checklistId} checklistItemName_plural={list.checklistName} checklistIcon={list.checklistIcon} checklistImage={list.checklistImage} visible={visible.includes(list)} onClick={this.handler_changeSkip(l)} />
                 ))}
               </ul>
             </div>
             {visible.map(list => (
-              <div className='module list' key={list.checklistItemName_plural}>
+              <div key={list.checklistId} className='module list'>
                 <Checklist {...list} />
               </div>
             ))}

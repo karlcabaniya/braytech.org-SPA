@@ -267,8 +267,6 @@ class Checklists extends React.Component {
                 return null;
               }
 
-              console.log(node)
-
               const offsetY = markerOffsetY + point.y;
               const offsetX = markerOffsetX + point.x;
 

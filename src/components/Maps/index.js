@@ -38,10 +38,7 @@ class Maps extends React.Component {
     ui: {
       destinations: false,
       characters: false,
-      inspect: {
-        checklistId: 2360931290,
-        checklistHash: 81948082
-      }
+      inspect: false
     }
   };
 

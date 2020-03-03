@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
@@ -14,15 +13,25 @@ import runtime from '../../../data/lowlines/maps/runtime';
 
 import './styles.css';
 
+function locatedText(type, activityName) {
+  if (type === 'lost-sector') {
+    return t('Located inside Lost Sector: {{activityName}}', { activityName });
+  } else if (type === 'strike') {
+    return t('Located inside Strike: {{activityName}}', { activityName });
+  } else {
+    return t('Located inside activity');
+  }
+}
+
 class Checklist extends React.Component {
   render() {
-    const { t, hash } = this.props;
+    const { hash } = this.props;
 
     const checklistEntry = lookup({ key: 'checklistHash', value: hash });
 
     if (!checklistEntry) {
       console.warn('Hash not found');
-      
+
       return null;
     }
 
@@ -33,13 +42,7 @@ class Checklist extends React.Component {
     const screenshot = extras && extras.screenshot;
     const description = extras && extras.description;
 
-    const locatedActivityName = checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash] && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
-
-    const locatedStrings = {
-      'lost-sector': t('Located inside Lost Sector'),
-      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
-      'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
-    }
+    const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
     if (checklistEntry.checklistId === '4178338182') {
       checklist.checklistIcon = (
@@ -80,13 +83,9 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={screenshot} />
               </div>
             ) : null}
-            {checklistItem.extended.located ? (
-              <div className='inside-location'>
-                {locatedStrings[checklistItem.extended.located]}
-              </div>
-            ) : null}
+            {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.formatted.locationExt}</div>
+              <div className='destination'>{checklistItem.formatted.location}</div>
               {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
@@ -99,7 +98,7 @@ class Checklist extends React.Component {
 
 class Record extends React.Component {
   render() {
-    const { t, hash } = this.props;
+    const { hash } = this.props;
 
     const checklistEntry = lookup({ key: 'recordHash', value: hash });
 
@@ -119,14 +118,8 @@ class Record extends React.Component {
     const screenshot = extras && extras.screenshot;
     const description = extras && extras.description;
 
-    const locatedActivityName = checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash] && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties && manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
+    const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
-    const locatedStrings = {
-      'lost-sector': t('Located inside Lost Sector'),
-      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
-      'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
-    }
-    
     return (
       <>
         <div className='acrylic' />
@@ -169,13 +162,9 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={screenshot} />
               </div>
             ) : null}
-            {checklistItem.extended.located ? (
-              <div className='inside-location'>
-                {locatedStrings[checklistItem.extended.located]}
-              </div>
-            ) : null}
+            {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.formatted.locationExt}</div>
+              <div className='destination'>{checklistItem.formatted.location}</div>
               {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
@@ -188,10 +177,15 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const { t, member, hash } = this.props;
+    const { member, hash } = this.props;
 
     const nodes = runtime(member);
-    const node = nodes && Object.values(nodes).find(d => d.find(n => n.hash === hash)) && Object.values(nodes).find(d => d.find(n => n.hash === hash)).find(n => n.hash === hash);
+    const node =
+      nodes &&
+      Object.values(nodes).find(d => d.find(n => n.hash === hash)) &&
+      Object.values(nodes)
+        .find(d => d.find(n => n.hash === hash))
+        .find(n => n.hash === hash);
 
     if (!node) {
       console.warn('Hash not found');
@@ -209,14 +203,8 @@ class Node extends React.Component {
 
     const locationString = [bubbleName, destinationName, placeName].filter(s => s).join(', ');
 
-    const locatedActivityName = node.location.within && node.location.within.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash] && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties.name
+    const locatedActivityName = node.location.within && node.location.within.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash] && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties.name;
 
-    const locatedStrings = {
-      'lost-sector': t('Located inside Lost Sector'),
-      'strike': `${t('Located inside Strike')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`,
-      'activity': `${t('Located inside activity')}${locatedActivityName ? `: ${locatedActivityName}`: ``}`
-    }
-    
     const icon = node.icon ? <span className={node.icon} /> : undefined;
 
     console.log(node);
@@ -228,13 +216,9 @@ class Node extends React.Component {
         <div className='acrylic' />
         <div className={cx('frame', 'map', node.type.hash)}>
           <div className='header'>
-            <div className='icon'>
-              {icon}
-            </div>
+            <div className='icon'>{icon}</div>
             <div className='text'>
-              <div className='name'>
-                {node.displayProperties.name}
-              </div>
+              <div className='name'>{node.displayProperties.name}</div>
               <div>
                 <div className='kind'>{node.type.name}</div>
               </div>
@@ -246,11 +230,7 @@ class Node extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {node.location.within ? (
-              <div className='inside-location'>
-                {locatedStrings[node.location.within.id]}
-              </div>
-            ) : null}
+            {node.location.within ? <div className='inside-location'>{locatedText(node.location.within.id, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{locationString}</div>
               {node.displayProperties.description ? <ReactMarkdown className='text' source={node.displayProperties.description} /> : null}
@@ -261,10 +241,10 @@ class Node extends React.Component {
               </div>
             ) : null}
             {node.activityLightLevel ? (
-                <div className='highlight recommended-light'>
-                  {t('Recommended light')}: <span>{node.activityLightLevel}</span>
-                </div>
-              ) : null}
+              <div className='highlight recommended-light'>
+                {t('Recommended light')}: <span>{node.activityLightLevel}</span>
+              </div>
+            ) : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}
           </div>
         </div>
@@ -281,19 +261,10 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-Checklist = compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Checklist);
+Checklist = connect(mapStateToProps)(Checklist);
 
-Record = compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Record);
+Record = connect(mapStateToProps)(Record);
 
-Node = compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Node);
+Node = connect(mapStateToProps)(Node);
 
 export { Checklist, Record, Node };

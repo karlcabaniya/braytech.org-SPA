@@ -23,6 +23,16 @@ function findNodeType(checklistHash, recordHash) {
   }
 }
 
+function locatedText(type, activityName) {
+  if (type === 'lost-sector') {
+    return t('Located inside Lost Sector: {{activityName}}', { activityName });
+  } else if (type === 'strike') {
+    return t('Located inside Strike: {{activityName}}', { activityName });
+  } else {
+    return t('Located inside activity');
+  }
+}
+
 class Inspect extends React.Component {
   state = {};
 
@@ -41,22 +51,22 @@ class Inspect extends React.Component {
     const type = findNodeType(checklistHash, recordHash);
 
     const checklist = checklistId && checklists[checklistId]({ requested: { key: type.key, array: [checklistHash || recordHash] } });
-    const item = checklist && checklist.items && checklist.items.length && checklist.items[0];
+    const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
 
-    const extras = nodes && nodes.find(d => d[type.key] === item[type.key]);
+    const extras = nodes && nodes.find(d => d[type.key] === checklistItem[type.key]);
     const screenshot = extras && extras.screenshot;
     const description = extras && extras.description;
 
-    const locatedActivityName = item.activityHash && manifest.DestinyActivityDefinition[item.activityHash] && manifest.DestinyActivityDefinition[item.activityHash].displayProperties && manifest.DestinyActivityDefinition[item.activityHash].displayProperties.name;
+    const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
-    console.log(checklist, item);
+    console.log(checklist, checklistItem);
 
     return (
       <div className='control inspector acrylic'>
         <div className='header'>
-          <div>
-            {item.formatted.name}
-            {item.formatted.suffix ? ` ${item.formatted.suffix}` : null}
+          <div className='text'>
+            {checklistItem.formatted.name}
+            {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}
             <span>{checklist.checklistItemName_plural}</span>
           </div>
           <div>
@@ -70,6 +80,8 @@ class Inspect extends React.Component {
             <ObservedImage src={screenshot} />
           </div>
         ) : null}
+        {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
+        <div className='location'>{checklistItem.formatted.locationExt}</div>
       </div>
     );
   }

@@ -26,7 +26,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -48,25 +48,19 @@ export const checklists = {
     }),
   // region chests
   1697465175: options =>
-    checklist({
+    numberedChecklist(t('Region Chest'), {
       checklistId: 1697465175,
       characterBound: true,
       items: checklistItems(1697465175, true),
-      sortBy: ['completed', 'destination', 'bubble'],
-      itemName: i => {
+      sortBy: ['completed', 'number'],
+      itemLocation: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionBubble = definitionDestination.bubbles.find(b => b.hash === i.bubbleHash);
 
+        const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return bubbleName;
-      },
-      itemLocation: i => {
-        const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
-
-        const destinationName = definitionDestination.displayProperties.name;
-
-        return destinationName;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -143,7 +137,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -164,7 +158,7 @@ export const checklists = {
     }),
   // corrupted eggs
   2609997025: options =>
-    numberedChecklist('Egg', {
+    numberedChecklist(t('Egg'), {
       checklistId: 2609997025,
       items: checklistItems(2609997025, false),
       itemLocation: i => {
@@ -174,7 +168,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -195,7 +189,7 @@ export const checklists = {
     }),
   // cat statues
   2726513366: options =>
-    numberedChecklist('Feline friend', {
+    numberedChecklist(t('Feline friend'), {
       checklistId: 2726513366,
       items: checklistItems(2726513366),
       itemLocation: i => {
@@ -205,7 +199,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -226,7 +220,7 @@ export const checklists = {
     }),
   // jade rabbits
   1912364094: options =>
-    numberedChecklist('Jade Rabbit', {
+    numberedChecklist(t('Jade Rabbit'), {
       checklistId: 1912364094,
       characterBound: true,
       items: checklistItems(1912364094, true),
@@ -237,7 +231,7 @@ export const checklists = {
         const destinationName = definitionDestination && definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -270,7 +264,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -291,7 +285,7 @@ export const checklists = {
     }),
   // ghost scans
   2360931290: options =>
-    numberedChecklist('Scan', {
+    numberedChecklist(t('Scan'), {
       checklistId: 2360931290,
       items: checklistItems(2360931290),
       itemLocation: i => {
@@ -301,7 +295,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -322,7 +316,7 @@ export const checklists = {
     }),
   // latent memories
   2955980198: options =>
-    numberedChecklist('Memory', {
+    numberedChecklist(t('Memory'), {
       checklistId: 2955980198,
       items: checklistItems(2955980198),
       itemLocation: i => {
@@ -332,7 +326,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -370,7 +364,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -409,7 +403,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -453,7 +447,7 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = (definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name) || i.bubbleName;
 
-        return `${bubbleName}, ${destinationName}`;
+        return [bubbleName, destinationName].filter(s => s).join(', ');
       },
       itemLocationExt: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
