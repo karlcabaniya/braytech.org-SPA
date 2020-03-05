@@ -101,21 +101,6 @@
   cursor: pointer;
 }
 
-#checklists .module.views .list li .icon {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-
-#checklists .module.views .list li .icon {
-  background-size: 70%;
-}
-
-#checklists .module.views .list li .icon svg {
-  width: 50%;
-  height: auto;
-}
-
 #checklists .module.views .list li::before {
   background-color: rgba(255, 255, 255, 0);
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.4);
@@ -142,6 +127,19 @@
 
 #checklists .module.views .list li:hover {
   color: #fff;
+}
+
+#checklists .module.views .list li .icon {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-size: 70%;
+}
+
+#checklists .module.views .list li .icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 #checklists .module.list .progress-bar {

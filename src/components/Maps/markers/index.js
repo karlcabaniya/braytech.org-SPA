@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import { ReactComponent as SVGFastTravel } from '../../../svg/maps/fast-travel.svg';
 import { ReactComponent as SVGVendor } from '../../../svg/maps/vendor.svg';
+import { ReactComponent as SVGForgeIgnition } from '../../../svg/maps/forge-ignition.svg';
 
 import './styles.css';
 
@@ -35,23 +36,6 @@ export const text = (classNames = [], name) =>
     html: `<div class='wrapper'><div class='name'>${name}</div></div>`
   });
 
-export const iconForge = (tooltip = {}, classNames = []) => {
-  const html = (
-    <div className='wrapper'>
-      <div className='forge tooltip' data-hash={tooltip.hash} data-playlist={tooltip.playlist} data-table={tooltip.table}>
-        <div className='dial' />
-        <div className='frame' />
-        <div className='logo' />
-      </div>
-    </div>
-  );
-
-  return L.divIcon({
-    className: ['icon-marker', 'native'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html)
-  });
-};
-
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
   const html = (
     <div className='wrapper'>
@@ -79,3 +63,46 @@ export const iconFastTravel = L.divIcon({
     </div>
   )
 });
+
+export const iconForgeIgnition = {
+  1506080581: L.divIcon({
+    className: 'icon-marker native forge',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
+          <SVGForgeIgnition />
+        </div>
+      </div>
+    )
+  }),
+  957727787: L.divIcon({
+    className: 'icon-marker native forge',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
+          <SVGForgeIgnition />
+        </div>
+      </div>
+    )
+  }),
+  2656947700: L.divIcon({
+    className: 'icon-marker native forge',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
+          <SVGForgeIgnition />
+        </div>
+      </div>
+    )
+  }),
+  1434072700: L.divIcon({
+    className: 'icon-marker native forge',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
+          <SVGForgeIgnition />
+        </div>
+      </div>
+    )
+  })
+}

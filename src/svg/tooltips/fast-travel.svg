@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 335.62702 335.62702">
+  <title>fast-travel</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="inner-ring">
+        <circle cx="167.8135" cy="167.81354" r="124.64447" transform="translate(-69.51066 167.81351) rotate(-45)" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px;stroke-dasharray: 0,9.002248764038086"/>
+        <circle cx="167.81351" cy="167.81351" r="138.86883" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px"/>
+      </g>
+      <g id="outer-ring">
+        <polygon points="167.813 0.613 221.325 38.626 286.042 49.585 297.001 114.302 335.014 167.813 297.001 221.325 286.042 286.042 221.325 297.001 167.814 335.014 114.302 297.001 49.585 286.042 38.626 221.325 0.613 167.814 38.626 114.302 49.585 49.585 114.302 38.626 167.813 0.613" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+        <polygon points="103.829 13.341 167.813 27.982 231.798 13.341 266.689 68.938 322.286 103.829 307.645 167.813 322.286 231.798 266.689 266.689 231.798 322.286 167.814 307.645 103.829 322.286 68.938 266.689 13.341 231.798 27.982 167.814 13.341 103.829 68.938 68.938 103.829 13.341" style="fill: none;stroke: #fff;stroke-miterlimit: 10;opacity: 0.8"/>
+      </g>
+      <g id="square">
+        <circle id="square-4" cx="28.01582" cy="28.01582" r="6.86419" style="fill: #fff"/>
+        <circle id="square-3" cx="307.6112" cy="28.01582" r="6.86419" style="fill: #fff"/>
+        <circle id="square-2" cx="307.6112" cy="307.6112" r="6.86419" style="fill: #fff"/>
+        <circle id="square-1" cx="28.01582" cy="307.6112" r="6.86419" style="fill: #fff"/>
+      </g>
+      <g id="angles">
+        <g id="beat">
+          <polygon points="167.814 155.208 148.274 135.822 128.735 116.435 167.814 116.435 206.892 116.435 187.353 135.822 167.814 155.208" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px"/>
+        </g>
+        <polygon points="167.814 237.23 128.43 197.501 89.047 157.771 167.814 157.771 246.58 157.771 207.197 197.501 167.814 237.23" style="fill: #fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

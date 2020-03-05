@@ -52,7 +52,7 @@ class Checklist extends React.Component {
         <div className={cx('frame', 'map', 'checklist')}>
           <div className='header'>
             <div className='icon'>{checklist.checklistIcon}</div>
-            <div className='text' data-number={checklistItem.formatted.number && checklistItem.formatted.number}>
+            <div className='text'>
               <div className='name'>
                 {checklistItem.formatted.name}
                 {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}

@@ -55,7 +55,7 @@ class Static extends React.Component {
         } else if (node.type === 'fast-travel') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'forge') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForge({ hash: node.activityHash, playlist: node.playlistHash, type: 'activity' }, [])} zIndexOffset='-1000' />;
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' />;
         } else {
           return null;
         }

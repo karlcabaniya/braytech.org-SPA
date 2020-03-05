@@ -26,13 +26,6 @@
   padding: 20px 16px 26px;
 }
 
-#tooltip .frame.map .header .text::before {
-  content: attr(data-number);
-  position: absolute;
-  right: 1rem;
-  opacity: 0.2;
-}
-
 #tooltip .frame.map .header .text .kind {
   color: rgba(255, 255, 255, 0.4);
 }

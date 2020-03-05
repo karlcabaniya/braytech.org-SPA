@@ -10,20 +10,7 @@ import * as utils from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
 import { checklists, lookup } from '../../../utils/checklists';
 
-import { ReactComponent as SVGAdventure } from '../../../svg/tooltips/adventure.svg';
-import { ReactComponent as SVGStory } from '../../../svg/tooltips/story.svg';
-import { ReactComponent as SVGCrucible } from '../../../svg/tooltips/crucible.svg';
-import { ReactComponent as SVGStrike } from '../../../svg/tooltips/strike.svg';
-import { ReactComponent as SVGDungeon } from '../../../svg/tooltips/dungeon.svg';
-import { ReactComponent as SVGForgeIgnition } from '../../../svg/tooltips/forge-ignition.svg';
-import { ReactComponent as SVGShadowkeep } from '../../../svg/tooltips/shadowkeep.svg';
-import { ReactComponent as SVGGambit } from '../../../svg/tooltips/gambit.svg';
-import { ReactComponent as SVGGambitPrime } from '../../../svg/tooltips/gambit-prime.svg';
-import { ReactComponent as SVGReckoning } from '../../../svg/tooltips/reckoning.svg';
-import { ReactComponent as SVGMenagerie } from '../../../svg/tooltips/menagerie.svg';
-import { ReactComponent as SVGRaid } from '../../../svg/tooltips/raid.svg';
-import { ReactComponent as SVGSeasonalArena } from '../../../svg/tooltips/seasonal-arena.svg';
-import { ReactComponent as SVGTrialsOfOsiris } from '../../../svg/tooltips/trials-of-osiris.svg';
+import { Tooltips } from '../../../svg';
 
 import './styles.css';
 
@@ -245,7 +232,7 @@ class Activity extends React.Component {
 
         pgcrImage: definitionActivity.pgcrImage,
 
-        icon: <span className='destiny-patrol' />
+        icon: <Tooltips.FastTravel />
       };
 
       // console.log(activityTypeDisplay, definitionActivity, mode, definitionActivityPlaylist)
@@ -279,7 +266,7 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name,
           className: 'story',
-          icon: <SVGStory />
+          icon: <Tooltips.Story />
         };
       }
 
@@ -296,7 +283,7 @@ class Activity extends React.Component {
           className: 'crucible',
           activityLightLevel: false,
           isCrucible: true,
-          icon: <SVGCrucible />
+          icon: <Tooltips.Crucible />
         };
 
         // Survival, Survival: Freelance
@@ -312,7 +299,7 @@ class Activity extends React.Component {
           description: definitionActivity.displayProperties.description,
           mode: definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name,
           className: 'raid',
-          icon: <SVGRaid />
+          icon: <Tooltips.Raid />
         };
       }
 
@@ -325,7 +312,7 @@ class Activity extends React.Component {
           activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity?.activityLightLevel,
           className: 'forge',
           pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity?.pgcrImage,
-          icon: <SVGForgeIgnition />
+          icon: <Tooltips.ForgeIgnition />
         };
       }
 
@@ -339,7 +326,7 @@ class Activity extends React.Component {
           mode: false,
           activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
           className: 'menagerie',
-          icon: <SVGMenagerie />
+          icon: <Tooltips.Menagerie />
         };
       }
 
@@ -349,7 +336,7 @@ class Activity extends React.Component {
           mode: definitionActivity.originalDisplayProperties?.name,
           description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
           className: 'reckoning',
-          icon: <SVGReckoning />
+          icon: <Tooltips.Reckoning />
         };
       }
 
@@ -365,7 +352,7 @@ class Activity extends React.Component {
           },
           className: 'gambit',
           activityLightLevel: false,
-          icon: definitionActivityMode.hash === 1418469392 ? <SVGGambitPrime /> : <SVGGambit />
+          icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />
         };
       }
 
@@ -374,7 +361,7 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
           className: 'strike',
-          icon: <SVGStrike />
+          icon: <Tooltips.Strike />
         };
       }
 
@@ -390,7 +377,7 @@ class Activity extends React.Component {
           mode: definitionActivity.displayProperties.name,
           description: definitionStrke.displayProperties.description,
           className: 'strike',
-          icon: <SVGStrike />
+          icon: <Tooltips.Strike />
         };
       }
 
@@ -399,7 +386,7 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: t('Adventure'),
           className: 'adventure',
-          icon: <SVGAdventure />
+          icon: <Tooltips.Adventure />
         };
       }
 
@@ -411,7 +398,7 @@ class Activity extends React.Component {
           description: definitionActivity.displayProperties.description,
           suggestion: t('Equip Dreambane armor mods to enhance your light within this activity.'),
           className: 'shadowkeep nightmare-hunt',
-          icon: <SVGShadowkeep />
+          icon: <Tooltips.Shadowkeep />
         };
       }
 
@@ -421,7 +408,7 @@ class Activity extends React.Component {
           name: definitionActivityPlaylist?.displayProperties.name || definitionActivity?.displayProperties.name,
           mode: manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name,
           className: 'dungeon',
-          icon: <SVGDungeon />
+          icon: <Tooltips.Dungeon />
         };
       }
 
@@ -432,7 +419,7 @@ class Activity extends React.Component {
           description: definitionActivityPlaylist?.displayProperties.description,
           mode: manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name,
           className: 'seasonal-arena',
-          icon: <SVGSeasonalArena />
+          icon: <Tooltips.SeasonalArena />
         };
       }
 
