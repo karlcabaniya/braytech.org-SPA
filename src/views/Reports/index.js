@@ -5,19 +5,13 @@ import { withTranslation } from 'react-i18next';
 
 import './styles.css';
 
-import Root from './Root/';
-import Crucible from './Crucible/';
-import Gambit from './Gambit/';
-import Raids from './Raids/';
-import Strikes from './Strikes/';
+import Root from './Root';
+import Crucible from './Crucible';
+import Gambit from './Gambit';
+import Raids from './Raids';
+import Strikes from './Strikes';
 
-class PGCRs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
+class Reports extends React.Component {
   componentDidMount() {
     
   }
@@ -51,4 +45,4 @@ function mapStateToProps(state, ownProps) {
 export default compose(
   connect(mapStateToProps),
   withTranslation()
-)(PGCRs);
+)(Reports);

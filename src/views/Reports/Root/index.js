@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
-import Matches from '../../../components/PGCRs/Matches';
+import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class All extends React.Component {

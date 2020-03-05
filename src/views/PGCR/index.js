@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 
 import getPGCR from '../../utils/getPGCR';
 
-import { ReportItem } from '../../components/PGCRs/PGCR';
+import { ReportItem } from '../../components/Reports/PGCR';
 import Spinner from '../../components/UI/Spinner';
 
 import './styles.css';

@@ -7,8 +7,8 @@ import cx from 'classnames';
 import * as bungie from '../../../utils/bungie';
 import manifest from '../../../utils/manifest';
 import Spinner from '../../../components/UI/Spinner';
-import Mode from '../../../components/PGCRs/Mode';
-import Matches from '../../../components/PGCRs/Matches';
+import Mode from '../../../components/Reports/Mode';
+import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class Gambit extends React.Component {

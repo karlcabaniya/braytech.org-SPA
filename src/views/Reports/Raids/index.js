@@ -5,13 +5,12 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import * as bungie from '../../../utils/bungie';
-
 import Spinner from '../../../components/UI/Spinner';
-import Mode from '../../../components/PGCRs/Mode';
-import Matches from '../../../components/PGCRs/Matches';
+import Mode from '../../../components/Reports/Mode';
+import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
-class Strikes extends React.Component {
+class Raids extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,13 +19,10 @@ class Strikes extends React.Component {
     };
   }
 
-  strikes = {
+  raids = {
     all: {
-      allStrikes: {
-        mode: 18
-      },
-      scored_nightfall: {
-        mode: 46
+      raid: {
+        mode: 4
       }
     }
   };
@@ -41,7 +37,7 @@ class Strikes extends React.Component {
       }));
     }
 
-    let stats = await bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.strikes.all).map(m => m.mode), '0');
+    let stats = await bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.raids.all).map(m => m.mode), '0');
 
     stats = (stats && stats.ErrorCode === 1 && stats.Response) || [];
 
@@ -51,7 +47,7 @@ class Strikes extends React.Component {
           return;
         }
         Object.entries(stats[mode].allTime).forEach(([key, value]) => {
-          this.strikes.all[mode][key] = value;
+          this.raids.all[mode][key] = value;
         });
       }
     }
@@ -100,17 +96,16 @@ class Strikes extends React.Component {
   render() {
     const { t } = this.props;
 
-    const mode = this.props.mode ? parseInt(this.props.mode) : 18;
-    const offset = parseInt(this.props.offset);
+    const offset = parseInt(this.props.offset, 10);
 
     return (
-      <div className={cx('view', 'strikes')} id='multiplayer'>
+      <div className={cx('view', 'gambit')} id='multiplayer'>
         <div className='module-l1'>
           <div className='module-l2'>
             <div className='content head'>
               <div className='page-header'>
                 <div className='sub-name'>{t('Post Game Carnage Reports')}</div>
-                <div className='name'>{t('Strikes')}</div>
+                <div className='name'>{t('Raids')}</div>
               </div>
             </div>
           </div>
@@ -119,9 +114,9 @@ class Strikes extends React.Component {
           </div>
           <div className='module-l2'>
             <div className='content'>
-              {Object.values(this.strikes.all.allStrikes).length > 1 ? (
+              {Object.values(this.raids.all.raid).length > 1 ? (
                 <ul className='list modes'>
-                  {Object.values(this.strikes.all).map(m => <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />)}
+                  {Object.values(this.raids.all).map(m => <Mode key={m.mode} stats={m} root='/reports/raids' defaultMode='4' />)}
                 </ul>
               ) : (
                 <Spinner mini />
@@ -132,9 +127,9 @@ class Strikes extends React.Component {
         <div className='module-l1' id='matches'>
           <div className='content'>
             <div className='sub-header'>
-              <div>{t('Recent strikes')}</div>
+              <div>{t('Recent raids')}</div>
             </div>
-            <Matches mode={mode} limit='40' offset={offset} root='/reports/strikes' />
+            <Matches mode={this.props.mode ? parseInt(this.props.mode) : 4} limit='40' offset={offset} root='/reports/raids' />
           </div>
         </div>
       </div>
@@ -152,4 +147,4 @@ function mapStateToProps(state, ownProps) {
 export default compose(
   connect(mapStateToProps),
   withTranslation()
-)(Strikes);
+)(Raids);

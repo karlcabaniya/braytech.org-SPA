@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Clan from '../views/Clan';
 import Character from '../views/Character';
-import PGCRs from '../views/PGCRs';
+import Reports from '../views/Reports';
 import Collections from '../views/Collections';
 import Triumphs from '../views/Triumphs';
 import Checklists from '../views/Checklists';
@@ -54,7 +54,7 @@ class ProfileRoutes extends React.Component {
           <Route path={`${match.url}/collections/:primary?/:secondary?/:tertiary?/:quaternary?/:quinary?`} render={route => <Collections {...route} />} />
           <Route path={`${match.url}/triumphs/:primary?/:secondary?/:tertiary?/:quaternary?`} render={route => <Triumphs {...route} />} />
           <Route path={`${match.url}/this-week/:view?`} render={route => <ThisWeek {...route} />} />
-          <Route path={`${match.url}/reports/:type?/:mode?/:offset?`} render={route => <PGCRs {...route} />} />
+          <Route path={`${match.url}/reports/:type?/:mode?/:offset?`} render={route => <Reports {...route} />} />
           <Route path={`${match.url}/now/:view?`} render={route => <Now {...route} />} />
           <Route path={`${match.url}/quests/bounty-tracker/:sort?`} render={route => <BountyTracker {...route} />} />
           <Route path={`${match.url}/quests/:hash?`} render={route => <Quests {...route} />} />
