@@ -1,7 +1,7 @@
 
 #tooltip .frame.vendor .header {
   display: grid;
-  grid-template-columns: 72px auto;
+  grid-template-columns: 96px auto;
   background-color: transparent;
   color: #fff;
   padding: 0;
@@ -10,11 +10,14 @@
 
 #tooltip .frame.vendor .header .icon {
   background-color: hsla(var(--commonDark), 0.9);
-  min-height: 72px;
-  padding: 24px 0 26px;
   display: grid;
-  justify-content: center;
-  font-size: 42px;
+  justify-items: center;
+  align-items: center;
+}
+
+#tooltip .frame.vendor .header .icon svg {
+  width: 56px;
+  height: 56px;
 }
 
 #tooltip .frame.vendor .header .text {

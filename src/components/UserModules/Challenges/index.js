@@ -162,7 +162,7 @@ class Challenges extends React.Component {
                               const name = this.isNightfallOrdeal(activityHash) ? definitionActivity.originalDisplayProperties.description : definitionActivity.originalDisplayProperties?.name.replace('Nightmare Hunt: ', '') || definitionActivity.displayProperties.name;
 
                               return (
-                                <li key={i} className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={definitionActivity.hash} data-mode={definitionActivity.directActivityModeHash}>
+                                <li key={i} className='linked tooltip' data-type='activity' data-hash={definitionActivity.hash} data-mode={definitionActivity.directActivityModeHash}>
                                   <div className='name'>{name}</div>
                                 </li>
                               );

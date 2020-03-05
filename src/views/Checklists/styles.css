@@ -96,15 +96,24 @@
 
 #checklists .module.views .list li {
   margin: 0;
-  display: grid;
-  height: 40px;  
-  justify-content: center;
+  height: 40px;
   font-size: 24px;
   cursor: pointer;
 }
 
-#checklists .module.views .list li .image {
+#checklists .module.views .list li .icon {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#checklists .module.views .list li .icon {
   background-size: 70%;
+}
+
+#checklists .module.views .list li .icon svg {
+  width: 50%;
+  height: auto;
 }
 
 #checklists .module.views .list li::before {

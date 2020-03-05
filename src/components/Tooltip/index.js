@@ -8,31 +8,29 @@ import UI from './UI';
 import Item from './Item';
 import Activity from './Activity';
 import Vendor from './Vendor';
-import Stat from './Stat';
 import { Checklist, Record, Node } from './Maps';
 import CollectionsBadge from './CollectionsBadge';
 
 class Tooltip extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    hash: false,
+    table: false,
+    data: {}
+  };
 
-    this.state = {
-      hash: false,
-      table: false,
-      data: {}
-    };
+  ref_tooltip = React.createRef();
 
-    this.ref_tooltip = React.createRef();
-    this.touchPosition = {
-      x: 0,
-      y: 0
-    };
-    this.mousePosition = {
-      x: 0,
-      y: 0
-    };
-    this.rAF = null;
-  }
+  touchPosition = {
+    x: 0,
+    y: 0
+  };
+
+  mousePosition = {
+    x: 0,
+    y: 0
+  };
+
+  rAF = null;
 
   helper_tooltipPositionUpdate = () => {
     if (this.ref_tooltip.current) {
@@ -40,7 +38,7 @@ class Tooltip extends React.Component {
     }
 
     window.requestAnimationFrame(this.helper_tooltipPositionUpdate);
-  }
+  };
 
   helper_windowMouseMove = e => {
     let x = 0;
@@ -53,7 +51,7 @@ class Tooltip extends React.Component {
     x = e.clientX;
     y = e.clientY - (tooltipHeight >= 320 ? 140 : 0);
 
-    if (x + tooltipWidth + scrollbarAllowance > (window.innerWidth / 3 * 2) + tooltipWidth) {
+    if (x + tooltipWidth + scrollbarAllowance > (window.innerWidth / 3) * 2 + tooltipWidth) {
       x = x - tooltipWidth - scrollbarAllowance - offset;
     } else {
       x = x + scrollbarAllowance + offset;
@@ -88,7 +86,7 @@ class Tooltip extends React.Component {
 
   helper_targetMouseLeave = e => {
     window.cancelAnimationFrame(this.rAF);
-    
+
     this.resetState();
   };
 
@@ -101,12 +99,10 @@ class Tooltip extends React.Component {
     };
   };
 
-  helper_targetTouchMove = e => {
-    
-  };
+  helper_targetTouchMove = e => {};
 
   helper_targetTouchEnd = e => {
-    const drag = e && e.changedTouches && e.changedTouches.length ? !((e.changedTouches[0].clientX - this.touchPosition.x) === 0 && (e.changedTouches[0].clientY - this.touchPosition.y) === 0) : false;
+    const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
 
     if (!drag) {
       if (e.currentTarget.dataset.hash) {
@@ -129,14 +125,12 @@ class Tooltip extends React.Component {
     };
   };
 
-  helper_tooltipTouchMove = e => {
-    
-  };
+  helper_tooltipTouchMove = e => {};
 
   helper_tooltipTouchEnd = e => {
     e.preventDefault();
 
-    const drag = e && e.changedTouches && e.changedTouches.length ? !((e.changedTouches[0].clientX - this.touchPosition.x) === 0 && (e.changedTouches[0].clientY - this.touchPosition.y) === 0) : false;
+    const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
 
     if (!drag) {
       this.resetState();
@@ -210,7 +204,6 @@ class Tooltip extends React.Component {
   }
 
   render() {
-
     let Tooltip = Item;
 
     if (this.state.hash) {
@@ -219,9 +212,10 @@ class Tooltip extends React.Component {
       if (this.state.table === 'DestinyChecklistDefinition') Tooltip = Checklist;
       if (this.state.table === 'DestinyRecordDefinition') Tooltip = Record;
       if (this.state.table === 'BraytechMapsDefinition') Tooltip = Node;
-      if (['braytech', 'ui', 'modifier', 'stat'].includes(this.state.type)) Tooltip = UI;
-      if (this.state.type === 'stat') Tooltip = Stat;
+      if (this.state.type === 'activity') Tooltip = Activity;
+      if (this.state.type === 'vendor') Tooltip = Vendor;
       if (this.state.type === 'collections-badge') Tooltip = CollectionsBadge;
+      if (['braytech', 'ui', 'modifier', 'stat'].includes(this.state.type)) Tooltip = UI;
     }
 
     return (
@@ -229,7 +223,6 @@ class Tooltip extends React.Component {
         {this.state.hash ? <Tooltip {...this.state.data} /> : null}
       </div>
     );
-    
   }
 }
 
@@ -240,6 +233,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default connect(
-  mapStateToProps
-)(Tooltip);
+export default connect(mapStateToProps)(Tooltip);

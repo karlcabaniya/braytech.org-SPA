@@ -36,9 +36,18 @@
 #now .module .list.activities li .game-version-icon {
   height: 38px;
   display: grid;
-  align-content: center;
-  justify-content: center;
+  align-items: center;
+  justify-items: center;
   background-color: rgba(211, 208, 36, 0.6);
+}
+
+#now .module .list.activities li .game-version-icon svg {
+  width: 70%;
+  height: auto;
+}
+
+#now .module .list.activities li .game-version-icon svg * {
+  fill: rgba(255, 255, 255, 0.8) !important;
 }
 
 #now .module .list.activities li.warmind .game-version-icon {
@@ -51,11 +60,6 @@
 
 #now .module .list.activities li.shadowkeep .game-version-icon {
   background-color: rgba(128, 34, 45, 0.6);
-}
-
-#now .module .list.activities li .game-version-icon span::before {
-  font-size: 22px;
-  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 #now .module .list.activities li .time {

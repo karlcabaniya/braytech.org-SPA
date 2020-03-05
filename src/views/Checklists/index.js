@@ -23,7 +23,7 @@ function getItemsPerPage(width) {
 
 const ListButton = p => (
   <li key={p.checklistId} className={cx('linked', { active: p.visible })} onClick={p.onClick}>
-    {p.checklistImage ? <ObservedImage className='image' src={p.checklistImage} /> : <div className={p.checklistIcon} />}
+    {p.checklistImage ? <ObservedImage className='image icon' src={p.checklistImage} /> : <div className='icon'>{p.checklistIcon}</div>}
   </li>
 );
 

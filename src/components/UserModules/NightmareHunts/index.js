@@ -51,7 +51,7 @@ class NightmareHunts extends React.Component {
                 const definitionActivity = manifest.DestinyActivityDefinition[masterHash];
 
                 return (
-                  <li key={i} className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={definitionActivity.hash} data-mode='175275639'>
+                  <li key={i} className='linked tooltip' data-type='activity' data-hash={definitionActivity.hash} data-mode='175275639'>
                     <div className='name'>{manifest.DestinyActivityDefinition[a.storyHash]?.displayProperties.name.replace('Nightmare Hunt: ', '')}</div>
                   </li>
                 );

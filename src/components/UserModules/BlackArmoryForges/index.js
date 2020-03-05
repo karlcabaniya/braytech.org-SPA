@@ -39,7 +39,7 @@ class BlackArmoryForges extends React.Component {
               const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
 
               return (
-                <li key={i} className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={a.activityHash}>
+                <li key={i} className='linked tooltip' data-type='activity' data-hash={a.activityHash}>
                   <div className='name'>{definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown')}</div>
                 </li>
               );

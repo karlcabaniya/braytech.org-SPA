@@ -44,21 +44,6 @@ class Checklist extends React.Component {
 
     const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
-    if (checklistEntry.checklistId === '4178338182') {
-      checklist.checklistIcon = (
-        <span className='destiny-adventure2'>
-          <span className='path1' />
-          <span className='path2' />
-          <span className='path3' />
-          <span className='path4' />
-          <span className='path5' />
-          <span className='path6' />
-        </span>
-      );
-    } else {
-      checklist.checklistIcon = <span className={cx(checklist.checklistIcon)} />;
-    }
-
     console.log(checklistItem);
 
     return (
@@ -125,16 +110,7 @@ class Record extends React.Component {
         <div className='acrylic' />
         <div className={cx('frame', 'map', 'record', 'lore')}>
           <div className='header'>
-            <div className='icon'>
-              <span className='destiny-lore_scholar'>
-                <span className='path1' />
-                <span className='path2' />
-                <span className='path3' />
-                <span className='path4' />
-                <span className='path5' />
-                <span className='path6' />
-              </span>
-            </div>
+            <div className='icon'>{checklist.checklistIcon}</div>
             <div className='text'>
               <div className='name'>
                 {checklistItem.formatted.name}

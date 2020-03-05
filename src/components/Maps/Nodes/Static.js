@@ -51,15 +51,11 @@ class Static extends React.Component {
 
           return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'vendor' && node.vendorHash !== 2190858386) {
-          const icon = marker.icon({ hash: node.vendorHash, table: 'DestinyVendorDefinition' }, ['native'], { icon: 'destiny-faction_fella' });
-
-          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'])} zIndexOffset='-1000' />;
         } else if (node.type === 'fast-travel') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'forge') {
-          const icon = marker.iconForge({ hash: node.activityHash, playlist: node.playlistHash, table: 'DestinyActivityDefinition' }, []);
-
-          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForge({ hash: node.activityHash, playlist: node.playlistHash, type: 'activity' }, [])} zIndexOffset='-1000' />;
         } else {
           return null;
         }

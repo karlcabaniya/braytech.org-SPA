@@ -1,74 +1,25 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import L from 'leaflet';
+import cx from 'classnames';
+
+import { ReactComponent as SVGFastTravel } from '../../../svg/maps/fast-travel.svg';
+import { ReactComponent as SVGVendor } from '../../../svg/maps/vendor.svg';
 
 import './styles.css';
 
-function generateIcon(destinyIcon) {
-  let icon;
-
-  if (destinyIcon === 'destiny-adventure2') {
-    icon = (
-      <div className='icon'>
-        <span className='destiny-adventure2'>
-          <span className='path1' />
-          <span className='path2' />
-          <span className='path3' />
-          <span className='path4' />
-          <span className='path5' />
-          <span className='path6' />
-        </span>
-      </div>
-    );
-  } else if (destinyIcon === 'destiny-faction_fella') {
-    icon = (
-      <div className='icon'>
-        <span className='destiny-faction_fella'>
-          <span className='path1' />
-          <span className='path2' />
-          <span className='path3' />
-          <span className='path4' />
-          <span className='path5' />
-        </span>
-      </div>
-    );
-  } else if (destinyIcon === 'destiny-lore_scholar') {
-    icon = (
-      <div className='icon'>
-        <span className='destiny-lore_scholar'>
-          <span className='path1' />
-          <span className='path2' />
-          <span className='path3' />
-          <span className='path4' />
-          <span className='path5' />
-          <span className='path6' />
-        </span>
-      </div>
-    );
-  } else {
-    icon = <div className={`icon ${destinyIcon}`} />;
+export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
+  let icon = marker.icon || null;
+  if (tooltip.type === 'vendor') {
+    icon = <SVGVendor />;
   }
 
-  return icon;
-}
-
-export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
-  const icon = marker.icon && generateIcon(marker.icon);
   const html = (
     <div className='wrapper'>
-      {tooltip.hash ? (
-        <>
-          <div className='tooltip' data-hash={tooltip.hash} data-table={tooltip.table}>
-            {icon ? icon : <div className='icon' />}
-          </div>
-          {text ? <div className='text'>${text}</div> : null}
-        </>
-      ) : (
-        <>
-          {icon ? icon : <div className='icon' />}
-          {text ? <div className='text'>${text}</div> : null}
-        </>
-      )}
+      <div className={cx({ tooltip: tooltip.hash })} data-hash={tooltip.hash} data-type={tooltip.type} data-table={tooltip.table}>
+        <div className='icon'>{icon}</div>
+      </div>
+      {text ? <div className='text'>${text}</div> : null}
     </div>
   );
 
@@ -78,12 +29,11 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
   });
 };
 
-export const text = (classNames = [], name) => {
-  return L.divIcon({
+export const text = (classNames = [], name) =>
+  L.divIcon({
     className: ['text-marker'].concat(classNames).join(' '),
     html: `<div class='wrapper'><div class='name'>${name}</div></div>`
   });
-};
 
 export const iconForge = (tooltip = {}, classNames = []) => {
   const html = (
@@ -119,27 +69,13 @@ export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
   });
 };
 
-
-
 export const iconFastTravel = L.divIcon({
-  className: 'icon-marker native interaction-none',
+  className: 'icon-marker native fast-travel interaction-none',
   html: ReactDOMServer.renderToString(
     <div className='wrapper'>
-      <div className='fast-travel'>
-        <div className='shadow' />
-        <div className='star' />
-        <div className='outline' />
-        <div className='square'>
-          <div className='sq tl' />
-          <div className='sq tr' />
-          <div className='sq bl' />
-          <div className='sq br' />
-        </div>
-        <div className='triangles' />
+      <div className='icon'>
+        <SVGFastTravel />
       </div>
     </div>
   )
 });
-
-
-

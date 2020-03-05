@@ -154,7 +154,7 @@ class QuestLine extends React.Component {
                       let definitionFaction = definitionVendor && definitionVendor.factionHash ? manifest.DestinyFactionDefinition[definitionVendor.factionHash] : false;
 
                       return (
-                        <div key={s.vendorHash} className='vendor tooltip' data-hash={s.vendorHash} data-table='DestinyVendorDefinition'>
+                        <div key={s.vendorHash} className='vendor tooltip' data-hash={s.vendorHash} data-type='vendor'>
                           <div className='name'>{definitionVendor.displayProperties.name}</div>
                           {definitionFaction ? <div className='faction'>{definitionFaction.displayProperties.name}</div> : null}
                         </div>

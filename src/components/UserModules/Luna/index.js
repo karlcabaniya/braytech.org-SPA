@@ -56,7 +56,7 @@ class Luna extends React.Component {
         <h4>{t('Mission')}</h4>
         <div className='story-mission'>
           <ul className='list inventory-items'>
-            <li className='linked tooltip' data-table='DestinyActivityDefinition' data-hash={definitionStoryMission.hash} data-mode='175275639'>
+            <li className='linked tooltip' data-type='activity' data-hash={definitionStoryMission.hash} data-mode='175275639'>
               <div className='icon'>
                 <span className='destiny-quest2'>
                   <span className='path1' />

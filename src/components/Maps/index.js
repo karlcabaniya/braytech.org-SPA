@@ -38,6 +38,10 @@ class Maps extends React.Component {
     ui: {
       destinations: false,
       characters: false,
+      // inspect: {
+      //   checklistId: 2360931290,
+      //   checklistHash: 81948082
+      // }
       inspect: false
     }
   };
@@ -97,21 +101,27 @@ class Maps extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(pP, pS) {
-    if (pP.params.map !== this.props.params.map && this.mounted) {
+  componentDidUpdate(p, s) {
+    if (p.params.map !== this.props.params.map) {
       this.setDestination(this.props.params.map);
+    }
+
+    if (s.ui.inspect !== this.state.ui.inspect) {
+      this.props.rebindTooltips();
     }
   }
 
   setDestination = destination => {
     const resolved = utils.resolveDestination(destination);
 
-    this.setState(p => ({
-      viewport: {
-        ...p.viewport,
-        center: utils.getMapCenter(resolved.id)
-      }
-    }));
+    if (this.mounted) {
+      this.setState(p => ({
+        viewport: {
+          ...p.viewport,
+          center: utils.getMapCenter(resolved.id)
+        }
+      }));
+    }
   };
 
   handler_hideInspect = e => {

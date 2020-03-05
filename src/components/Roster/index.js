@@ -155,7 +155,7 @@ class Roster extends React.Component {
                   </li>
                   <li className={cx('col', 'lastActivity', { display: m.isOnline && lastActivityString })}>
                     {m.isOnline && lastActivityString ? (
-                      <div className='tooltip' data-table='DestinyActivityDefinition' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
+                      <div className='tooltip' data-type='activity' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
                         <div>
                           {lastActivityString}
                           <span>

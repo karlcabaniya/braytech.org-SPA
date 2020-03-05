@@ -3,6 +3,7 @@ import i18n from 'i18next';
 
 import manifest from './manifest';
 import * as enums from './destinyEnums';
+import * as svg from '../svg';
 
 export const isProfileRoute = location => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
@@ -237,7 +238,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       },
       eligible: owned[versionHash],
       displayProperties: {
-        icon: 'destiny-campaign_red-war'
+        icon: svg.CampaignRedWar
       }
     }
   } else if (versionHash === 'osiris') {
@@ -248,7 +249,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       },
       eligible: owned[versionHash],
       displayProperties: {
-        icon: 'destiny-campaign_curse-of-osiris'
+        icon: svg.CampaignCurseOfOsiris
       }
     }
   } else if (versionHash === 'warmind') {
@@ -259,7 +260,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       },
       eligible: owned[versionHash],
       displayProperties: {
-        icon: 'destiny-campaign_warmind'
+        icon: svg.CampaignWarmind
       }
     }
   } else if (versionHash === 'forsaken') {
@@ -270,7 +271,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       },
       eligible: owned[versionHash],
       displayProperties: {
-        icon: 'destiny-campaign_forsaken'
+        icon: svg.CampaignForsaken
       }
     }
   } else if (versionHash === 'shadowkeep') {
@@ -281,7 +282,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       },
       eligible: owned[versionHash],
       displayProperties: {
-        icon: 'destiny-campaign_shadowkeep'
+        icon: svg.CampaignShadowkeep
       }
     }
   } else {
@@ -291,7 +292,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
         text: ''
       },
       displayProperties: {
-        icon: false
+        icon: null
       }
     }
   }

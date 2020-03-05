@@ -8,6 +8,18 @@ import data from '../data/lowlines/checklists';
 import manifest from './manifest';
 import { enumerateRecordState } from './destinyEnums';
 
+import { ReactComponent as SVGRegionChest } from '../svg/maps/region-chest.svg';
+import { ReactComponent as SVGLostSector } from '../svg/maps/lost-sector.svg';
+import { ReactComponent as SVGAdventure } from '../svg/tooltips/adventure.svg';
+import { ReactComponent as SVGGhostScan } from '../svg/maps/ghost-scan.svg';
+import { ReactComponent as SVGSleperNode } from '../svg/maps/sleeper-node.svg';
+import { ReactComponent as SVGLostMemoryFragment } from '../svg/maps/lost-memory-fragment.svg';
+import { ReactComponent as SVGCorruptedEgg } from '../svg/maps/corrupted-egg.svg';
+import { ReactComponent as SVGAhamkaraBones } from '../svg/maps/ahamkara-bones.svg';
+import { ReactComponent as SVGFelineFriend } from '../svg/maps/feline-friend.svg';
+import { ReactComponent as SVGJadeRabbit } from '../svg/maps/jade-rabbit.svg';
+import { ReactComponent as SVGRecord } from '../svg/maps/record.svg';
+
 export const checklists = {
   // adventures
   4178338182: options =>
@@ -42,7 +54,7 @@ export const checklists = {
       sortBy: ['completed', 'destination', 'bubble', 'name'],
       checklistItemName: t('Adventure'),
       checklistItemName_plural: t('Adventures'),
-      checklistIcon: 'destiny-adventure',
+      checklistIcon: <SVGAdventure />,
       checklistProgressDescription: t('Adventures undertaken'),
       ...options
     }),
@@ -75,7 +87,7 @@ export const checklists = {
       },
       checklistItemName: t('Region Chest'),
       checklistItemName_plural: t('Region Chests'),
-      checklistIcon: 'destiny-region_chests',
+      checklistIcon: <SVGRegionChest />,
       checklistProgressDescription: t('Chests opened'),
       ...options
     }),
@@ -114,7 +126,7 @@ export const checklists = {
       },
       checklistItemName: t('Lost Sector'),
       checklistItemName_plural: t('Lost Sectors'),
-      checklistIcon: 'destiny-lost_sectors',
+      checklistIcon: <SVGLostSector />,
       checklistProgressDescription: t('Discovered'),
       ...options
     }),
@@ -152,7 +164,7 @@ export const checklists = {
       },
       checklistItemName: t('Ahamkara Bones'),
       checklistItemName_plural: t('Ahamkara Bones'),
-      checklistIcon: 'destiny-ahamkara_bones',
+      checklistIcon: <SVGAhamkaraBones />,
       checklistProgressDescription: t('Bones found'),
       ...options
     }),
@@ -183,7 +195,7 @@ export const checklists = {
       },
       checklistItemName: t('Corrupted Egg'),
       checklistItemName_plural: t('Corrupted Eggs'),
-      checklistIcon: 'destiny-corrupted_eggs',
+      checklistIcon: <SVGCorruptedEgg />,
       checklistProgressDescription: t('Eggs destroyed'),
       ...options
     }),
@@ -214,7 +226,7 @@ export const checklists = {
       },
       checklistItemName: t('Cat Statue'),
       checklistItemName_plural: t('Cat Statues'),
-      checklistIcon: 'destiny-cat_statues',
+      checklistIcon: <SVGFelineFriend />,
       checklistProgressDescription: t('Feline friends satisfied'),
       ...options
     }),
@@ -246,7 +258,7 @@ export const checklists = {
       },
       checklistItemName: t('Jade Rabbit'),
       checklistItemName_plural: t('Jade Rabbits'),
-      checklistIcon: 'destiny-jade_rabbit_2',
+      checklistIcon: <SVGJadeRabbit />,
       checklistProgressDescription: t('Rabbits with rice cake'),
       ...options
     }),
@@ -279,7 +291,7 @@ export const checklists = {
       },
       checklistItemName: t('Sleeper Node'),
       checklistItemName_plural: t('Sleeper Nodes'),
-      checklistIcon: 'destiny-sleeper_nodes',
+      checklistIcon: <SVGSleperNode />,
       checklistProgressDescription: t('Nodes hacked'),
       ...options
     }),
@@ -310,7 +322,7 @@ export const checklists = {
       },
       checklistItemName: t('Ghost Scan'),
       checklistItemName_plural: t('Ghost Scans'),
-      checklistIcon: 'destiny-ghost',
+      checklistIcon: <SVGGhostScan />,
       checklistProgressDescription: t('Scans performed'),
       ...options
     }),
@@ -341,7 +353,7 @@ export const checklists = {
       },
       checklistItemName: t('Lost Memory Fragment'),
       checklistItemName_plural: t('Lost Memory Fragments'),
-      checklistIcon: 'destiny-lost_memory_fragments',
+      checklistIcon: <SVGLostMemoryFragment />,
       checklistProgressDescription: t('Memories resolved'),
       ...options
     }),
@@ -379,7 +391,7 @@ export const checklists = {
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
-      checklistIcon: 'destiny-lore_scholar',
+      checklistIcon: <SVGRecord />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004869.png',
       checklistProgressDescription: t('Stories read'),
       ...options
@@ -418,7 +430,7 @@ export const checklists = {
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[3305936921].displayProperties.name}`,
-      checklistIcon: 'destiny-lore_scholar',
+      checklistIcon: <SVGRecord />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004874.png',
       checklistProgressDescription: t('Crystals resolved'),
       ...options
@@ -462,7 +474,7 @@ export const checklists = {
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[655926402].displayProperties.name}`,
-      checklistIcon: 'destiny-lore_scholar',
+      checklistIcon: <SVGRecord />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004886.png',
       checklistProgressDescription: t('Data caches decrypted'),
       ...options
@@ -508,7 +520,7 @@ export const checklists = {
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
-      checklistIcon: 'destiny-lore_scholar',
+      checklistIcon: <SVGRecord />,
       checklistImage: '/static/images/extracts/ui/checklists/0597_02D2_00.png',
       checklistProgressDescription: t('Ghost fragments recovered'),
       ...options
@@ -554,7 +566,7 @@ export const checklists = {
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
-      checklistIcon: 'destiny-lore_scholar',
+      checklistIcon: <SVGRecord />,
       checklistImage: '/static/images/extracts/ui/checklists/0597_02CC_00.png',
       checklistProgressDescription: t('Necrotic cyphers collected'),
       ...options

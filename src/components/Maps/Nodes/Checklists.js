@@ -186,7 +186,6 @@ class Checklists extends React.Component {
       };
 
       if (list.checklistId === 4178338182) {
-        adjusted.checklistIcon = 'destiny-adventure2';
         adjusted.tooltipTable = 'DestinyActivityDefinition';
         adjusted.items = adjusted.items.map(i => {
           return {

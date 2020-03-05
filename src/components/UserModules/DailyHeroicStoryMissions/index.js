@@ -7,8 +7,6 @@ import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as utils from '../../../utils/destinyUtils';
 
-import './styles.css';
-
 class DailyHeroicStoryMissions extends React.Component {
   render() {
     const { member } = this.props;
@@ -51,12 +49,12 @@ class DailyHeroicStoryMissions extends React.Component {
                 light: definitionActivity.activityLightLevel,
                 timeToComplete: definitionActivity.timeToComplete || 0,
                 el: (
-                  <li key={i} className={cx('linked', 'tooltip', { [gameVersion.hash]: gameVersion.hash !== 'base' })} data-table='DestinyActivityDefinition' data-hash={a.activityHash} data-mode='175275639'>
+                  <li key={i} className={cx('linked', 'tooltip', { [gameVersion.hash]: gameVersion.hash !== 'base' })} data-type='activity' data-hash={a.activityHash} data-mode='175275639'>
                     <div className='name'>{definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown')}</div>
                     <div>
                       {gameVersion.hash !== 'base' && gameVersion.displayProperties.icon ? (
                         <div className='game-version-icon'>
-                          <span className={gameVersion.displayProperties.icon} />
+                          <gameVersion.displayProperties.icon />
                         </div>
                       ) : null}
                       <div className='time'>{definitionActivity.timeToComplete ? <>{duration({ minutes: definitionActivity.timeToComplete || 0 }, { unit: 'minutes', abbreviated: true })}</> : null}</div>

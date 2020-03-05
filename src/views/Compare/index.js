@@ -109,11 +109,11 @@ class Compare extends React.Component {
                     {activityDisplayHashes.map(key => (
                       <li key={key} className='row'>
                         {object === 'nightmare-hunts' ? (
-                          <div className='text tooltip' data-hash={key} data-table='DestinyActivityDefinition'>
+                          <div className='text tooltip' data-hash={key} data-type='activity'>
                             {manifest.DestinyActivityDefinition[key].originalDisplayProperties.name.replace('Nightmare Hunt: ', '')}
                           </div>
                         ) : (
-                          <div className='text tooltip' data-hash={key} data-table='DestinyActivityDefinition'>
+                          <div className='text tooltip' data-hash={key} data-type='activity'>
                             {manifest.DestinyActivityDefinition[key].selectionScreenDisplayProperties.name}
                           </div>
                         )}
@@ -126,7 +126,7 @@ class Compare extends React.Component {
                     </li>
                     {object === 'nightfalls' ? (
                       <li className='row'>
-                        <div className='text tooltip' data-hash='1987790789' data-table='DestinyInventoryItemDefinition'>
+                        <div className='text tooltip' data-hash='1987790789'>
                           {t('{{object}} duration', { object: manifest.DestinyCollectibleDefinition[2618436059].displayProperties.name })}
                         </div>
                       </li>

@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { cloneDeep } from 'lodash';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
@@ -10,13 +9,15 @@ import ObservedImage from '../../ObservedImage';
 import destinations from '../../../data/lowlines/maps/destinations';
 import nodes from '../../../data/lowlines/maps/nodes';
 
+import { ReactComponent as SVGVendor } from '../../../svg/tooltips/vendor.svg';
+
 import './styles.css';
 
 class Vendor extends React.Component {
   render() {
-    let { t, hash, table } = this.props;
+    const { t, hash } = this.props;
 
-    let definitionVendor = cloneDeep(manifest[table][hash]);
+    const definitionVendor = manifest.DestinyVendorDefinition[hash];
 
     if (!definitionVendor) {
       console.warn('Hash not found');
@@ -44,16 +45,15 @@ class Vendor extends React.Component {
       );
     } else {
 
-      const name = definitionVendor.displayProperties && definitionVendor.displayProperties.name ? definitionVendor.displayProperties.name : t('Unknown');
+      const name = definitionVendor.displayProperties?.name || t('Unknown');
 
-      const subTitle = definitionVendor.displayProperties && definitionVendor.displayProperties.subtitle;
-      const description = definitionVendor.displayProperties && definitionVendor.displayProperties.description;
+      const subTitle = definitionVendor.displayProperties?.subtitle;
+      const description =definitionVendor.displayProperties?.description;
 
-      const largeIcon = definitionVendor.displayProperties && definitionVendor.displayProperties.largeIcon;
+      const largeIcon = definitionVendor.displayProperties?.largeIcon;
 
-      const locations = definitionVendor.locations && definitionVendor.locations.length && definitionVendor.locations;
-
-      const definitionDestination = locations && locations.length > 1 ? manifest.DestinyDestinationDefinition[definitionVendor.locations[1].destinationHash] : definitionVendor.locations && definitionVendor.locations.length && definitionVendor.locations[0].destinationHash && manifest.DestinyDestinationDefinition[definitionVendor.locations[0].destinationHash];
+      const locations = definitionVendor.locations?.length;
+      const definitionDestination = locations.length > 1 ? manifest.DestinyDestinationDefinition[definitionVendor.locations[1].destinationHash] : manifest.DestinyDestinationDefinition[definitionVendor.locations[0].destinationHash];
 
       const destination = definitionDestination && Object.values(destinations).find(d => d.destination.hash === definitionDestination.hash);
       const bubble = destination && destination.map.bubbles.find(b => b.nodes.find(n => n.vendorHash === definitionVendor.hash));
@@ -76,13 +76,7 @@ class Vendor extends React.Component {
           <div className='frame vendor'>
             <div className='header'>
               <div className='icon'>
-                <span className='destiny-faction_fella'>
-                  <span className='path1' />
-                  <span className='path2' />
-                  <span className='path3' />
-                  <span className='path4' />
-                  <span className='path5' />
-                </span>
+                <SVGVendor />
               </div>
               <div className='text'>
                 <div className='name'>{name}</div>
