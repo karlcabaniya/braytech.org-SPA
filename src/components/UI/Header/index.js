@@ -331,7 +331,7 @@ class Header extends React.Component {
                     </div>
                     <div className='displayName'>{profile.userInfo.displayName}</div>
                     <div className='basics'>
-                      {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderType)} / <span className='light'>{character.light}</span>
+                      {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderHash)} / <span className='light'>{character.light}</span>
                     </div>
                     <ProgressBar hideCheck {...progressSeasonalRank} />
                     <Spinner className={refresh.loading ? 'visible' : undefined} mini />

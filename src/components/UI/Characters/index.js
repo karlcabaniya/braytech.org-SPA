@@ -57,8 +57,8 @@ class Characters extends React.Component {
                   })}
                   src={`https://www.bungie.net${emblemPath || '/img/misc/missing_icon_d2.png'}`}
                 />
-                <div className='class'>{utils.classHashToString(character.classHash, character.genderType)}</div>
-                <div className='species'>{utils.raceHashToString(character.raceHash, character.genderType)}</div>
+                <div className='class'>{utils.classHashToString(character.classHash, character.genderHash)}</div>
+                <div className='species'>{utils.raceHashToString(character.raceHash, character.genderHash)}</div>
                 <div className='light'>{character.light}</div>
                 <ProgressBar hideCheck {...progressSeasonalRank} />
               </Button>

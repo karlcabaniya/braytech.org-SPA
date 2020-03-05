@@ -4,6 +4,7 @@ import i18n from 'i18next';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
 import * as SVG from '../svg';
+import { instanceOf } from 'prop-types';
 
 export const isProfileRoute = location => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
@@ -298,17 +299,13 @@ export const gameVersion = (versionsOwned, versionHash) => {
   }
 }
 
-export function classHashToString(hash, gender) {
-  const definitionClass = manifest.DestinyClassDefinition[hash];
+export function classHashToString(classHash, genderHash) {
+  const definitionClass = manifest.DestinyClassDefinition[classHash];
 
-  if (!definitionClass) return '';
+  if (!definitionClass) return i18n.t('Unknown');
 
-  if (definitionClass.genderedClassNames && gender) {
-    if (gender > -1 && gender < 2) {
-      return definitionClass.genderedClassNames[gender === 1 ? 'Female' : 'Male'];
-    } else {
-      return definitionClass.genderedClassNamesByGenderHash[gender];
-    }
+  if (definitionClass.genderedClassNames && genderHash) {
+    return definitionClass.genderedClassNamesByGenderHash[genderHash];
   }
 
   return definitionClass.displayProperties.name;
@@ -320,13 +317,13 @@ export function classTypeToString(type, gender) {
   return classHashToString(classHash, gender);
 }
 
-export function raceHashToString(hash, gender, nonGendered = false) {
-  const definitionRace = manifest.DestinyRaceDefinition[hash];
+export function raceHashToString(raceHash, genderHash, nonGendered = false) {
+  const definitionRace = manifest.DestinyRaceDefinition[raceHash];
 
   if (!definitionRace) return '';
 
-  if (definitionRace.genderedRaceNames && !nonGendered) {
-    return definitionRace.genderedRaceNames[gender === 1 ? 'Female' : 'Male'];
+  if (definitionRace.genderedRaceNames && genderHash && !nonGendered) {
+    return definitionRace.genderedRaceNames[genderHash === 1 ? 'Female' : 'Male'];
   }
 
   return definitionRace.displayProperties.name;
