@@ -1,9 +1,7 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
 import { ProfileNavLink } from '../../components/ProfileLink';
+import { Views } from '../../svg';
 
 class ClanViewsLinks extends React.Component {
   render() {
@@ -11,19 +9,27 @@ class ClanViewsLinks extends React.Component {
       <div className='module views'>
         <ul className='list'>
           <li className='linked'>
-            <div className='icon about' />
+            <div className='icon'>
+              <Views.Clan.About />
+            </div>
             <ProfileNavLink to='/clan' exact />
           </li>
           <li className='linked'>
-            <div className='icon stats' />
+            <div className='icon'>
+              <Views.Clan.Stats />
+            </div>
             <ProfileNavLink to='/clan/stats' />
           </li>
           <li className='linked'>
-            <div className='icon roster' />
+            <div className='icon'>
+              <Views.Clan.Roster />
+            </div>
             <ProfileNavLink to='/clan/roster' />
           </li>
           <li className='linked'>
-            <div className='icon admin' />
+            <div className='icon'>
+              <Views.Clan.RosterAdmin />
+            </div>
             <ProfileNavLink to='/clan/admin' />
           </li>
         </ul>
@@ -32,7 +38,4 @@ class ClanViewsLinks extends React.Component {
   }
 }
 
-export default compose(
-  connect(),
-  withTranslation()
-)(ClanViewsLinks);
+export default ClanViewsLinks;

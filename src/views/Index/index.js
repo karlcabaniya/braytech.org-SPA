@@ -7,18 +7,9 @@ import { t, fromNow } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
+import { Common, Views } from '../../svg';
 
 import captainsLog from '../../data/captainsLog';
-
-import { ReactComponent as Patreon } from '../../svg/miscellaneous/patreon-device.svg';
-import { ReactComponent as highlightClan } from '../../svg/miscellaneous/highlight-clan.svg';
-import { ReactComponent as highlightCollections } from '../../svg/miscellaneous/highlight-collections.svg';
-import { ReactComponent as highlightTriumphs } from '../../svg/miscellaneous/highlight-triumphs.svg';
-import { ReactComponent as highlightChecklists } from '../../svg/miscellaneous/highlight-checklists.svg';
-import { ReactComponent as highlightMaps } from '../../svg/miscellaneous/highlight-maps.svg';
-import { ReactComponent as highlightThisWeek } from '../../svg/miscellaneous/highlight-this-week.svg';
-import { ReactComponent as highlightQuests } from '../../svg/miscellaneous/highlight-quests.svg';
-import { ReactComponent as highlightReports } from '../../svg/miscellaneous/highlight-reports.svg';
 
 import './styles.css';
 
@@ -27,49 +18,49 @@ const highlights = [
     name: t('Clan'),
     desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
     slug: '/clan',
-    icon: highlightClan
+    icon: Views.Index.Clan
   },
   {
     name: t('Collections'),
     desc: t('Items your Guardian has acquired over their lifetime'),
     slug: '/collections',
-    icon: highlightCollections
+    icon: Views.Index.Collections
   },
   {
     name: t('Triumphs'),
     desc: t('Records your Guardian has achieved through their trials'),
     slug: '/triumphs',
-    icon: highlightTriumphs
+    icon: Views.Index.Triumphs
   },
   {
     name: t('Checklists'),
     desc: t('Ghost scans and item checklists spanning the Sol system'),
     slug: '/checklists',
-    icon: highlightChecklists
+    icon: Views.Index.Checklists
   },
   {
     name: t('Maps'),
     desc: t('Interactive maps charting checklists and other notable destinations'),
     slug: '/maps',
-    icon: highlightMaps
+    icon: Views.Index.Maps
   },
   {
     name: t('This Week'),
     desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
     slug: '/this-week',
-    icon: highlightThisWeek
+    icon: Views.Index.ThisWeek
   },
   {
     name: t('Quests'),
     desc: t('Track your pursuits, including quests and bounties'),
     slug: '/quests',
-    icon: highlightQuests
+    icon: Views.Index.Quests
   },
   {
     name: t('Reports'),
     desc: t('Explore and filter your Post Game Carnage Reports in detail'),
     slug: '/reports',
-    icon: highlightReports
+    icon: Views.Index.Reports
   }
 ];
 
@@ -207,7 +198,7 @@ class Index extends React.Component {
         <div className='row patreon'>
           <div className='wrapper'>
             <div className='device'>
-              <Patreon />
+              <Common.Patreon />
             </div>
             <div className='module'>
               <h3>{t('How you can help')}</h3>

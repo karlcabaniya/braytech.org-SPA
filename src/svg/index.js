@@ -32,6 +32,22 @@ import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
 
+import { ReactComponent as HighlightClan } from './miscellaneous/highlight-clan.svg';
+import { ReactComponent as HighlightCollections } from './miscellaneous/highlight-collections.svg';
+import { ReactComponent as HighlightTriumphs } from './miscellaneous/highlight-triumphs.svg';
+import { ReactComponent as HighlightChecklists } from './miscellaneous/highlight-checklists.svg';
+import { ReactComponent as HighlightMaps } from './miscellaneous/highlight-maps.svg';
+import { ReactComponent as HighlightThisWeek } from './miscellaneous/highlight-this-week.svg';
+import { ReactComponent as HighlightQuests } from './miscellaneous/highlight-quests.svg';
+import { ReactComponent as HighlightReports } from './miscellaneous/highlight-reports.svg';
+import { ReactComponent as Eververse } from './miscellaneous/eververse.svg';
+import { ReactComponent as ChaliceOfOpulence } from './miscellaneous/chalice-of-opulence.svg';
+import { ReactComponent as Patreon } from './miscellaneous/patreon-device.svg';
+
+const Common = {
+  Patreon
+}
+
 const Campaign = {
   RedWar: CampaignRedWar,
   CurseOfOsiris: CampaignCurseOfOsiris,
@@ -73,4 +89,35 @@ const Maps = {
   Record: MapsRecord
 }
 
-export { Campaign, Tooltips, Maps };
+const Views = {
+  Index: {
+    Clan: HighlightClan,
+    Collections: HighlightCollections,
+    Triumphs: HighlightTriumphs,
+    Checklists: HighlightChecklists,
+    Maps: HighlightMaps,
+    ThisWeek: HighlightThisWeek,
+    Quests: HighlightQuests,
+    Reports: HighlightReports
+  },
+  Clan: {
+    About: HighlightClan,
+    Stats: HighlightClan,
+    Roster: HighlightClan,
+    RosterAdmin: HighlightClan
+  },
+  Reports: {
+    Explore: HighlightMaps,
+    Crucible: TooltipCrucible,
+    Gambit: TooltipGambit,
+    Strikes: TooltipStrike,
+    Raids: TooltipRaid
+  },
+  Archives: {
+    Overview: HighlightThisWeek,
+    Eververse,
+    ChaliceOfOpulence
+  }
+}
+
+export { Common, Campaign, Tooltips, Maps, Views };

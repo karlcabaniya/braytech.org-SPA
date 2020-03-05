@@ -17,6 +17,7 @@
 #tooltip .frame.map .header .icon svg {
   width: 56px;
   height: 56px;
+  fill: #ffffff;
 }
 
 #tooltip .frame.map .header .text {

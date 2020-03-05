@@ -140,6 +140,7 @@
 #checklists .module.views .list li .icon svg {
   width: 24px;
   height: 24px;
+  fill: rgba(255, 255, 255, 0.8);
 }
 
 #checklists .module.list .progress-bar {

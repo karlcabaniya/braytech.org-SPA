@@ -140,6 +140,10 @@
   overflow: visible;
 }
 
+.map-omega .leaflet-container .icon-marker:not(.native) .wrapper .icon svg {
+  fill: #ffffff;
+}
+
 .map-omega .leaflet-container .icon-marker .wrapper .text {
   position: absolute;
   top: 50%;
