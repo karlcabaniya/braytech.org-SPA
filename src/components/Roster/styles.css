@@ -132,7 +132,7 @@
   content: '\e90f';
   position: absolute;
   top: 12px;
-  left: -14px;
+  left: -24px;
   font-family: 'Braytech' !important;
   font-style: normal;
   font-weight: normal;
@@ -144,44 +144,41 @@
   pointer-events: none;
 }
 
-.list.roster .row > ul .col.lastCharacter .icon i,
-.list.roster .row > ul .col.lastCharacter .icon div {
+.list.roster .row > ul .col.last .icon {
   width: 38px;
   height: 38px;
   display: grid;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  color: #fff;
-  background-color: #4b7f95;
-}
-
-.list.roster .row > ul .col.lastCharacter .icon .destiny-class_hunter {
-  background-color: #7f624c;
-}
-
-.list.roster .row > ul .col.lastCharacter .icon .destiny-class_warlock {
-  background-color: #2a7863;
-}
-
-.list.roster .row > ul .col.lastCharacter .icon:nth-child(2) div {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.list.roster .row > ul .col.lastCharacter .icon:nth-child(3) div {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(255, 255, 255, 0.15);
+.list.roster .row > ul .col.last .icon svg {
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.8);
 }
 
-.list.roster .row > ul .col.lastCharacter .icon:nth-child(3) div.max-ish {
+.list.roster .row > ul .col.last .icon.character.titan {
+  background-color: #4b7f95;
+}
+
+.list.roster .row > ul .col.last .icon.character.hunter {
+  background-color: #7f624c;
+}
+
+.list.roster .row > ul .col.last .icon.character.warlock {
+  background-color: #2a7863;
+}
+
+.list.roster .row > ul .col.last .icon.light.max-ish {
   color: rgb(228, 208, 98);
   background-color: rgba(229, 209, 99, 0.2);
 }
 
-.list.roster .row > ul .col.lastCharacter .icon:nth-child(3) div.max {
+.list.roster .row > ul .col.last .icon.light.max {
   color: rgb(255, 224, 50);
   background-color: rgba(229, 209, 99, 0.5);
 }
@@ -324,7 +321,7 @@
     grid-gap: 16px;
   }
 
-  .list.roster .row > ul .col.lastCharacter {
+  .list.roster .row > ul .col.last {
     display: none;
   }
 

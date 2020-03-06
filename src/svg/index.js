@@ -36,6 +36,9 @@ import { ReactComponent as Braytech } from './common/braytech-device.svg';
 import { ReactComponent as Arc } from './common/arc.svg';
 import { ReactComponent as Solar } from './common/solar.svg';
 import { ReactComponent as Void } from './common/void.svg';
+import { ReactComponent as Titan } from './common/titan.svg';
+import { ReactComponent as Hunter } from './common/hunter.svg';
+import { ReactComponent as Warlock } from './common/warlock.svg';
 import { ReactComponent as Info } from './common/info.svg';
 import { ReactComponent as SealTitle } from './common/seal-title.svg';
 import { ReactComponent as HighlightClan } from './common/highlight-clan.svg';
@@ -67,6 +70,9 @@ const Common = {
   Arc,
   Solar,
   Void,
+  Titan,
+  Hunter,
+  Warlock,
   Info,
   Patreon,
   PayPal,

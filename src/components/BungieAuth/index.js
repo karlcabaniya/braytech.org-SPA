@@ -262,7 +262,7 @@ class BungieAuth extends React.Component {
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
-                          <Common.CrossSaver />
+                          <Common.CrossSave />
                         </div>
                       ) : null}
                       <Link
@@ -422,7 +422,7 @@ class BungieAuthMini extends React.Component {
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
-                          <Common.CrossSaver />
+                          <Common.CrossSave />
                         </div>
                       ) : null}
                       <Link to='/character-select' onClick={this.handler_loadMembership({ membershipType: m.membershipType, membershipId: m.membershipId })} />
@@ -638,7 +638,7 @@ class DiffProfile extends React.Component {
                           <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                           {m.crossSaveOverride === m.membershipType ? (
                             <div className='cross-save'>
-                              <Common.CrossSaver />
+                              <Common.CrossSave />
                             </div>
                           ) : null}
                           <Link

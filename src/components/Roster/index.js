@@ -87,6 +87,8 @@ class Roster extends React.Component {
 
     const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
 
+    const ClassIcon = !isPrivate ? utils.classHashToIcon(lastCharacter.classHash) : null;
+
     const weeklyXp = !isPrivate
       ? characterIds.reduce((currentValue, characterId) => {
           let characterProgress = m.profile.characterProgressions.data[characterId].progressions[540048094].weeklyProgress || 0;
@@ -138,19 +140,15 @@ class Roster extends React.Component {
               </li>
               {!isPrivate ? (
                 <>
-                  <li className='col lastCharacter'>
-                    <div className='icon'>
-                      <i
-                        className={`destiny-class_${enums.classStrings[lastCharacter.classType]}`}
-                      />
+                  <li className='col last'>
+                    <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
+                      <ClassIcon />
                     </div>
-                    <div className='icon'>
-                      <div>{seasonRank}</div>
+                    <div className='icon season-rank'>
+                      {seasonRank}
                     </div>
-                    <div className='icon'>
-                      <div className={cx({ 'max-ish': lastCharacter.light >= 930, max: lastCharacter.light >= 960 })}>
-                        <span>{lastCharacter.light}</span>
-                      </div>
+                    <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 930, max: lastCharacter.light >= 960 })}>
+                      {lastCharacter.light}
                     </div>
                   </li>
                   <li className={cx('col', 'lastActivity', { display: m.isOnline && lastActivityString })}>

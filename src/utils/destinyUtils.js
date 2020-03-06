@@ -4,7 +4,6 @@ import i18n from 'i18next';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
 import * as SVG from '../svg';
-import { instanceOf } from 'prop-types';
 
 export const isProfileRoute = location => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
@@ -309,6 +308,13 @@ export function classHashToString(classHash, genderHash) {
   }
 
   return definitionClass.displayProperties.name;
+}
+
+export function classHashToIcon(classHash) {
+  if (classHash === 3655393761) return SVG.Common.Titan;
+  if (classHash === 671679327) return SVG.Common.Hunter;
+
+  return SVG.Common.Warlock;
 }
 
 export function classTypeToString(type, gender) {

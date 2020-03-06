@@ -1,10 +1,9 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import ReactGA from 'react-ga';
 
 import packageJSON from '../../package.json';
 
-class GoogleAnalytics extends Component {
+class GoogleAnalytics extends React.Component {
   componentDidMount() {
     this.logPageChange(this.props.location.pathname, this.props.location.search);
   }
@@ -38,14 +37,6 @@ class GoogleAnalytics extends Component {
     return null;
   }
 }
-
-GoogleAnalytics.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-    search: PropTypes.string
-  }).isRequired,
-  options: PropTypes.object
-};
 
 const init = (options = {}) => {
   const isGAEnabled = !!process.env.REACT_APP_GA_TRACKING_ID || !!process.env.REACT_APP_GA_TRACKING_ID_BETA;
