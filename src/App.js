@@ -49,7 +49,6 @@ import Credits from './views/Credits';
 import OOB from './views/OOB';
 
 import Read from './views/Read';
-import Maps from './views/Maps';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
 import PGCR from './views/PGCR';
 import Compare from './views/Compare';
@@ -70,6 +69,7 @@ export function slowImport(value, ms = 3000) {
 // Lazy components
 const Legend = React.lazy(() => slowImport(import('./views/Legend')));
 const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
+const Maps = React.lazy(() => slowImport(import('./views/Maps')));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
@@ -77,13 +77,13 @@ const RedirectRoute = props => <Route {...props} render={({ location }) => <Redi
 
 // Wrap lazy-loaded components with react-router and ErrorBoundary component
 export const SuspenseRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest}>
+  <Route {...rest} render={route => (
     <ErrorBoundary>
       <Suspense fallback={<SuspenseLoading />}>
-        <Component />
+        <Component {...route} />
       </Suspense>
     </ErrorBoundary>
-  </Route>
+  )} />
 );
 
 // Print timings of promises to console (and performance logger)
@@ -316,7 +316,7 @@ class App extends React.Component {
 
                   <Route path='/character-select' exact component={CharacterSelect} />
 
-                  <Route path='/maps/:map?/:highlight?' component={Maps} />
+                  <SuspenseRoute path='/maps/:map?/:highlight?' component={Maps} />
                   <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
                   <Route path='/pgcr/:instanceId?' exact component={PGCR} />
                   <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
