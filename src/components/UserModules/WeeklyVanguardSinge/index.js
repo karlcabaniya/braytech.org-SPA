@@ -5,10 +5,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-
-import { ReactComponent as Void } from '../../../svg/miscellaneous/void.svg';
-import { ReactComponent as Arc } from '../../../svg/miscellaneous/arc.svg';
-import { ReactComponent as Solar } from '../../../svg/miscellaneous/solar.svg';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -17,19 +14,19 @@ const singeMap = [
     hash: 3362074814,
     className: 'void',
     char: '',
-    svg: Void
+    svg: Common.Void
   },
   {
     hash: 3215384520,
     className: 'arc',
     char: '',
-    svg: Arc
+    svg: Common.Arc
   },
   {
     hash: 2558957669,
     className: 'solar',
     char: '',
-    svg: Solar
+    svg: Common.Solar
   }
 ];
 

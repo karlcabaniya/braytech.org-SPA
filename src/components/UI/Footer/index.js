@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { t, fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import packageJSON from '../../../../package.json';
-import { ReactComponent as Patreon } from '../../../svg/miscellaneous/patreon-device.svg';
-import { ReactComponent as PayPal } from '../../../svg/miscellaneous/paypal-device.svg';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -48,12 +47,12 @@ class Footer extends React.Component {
             </li>
             <li>
               <a className='hyperlink' href='https://paypal.me/braytechltd' target='_blank' rel='noopener noreferrer'>
-                PayPal <PayPal />
+                PayPal <Common.PayPal />
               </a>
             </li>
             <li>
               <a className='hyperlink' href='https://www.patreon.com/braytech' target='_blank' rel='noopener noreferrer'>
-                Patreon <Patreon />
+                Patreon <Common.Patreon />
               </a>
             </li>
           </ul>

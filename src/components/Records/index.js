@@ -16,7 +16,7 @@ import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
 import ObservedImage from '../ObservedImage';
-import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
+import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -418,7 +418,7 @@ class Records extends React.Component {
             >
               {!enumerateRecordState(enumerableState).recordRedeemed && enumerateRecordState(enumerableState).objectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
                 <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
-                  <TrackingIcon />
+                  <Common.Tracking />
                 </div>
               ) : null}
               <div className='properties'>

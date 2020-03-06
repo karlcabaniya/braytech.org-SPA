@@ -9,7 +9,7 @@ import * as utils from '../../../utils/destinyUtils';
 import ProgressBar from '../../UI/ProgressBar';
 import Button from '../../../components/UI/Button';
 import ObservedImage from '../../ObservedImage';
-import { ReactComponent as SealTitleIcon } from '../../../svg/miscellaneous/seal-title.svg';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -64,7 +64,7 @@ class Characters extends React.Component {
               </Button>
               {character.titleRecordHash ? <div className={cx('title', { colourised })}>
                 <div className='icon'>
-                  <SealTitleIcon />
+                  <Common.SealTitle />
                 </div>
                 <div className='text'>{manifest.DestinyRecordDefinition[character.titleRecordHash].titleInfo.titlesByGenderHash[character.genderHash]}</div>
               </div> : null}

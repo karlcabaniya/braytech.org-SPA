@@ -9,7 +9,7 @@ import * as enums from '../../utils/destinyEnums';
 import Spinner from '../../components/UI/Spinner';
 import { BungieAuthMini } from '../../components/BungieAuth';
 import ProfileSearch from '../../components/ProfileSearch';
-import { ReactComponent as Logo } from '../../svg/miscellaneous/braytech-device.svg';
+import { Common } from '../../svg';
 
 import ProfileError from './ProfileError';
 import Profile from './Profile';
@@ -78,7 +78,7 @@ class CharacterSelect extends React.Component {
         </div>
         <div className='padder'>
           <div className='device'>
-            <Logo />
+            <Common.Braytech />
           </div>
           {reverseUI && profileCharacterSelect && !error ? (
             <div className='module profile'>

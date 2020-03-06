@@ -5,6 +5,7 @@ import { withTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 
 import manifest from '../../../utils/manifest';
+import { Tooltips } from '../../../svg';
 
 import './styles.css';
 
@@ -58,14 +59,7 @@ class Luna extends React.Component {
           <ul className='list inventory-items'>
             <li className='linked tooltip' data-type='activity' data-hash={definitionStoryMission.hash} data-mode='175275639'>
               <div className='icon'>
-                <span className='destiny-quest2'>
-                  <span className='path1' />
-                  <span className='path2' />
-                  <span className='path3' />
-                  <span className='path4' />
-                  <span className='path5' />
-                  <span className='path6' />
-                </span>
+                <Tooltips.Story />
               </div>
             </li>
           </ul>

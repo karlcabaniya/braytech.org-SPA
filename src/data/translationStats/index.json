@@ -2,272 +2,85 @@
   "de": {
     "translated": 378,
     "notTranslated": 278,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "debug": {
     "translated": 656,
     "notTranslated": 0,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "en": {
     "translated": 656,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 648,
     "notTranslated": 8,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "es": {
     "translated": 648,
     "notTranslated": 8,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 588,
     "notTranslated": 68,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 648,
     "notTranslated": 8,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 599,
     "notTranslated": 57,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 571,
     "notTranslated": 85,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 0,
     "notTranslated": 656,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 589,
     "notTranslated": 67,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
-    "translated": 645,
-    "notTranslated": 11,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "translated": 656,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
     "translated": 470,
     "notTranslated": 186,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 385,
     "notTranslated": 271,
-    "added": [
-      "An update for Braytech is available. Please reload the app to start using it immediately.",
-      "Checklist item",
-      "Egg",
-      "Feline friend",
-      "Located inside Lost Sector: {{activityName}}",
-      "Located inside Strike: {{activityName}}",
-      "Memory",
-      "Scan"
-    ],
-    "removed": [
-      "An update for Braytech is available. Please restart the app to start using it immediately.",
-      "Located inside Lost Sector",
-      "Located inside Strike",
-      "Restart Braytech"
-    ]
+    "added": [],
+    "removed": []
   }
 }

@@ -11,9 +11,7 @@ import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
 import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
-import { ReactComponent as Void } from '../../svg/miscellaneous/void.svg';
-import { ReactComponent as Arc } from '../../svg/miscellaneous/arc.svg';
-import { ReactComponent as Solar } from '../../svg/miscellaneous/solar.svg';
+import { Common } from '../../svg';
 
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats, statsMs } from '../../utils/destinyItems/stats';
@@ -30,15 +28,15 @@ import './styles.css';
 const damageTypeMap = {
   3454344768: {
     className: 'void',
-    svg: Void
+    svg: Common.Void
   },
   2303181850:{
     className: 'arc',
-    svg: Arc
+    svg: Common.Arc
   },
   1847026933:{
     className: 'solar',
-    svg: Solar
+    svg: Common.Solar
   }
 };
 

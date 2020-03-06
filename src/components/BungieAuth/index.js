@@ -17,7 +17,7 @@ import * as paths from '../../utils/paths';
 import Button from '../UI/Button';
 import Spinner from '../UI/Spinner';
 import ObservedImage from '../ObservedImage';
-import { ReactComponent as CrossSaveIcon } from '../../svg/miscellaneous/cross-save.svg';
+import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -262,7 +262,7 @@ class BungieAuth extends React.Component {
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
-                          <CrossSaveIcon />
+                          <Common.CrossSaver />
                         </div>
                       ) : null}
                       <Link
@@ -422,7 +422,7 @@ class BungieAuthMini extends React.Component {
                       <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                       {m.crossSaveOverride === m.membershipType ? (
                         <div className='cross-save'>
-                          <CrossSaveIcon />
+                          <Common.CrossSaver />
                         </div>
                       ) : null}
                       <Link to='/character-select' onClick={this.handler_loadMembership({ membershipType: m.membershipType, membershipId: m.membershipId })} />
@@ -638,7 +638,7 @@ class DiffProfile extends React.Component {
                           <div className='displayName'>{memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                           {m.crossSaveOverride === m.membershipType ? (
                             <div className='cross-save'>
-                              <CrossSaveIcon />
+                              <Common.CrossSaver />
                             </div>
                           ) : null}
                           <Link

@@ -1023,5 +1023,10 @@
     "date": "2020-03-01T12:07:34.286Z",
     "version": "2.18.0",
     "content": "- performed code splitting"
+  },
+  {
+    "date": "2020-03-06T08:42:30.628Z",
+    "version": "2.18.10",
+    "content": "- so, like, basically all of the icons are SVGs now... except for those sought from the API manifest"
   }
 ]

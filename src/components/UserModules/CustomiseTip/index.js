@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import Markdown from 'react-markdown';
 
 import DismissTip from '../../UI/DismissTip';
-import { ReactComponent as Info } from '../../../svg/miscellaneous/info.svg';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -14,7 +14,7 @@ class CustomiseTip extends React.Component {
     return (
       <div className='wrap'>
         <div className='icon'>
-          <Info />
+          <Common.Info />
         </div>
         <Markdown className='text' source={t("Did you know? You can customise the displayed modules by tapping _Customise_ in the bottom right.")} />
         <DismissTip value='CustomiseTipModule' />

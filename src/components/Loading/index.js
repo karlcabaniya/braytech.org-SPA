@@ -5,8 +5,7 @@ import cx from 'classnames';
 import packageJSON from '../../../package.json';
 import { t } from '../../utils/i18n';
 import Spinner from '../../components/UI/Spinner';
-import { ReactComponent as Logo } from '../../svg/miscellaneous/braytech-device.svg';
-import { ReactComponent as Saint14 } from '../../svg/miscellaneous/saint-14.svg';
+import { Common, Miscellaneous } from '../../svg';
 
 import './styles.css';
 
@@ -112,12 +111,12 @@ class AppLoading extends React.Component {
         <div className='view' id='loading'>
           <div className='bg'>
             <div className='containment'>
-              <Saint14 />
+              <Miscellaneous.Saint14 />
             </div>
           </div>
           <div className='logo-feature'>
             <div className='device'>
-              <Logo />
+              <Common.Braytech />
             </div>
           </div>
           <div className='text'>

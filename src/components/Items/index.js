@@ -12,7 +12,7 @@ import { stats } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
 import ObservedImage from '../../components/ObservedImage';
 import ProgressBar from '../../components/UI/ProgressBar';
-import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
+import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -89,7 +89,7 @@ class Items extends React.Component {
             </div>
             {tracked ? (
               <div className='track'>
-                <TrackingIcon />
+                <Common.Tracking />
               </div>
             ) : null}
             {asPanels ? (

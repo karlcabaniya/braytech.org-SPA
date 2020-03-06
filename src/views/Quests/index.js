@@ -16,7 +16,7 @@ import QuestLine from '../../components/QuestLine';
 import Spinner from '../../components/UI/Spinner';
 import ProgressBar from '../../components/UI/ProgressBar';
 import { DestinyKey } from '../../components/UI/Button';
-import { ReactComponent as TrackingIcon } from '../../svg/miscellaneous/tracking.svg';
+import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -89,7 +89,7 @@ class Quests extends React.Component {
               </div>
               {tracked ? (
                 <div className='track'>
-                  <TrackingIcon />
+                  <Common.Tracking />
                 </div>
               ) : null}
               {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}

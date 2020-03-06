@@ -1,8 +1,8 @@
-import { ReactComponent as CampaignRedWar } from './miscellaneous/campaign_red-war.svg';
-import { ReactComponent as CampaignCurseOfOsiris } from './miscellaneous/campaign_curse-of-osiris.svg';
-import { ReactComponent as CampaignWarmind } from './miscellaneous/campaign_warmind.svg';
-import { ReactComponent as CampaignForsaken } from './miscellaneous/campaign_forsaken.svg';
-import { ReactComponent as CampaignShadowkeep } from './miscellaneous/campaign_shadowkeep.svg';
+import { ReactComponent as CampaignRedWar } from './common/campaign_red-war.svg';
+import { ReactComponent as CampaignCurseOfOsiris } from './common/campaign_curse-of-osiris.svg';
+import { ReactComponent as CampaignWarmind } from './common/campaign_warmind.svg';
+import { ReactComponent as CampaignForsaken } from './common/campaign_forsaken.svg';
+import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowkeep.svg';
 
 import { ReactComponent as TooltipFastTravel } from './tooltips/fast-travel.svg';
 import { ReactComponent as TooltipAdventure } from './tooltips/adventure.svg';
@@ -32,20 +32,58 @@ import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
 
-import { ReactComponent as HighlightClan } from './miscellaneous/highlight-clan.svg';
-import { ReactComponent as HighlightCollections } from './miscellaneous/highlight-collections.svg';
-import { ReactComponent as HighlightTriumphs } from './miscellaneous/highlight-triumphs.svg';
-import { ReactComponent as HighlightChecklists } from './miscellaneous/highlight-checklists.svg';
-import { ReactComponent as HighlightMaps } from './miscellaneous/highlight-maps.svg';
-import { ReactComponent as HighlightThisWeek } from './miscellaneous/highlight-this-week.svg';
-import { ReactComponent as HighlightQuests } from './miscellaneous/highlight-quests.svg';
-import { ReactComponent as HighlightReports } from './miscellaneous/highlight-reports.svg';
-import { ReactComponent as Eververse } from './miscellaneous/eververse.svg';
-import { ReactComponent as ChaliceOfOpulence } from './miscellaneous/chalice-of-opulence.svg';
-import { ReactComponent as Patreon } from './miscellaneous/patreon-device.svg';
+import { ReactComponent as Braytech } from './common/braytech-device.svg';
+import { ReactComponent as Arc } from './common/arc.svg';
+import { ReactComponent as Solar } from './common/solar.svg';
+import { ReactComponent as Void } from './common/void.svg';
+import { ReactComponent as Info } from './common/info.svg';
+import { ReactComponent as SealTitle } from './common/seal-title.svg';
+import { ReactComponent as HighlightClan } from './common/highlight-clan.svg';
+import { ReactComponent as HighlightCollections } from './common/highlight-collections.svg';
+import { ReactComponent as HighlightTriumphs } from './common/highlight-triumphs.svg';
+import { ReactComponent as HighlightChecklists } from './common/highlight-checklists.svg';
+import { ReactComponent as HighlightMaps } from './common/highlight-maps.svg';
+import { ReactComponent as HighlightThisWeek } from './common/highlight-this-week.svg';
+import { ReactComponent as HighlightQuests } from './common/highlight-quests.svg';
+import { ReactComponent as HighlightReports } from './common/highlight-reports.svg';
+import { ReactComponent as Eververse } from './common/eververse.svg';
+import { ReactComponent as ChaliceOfOpulence } from './common/chalice-of-opulence.svg';
+import { ReactComponent as Patreon } from './common/patreon-device.svg';
+import { ReactComponent as PayPal } from './common/paypal-device.svg';
+import { ReactComponent as Stats } from './common/stats.svg';
+import { ReactComponent as Roster } from './common/roster.svg';
+import { ReactComponent as RosterAdmin } from './common/roster-admin.svg';
+import { ReactComponent as Tracking } from './common/tracking.svg';
+import { ReactComponent as CrossSave } from './common/cross-save.svg';
+
+import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
+import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
+
+import { ReactComponent as DestinationsWarmind } from './destinations/hellas-basin-1_monochrome.svg';
+
+import { ReactComponent as Saint14 } from './miscellaneous/saint-14.svg';
 
 const Common = {
-  Patreon
+  Arc,
+  Solar,
+  Void,
+  Info,
+  Patreon,
+  PayPal,
+  SealTitle,
+  Braytech,
+  Tracking,
+  CrossSave
+}
+
+const Miscellaneous = {
+  Saint14
+}
+
+const Flair = {
+  ClovisBray: FlairClovisBray,
+  Warmind: DestinationsWarmind,
+  Superintendent: FlairSuperintendent
 }
 
 const Campaign = {
@@ -102,9 +140,9 @@ const Views = {
   },
   Clan: {
     About: HighlightClan,
-    Stats: HighlightClan,
-    Roster: HighlightClan,
-    RosterAdmin: HighlightClan
+    Stats,
+    Roster,
+    RosterAdmin
   },
   Reports: {
     Explore: HighlightMaps,
@@ -120,4 +158,4 @@ const Views = {
   }
 }
 
-export { Common, Campaign, Tooltips, Maps, Views };
+export { Common, Flair, Campaign, Tooltips, Maps, Views, Miscellaneous };
