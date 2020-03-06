@@ -292,6 +292,9 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   line-height: 1;
   font-weight: 500;
   margin: 6px 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #header.profile-header .characters .list li .displayName::before {

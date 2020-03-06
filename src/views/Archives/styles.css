@@ -50,8 +50,10 @@
 }
 
 #archives .module.views .list li .icon svg {
-  transform: scale(0.6);
-  fill: white;
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 
 #archives .module.views .list li::before {
@@ -185,6 +187,11 @@
     top: 2rem;
     grid-template-columns: 1fr;
     width: 40px;
+  }
+
+  #archives .module.views .list li .icon svg {
+    width: 24px;
+    height: 24px;
   }
 
   #archives .module .text {

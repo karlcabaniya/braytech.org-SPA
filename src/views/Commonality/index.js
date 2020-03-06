@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
 
 import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
@@ -51,6 +49,7 @@ class Commonality extends React.Component {
                 <ul className='nodes seals'>
                   {this.seals.map(({ recordHash, nodeHash }) => {
                     const definitionSeal = manifest.DestinyPresentationNodeDefinition[nodeHash];
+                    const definitionRecord = definitionSeal && manifest.DestinyRecordDefinition[definitionSeal.completionRecordHash]
 
                     return (
                       <li key={definitionSeal.hash}>
@@ -61,7 +60,7 @@ class Commonality extends React.Component {
                         </div>
                         <div className='text'>
                           <div className='commonality'>{commonality(manifest.statistics.triumphs?.[definitionSeal.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
-                          <div className='name'>{definitionSeal.displayProperties.name}</div>
+                          <div className='name'>{definitionRecord?.titleInfo?.titlesByGender?.Male || definitionSeal.displayProperties.name}</div>
                         </div>
                       </li>
                     );

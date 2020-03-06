@@ -59,6 +59,7 @@
   width: 32px;
   height: 32px;
   fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 
 #multiplayer .content.views .list li::before {

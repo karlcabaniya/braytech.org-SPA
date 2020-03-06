@@ -87,7 +87,7 @@ class Roster extends React.Component {
 
     const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
 
-    const ClassIcon = !isPrivate ? utils.classHashToIcon(lastCharacter.classHash) : null;
+    const LastClassIcon = !isPrivate ? utils.classHashToIcon(lastCharacter.classHash) : null;
 
     const weeklyXp = !isPrivate
       ? characterIds.reduce((currentValue, characterId) => {
@@ -129,6 +129,7 @@ class Roster extends React.Component {
         valorPoints,
         infamyPoints,
         weeklyXp: (weeklyXp / characterIds.length) * 5000,
+        seasonRank,
         rank: m.memberType
       },
       el: {
@@ -142,16 +143,16 @@ class Roster extends React.Component {
                 <>
                   <li className='col last'>
                     <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
-                      <ClassIcon />
-                    </div>
-                    <div className='icon season-rank'>
-                      {seasonRank}
+                      <LastClassIcon />
                     </div>
                     <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 930, max: lastCharacter.light >= 960 })}>
                       {lastCharacter.light}
                     </div>
+                    <div className='icon season-rank'>
+                      {seasonRank}
+                    </div>
                   </li>
-                  <li className={cx('col', 'lastActivity', { display: m.isOnline && lastActivityString })}>
+                  <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
                     {m.isOnline && lastActivityString ? (
                       <div className='tooltip' data-type='activity' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
                         <div>
@@ -171,7 +172,7 @@ class Roster extends React.Component {
                       </div>
                     )}
                   </li>
-                  <li className='col triumphScore'>{triumphScore.toLocaleString()}</li>
+                  <li className='col triumph-score'>{triumphScore.toLocaleString()}</li>
                   <li className='col progression glory'>{gloryPoints.toLocaleString()}</li>
                   <li className='col progression valor'>
                     {valorPoints.toLocaleString()} {valorResets ? <div className='resets'>({valorResets})</div> : null}
@@ -179,19 +180,19 @@ class Roster extends React.Component {
                   <li className='col progression infamy'>
                     {infamyPoints.toLocaleString()} {infamyResets ? <div className='resets'>({infamyResets})</div> : null}
                   </li>
-                  <li className='col weeklyXp'>
+                  <li className='col weekly-xp'>
                     <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                   </li>
                 </>
               ) : (
                 <>
-                  <li className='col lastCharacter'>–</li>
-                  <li className='col lastActivity'>–</li>
-                  <li className='col triumphScore'>–</li>
+                  <li className='col last'>–</li>
+                  <li className='col activity'>–</li>
+                  <li className='col triumph-score'>–</li>
                   <li className='col glory'>–</li>
                   <li className='col valor'>–</li>
                   <li className='col infamy'>–</li>
-                  <li className='col weeklyXp'>–</li>
+                  <li className='col weekly-xp'>–</li>
                 </>
               )}
             </ul>
@@ -301,7 +302,7 @@ class Roster extends React.Component {
     }
 
     if (order.sort === 'lastCharacter') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir, 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'triumphScore') {
       roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.triumphScore, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'valor') {
@@ -313,7 +314,7 @@ class Roster extends React.Component {
     } else if (order.sort === 'weeklyXp') {
       roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.weeklyXp, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastPlayed, m => m.sorts.lastCharacter && m.sorts.lastCharacter.light], ['asc', 'desc', 'desc', 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc']);
     }
 
     if (!mini) {
@@ -324,15 +325,15 @@ class Roster extends React.Component {
             <li key='header-row' className='row header'>
               <ul>
                 <li className='col member no-sort' />
-                <li className={cx('col', 'lastCharacter', { sort: this.state.order.sort === 'lastCharacter', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('lastCharacter')}>
+                <li className={cx('col', 'last', { sort: this.state.order.sort === 'lastCharacter', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('lastCharacter')}>
                   <div className='full'>{t('Last character')}</div>
                   <div className='abbr'>{t('Char')}</div>
                 </li>
-                <li className={cx('col', 'lastActivity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo(false)}>
+                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo(false)}>
                   <div className='full'>{t('Last activity')}</div>
                   <div className='abbr'>{t('Activity')}</div>
                 </li>
-                <li className={cx('col', 'triumphScore', { sort: this.state.order.sort === 'triumphScore', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('triumphScore')}>
+                <li className={cx('col', 'triumph-score', { sort: this.state.order.sort === 'triumphScore', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('triumphScore')}>
                   <div className='full'>{t('Triumph score')}</div>
                   <div className='abbr'>{t('T. Scr')}</div>
                 </li>
@@ -348,7 +349,7 @@ class Roster extends React.Component {
                   <div className='full'>{t('Infamy (Resets)')}</div>
                   <div className='abbr'>{t('Inf (R)')}</div>
                 </li>
-                <li className={cx('col', 'weeklyXp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('weeklyXp')}>
+                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('weeklyXp')}>
                   <div className='full'>{t('Weekly Clan XP')}</div>
                   <div className='abbr'>{t('Clan XP')}</div>
                 </li>

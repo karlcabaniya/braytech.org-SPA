@@ -141,6 +141,7 @@
   width: 24px;
   height: 24px;
   fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 
 #checklists .module.list .progress-bar {
