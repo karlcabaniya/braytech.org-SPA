@@ -328,8 +328,8 @@ export function raceHashToString(raceHash, genderHash, nonGendered = false) {
 
   if (!definitionRace) return '';
 
-  if (definitionRace.genderedRaceNames && genderHash && !nonGendered) {
-    return definitionRace.genderedRaceNames[genderHash === 1 ? 'Female' : 'Male'];
+  if (definitionRace.genderedRaceNamesByGenderHash && genderHash) {
+    return definitionRace.genderedRaceNamesByGenderHash[genderHash];
   }
 
   return definitionRace.displayProperties.name;
