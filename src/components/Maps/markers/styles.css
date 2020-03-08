@@ -33,16 +33,16 @@
 }
 
 .map-omega .leaflet-container .text-marker.region .wrapper .name {
-  font-family: 'Merriweather', serif;
-  font-size: 14px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;
   opacity: 0.9;
 }
 
 .map-omega .leaflet-container .text-marker.suburb .wrapper .name {
-  font-family: 'Merriweather', serif;
-  font-size: 12px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
   opacity: 0.4;
@@ -56,30 +56,24 @@
 
 .map-omega .leaflet-container .text-marker .wrapper .name i.segoe-uniE1761 {
   top: -1px;
+  left: -29px;
+  font-size: 20px;
 }
 
-.map-omega.zoom--1 .leaflet-container .text-marker .wrapper .name {
-  transform: translateX(-50%) translateY(-50%) scale(0.6);
+.map-omega.zoom--1 .leaflet-container .text-marker.region .wrapper .name {
+  transform: translateX(-50%) translateY(-50%) scale(0.5);
 }
 
-.map-omega.zoom--2 .leaflet-container .text-marker .wrapper .name {
-  transform: translateX(-50%) translateY(-50%) scale(0.4);
+.map-omega.zoom--2 .leaflet-container .text-marker.region .wrapper .name {
+  transform: translateX(-50%) translateY(-50%) scale(0.25);
 }
 
-.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker.completed:not(.native):not(.has-screenshot) {
-  opacity: 0.4;
+.map-omega.zoom--1 .leaflet-container .text-marker.suburb .wrapper .name {
+  transform: translateX(-50%) translateY(-50%) scale(0.5);
 }
 
-.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker:not(.native):not(.checklistId-4178338182):not(.has-screenshot)::before {
-  content: ' ';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  pointer-events: none;
-  box-shadow: 0 0 0 2px rgba(255, 38, 0, 0.5);
-  animation: rotate-linear 4s linear infinite;
+.map-omega.zoom--2 .leaflet-container .text-marker.suburb .wrapper .name {
+  opacity: 0;
 }
 
 .map-omega .leaflet-container .icon-marker.highlight::before,
@@ -91,17 +85,17 @@
   z-index: -1;
   width: 1000%;
   height: 1000%;
-  margin: 6px 0 0 6px;
+  margin: 4px 0 0 6px;
   pointer-events: none;
-  box-shadow: 0 0 0 2px rgba(76, 178, 93, 0.8);
-  background-color: rgba(76, 178, 93, 0.2);
+  box-shadow: 0 0 0 2px #b5fc73;
+  background-color: rgba(181, 252, 115, 0.4);
   border-radius: 100%;
   animation: loading-beacon 5s linear 0.5s infinite;
 }
 
 .map-omega .leaflet-container .icon-marker.highlight::after {
-  box-shadow: 0 0 0 2px rgba(76, 178, 93, 0.8);
-  background-color: rgba(76, 178, 93, 0.4);
+  box-shadow: 0 0 0 2px #b5fc73;
+  background-color: rgba(181, 252, 115, 0.2);
   animation: loading-beacon 2s linear 0s infinite;
 }
 
@@ -141,7 +135,18 @@
 }
 
 .map-omega .leaflet-container .icon-marker:not(.native) .wrapper .icon svg {
-  fill: #ffffff;
+  width: 20px;
+  height: 20px;
+  --fill-color: #ffffff;
+  fill: var(--fill-color);
+}
+
+.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker.completed:not(.native):not(.has-screenshot) {
+  opacity: 0.4;
+}
+
+.map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker:not(.native):not(.checklistId-4178338182):not(.has-screenshot) svg {
+  --fill-color: #a83429;
 }
 
 .map-omega .leaflet-container .icon-marker .wrapper .text {
@@ -150,7 +155,7 @@
   left: 100%;
   transform: translateX(16px) translateY(-50%);
   white-space: nowrap;
-  font-family: 'Merriweather', serif;
+  font-family: 'Crimson Pro', serif;
   font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -187,15 +192,15 @@
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .dashed-1 {
-  animation: rotate-linear 60s linear infinite reverse;
+  animation: rotate-linear 45s linear infinite reverse;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .outer-ring {
-  animation: rotate-linear 30s linear infinite;
+  animation: rotate-linear 15s linear infinite;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .inner-ring {
-  animation: rotate-linear 75s linear infinite;
+  animation: rotate-linear 30s linear infinite reverse;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .angles .beat {

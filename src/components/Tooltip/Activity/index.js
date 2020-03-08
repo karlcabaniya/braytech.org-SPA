@@ -16,7 +16,7 @@ import './styles.css';
 
 class Activity extends React.Component {
   render() {
-    const { t, member, hash, mode, playlist, lastorbiteddestination } = this.props;
+    const { t, member, context, hash, mode, playlist, lastorbiteddestination } = this.props;
 
     const definitionActivity = manifest.DestinyActivityDefinition[hash];
     const definitionActivityMode = manifest.DestinyActivityModeDefinition[mode];
@@ -428,11 +428,11 @@ class Activity extends React.Component {
       const checklistEntry = lookup({ key: 'activityHash', value: hash });
 
       const checklist = checklistEntry.checklistId && checklists[checklistEntry.checklistId]({ requested: [checklistEntry.checklistHash] });
-      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0] && 1 === 2;
+      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
+      // if (checklist) console.log('// do something with me plz', checklist);
 
       const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
 
-      if (checklist) console.log('// do something with me plz', checklist);
 
       return (
         <>
@@ -506,7 +506,7 @@ class Activity extends React.Component {
                   {t('Recommended light')}: <span>{activityTypeDisplay.activityLightLevel}</span>
                 </div>
               ) : null}
-              {checklistItem && checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
+              {context === 'maps' && checklistItem && checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
             </div>
           </div>
         </>

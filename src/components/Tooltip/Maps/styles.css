@@ -42,9 +42,10 @@
 }
 
 #tooltip .frame.map .completed {
-  padding: 12px 16px;
+  padding: 7px 16px 6px;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.05);
+  line-height: 1.4;
+  background-color: rgba(90, 163, 102, 0.8);
 }
 
 #tooltip .frame.map .description pre,
@@ -76,22 +77,18 @@
 
 #tooltip .frame.map.record.lore .book .text {
   display: grid;
-  align-content: center;
+  align-content: start;
   padding: 20px 16px 26px;
 }
 
 #tooltip .frame.map.record.lore .book .text .name {
   font-size: 18px;
-  /* font-weight: 500; */
-  /* letter-spacing: 1px; */
-  /* text-transform: uppercase; */
   word-break: break-word;
 }
 
 #tooltip .frame.map.record.lore .book .text .kind {
   color: rgba(255, 255, 255, 0.4);
-  margin: 4px 0 0;
-  opacity: 0.8;
+  margin: 6px 0 0;
 }
 
 #tooltip .frame.map.patrol-boss .header .icon {

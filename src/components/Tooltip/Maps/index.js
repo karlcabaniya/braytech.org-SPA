@@ -73,7 +73,7 @@ class Checklist extends React.Component {
               <div className='destination'>{checklistItem.formatted.location}</div>
               {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
-            {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
+            {checklistItem.completed ? <div className='completed'>{t('Discovered')}</div> : null}
           </div>
         </div>
       </>
@@ -143,7 +143,7 @@ class Record extends React.Component {
               <div className='destination'>{checklistItem.formatted.location}</div>
               {description ? <ReactMarkdown className='text' source={description} /> : null}
             </div>
-            {checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
+            {checklistItem.completed ? <div className='completed'>{t('Discovered')}</div> : null}
           </div>
         </div>
       </>

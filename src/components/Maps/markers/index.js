@@ -17,7 +17,7 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
 
   const html = (
     <div className='wrapper'>
-      <div className={cx({ tooltip: tooltip.hash })} data-hash={tooltip.hash} data-type={tooltip.type} data-table={tooltip.table}>
+      <div className={cx({ tooltip: tooltip.hash })} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type} data-table={tooltip.table}>
         <div className='icon'>{icon}</div>
       </div>
       {text ? <div className='text'>${text}</div> : null}
@@ -39,7 +39,7 @@ export const text = (classNames = [], name) =>
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
   const html = (
     <div className='wrapper'>
-      <div className='icon tooltip' data-hash={tooltip.hash} data-table={tooltip.table}>
+      <div className='icon tooltip' data-context='maps' data-hash={tooltip.hash} data-table={tooltip.table}>
         <div className='patrol-boss'>
           <span className='destiny-raid' />
         </div>
@@ -69,7 +69,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
+        <div className='icon tooltip' data-context='maps' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
           <SVGForgeIgnition />
         </div>
       </div>
@@ -79,7 +79,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
+        <div className='icon tooltip' data-context='maps' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
           <SVGForgeIgnition />
         </div>
       </div>
@@ -89,7 +89,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
+        <div className='icon tooltip' data-context='maps' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
           <SVGForgeIgnition />
         </div>
       </div>
@@ -99,7 +99,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
+        <div className='icon tooltip' data-context='maps' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
           <SVGForgeIgnition />
         </div>
       </div>

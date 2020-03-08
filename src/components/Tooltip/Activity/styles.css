@@ -214,13 +214,14 @@
 }
 
 #tooltip .frame.activity .completed {
-  padding: 12px 16px;
+  padding: 7px 16px 6px;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.05);
+  line-height: 1.4;
+  background-color: rgba(90, 163, 102, 0.8);
 }
 
 #tooltip .frame.activity .description ~ .completed {
-  margin: 10px 0 0;
+  margin: 14px 0 0;
 }
 
 @media screen and (max-width: 600px) {

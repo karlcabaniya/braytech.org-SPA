@@ -3,12 +3,12 @@
   <g id="Layer_2" data-name="Layer 2">
     <g id="Layer_1-2" data-name="Layer 1">
       <g>
-        <path d="M75.39,174.67789,0,203.30288V77.60794L75.39,117.637v57.04087Z" style="fill: #feffff;opacity: 0.7;isolation: isolate"/>
-        <path d="M131.29753,182.95783,62.50486,238.38577V36.45038l68.79267,64.60734v81.90011Z" style="fill: #fffffe;opacity: 0.7;isolation: isolate"/>
-        <path d="M143.87074,200.9867l-25.7953,74.60815V0l25.7953,75.64487V200.9867Z" style="fill: #fffeff;opacity: 0.7;isolation: isolate"/>
-        <path d="M238.667,174.67789l75.39,28.625V77.60794L238.667,117.637v57.04059Z" style="fill: #feffff;opacity: 0.7;isolation: isolate"/>
-        <path d="M182.75625,182.95783l68.79268,55.42794V36.45038l-68.79268,64.60734v81.90011Z" style="fill: #fffffe;opacity: 0.7;isolation: isolate"/>
-        <path d="M170.18627,200.9867l25.79531,74.60815V0l-25.7953,75.64487V200.9867Z" style="fill: #fffeff;opacity: 0.7;isolation: isolate"/>
+        <path d="M75.39,174.67789,0,203.30288V77.60794L75.39,117.637v57.04087Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
+        <path d="M131.29753,182.95783,62.50486,238.38577V36.45038l68.79267,64.60734v81.90011Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
+        <path d="M143.87074,200.9867l-25.7953,74.60815V0l25.7953,75.64487V200.9867Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
+        <path d="M238.667,174.67789l75.39,28.625V77.60794L238.667,117.637v57.04059Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
+        <path d="M182.75625,182.95783l68.79268,55.42794V36.45038l-68.79268,64.60734v81.90011Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
+        <path d="M170.18627,200.9867l25.79531,74.60815V0l-25.7953,75.64487V200.9867Z" style="fill: var(--fill-color);opacity: 0.7;isolation: isolate"/>
       </g>
     </g>
   </g>
