@@ -202,7 +202,7 @@ class Header extends React.Component {
       {
         name: t('Legend'),
         desc: t('Generate an infographic that details your Destiny legend'),
-        slug: '/legend',
+        slug: '/archives/legend',
         exact: false,
         profile: false,
         group: 1

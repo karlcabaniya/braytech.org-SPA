@@ -10,6 +10,7 @@ import Manifest from '../views/Archives/Manifest';
 import LastWish from '../views/Archives/LastWish';
 
 // Lazy components
+const Legend = React.lazy(() => slowImport(import('../views/Archives/Legend')));
 const ChaliceRecipes = React.lazy(() => slowImport(import('../views/Archives/ChaliceRecipes')));
 const ChaliceRecipesDebug = React.lazy(() => slowImport(import('../views/Archives/ChaliceRecipes/Debug')));
 
@@ -21,6 +22,7 @@ class ArchivesRoutes extends React.Component {
       <>
         <PostmasterCapacity />
         <Switch>
+          <SuspenseRoute path={`${match.url}/legend`} exact component={Legend} />
           <Route path={`${match.url}/eververse`} component={Eververse} />
           <Route path={`${match.url}/manifest`} component={Manifest} />
           <Route path={`${match.url}/last-wish`} component={LastWish} />

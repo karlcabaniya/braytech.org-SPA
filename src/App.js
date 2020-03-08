@@ -67,7 +67,6 @@ export function slowImport(value, ms = 3000) {
 }
 
 // Lazy components
-const Legend = React.lazy(() => slowImport(import('./views/Legend')));
 const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
 const Maps = React.lazy(() => slowImport(import('./views/Maps')));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
@@ -322,7 +321,6 @@ class App extends React.Component {
                   <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
                   <Route path='/read/:kind?/:hash?' exact component={Read} />
                   <Route path='/compare/:object?' exact component={Compare} />
-                  <SuspenseRoute path='/legend' exact component={Legend} />
                   
                   <Route path='/commonality' exact component={Commonality} />
                   <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />

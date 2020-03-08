@@ -40,6 +40,8 @@ import { ReactComponent as Titan } from './common/titan.svg';
 import { ReactComponent as Hunter } from './common/hunter.svg';
 import { ReactComponent as Warlock } from './common/warlock.svg';
 import { ReactComponent as Info } from './common/info.svg';
+import { ReactComponent as Tricorn } from './common/tricorn.svg';
+import { ReactComponent as Seasons } from './common/seasons.svg';
 import { ReactComponent as SealTitle } from './common/seal-title.svg';
 import { ReactComponent as HighlightClan } from './common/highlight-clan.svg';
 import { ReactComponent as HighlightCollections } from './common/highlight-collections.svg';
@@ -74,6 +76,8 @@ const Common = {
   Hunter,
   Warlock,
   Info,
+  Tricorn,
+  Seasons,
   Patreon,
   PayPal,
   SealTitle,
@@ -160,7 +164,8 @@ const Views = {
   Archives: {
     Overview: HighlightThisWeek,
     Eververse,
-    ChaliceOfOpulence
+    ChaliceOfOpulence,
+    Tricorn
   }
 }
 

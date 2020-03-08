@@ -23,6 +23,20 @@
   row-gap: 3rem;
 }
 
+#archives .watermark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+#archives .watermark svg {
+  width: 100vh;
+  height: 100vh;
+  fill: #ffffff;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
 #archives .module.views .list {
   position: sticky;
   top: 3rem;
@@ -81,23 +95,10 @@
   gap: 3rem;
 }
 
-#archives .watermark {
-  position: absolute;
-  bottom: 0;
-  right: 5%;
-  height: 100%;
-  width: 32%;
+#archives .module.story {
   display: grid;
-  align-items: center;
-  justify-items: center;
-}
-
-#archives .watermark svg {
-  height: auto;
-  width: 100%;
-  fill: #ffffff;
-  opacity: 0.1;
-  pointer-events: none;
+  grid-template-columns: 1fr;
+  gap: 3rem;
 }
 
 #archives .module .text { 
@@ -204,7 +205,12 @@
   }
 
   #archives .watermark {
-    right: -1rem;
-    width: calc(100% + 2rem);
+    top: 15vh;
+    left: 25%;
+  }
+
+  #archives .watermark svg {
+    width: 70vh;
+    height: 70vh;
   }
 }

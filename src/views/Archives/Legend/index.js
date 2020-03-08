@@ -5,16 +5,16 @@ import { orderBy } from 'lodash';
 import cx from 'classnames';
 import html2canvas from 'html2canvas';
 
-import { t, duration } from '../../utils/i18n';
-import manifest from '../../utils/manifest';
-import * as enums from '../../utils/destinyEnums';
-import * as utils from '../../utils/destinyUtils';
-import ObservedImage from '../../components/ObservedImage';
-import ObservedImageBase64 from '../../components/ObservedImageBase64';
-import Button from '../../components/UI/Button';
-import Checkbox from '../../components/UI/Checkbox';
-import Spinner from '../../components/UI/Spinner';
-import packageJSON from '../../../package.json';
+import { t, duration } from '../../../utils/i18n';
+import manifest from '../../../utils/manifest';
+import * as enums from '../../../utils/destinyEnums';
+import * as utils from '../../../utils/destinyUtils';
+import ObservedImage from '../../../components/ObservedImage';
+import ObservedImageBase64 from '../../../components/ObservedImageBase64';
+import Button from '../../../components/UI/Button';
+import Checkbox from '../../../components/UI/Checkbox';
+import Spinner from '../../../components/UI/Spinner';
+import packageJSON from '../../../../package.json';
 
 import './styles.css';
 import './header-note.css';

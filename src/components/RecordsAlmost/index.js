@@ -11,11 +11,7 @@ import { ProfileLink } from '../../components/ProfileLink';
 import Records from '../Records';
 
 class RecordsAlmost extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.scrollToRecordRef = React.createRef();
-  }
+  scrollToRecordRef = React.createRef();
 
   render() {
     const { member, collectibles, sort, limit } = this.props;
@@ -58,9 +54,13 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      if (enumerateRecordState(record.state).invisible || enumerateRecordState(record.state).recordRedeemed) {
+      const recordState = enumerateRecordState(record.state);
+
+      if (recordState.invisible || recordState.recordRedeemed || !recordState.objectiveNotCompleted) {
         return;
       }
+
+      if (hash === 3015941901) console.log(manifest.DestinyRecordDefinition[hash].displayProperties.name, recordState, record)
 
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;
