@@ -9,7 +9,7 @@ import checklists from '../../../utils/checklists';
 import maps from '../../../data/lowlines/maps/destinations';
 import nodes from '../../../data/lowlines/maps/nodes';
 
-import * as marker from '../Markers';
+import * as marker from '../markers';
 
 class Checklists extends React.Component {
   constructor(props) {

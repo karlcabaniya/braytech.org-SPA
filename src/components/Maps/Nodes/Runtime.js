@@ -6,7 +6,7 @@ import { Marker } from 'react-leaflet';
 import maps from '../../../data/lowlines/maps/destinations';
 import nodesRuntime from '../../../data/lowlines/maps/runtime/';
 
-import * as marker from '../Markers';
+import * as marker from '../markers';
 
 class Runtime extends React.Component {
   constructor(props) {
