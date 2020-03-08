@@ -181,8 +181,6 @@ class Node extends React.Component {
 
     const locatedActivityName = node.location.within && node.location.within.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash] && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties.name;
 
-    const icon = node.icon ? <span className={node.icon} /> : undefined;
-
     console.log(node);
 
     const completed = node.related && node.related.objectives && node.related.objectives.filter(o => !o.complete).length < 1;
@@ -192,7 +190,7 @@ class Node extends React.Component {
         <div className='acrylic' />
         <div className={cx('frame', 'map', node.type.hash)}>
           <div className='header'>
-            <div className='icon'>{icon}</div>
+            <div className='icon'>{node.icon || null}</div>
             <div className='text'>
               <div className='name'>{node.displayProperties.name}</div>
               <div>

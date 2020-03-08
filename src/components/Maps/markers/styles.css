@@ -231,8 +231,10 @@
   opacity: 1;
 }
 
-.map-omega .leaflet-container .icon-marker.patrol-boss .icon::before {
-  font-size: 28px;
+.map-omega .leaflet-container .icon-marker.patrol-boss .wrapper .icon,
+.map-omega .leaflet-container .icon-marker.patrol-boss .wrapper .icon svg {
+  width: 48px;
+  height: 48px;
 }
 
 @keyframes rotate-sleep {

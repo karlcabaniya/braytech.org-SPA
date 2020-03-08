@@ -6,7 +6,7 @@ import { Marker } from 'react-leaflet';
 import maps from '../../../data/lowlines/maps/destinations';
 import nodesRuntime from '../../../data/lowlines/maps/runtime/';
 
-import * as marker from '../markers';
+import * as marker from '../Markers';
 
 class Runtime extends React.Component {
   constructor(props) {
@@ -25,10 +25,10 @@ class Runtime extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(pP, pS) {
+  componentDidUpdate(p, s) {
     const { member } = this.props;
     
-    if (((!pP.member.data && member.data) || pP.member.data.updated !== member.data.updated || pP.member.characterId !== member.characterId) && this.mounted) {
+    if (((!p.member.data && member.data) || p.member.data.updated !== member.data.updated || p.member.characterId !== member.characterId) && this.mounted) {
       this.setState({ nodes: nodesRuntime(this.props.member) })
     }
   }
@@ -61,7 +61,7 @@ class Runtime extends React.Component {
             if (node.type.hash === 'patrol-boss') {
               if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
 
-              const icon = marker.icon({ hash: node.hash, table: 'BraytechMapsDefinition' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon || 'destiny-patrol-boss' });
+              const icon = marker.icon({ hash: node.hash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else {

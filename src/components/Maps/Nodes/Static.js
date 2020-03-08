@@ -1,20 +1,15 @@
 import React from 'react';
-
 import { Marker } from 'react-leaflet';
 
 import manifest from '../../../utils/manifest';
 
 import maps from '../../../data/lowlines/maps/destinations';
 
-import * as marker from '../markers';
+import * as marker from '../Markers';
 
 class Static extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
+  state = {}
+  
   componentDidMount() {
     this.mounted = true;
   }

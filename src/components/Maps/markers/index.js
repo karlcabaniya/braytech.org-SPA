@@ -39,7 +39,7 @@ export const text = (classNames = [], name) =>
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
   const html = (
     <div className='wrapper'>
-      <div className='icon tooltip' data-context='maps' data-hash={tooltip.hash} data-table={tooltip.table}>
+      <div className='icon tooltip' data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
         <div className='patrol-boss'>
           <span className='destiny-raid' />
         </div>

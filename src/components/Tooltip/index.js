@@ -211,7 +211,7 @@ class Tooltip extends React.Component {
       if (this.state.table === 'DestinyVendorDefinition') Tooltip = Vendor;
       if (this.state.table === 'DestinyChecklistDefinition') Tooltip = Checklist;
       if (this.state.table === 'DestinyRecordDefinition') Tooltip = Record;
-      if (this.state.table === 'BraytechMapsDefinition') Tooltip = Node;
+      if (this.state.type === 'maps') Tooltip = Node;
       if (this.state.type === 'activity') Tooltip = Activity;      
       if (this.state.type === 'checklist') Tooltip = Checklist;
       if (this.state.type === 'record') Tooltip = Record;

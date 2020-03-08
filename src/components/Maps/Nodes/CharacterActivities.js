@@ -72,7 +72,7 @@ class CharacterActivities extends React.Component {
             if (node.type.hash === 'patrol-boss') {
               if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
 
-              const icon = marker.icon({ hash: node.hash, table: 'BraytechMapsDefinition' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon || 'destiny-patrol-boss' });
+              const icon = marker.icon({ hash: node.hash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon || 'destiny-patrol-boss' });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else {

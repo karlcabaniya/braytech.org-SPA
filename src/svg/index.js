@@ -31,6 +31,12 @@ import { ReactComponent as MapsAhamkaraBones } from './maps/ahamkara-bones.svg';
 import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
+import { ReactComponent as MapsPatrolBossCabalRedLegion } from './maps/patrol-boss-cabal-red-legion.svg';
+import { ReactComponent as MapsPatrolBossFallenDusk } from './maps/patrol-boss-fallen-dusk.svg';
+import { ReactComponent as MapsPatrolBossHive } from './maps/patrol-boss-hive.svg';
+import { ReactComponent as MapsPatrolBossVex } from './maps/patrol-boss-vex.svg';
+import { ReactComponent as MapsPatrolBoss } from './maps/patrol-boss.svg';
+import { ReactComponent as MapsPatrolMinion } from './maps/patrol-minion.svg';
 
 import { ReactComponent as Braytech } from './common/braytech-device.svg';
 import { ReactComponent as Arc } from './common/arc.svg';
@@ -134,7 +140,13 @@ const Maps = {
   AhamkaraBones: MapsAhamkaraBones,
   FelineFriend: MapsFelineFriend,
   JadeRabbit: MapsJadeRabbit,
-  Record: MapsRecord
+  Record: MapsRecord,
+  MapsPatrolBossCabalRedLegion,
+  MapsPatrolBossFallenDusk,
+  MapsPatrolBossHive,
+  MapsPatrolBossVex,
+  MapsPatrolBoss,
+  MapsPatrolMinion
 }
 
 const Views = {

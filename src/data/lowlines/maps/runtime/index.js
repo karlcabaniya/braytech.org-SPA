@@ -1,6 +1,8 @@
+import React from 'react';
 import i18next from 'i18next';
 
 import manifest from '../../../../utils/manifest';
+import { Maps } from '../../../../svg'
 
 const cycleInfo = {
   epoch: {
@@ -60,7 +62,7 @@ export default (member = false) => {
           category: 'enemy',
           race: 'hive'
         },
-        icon: 'destiny-patrol-boss-hive',
+        icon: <Maps.MapsPatrolBossHive />,
         location: {
           destinationHash: 290444260,
           bubbleHash: 417490937,
@@ -103,9 +105,9 @@ export default (member = false) => {
           hash: 'patrol-boss',
           name: i18next.t('Patrol boss'),
           category: 'enemy',
-          race: 'cabal'
+          race: 'fallen'
         },
-        icon: 'destiny-patrol-boss-fallen-dusk',
+        icon: <Maps.MapsPatrolBossFallenDusk />,
         location: {
           destinationHash: 290444260,
           bubbleHash: 4025450777,
@@ -150,7 +152,7 @@ export default (member = false) => {
           category: 'enemy',
           race: 'hive'
         },
-        icon: 'destiny-patrol-boss-hive',
+        icon: <Maps.MapsPatrolBossHive />,
         location: {
           destinationHash: 290444260,
           bubbleHash: 4195493657,
@@ -193,9 +195,9 @@ export default (member = false) => {
           hash: 'patrol-boss',
           name: i18next.t('Patrol boss'),
           category: 'enemy',
-          race: 'hive'
+          race: 'fallen'
         },
-        icon: 'destiny-patrol-boss-fallen-dusk',
+        icon: <Maps.MapsPatrolBossFallenDusk />,
         location: {
           destinationHash: 290444260,
           bubbleHash: 3326367698,
