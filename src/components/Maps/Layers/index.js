@@ -30,8 +30,8 @@ class Layers extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(pP, pS) {
-    if (pS.loading && !this.state.loading) {
+  componentDidUpdate(p, s) {
+    if (s.loading && !this.state.loading) {
       this.props.ready();
     }
   }

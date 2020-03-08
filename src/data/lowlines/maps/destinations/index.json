@@ -765,7 +765,7 @@
           "width": 3331,
           "height": 2605,
           "image": "/static/images/extracts/maps/map_fields-of-glass.png",
-          "opacity": 0.6
+          "opacity": 0.8
         }
       ],
       "bubbles": [
@@ -956,7 +956,7 @@
           "width": 2523,
           "height": 2959,
           "image": "/static/images/extracts/maps/map_hellas-basin.png",
-          "opacity": 0.6
+          "opacity": 0.8
         }
       ],
       "bubbles": [
@@ -1148,7 +1148,7 @@
           "width": 1845,
           "height": 1535,
           "image": "/static/images/extracts/maps/map_echo-mesa.png",
-          "opacity": 0.6
+          "opacity": 0.8
         }
       ],
       "bubbles": [
@@ -1375,7 +1375,7 @@
           "width": 2482,
           "height": 1756,
           "image": "/static/images/extracts/maps/map_new-pacific-arcology.png",
-          "opacity": 0.6
+          "opacity": 0.8
         }
       ],
       "bubbles": [
@@ -2818,7 +2818,7 @@
               "width": 2710,
               "height": 2377,
               "image": "/static/images/extracts/maps/map_edz.png",
-              "opacity": 0.6
+              "opacity": 0.8
             },
             {
               "id": "volundr",
@@ -2827,7 +2827,7 @@
               "width": 243,
               "height": 403,
               "image": "/static/images/extracts/maps/map_edz-volundr.png",
-              "opacity": 0.6
+              "opacity": 0.8
             },
             {
               "id": "bergusia",
@@ -2836,7 +2836,7 @@
               "width": 581,
               "height": 410,
               "image": "/static/images/extracts/maps/map_edz-bergusia.png",
-              "opacity": 0.6
+              "opacity": 0.8
             }
           ]
         }
@@ -3725,7 +3725,7 @@
           "width": 3500,
           "height": 2333,
           "image": "/static/images/extracts/maps/map_tower.png",
-          "opacity": 0.6
+          "opacity": 0.8
         }
       ],
       "bubbles": [
