@@ -116,7 +116,7 @@ export const checklists = {
       checklistItemName: t('Lost Sector'),
       checklistItemName_plural: t('Lost Sectors'),
       checklistIcon: <Maps.LostSector />,
-      checklistProgressDescription: t('Discovered'),
+      checklistProgressDescription: t('Discovered_plural'),
       ...options
     }),
   // ahamkara bones
