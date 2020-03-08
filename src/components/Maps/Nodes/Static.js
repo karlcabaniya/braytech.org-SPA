@@ -5,7 +5,7 @@ import manifest from '../../../utils/manifest';
 
 import maps from '../../../data/lowlines/maps/destinations';
 
-import * as marker from '../Markers';
+import * as marker from '../markers';
 
 class Static extends React.Component {
   state = {}
