@@ -119,6 +119,8 @@
 
 #loading .version div span::after {
   content: ' // ';
+  font-family: var(--fontDisplay);
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.4);
 }
 

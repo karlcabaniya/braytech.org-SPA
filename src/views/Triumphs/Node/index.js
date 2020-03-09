@@ -109,8 +109,7 @@ class PresentationNode extends React.Component {
       <div className='node'>
         <div className='header'>
           <div className='name'>
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            {definitionPrimary.displayProperties.name} <span>{definitionPrimary.children.presentationNodes.length !== 1 ? <>// {definitionSecondary.displayProperties.name}</> : null}</span>
+            {definitionPrimary.displayProperties.name}{definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
           </div>
         </div>
         <div className='children'>

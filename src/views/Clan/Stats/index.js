@@ -11,8 +11,8 @@ class StatsView extends React.Component {
     window.scrollTo(0, 0);   
   }
 
-  componentDidUpdate(pP) {
-    if (pP.subView !== this.props.subView || pP.subSubView !== this.props.subSubView) {
+  componentDidUpdate(p, s) {
+    if (p.subView !== this.props.subView || p.subSubView !== this.props.subSubView) {
       window.scrollTo(0, 0);
     }
   }

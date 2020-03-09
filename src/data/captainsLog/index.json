@@ -1028,5 +1028,10 @@
     "date": "2020-03-06T08:42:30.628Z",
     "version": "2.18.10",
     "content": "- so, like, basically all of the icons are SVGs now... except for those sought from the API manifest"
+  },
+  {
+    "date": "2020-03-10T17:00:00.000Z",
+    "version": "2.19.1",
+    "content": "Welcome to S10."
   }
 ]

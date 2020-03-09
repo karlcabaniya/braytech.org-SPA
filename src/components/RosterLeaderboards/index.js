@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
-import moment from 'moment';
 
 import { t, duration } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
@@ -15,13 +14,9 @@ import Spinner from '../UI/Spinner';
 import './styles.css';
 
 class RosterLeaderboards extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      leaderboards: false
-    };
+  state = {
+    loading: true,
+    leaderboards: false
   }
 
   componentDidMount() {

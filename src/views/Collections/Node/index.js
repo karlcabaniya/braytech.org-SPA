@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as paths from '../../../utils/paths';
 import * as enums from '../../../utils/destinyEnums';
 import ObservedImage from '../../../components/ObservedImage';
 import { ProfileNavLink } from '../../../components/ProfileLink';
@@ -21,71 +20,65 @@ class PresentationNode extends React.Component {
     const characters = member.data.profile.characters.data;
     const character = characters.find(c => c.characterId === member.characterId);
 
-    let classNodes = {
+    const classNodes = {
       0: [811225638, 2598675734],
       1: [3745240322, 2765771634],
       2: [1269917845, 1573256543]
     };
 
     let primaryHash = this.props.primaryHash;
-    let primaryDefinition = manifest.DestinyPresentationNodeDefinition[primaryHash];
+    let definitionPrimary = manifest.DestinyPresentationNodeDefinition[primaryHash];
 
     let secondaryHash = this.props.match.params.secondary || false;
-    let secondaryChildNodeFind = primaryDefinition.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
+    let secondaryChildNodeFind = definitionPrimary.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
     if (!secondaryHash && secondaryChildNodeFind) {
       secondaryHash = secondaryChildNodeFind.presentationNodeHash;
     } else if (!secondaryHash) {
-      secondaryHash = primaryDefinition.children.presentationNodes[0].presentationNodeHash;
+      secondaryHash = definitionPrimary.children.presentationNodes[0].presentationNodeHash;
     }
 
-    let secondaryDefinition = manifest.DestinyPresentationNodeDefinition[secondaryHash];
+    let definitionSecondary = manifest.DestinyPresentationNodeDefinition[secondaryHash];
 
     let tertiaryHash = this.props.match.params.tertiary || false;
-    const tertiaryChildNodeFind = secondaryDefinition.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
+    const tertiaryChildNodeFind = definitionSecondary.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
     if (!tertiaryHash && tertiaryChildNodeFind) {
       tertiaryHash = tertiaryChildNodeFind.presentationNodeHash;
     } else if (!tertiaryHash) {
-      tertiaryHash = secondaryDefinition.children.presentationNodes[0].presentationNodeHash;
+      tertiaryHash = definitionSecondary.children.presentationNodes[0].presentationNodeHash;
     }
 
     const definitionTertiary = manifest.DestinyPresentationNodeDefinition[tertiaryHash];
 
     const quaternaryHash = this.props.match.params.quaternary ? this.props.match.params.quaternary : false;
 
-    let primaryChildren = [];
-    primaryDefinition.children.presentationNodes.forEach(child => {
-      let node = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
+    const primaryChildren = definitionPrimary.children.presentationNodes.map(child => {
+      const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
-      let isActive = (match, location) => {
-        if (secondaryDefinition.hash === child.presentationNodeHash) {
+      const isActive = (match, location) => {
+        if (definitionSecondary.hash === child.presentationNodeHash) {
           return true;
         } else {
           return false;
         }
       };
 
-      primaryChildren.push(
-        <li key={node.hash} className='linked'>
-          <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${node.hash}`}>
-            <ObservedImage className={cx('image', 'icon')} src={`${!node.displayProperties.localIcon ? 'https://www.bungie.net' : ''}${node.displayProperties.icon}`} />
+      return (
+        <li key={definitionNode.hash} className='linked'>
+          <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${definitionNode.hash}`}>
+            <ObservedImage className={cx('image', 'icon')} src={`${!definitionNode.displayProperties.localIcon ? 'https://www.bungie.net' : ''}${definitionNode.displayProperties.icon}`} />
           </ProfileNavLink>
         </li>
       );
     });
 
-    let secondaryChildren = [];
-    secondaryDefinition.children.presentationNodes.forEach(child => {
-      let node = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
+    const secondaryChildren = definitionSecondary.children.presentationNodes.filter(child => !manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].redacted).map(child => {
+      const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
-      if (node.redacted) {
-        return;
-      }
-
-      let states = [];
+      const states = [];
 
       // armour sets
-      if (node.children.collectibles.length === 0 && node.children.presentationNodes.length) {
-        node.children.presentationNodes.forEach(n => {
+      if (definitionNode.children.collectibles.length === 0 && definitionNode.children.presentationNodes.length) {
+        definitionNode.children.presentationNodes.forEach(n => {
           const definitionArmourNode = manifest.DestinyPresentationNodeDefinition[n.presentationNodeHash];
   
           let state = 0;
@@ -102,7 +95,7 @@ class PresentationNode extends React.Component {
         });
       } else {
         let state = 0;
-        node.children.collectibles.forEach(c => {
+        definitionNode.children.collectibles.forEach(c => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[c.collectibleHash];
   
           let scope = profileCollectibles.collectibles[definitionCollectible.hash] ? profileCollectibles.collectibles[definitionCollectible.hash] : characterCollectibles[member.characterId].collectibles[definitionCollectible.hash];
@@ -114,7 +107,7 @@ class PresentationNode extends React.Component {
         });
       }
 
-      let isActive = (match, location) => {
+      const isActive = (match, location) => {
         if (definitionTertiary.hash === child.presentationNodeHash) {
           return true;
         } else {
@@ -125,23 +118,23 @@ class PresentationNode extends React.Component {
       let secondaryProgress = states.filter(state => !enums.enumerateCollectibleState(state).notAcquired).length;
       let secondaryTotal = collectibles && collectibles.hideInvisibleCollectibles ? states.filter(state => !enums.enumerateCollectibleState(state).invisible).length : states.length;
 
-      let hashSet = node.hash;
+      let hashSet = definitionNode.hash;
       if (/^emotes_/.test(hashSet)) hashSet = '3224618006';
 
-      if (node.children.plugs && node.children.plugs.length && member.data.profile.profilePlugSets && member.data.profile.profilePlugSets.data && member.data.profile.profilePlugSets.data.plugs[hashSet]) {
-        secondaryProgress = node.children.plugs.filter(h => member.data.profile.profilePlugSets.data.plugs[hashSet].find(p => p.plugItemHash === h)).length;
-        secondaryTotal = node.children.plugs.length;
+      if (definitionNode.children.plugs && definitionNode.children.plugs.length && member.data.profile.profilePlugSets && member.data.profile.profilePlugSets.data && member.data.profile.profilePlugSets.data.plugs[hashSet]) {
+        secondaryProgress = definitionNode.children.plugs.filter(h => member.data.profile.profilePlugSets.data.plugs[hashSet].find(p => p.plugItemHash === h)).length;
+        secondaryTotal = definitionNode.children.plugs.length;
       }
 
-      secondaryChildren.push(
-        <li key={node.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>
+      return (
+        <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>
           <div className='text'>
-            <div className='name'>{node.displayProperties.name}</div>
+            <div className='name'>{definitionNode.displayProperties.name}</div>
             <div className='progress'>
               <span>{secondaryProgress}</span> / {secondaryTotal}
             </div>
           </div>
-          <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${secondaryHash}/${node.hash}`} />
+          <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${secondaryHash}/${definitionNode.hash}`} />
         </li>
       );
     });
@@ -150,14 +143,13 @@ class PresentationNode extends React.Component {
       <div className='node'>
         <div className='header'>
           <div className='name'>
-            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-            {primaryDefinition.displayProperties.name} <span>{primaryDefinition.children.presentationNodes.length !== 1 ? <>// {secondaryDefinition.displayProperties.name}</> : null}</span>
+            {definitionPrimary.displayProperties.name}{definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
           </div>
         </div>
         <div className='children'>
           <ul
             className={cx('list', 'primary', {
-              'single-primary': primaryDefinition.children.presentationNodes.length === 1
+              'single-primary': definitionPrimary.children.presentationNodes.length === 1
             })}
           >
             {primaryChildren}

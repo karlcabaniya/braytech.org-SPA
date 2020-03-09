@@ -7,8 +7,20 @@
 }
 
 #clan.stats .wrapper {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 5fr;
+}
+
+#clan.stats .wrapper::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  height: 3px;
+  background-color: #fff;
+  opacity: 0.2;
 }
 
 #clan.stats .wrapper .bread {
