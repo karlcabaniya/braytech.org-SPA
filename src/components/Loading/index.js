@@ -5,7 +5,7 @@ import cx from 'classnames';
 import packageJSON from '../../../package.json';
 import { t } from '../../utils/i18n';
 import Spinner from '../../components/UI/Spinner';
-import { Common, Miscellaneous } from '../../svg';
+import { Common, Loading } from '../../svg';
 
 import './styles.css';
 
@@ -111,16 +111,18 @@ class AppLoading extends React.Component {
         <div className='view' id='loading'>
           <div className='bg'>
             <div className='containment'>
-              <Miscellaneous.Saint14 />
+              <Loading.WarmindHalf />
             </div>
           </div>
-          <div className='logo-feature'>
-            <div className='device'>
-              <Common.Braytech />
-            </div>
+          <div className='logo'>
+            <Common.Braytech />
+          </div>
+          <div className='version'>
+            <div><span>S10</span> Clovis Bray ++{packageJSON.version}</div>
+            <Loading.ClovisBray />
           </div>
           <div className='text'>
-            <div className='version'>Braytech {packageJSON.version}</div>
+            <div className='name'>Braytech</div>
             <div className={cx('status', { error: isError })}>
               {!isError ? (
                 <div>

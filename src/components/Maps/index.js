@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import { debounce } from 'lodash';
 import cx from 'classnames';
 
@@ -16,7 +15,6 @@ import maps from '../../data/lowlines/maps/destinations';
 import manifest from '../../utils/manifest';
 import * as ls from '../../utils/localStorage';
 import { checklists, lookup } from '../../utils/checklists';
-import CharacterEmblem from '../../components/UI/CharacterEmblem';
 import Spinner from '../../components/UI/Spinner';
 
 import * as utils from './utils';
@@ -25,8 +23,9 @@ import { Layers, BackgroundLayer } from './Layers';
 import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
-// import CharacterActivities from './Nodes/CharacterActivities';
-import Inspect from './Inspect';
+import Characters from './Controls/Characters';
+import Destinations from './Controls/Destinations';
+import Inspect from './Controls/Inspect';
 
 import './styles.css';
 
@@ -322,49 +321,10 @@ class Maps extends React.Component {
           <Spinner />
         </div>
         <div className='controls left'>
-          <div className={cx('control', 'characters', { visible: this.state.ui.characters })}>
-            <ul className='list'>
-              {member && member.data ? (
-                <>
-                  {member.data.profile.profile.data.characterIds.map(characterId => {
-                    return (
-                      <li key={characterId} className={cx('linked', { active: characterId === member.characterId })} data-characterid={characterId} onClick={this.handler_changeCharacterId}>
-                        <CharacterEmblem characterId={characterId} />
-                      </li>
-                    );
-                  })}
-                  <li className='linked'>
-                    <CharacterEmblem characterSelect />
-                  </li>
-                </>
-              ) : (
-                <li className='linked active'>
-                  <CharacterEmblem onboarding />
-                </li>
-              )}
-            </ul>
-          </div>
-          <div className={cx('control', 'destinations', { visible: this.state.ui.destinations })}>
-            <ul className='list'>
-              {utils.destinations.map(d => {
-                let name = maps[d.id].destination.hash && manifest.DestinyDestinationDefinition[maps[d.id].destination.hash] && manifest.DestinyDestinationDefinition[maps[d.id].destination.hash].displayProperties.name;
-                if (maps[d.id].destination.activityHash) {
-                  name = manifest.DestinyActivityDefinition[maps[d.id].destination.activityHash].displayProperties.name;
-                }
-
-                return (
-                  <li key={maps[d.id].destination.id} className={cx('linked', { active: maps[d.id].destination.id === destination.id })}>
-                    <div className='text'>
-                      <div className='name'>{name}</div>
-                    </div>
-                    <Link to={`/maps/${maps[d.id].destination.id}`} onClick={this.handler_toggleDestinationsList}></Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <Characters visible={this.state.ui.characters} handler={this.handler_changeCharacterId} />
+          <Destinations {...destination} visible={this.state.ui.destinations} handler={this.handler_toggleDestinationsList} />
         </div>
-        {viewport.width > 6000 ? (
+        {/* {viewport.width > 6000 ? (
           <div className='control zoom visible'>
             <ul className='list'>
               <li className={cx('linked', { disabled: this.state.zoom === 2 })} onClick={this.handler_zoomIncrease}>
@@ -379,7 +339,7 @@ class Maps extends React.Component {
               </li>
             </ul>
           </div>
-        ) : null}
+        ) : null} */}
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );

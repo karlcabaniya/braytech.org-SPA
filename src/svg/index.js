@@ -72,7 +72,7 @@ import { ReactComponent as FlairSuperintendent } from './flair/superintendent.sv
 
 import { ReactComponent as DestinationsWarmind } from './destinations/hellas-basin-1_monochrome.svg';
 
-import { ReactComponent as Saint14 } from './miscellaneous/saint-14.svg';
+import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 
 const Common = {
   Arc,
@@ -92,8 +92,9 @@ const Common = {
   CrossSave
 }
 
-const Miscellaneous = {
-  Saint14
+const Loading = {
+  ClovisBray: FlairClovisBray,
+  WarmindHalf
 }
 
 const Flair = {
@@ -181,4 +182,4 @@ const Views = {
   }
 }
 
-export { Common, Flair, Campaign, Tooltips, Maps, Views, Miscellaneous };
+export { Common, Flair, Campaign, Tooltips, Maps, Views, Loading };

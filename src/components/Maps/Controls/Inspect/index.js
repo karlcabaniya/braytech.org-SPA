@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { t } from '../../../utils/i18n';
-import manifest from '../../../utils/manifest';
-import ObservedImage from '../../ObservedImage';
-import Button from '../../UI/Button';
-import { bookCovers } from '../../../utils/destinyEnums';
-import { checklists, lookup } from '../../../utils/checklists';
-import nodes from '../../../data/lowlines/maps/nodes';
+import { t } from '../../../../utils/i18n';
+import manifest from '../../../../utils/manifest';
+import ObservedImage from '../../../ObservedImage';
+import Button from '../../../UI/Button';
+import { bookCovers } from '../../../../utils/destinyEnums';
+import { checklists, lookup } from '../../../../utils/checklists';
+import nodes from '../../../../data/lowlines/maps/nodes';
 
 function findNodeType(checklistHash, recordHash) {
   if (checklistHash) {
