@@ -159,6 +159,10 @@
   align-content: center;
 }
 
+#route-loading.full {
+  height: 100vh;
+}
+
 @media screen and (max-width: 600px) {
   #route-loading {
     padding: 2rem;

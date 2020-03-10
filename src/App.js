@@ -278,8 +278,10 @@ class App extends React.Component {
       // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
       return (
         <div className={cx('wrapper', this.props.theme.selected)}>
-          <AppLoading state={this.state.status} />
-          <NotificationLink />
+          <Suspense fallback={<SuspenseLoading full />}>
+            <AppLoading state={this.state.status} />
+            <NotificationLink />
+          </Suspense>
         </div>
       );
     }
