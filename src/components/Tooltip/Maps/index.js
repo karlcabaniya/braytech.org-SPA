@@ -97,7 +97,7 @@ class Record extends React.Component {
     const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
 
     const definitionRecord = manifest.DestinyRecordDefinition[checklistItem.recordHash];
-    const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.presentationInfo.parentPresentationNodeHashes[0]];
+    const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
 
     const extras = nodes && nodes.find(d => d.recordHash === checklistItem.recordHash);
     const screenshot = extras && extras.screenshot;

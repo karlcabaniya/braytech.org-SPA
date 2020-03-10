@@ -75,7 +75,7 @@ class Read extends React.Component {
       parentDefinition = manifest.DestinyPresentationNodeDefinition[hash];
     } else if (kind === 'record') {
       recordDefinition = manifest.DestinyRecordDefinition[hash];
-      parentDefinition = manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].presentationInfo?.parentPresentationNodeHashes[0]];
+      parentDefinition = manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].parentNodeHashes[0]];
     } else {
     }
 
