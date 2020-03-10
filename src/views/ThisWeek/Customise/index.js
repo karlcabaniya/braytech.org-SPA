@@ -467,7 +467,7 @@ class Customise extends React.Component {
               if (raidKey === 'gos') {
                 return manifest.DestinyActivityDefinition[2659723068].displayProperties.name;
               } else if (raidKey === 'cos') {
-                return manifest.DestinyCollectibleDefinition[193320249].displayProperties.name;
+                return manifest.DestinyRecordDefinition[31686901]?.displayProperties.name || 'cos';
               } else if (raidKey === 'sotp') {
                 return manifest.DestinyActivityDefinition[548750096].displayProperties.name;
               } else if (raidKey === 'lw') {

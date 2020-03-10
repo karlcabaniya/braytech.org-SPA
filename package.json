@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.19.2",
+  "version": "2.19.3",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -53,7 +53,7 @@
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "progress-bar-webpack-plugin": "^2.1.0",
-    "webpack-bundle-analyzer": "^3.6.0"
+    "webpack-bundle-analyzer": "^3.6.1"
   },
   "eslintConfig": {
     "extends": "react-app"

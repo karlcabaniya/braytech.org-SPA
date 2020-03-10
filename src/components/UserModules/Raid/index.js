@@ -45,7 +45,7 @@ class Raid extends React.Component {
         }
       },
       cos: {
-        name: manifest.DestinyCollectibleDefinition[193320249].displayProperties.name,
+        name: manifest.DestinyRecordDefinition[31686901]?.displayProperties.name || 'cos',
         description: manifest.DestinyActivityDefinition[960175301].displayProperties.description,
         challenge: manifest.DestinyVendorDefinition[3347378076].itemList
           .map(item => {

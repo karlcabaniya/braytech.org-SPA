@@ -75,7 +75,7 @@ class Read extends React.Component {
       parentDefinition = manifest.DestinyPresentationNodeDefinition[hash];
     } else if (kind === 'record') {
       recordDefinition = manifest.DestinyRecordDefinition[hash];
-      parentDefinition = manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].presentationInfo.parentPresentationNodeHashes[0]];
+      parentDefinition = manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].presentationInfo?.parentPresentationNodeHashes[0]];
     } else {
     }
 
@@ -127,13 +127,13 @@ class Read extends React.Component {
                 <div className='sticky'>
                   <div className={cx('display', kind)}>
                     <div className='cover'>
-                      <ObservedImage className='image' src={`/static/images/extracts/books/${bookCovers[parentDefinition.hash]}`} />
+                      <ObservedImage className='image' src={`/static/images/extracts/books/${bookCovers[parentDefinition?.hash]}`} />
                     </div>
                     <div className='ui'>
-                      <div className='book-name'>{parentDefinition.displayProperties.name}</div>
+                      <div className='book-name'>{parentDefinition?.displayProperties.name}</div>
                       <ul className={cx('list', { 'is-root': kind === 'book' })}>
                         <li className='linked'>
-                          <Link to={`/read/book/${parentDefinition.hash}`}>{t('All pages')}</Link>
+                          <Link to={`/read/book/${parentDefinition?.hash}`}>{t('All pages')}</Link>
                         </li>
                         <li className='linked'>
                           <a href={`https://www.ishtar-collective.net/entries/${recordDefinition ? recordDefinition.loreHash : ''}`} target='_blank' rel='noopener noreferrer'>
@@ -158,7 +158,7 @@ class Read extends React.Component {
               <ul>
                 {kind === 'record' ? (
                   <li>
-                    <Link className='button' to={`/read/book/${parentDefinition.hash}`}>
+                    <Link className='button' to={`/read/book/${parentDefinition?.hash}`}>
                       <DestinyKey type='more' />
                       {t('All pages')}
                     </Link>
