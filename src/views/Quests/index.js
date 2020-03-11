@@ -7,7 +7,6 @@ import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
-import * as bungie from '../../utils/bungie';
 import { itemComponents } from '../../utils/destinyItems/itemComponents';
 import ObservedImage from '../../components/ObservedImage';
 import { NoAuth, DiffProfile } from '../../components/BungieAuth';
@@ -27,8 +26,8 @@ class Quests extends React.Component {
     this.props.rebindTooltips();
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.hash !== this.props.hash) {
+  componentDidUpdate(p, s) {
+    if (p.hash !== this.props.hash) {
       window.scrollTo(0, 0);
 
       this.props.rebindTooltips();
@@ -60,6 +59,9 @@ class Quests extends React.Component {
 
         const masterworked = enums.enumerateItemState(item.state).masterworked;
         const tracked = enums.enumerateItemState(item.state).tracked;
+        const completed = item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length === 0;
+        const expired = !completed && nowMs > expiryMs;
+        const expiresSoon = !completed && nowMs + 7200 * 1000 > expiryMs;
 
         return {
           ...item,
@@ -75,6 +77,8 @@ class Quests extends React.Component {
                   linked: true,
                   masterworked,
                   tracked,
+                  completed,
+                  expired: expired || expiresSoon,
                   tooltip: (enableTooltip && viewport.width > 600) || (enableTooltip && !isQuest),
                   exotic: definitionItem.inventory?.tierType === 6
                 },
@@ -93,9 +97,9 @@ class Quests extends React.Component {
                 </div>
               ) : null}
               {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-              {item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length === 0 ? <div className='completed' /> : null}
-              {item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length > 0 && nowMs + 7200 * 1000 > expiryMs ? <div className='expires-soon' /> : null}
-              {item.itemComponents?.objectives && item.itemComponents?.objectives.filter(o => !o.complete).length > 0 ? (
+              {completed ? <div className='completed' /> : null}
+              {expired || expiresSoon ? <div className='expired' /> : null}
+              {!completed && !expired && item.itemComponents?.objectives?.length ? (
                 <ProgressBar
                   objectiveHash={item.itemComponents?.objectives[0].objectiveHash}
                   progress={item.itemComponents?.objectives.reduce((acc, curr) => {

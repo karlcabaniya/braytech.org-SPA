@@ -6,7 +6,6 @@ import { fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { removeMemberIds } from '../../../utils/paths';
 import * as utils from '../../../utils/destinyUtils';
-import ProgressBar from '../../UI/ProgressBar';
 import Button from '../../../components/UI/Button';
 import ObservedImage from '../../ObservedImage';
 import { Common } from '../../../svg';
@@ -27,8 +26,6 @@ class Characters extends React.Component {
     return (
       <div className={cx('characters-list', { responsive: viewport.width < 1024, mini })}>
         {characters.data.map(character => {
-
-          const progressSeasonalRank = utils.progressionSeasonRank(member);
 
           const lastActivity = lastActivities.find(a => a.characterId === character.characterId);
 
@@ -60,7 +57,6 @@ class Characters extends React.Component {
                 <div className='class'>{utils.classHashToString(character.classHash, character.genderHash)}</div>
                 <div className='species'>{utils.raceHashToString(character.raceHash, character.genderHash)}</div>
                 <div className='light'>{character.light}</div>
-                <ProgressBar hideCheck {...progressSeasonalRank} />
               </Button>
               {character.titleRecordHash ? <div className={cx('title', { colourised })}>
                 <div className='icon'>

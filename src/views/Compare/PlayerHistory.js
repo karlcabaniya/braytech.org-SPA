@@ -146,7 +146,7 @@ class PlayerHistory extends React.Component {
           fastest: activityDurationSecondsOrdered[0]?.activities[0]
         },
         sum: (obj.sum || 0) + (activityDurationSecondsOrdered[0]?.activities[0]?.values?.activityDurationSeconds?.basic?.value || 0),
-        2618436059: object === 'nightfalls' && enums.nightfalls[hash][2618436059] ? (obj[2618436059] || 0) + (activityDurationSecondsOrdered[0]?.activities[0]?.values?.activityDurationSeconds?.basic?.value || 0) : obj[2618436059]
+        affectsSpeedEmblemObjective: object === 'nightfalls' && enums.nightfalls[hash].affectsSpeedEmblemObjective ? (obj.affectsSpeedEmblemObjective || 0) + (activityDurationSecondsOrdered[0]?.activities[0]?.values?.activityDurationSeconds?.basic?.value || 0) : obj.affectsSpeedEmblemObjective
       };
 
       return obj;
@@ -193,11 +193,11 @@ class PlayerHistory extends React.Component {
               '—'
             )}
           </li>
-          {calculated[2618436059] ? (
-            <li className={cx('row', { na: calculated[2618436059] === 0 })}>
-              {calculated[2618436059] > 0 ? (
+          {calculated.affectsSpeedEmblemObjective ? (
+            <li className={cx('row', { na: calculated.affectsSpeedEmblemObjective === 0 })}>
+              {calculated.affectsSpeedEmblemObjective > 0 ? (
                 <>
-                  {Math.floor(calculated[2618436059] / 60)}m {calculated[2618436059] - Math.floor(calculated[2618436059] / 60) * 60}s
+                  {Math.floor(calculated.affectsSpeedEmblemObjective / 60)}m {calculated.affectsSpeedEmblemObjective - Math.floor(calculated.affectsSpeedEmblemObjective / 60) * 60}s
                 </>
               ) : (
                 '—'

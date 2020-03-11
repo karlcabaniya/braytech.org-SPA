@@ -8,28 +8,29 @@ async function getMember(membershipType, membershipId, silent = false) {
   // https://bungie-net.github.io/multi/schema_Destiny-DestinyComponentType.html
   
   const components = [
-    100, // Profiles
-    102, // ProfileInventories
-    103, // ProfileCurrencies
-    104, // ProfileProgression
-    200, // Characters
-    201, // CharacterInventories
-    202, // CharacterProgressions
-    204, // CharacterActivities
-    205, // CharacterEquipment
-    300, // ItemInstances
-    301, // ItemObjectives
-    302, // ItemPerks
-    303, // ItemRenderData
-    304, // ItemStats
-    305, // ItemSockets
-    306, // ItemTalentGrids
-    307, // ItemCommonData
-    308, // ItemPlugStates
-    309, // ItemPlugObjectives
-    310, // ItemReusablePlugs
-    800, // Collectibles
-    900  // Records
+    100,  // Profiles
+    102,  // ProfileInventories
+    103,  // ProfileCurrencies
+    104,  // ProfileProgression
+    200,  // Characters
+    201,  // CharacterInventories
+    202,  // CharacterProgressions
+    204,  // CharacterActivities
+    205,  // CharacterEquipment
+    300,  // ItemInstances
+    301,  // ItemObjectives
+    302,  // ItemPerks
+    303,  // ItemRenderData
+    304,  // ItemStats
+    305,  // ItemSockets
+    306,  // ItemTalentGrids
+    307,  // ItemCommonData
+    308,  // ItemPlugStates
+    309,  // ItemPlugObjectives
+    310,  // ItemReusablePlugs
+    800,  // Collectibles
+    900,  // Records
+    1100, // Metrics
   ];
 
   let withAuth = false;

@@ -86,34 +86,6 @@
   font-size: 18px;
 }
 
-.characters-list .char .button .progress-bar {
-  position: absolute;
-  left: 2px;
-  bottom: 2px;
-  height: 11px;
-  width: calc(100% - 4px);
-  height: 11px;
-}
-
-.characters-list .char .button .progress-bar .bar::before {
-  content: ' ';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-}
-
-.characters-list .char .button .progress-bar .bar .text {
-  display: none;
-}
-
-.characters-list .char .button .progress-bar .bar .fill {
-  background-color: rgba(255, 255, 255, 0.8);
-  transition: width 1s;
-  opacity: 0;
-}
-
 .characters-list .char .title {
   margin: 10px 0 0 0;
   padding: 0 4px;
@@ -244,10 +216,6 @@
     right: 2%;
     font-size: 14px;
   }
-  
-  .characters-list.responsive .char .button .progress-bar {
-    height: 7px;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -291,10 +259,6 @@
     top: 51%;
     right: 2%;
     font-size: 14px;
-  }
-
-  .characters-list .char .button .progress-bar {
-    height: 7px;
   }
 }
 
@@ -341,8 +305,7 @@
   font-size: 16px;
 }
 
-.characters-list.mini .char .button .species,
-.characters-list.mini .char .button .progress-bar {
+.characters-list.mini .char .button .species {
   display: none;
 }
 

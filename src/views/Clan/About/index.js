@@ -20,7 +20,7 @@ import './styles.css';
 function BannerPerks(props) {
   const { level } = props;
 
-  const definitionBanner = manifest.DestinyInventoryItemDefinition[2873099163];
+  const definitionBanner = manifest.DestinyInventoryItemDefinition[684040281];
   const perks =
     definitionBanner &&
     definitionBanner.sockets.socketEntries

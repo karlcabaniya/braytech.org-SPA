@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
-import * as utils from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
-import ProgressBar from '../../UI/ProgressBar';
 
 import './styles.css';
 
@@ -22,8 +20,6 @@ class CharacterEmblem extends React.Component {
       const characterId = this.props.characterId || member.characterId;
 
       const character = characters.data.find(c => c.characterId === characterId);
-
-      const progressSeasonalRank = utils.progressionSeasonRank(member);
 
       return (
         <div className={cx('character-emblem', { responsive })}>
@@ -40,7 +36,6 @@ class CharacterEmblem extends React.Component {
             <div className='level'>
               {t('Level')} {character.baseCharacterLevel}
             </div>
-            <ProgressBar hideCheck {...progressSeasonalRank} />
           </div>
         </div>
       );

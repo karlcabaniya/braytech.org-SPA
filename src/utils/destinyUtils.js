@@ -106,6 +106,10 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
     {
       recordHash: 2282573299,
       objectiveHash: 18453481
+    },
+    {
+      recordHash: 1745319359,
+      objectiveHash: 1305109085
     }
   ].map(season => {
     const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];

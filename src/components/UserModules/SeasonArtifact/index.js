@@ -83,6 +83,7 @@ class SeasonArtifact extends React.Component {
     const characterArtifact = characterProgressions.seasonalArtifact;
 
     const definitionArtifact = profileArtifact.artifactHash && manifest.DestinyArtifactDefinition[profileArtifact.artifactHash];
+    const definitionEquipment = manifest.DestinyInventoryItemDefinition[equippedArtifact.itemHash];
     // const definitionVendor = profileArtifact.artifactHash && manifest.DestinyVendorDefinition[profileArtifact.artifactHash];
 
     // let string = ''
@@ -115,6 +116,7 @@ class SeasonArtifact extends React.Component {
       );
     }
 
+
     return (
       <div className='seasonal-artifact'>
         <div className='head'>
@@ -126,11 +128,11 @@ class SeasonArtifact extends React.Component {
               <Items items={[equippedArtifact]} />
             </ul>
             <div className='text'>
-              <div className='name'>{definitionArtifact.displayProperties.name}</div>
+              <div className='name'>{definitionEquipment.displayProperties.name}</div>
               <div className='type'>{t('Seasonal Artifact')}</div>
             </div>
             <div className='description'>
-              <p>{definitionArtifact.displayProperties.description}</p>
+              <p>{definitionEquipment.displayProperties.description}</p>
             </div>
           </div>
         </div>

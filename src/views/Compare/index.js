@@ -127,7 +127,7 @@ class Compare extends React.Component {
                     {object === 'nightfalls' ? (
                       <li className='row'>
                         <div className='text tooltip' data-hash='1987790789'>
-                          {t('{{object}} duration', { object: manifest.DestinyCollectibleDefinition[2618436059].displayProperties.name })}
+                          {t('{{object}} duration', { object: manifest.DestinyCollectibleDefinition[319846607].displayProperties.name })}
                         </div>
                       </li>
                     ) : null}
@@ -166,7 +166,7 @@ class Compare extends React.Component {
           <div className='buff'>
             <div className='module'>
               <h3>{t('Nightfalls')}</h3>
-              <ReactMarkdown className='text' source={t('Compare Nightfall strike activity durations between players for bragging rights and to track progress towards the _{{emblemName}}_ emblem.', { emblemName: manifest.DestinyCollectibleDefinition[2618436059].displayProperties.name })} />
+              <ReactMarkdown className='text' source={t('Compare Nightfall strike activity durations between players for bragging rights and to track progress towards the _{{emblemName}}_ emblem.', { emblemName: manifest.DestinyCollectibleDefinition[319846607].displayProperties.name })} />
               <Link className='button' to={member.membershipId ? `/compare/nightfalls?members=${member.membershipType}:${member.membershipId}` : `/compare/nightfalls`}>
                 <div className='text'>{t('Compare Nightfalls')}</div>
               </Link>
