@@ -4,6 +4,7 @@ import i18n from 'i18next';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
 import * as SVG from '../svg';
+import { unixTimestampToDuration } from './i18n';
 
 export const isProfileRoute = location => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
@@ -24,11 +25,21 @@ export function metricImages(metricHash) {
 export function displayValue(value, style = 0, objectiveHash) {
   const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(style);
 
-  console.log(enumerated)
+  console.log(manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle, enumerated)
 
-  // if (enumerated.percentage) {
-  //   return `${value}%`;
-  // }
+  if (enumerated.percentage || enumerated.explicitPercentage) {
+    return `${value}%`;
+  }
+
+  if (enumerated.rawFloat) {
+    return (value / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  if (enumerated.timeDuration) {
+    const duration = unixTimestampToDuration(value);
+
+    return `${duration.hours}:${duration.minutes}:${duration.seconds}`;
+  }
 
   return value.toLocaleString();
 }

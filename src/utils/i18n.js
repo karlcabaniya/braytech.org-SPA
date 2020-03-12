@@ -175,6 +175,20 @@ export const timestampToDuration = (timestamp, start = moment()) => {
   };
 };
 
+export const unixTimestampToDuration = seconds => {
+  const duration = moment.duration(seconds);
+
+  return {
+    years: duration.get('years'),
+    months: duration.get('months'),
+    days: duration.get('days'),
+    hours: duration.get('hours'),
+    minutes: duration.get('minutes'),
+    seconds: duration.get('seconds'),
+    milliseconds: duration.get('milliseconds')
+  };
+};
+
 export const fromNow = (timestamp, abbreviated = false) => {
   if (abbreviated) {
     return moment(timestamp)

@@ -16,8 +16,6 @@ class CollectionsBadge extends React.Component {
 
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
-    const characters = member.data.profile.characters.data;
-    const character = characters.find(c => c.characterId === member.characterId);
 
     const definitionBadge = manifest.DestinyPresentationNodeDefinition[hash];
 
@@ -60,7 +58,7 @@ class CollectionsBadge extends React.Component {
         });
 
         classStates.push({
-          class: enums.classStrings[enums.associationsCollectionsBadgesClasses[definitionNode.hash]],
+          classHash: enums.associationsCollectionsBadgesClasses[definitionNode.hash],
           name: definitionNode.displayProperties.name,
           states: classState
         });
@@ -76,10 +74,12 @@ class CollectionsBadge extends React.Component {
           completed++;
         }
 
+        const Icon = utils.classHashToIcon(obj.classHash);
+
         return (
           <div key={i} className='progress'>
             <div className='class-icon'>
-              <span className={`destiny-class_${obj.class}`} />
+              <Icon />
             </div>
             <div className='text'>
               <div className='title'>{obj.name}</div>

@@ -93,9 +93,7 @@ class Metrics extends React.Component {
         return null;
       }
 
-      const objectiveProgress = metrics[definitionMetric.hash].objectiveProgress;
-
-      console.log(objectiveProgress)
+      const objectiveProgress = metrics?.[definitionMetric.hash].objectiveProgress || {};
 
       const traitHash = definitionMetric.traitHashes.find(h => h !== 1434215347);
       const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];

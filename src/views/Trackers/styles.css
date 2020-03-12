@@ -61,7 +61,10 @@
   pointer-events: none;
 }
 
-
+#trackers .node .entries .info {
+  padding: 2rem 0;
+  text-align: center;
+}
 
 
 

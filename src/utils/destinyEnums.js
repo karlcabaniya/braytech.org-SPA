@@ -174,16 +174,20 @@ export const enumerateVendorItemStatus = state => ({
 });
 
 export const enumerateUnlockValueUIStyle = state => ({
-  automatic: flagEnum(state, 0),
-  fraction: flagEnum(state, 1),
-  checkbox: flagEnum(state, 2),
-  percentage: flagEnum(state, 3),
-  datetime: flagEnum(state, 4),
-  fractionFloat: flagEnum(state, 5),
-  integer: flagEnum(state, 6),
-  timeDuration: flagEnum(state, 7),
-  hidden: flagEnum(state, 8),
-  multiplier: flagEnum(state, 9)
+  automatic: state === 0,
+  fraction: state === 1,
+  checkbox: state === 2,
+  percentage: state === 3,
+  datetime: state === 4,
+  fractionFloat: state === 5,
+  integer: state === 6,
+  timeDuration: state === 7,
+  hidden: state === 8,
+  multiplier: state === 9,
+  greenPips: state === 10,
+  redPips: state === 11,
+  explicitPercentage: state === 12,
+  rawFloat: state === 13
 });
 
 export const bookCovers = {
