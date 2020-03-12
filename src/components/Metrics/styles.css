@@ -96,6 +96,7 @@
 
 .list.metric-items li .progress-bar {
   grid-column: span 2;
+  height: 7px;
 }
 
 .list.metric-items > li .progress-bar .bar .fill {
