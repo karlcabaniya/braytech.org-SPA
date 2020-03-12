@@ -123,7 +123,7 @@ class Header extends React.Component {
       },
       {
         name: t('Trackers'),
-        desc: t('Statistics regarding your Guardian which can be applied to your equipped emblem'),
+        desc: t('Stat trackers for bragging rights and gilding memories'),
         slug: '/trackers',
         exact: false,
         profile: true,

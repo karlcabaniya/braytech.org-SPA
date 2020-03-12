@@ -115,7 +115,7 @@ class TrackersNode extends React.Component {
               </ul>
             ) :
               (
-                <div className='info'>{t("There's nothing here")}</div>
+                <div className='info'>{t("There's nothing here yet")}</div>
               )
             }
           </div>
