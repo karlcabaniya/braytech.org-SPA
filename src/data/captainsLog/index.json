@@ -1033,5 +1033,10 @@
     "date": "2020-03-10T17:00:00.000Z",
     "version": "2.19.1",
     "content": "Welcome to Destiny.2.S10E01.Season.of.the.Worthy.RAW-Braytech"
+  },
+  {
+    "date": "2020-03-12T15:08:56.496Z",
+    "version": "2.20.0",
+    "content": "- integrated new _Stat Trackers_ game feature as the _Trackers_ view"
   }
 ]
