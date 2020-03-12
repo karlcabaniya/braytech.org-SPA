@@ -102,22 +102,20 @@ class Metrics extends React.Component {
 
       return (
         <li key={h} className={cx({ completed: objectiveProgress.complete })}>
-          <div className='properties'>
-            <div className='metric'>
-              <div className='name'>{definitionMetric.displayProperties.name}</div>
-              <div className='trait'>{definitionTrait.displayProperties.name}</div>
-              <div className='description'>{utils.stringToIcons(definitionMetric.displayProperties.description)}</div>
-            </div>
-            <div className='objective'>
-              <ProgressBar {...objectiveProgress} hideDescription />
+          <div className='metric'>
+            <div className='name'>{definitionMetric.displayProperties.name}</div>
+            <div className='progress'>{utils.displayValue(objectiveProgress.progress, objectiveProgress.objectiveHash)}</div>
+            <div className='description'>{utils.stringToIcons(definitionMetric.displayProperties.description)}</div>
+          </div>
+          <div className='icon'>
+            <div className={cx('gonfalon', { complete: objectiveProgress.complete })}>
+              <ObservedImage className='image banner' src={`https://www.bungie.net${images.banner}`} />
+              <ObservedImage className='image trait' src={`https://www.bungie.net${images.trait}`} />
+              <ObservedImage className='image metric' src={`https://www.bungie.net${images.metric}`} />
+              <ObservedImage className='image banner complete' src='/static/images/extracts/ui/metrics/01E3-10F0.png' />
             </div>
           </div>
-          <div className={cx('gonfalon', { complete: objectiveProgress.complete })}>
-            <ObservedImage className='image banner' src={`https://www.bungie.net${images.banner}`} />
-            <ObservedImage className='image trait' src={`https://www.bungie.net${images.trait}`} />
-            <ObservedImage className='image metric' src={`https://www.bungie.net${images.metric}`} />
-            <ObservedImage className='image banner complete' src='/static/images/extracts/ui/metrics/01E3-10F0.png' />
-          </div>
+          <ProgressBar {...objectiveProgress} hideCheck hideFraction hideDescription />
         </li>
       );
     });

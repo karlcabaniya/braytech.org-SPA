@@ -22,8 +22,8 @@ export function metricImages(metricHash) {
   }
 }
 
-export function displayValue(value, style = 0, objectiveHash) {
-  const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(style);
+export function displayValue(value, objectiveHash, styleOverride = 0) {
+  const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(styleOverride);
 
   console.log(manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle, enumerated)
 
@@ -38,7 +38,7 @@ export function displayValue(value, style = 0, objectiveHash) {
   if (enumerated.timeDuration) {
     const duration = unixTimestampToDuration(value);
 
-    return `${duration.hours}:${duration.minutes}:${duration.seconds}`;
+    return `${duration.hours}:${duration.minutes.toString().padStart(2, '0')}:${duration.seconds.toString().padStart(2, '0')}`;
   }
 
   return value.toLocaleString();

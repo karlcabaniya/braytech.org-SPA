@@ -57,7 +57,7 @@ class Characters extends React.Component {
                 />
                 {!mini && metricImages ? (
                   <div className='metric'>
-                    <div className='progress'>{utils.displayValue(emblem.metricObjective.progress, 0, emblem.metricObjective.objectiveHash)}</div>
+                    <div className='progress'>{utils.displayValue(emblem.metricObjective.progress, emblem.metricObjective.objectiveHash)}</div>
                     <div className={cx('gonfalon', { complete: emblem.metricObjective.complete })}>
                       <ObservedImage className='image banner' src={`https://www.bungie.net${metricImages.banner}`} />
                       <ObservedImage className='image trait' src={`https://www.bungie.net${metricImages.trait}`} />
