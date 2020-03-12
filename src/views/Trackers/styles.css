@@ -1,0 +1,20 @@
+#trackers {
+  padding: 4rem 3rem 3rem;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  #trackers {
+    padding: 3rem 2rem 2rem;
+  }
+
+  #trackers .header .name {
+    font-size: 24px;
+  }
+}

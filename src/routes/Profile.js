@@ -7,6 +7,7 @@ import Character from '../views/Character';
 import Reports from '../views/Reports';
 import Collections from '../views/Collections';
 import Triumphs from '../views/Triumphs';
+import Trackers from '../views/Trackers';
 import Checklists from '../views/Checklists';
 import ThisWeek from '../views/ThisWeek';
 import Now from '../views/Now';
@@ -53,11 +54,12 @@ class ProfileRoutes extends React.Component {
           <Route path={`${match.url}/character`} exact component={Character} />
           <Route path={`${match.url}/collections/:primary?/:secondary?/:tertiary?/:quaternary?/:quinary?`} render={route => <Collections {...route} />} />
           <Route path={`${match.url}/triumphs/:primary?/:secondary?/:tertiary?/:quaternary?`} render={route => <Triumphs {...route} />} />
-          <Route path={`${match.url}/this-week/:view?`} render={route => <ThisWeek {...route} />} />
-          <Route path={`${match.url}/reports/:type?/:mode?/:offset?`} render={route => <Reports {...route} />} />
+          <Route path={`${match.url}/trackers/:hash1(\\d+)?/:hash2(\\d+)?/:hash3(\\d+)?`} component={Trackers} />
+          <Route path={`${match.url}/this-week`} exact component={ThisWeek} />
+          <Route path={`${match.url}/reports/:type?/:mode(\\d+)?/:offset(\\d+)?`} render={route => <Reports {...route} />} />
           <Route path={`${match.url}/now/:view?`} render={route => <Now {...route} />} />
           <Route path={`${match.url}/quests/bounty-tracker/:sort?`} render={route => <BountyTracker {...route} />} />
-          <Route path={`${match.url}/quests/:hash?`} render={route => <Quests {...route} />} />
+          <Route path={`${match.url}/quests/:hash(\\d+)?`} render={route => <Quests {...route} />} />
           <Route path={`${match.url}/`} render={route => <Redirect to={{ pathname: `${match.url}/now` }} />} />
         </Switch>
       </>

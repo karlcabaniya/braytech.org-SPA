@@ -122,6 +122,15 @@ class Header extends React.Component {
         group: 0
       },
       {
+        name: t('Trackers'),
+        desc: t('Statistics regarding your Guardian which can be applied to your equipped emblem'),
+        slug: '/trackers',
+        exact: false,
+        profile: true,
+        inline: !isProfileRoute || viewport.width >= 1600,
+        group: 0
+      },
+      {
         name: t('Checklists'),
         desc: t('Ghost scans and item checklists spanning the Sol system'),
         slug: '/checklists',

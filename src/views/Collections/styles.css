@@ -70,8 +70,9 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#collections .sidebar .badges .badge:not(.fullComplete) {
-  border-radius: 4%;
+#collections .sidebar .badges .badge:not(.fullComplete) .image {
+  border-radius: 2.4%;
+  overflow: hidden;
 }
 
 #collections .sidebar .badges .list li.badge::before {
@@ -301,7 +302,8 @@
   flex-basis: 100%;
   display: flex;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 2.4%;
+  overflow: hidden;
   background-color: rgba(255, 255, 255, 0.1);
 }
 

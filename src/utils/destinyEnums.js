@@ -206,7 +206,9 @@ export const bookCovers = {
   2341654316: '0597_02AF_00.png',
   1596399902: '0597_02B6_00.png',
   2487458163: '0709-00003972.png',
-  2090388805: '0709-00003964.png'
+  2090388805: '0709-00003964.png',
+  2454250131: '0912-0FBF.png',
+  2410366478: '0912-0FC6.png'
 };
 
 export const sealImages = {
@@ -223,7 +225,10 @@ export const sealImages = {
   3303651244: '0597_057C_00.png',
   4097789885: '0597_0573_00.png',
   2209950401: '0597_056A_00.png',
-  3303651245: '0709-00003850.png'
+  3303651245: '0709-00003850.png',
+  2699827343: '0912-0F5F.png',
+  2418157809: '0912-0F4C.png',
+  1473677990: '0912-0CDD.png'
 };
 
 export const badgeImages = {
@@ -243,7 +248,8 @@ export const badgeImages = {
   2388540594: '0597_045D_00.png',
   3267852685: '0597_0464_00.png',
   223465203: '0597_048E_00.png',
-  4257248973: '0709-00003436.png'
+  4257248973: '0709-00003436.png',
+  564984975: '0912-0E95.png'
 };
 
 export const associationsCollectionsBadgesClasses = {
@@ -895,6 +901,158 @@ export const seasonalMods = {
       hash: 3979891916,
       active: '/static/images/extracts/ui/artifact/3360014173/0593_0437_00.png',
       inactive: '/static/images/extracts/ui/artifact/3360014173/0593_0439_00.png'
+    }
+  },
+  2200172911: {
+    // Anti-Barrier SMG
+    2504808124: {
+      hash: 2504808124,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-012C.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-012D.png'
+    },
+    // Anti-Barrier Sidearm
+    2504808127: {
+      hash: 2504808127,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0135.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0137.png'
+    },
+    // Overload Rounds
+    2504808126: {
+      hash: 2504808126,
+      active: '/static/images/extracts/ui/artifact/2200172911/0593-0473.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0593-0476.png'
+    },
+    // Unstoppable Hand Cannon
+    2504808121: {
+      hash: 2504808121,
+      active: '/static/images/extracts/ui/artifact/2200172911/0593-0488.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0593-048A.png'
+    },
+    // Overload Rounds (Sidearms and Hand Cannons)
+    2504808120: {
+      hash: 2504808120,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-013E.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0140.png'
+    },
+    // Enhanced Unflinching Auto Rifle Aim
+    739803547: {
+      hash: 739803547,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0093.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0095.png'
+    },
+    // Enhanced Scatter Projectile Targeting
+    739803544: {
+      hash: 739803544,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-009C.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-009E.png'
+    },
+    // Enhanced Auto Rifle Loader
+    739803545: {
+      hash: 739803545,
+      active: '/static/images/extracts/ui/artifact/2200172911/0593-03D3.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0593-03D4.png'
+    },
+    // Enhanced Small Arms Loader
+    739803550: {
+      hash: 739803550,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00A5.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00A7.png'
+    },
+    // Enhanced Sword Scavenger
+    739803551: {
+      hash: 739803551,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00AE.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00B0.png'
+    },
+    // Flourishing Blade
+    1974622780: {
+      hash: 1974622780,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00B6.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00B9.png'
+    },
+    // Splintered Gladius
+    1974622783: {
+      hash: 1974622783,
+      active: '/static/images/extracts/ui/artifact/2200172911/0708-0762.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0708-0764.png'
+    },
+    // While Ye May
+    1974622782: {
+      hash: 1974622782,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00C0.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00C2.png'
+    },
+    // Prized Shooting
+    1974622777: {
+      hash: 1974622777,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00C9.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00CB.png'
+    },
+    // Automatic Prize
+    1974622776: {
+      hash: 1974622776,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00D2.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00D4.png'
+    },
+    // Disrupting Blade
+    820036193: {
+      hash: 820036193,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00DB.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00DD.png'
+    },
+    // Surge Detonators
+    820036194: {
+      hash: 820036194,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00E3.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00E6.png'
+    },
+    // Hammer of the Warmind
+    820036195: {
+      hash: 820036195,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00ED.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00EF.png'
+    },
+    // Inferno Whip
+    820036196: {
+      hash: 820036196,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00F6.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-00F7.png'
+    },
+    // Flare-Up
+    820036197: {
+      hash: 820036197,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-00FF.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0100.png'
+    },
+    // Passive Guard
+    3235387874: {
+      hash: 3235387874,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0108.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-010A.png'
+    },
+    // Soul of the Praxic Fire
+    3235387873: {
+      hash: 3235387873,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0111.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0113.png'
+    },
+    // Tyrant's Surge
+    3235387872: {
+      hash: 3235387872,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0119.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-011C.png'
+    },
+    // Thunder Coil
+    3235387879: {
+      hash: 3235387879,
+      active: '/static/images/extracts/ui/artifact/2200172911/0593-042D.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0593-042F.png'
+    },
+    // Lightning Strikes Twice
+    3235387878: {
+      hash: 3235387878,
+      active: '/static/images/extracts/ui/artifact/2200172911/0912-0123.png',
+      inactive: '/static/images/extracts/ui/artifact/2200172911/0912-0125.png'
     }
   }
 };
