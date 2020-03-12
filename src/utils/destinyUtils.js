@@ -11,8 +11,13 @@ export function metricImages(metricHash) {
   const definitionMetric = manifest.DestinyMetricDefinition[metricHash];
   const definitionParent = manifest.DestinyPresentationNodeDefinition[definitionMetric.parentNodeHashes[0]];
 
+  const traitHash = definitionMetric.traitHashes.find(h => h !== 1434215347);
+  const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];
+
   return {
-    banner: definitionParent.displayProperties.icon || '/img/misc/missing_icon_d2.png'
+    banner: definitionParent?.displayProperties.icon || '/img/misc/missing_icon_d2.png',
+    trait: definitionTrait?.displayProperties.icon || '/img/misc/missing_icon_d2.png',
+    metric: definitionMetric?.displayProperties.iconSequences?.[0].frames?.[definitionMetric.displayProperties.iconSequences[0].frames.length - 1] || '/img/misc/missing_icon_d2.png'
   }
 }
 
@@ -21,9 +26,9 @@ export function displayValue(value, style = 0, objectiveHash) {
 
   console.log(enumerated)
 
-  if (enumerated.percentage) {
-    return `${value}%`;
-  }
+  // if (enumerated.percentage) {
+  //   return `${value}%`;
+  // }
 
   return value.toLocaleString();
 }

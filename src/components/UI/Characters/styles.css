@@ -99,6 +99,33 @@
   padding-bottom: 22%;
 }
 
+.characters-list .char .button .metric .gonfalon .trait {
+  top: unset;
+  bottom: 38%;
+  left: 0;
+  width: 100%;
+  height: unset;
+  padding-bottom: 100%;
+}
+
+.characters-list .char .button .metric .gonfalon .metric {
+  top: unset;
+  bottom: 17%;
+  left: 0;
+  width: 100%;
+  height: unset;
+  padding-bottom: 100%;
+  background-size: 160%;
+}
+
+.characters-list .char .button .metric .gonfalon .banner.complete.dl {
+  opacity: 0;
+}
+
+.characters-list .char .button .metric .gonfalon.complete .banner.complete.dl {
+  opacity: 1;
+}
+
 .characters-list .char .title {
   margin: 10px 0 0 0;
   padding: 0 4px;

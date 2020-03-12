@@ -94,12 +94,12 @@ class BadgeNode extends React.Component {
         completed++;
       }
 
-      const ClassIcon = utils.classHashToIcon(obj.classHash);
+      const Icon = utils.classHashToIcon(obj.classHash);
 
       return (
         <div key={i} className='progress'>
           <div className='class-icon'>
-            <ClassIcon />
+            <Icon />
           </div>
           <div className='text'>
             <div className='title'>{obj.name}</div>
@@ -160,11 +160,11 @@ class BadgeNode extends React.Component {
                   }
                 };
 
-                const ClassIcon = utils.classHashToIcon(enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]);
+                const Icon = utils.classHashToIcon(enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]);
 
                 return (
                   <li key={p.presentationNodeHash} className='linked'>
-                    <ClassIcon />
+                    <Icon />
                     <ProfileNavLink isActive={isActive} to={`/collections/badge/${definitionBadge.hash}/${p.presentationNodeHash}`} onClick={this.hanlder__goToEntriesTop} />
                   </li>
                 )

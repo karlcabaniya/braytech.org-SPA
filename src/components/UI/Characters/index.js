@@ -40,7 +40,7 @@ class Characters extends React.Component {
           const to = !publicPaths.includes(goto) ? `/${member.membershipType}/${member.membershipId}/${character.characterId}${goto}` : goto;
 
           const emblem = characterEquipment[character.characterId].items.find(i => i.bucketHash === 4274335291);
-          const metric = emblem?.metricHash && utils.metricImages(emblem.metricHash);
+          const metricImages = emblem?.metricHash && utils.metricImages(emblem.metricHash);
 
           console.log(emblem);
 
@@ -55,12 +55,14 @@ class Characters extends React.Component {
                   })}
                   src={`https://www.bungie.net${emblemPath || '/img/misc/missing_icon_d2.png'}`}
                 />
-                {!mini && metric ? (
+                {!mini && metricImages ? (
                   <div className='metric'>
                     <div className='progress'>{utils.displayValue(emblem.metricObjective.progress, 0, emblem.metricObjective.objectiveHash)}</div>
-                    <div className='gonfalon'>
-                      <ObservedImage className='image banner' src={`https://www.bungie.net${metric.banner}`} />
-                      {emblem.metricObjective.complete ? <ObservedImage className='image banner' src='/static/images/extracts/ui/metrics/01E3-10F0.png' /> : null}
+                    <div className={cx('gonfalon', { complete: emblem.metricObjective.complete })}>
+                      <ObservedImage className='image banner' src={`https://www.bungie.net${metricImages.banner}`} />
+                      <ObservedImage className='image trait' src={`https://www.bungie.net${metricImages.trait}`} />
+                      <ObservedImage className='image metric' src={`https://www.bungie.net${metricImages.metric}`} />
+                      <ObservedImage className='image banner complete' src='/static/images/extracts/ui/metrics/01E3-10F0.png' />
                     </div>
                   </div>
                 ) : null}

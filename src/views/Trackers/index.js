@@ -12,8 +12,6 @@ import { Views } from '../../svg';
 
 import './styles.css';
 
-// const metrics = this.props.member.data.profile.metrics.data.metrics;
-
 const traitHashes = [
   {
     hash: 1434215347,
@@ -38,8 +36,8 @@ class TrackersNode extends React.Component {
 
   hanlder__goToEntriesTop = e => {
     const element = this.entries.current;
-    window.scrollTo(0, (element.offsetTop - element.scrollTop + element.clientTop - 34));
-  }
+    window.scrollTo(0, element.offsetTop - element.scrollTop + element.clientTop - 34);
+  };
 
   render() {
     const { hash1, hash2, hash3 } = this.props.match.params;
@@ -47,11 +45,7 @@ class TrackersNode extends React.Component {
     const definitionPrimary = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.metricsRootNode];
     const definitionSecondary = manifest.DestinyPresentationNodeDefinition[hash1 || definitionPrimary?.children?.presentationNodes?.[0].presentationNodeHash];
 
-    console.log(definitionPrimary, definitionSecondary);
-    
-    definitionSecondary.children.metrics.forEach(m => {
-      console.log(manifest.DestinyMetricDefinition[m.metricHash].displayProperties.name, manifest.DestinyMetricDefinition[m.metricHash].traitHashes)
-    });
+    const hashes = definitionSecondary.children.metrics.filter(m => hash2 ? manifest.DestinyMetricDefinition[m.metricHash].traitHashes.indexOf(+hash2) > -1 : manifest.DestinyMetricDefinition[m.metricHash].traitHashes.indexOf(traitHashes[2].hash) > -1).map(m => m.metricHash);
 
     return (
       <div className='view presentation-node' id='trackers'>
@@ -75,7 +69,6 @@ class TrackersNode extends React.Component {
                   if (hash1 === undefined && definitionPrimary.children.presentationNodes.indexOf(child) === 0) {
                     return true;
                   } else if (match) {
-                    console.log(match, location);
                     return true;
                   } else {
                     return false;
@@ -112,13 +105,19 @@ class TrackersNode extends React.Component {
                       <trait.icon />
                       <ProfileNavLink isActive={isActive} to={`/trackers/${definitionSecondary.hash}/${trait.hash}`} onClick={this.hanlder__goToEntriesTop} />
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
-            <ul className='list tertiary metric-items'>
-              <Metrics hashes={definitionSecondary.children.metrics.map(m => m.metricHash)} />
-            </ul>
+            {hashes.length ? (
+              <ul className='list tertiary metric-items'>
+                <Metrics hashes={hashes} highlight={hash3} />
+              </ul>
+            ) :
+              (
+                <div className='info'>{t("There's nothing here")}</div>
+              )
+            }
           </div>
         </div>
       </div>

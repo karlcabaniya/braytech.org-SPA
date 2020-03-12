@@ -66,6 +66,17 @@
 
 
 
+@media screen and (max-width: 768px) {
+  #trackers .node .entries {
+    margin: 2rem 0 0;
+  }
+
+  #trackers .node .entries .filters {
+    left: 0;
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #trackers {
     padding: 3rem 2rem 2rem;
@@ -73,10 +84,5 @@
 
   #trackers .header .name {
     font-size: 24px;
-  }
-
-  #trackers .node .entries .filters {
-    left: 0;
-    width: 100%;
   }
 }

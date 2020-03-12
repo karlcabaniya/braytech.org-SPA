@@ -2,21 +2,13 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
-import { orderBy } from 'lodash';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
-import { commonality } from '../../utils/destinyUtils';
-import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
-import * as paths from '../../utils/paths';
-import dudRecords from '../../data/dudRecords';
-import { ProfileLink } from '../../components/ProfileLink';
-import Collectibles from '../../components/Collectibles';
+import * as utils from '../../utils/destinyUtils';
 import ProgressBar from '../UI/ProgressBar';
 import ObservedImage from '../ObservedImage';
-import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -92,23 +84,41 @@ class Metrics extends React.Component {
   render() {
     const { t, hashes, member, selfLinkFrom } = this.props;
     const highlight = +this.props.highlight || false;
+    const metrics = member.data?.profile.metrics.data.metrics;
     
     return hashes.map((hash, h) => {
       const definitionMetric = manifest.DestinyMetricDefinition[hash];
 
-      if (definitionMetric.redacted) {
+      if (!definitionMetric || definitionMetric.redacted) {
         return null;
       }
+
+      const objectiveProgress = metrics[definitionMetric.hash].objectiveProgress;
+
+      console.log(objectiveProgress)
 
       const traitHash = definitionMetric.traitHashes.find(h => h !== 1434215347);
       const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];
 
+      const images = utils.metricImages(definitionMetric.hash);
+
       return (
-        <li key={h}>
-          <div className='text'>
-            <div className='name'>{definitionMetric.displayProperties.name}</div>
-            <div className='trait'>{definitionTrait.displayProperties.name}</div>
-            <div className='description'>{definitionMetric.displayProperties.description}</div>
+        <li key={h} className={cx({ completed: objectiveProgress.complete })}>
+          <div className='properties'>
+            <div className='metric'>
+              <div className='name'>{definitionMetric.displayProperties.name}</div>
+              <div className='trait'>{definitionTrait.displayProperties.name}</div>
+              <div className='description'>{utils.stringToIcons(definitionMetric.displayProperties.description)}</div>
+            </div>
+            <div className='objective'>
+              <ProgressBar {...objectiveProgress} hideDescription />
+            </div>
+          </div>
+          <div className={cx('gonfalon', { complete: objectiveProgress.complete })}>
+            <ObservedImage className='image banner' src={`https://www.bungie.net${images.banner}`} />
+            <ObservedImage className='image trait' src={`https://www.bungie.net${images.trait}`} />
+            <ObservedImage className='image metric' src={`https://www.bungie.net${images.metric}`} />
+            <ObservedImage className='image banner complete' src='/static/images/extracts/ui/metrics/01E3-10F0.png' />
           </div>
         </li>
       );

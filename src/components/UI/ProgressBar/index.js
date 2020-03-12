@@ -14,7 +14,7 @@ class ProgressBar extends React.Component {
   }
 
   render() {
-    const { classNames, hideCheck, hideFraction, hideFractionDenominator, chunky, progressionHash, objectiveHash } = this.props;
+    const { classNames, hideCheck, hideFraction, hideFractionDenominator, hideDescription, chunky, progressionHash, objectiveHash } = this.props;
 
     let progress = this.props.progress || 0;
     let completionValue = this.props.completionValue || 0;
@@ -48,7 +48,7 @@ class ProgressBar extends React.Component {
         {!hideCheck ? <div className={cx('check', { ed: completionValue && complete })} /> : null}
         <div className={cx('bar', { full: hideCheck })}>
           <div className='text'>
-            <div className='description'>{description}</div>
+            {!hideDescription ? <div className='description'>{description}</div> : <div />}
             {completionValue && !hideFraction ? (
               <div className='fraction'>
                 {hideFractionDenominator ? progress : `${progress}/${completionValue}`}
