@@ -34,7 +34,7 @@ const traitHashes = [
 class TrackersNode extends React.Component {
   entries = React.createRef();
 
-  hanlder__goToEntriesTop = e => {
+  hanlder_goToEntriesTop = e => {
     const element = this.entries.current;
     window.scrollTo(0, element.offsetTop - element.scrollTop + element.clientTop - 34);
   };
@@ -68,6 +68,8 @@ class TrackersNode extends React.Component {
                 const isActive = (match, location) => {
                   if (hash1 === undefined && definitionPrimary.children.presentationNodes.indexOf(child) === 0) {
                     return true;
+                  } else if (hash1 === child.presentationNodeHash) {
+                    return true;
                   } else if (match) {
                     return true;
                   } else {
@@ -80,7 +82,7 @@ class TrackersNode extends React.Component {
                     <div className='text'>
                       <div className='name'>{definitionNode.displayProperties.name}</div>
                     </div>
-                    <ProfileNavLink isActive={isActive} to={`/trackers/${definitionNode.hash}`} />
+                    <ProfileNavLink isActive={isActive} to={`/${['trackers', definitionNode.hash, hash2].filter(p => p).join('/')}`} />
                   </li>
                 );
               })}
@@ -103,7 +105,7 @@ class TrackersNode extends React.Component {
                   return (
                     <li key={t} className='linked'>
                       <trait.icon />
-                      <ProfileNavLink isActive={isActive} to={`/trackers/${definitionSecondary.hash}/${trait.hash}`} onClick={this.hanlder__goToEntriesTop} />
+                      <ProfileNavLink isActive={isActive} to={`/trackers/${definitionSecondary.hash}/${trait.hash}`} onClick={this.hanlder_goToEntriesTop} />
                     </li>
                   );
                 })}

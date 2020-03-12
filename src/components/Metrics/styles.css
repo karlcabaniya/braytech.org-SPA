@@ -34,12 +34,11 @@
   position: relative;
   width: 100%;
   padding-bottom: 291.666666%;
-  margin: 0 0 1rem;
 }
 
 .list.metric-items li .gonfalon .trait {
   top: unset;
-  bottom: 38%;
+  bottom: 36%;
   left: 0;
   width: 100%;
   height: unset;
@@ -48,7 +47,7 @@
 
 .list.metric-items li .gonfalon .metric {
   top: unset;
-  bottom: 17%;
+  bottom: 10%;
   left: 0;
   width: 100%;
   height: unset;
