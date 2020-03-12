@@ -79,11 +79,24 @@
   line-height: 1;
 }
 
-.characters-list .char .button .level {
+.characters-list .char .button .metric {
+  
+}
+
+.characters-list .char .button .metric .progress {
   position: absolute;
-  right: 12px;
-  top: 51px;
+  right: 10.5%;
+  bottom: 10px;
   font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.characters-list .char .button .metric .gonfalon {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: 7.598%;
+  padding-bottom: 22%;
 }
 
 .characters-list .char .title {
@@ -211,9 +224,8 @@
     left: -12px;
   }
   
-  .characters-list.responsive .char .button .level {
-    top: 51%;
-    right: 2%;
+  .characters-list .char .button .metric .progress {
+    right: 10.5%;
     font-size: 14px;
   }
 }
@@ -254,10 +266,8 @@
     font-size: 11px;
     left: -12px;
   }
-
-  .characters-list .char .button .level {
-    top: 51%;
-    right: 2%;
+  
+  .characters-list .char .button .metric .progress {
     font-size: 14px;
   }
 }

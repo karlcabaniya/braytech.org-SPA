@@ -7,6 +7,15 @@ import * as SVG from '../svg';
 
 export const isProfileRoute = location => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
+export function metricImages(metricHash) {
+  const definitionMetric = manifest.DestinyMetricDefinition[metricHash];
+  const definitionParent = manifest.DestinyPresentationNodeDefinition[definitionMetric.parentNodeHashes[0]];
+
+  return {
+    banner: definitionParent.displayProperties.icon || '/img/misc/missing_icon_d2.png'
+  }
+}
+
 export function totalValor() {
   return Object.keys(manifest.DestinyProgressionDefinition[2626549951].steps).reduce((sum, key) => {
     return sum + manifest.DestinyProgressionDefinition[2626549951].steps[key].progressTotal;
@@ -337,42 +346,6 @@ export function raceHashToString(raceHash, genderHash, nonGendered = false) {
   }
 
   return definitionRace.displayProperties.name;
-}
-
-export function membershipTypeToString(str, short = false) {
-  let string;
-
-  if (short) {
-    switch (str) {
-      case 1:
-        string = 'XB';
-        break;
-      case 2:
-        string = 'PS';
-        break;
-      case 4:
-        string = 'PC';
-        break;
-      default:
-        string = '??';
-    }
-  } else {
-    switch (str) {
-      case 1:
-        string = 'Xbox';
-        break;
-      case 2:
-        string = 'PlayStation';
-        break;
-      case 4:
-        string = 'PC';
-        break;
-      default:
-        string = 'uh oh';
-    }
-  }
-
-  return string;
 }
 
 export function damageTypeToAsset(type) {
