@@ -379,7 +379,13 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
-  font-size: 18px;
+}
+
+#collections .node.badge .children .progress .class-icon svg {
+  width: 22px;
+  height: 20px;
+  fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 
 #collections .node.badge .children .progress .text {
@@ -461,7 +467,7 @@
   position: relative;
 }
 
-#collections .node.badge .entries .class-nodes {
+#collections .node.badge .entries .filters {
   position: absolute;
   top: 0;
   left: 2rem;
@@ -470,8 +476,8 @@
   justify-content: center;
 }
 
-#collections .node.badge .entries .class-nodes::before,
-#collections .node.badge .entries .class-nodes::after {
+#collections .node.badge .entries .filters::before,
+#collections .node.badge .entries .filters::after {
   content: ' ';
   position: absolute;
   top: 0;
@@ -480,11 +486,11 @@
   pointer-events: none;
 }
 
-#collections .node.badge .entries .class-nodes::after {
+#collections .node.badge .entries .filters::after {
   right: 0;
 }
 
-#collections .node.badge .entries .class-nodes .list {
+#collections .node.badge .entries .filters .list {
   position: absolute;
   top: -20px;
   left: calc(50% - 75px);
@@ -493,23 +499,26 @@
   grid-gap: 15px;
 }
 
-#collections .node.badge .entries .class-nodes .list .linked,
-#collections .node.badge .entries .class-nodes .list .linked a,
-#collections .node.badge .entries .class-nodes .list .linked::before,
-#collections .node.badge .entries .class-nodes .list .linked::after {
+#collections .node.badge .entries .filters .list .linked,
+#collections .node.badge .entries .filters .list .linked a,
+#collections .node.badge .entries .filters .list .linked::before,
+#collections .node.badge .entries .filters .list .linked::after {
   border-radius: 100%;
 }
 
-#collections .node.badge .entries .class-nodes .list .linked {
+#collections .node.badge .entries .filters .list .linked {
   display: grid;
-  justify-content: center;
+  justify-items: center;
   margin: 0;
   font-size: 20px;
   height: 40px;
 }
 
-#collections .node.badge .entries .class-nodes .list .linked span {
-  margin: 0 1px 0 0;
+#collections .node.badge .entries .filters .list .linked svg {
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
 }
 
 @media screen and (max-width: 1400px) {
@@ -629,7 +638,7 @@
     font-size: 14px;
   }
 
-  #collections .node.badge .entries .class-nodes {
+  #collections .node.badge .entries .filters {
     left: 0;
     width: 100%;
   }

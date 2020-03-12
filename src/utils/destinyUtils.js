@@ -16,6 +16,18 @@ export function metricImages(metricHash) {
   }
 }
 
+export function displayValue(value, style = 0, objectiveHash) {
+  const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(style);
+
+  console.log(enumerated)
+
+  if (enumerated.percentage) {
+    return `${value}%`;
+  }
+
+  return value.toLocaleString();
+}
+
 export function totalValor() {
   return Object.keys(manifest.DestinyProgressionDefinition[2626549951].steps).reduce((sum, key) => {
     return sum + manifest.DestinyProgressionDefinition[2626549951].steps[key].progressTotal;

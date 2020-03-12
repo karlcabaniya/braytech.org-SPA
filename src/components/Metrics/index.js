@@ -91,7 +91,7 @@ class Metrics extends React.Component {
 
   render() {
     const { t, hashes, member, selfLinkFrom } = this.props;
-    const highlight = parseInt(this.props.highlight, 10) || false;
+    const highlight = +this.props.highlight || false;
     
     return hashes.map((hash, h) => {
       const definitionMetric = manifest.DestinyMetricDefinition[hash];
@@ -100,10 +100,15 @@ class Metrics extends React.Component {
         return null;
       }
 
+      const traitHash = definitionMetric.traitHashes.find(h => h !== 1434215347);
+      const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];
+
       return (
         <li key={h}>
           <div className='text'>
             <div className='name'>{definitionMetric.displayProperties.name}</div>
+            <div className='trait'>{definitionTrait.displayProperties.name}</div>
+            <div className='description'>{definitionMetric.displayProperties.description}</div>
           </div>
         </li>
       );

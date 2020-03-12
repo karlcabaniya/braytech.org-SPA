@@ -6,17 +6,18 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import { commonality } from '../../../utils/destinyUtils';
+import * as utils from '../../../utils/destinyUtils';
 import * as enums from '../../../utils/destinyEnums';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
 import Collectibles from '../../../components/Collectibles';
 
 class BadgeNode extends React.Component {
-  constructor(props) {
-    super(props);
+  entries = React.createRef();
 
-    this.entries = React.createRef();
+  hanlder__goToEntriesTop = e => {
+    const element = this.entries.current;
+    window.scrollTo(0, (element.offsetTop - element.scrollTop + element.clientTop - 34));
   }
 
   render() {
@@ -33,11 +34,11 @@ class BadgeNode extends React.Component {
     //   n.children && n.children.presentationNodes && n.children.presentationNodes.length && n.children.presentationNodes.forEach(p => {
     //     let def = manifest.DestinyPresentationNodeDefinition[p.presentationNodeHash];
     //     if (def && def.displayProperties && def.displayProperties.name && def.displayProperties.name.toLowerCase() === 'titan') {
-    //       obj[def.hash] = 0
+    //       obj[def.hash] = 3655393761
     //     } else if (def && def.displayProperties && def.displayProperties.name && def.displayProperties.name.toLowerCase() === 'hunter') {
-    //       obj[def.hash] = 1
+    //       obj[def.hash] = 671679327
     //     } else if (def && def.displayProperties && def.displayProperties.name && def.displayProperties.name.toLowerCase() === 'warlock') {
-    //       obj[def.hash] = 2
+    //       obj[def.hash] = 2271682572
     //     }
     //   })
     // }
@@ -63,7 +64,7 @@ class BadgeNode extends React.Component {
         }
       });
 
-      if (!classNode && enums.associationsCollectionsBadgesClasses[definitionNode.hash] === character.classType) {
+      if (!classNode && enums.associationsCollectionsBadgesClasses[definitionNode.hash] === character.classHash) {
         classNode = definitionNode.hash;
       }
 
@@ -77,7 +78,7 @@ class BadgeNode extends React.Component {
       }
 
       classStates.push({
-        class: enums.classStrings[enums.associationsCollectionsBadgesClasses[definitionNode.hash]],
+        classHash: enums.associationsCollectionsBadgesClasses[definitionNode.hash],
         name: definitionNode.displayProperties.name,
         states: classState
       });
@@ -89,15 +90,16 @@ class BadgeNode extends React.Component {
     }, 0);
     
     const progress = classStates.map((obj, i) => {
-      
       if (obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).notAcquired).length === classTotal) {
         completed++;
       }
 
+      const ClassIcon = utils.classHashToIcon(obj.classHash);
+
       return (
         <div key={i} className='progress'>
           <div className='class-icon'>
-            <span className={`destiny-class_${obj.class}`} />
+            <ClassIcon />
           </div>
           <div className='text'>
             <div className='title'>{obj.name}</div>
@@ -139,7 +141,7 @@ class BadgeNode extends React.Component {
           {manifest.statistics.triumphs?.[definitionBadge.completionRecordHash] ? (
             <div className='commonality'>
               <h4>{t('Badge commonality')}</h4>
-              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionBadge.completionRecordHash}>{commonality(manifest.statistics.triumphs?.[definitionBadge.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
+              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionBadge.completionRecordHash}>{utils.commonality(manifest.statistics.triumphs?.[definitionBadge.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
               <div className='description'>
                 {t("The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
               </div>
@@ -147,10 +149,10 @@ class BadgeNode extends React.Component {
           ) : null}
         </div>
         <div className='entries' ref={this.entries}>
-          <div className='class-nodes'>
+          <div className='filters'>
             <ul className='list'>
               {definitionBadge.children.presentationNodes.map(p => {
-                let isActive = (match, location) => {
+                const isActive = (match, location) => {
                   if (p.presentationNodeHash === classNode) {
                     return true;
                   } else {
@@ -158,13 +160,12 @@ class BadgeNode extends React.Component {
                   }
                 };
 
+                const ClassIcon = utils.classHashToIcon(enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]);
+
                 return (
                   <li key={p.presentationNodeHash} className='linked'>
-                    <span className={`destiny-class_${enums.classStrings[enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]]}`} />
-                    <ProfileNavLink isActive={isActive} to={`/collections/badge/${definitionBadge.hash}/${p.presentationNodeHash}`} onClick={() => {
-                      let element = this.entries.current;
-                      window.scrollTo(0, (element.offsetTop - element.scrollTop + element.clientTop - 34));
-                    }} />
+                    <ClassIcon />
+                    <ProfileNavLink isActive={isActive} to={`/collections/badge/${definitionBadge.hash}/${p.presentationNodeHash}`} onClick={this.hanlder__goToEntriesTop} />
                   </li>
                 )
               })}

@@ -66,6 +66,10 @@ import { ReactComponent as Roster } from './common/roster.svg';
 import { ReactComponent as RosterAdmin } from './common/roster-admin.svg';
 import { ReactComponent as Tracking } from './common/tracking.svg';
 import { ReactComponent as CrossSave } from './common/cross-save.svg';
+import { ReactComponent as TraitAll } from './common/trait-all.svg';
+import { ReactComponent as TraitWeekly } from './common/trait-weekly.svg';
+import { ReactComponent as TraitSeasonal } from './common/trait-seasonal.svg';
+import { ReactComponent as TraitCareer } from './common/trait-career.svg';
 
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
 import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
@@ -179,6 +183,12 @@ const Views = {
     Eververse,
     ChaliceOfOpulence,
     Tricorn
+  },
+  Trackers: {
+    TraitAll,
+    TraitWeekly,
+    TraitSeasonal,
+    TraitCareer
   }
 }
 

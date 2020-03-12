@@ -2,7 +2,64 @@
   padding: 4rem 3rem 3rem;
 }
 
+#trackers .node .entries {
+  padding-top: calc(2rem + 1px);
+  position: relative;
+}
 
+#trackers .node .entries .filters {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: calc(100% - 2rem);
+  display: grid;
+  justify-content: center;
+}
+
+#trackers .node .entries .filters::before,
+#trackers .node .entries .filters::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  width: calc(50% - 102.5px - 2rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+#trackers .node .entries .filters::after {
+  right: 0;
+}
+
+#trackers .node .entries .filters .list {
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 102.5px);
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  grid-gap: 15px;
+}
+
+#trackers .node .entries .filters .list .linked,
+#trackers .node .entries .filters .list .linked a,
+#trackers .node .entries .filters .list .linked::before,
+#trackers .node .entries .filters .list .linked::after {
+  border-radius: 100%;
+}
+
+#trackers .node .entries .filters .list .linked {
+  display: grid;
+  justify-items: center;
+  margin: 0;
+  font-size: 20px;
+  height: 40px;
+}
+
+#trackers .node .entries .filters .list .linked svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}
 
 
 
@@ -16,5 +73,10 @@
 
   #trackers .header .name {
     font-size: 24px;
+  }
+
+  #trackers .node .entries .filters {
+    left: 0;
+    width: 100%;
   }
 }

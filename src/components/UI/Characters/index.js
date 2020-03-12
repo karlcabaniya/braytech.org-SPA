@@ -55,9 +55,9 @@ class Characters extends React.Component {
                   })}
                   src={`https://www.bungie.net${emblemPath || '/img/misc/missing_icon_d2.png'}`}
                 />
-                {metric ? (
+                {!mini && metric ? (
                   <div className='metric'>
-                    <div className='progress'>{emblem.metricObjective.progress.toLocaleString()}</div>
+                    <div className='progress'>{utils.displayValue(emblem.metricObjective.progress, 0, emblem.metricObjective.objectiveHash)}</div>
                     <div className='gonfalon'>
                       <ObservedImage className='image banner' src={`https://www.bungie.net${metric.banner}`} />
                       {emblem.metricObjective.complete ? <ObservedImage className='image banner' src='/static/images/extracts/ui/metrics/01E3-10F0.png' /> : null}
