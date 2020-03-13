@@ -37,14 +37,17 @@ class Crucible extends React.Component {
       },
       survival: {
         mode: 37
+      },
+      trials_of_osiris: {
+        mode: 84
       }
     },
     rotator: {
-      clashQuickplay: {
-        mode: 71
-      },
       ironBannerControl: {
         mode: 43
+      },
+      clashQuickplay: {
+        mode: 71
       },
       momentum: {
         mode: 81
