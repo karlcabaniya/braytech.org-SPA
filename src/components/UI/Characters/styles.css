@@ -106,6 +106,7 @@
   width: 100%;
   height: unset;
   padding-bottom: 100%;
+  background-size: 90%;
 }
 
 .characters-list .char .button .metric .gonfalon .metric {
@@ -115,7 +116,7 @@
   width: 100%;
   height: unset;
   padding-bottom: 100%;
-  background-size: 160%;
+  background-size: 152%;
 }
 
 .characters-list .char .button .metric .gonfalon .banner.complete.dl {

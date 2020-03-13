@@ -43,6 +43,7 @@
   width: 100%;
   height: unset;
   padding-bottom: 100%;
+  background-size: 90%;
 }
 
 .list.metric-items li .gonfalon .metric {
@@ -52,7 +53,7 @@
   width: 100%;
   height: unset;
   padding-bottom: 100%;
-  background-size: 160%;
+  background-size: 152%;
 }
 
 .list.metric-items li .gonfalon .banner.complete.dl {

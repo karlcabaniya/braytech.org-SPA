@@ -20,19 +20,18 @@ class ProgressBar extends React.Component {
     let completionValue = this.props.completionValue || 0;
     let description = '';
 
-    if (objectiveHash && manifest.DestinyObjectiveDefinition[objectiveHash]) {
+    const definitionObjective = objectiveHash && manifest.DestinyObjectiveDefinition[objectiveHash];
+    const definitionProgression = progressionHash && manifest.DestinyProgressionDefinition[progressionHash];
 
-      description = manifest.DestinyObjectiveDefinition[objectiveHash].progressDescription;
+    if (definitionObjective) {
+
+      description = definitionObjective.progressDescription;
       
-    } else if (progressionHash && manifest.DestinyProgressionDefinition[progressionHash]) {
+    } else if (definitionProgression) {
 
       progress = this.props.progressToNextLevel;
       completionValue = this.props.nextLevelAt;
-      description = manifest.DestinyProgressionDefinition[progressionHash].displayProperties && manifest.DestinyProgressionDefinition[progressionHash].displayProperties.displayUnitsName;
-
-      if (description === '') {
-        description = manifest.DestinyProgressionDefinition[progressionHash].displayProperties && manifest.DestinyProgressionDefinition[progressionHash].displayProperties.name;
-      }
+      description = (definitionProgression.displayProperties?.displayUnitsName !== '' && definitionProgression.displayProperties?.displayUnitsName )|| definitionProgression?.displayProperties?.name
       
     }
 
@@ -41,7 +40,9 @@ class ProgressBar extends React.Component {
     }
 
     description = stringToIcons(description);
+
     const complete = progress >= completionValue;
+    const fractionFloat = definitionObjective?.isCountingDownward ? progress === 0 ? 0 : completionValue / progress : progress / completionValue;
 
     return (
       <div key={objectiveHash || progressionHash} className={cx('progress-bar', classNames, { complete: completionValue && complete, chunky: chunky })}>
@@ -55,7 +56,7 @@ class ProgressBar extends React.Component {
               </div>
             ) : null}
           </div>
-          {completionValue ? <div className='fill' style={{ width: `${Math.min((progress / completionValue) * 100, 100)}%` }} /> : null}
+          {completionValue ? <div className='fill' style={{ width: `${Math.min(fractionFloat * 100, 100)}%` }} /> : null}
         </div>
       </div>
     );
