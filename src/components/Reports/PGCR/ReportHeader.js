@@ -98,16 +98,23 @@ class ReportHeader extends React.Component {
       {
         modes: [61, 62],
         icon: <CrucibleIconTeamScorched />
+      },
+      {
+        modes: [4],
+        name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
       }
     ];
 
     const modeExtra = modeExtras.find(m => m.modes.includes(activityDetails.mode));
 
-    // mode definition - control, survival, etc
-    const definitionMode = Object.values(manifest.DestinyActivityModeDefinition).find(d => d.modeType === activityDetails.mode);
+    // map definition - Rusted Lands, etc
+    const definitionMap = manifest.DestinyActivityDefinition[activityDetails.referenceId];
 
-    // map definition - specific strike, Rusted Lands, etc
-    const definitionActivity = manifest.DestinyActivityDefinition[activityDetails.mode === 66 && activityDetails.directorActivityHash ? activityDetails.directorActivityHash : activityDetails.referenceId];
+    // activity definition - specific strike
+    const definitionActivity = manifest.DestinyActivityDefinition[activityDetails.directorActivityHash];
+
+    // mode definition - control, survival, etc
+    const definitionMode = manifest.DestinyActivityModeDefinition[definitionActivity?.directActivityModeHash];
 
     // get current character entry or entry with longest activityDurationSeconds
     const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
@@ -117,8 +124,8 @@ class ReportHeader extends React.Component {
 
     return (
       <div className='basic'>
-        <div className='mode'>{modeExtra?.name || definitionMode?.displayProperties?.name}</div>
-        <div className='map'>{definitionActivity?.displayProperties?.name}</div>
+        <div className='mode'>{modeExtra?.name || (definitionActivity?.directActivityModeType === 37 && definitionActivity.displayProperties?.name) || definitionMode?.displayProperties?.name}</div>
+        <div className='map'>{definitionMap?.displayProperties?.name}</div>
         <div className='ago'>
           <Moment fromNow withTitle>{realEndTime}</Moment>
         </div>
@@ -187,16 +194,23 @@ class ReportHeaderLarge extends React.Component {
       {
         modes: [5],
         icon: <CrucibleIconDefault />
+      },
+      {
+        modes: [4],
+        name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
       }
     ];
 
     const modeExtra = modeExtras.find(m => m.modes.includes(activityDetails.mode));
 
-    // mode definition - control, survival, etc
-    const definitionMode = Object.values(manifest.DestinyActivityModeDefinition).find(d => d.modeType === activityDetails.mode);
+    // map definition - Rusted Lands, etc
+    const definitionMap = manifest.DestinyActivityDefinition[activityDetails.referenceId];
 
-    // map definition - specific strike, Rusted Lands, etc
-    const definitionActivity = manifest.DestinyActivityDefinition[activityDetails.mode === 66 && activityDetails.directorActivityHash ? activityDetails.directorActivityHash : activityDetails.referenceId];
+    // activity definition - specific strike
+    const definitionActivity = manifest.DestinyActivityDefinition[activityDetails.directorActivityHash];
+
+    // mode definition - control, survival, etc
+    const definitionMode = manifest.DestinyActivityModeDefinition[definitionActivity?.directActivityModeHash];
 
     // get current character entry or entry with longest activityDurationSeconds
     const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
@@ -227,11 +241,11 @@ class ReportHeaderLarge extends React.Component {
 
     return (
       <div className={cx('head', simplifiedAcivityMode?.name)}>
-        {definitionActivity?.pgcrImage && <ObservedImage className='image bg' src={`https://www.bungie.net${definitionActivity.pgcrImage}`} />}
+        {definitionMap?.pgcrImage && <ObservedImage className='image bg' src={`https://www.bungie.net${definitionMap.pgcrImage}`} />}
         <div className='detail'>
           <div>
-            <div className='mode'>{modeExtra?.name || definitionMode?.displayProperties?.name}</div>
-            <div className='map'>{definitionActivity?.displayProperties?.name}</div>
+            <div className='mode'>{modeExtra?.name || (definitionActivity?.directActivityModeType === 37 && definitionActivity.displayProperties?.name) || definitionMode?.displayProperties?.name}</div>
+            <div className='map'>{definitionMap?.displayProperties?.name}</div>
           </div>
           <div>
             <div className='duration'>{entry.values.activityDurationSeconds.basic.displayValue}</div>
