@@ -9,6 +9,7 @@ import queryString from 'query-string';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
+import { damageTypeToAsset, itemRarityToString } from '../../utils/destinyConverters';
 import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
 import { Common } from '../../svg';
@@ -170,7 +171,7 @@ class Inspect extends React.Component {
               <ObservedImage src={`https://www.bungie.net${definitionItem.secondaryIcon}`} />
             </div>
           ) : null}
-          <div className={cx('item-rarity', utils.itemRarityToString(definitionItem.inventory.tierType))} />
+          <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
           <div className='wrap'>
             <div className='row header'>
               <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
@@ -184,7 +185,7 @@ class Inspect extends React.Component {
               <div className='row values'>
                 {item.primaryStat ? <div className='primary'>
                   <div className='stat'>
-                    {damageTypeMap[damageTypeHash] ? <div className={cx('icon', utils.damageTypeToAsset(damageTypeHash)?.string)}>
+                    {damageTypeMap[damageTypeHash] ? <div className={cx('icon', damageTypeToAsset(damageTypeHash)?.string)}>
                       <DamageTypeSVG />
                     </div> : null}
                     <div className='text'>{item.primaryStat.value}</div>

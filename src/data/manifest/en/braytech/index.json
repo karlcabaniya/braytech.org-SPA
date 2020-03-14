@@ -101,21 +101,7 @@
   "total_resets": {
     "displayProperties": {
       "name": "Total resets",
-      "description": "In an effort to better match other Braytech data, total resets counts only those since and inclusive of Season 4"
-    },
-    "itemType": 1
-  },
-  "glory_streak_calc": {
-    "displayProperties": {
-      "name": "Win streak",
-      "description": "Win streaks are calculated by loading match history, post game carnage reports, for each of your characters."
-    },
-    "itemType": 1
-  },
-  "glory_wins_until": {
-    "displayProperties": {
-      "name": "Wins until rank",
-      "description": "Number of matches required to achieve the displayed milestone rank assuming a constant streak of the displayed.\n\nThis means that if you have a streak of 1, it is assumed that you will maintain a streak of 1 with no losses."
+      "description": "All seasons' resets. Tracks from Season 4 onward."
     },
     "itemType": 1
   },

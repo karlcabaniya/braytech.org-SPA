@@ -18,7 +18,7 @@
 }
 
 .list.modes li .icon svg .polygon.inner {
-  animation: rotate-linear 20s infinite linear;
+  animation: rotate-linear 20s linear infinite;
   transform-origin: center;
 }
 
@@ -27,11 +27,46 @@
 }
 
 /* iron banner icon */
-.list.modes li .icon svg .falling-1,
-.list.modes li .icon svg .falling-2,
-.list.modes li .icon svg .falling-3 {
+.list.modes li .icon svg .iron-banner-2 .falling-1,
+.list.modes li .icon svg .iron-banner-2 .falling-2,
+.list.modes li .icon svg .iron-banner-2 .falling-3 {
   transform-origin: center center;
-  animation: crucible-modes-falling-leaf 3s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: crucible-modes-falling-leaf 3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle {
+  transform-origin: center center;
+  animation: rotate-linear 20s linear infinite;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(1) {
+  animation-direction: reverse;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(2) {
+  
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3) {
+  animation-direction: reverse;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4) {
+  
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(5) {
+  animation-direction: reverse;
+}
+
+/* trials of osiris icon */
+.list.modes li .icon svg .trials .hexagon {
+  animation: rotate-linear 20s linear infinite;
+  transform-origin: center;
+}
+
+.list.modes li .icon svg .trials .hexagon:last-child {
+  animation-direction: reverse;
 }
 
 /* crimson doubles icon */
@@ -42,7 +77,7 @@
 .list.modes li .icon svg .petals path {
   opacity: 0;
   transform-origin: center center;
-  animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
+  animation: crucible-modes-leaf-zoom 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s infinite;
   fill: #ff76b3 !important;
 }
 

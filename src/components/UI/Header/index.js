@@ -6,6 +6,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import * as utils from '../../../utils/destinyUtils';
+import { classHashToString } from '../../../utils/destinyConverters';
 import { ProfileNavLink } from '../../ProfileLink';
 import ProgressBar from '../../UI/ProgressBar';
 import Footer from '../Footer';
@@ -340,7 +341,7 @@ class Header extends React.Component {
                     </div>
                     <div className='displayName'>{profile.userInfo.displayName}</div>
                     <div className='basics'>
-                      {progressSeasonalRank.level} / {utils.classHashToString(character.classHash, character.genderHash)} / <span className='light'>{character.light}</span>
+                      {progressSeasonalRank.level} / {classHashToString(character.classHash, character.genderHash)} / <span className='light'>{character.light}</span>
                     </div>
                     <ProgressBar hideCheck {...progressSeasonalRank} />
                     <Spinner className={refresh.loading ? 'visible' : undefined} mini />

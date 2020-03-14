@@ -6,6 +6,7 @@ import { fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { removeMemberIds } from '../../../utils/paths';
 import * as utils from '../../../utils/destinyUtils';
+import { classHashToString, displayValue, raceHashToString } from '../../../utils/destinyConverters';
 import Button from '../../../components/UI/Button';
 import ObservedImage from '../../ObservedImage';
 import { Common } from '../../../svg';
@@ -57,7 +58,7 @@ class Characters extends React.Component {
                 />
                 {!mini && metricImages ? (
                   <div className='metric'>
-                    <div className='progress'>{utils.displayValue(emblem.metricObjective.progress, emblem.metricObjective.objectiveHash)}</div>
+                    <div className='progress'>{displayValue(emblem.metricObjective.progress, emblem.metricObjective.objectiveHash)}</div>
                     <div className={cx('gonfalon', { complete: emblem.metricObjective.complete })}>
                       <ObservedImage className='image banner' src={`https://www.bungie.net${metricImages.banner}`} />
                       <ObservedImage className='image trait' src={`https://www.bungie.net${metricImages.trait}`} />
@@ -66,8 +67,8 @@ class Characters extends React.Component {
                     </div>
                   </div>
                 ) : null}
-                <div className='class'>{utils.classHashToString(character.classHash, character.genderHash)}</div>
-                <div className='species'>{utils.raceHashToString(character.raceHash, character.genderHash)}</div>
+                <div className='class'>{classHashToString(character.classHash, character.genderHash)}</div>
+                <div className='species'>{raceHashToString(character.raceHash, character.genderHash)}</div>
                 <div className='light'>{character.light}</div>
               </Button>
               {character.titleRecordHash ? (

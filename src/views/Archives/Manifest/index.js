@@ -8,7 +8,7 @@ import queryString from 'query-string';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as utils from '../../../utils/destinyUtils';
+import { classTypeToString } from '../../../utils/destinyConverters';
 import Search from '../../../components/Search';
 
 import { NavLinks } from '../';
@@ -25,7 +25,7 @@ function getResultName(table, hash) {
 
 function getClassName(table, hash) {
   if (manifest[table][hash].classType) {
-    return utils.classTypeToString(manifest[table][hash].classType)
+    return classTypeToString(manifest[table][hash].classType)
   }
 
   return '';

@@ -9,6 +9,7 @@ import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import * as utils from '../../../utils/destinyUtils';
+import { classHashToString } from '../../../utils/destinyConverters';
 import ObservedImage from '../../../components/ObservedImage';
 import ObservedImageBase64 from '../../../components/ObservedImageBase64';
 import Button from '../../../components/UI/Button';
@@ -604,21 +605,14 @@ class Legend extends React.Component {
                     ].filter(i => i.inventory.tierType === 6)
                   ]) || [];
 
-                  if (c.characterId) {
-                    const classString = utils
-                      .classTypeToString(c.classType)
-                      .toString()
-                      .toLowerCase();
-                    
-                    const timePlayed = Math.floor(parseInt(c.minutesPlayedTotal, 10) / 1440);
-
+                  if (c.characterId) {                   
                     return (
                       <div key={i} className='col'>
                         <div className={cx('class-bar', enums.classStrings[c.classType])}>
                           <div className='icon'>
                             <i className={`destiny-class_${enums.classStrings[c.classType]}`} />
                           </div>
-                          <div className='class'>{utils.classHashToString(c.classHash)}</div>
+                          <div className='class'>{classHashToString(c.classHash)}</div>
                           <div className='light'>{c.light}</div>
                         </div>
                         <div className='padder'>

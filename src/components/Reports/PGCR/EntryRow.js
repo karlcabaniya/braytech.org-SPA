@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as utils from '../../../utils/destinyUtils';
 import * as enums from '../../../utils/destinyEnums';
+import { classHashToString } from '../../../utils/destinyConverters';
 import ObservedImage from '../../ObservedImage';
 
 // import ReportPlayer from '../ReportPlayer';
@@ -411,7 +411,7 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li>{t('Character class')}</li>
-              <li>{utils.classHashToString(entry.player.classHash, entry.player.genderHash)}</li>
+              <li>{classHashToString(entry.player.classHash, entry.player.genderHash)}</li>
             </ul>
           </li>
           <li>
@@ -702,7 +702,7 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li>{t('Character class')}</li>
-              <li>{utils.classHashToString(entry.player.classHash, entry.player.genderHash)}</li>
+              <li>{classHashToString(entry.player.classHash, entry.player.genderHash)}</li>
             </ul>
           </li>
           <li>

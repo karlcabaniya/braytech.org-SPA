@@ -8,6 +8,7 @@ import moment from 'moment';
 
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
+import { classHashToIcon } from '../../utils/destinyConverters';
 import { ProfileLink } from '../../components/ProfileLink';
 import getGroupMembers from '../../utils/getGroupMembers';
 import MemberLink from '../MemberLink';
@@ -87,7 +88,7 @@ class Roster extends React.Component {
 
     const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
 
-    const LastClassIcon = !isPrivate ? utils.classHashToIcon(lastCharacter.classHash) : null;
+    const LastClassIcon = !isPrivate ? classHashToIcon(lastCharacter.classHash) : null;
 
     const weeklyXp = !isPrivate
       ? characterIds.reduce((currentValue, characterId) => {

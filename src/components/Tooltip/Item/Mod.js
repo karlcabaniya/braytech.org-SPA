@@ -3,7 +3,8 @@ import i18n from 'i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import { energyTypeToAsset, stringToIcons } from '../../../utils/destinyUtils';
+import { stringToIcons } from '../../../utils/destinyUtils';
+import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import ObservedImage from '../../ObservedImage';
 
 const Mod = props => {

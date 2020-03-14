@@ -144,7 +144,9 @@ function buildMasterworkInfo(sockets) {
   }
 
   socket.isMasterwork = true;
-console.log(socket.plug.plugItem.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible')
+
+  // console.log(socket.plug.plugItem.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible')
+  
   return {
     socketIndex: index,
     stats: investmentStats.map(s => ({

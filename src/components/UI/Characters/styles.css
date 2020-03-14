@@ -86,7 +86,7 @@
 .characters-list .char .button .metric .progress {
   position: absolute;
   right: 10.5%;
-  bottom: 10px;
+  bottom: 11%;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -253,7 +253,7 @@
   }
   
   .characters-list .char .button .metric .progress {
-    right: 10.5%;
+    right: 11%;
     font-size: 14px;
   }
 }
@@ -296,7 +296,7 @@
   }
   
   .characters-list .char .button .metric .progress {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 

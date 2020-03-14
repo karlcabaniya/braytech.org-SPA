@@ -6,7 +6,8 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as utils from '../../../utils/destinyUtils';
+import { commonality } from '../../../utils/destinyUtils';
+import { classHashToIcon } from '../../../utils/destinyConverters';
 import * as enums from '../../../utils/destinyEnums';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
@@ -94,7 +95,7 @@ class BadgeNode extends React.Component {
         completed++;
       }
 
-      const Icon = utils.classHashToIcon(obj.classHash);
+      const Icon = classHashToIcon(obj.classHash);
 
       return (
         <div key={i} className='progress'>
@@ -141,7 +142,7 @@ class BadgeNode extends React.Component {
           {manifest.statistics.triumphs?.[definitionBadge.completionRecordHash] ? (
             <div className='commonality'>
               <h4>{t('Badge commonality')}</h4>
-              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionBadge.completionRecordHash}>{utils.commonality(manifest.statistics.triumphs?.[definitionBadge.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
+              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionBadge.completionRecordHash}>{commonality(manifest.statistics.triumphs?.[definitionBadge.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
               <div className='description'>
                 {t("The badge's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
               </div>
@@ -160,7 +161,7 @@ class BadgeNode extends React.Component {
                   }
                 };
 
-                const Icon = utils.classHashToIcon(enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]);
+                const Icon = classHashToIcon(enums.associationsCollectionsBadgesClasses[p.presentationNodeHash]);
 
                 return (
                   <li key={p.presentationNodeHash} className='linked'>

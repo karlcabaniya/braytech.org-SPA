@@ -8,6 +8,7 @@ import moment from 'moment';
 
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
+import { classHashToIcon, groupMemberTypeToString } from '../../utils/destinyConverters';
 import * as bungie from '../../utils/bungie';
 import { ProfileLink } from '../ProfileLink';
 import getGroupMembers from '../../utils/getGroupMembers';
@@ -420,7 +421,7 @@ class RosterAdmin extends React.Component {
 
       const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
 
-      const LastClassIcon = !isPrivate ? utils.classHashToIcon(lastCharacter.classHash) : null;
+      const LastClassIcon = !isPrivate ? classHashToIcon(lastCharacter.classHash) : null;
 
       const weeklyXp = !isPrivate
         ? characterIds.reduce((currentValue, characterId) => {
@@ -502,7 +503,7 @@ class RosterAdmin extends React.Component {
                     <li className='col weeklyXp'>
                       <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                     </li>
-                    <li className='col rank'>{m.memberType && utils.groupMemberTypeToString(m.memberType)}</li>
+                    <li className='col rank'>{m.memberType && groupMemberTypeToString(m.memberType)}</li>
                     <li className='col actions'>
                       <Actions m={m} softUpdate={this.softUpdate} available={isAdmin} />
                     </li>
@@ -513,7 +514,7 @@ class RosterAdmin extends React.Component {
                     <li className='col activity'>–</li>
                     <li className='col joinDate'>–</li>
                     <li className='col weeklyXp'>–</li>
-                    <li className='col rank'>{m.memberType && utils.groupMemberTypeToString(m.memberType)}</li>
+                    <li className='col rank'>{m.memberType && groupMemberTypeToString(m.memberType)}</li>
                     <li className='col actions'>
                       <Actions m={m} softUpdate={this.softUpdate} available={isAdmin} />
                     </li>

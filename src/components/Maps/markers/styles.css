@@ -192,15 +192,15 @@
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .dashed-1 {
-  animation: rotate-linear 45s linear infinite reverse;
+  animation: maps-rotate-linear 45s linear infinite reverse;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .outer-ring {
-  animation: rotate-linear 15s linear infinite;
+  animation: maps-rotate-linear 15s linear infinite;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .inner-ring {
-  animation: rotate-linear 30s linear infinite reverse;
+  animation: maps-rotate-linear 30s linear infinite reverse;
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .angles .beat {
@@ -208,7 +208,7 @@
 }
 
 .map-omega .leaflet-container .icon-marker.fast-travel .wrapper .icon .square {
-  animation: rotate-sleep 8s both infinite ease-out;
+  animation: maps-rotate-sleep 8s both infinite ease-out;
 }
 
 .map-omega .leaflet-container .icon-marker.forge .wrapper .icon {
@@ -220,11 +220,11 @@
 }
 
 .map-omega .leaflet-container .icon-marker.forge .wrapper .icon .logo {
-  animation: rotate-linear 60s linear both infinite;
+  animation: maps-rotate-linear 60s linear both infinite;
 }
 
 .map-omega .leaflet-container .icon-marker.forge .wrapper .icon .spokes {
-  animation: rotate-linear 60s linear both infinite reverse;
+  animation: maps-rotate-linear 60s linear both infinite reverse;
 }
 
 .map-omega .leaflet-container .icon-marker.patrol-boss {
@@ -237,7 +237,7 @@
   height: 48px;
 }
 
-@keyframes rotate-sleep {
+@keyframes maps-rotate-sleep {
   0% {
     transform: rotate(0deg);
   }
@@ -249,7 +249,7 @@
   }
 }
 
-@keyframes rotate-linear {
+@keyframes maps-rotate-linear {
   0% {
     transform: rotate(0deg);
   }
@@ -261,7 +261,7 @@
   }
 }
 
-@keyframes rotate-and-scale-out {
+@keyframes maps-rotate-and-scale-out {
   0%, 100% {
     transform: scale(0);
     opacity: 0;

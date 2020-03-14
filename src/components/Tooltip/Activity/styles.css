@@ -111,15 +111,15 @@
   background-color: hsla(3, 60%, 22%, 0.8);
 }
 
-#tooltip .frame.activity.crucible .header {
+#tooltip .frame.activity.crucible.trials-of-osiris .header {
   border-top-color: #c39659;
 }
 
-#tooltip .frame.activity.crucible .header .icon {
+#tooltip .frame.activity.crucible.trials-of-osiris .header .icon {
   background-color: hsla(35, 40%, 24%, 0.8);
 }
 
-#tooltip .frame.activity.crucible .header .text {
+#tooltip .frame.activity.crucible.trials-of-osiris .header .text {
   background-color: hsla(35, 40%, 39%, 0.8);
 }
 

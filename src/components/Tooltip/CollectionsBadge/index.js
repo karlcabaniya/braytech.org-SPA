@@ -6,7 +6,7 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
-import * as utils from '../../../utils/destinyUtils';
+import { classHashToIcon } from '../../../utils/destinyConverters';
 
 import './styles.css';
 
@@ -74,7 +74,7 @@ class CollectionsBadge extends React.Component {
           completed++;
         }
 
-        const Icon = utils.classHashToIcon(obj.classHash);
+        const Icon = classHashToIcon(obj.classHash);
 
         return (
           <div key={i} className='progress'>

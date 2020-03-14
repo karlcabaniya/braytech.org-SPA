@@ -25,6 +25,7 @@ import { ReactComponent as CrucibleIconSupremacy } from '../../../svg/crucible/s
 import { ReactComponent as CrucibleIconLockdown } from '../../../svg/crucible/lockdown.svg';
 import { ReactComponent as CrucibleIconMomentumControl } from '../../../svg/crucible/momentum-control.svg';
 import { ReactComponent as CrucibleIconIronBanner } from '../../../svg/crucible/iron-banner.svg';
+import { ReactComponent as CrucibleIconTrialsOfOsiris } from '../../../svg/crucible/trials-of-osiris.svg';
 
 import { ReactComponent as GambitIconGambit } from '../../../svg/gambit/gambit.svg';
 import { ReactComponent as GambitIconGambitPrime } from '../../../svg/gambit/gambit-prime.svg';
@@ -113,6 +114,10 @@ class Mode extends React.Component {
       {
         modes: [61, 62],
         icon: <CrucibleIconTeamScorched />
+      },
+      {
+        modes: [84],
+        icon: <CrucibleIconTrialsOfOsiris />
       },
 
       // Gambit

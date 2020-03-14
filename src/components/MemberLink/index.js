@@ -6,6 +6,7 @@ import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
+import { classTypeToString } from '../../utils/destinyConverters';
 import store from '../../store';
 import ObservedImage from '../ObservedImage';
 import Spinner from '../UI/Spinner';
@@ -523,8 +524,7 @@ class MemberLinkButton extends React.Component {
             options.showClassIcon ? (
               <div className='icon'>
                 <i
-                  className={`destiny-class_${utils
-                    .classTypeToString(characterBasic.classType)
+                  className={`destiny-class_${classTypeToString(characterBasic.classType)
                     .toString()
                     .toLowerCase()}`}
                 />

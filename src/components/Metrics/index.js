@@ -7,6 +7,7 @@ import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
 import * as utils from '../../utils/destinyUtils';
+import { displayValue } from '../../utils/destinyConverters';
 import ProgressBar from '../UI/ProgressBar';
 import ObservedImage from '../ObservedImage';
 
@@ -104,7 +105,7 @@ class Metrics extends React.Component {
         <li key={h} className={cx({ completed: objectiveProgress.complete })}>
           <div className='metric'>
             <div className='name'>{definitionMetric.displayProperties.name}</div>
-            <div className='progress'>{utils.displayValue(objectiveProgress.progress, objectiveProgress.objectiveHash)}</div>
+            <div className='progress'>{displayValue(objectiveProgress.progress, objectiveProgress.objectiveHash)}</div>
             <div className='description'>{utils.stringToIcons(definitionMetric.displayProperties.description)}</div>
           </div>
           <div className='icon'>

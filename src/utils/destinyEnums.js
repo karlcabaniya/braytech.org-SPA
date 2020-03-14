@@ -3,7 +3,8 @@ export const platforms = {
   2: 'playstation',
   3: 'steam',
   4: 'battlenet',
-  5: 'stadia'
+  5: 'stadia',
+  6: 'nintendo'
 };
 
 export const classStrings = {
