@@ -111,6 +111,18 @@
   background-color: hsla(3, 60%, 22%, 0.8);
 }
 
+#tooltip .frame.activity.crucible .header {
+  border-top-color: #c39659;
+}
+
+#tooltip .frame.activity.crucible .header .icon {
+  background-color: hsla(35, 40%, 24%, 0.8);
+}
+
+#tooltip .frame.activity.crucible .header .text {
+  background-color: hsla(35, 40%, 39%, 0.8);
+}
+
 #tooltip .frame.activity.forge .header {
   border-top-color: #975e73;
 }

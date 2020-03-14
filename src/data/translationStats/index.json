@@ -3,20 +3,20 @@
     "translated": 377,
     "notTranslated": 283,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "debug": {
     "translated": 660,
     "notTranslated": 0,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "en": {
@@ -24,117 +24,117 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "es-mx": {
-    "translated": 657,
-    "notTranslated": 3,
+    "translated": 659,
+    "notTranslated": 1,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "es": {
-    "translated": 657,
-    "notTranslated": 3,
+    "translated": 659,
+    "notTranslated": 1,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "fr": {
-    "translated": 587,
-    "notTranslated": 73,
+    "translated": 586,
+    "notTranslated": 74,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "it": {
-    "translated": 655,
-    "notTranslated": 5,
+    "translated": 659,
+    "notTranslated": 1,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "ja": {
-    "translated": 614,
-    "notTranslated": 46,
+    "translated": 613,
+    "notTranslated": 47,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "ko": {
-    "translated": 570,
-    "notTranslated": 90,
+    "translated": 569,
+    "notTranslated": 91,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "pl": {
     "translated": 0,
     "notTranslated": 660,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "pt-br": {
-    "translated": 588,
-    "notTranslated": 72,
+    "translated": 587,
+    "notTranslated": 73,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "ru": {
-    "translated": 657,
-    "notTranslated": 3,
+    "translated": 656,
+    "notTranslated": 4,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "zh-chs": {
     "translated": 469,
     "notTranslated": 191,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   },
   "zh-cht": {
     "translated": 384,
     "notTranslated": 276,
     "added": [
-      "Stat trackers for bragging rights and gilding memories"
+      "{{players}} players"
     ],
     "removed": [
-      "Statistics regarding your Guardian which can be applied to your equipped emblem"
+      "players"
     ]
   }
 }

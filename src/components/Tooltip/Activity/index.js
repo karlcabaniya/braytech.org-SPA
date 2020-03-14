@@ -14,6 +14,129 @@ import { Tooltips } from '../../../svg';
 
 import './styles.css';
 
+const adventures = [
+  53954174,
+  78673128,
+  96442917,
+  122988657,
+  185515551,
+  319240296,
+  320680002,
+  340004423,
+  359488722,
+  449926115,
+  539897061,
+  622895925,
+  625165976,
+  632790902,
+  723733266,
+  785871069,
+  789332628,
+  801458995,
+  808931822,
+  856342832,
+  919252154,
+  963938931,
+  993905880,
+  999972877,
+  1018040791,
+  1018385878,
+  1063969232,
+  1107208644,
+  1159314159,
+  1225970098,
+  1228327586,
+  1254990192,
+  1265390366,
+  1275562432,
+  1279862229,
+  1289867188,
+  1294490226,
+  1302437673,
+  1333621919,
+  1416597166,
+  1418217191,
+  1466550401,
+  1491022087,
+  1503376677,
+  1570598249,
+  1643069750,
+  1651979106,
+  1657356109,
+  1671235700,
+  1682036469,
+  1725302079,
+  1740310101,
+  1773400654,
+  1783922093,
+  1800749202,
+  1811228210,
+  1823921651,
+  1824067376,
+  1829866365,
+  1874578888,
+  1956541147,
+  1969800443,
+  1971154629,
+  1981289329,
+  1987624188,
+  2067233851,
+  2069143995,
+  2174556965,
+  2219006909,
+  2231840083,
+  2245202378,
+  2250935166,
+  2258680077,
+  2302677459,
+  2307090074,
+  2310677039,
+  2340776707,
+  2517540332,
+  2574607799,
+  2665134323,
+  2675435236,
+  2737739053,
+  2752743635,
+  2831644165,
+  2949941834,
+  2966841322,
+  3002511278,
+  3015346707,
+  3033151437,
+  3042112297,
+  3069330044,
+  3140524926,
+  3148431353,
+  3211568383,
+  3248193378,
+  3255524827,
+  3277510674,
+  3283790633,
+  3289681664,
+  3304835347,
+  3370527053,
+  3384410381,
+  3485876484,
+  3500791146,
+  3601218952,
+  3644215993,
+  3645117987,
+  3664729722,
+  3664915501,
+  3691789482,
+  3700722865,
+  3752039537,
+  3780356141,
+  3836086286,
+  3872525353,
+  3909841711,
+  3920569453,
+  4094398454,
+  4238309598
+];
+const levelAdvantagesEnabled = [3753505781, 1166905690];
+
 class Activity extends React.Component {
   render() {
     const { t, member, context, hash, mode, playlist, lastorbiteddestination } = this.props;
@@ -51,129 +174,7 @@ class Activity extends React.Component {
       );
     } else {
       const activityType = (hash, activityTypeHash, activityModeHashes = []) => {
-        if (
-          [
-            53954174,
-            78673128,
-            96442917,
-            122988657,
-            185515551,
-            319240296,
-            320680002,
-            340004423,
-            359488722,
-            449926115,
-            539897061,
-            622895925,
-            625165976,
-            632790902,
-            723733266,
-            785871069,
-            789332628,
-            801458995,
-            808931822,
-            856342832,
-            919252154,
-            963938931,
-            993905880,
-            999972877,
-            1018040791,
-            1018385878,
-            1063969232,
-            1107208644,
-            1159314159,
-            1225970098,
-            1228327586,
-            1254990192,
-            1265390366,
-            1275562432,
-            1279862229,
-            1289867188,
-            1294490226,
-            1302437673,
-            1333621919,
-            1416597166,
-            1418217191,
-            1466550401,
-            1491022087,
-            1503376677,
-            1570598249,
-            1643069750,
-            1651979106,
-            1657356109,
-            1671235700,
-            1682036469,
-            1725302079,
-            1740310101,
-            1773400654,
-            1783922093,
-            1800749202,
-            1811228210,
-            1823921651,
-            1824067376,
-            1829866365,
-            1874578888,
-            1956541147,
-            1969800443,
-            1971154629,
-            1981289329,
-            1987624188,
-            2067233851,
-            2069143995,
-            2174556965,
-            2219006909,
-            2231840083,
-            2245202378,
-            2250935166,
-            2258680077,
-            2302677459,
-            2307090074,
-            2310677039,
-            2340776707,
-            2517540332,
-            2574607799,
-            2665134323,
-            2675435236,
-            2737739053,
-            2752743635,
-            2831644165,
-            2949941834,
-            2966841322,
-            3002511278,
-            3015346707,
-            3033151437,
-            3042112297,
-            3069330044,
-            3140524926,
-            3148431353,
-            3211568383,
-            3248193378,
-            3255524827,
-            3277510674,
-            3283790633,
-            3289681664,
-            3304835347,
-            3370527053,
-            3384410381,
-            3485876484,
-            3500791146,
-            3601218952,
-            3644215993,
-            3645117987,
-            3664729722,
-            3664915501,
-            3691789482,
-            3700722865,
-            3752039537,
-            3780356141,
-            3836086286,
-            3872525353,
-            3909841711,
-            3920569453,
-            4094398454,
-            4238309598
-          ].includes(hash)
-        ) {
+        if (adventures.includes(hash)) {
           return 'adventure';
         } else if (enums.ordealHashes.includes(hash)) {
           return 'nightfall-ordeal';
@@ -287,8 +288,14 @@ class Activity extends React.Component {
         };
 
         // Survival, Survival: Freelance
-        if (definitionActivityPlaylist && [135537449, 740891329].includes(definitionActivityPlaylist?.hash)) {
-          activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name;
+        if (definitionActivityPlaylist && [135537449, 740891329].includes(definitionActivityPlaylist.hash)) {
+          activityTypeDisplay.name = definitionActivityPlaylist.displayProperties.name;
+        }
+
+        // Trials of Osiris
+        if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 1166905690) {
+          activityTypeDisplay.icon = <Tooltips.TrialsOfOsiris />
+          activityTypeDisplay.className = 'crucible trials-of-osiris';
         }
       }
 
@@ -433,7 +440,6 @@ class Activity extends React.Component {
 
       const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
 
-
       return (
         <>
           <div className='acrylic' />
@@ -473,9 +479,9 @@ class Activity extends React.Component {
               {matchmakingProperties && definitionActivity.placeHash !== 2961497387 ? (
                 <div className='matchmaking'>
                   <ul>
-                    {matchmakingProperties.maxParty > matchmakingProperties.minParty ? (
+                    {matchmakingProperties.maxParty > 1 ? (
                       <li>
-                        {t('Fireteam')}: {matchmakingProperties.minParty}-{matchmakingProperties.maxParty} {t('players')}
+                        {t('Fireteam')}: {t('{{players}} players', { players: matchmakingProperties.minParty < matchmakingProperties.maxParty ? `${matchmakingProperties.minParty}-${matchmakingProperties.maxParty}` : matchmakingProperties.maxParty })}
                       </li>
                     ) : (
                       <>
@@ -487,7 +493,7 @@ class Activity extends React.Component {
                     {activityTypeDisplay.isCrucible ? (
                       <>
                         <li>{t('Player versus player')}</li>
-                        {definitionActivityPlaylist?.hash === 3753505781 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
+                        {definitionActivityPlaylist && levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
                       </>
                     ) : (
                       <li>{t('Cooperative')}</li>
