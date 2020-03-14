@@ -10,22 +10,6 @@ import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import ObservedImage from '../../ObservedImage';
 
-import { ReactComponent as CrucibleIconDefault } from '../../../svg/crucible/default.svg';
-import { ReactComponent as CrucibleIconControl } from '../../../svg/crucible/control.svg';
-import { ReactComponent as CrucibleIconElimination } from '../../../svg/crucible/elimination.svg';
-import { ReactComponent as CrucibleIconRumble } from '../../../svg/crucible/rumble.svg';
-import { ReactComponent as CrucibleIconMayhem } from '../../../svg/crucible/mayhem.svg';
-import { ReactComponent as CrucibleIconDoubles } from '../../../svg/crucible/doubles.svg';
-import { ReactComponent as CrucibleIconBreakthrough } from '../../../svg/crucible/breakthrough.svg';
-import { ReactComponent as CrucibleIconClash } from '../../../svg/crucible/clash.svg';
-import { ReactComponent as CrucibleIconShowdown } from '../../../svg/crucible/showdown.svg';
-import { ReactComponent as CrucibleIconTeamScorched } from '../../../svg/crucible/team-scorched.svg';
-import { ReactComponent as CrucibleIconCountdown } from '../../../svg/crucible/countdown.svg';
-import { ReactComponent as CrucibleIconSupremacy } from '../../../svg/crucible/supremacy.svg';
-import { ReactComponent as CrucibleIconLockdown } from '../../../svg/crucible/lockdown.svg';
-import { ReactComponent as CrucibleIconMomentumControl } from '../../../svg/crucible/momentum-control.svg';
-import { ReactComponent as CrucibleIconIronBanner } from '../../../svg/crucible/iron-banner.svg';
-
 import { ReactComponent as CrucibleIconStandingVictory } from '../../../svg/crucible/standing-victory.svg';
 import { ReactComponent as CrucibleIconStandingDefeat } from '../../../svg/crucible/standing-defeat.svg';
 import { ReactComponent as CrucibleIconStandingVictoryGambit } from '../../../svg/gambit/standing-victory-gambit.svg';
@@ -37,67 +21,19 @@ class ReportHeader extends React.Component {
     const modeExtras = [
       {
         modes: [73],
-        icon: <CrucibleIconControl />,
         name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name
       },
       {
-        modes: [37],
-        icon: <CrucibleIconElimination />
-      },
-      {
-        modes: [48],
-        icon: <CrucibleIconRumble />
-      },
-      {
         modes: [71],
-        icon: <CrucibleIconClash />,
         name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name
       },
       {
         modes: [43],
-        icon: <CrucibleIconIronBanner />,
         name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name
       },
       {
         modes: [81],
-        icon: <CrucibleIconMomentumControl />,
         name: manifest.DestinyActivityDefinition[952904835].displayProperties.name
-      },
-      {
-        modes: [50],
-        icon: <CrucibleIconDoubles />
-      },
-      {
-        modes: [31],
-        icon: <CrucibleIconSupremacy />
-      },
-      {
-        modes: [60],
-        icon: <CrucibleIconLockdown />
-      },
-      {
-        modes: [65],
-        icon: <CrucibleIconBreakthrough />
-      },
-      {
-        modes: [59],
-        icon: <CrucibleIconShowdown />
-      },
-      {
-        modes: [38],
-        icon: <CrucibleIconCountdown />
-      },
-      {
-        modes: [5],
-        icon: <CrucibleIconDefault />
-      },
-      {
-        modes: [25],
-        icon: <CrucibleIconMayhem />
-      },
-      {
-        modes: [61, 62],
-        icon: <CrucibleIconTeamScorched />
       },
       {
         modes: [4],
@@ -141,59 +77,19 @@ class ReportHeaderLarge extends React.Component {
     const modeExtras = [
       {
         modes: [73],
-        icon: <CrucibleIconControl />,
         name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name
       },
       {
-        modes: [37],
-        icon: <CrucibleIconElimination />
-      },
-      {
-        modes: [48],
-        icon: <CrucibleIconRumble />
-      },
-      {
         modes: [71],
-        icon: <CrucibleIconClash />,
         name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name
       },
       {
         modes: [43],
-        icon: <CrucibleIconIronBanner />,
         name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name
       },
       {
         modes: [81],
-        icon: <CrucibleIconMomentumControl />,
         name: manifest.DestinyActivityDefinition[952904835].displayProperties.name
-      },
-      {
-        modes: [50],
-        icon: <CrucibleIconDoubles />
-      },
-      {
-        modes: [31],
-        icon: <CrucibleIconSupremacy />
-      },
-      {
-        modes: [60],
-        icon: <CrucibleIconLockdown />
-      },
-      {
-        modes: [65],
-        icon: <CrucibleIconBreakthrough />
-      },
-      {
-        modes: [59],
-        icon: <CrucibleIconShowdown />
-      },
-      {
-        modes: [38],
-        icon: <CrucibleIconCountdown />
-      },
-      {
-        modes: [5],
-        icon: <CrucibleIconDefault />
       },
       {
         modes: [4],
