@@ -39,24 +39,21 @@
   animation: rotate-linear 20s linear infinite;
 }
 
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(1) {
-  animation-direction: reverse;
-}
-
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(2) {
-  
-}
-
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3) {
-  animation-direction: reverse;
-}
-
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4) {
-  
-}
-
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(1),
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3),
 .list.modes li .icon svg .iron-banner-2 .triangle:nth-child(5) {
   animation-direction: reverse;
+  animation-duration: 30s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4),
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3) {
+  animation-duration: 10s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4)
+.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(5) {
+  animation-duration: 15s;
 }
 
 /* trials of osiris icon */
@@ -67,6 +64,7 @@
 
 .list.modes li .icon svg .trials .hexagon:last-child {
   animation-direction: reverse;
+  animation-duration: 10s;
 }
 
 /* crimson doubles icon */

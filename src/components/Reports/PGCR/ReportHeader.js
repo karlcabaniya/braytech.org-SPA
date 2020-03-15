@@ -58,9 +58,18 @@ class ReportHeader extends React.Component {
     // add activityDurationSeconds to activity start time
     const realEndTime = moment(period).add(entry.values.activityDurationSeconds.basic.value, 'seconds');
 
+    let mode = definitionMode?.displayProperties?.name;
+    if (modeExtra?.name) {
+      mode = modeExtra.name;
+    } else if (definitionActivity?.directActivityModeType === 37) {
+      mode = definitionActivity.displayProperties?.name;
+    } else if (definitionActivity?.hash === 1166905690) {
+      mode = definitionActivity.displayProperties.name;
+    }
+
     return (
       <div className='basic'>
-        <div className='mode'>{modeExtra?.name || (definitionActivity?.directActivityModeType === 37 && definitionActivity.displayProperties?.name) || definitionMode?.displayProperties?.name}</div>
+        <div className='mode'>{mode}</div>
         <div className='map'>{definitionMap?.displayProperties?.name}</div>
         <div className='ago'>
           <Moment fromNow withTitle>{realEndTime}</Moment>
@@ -135,12 +144,21 @@ class ReportHeaderLarge extends React.Component {
 
     const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? CrucibleIconStandingVictoryGambit : CrucibleIconStandingVictory;
 
+    let mode = definitionMode?.displayProperties?.name;
+    if (modeExtra?.name) {
+      mode = modeExtra.name;
+    } else if (definitionActivity?.directActivityModeType === 37) {
+      mode = definitionActivity.displayProperties?.name;
+    } else if (definitionActivity?.hash === 1166905690) {
+      mode = definitionActivity.displayProperties.name;
+    }
+
     return (
       <div className={cx('head', simplifiedAcivityMode?.name)}>
         {definitionMap?.pgcrImage && <ObservedImage className='image bg' src={`https://www.bungie.net${definitionMap.pgcrImage}`} />}
         <div className='detail'>
           <div>
-            <div className='mode'>{modeExtra?.name || (definitionActivity?.directActivityModeType === 37 && definitionActivity.displayProperties?.name) || definitionMode?.displayProperties?.name}</div>
+            <div className='mode'>{mode}</div>
             <div className='map'>{definitionMap?.displayProperties?.name}</div>
           </div>
           <div>
