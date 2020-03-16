@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-import * as ls from '../../../utils/localStorage';
-import { NoAuth, DiffProfile } from '../../../components/BungieAuth';
+import { NoAuth } from '../../../components/BungieAuth';
 import Spinner from '../../../components/UI/Spinner';
 import RosterAdmin from '../../../components/RosterAdmin';
 
@@ -23,7 +23,7 @@ class AdminView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks {...this.props} />
+        <ClanViewsLinks />
         <div className='module'>
           {groupMembers.loading && groupMembers.members.length === 0 ? <Spinner /> : null}
           <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? (
@@ -38,4 +38,11 @@ class AdminView extends React.Component {
   }
 }
 
-export default AdminView;
+function mapStateToProps(state, ownProps) {
+  return {
+    auth: state.auth,
+    groupMembers: state.groupMembers
+  };
+}
+
+export default connect(mapStateToProps)(AdminView);

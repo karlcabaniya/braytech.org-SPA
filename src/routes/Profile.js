@@ -49,17 +49,17 @@ class ProfileRoutes extends React.Component {
       <>
         <PostmasterCapacity />
         <Switch>
-          <Route path={`${match.url}/clan/:view?/:subView?/:subSubView?`} exact render={route => <Clan view={route.match.params.view} subView={route.match.params.subView} subSubView={route.match.params.subSubView} />} />
-          <Route path={`${match.url}/checklists`} exact component={Checklists} />
-          <Route path={`${match.url}/character`} exact component={Character} />
-          <Route path={`${match.url}/collections/:primary?/:secondary?/:tertiary?/:quaternary?/:quinary?`} render={route => <Collections {...route} />} />
-          <Route path={`${match.url}/triumphs/:primary?/:secondary?/:tertiary?/:quaternary?`} render={route => <Triumphs {...route} />} />
+          <Route path={`${match.url}/clan/:view?/:subView?/:subSubView?`} exact component={Clan} />
+          <Route path={`${match.url}/collections/:primary?/:secondary?/:tertiary?/:quaternary?/:quinary?`} component={Collections} />
+          <Route path={`${match.url}/triumphs/:primary?/:secondary?/:tertiary?/:quaternary?`} component={Triumphs} />
           <Route path={`${match.url}/trackers/:hash1(\\d+)?/:hash2(\\d+)?/:hash3(\\d+)?`} component={Trackers} />
-          <Route path={`${match.url}/this-week`} exact component={ThisWeek} />
-          <Route path={`${match.url}/reports/:type?/:mode(\\d+)?/:offset(\\d+)?`} render={route => <Reports {...route} />} />
-          <Route path={`${match.url}/now/:view?`} render={route => <Now {...route} />} />
-          <Route path={`${match.url}/quests/bounty-tracker/:sort?`} render={route => <BountyTracker {...route} />} />
-          <Route path={`${match.url}/quests/:hash(\\d+)?`} render={route => <Quests {...route} />} />
+          <Route path={`${match.url}/checklists`} exact component={Checklists} />
+          <Route path={`${match.url}/this-week/:view?`} component={ThisWeek} />
+          <Route path={`${match.url}/now/:view?`} component={Now} />
+          <Route path={`${match.url}/character`} exact component={Character} />
+          <Route path={`${match.url}/quests/:hash(\\d+)?`} component={Quests} />
+          <Route path={`${match.url}/quests/bounty-tracker/:sort?`} component={BountyTracker} />
+          <Route path={`${match.url}/reports/:type?/:mode(\\d+)?/:offset(\\d+)?`} component={Reports} />
           <Route path={`${match.url}/`} render={route => <Redirect to={{ pathname: `${match.url}/now` }} />} />
         </Switch>
       </>

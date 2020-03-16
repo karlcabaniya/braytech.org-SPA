@@ -29,6 +29,10 @@
   max-width: 400px;
 }
 
+.user-module.challenges ul li .challenge.completed {
+  display: none;
+}
+
 .user-module.challenges ul li .challenge .objective {
   background-color: rgba(255, 237, 111, 0.1);
   padding: 12px 1rem 18px;
@@ -63,8 +67,17 @@
   background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
   background-repeat: no-repeat;
   background-size: 200%;
-  animation: animation-update-flash 1.7s linear 0s infinite;
+  animation: reward-update-flash 1.7s linear 0s infinite;
   opacity: 0.2;
+}
+
+@keyframes reward-update-flash {
+  0% {
+    background-position-x: 200%;
+  }
+  66%, 100% {
+    background-position-x: -200%;
+  }
 }
 
 #now .user-module.challenges .list.activities li {

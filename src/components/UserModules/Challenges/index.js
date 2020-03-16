@@ -1,12 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { groupBy, orderBy } from 'lodash';
 import cx from 'classnames';
 
-import * as enums from '../../../utils/destinyEnums';
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
+import * as enums from '../../../utils/destinyEnums';
 import ProgressBar from '../../UI/ProgressBar';
 import { recallMissions } from '../Luna';
 
@@ -15,15 +14,15 @@ import './styles.css';
 const groups = [
   [
     2498962144, // Nightfall: The Ordeal with a team score above 100,000.
-    2443315975  // Nightfall: The Ordeal activities completion
+    2443315975 // Nightfall: The Ordeal activities completion
   ],
   [
     3118376466, // Crucible core playlists
-    1607758693  // Crucible Rotator playlists
+    1607758693 // Crucible Rotator playlists
   ],
   [
     3683641566, // Nightmare Hunt activities completion
-    2190387136  // Nightmare Hunt on Master difficulty
+    2190387136 // Nightmare Hunt on Master difficulty
   ]
 ];
 
@@ -39,19 +38,21 @@ class Challenges extends React.Component {
   getOverrides = (objectiveHash, activityHash) => {
     if (objectiveHash === 3683641566) {
       return {
-        name: this.props.t('Nightmare Hunts'),
-        description: this.props.t('Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian.')
+        name: t('Nightmare Hunts'),
+        description: t('Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian.')
       };
-    } else if (objectiveHash === 2443315975 || objectiveHash === 2498962144) { // Nightfall: The Ordeal
+    } else if (objectiveHash === 2443315975 || objectiveHash === 2498962144) {
+      // Nightfall: The Ordeal
       return {
-        description: this.props.t('Undertake your most perilous albeit rewarding strikes yet, in the name of the Light, the Vanguard, and The Last City.')
+        description: t('Undertake your most perilous albeit rewarding strikes yet, in the name of the Light, the Vanguard, and The Last City.')
       };
     } else if (objectiveHash === 1296970487) {
       return {
         name: manifest.DestinyObjectiveDefinition[1296970487]?.displayProperties.name,
-        description: this.props.t('Retrace your steps and unravel the mystery of the Pyramid.')
+        description: t('Retrace your steps and unravel the mystery of the Pyramid.')
       };
-    } else if (objectiveHash === 3118376466 || objectiveHash === 1607758693) { // Crucible
+    } else if (objectiveHash === 3118376466 || objectiveHash === 1607758693) {
+      // Crucible
       return {
         name: manifest.DestinyPlaceDefinition[4088006058].displayProperties.name,
         description: manifest.DestinyPlaceDefinition[4088006058].displayProperties.description
@@ -67,7 +68,7 @@ class Challenges extends React.Component {
 
   getActivities = activities => {
     if (this.isNightmareHunt(activities[0]) || this.isNightfallOrdeal(activities[0])) {
-      return activities.filter(activityHash => manifest.DestinyActivityDefinition[activityHash].activityLightLevel > 950);
+      return activities.filter(activityHash => manifest.DestinyActivityDefinition[activityHash].activityLightLevel > 1000);
     } else if (this.isLunasRecall(activities[0]) || this.isDungeon(activities[0]) || this.isRaid(activities[0])) {
       return activities;
     } else {
@@ -76,7 +77,7 @@ class Challenges extends React.Component {
   };
 
   render() {
-    const { t, member } = this.props;
+    const { member } = this.props;
     const characterActivities = member.data.profile.characterActivities.data;
 
     // console.log(groupBy(characterActivities[member.characterId].availableActivities.filter(a => a.challenges), a => a.challenges[0].objective.objectiveHash))
@@ -142,7 +143,7 @@ class Challenges extends React.Component {
 
                 const name = override?.name || manifest.DestinyActivityDefinition[challenge.activityHash].originalDisplayProperties?.name || manifest.DestinyActivityDefinition[challenge.activityHash].displayProperties.name;
                 const description = override?.description || manifest.DestinyActivityDefinition[challenge.activityHash].originalDisplayProperties?.description || manifest.DestinyActivityDefinition[challenge.activityHash].displayProperties.description;
-
+console.log(challenge)
                 return (
                   <li key={i}>
                     <div className='activity'>
@@ -176,7 +177,7 @@ class Challenges extends React.Component {
                         const rewards = manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find(c => c.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
 
                         return (
-                          <div key={o} className='challenge'>
+                          <div key={o} className={cx('challenge', { completed: objective.complete })}>
                             <div className='objective'>
                               <div className='text'>
                                 <p>{manifest.DestinyObjectiveDefinition[objective.objectiveHash].displayProperties.description}</p>
@@ -184,11 +185,7 @@ class Challenges extends React.Component {
                               <ProgressBar key={o} {...objective} />
                               {/* <p>{objective.objectiveHash}</p> */}
                             </div>
-                            {rewards.length ? (
-                              <div className={cx('rewards', { pinnacle: rewards.filter(r => r.itemHash === 73143230).length })}>
-                                {rewards.map(r => manifest.DestinyInventoryItemDefinition[r.itemHash]?.displayProperties.name).join(', ')}
-                              </div>
-                            ) : null}
+                            {rewards.length ? <div className={cx('rewards', { pinnacle: rewards.filter(r => r.itemHash === 73143230).length })}>{rewards.map(r => manifest.DestinyInventoryItemDefinition[r.itemHash]?.displayProperties.name).join(', ')}</div> : null}
                           </div>
                         );
                       })}
@@ -211,4 +208,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Challenges);
+export default connect(mapStateToProps)(Challenges);

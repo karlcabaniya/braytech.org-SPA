@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
 import moment from 'moment';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
 import Roster from '../../../components/Roster';
@@ -64,8 +66,8 @@ class AboutView extends React.Component {
     
     window.scrollTo(0, 0);
 
-    const groupId = this.props.group.groupId;
-    const groupWeeklyRewardState = await bungie.GetClanWeeklyRewardState(groupId);
+    const group = this.props.member.data.groups.results.length > 0 ? this.props.member.data.groups.results[0].group : false;
+    const groupWeeklyRewardState = await bungie.GetClanWeeklyRewardState(group.groupId);
 
     if (this.mounted && groupWeeklyRewardState && groupWeeklyRewardState.ErrorCode === 1) {
       this.setState({ weeklyRewardState: groupWeeklyRewardState.Response });
@@ -77,7 +79,8 @@ class AboutView extends React.Component {
   }
 
   render() {
-    const { t, group, groupMembers } = this.props;
+    const { member, groupMembers } = this.props;
+    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
 
     const clanLevel = group.clanInfo.d2ClanProgressions[584850370];
 
@@ -88,7 +91,7 @@ class AboutView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks {...this.props} />
+        <ClanViewsLinks />
         <div className='module banner'>
           <ClanBanner bannerData={group.clanInfo.clanBannerData} />
           <Link className='button cta customise' to={`/clan-banner-builder/${group.clanInfo.clanBannerData.decalBackgroundColorId}/${group.clanInfo.clanBannerData.decalColorId}/${group.clanInfo.clanBannerData.decalId}/${group.clanInfo.clanBannerData.gonfalonColorId}/${group.clanInfo.clanBannerData.gonfalonDetailColorId}/${group.clanInfo.clanBannerData.gonfalonDetailId}/${group.clanInfo.clanBannerData.gonfalonId}/`}>
@@ -134,4 +137,13 @@ class AboutView extends React.Component {
   }
 }
 
-export default AboutView;
+function mapStateToProps(state, ownProps) {
+  return {
+    member: state.member,
+    auth: state.auth,
+    groupMembers: state.groupMembers,
+    viewport: state.viewport
+  };
+}
+
+export default connect(mapStateToProps)(AboutView);

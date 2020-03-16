@@ -1,14 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+
+import { t } from '../../../utils/i18n';
 
 import './styles.css';
 
 class NoClan extends React.Component {
   render() {
-    const { t } = this.props;
-
     return (
       <div className='view no-clan' id='clan'>
         <div className='module'>
@@ -25,7 +22,4 @@ class NoClan extends React.Component {
   }
 }
 
-export default compose(
-  connect(),
-  withTranslation()
-)(NoClan);
+export default NoClan;

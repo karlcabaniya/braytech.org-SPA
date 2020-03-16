@@ -22,7 +22,7 @@ class StatsView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks {...this.props} />
+        <ClanViewsLinks />
         <RosterLeaderboards mode='70' scopeId={subView} statId={subSubView} />
       </>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Spinner from '../../../components/UI/Spinner';
 import Roster from '../../../components/Roster';
@@ -17,7 +18,7 @@ class RosterView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks {...this.props} />
+        <ClanViewsLinks />
         <div className='module'>
           {groupMembers.loading && groupMembers.members.length === 0 ? <Spinner /> : null}
           <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? (
@@ -32,4 +33,10 @@ class RosterView extends React.Component {
   }
 }
 
-export default RosterView;
+function mapStateToProps(state, ownProps) {
+  return {
+    groupMembers: state.groupMembers
+  };
+}
+
+export default connect(mapStateToProps)(RosterView);

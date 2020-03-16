@@ -1,7 +1,6 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+
+import { t } from '../../../utils/i18n';
 
 import ClanViewsLinks from '../ClanViewsLinks';
 
@@ -9,8 +8,6 @@ import './styles.css';
 
 class ViewportWidth extends React.Component {
   render() {
-    const { t } = this.props;
-
     return (
       <>
         <ClanViewsLinks {...this.props} />
@@ -27,7 +24,4 @@ class ViewportWidth extends React.Component {
   }
 }
 
-export default compose(
-  connect(),
-  withTranslation()
-)(ViewportWidth);
+export default ViewportWidth;
