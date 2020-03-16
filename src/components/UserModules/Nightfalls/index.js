@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
-import { orderBy } from 'lodash';
 
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
@@ -28,7 +27,7 @@ class Nightfalls extends React.Component {
     });
 
     const weeklyNightfallStrikesOrdealHash = Object.keys(enums.nightfalls).find(k => enums.nightfalls[k].ordealHashes.find(o => weeklyNightfallStrikeActivities.find(w => w.activityHash === o)));
-    const weeklyNightfallStrikesOrdealVersions = orderBy(weeklyNightfallStrikeActivities.filter(a => enums.nightfalls[weeklyNightfallStrikesOrdealHash].ordealHashes.includes(a.activityHash)) || [], [a => a.recommendedLight], ['asc']);
+    const weeklyNightfallStrikesOrdealVersions = weeklyNightfallStrikeActivities.filter(a => enums.nightfalls[weeklyNightfallStrikesOrdealHash].ordealHashes.includes(a.activityHash)).sort((a, b) => b.recommendedLight - a.recommendedLight);
 
     const weeklyNightfallStrikesScored = weeklyNightfallStrikeActivities.filter(w => !Object.keys(enums.nightfalls).find(k => enums.nightfalls[k].ordealHashes.find(o => o === w.activityHash)));
 
@@ -38,7 +37,7 @@ class Nightfalls extends React.Component {
     return [{ activityHash: weeklyNightfallStrikesOrdealHash, ordeal: true }].concat(weeklyNightfallStrikesScored).map((activity, a) => {
       const nightfall = manifest.DestinyActivityDefinition[activity.activityHash];
 
-      const modifierHashes = (activity.ordeal ? weeklyNightfallStrikesOrdealVersions.find(a => a.recommendedLight === 980)?.modifierHashes : weeklyNightfallStrikeActivities.find(a => a.activityHash === activity.activityHash)?.modifierHashes) || [];
+      const modifierHashes = (activity.ordeal ? weeklyNightfallStrikesOrdealVersions[0].modifierHashes : weeklyNightfallStrikeActivities.find(a => a.activityHash === activity.activityHash)?.modifierHashes) || [];
 
       return (
         <div key={nightfall.hash} className='column'>

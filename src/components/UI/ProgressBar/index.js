@@ -3,6 +3,7 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import { stringToIcons } from '../../../utils/destinyUtils';
+import { displayValue } from '../../../utils/destinyConverters';
 
 import './styles.css';
 
@@ -52,7 +53,7 @@ class ProgressBar extends React.Component {
             {!hideDescription ? <div className='description'>{description}</div> : <div />}
             {completionValue && !hideFraction ? (
               <div className='fraction'>
-                {hideFractionDenominator ? progress : `${progress}/${completionValue}`}
+                {hideFractionDenominator ? displayValue(progress) : `${displayValue(progress)}/${displayValue(completionValue)}`}
               </div>
             ) : null}
           </div>

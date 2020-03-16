@@ -6,7 +6,7 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
-import * as utils from '../../../utils/destinyUtils';
+import { progressionSeasonRank } from '../../../utils/destinyUtils';
 import Button from '../../UI/Button';
 import ProgressBar from '../../UI/ProgressBar';
 import Items from '../../Items';
@@ -185,7 +185,7 @@ class SeasonPass extends React.Component {
       })
     };
 
-    const progressSeasonalRank = utils.progressionSeasonRank(member);
+    const seasonRank = progressionSeasonRank(member);
 
     return (
       <div className='season-pass'>
@@ -199,7 +199,7 @@ class SeasonPass extends React.Component {
               <p>{definitionSeason.displayProperties.description}</p>
             </div>
           </div>
-          <div className='rank'>{progressSeasonalRank.level}</div>
+          <div className='rank'>{seasonRank.level}</div>
         </div>
         <div className='page'>
           <Button text={<i className='segoe-uniE973' />} action={this.handler_seasonPassPrev} disabled={this.state.seasonPassRewardsPage * seasonPassItemsPerPage - seasonPassItemsPerPage < 1} />

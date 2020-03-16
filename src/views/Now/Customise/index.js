@@ -100,7 +100,7 @@ const getUniqueGroupID = groups => {
 export const moduleRules = {
   full: ['SeasonPass'],
   double: ['SeasonArtifact', 'Challenges'],
-  head: ['Flashpoint', 'DailyVanguardModifiers', 'DailyHeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown', 'AltarsOfSorrow']
+  head: ['Flashpoint', 'DailyVanguardModifiers', 'DailyHeroicStoryMissions', 'BlackArmoryForges', 'SeasonCountdown', 'AltarsOfSorrow', 'TrialsOfOsiris']
 };
 
 class Customise extends React.Component {
@@ -451,6 +451,10 @@ class Customise extends React.Component {
     Challenges: {
       name: this.props.t('Challenges'),
       description: this.props.t("Activities offering powerful rewards")
+    },
+    TrialsOfOsiris: {
+      name: manifest.DestinyActivityModeDefinition[1673724806].displayProperties.name,
+      description: manifest.DestinyActivityModeDefinition[1673724806].displayProperties.description
     },
     CharacterEquipment: {
       name: this.props.t('Character equipment'),

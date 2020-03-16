@@ -26,6 +26,7 @@ import CharacterEquipment from '../../../components/UserModules/CharacterEquipme
 import SeasonCountdown from '../../../components/UserModules/SeasonCountdown';
 import AltarsOfSorrow from '../../../components/UserModules/AltarsOfSorrow';
 import Clan from '../../../components/UserModules/Clan';
+import TrialsOfOsiris from '../../../components/UserModules/TrialsOfOsiris';
 
 import { moduleRules, getCols } from '../Customise';
 
@@ -92,6 +93,9 @@ class Now extends React.Component {
     },
     Clan: {
       reference: Clan
+    },
+    TrialsOfOsiris: {
+      reference: TrialsOfOsiris
     }
   };
 

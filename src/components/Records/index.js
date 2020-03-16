@@ -10,6 +10,7 @@ import cx from 'classnames';
 import manifest from '../../utils/manifest';
 import { commonality } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
+import { displayValue } from '../../utils/destinyConverters';
 import * as paths from '../../utils/paths';
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
@@ -262,7 +263,7 @@ class Records extends React.Component {
                 <div className='description'>{lastInterval.objectiveHash && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash] && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash].progressDescription}</div>
                 {lastInterval.completionValue ? (
                   <div className='fraction'>
-                    {lastInterval.progress}/{lastInterval.completionValue}
+                    {displayValue(lastInterval.progress)}/{displayValue(lastInterval.completionValue)}
                   </div>
                 ) : null}
               </div>

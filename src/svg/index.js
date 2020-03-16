@@ -77,6 +77,7 @@ import { ReactComponent as FlairSuperintendent } from './flair/superintendent.sv
 import { ReactComponent as DestinationsWarmind } from './destinations/hellas-basin-1_monochrome.svg';
 
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
+import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
 
 const Common = {
   Arc,
@@ -94,6 +95,11 @@ const Common = {
   Braytech,
   Tracking,
   CrossSave
+}
+
+const Miscellaneous = {
+  WarmindHalf,
+  TrialsOfOsirisDevice
 }
 
 const Loading = {
@@ -192,4 +198,4 @@ const Views = {
   }
 }
 
-export { Common, Flair, Campaign, Tooltips, Maps, Views, Loading };
+export { Common, Flair, Campaign, Tooltips, Maps, Views, Loading, Miscellaneous };

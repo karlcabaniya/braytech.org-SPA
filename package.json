@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.20.12",
+  "version": "2.20.13",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -13,6 +13,7 @@
     "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs",
     "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",
     "eververse": "node --experimental-modules scripts/prepareEververseData.mjs",
+    "records": "node --experimental-modules scripts/prepareUnobtainableRecords.mjs",
     "chalice-data": "node --experimental-modules scripts/prepareChaliceData.mjs",
     "chalice-runes": "node --experimental-modules scripts/prepareChaliceRunes.mjs"
   },

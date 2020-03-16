@@ -6,6 +6,7 @@ import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
+import { displayValue } from '../../utils/destinyConverters';
 import { itemComponents } from '../../utils/destinyItems/itemComponents';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
@@ -114,7 +115,7 @@ class Items extends React.Component {
                 hideCheck
               />
             ) : null}
-            {!hideQuantity && item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
+            {!hideQuantity && item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{displayValue(item.quantity)}</div> : null}
             {inspect && definitionItem.itemHash ? <Link to={{ pathname: `/inspect/${definitionItem.itemHash}`, state: { from: this.props.selfLinkFrom } }} /> : null}
           </li>
         )
