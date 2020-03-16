@@ -1,6 +1,6 @@
 import React from 'react';
 
-import dudRecords from '../../../data/dudRecords';
+import duds from '../../../data/records/duds';
 import Records from '../../../components/Records';
 
 class DudDebug extends React.Component {
@@ -9,7 +9,7 @@ class DudDebug extends React.Component {
       <>
         <div className='dud-debug'>
           <ul className='list record-items'>
-            <Records hashes={dudRecords} forceDisplay />
+            <Records hashes={duds} forceDisplay />
           </ul>
         </div>
       </>

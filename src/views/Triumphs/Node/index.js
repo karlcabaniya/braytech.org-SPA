@@ -5,7 +5,8 @@ import { withRouter } from 'react-router';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import dudRecords from '../../../data/dudRecords';
+import duds from '../../../data/records/duds';
+import unobtainable from '../../../data/records/unobtainable';
 import { enumerateRecordState } from '../../../utils/destinyEnums';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
@@ -63,17 +64,25 @@ class PresentationNode extends React.Component {
         return;
       }
 
-      const states = [];
-
-      definitionNode.children.records.forEach(r => {
-        const definitionRecord = manifest.DestinyRecordDefinition[r.recordHash];
+      const states = definitionNode.children.records.map(record => {
+        const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
         const scopeRecord = definitionRecord.scope || 0;
-        const dataRecord = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
+        const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
-        if (collectibles.hideDudRecords && dudRecords.indexOf(r.recordHash) > -1) return;
-
-        states.push(dataRecord);
-      });
+        if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+        // if (recordData.intervalObjectives?.length) {
+        //   if (recordData.intervalsRedeemedCount === 0) {
+        //     return recordData;
+        //   } else {
+        //     return false;
+        //   }
+        // } else {
+        //   if (!enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
+        // }
+        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+        
+        return recordData;
+      }).filter(record => record);
 
       const isActive = (match, location) => {
         if (this.props.match.params.tertiary === undefined && definitionSecondary.children.presentationNodes.indexOf(child) === 0) {
@@ -104,6 +113,17 @@ class PresentationNode extends React.Component {
         </li>
       );
     });
+    
+    const recordHashes = definitionTertiary.children.records.filter(record => {
+      const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
+      const scopeRecord = definitionRecord.scope || 0;
+      const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
+
+      if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+      if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+
+      return true;
+    }).map(record => record.recordHash);
 
     return (
       <div className='node'>
@@ -124,7 +144,7 @@ class PresentationNode extends React.Component {
         </div>
         <div className='entries'>
           <ul className='list tertiary record-items'>
-            <Records hashes={definitionTertiary.children.records.map(child => child.recordHash)} highlight={quaternaryHash} readLink={primaryHash === '564676571'} />
+            <Records hashes={recordHashes} highlight={quaternaryHash} readLink={primaryHash === '564676571'} />
           </ul>
         </div>
       </div>

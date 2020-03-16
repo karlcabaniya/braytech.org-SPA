@@ -64,10 +64,6 @@
   box-shadow: inset 0 0 0 3px #b5fc73;
 }
 
-.list.inventory-items li.expired::before {
-  box-shadow: inset 0 0 0 2px #b34949;
-}
-
 .list.inventory-items li.tracked .track {
   position: absolute;
   top: 0;

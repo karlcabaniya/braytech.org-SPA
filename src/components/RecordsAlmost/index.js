@@ -5,7 +5,8 @@ import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
-import dudRecords from '../../data/dudRecords';
+import duds from '../../data/records/duds';
+import unobtainable from '../../data/records/unobtainable';
 import { enumerateRecordState } from '../../utils/destinyEnums';
 import { ProfileLink } from '../../components/ProfileLink';
 import Records from '../Records';
@@ -39,10 +40,14 @@ class RecordsAlmost extends React.Component {
       ...characterRecords[member.characterId].records
     };
 
-    Object.entries(records).forEach(([key, record]) => {
-      const hash = parseInt(key, 10);
+    Object.entries(records).forEach(([key, recordData]) => {
+      const hash = +key;
+      
+      if (collectibles.hideUnobtainableRecords && unobtainable.indexOf(hash) > -1) {
+        return;
+      }
 
-      if (collectibles.hideDudRecords && dudRecords.indexOf(hash) > -1) {
+      if (collectibles.hideDudRecords && duds.indexOf(hash) > -1) {
         return;
       }
 
@@ -54,26 +59,23 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      const recordState = enumerateRecordState(record.state);
+      const recordState = enumerateRecordState(recordData.state);
 
-      if (recordState.invisible || recordState.recordRedeemed || !recordState.objectiveNotCompleted) {
-        return;
-      }
-
-      if (hash === 3015941901) console.log(manifest.DestinyRecordDefinition[hash].displayProperties.name, recordState, record)
+      if (recordState.recordRedeemed || !recordState.objectiveNotCompleted) return;
+      if (collectibles.hideInvisibleRecords && (recordState.obscured || recordState.invisible)) return;
 
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;
 
-      if (record.intervalObjectives) {
-        const nextIncomplete = record.intervalObjectives.find(o => !o.complete);
+      if (recordData.intervalObjectives) {
+        const nextIncomplete = recordData.intervalObjectives.find(o => !o.complete);
 
         if (!nextIncomplete) return;
 
         completionValueDiviser += 1;
         progressValueDecimal += Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
-      } else if (record.objectives) {
-        record.objectives.forEach(objective => {
+      } else if (recordData.objectives) {
+        recordData.objectives.forEach(objective => {
           completionValueDiviser += 1;
           progressValueDecimal += Math.min(objective.progress / objective.completionValue, 1);
         });

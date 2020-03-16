@@ -523,11 +523,11 @@ const iconPlaceholder = /(\[[^\]]+\]|[\uE000-\uF8FF])/g;
 const baseConversionTable = [
   // Damage Types
   { objectiveHash: 2178780271, unicode: '', substring: null },
-  { objectiveHash:  400711454, unicode: '', substring: null },
+  { objectiveHash:  220763483, unicode: '', substring: null },
   { objectiveHash: 2994623161, unicode: '', substring: null },
   { objectiveHash: 1554970245, unicode: '', substring: null },
   // Precision
-  { objectiveHash:  437290134, unicode: '', substring: null },
+  { objectiveHash:  2258255959, unicode: '', substring: null },
   // Abilities
   { objectiveHash:  314405660, unicode: '', substring: null },
   { objectiveHash: 3711356257, unicode: '', substring: null },

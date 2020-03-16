@@ -136,6 +136,7 @@
   background-repeat: no-repeat;
   background-size: 400%;
   animation: reward-update-flash 1.2s linear 0s infinite forwards reverse;
+  z-index: 1;
 }
 
 

@@ -11,7 +11,6 @@ import manifest from '../../utils/manifest';
 import { commonality } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import * as paths from '../../utils/paths';
-import dudRecords from '../../data/dudRecords';
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
@@ -115,11 +114,7 @@ const unredeemed = member => {
 };
 
 class Records extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.scrollToRecordRef = React.createRef();
-  }
+  scrollToRecordRef = React.createRef();
 
   componentDidMount() {
     if (this.props.highlight && this.scrollToRecordRef.current !== null) {
@@ -146,7 +141,7 @@ class Records extends React.Component {
   render() {
     const { t, hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, forceDisplay = false } = this.props;
     const highlight = parseInt(this.props.highlight, 10) || false;
-    const recordsRequested = collectibles.hideDudRecords && !forceDisplay ? hashes.filter(hash => dudRecords.indexOf(hash) === -1) : hashes;
+    const recordsRequested = hashes;
     const characterId = member && member.characterId;
     const characterRecords = member && member.data && member.data.profile.characterRecords.data;
     const profileRecords = member && member.data && member.data.profile.profileRecords.data.records;
@@ -309,17 +304,14 @@ class Records extends React.Component {
         );
       }
 
-      // console.log(recordState.distance)
-
-      // if (definitionRecord.hash === 810213052) console.log(recordState);
-
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
+      const enumeratedState = enumerateRecordState(enumerableState);
 
-      if (enumerateRecordState(enumerableState).invisible && (collectibles && collectibles.hideInvisibleRecords) && !forceDisplay) {
+      if (!forceDisplay && collectibles.hideInvisibleRecords && (enumeratedState.invisible || enumeratedState.obscured)) {
         return;
       }
 
-      if (enumerateRecordState(enumerableState).recordRedeemed && (collectibles && collectibles.hideCompletedRecords) && !forceDisplay) {
+      if (!forceDisplay && collectibles.hideCompletedRecords && enumeratedState.recordRedeemed) {
         return;
       }
 
@@ -327,7 +319,7 @@ class Records extends React.Component {
 
       if (definitionRecord.redacted) {
         recordsOutput.push({
-          completed: enumerateRecordState(enumerableState).recordRedeemed,
+          completed: enumeratedState.recordRedeemed,
           progressDistance: recordState.distance,
           hash: definitionRecord.hash,
           element: (
@@ -399,7 +391,7 @@ class Records extends React.Component {
         }
 
         recordsOutput.push({
-          completed: enumerateRecordState(enumerableState).recordRedeemed,
+          completed: enumeratedState.recordRedeemed,
           progressDistance: recordState.distance,
           hash: definitionRecord.hash,
           element: (
@@ -409,14 +401,14 @@ class Records extends React.Component {
               className={cx({
                 linked: link && linkTo,
                 highlight: highlight && highlight === definitionRecord.hash,
-                completed: enumerateRecordState(enumerableState).recordRedeemed,
-                unredeemed: !enumerateRecordState(enumerableState).recordRedeemed && !enumerateRecordState(enumerableState).objectiveNotCompleted,
-                tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumerateRecordState(enumerableState).recordRedeemed && enumerateRecordState(enumerableState).objectiveNotCompleted,
+                completed: enumeratedState.recordRedeemed,
+                unredeemed: !enumeratedState.recordRedeemed && !enumeratedState.objectiveNotCompleted,
+                tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.recordRedeemed && enumeratedState.objectiveNotCompleted,
                 'no-description': !description,
                 'has-intervals': recordState.intervals.length
               })}
             >
-              {!enumerateRecordState(enumerableState).recordRedeemed && enumerateRecordState(enumerableState).objectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
+              {!enumeratedState.recordRedeemed && enumeratedState.objectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
                 <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
                   <Common.Tracking />
                 </div>

@@ -5,7 +5,8 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import dudRecords from '../../../data/dudRecords';
+import duds from '../../../data/records/duds';
+import unobtainable from '../../../data/records/unobtainable';
 import { enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
 import { ProfileLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
@@ -49,7 +50,15 @@ class Root extends React.Component {
             const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
             if (recordData) {
-              if (collectibles.hideDudRecords && dudRecords.indexOf(record.recordHash) > -1) return;
+              if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
+              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
+              // if (recordData.intervalObjectives?.length) {
+              //   if (recordData.intervalsRedeemedCount === 0) {
+              //     return;
+              //   }
+              // } else {
+              //   if (!enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return;
+              // }
 
               recordData.hash = definitionRecord.hash;
               recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;

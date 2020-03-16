@@ -280,10 +280,16 @@ class Settings extends React.Component {
                   <p>{t('If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views.')}</p>
                 </div>
               </li>
-              <li onClick={this.selectCollectibleDisplayState('hideDudRecords')}>
-                <Checkbox linked checked={this.props.collectibles.hideDudRecords} text={t('Hide dud records')} />
+              <li onClick={this.selectCollectibleDisplayState('hideUnobtainableRecords')}>
+                <Checkbox linked checked={this.props.collectibles.hideUnobtainableRecords} text={t('Hide unobtainable triumph records')} />
                 <div className='info'>
-                  <p>{t('Hides dud (empty, unused, or unobtainable) records from view')}</p>
+                  <p>{t('Hides unobtainable records from view')}</p>
+                </div>
+              </li>
+              <li onClick={this.selectCollectibleDisplayState('hideDudRecords')}>
+                <Checkbox linked checked={this.props.collectibles.hideDudRecords} text={t('Hide dud triumph records')} />
+                <div className='info'>
+                  <p>{t('Hides dud (empty or unused) records from view')}</p>
                 </div>
               </li>
               <li onClick={this.selectCollectibleDisplayState('hideCompletedCollectibles')}>

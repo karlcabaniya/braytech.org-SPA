@@ -7,6 +7,7 @@ const defaultState = {
   hideInvisibleCollectibles: true,
   hideInvisibleRecords: true,
   hideDudRecords: true,
+  hideUnobtainableRecords: true,
   hideCompletedCollectibles: false,
   ...savedState
 };

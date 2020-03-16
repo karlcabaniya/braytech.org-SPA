@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
-import dudRecords from '../../data/dudRecords';
+import duds from '../../data/records/duds';
 import Records from '../Records';
 import Collectibles from '../Collectibles';
 
@@ -118,7 +118,7 @@ class Search extends React.Component {
           return index;
         }
   
-        if (!database && table === 'DestinyRecordDefinition' && collectibles.hideDudRecords && dudRecords.includes(manifest.DestinyRecordDefinition[key]?.hash)) {
+        if (!database && table === 'DestinyRecordDefinition' && collectibles.hideDudRecords && duds.includes(manifest.DestinyRecordDefinition[key]?.hash)) {
           return index;
         }
   
