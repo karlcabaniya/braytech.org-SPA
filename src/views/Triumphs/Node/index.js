@@ -70,16 +70,11 @@ class PresentationNode extends React.Component {
         const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
         if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
-        // if (recordData.intervalObjectives?.length) {
-        //   if (recordData.intervalsRedeemedCount === 0) {
-        //     return recordData;
-        //   } else {
-        //     return false;
-        //   }
-        // } else {
-        //   if (!enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
-        // }
-        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+        if (recordData.intervalObjectives?.length) {
+          if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+        } else {
+          if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+        }        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
         
         return recordData;
       }).filter(record => record);
@@ -120,6 +115,11 @@ class PresentationNode extends React.Component {
       const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
       if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+      if (recordData.intervalObjectives?.length) {
+        if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+      } else {
+        if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+      }
       if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
 
       return true;

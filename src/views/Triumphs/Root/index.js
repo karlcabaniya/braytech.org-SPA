@@ -51,14 +51,11 @@ class Root extends React.Component {
 
             if (recordData) {
               if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
-              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
-              // if (recordData.intervalObjectives?.length) {
-              //   if (recordData.intervalsRedeemedCount === 0) {
-              //     return;
-              //   }
-              // } else {
-              //   if (!enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return;
-              // }
+              if (recordData.intervalObjectives?.length) {
+                if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              } else {
+                if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              }              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
 
               recordData.hash = definitionRecord.hash;
               recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;

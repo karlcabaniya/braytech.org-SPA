@@ -1,140 +1,193 @@
 {
   "de": {
-    "translated": 377,
-    "notTranslated": 283,
+    "translated": 375,
+    "notTranslated": 287,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "debug": {
-    "translated": 660,
+    "translated": 662,
     "notTranslated": 0,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "en": {
-    "translated": 660,
+    "translated": 662,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "es-mx": {
-    "translated": 659,
-    "notTranslated": 1,
+    "translated": 657,
+    "notTranslated": 5,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "es": {
-    "translated": 659,
-    "notTranslated": 1,
+    "translated": 657,
+    "notTranslated": 5,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "fr": {
-    "translated": 586,
-    "notTranslated": 74,
+    "translated": 584,
+    "notTranslated": 78,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "it": {
-    "translated": 659,
-    "notTranslated": 1,
+    "translated": 657,
+    "notTranslated": 5,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "ja": {
-    "translated": 613,
-    "notTranslated": 47,
+    "translated": 611,
+    "notTranslated": 51,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "ko": {
-    "translated": 569,
-    "notTranslated": 91,
+    "translated": 567,
+    "notTranslated": 95,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 660,
+    "notTranslated": 662,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "pt-br": {
-    "translated": 587,
-    "notTranslated": 73,
+    "translated": 585,
+    "notTranslated": 77,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "ru": {
-    "translated": 656,
+    "translated": 658,
     "notTranslated": 4,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "zh-chs": {
-    "translated": 469,
-    "notTranslated": 191,
+    "translated": 467,
+    "notTranslated": 195,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   },
   "zh-cht": {
-    "translated": 384,
-    "notTranslated": 276,
+    "translated": 382,
+    "notTranslated": 280,
     "added": [
-      "{{players}} players"
+      "Hide dud triumph records",
+      "Hide unobtainable triumph records",
+      "Hides dud (empty or unused) records from view",
+      "Hides unobtainable records from view"
     ],
     "removed": [
-      "players"
+      "Hide dud records",
+      "Hides dud (empty, unused, or unobtainable) records from view"
     ]
   }
 }
