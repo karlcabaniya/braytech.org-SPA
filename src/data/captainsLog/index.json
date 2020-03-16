@@ -1043,5 +1043,10 @@
     "date": "2020-03-16T02:49:39.512Z",
     "version": "2.20.10",
     "content": "- bug fixes and optimisation"
+  },
+  {
+    "date": "2020-03-16T06:15:50.857Z",
+    "version": "2.20.11",
+    "content": "- bug fixes"
   }
 ]

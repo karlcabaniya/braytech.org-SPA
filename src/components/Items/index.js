@@ -16,6 +16,10 @@ import { Common } from '../../svg';
 
 import './styles.css';
 
+const bucketsToExcludeFromInstanceProgressDisplay = [
+  4274335291 // Emblems
+];
+
 class Items extends React.Component {
   handler = item => e => {
     const { handler } = this.props;
@@ -47,10 +51,6 @@ class Items extends React.Component {
       item.sockets = sockets(item);
       item.stats = stats(item);
       item.masterwork = masterwork(item);
-
-      const bucketsToExcludeFromInstanceProgressDisplay = [
-        4274335291 // Emblems
-      ];
 
       const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enums.enumerateVendorItemStatus(item.saleStatus);
 
