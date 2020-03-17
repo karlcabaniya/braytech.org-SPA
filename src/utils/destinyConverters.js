@@ -104,7 +104,7 @@ export function damageTypeToAsset(type) {
   };
 }
 
-export function displayValue(value, objectiveHash, styleOverride = 0) {
+export function displayValue(value = '', objectiveHash, styleOverride = 0) {
   const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(styleOverride);
 
   // console.log(manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle, enumerated)

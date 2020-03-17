@@ -8,8 +8,7 @@ import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import destinations from '../../../data/lowlines/maps/destinations';
 import nodes from '../../../data/lowlines/maps/nodes';
-
-import { ReactComponent as SVGVendor } from '../../../svg/tooltips/vendor.svg';
+import { Tooltips } from '../../../svg';
 
 import './styles.css';
 
@@ -76,7 +75,7 @@ class Vendor extends React.Component {
           <div className='frame vendor'>
             <div className='header'>
               <div className='icon'>
-                <SVGVendor />
+                <Tooltips.Vendor />
               </div>
               <div className='text'>
                 <div className='name'>{name}</div>

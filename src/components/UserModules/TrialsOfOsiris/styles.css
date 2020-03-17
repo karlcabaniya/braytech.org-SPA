@@ -1,12 +1,11 @@
 .user-module.trials-of-osiris {
   position: relative;
-  margin: 0 0 1rem;
 }
 
 .user-module.trials-of-osiris .icon {
   position: absolute;
   top: 0;
-  left: 10%;
+  right: 0;
   height: 100%;
   width: 80%;
   pointer-events: none;
@@ -56,7 +55,7 @@
 }
 
 .user-module.trials-of-osiris .history .game.win div {  
-  background-color: #dde330;
+  background-color: #d9df26;
 }
 
 .user-module.trials-of-osiris .history .game.loss div {

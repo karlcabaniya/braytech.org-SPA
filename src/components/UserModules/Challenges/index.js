@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { groupBy, orderBy } from 'lodash';
 import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';

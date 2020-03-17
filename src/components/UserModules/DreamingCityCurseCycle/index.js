@@ -1,15 +1,13 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
-import { ReactComponent as CurseCycle } from '../../../svg/miscellaneous/curse-cycle.svg';
+import { t } from '../../../utils/i18n';
+import { Miscellaneous } from '../../../svg';
 
 import './styles.css';
 
 class DreamingCityCurseCycle extends React.Component {
   render() {
-    const { t, cycleInfo } = this.props;
+    const { cycleInfo } = this.props;
 
     const rotation = {
       1: {
@@ -34,20 +32,11 @@ class DreamingCityCurseCycle extends React.Component {
           <p><em>{t("Savathûn's Curse: implemented with Riven's dying breath and reset with every death of Dûl Incaru.")}</em></p>
         </div>
         <div className='icon'>
-          <CurseCycle />
+          <Miscellaneous.CurseCycle />
         </div>
       </div>
     );
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    member: state.member
-  };
-}
-
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(DreamingCityCurseCycle);
+export default DreamingCityCurseCycle;

@@ -1,10 +1,5 @@
-import { ReactComponent as CampaignRedWar } from './common/campaign_red-war.svg';
-import { ReactComponent as CampaignCurseOfOsiris } from './common/campaign_curse-of-osiris.svg';
-import { ReactComponent as CampaignWarmind } from './common/campaign_warmind.svg';
-import { ReactComponent as CampaignForsaken } from './common/campaign_forsaken.svg';
-import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowkeep.svg';
-
 import { ReactComponent as TooltipFastTravel } from './tooltips/fast-travel.svg';
+import { ReactComponent as TooltipVendor } from './tooltips/vendor.svg';
 import { ReactComponent as TooltipAdventure } from './tooltips/adventure.svg';
 import { ReactComponent as TooltipStory } from './tooltips/story.svg';
 import { ReactComponent as TooltipCrucible } from './tooltips/crucible.svg';
@@ -71,13 +66,58 @@ import { ReactComponent as TraitWeekly } from './common/trait-weekly.svg';
 import { ReactComponent as TraitSeasonal } from './common/trait-seasonal.svg';
 import { ReactComponent as TraitCareer } from './common/trait-career.svg';
 
+import { ReactComponent as CrucibleIconDefault } from './crucible/default.svg';
+import { ReactComponent as CrucibleIconControl } from './crucible/control.svg';
+import { ReactComponent as CrucibleIconElimination } from './crucible/elimination.svg';
+import { ReactComponent as CrucibleIconSurvival } from './crucible/survival.svg';
+import { ReactComponent as CrucibleIconRumble } from './crucible/rumble.svg';
+import { ReactComponent as CrucibleIconMayhem } from './crucible/mayhem.svg';
+import { ReactComponent as CrucibleIconDoubles } from './crucible/doubles.svg';
+import { ReactComponent as CrucibleIconCrimsonDoubles } from './crucible/crimson-doubles.svg';
+import { ReactComponent as CrucibleIconBreakthrough } from './crucible/breakthrough.svg';
+import { ReactComponent as CrucibleIconClash } from './crucible/clash.svg';
+import { ReactComponent as CrucibleIconShowdown } from './crucible/showdown.svg';
+import { ReactComponent as CrucibleIconTeamScorched } from './crucible/team-scorched.svg';
+import { ReactComponent as CrucibleIconCountdown } from './crucible/countdown.svg';
+import { ReactComponent as CrucibleIconSupremacy } from './crucible/supremacy.svg';
+import { ReactComponent as CrucibleIconLockdown } from './crucible/lockdown.svg';
+import { ReactComponent as CrucibleIconMomentumControl } from './crucible/momentum-control.svg';
+import { ReactComponent as CrucibleIconIronBanner } from './crucible/iron-banner.svg';
+import { ReactComponent as CrucibleIconTrialsOfOsiris } from './crucible/trials-of-osiris.svg';
+
+import { ReactComponent as GambitIconGambit } from './gambit/gambit.svg';
+import { ReactComponent as GambitIconGambitPrime } from './gambit/gambit-prime.svg';
+import { ReactComponent as GambitIconReckoning } from './gambit/reckoning.svg';
+
+import { ReactComponent as VanguardIconStrikes } from './vanguard/strikes.svg';
+import { ReactComponent as VanguardIconScoredNightfallStrikes } from './vanguard/scored-nightfall-strikes.svg';
+
+import { ReactComponent as RaidIcon } from './raid/raid.svg';
+
+import { ReactComponent as StandingCrucibleVictory } from './crucible/standing-victory.svg';
+import { ReactComponent as StandingCrucibleDefeat } from './crucible/standing-defeat.svg';
+import { ReactComponent as StandingGambitVictory } from './gambit/standing-victory-gambit.svg';
+
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
 import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
 
-import { ReactComponent as DestinationsWarmind } from './destinations/hellas-basin-1_monochrome.svg';
+import { ReactComponent as DestinationsArcadianValley } from './destinations/arcadian-valley-2_monochrome.svg';
+import { ReactComponent as DestinationsNewPacificArcology } from './destinations/new-pacific-arcology-2_monochrome.svg';
+import { ReactComponent as DestinationsEuropeanDeadZone } from './destinations/european-dead-zone-3_monochrome.svg';
+import { ReactComponent as DestinationsTheTangledShore } from './destinations/the-tangled-shore-1_monochrome.svg';
+import { ReactComponent as DestinationsHellasBasin } from './destinations/hellas-basin-1_monochrome.svg';
+import { ReactComponent as DestinationsFieldsOfGlass } from './destinations/fields-of-glass-1_monochrome.svg';
+import { ReactComponent as DestinationsEchoMesa } from './destinations/echo-mesa-1_monochrome.svg';
+
+import { ReactComponent as CampaignRedWar } from './common/campaign_red-war.svg';
+import { ReactComponent as CampaignCurseOfOsiris } from './common/campaign_curse-of-osiris.svg';
+import { ReactComponent as CampaignWarmind } from './common/campaign_warmind.svg';
+import { ReactComponent as CampaignForsaken } from './common/campaign_forsaken.svg';
+import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowkeep.svg';
 
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
+import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
 
 const Common = {
   Arc,
@@ -99,7 +139,8 @@ const Common = {
 
 const Miscellaneous = {
   WarmindHalf,
-  TrialsOfOsirisDevice
+  TrialsOfOsirisDevice,
+  CurseCycle
 }
 
 const Loading = {
@@ -109,8 +150,18 @@ const Loading = {
 
 const Flair = {
   ClovisBray: FlairClovisBray,
-  Warmind: DestinationsWarmind,
+  Warmind: DestinationsHellasBasin,
   Superintendent: FlairSuperintendent
+}
+
+const Destinations = {
+  ArcadianValley: DestinationsArcadianValley,
+  NewPacificArcology: DestinationsNewPacificArcology,
+  EuropeanDeadZone: DestinationsEuropeanDeadZone,
+  TheTangledShore: DestinationsTheTangledShore,
+  HellasBasin: DestinationsHellasBasin,
+  FieldsOfGlass: DestinationsFieldsOfGlass,
+  EchoMesa: DestinationsEchoMesa,
 }
 
 const Campaign = {
@@ -123,6 +174,7 @@ const Campaign = {
 
 const Tooltips = {
   FastTravel: TooltipFastTravel,
+  Vendor: TooltipVendor,
   Adventure: TooltipAdventure,
   Story: TooltipStory,
   Crucible: TooltipCrucible,
@@ -198,4 +250,48 @@ const Views = {
   }
 }
 
-export { Common, Flair, Campaign, Tooltips, Maps, Views, Loading, Miscellaneous };
+const Activities = {
+  Standing: {
+    Crucible: {
+      Victory: StandingCrucibleVictory,
+      Defeat: StandingCrucibleDefeat
+    },
+    Gambit: {
+      Victory: StandingGambitVictory
+    }
+  },
+  Crucible: {
+    Default: CrucibleIconDefault,
+    Control: CrucibleIconControl,
+    Elimination: CrucibleIconElimination,
+    Survival: CrucibleIconSurvival,
+    Rumble: CrucibleIconRumble,
+    Mayhem: CrucibleIconMayhem,
+    Doubles: CrucibleIconDoubles,
+    CrimsonDoubles: CrucibleIconCrimsonDoubles,
+    Breakthrough: CrucibleIconBreakthrough,
+    Clash: CrucibleIconClash,
+    Showdown: CrucibleIconShowdown,
+    TeamScorched: CrucibleIconTeamScorched,
+    Countdown: CrucibleIconCountdown,
+    Supremacy: CrucibleIconSupremacy,
+    Lockdown: CrucibleIconLockdown,
+    MomentumControl: CrucibleIconMomentumControl,
+    IronBanner: CrucibleIconIronBanner,
+    TrialsOfOsiris: CrucibleIconTrialsOfOsiris
+  },
+  Gambit: {
+    GambitIconGambit,
+    GambitIconGambitPrime,
+    GambitIconReckoning
+  },
+  Strikes: {
+    Strikes: VanguardIconStrikes,
+    ScoredNightfallStrikes: VanguardIconScoredNightfallStrikes
+  },
+  Raid: {
+    Raid: RaidIcon
+  }
+}
+
+export { Activities, Campaign, Common, Destinations, Flair, Loading, Miscellaneous, Maps, Tooltips, Views };

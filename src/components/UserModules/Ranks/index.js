@@ -5,8 +5,6 @@ import { withTranslation } from 'react-i18next';
 
 import Ranks from '../../Ranks';
 
-import './styles.css';
-
 class Module extends React.Component {
   render() {
     const { member, progressionHash = 2772425241 } = this.props;

@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { Common } from '../../../svg';
 
@@ -32,10 +31,9 @@ const singeMap = [
 
 class WeeklyVanguardSinge extends React.Component {
   render() {
-    const { t, member } = this.props;
-    const characterActivities = member.data.profile.characterActivities.data;
+    const characterActivities = this.props.member.data.profile.characterActivities.data;
 
-    const vanguardStrikes = characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 4252456044);
+    const vanguardStrikes = characterActivities[this.props.member.characterId].availableActivities.find(a => a.activityHash === 4252456044);
     const activeSinge = vanguardStrikes && singeMap.find(s => vanguardStrikes.modifierHashes.indexOf(s.hash) > -1);
 
     const activityNames = [
@@ -121,4 +119,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(WeeklyVanguardSinge);
+export default connect(mapStateToProps)(WeeklyVanguardSinge);

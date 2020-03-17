@@ -4,25 +4,18 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
 import manifest from '../../../utils/manifest';
+import { Destinations } from '../../../svg';
 
 import './styles.css';
 
-import { ReactComponent as ArcadianValley } from '../../../svg/destinations/arcadian-valley-2_monochrome.svg';
-import { ReactComponent as NewPacificArcology } from '../../../svg/destinations/new-pacific-arcology-2_monochrome.svg';
-import { ReactComponent as EuropeanDeadZone } from '../../../svg/destinations/european-dead-zone-3_monochrome.svg';
-import { ReactComponent as TheTangledShore } from '../../../svg/destinations/the-tangled-shore-1_monochrome.svg';
-import { ReactComponent as HellasBasin } from '../../../svg/destinations/hellas-basin-1_monochrome.svg';
-import { ReactComponent as FieldsOfGlass } from '../../../svg/destinations/fields-of-glass-1_monochrome.svg';
-import { ReactComponent as EchoMesa } from '../../../svg/destinations/echo-mesa-1_monochrome.svg';
-
 const iconMap = {
-  126924919: ArcadianValley,      // destinationHash: icon
-  2388758973: NewPacificArcology,
-  1199524104: EuropeanDeadZone,
-  359854275: TheTangledShore,
-  308080871: HellasBasin,
-  1993421442: FieldsOfGlass,
-  2218917881: EchoMesa
+  126924919: Destinations.ArcadianValley,      // destinationHash: icon
+  2388758973: Destinations.NewPacificArcology,
+  1199524104: Destinations.EuropeanDeadZone,
+  359854275: Destinations.TheTangledShore,
+  308080871: Destinations.HellasBasin,
+  1993421442: Destinations.FieldsOfGlass,
+  2218917881: Destinations.EchoMesa
 };
 
 const vendorMap = {

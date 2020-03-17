@@ -7,34 +7,7 @@ import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
 import { ProfileNavLink } from '../../ProfileLink';
-
-import { ReactComponent as CrucibleIconDefault } from '../../../svg/crucible/default.svg';
-import { ReactComponent as CrucibleIconControl } from '../../../svg/crucible/control.svg';
-import { ReactComponent as CrucibleIconElimination } from '../../../svg/crucible/elimination.svg';
-import { ReactComponent as CrucibleIconSurvival } from '../../../svg/crucible/survival.svg';
-import { ReactComponent as CrucibleIconRumble } from '../../../svg/crucible/rumble.svg';
-import { ReactComponent as CrucibleIconMayhem } from '../../../svg/crucible/mayhem.svg';
-import { ReactComponent as CrucibleIconDoubles } from '../../../svg/crucible/doubles.svg';
-import { ReactComponent as CrucibleIconCrimsonDoubles } from '../../../svg/crucible/crimson-doubles.svg';
-import { ReactComponent as CrucibleIconBreakthrough } from '../../../svg/crucible/breakthrough.svg';
-import { ReactComponent as CrucibleIconClash } from '../../../svg/crucible/clash.svg';
-import { ReactComponent as CrucibleIconShowdown } from '../../../svg/crucible/showdown.svg';
-import { ReactComponent as CrucibleIconTeamScorched } from '../../../svg/crucible/team-scorched.svg';
-import { ReactComponent as CrucibleIconCountdown } from '../../../svg/crucible/countdown.svg';
-import { ReactComponent as CrucibleIconSupremacy } from '../../../svg/crucible/supremacy.svg';
-import { ReactComponent as CrucibleIconLockdown } from '../../../svg/crucible/lockdown.svg';
-import { ReactComponent as CrucibleIconMomentumControl } from '../../../svg/crucible/momentum-control.svg';
-import { ReactComponent as CrucibleIconIronBanner } from '../../../svg/crucible/iron-banner.svg';
-import { ReactComponent as CrucibleIconTrialsOfOsiris } from '../../../svg/crucible/trials-of-osiris.svg';
-
-import { ReactComponent as GambitIconGambit } from '../../../svg/gambit/gambit.svg';
-import { ReactComponent as GambitIconGambitPrime } from '../../../svg/gambit/gambit-prime.svg';
-import { ReactComponent as GambitIconReckoning } from '../../../svg/gambit/reckoning.svg';
-
-import { ReactComponent as VanguardIconStrikes } from '../../../svg/vanguard/strikes.svg';
-import { ReactComponent as VanguardIconScoredNightfallStrikes } from '../../../svg/vanguard/scored-nightfall-strikes.svg';
-
-import { ReactComponent as RaidIcon } from '../../../svg/raid/raid.svg';
+import { Activities } from '../../../svg';
 
 import './styles.css';
 
@@ -49,111 +22,111 @@ class Mode extends React.Component {
       // Crucible
       {
         modes: [73],
-        icon: <CrucibleIconControl />,
+        icon: <Activities.Crucible.Control />,
         name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name
       },
       {
         modes: [37],
-        icon: <CrucibleIconSurvival />
+        icon: <Activities.Crucible.Survival />
       },
       {
         modes: [80],
-        icon: <CrucibleIconElimination />
+        icon: <Activities.Crucible.Elimination />
       },
       {
         modes: [48],
-        icon: <CrucibleIconRumble />
+        icon: <Activities.Crucible.Rumble />
       },
       {
         modes: [71],
-        icon: <CrucibleIconClash />,
+        icon: <Activities.Crucible.Clash />,
         name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name
       },
       {
         modes: [43],
-        icon: <CrucibleIconIronBanner />,
+        icon: <Activities.Crucible.IronBanner />,
         name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name
       },
       {
         modes: [81],
-        icon: <CrucibleIconMomentumControl />,
+        icon: <Activities.Crucible.MomentumControl />,
         name: manifest.DestinyActivityDefinition[952904835].displayProperties.name
       },
       {
         modes: [50],
-        icon: <CrucibleIconDoubles />
+        icon: <Activities.Crucible.Doubles />
       },
       {
         modes: [15],
-        icon: <CrucibleIconCrimsonDoubles />
+        icon: <Activities.Crucible.CrimsonDoubles />
       },
       {
         modes: [31],
-        icon: <CrucibleIconSupremacy />
+        icon: <Activities.Crucible.Supremacy />
       },
       {
         modes: [60],
-        icon: <CrucibleIconLockdown />
+        icon: <Activities.Crucible.Lockdown />
       },
       {
         modes: [65],
-        icon: <CrucibleIconBreakthrough />
+        icon: <Activities.Crucible.Breakthrough />
       },
       {
         modes: [59],
-        icon: <CrucibleIconShowdown />
+        icon: <Activities.Crucible.Showdown />
       },
       {
         modes: [38],
-        icon: <CrucibleIconCountdown />
+        icon: <Activities.Crucible.Countdown />
       },
       {
         modes: [25],
-        icon: <CrucibleIconMayhem />
+        icon: <Activities.Crucible.Mayhem />
       },
       {
         modes: [61, 62],
-        icon: <CrucibleIconTeamScorched />
+        icon: <Activities.Crucible.TeamScorched />
       },
       {
         modes: [84],
-        icon: <CrucibleIconTrialsOfOsiris />
+        icon: <Activities.Crucible.TrialsOfOsiris />
       },
 
       // Gambit
       {
         modes: [63],
-        icon: <GambitIconGambit />
+        icon: <Activities.Gambit.Gambit />
       },
       {
         modes: [75],
-        icon: <GambitIconGambitPrime />
+        icon: <Activities.Gambit.GambitPrime />
       },
       {
         modes: [76],
-        icon: <GambitIconReckoning />
+        icon: <Activities.Gambit.Reckoning />
       },
 
       // Raid
       {
         modes: [4],
-        icon: <RaidIcon />
+        icon: <Activities.Raid.Raid />
       },
 
       // Vanguard
       {
         modes: [18],
-        icon: <VanguardIconStrikes />
+        icon: <Activities.Strikes.Strikes />
       },
       {
         modes: [46],
-        icon: <VanguardIconScoredNightfallStrikes />
+        icon: <Activities.Strikes.ScoredNightfallStrikes />
       },
 
       // Default
       {
         modes: [5],
-        icon: <CrucibleIconDefault />
+        icon: <Activities.Crucible.Default />
       }
     ];
 

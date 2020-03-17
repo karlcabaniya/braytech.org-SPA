@@ -9,10 +9,7 @@ import Moment from 'react-moment';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import ObservedImage from '../../ObservedImage';
-
-import { ReactComponent as CrucibleIconStandingVictory } from '../../../svg/crucible/standing-victory.svg';
-import { ReactComponent as CrucibleIconStandingDefeat } from '../../../svg/crucible/standing-defeat.svg';
-import { ReactComponent as CrucibleIconStandingVictoryGambit } from '../../../svg/gambit/standing-victory-gambit.svg';
+import { Activities } from '../../../svg';
 
 class ReportHeader extends React.Component {
   render() {
@@ -142,7 +139,7 @@ class ReportHeaderLarge extends React.Component {
     
     const simplifiedAcivityMode = enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1);
 
-    const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? CrucibleIconStandingVictoryGambit : CrucibleIconStandingVictory;
+    const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? Activities.Standing.Gambit.Victory : Activities.Standing.Crucible.Victory;
 
     let mode = definitionMode?.displayProperties?.name;
     if (modeExtra?.name) {
@@ -171,7 +168,7 @@ class ReportHeaderLarge extends React.Component {
         {standing > -1 ? (
           <>
             <div className='standing'>
-              <div className='icon'>{standing === 0 ? <StandingVictorySVG /> : <CrucibleIconStandingDefeat />}</div>
+              <div className='icon'>{standing === 0 ? <StandingVictorySVG /> : <Activities.Standing.Crucible.Defeat />}</div>
               <div className='text'>{standing === 0 ? t('Victory') : t('Defeat')}</div>
             </div>
             <div className='score teams'>{teamScores}</div>

@@ -6,7 +6,7 @@ import { t } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as responseUtils from '../../utils/responseUtils';
 import * as utils from '../../utils/destinyUtils';
-import { classTypeToString } from '../../utils/destinyConverters';
+import { classTypeToString, displayValue } from '../../utils/destinyConverters';
 import store from '../../store';
 import ObservedImage from '../ObservedImage';
 import Spinner from '../UI/Spinner';
@@ -339,25 +339,25 @@ class MemberLink extends React.Component {
                           </div>
                           <div>
                             <div className='name'>{t('Triumph score')}</div>
-                            <div className='value'>{this.state.all.data.profileRecords.data.score.toLocaleString()}</div>
+                            <div className='value'>{displayValue(this.state.all.data.profileRecords.data.score)}</div>
                           </div>
                           <div>
                             <div className='name'>{t('Collection total')}</div>
-                            <div className='value'>{utils.collectionTotal(this.state.all.data).toLocaleString()}</div>
+                            <div className='value'>{displayValue(utils.collectionTotal(this.state.all.data))}</div>
                           </div>
                         </div>
                         <div>
                           <div>
                             <div className='name'>{t('Valor points')}</div>
-                            <div className='value'>{this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2626549951]?.currentProgress.toLocaleString()}</div>
+                            <div className='value'>{displayValue(this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2626549951]?.currentProgress)}</div>
                           </div>
                           <div>
                             <div className='name'>{t('Glory points')}</div>
-                            <div className='value'>{this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2000925172]?.currentProgress.toLocaleString()}</div>
+                            <div className='value'>{displayValue(this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2000925172]?.currentProgress)}</div>
                           </div>
                           <div>
                             <div className='name'>{t('Infamy points')}</div>
-                            <div className='value'>{this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2772425241]?.currentProgress.toLocaleString()}</div>
+                            <div className='value'>{displayValue(this.state.all.data.characterProgressions?.data[lastCharacterPlayed]?.progressions[2772425241]?.currentProgress)}</div>
                           </div>
                         </div>
                       </div>
