@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import backend from 'i18next-xhr-backend';
 import { initReactI18next } from 'react-i18next';
-import moment from 'moment-timezone';
+import moment from 'moment';
 
 import * as ls from './localStorage';
 
@@ -175,23 +175,23 @@ export const timestampToDuration = (timestamp, start = moment()) => {
   };
 };
 
-export const xurInTown = () => {
-  const momentBefore = moment();
-        momentBefore.day(10);
-        momentBefore.hour(2);
-        momentBefore.minute(59);
-        momentBefore.second(59);
-  const momentAfter = moment();
-        momentAfter.day(6);
-        momentAfter.hour(3);
-        momentAfter.minute(0);
-        momentAfter.second(0);
+// export const xurInTown = () => {
+//   const momentBefore = moment();
+//         momentBefore.day(10);
+//         momentBefore.hour(2);
+//         momentBefore.minute(59);
+//         momentBefore.second(59);
+//   const momentAfter = moment();
+//         momentAfter.day(6);
+//         momentAfter.hour(3);
+//         momentAfter.minute(0);
+//         momentAfter.second(0);
   
-  const isAfter = moment().tz('Australia/Brisbane').isAfter(momentAfter, 'second');
-  const isBefore = moment().tz('Australia/Brisbane').isBefore(momentBefore, 'second');
+//   const isAfter = moment().tz('Australia/Brisbane').isAfter(momentAfter, 'second');
+//   const isBefore = moment().tz('Australia/Brisbane').isBefore(momentBefore, 'second');
 
-  return isAfter && isBefore;
-};
+//   return isAfter && isBefore;
+// };
 
 export const unixTimestampToDuration = seconds => {
   const duration = moment.duration(seconds);

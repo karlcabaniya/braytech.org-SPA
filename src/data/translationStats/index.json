@@ -1,125 +1,114 @@
 {
   "de": {
     "translated": 375,
-    "notTranslated": 289,
-    "added": [
-      "Game history",
+    "notTranslated": 288,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "debug": {
-    "translated": 664,
-    "notTranslated": 0,
-    "added": [
-      "Game history",
-      "Prepare yourself, Guardian."
-    ],
-    "removed": []
-  },
-  "en": {
-    "translated": 664,
+    "translated": 663,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Prepare yourself, Guardian."
+    ]
+  },
+  "en": {
+    "translated": 663,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Prepare yourself, Guardian."
+    ]
   },
   "es-mx": {
     "translated": 657,
-    "notTranslated": 7,
-    "added": [
-      "Game history",
+    "notTranslated": 6,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "es": {
     "translated": 657,
-    "notTranslated": 7,
-    "added": [
-      "Game history",
+    "notTranslated": 6,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "fr": {
     "translated": 584,
-    "notTranslated": 80,
-    "added": [
-      "Game history",
+    "notTranslated": 79,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "it": {
     "translated": 657,
-    "notTranslated": 7,
-    "added": [
-      "Game history",
+    "notTranslated": 6,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "ja": {
     "translated": 611,
-    "notTranslated": 53,
-    "added": [
-      "Game history",
+    "notTranslated": 52,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "ko": {
     "translated": 567,
-    "notTranslated": 97,
-    "added": [
-      "Game history",
+    "notTranslated": 96,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 664,
-    "added": [
-      "Game history",
+    "notTranslated": 663,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "pt-br": {
     "translated": 585,
-    "notTranslated": 79,
-    "added": [
-      "Game history",
+    "notTranslated": 78,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "ru": {
     "translated": 658,
-    "notTranslated": 6,
-    "added": [
-      "Game history",
+    "notTranslated": 5,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "zh-chs": {
     "translated": 467,
-    "notTranslated": 197,
-    "added": [
-      "Game history",
+    "notTranslated": 196,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   },
   "zh-cht": {
     "translated": 382,
-    "notTranslated": 282,
-    "added": [
-      "Game history",
+    "notTranslated": 281,
+    "added": [],
+    "removed": [
       "Prepare yourself, Guardian."
-    ],
-    "removed": []
+    ]
   }
 }
