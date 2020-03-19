@@ -1,193 +1,125 @@
 {
   "de": {
     "translated": 375,
-    "notTranslated": 287,
+    "notTranslated": 289,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 662,
+    "translated": 664,
     "notTranslated": 0,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 662,
+    "translated": 664,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 657,
-    "notTranslated": 5,
+    "notTranslated": 7,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 657,
-    "notTranslated": 5,
+    "notTranslated": 7,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 584,
-    "notTranslated": 78,
+    "notTranslated": 80,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 657,
-    "notTranslated": 5,
+    "notTranslated": 7,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 611,
-    "notTranslated": 51,
+    "notTranslated": 53,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 567,
-    "notTranslated": 95,
+    "notTranslated": 97,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 662,
+    "notTranslated": 664,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 585,
-    "notTranslated": 77,
+    "notTranslated": 79,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 658,
-    "notTranslated": 4,
+    "notTranslated": 6,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 467,
-    "notTranslated": 195,
+    "notTranslated": 197,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 382,
-    "notTranslated": 280,
+    "notTranslated": 282,
     "added": [
-      "Hide dud triumph records",
-      "Hide unobtainable triumph records",
-      "Hides dud (empty or unused) records from view",
-      "Hides unobtainable records from view"
+      "Game history",
+      "Prepare yourself, Guardian."
     ],
-    "removed": [
-      "Hide dud records",
-      "Hides dud (empty, unused, or unobtainable) records from view"
-    ]
+    "removed": []
   }
 }

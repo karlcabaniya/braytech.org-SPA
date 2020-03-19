@@ -61,3 +61,8 @@
 .user-module.trials-of-osiris .history .game.loss div {
   background-color: #c53c32;
 }
+
+.user-module.trials-of-osiris .info {
+  padding: 2rem 0;
+  text-align: center;
+}

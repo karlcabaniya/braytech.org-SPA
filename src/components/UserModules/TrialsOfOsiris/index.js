@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { t, duration } from '../../../utils/i18n';
+import { t, xurInTown } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { Miscellaneous } from '../../../svg';
 
@@ -10,6 +10,8 @@ import './styles.css';
 class TrialsOfOsiris extends React.Component {
   render() {
     const { member } = this.props;
+
+    const isAvailable = xurInTown();
 
     const definitionActivityMode = manifest.DestinyActivityModeDefinition[1673724806];
 
@@ -32,33 +34,39 @@ class TrialsOfOsiris extends React.Component {
             <em>{definitionActivityMode.displayProperties.description}</em>
           </p>
         </div>
-        <h4>{t('Game history')}</h4>
-        <div className='history'>
-          {definitionProgression_wins.steps.map((step, s) => {
-            if (wins > s) {
-              return (
-                <div key={s} className='game win'>
-                  <div />
-                </div>
-              );
-            } else {
-              return <div key={s} className='game' />;
-            }
-          })}
-        </div>
-        <div className='history'>
-          {definitionProgression_losses.steps.map((step, s) => {
-            if (losses > s) {
-              return (
-                <div key={s} className='game loss'>
-                  <div />
-                </div>
-              );
-            } else {
-              return <div key={s} className='game' />;
-            }
-          })}
-        </div>
+        {isAvailable ? (
+          <>
+            <h4>{t('Game history')}</h4>
+            <div className='history'>
+              {definitionProgression_wins.steps.map((step, s) => {
+                if (wins > s) {
+                  return (
+                    <div key={s} className='game win'>
+                      <div />
+                    </div>
+                  );
+                } else {
+                  return <div key={s} className='game' />;
+                }
+              })}
+            </div>
+            <div className='history'>
+              {definitionProgression_losses.steps.map((step, s) => {
+                if (losses > s) {
+                  return (
+                    <div key={s} className='game loss'>
+                      <div />
+                    </div>
+                  );
+                } else {
+                  return <div key={s} className='game' />;
+                }
+              })}
+            </div>
+          </>
+        ) : (
+          <div className='info'>{t('Prepare yourself, Guardian.')}</div>
+        )}
       </div>
     );
   }

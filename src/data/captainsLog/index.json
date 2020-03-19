@@ -1053,5 +1053,10 @@
     "date": "2020-03-16T08:30:24.659Z",
     "version": "2.20.12",
     "content": "- bug fixes for the bug fixes"
+  },
+  {
+    "date": "2020-03-19T09:15:12.322Z",
+    "version": "2.20.17",
+    "content": "- bug fixes\n- some new experimental stuff\n- some deep refactoring"
   }
 ]
