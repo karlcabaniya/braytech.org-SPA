@@ -281,9 +281,9 @@ const Activities = {
     TrialsOfOsiris: CrucibleIconTrialsOfOsiris
   },
   Gambit: {
-    GambitIconGambit,
-    GambitIconGambitPrime,
-    GambitIconReckoning
+    Gambit: GambitIconGambit,
+    GambitPrime: GambitIconGambitPrime,
+    Reckoning: GambitIconReckoning
   },
   Strikes: {
     Strikes: VanguardIconStrikes,

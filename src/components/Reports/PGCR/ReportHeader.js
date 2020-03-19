@@ -35,6 +35,10 @@ class ReportHeader extends React.Component {
       {
         modes: [4],
         name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
+      },
+      {
+        modes: [31],
+        name: manifest.DestinyActivityDefinition[3780095688].displayProperties.name
       }
     ];
 
@@ -100,6 +104,10 @@ class ReportHeaderLarge extends React.Component {
       {
         modes: [4],
         name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
+      },
+      {
+        modes: [31],
+        name: manifest.DestinyActivityDefinition[3780095688].displayProperties.name
       }
     ];
 
