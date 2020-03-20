@@ -23,20 +23,6 @@
   row-gap: 3rem;
 }
 
-#archives .watermark {
-  position: absolute;
-  top: 0;
-  left: 50%;
-}
-
-#archives .watermark svg {
-  width: 100vh;
-  height: 100vh;
-  fill: #ffffff;
-  opacity: 0.05;
-  pointer-events: none;
-}
-
 #archives .module.views .list {
   position: sticky;
   top: 3rem;
@@ -95,15 +81,9 @@
   gap: 3rem;
 }
 
-#archives .module.story {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-}
-
-#archives .module .text { 
+#archives .module > .text { 
+  max-width: 500px;
   font-size: 16px;
-  max-width: 600px;
 }
 
 #archives .module .text p:not(:first-child) {
@@ -119,11 +99,6 @@
 
 #archives.index .content {
   grid-template-columns: 1fr 1fr 1fr;
-}
-
-#archives.index .content .text:not(.button > .text) {
-  max-width: 500px;  
-  font-size: 16px;
 }
 
 #archives.index .content .button {
@@ -189,8 +164,7 @@
     height: 24px;
   }
 
-  #archives .module .text:not(.button > .text),
-  #archives.index .content .text:not(.button > .text) {
+  #archives .module > .text {
     font-size: 14px;
   }
 }
