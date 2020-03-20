@@ -275,26 +275,27 @@ class RosterLeaderboards extends React.Component {
       scopeStatIds.concat(this.statIds).forEach(statId => {
         leaderboards[scope.value][statId.value] = orderBy(
           this.responses.map(m => {
-            try {
-              return {
-                destinyUserInfo: {
-                  ...m.destinyUserInfo,
-                  groupId: m.groupId
-                },
-                value: m.historicalStats[scope.value].allTime[statId.value].basic.value,
-                displayValue: m.historicalStats[scope.value].allTime[statId.value].basic.displayValue
-              };
-            } catch (e) {
-              return {
-                destinyUserInfo: {
-                  ...m?.destinyUserInfo,
-                  groupId: m.groupId
-                },
-                value: 0,
-                displayValue: 0
-              };
-            }
-          }),
+              try {
+                return {
+                  destinyUserInfo: {
+                    ...m.destinyUserInfo,
+                    groupId: m.groupId
+                  },
+                  value: m.historicalStats[scope.value].allTime[statId.value].basic.value,
+                  displayValue: m.historicalStats[scope.value].allTime[statId.value].basic.displayValue
+                };
+              } catch (e) {
+                return {
+                  destinyUserInfo: {
+                    ...m?.destinyUserInfo,
+                    groupId: m.groupId
+                  },
+                  value: 0,
+                  displayValue: 0
+                };
+              }
+            })
+            .filter(m => m?.destinyUserInfo?.membershipId),
           [m => m.value],
           ['desc']
         );
