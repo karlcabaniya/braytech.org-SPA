@@ -286,8 +286,6 @@ class App extends React.Component {
       );
     }
 
-    throw new Error('This is a test. Sorry');
-
     return (
       <BrowserRouter>
         <Route

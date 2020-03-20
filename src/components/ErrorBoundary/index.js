@@ -12,22 +12,16 @@ class ErrorBoundary extends React.Component {
     return { error: true, errorMessage: error.message };
   }
 
-  componentDidCatch(error, errorInfo) {}
+  componentDidCatch(error, errorInfo) {
 
-  componentDidUpdate(p, s) {
-    console.log(this.state);
   }
 
   async componentDidMount() {
     this.mounted = true;
 
-    setTimeout(async () => {
-      const swInstalled = await this.swInstalled();
+    const swInstalled = await this.swInstalled();
 
-      console.log(swInstalled)
-
-      if (this.mounted && swInstalled) this.setState({ swInstalled: true });
-    }, 3000);
+    if (this.mounted && swInstalled) this.setState({ swInstalled: true });
   }
 
   componentWillUnmount() {
@@ -57,7 +51,6 @@ class ErrorBoundary extends React.Component {
 
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
       registration.unregister();
-      console.log(registration);
     });
   };
 

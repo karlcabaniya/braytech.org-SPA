@@ -1,236 +1,125 @@
 {
   "de": {
     "translated": 375,
-    "notTranslated": 285,
+    "notTranslated": 287,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 660,
+    "translated": 662,
     "notTranslated": 0,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 660,
+    "translated": 662,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 651,
-    "notTranslated": 9,
+    "notTranslated": 11,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 651,
-    "notTranslated": 9,
+    "notTranslated": 11,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 580,
-    "notTranslated": 80,
+    "notTranslated": 82,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 651,
-    "notTranslated": 9,
+    "notTranslated": 11,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 606,
-    "notTranslated": 54,
+    "notTranslated": 56,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 561,
-    "notTranslated": 99,
+    "notTranslated": 101,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 660,
+    "notTranslated": 662,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 579,
-    "notTranslated": 81,
+    "notTranslated": 83,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 652,
-    "notTranslated": 8,
+    "notTranslated": 10,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 466,
-    "notTranslated": 194,
+    "notTranslated": 196,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 382,
-    "notTranslated": 278,
+    "notTranslated": 280,
     "added": [
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.",
-      "Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ],
-    "removed": [
-      "Deployed",
-      "Description",
-      "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.",
-      "Generate an infographic that details your Destiny legend",
-      "Interactive tools, manuals, legends, and other content preserved by _The Archives_.\n\n_The Archives_ are where various, previously thought lost, repositories now reside. These repositories are containers to useful data and tools which originally coalesced during the height of humanity, commonly referred to as [_The Golden Age_](https://www.ishtar-collective.net/cards/the-golden-age).\n\nSometimes, not everything I build (or attempt to build for that matter) finds a home in the limelight of _Braytech's_ primary navigation, but still retains so much user value that it deserves a place to live. This is their space.\n\nPlease note, not everything here is guaranteed to work well, or at all. Some contents may even cause low-power devices to lock up under specific use coniditions i.e. the _Manifest_ tool.",
-      "Manifest tool"
-    ]
+    "removed": []
   }
 }

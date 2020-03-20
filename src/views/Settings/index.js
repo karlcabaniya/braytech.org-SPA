@@ -69,8 +69,9 @@ class Settings extends React.Component {
   };
 
   async componentDidMount() {
-    window.scrollTo(0, 0);
     this.mounted = true;
+    
+    window.scrollTo(0, 0);
 
     const swInstalled = await this.swInstalled();
 
