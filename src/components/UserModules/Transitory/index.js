@@ -52,7 +52,7 @@ class Transitory extends React.Component {
         }
       })
       .then(response => {
-        if (response && response.ErrorCode === 1 && response.Response && response.Response.profileTransitoryData.data) {
+        if (response && response.ErrorCode === 1 && response.Response?.profileTransitoryData?.data && response.Response.characterActivities?.data) {
           response.Response.characterActivities.data = Object.keys(response.Response.characterActivities.data)
             .map(key => ({ ...response.Response.characterActivities.data[key], characterId: key }))
             .sort(function(a, b) {
