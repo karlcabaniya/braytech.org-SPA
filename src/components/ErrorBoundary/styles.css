@@ -9,6 +9,7 @@
   max-width: 800px;
   width: 100%;
   margin: 0 auto;
+  font-size: 16px;
 }
 
 #error-boundary .properties .name {
@@ -23,9 +24,17 @@
 }
 
 #error-boundary .properties .description {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
   white-space: pre-wrap;
+}
+
+#error-boundary .properties .next {
+  margin: 2rem 0 1rem;
+}
+
+#error-boundary .properties .actions {
+  display: grid;
+  gap: 3px;
 }
 
 @media screen and (max-width: 600px) {
@@ -33,13 +42,13 @@
   #error-boundary {
     padding: 3rem 2rem 2rem;
   }
+  
+  #error-boundary .properties {
+    font-size: 14px;
+  }
 
   #error-boundary .properties .name {
     font-size: 24px;
   }
-  
-  #error-boundary .properties .description {
-    font-size: 14px;
-  }  
 
 }

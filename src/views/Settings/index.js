@@ -51,7 +51,7 @@ class Settings extends React.Component {
     }, 50);
   };
 
-  swUpdate = () => {
+  handler_swUpdate = () => {
     if (this.mounted) this.setState({ swUpdateAttempt: true });
 
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
@@ -59,7 +59,7 @@ class Settings extends React.Component {
     });
   };
 
-  swDump = () => {
+  handler_swDump = () => {
     if (this.mounted) this.setState({ swUnregisterAttempt: true });
 
     navigator.serviceWorker.getRegistration('/').then(function(registration) {
@@ -85,7 +85,7 @@ class Settings extends React.Component {
 
   swInstalled = async () => {
     if (this.swAvailable) {
-      let registration = await navigator.serviceWorker.getRegistration('/');
+      const registration = await navigator.serviceWorker.getRegistration('/');
 
       if (registration) return true;
     }
@@ -357,11 +357,11 @@ class Settings extends React.Component {
               </div>
               {this.swAvailable && this.state.swInstalled ? (
                 <>
-                  <Button text={t('Update service worker')} disabled={!this.state.swInstalled || this.state.swUpdateAttempt || this.state.swUnregisterAttempt} action={this.swUpdate} />
+                  <Button text={t('Update service worker')} disabled={!this.state.swInstalled || this.state.swUpdateAttempt || this.state.swUnregisterAttempt} action={this.handler_swUpdate} />
                   <div className='info'>
                     <p>{t('Attempt to update the service worker immediately. This function will disable the button temporarily. You may continue to use Braytech while it attempts to update in the background. If successful, you will be prompted to restart the app.')}</p>
                   </div>
-                  <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.swDump} />
+                  <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.handler_swDump} />
                   <div className='info'>
                     <p>{t('Attempt to unregister the installed service worker. If successful, reloading the app will allow a new service worker to take its place.')}</p>
                   </div>
