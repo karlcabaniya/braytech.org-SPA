@@ -287,7 +287,7 @@ class RosterLeaderboards extends React.Component {
             } catch (e) {
               return {
                 destinyUserInfo: {
-                  ...m.destinyUserInfo,
+                  ...m?.destinyUserInfo,
                   groupId: m.groupId
                 },
                 value: 0,
