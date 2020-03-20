@@ -23,6 +23,8 @@ class ErrorBoundary extends React.Component {
 
     const swInstalled = await this.swInstalled();
 
+    console.log(swInstalled)
+
     if (this.mounted && swInstalled) this.setState({ swInstalled: true });
   }
 
