@@ -5928,5 +5928,15 @@
     "vendorHash": 3411552308,
     "bubbleHash": 240420607,
     "screenshot": "/static/images/screenshots/vendors/vendors_lectern-of-enchantment-2.jpg"
+  },
+  {
+    "vendorHash": 3982706173,
+    "bubbleHash": 577912749,
+    "screenshot": "/static/images/screenshots/vendors/vendors_asher-mir-2.jpg"
+  },
+  {
+    "vendorHash": 863940356,
+    "bubbleHash": 824533556,
+    "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
   }
 ]

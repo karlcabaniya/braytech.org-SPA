@@ -19,7 +19,6 @@ class Characters extends React.Component {
     const characters = member.data.profile.characters;
     const characterActivities = member.data.profile.characterActivities;
     const characterEquipment = member.data.profile.characterEquipment.data;
-    // const metrics = member.data.profile.metrics.data.metrics; already returned with item in characterEquipment
 
     const lastActivities = utils.lastPlayerActivity({ profile: { characters, characterActivities } });
 
@@ -42,8 +41,6 @@ class Characters extends React.Component {
 
           const emblem = characterEquipment[character.characterId].items.find(i => i.bucketHash === 4274335291);
           const metricImages = emblem?.metricHash && utils.metricImages(emblem.metricHash);
-
-          console.log(emblem);
 
           const emblemPath = mini ? character.emblemPath : character.emblemBackgroundPath;
 

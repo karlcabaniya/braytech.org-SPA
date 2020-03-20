@@ -237,7 +237,7 @@ const Views = {
     Raids: TooltipRaid
   },
   Archives: {
-    Overview: HighlightThisWeek,
+    Overview: Stats,
     Eververse,
     ChaliceOfOpulence,
     Tricorn

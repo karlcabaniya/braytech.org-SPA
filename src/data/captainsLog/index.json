@@ -1058,5 +1058,10 @@
     "date": "2020-03-19T09:15:12.322Z",
     "version": "2.20.17",
     "content": "- bug fixes\n- some new experimental stuff\n- some deep refactoring"
+  },
+  {
+    "date": "2020-03-20T06:34:30.283Z",
+    "version": "2.20.19",
+    "content": "- design improvements\n- more screenshots added to _Maps_"
   }
 ]

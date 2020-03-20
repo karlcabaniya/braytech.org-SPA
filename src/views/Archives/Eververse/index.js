@@ -92,7 +92,7 @@ class Eververse extends React.Component {
           <div className='content'>
             <div className='module'>
               <div className='text'>
-                <ReactMarkdown className='text' source={t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it.")} />
+                <ReactMarkdown className='text' source={t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.")} />
               </div>
             </div>
             <div className='module'>

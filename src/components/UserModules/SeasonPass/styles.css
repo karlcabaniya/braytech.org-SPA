@@ -99,11 +99,15 @@
   height: 4px;
 }
 
-#now .module .season-pass .rewards .rank .progress-bar .text {
+#now .module .season-pass .rewards .rank .progress-bar .bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#now .module .season-pass .rewards .rank .progress-bar .bar .text {
   display: none;
 }
 
-#now .module .season-pass .rewards .rank .progress-bar .fill {
+#now .module .season-pass .rewards .rank .progress-bar .bar .fill {
   background-color: rgba(255, 255, 255, 0.8);
 }
 

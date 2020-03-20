@@ -118,29 +118,23 @@
 
 
 #archives.index .content {
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-#archives.index .highlights .name {
+#archives.index .content .text:not(.button > .text) {
+  max-width: 500px;  
   font-size: 16px;
 }
 
-#archives.index .highlights .description .text p {
-  font-size: 14px;
-}
-
-#archives.index .highlights .list.table > li > ul > li:last-child {
-  justify-content: unset;
-}
-
-#archives.index .highlights .button {
+#archives.index .content .button {
+  margin: 1rem 0 0;
   display: grid;
   justify-content: space-between;
   grid-auto-flow: column;
   padding: 0 1rem;
 }
 
-#archives.index .highlights .button .text {
+#archives.index .content .button .text {
   padding: 0;
 }
 
@@ -156,20 +150,14 @@
 
 
 
-@media screen and (max-width: 1280px) {
-  #archives .content {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   #archives .buff {
     grid-template-columns: 60px 1fr;
   }
 
-  #archives .watermark {
-    right: -2rem;
-    width: 60%;
+  #archives .content,
+  #archives.index .content {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -184,6 +172,12 @@
     gap: 2rem;
   }
 
+  #archives .content,
+  #archives.index .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
   #archives .module.views .list {
     top: 2rem;
     grid-template-columns: 1fr;
@@ -195,22 +189,8 @@
     height: 24px;
   }
 
-  #archives .module .text {
+  #archives .module .text:not(.button > .text),
+  #archives.index .content .text:not(.button > .text) {
     font-size: 14px;
-  }
-
-  #archives .content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  #archives .watermark {
-    top: 15vh;
-    left: 25%;
-  }
-
-  #archives .watermark svg {
-    width: 70vh;
-    height: 70vh;
   }
 }
