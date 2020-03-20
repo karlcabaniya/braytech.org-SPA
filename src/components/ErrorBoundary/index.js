@@ -21,11 +21,13 @@ class ErrorBoundary extends React.Component {
   async componentDidMount() {
     this.mounted = true;
 
-    const swInstalled = await this.swInstalled();
+    setTimeout(async () => {
+      const swInstalled = await this.swInstalled();
 
-    console.log(swInstalled)
+      console.log(swInstalled)
 
-    if (this.mounted && swInstalled) this.setState({ swInstalled: true });
+      if (this.mounted && swInstalled) this.setState({ swInstalled: true });
+    }, 3000);
   }
 
   componentWillUnmount() {
