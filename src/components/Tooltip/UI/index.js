@@ -31,8 +31,6 @@ class UI extends React.Component {
 
     const definition = item.type === 'braytech' ? manifest.BraytechDefinition[item.itemHash] : item.type === 'stat' ? manifest.DestinyStatDefinition[item.itemHash] || manifest.DestinyHistoricalStatsDefinition[item.itemHash] : item.type === 'modifier' ? manifest.DestinyActivityModifierDefinition[item.itemHash] : false;
 
-    console.log(definition)
-
     if (!definition) {
       return null;
     }
