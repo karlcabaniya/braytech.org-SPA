@@ -17,7 +17,7 @@ class RosterLeaderboards extends React.Component {
   state = {
     loading: true,
     leaderboards: false
-  }
+  };
 
   componentDidMount() {
     this.mounted = true;
@@ -52,11 +52,12 @@ class RosterLeaderboards extends React.Component {
                 historicalStats: response.Response
               };
             } else {
-              
               throw Error;
-            }            
+            }
           } catch (e) {
             console.log(`Something went wrong with ${member.destinyUserInfo.membershipId}: ${e}`);
+
+            return member;
           }
         })
       );
@@ -275,27 +276,26 @@ class RosterLeaderboards extends React.Component {
       scopeStatIds.concat(this.statIds).forEach(statId => {
         leaderboards[scope.value][statId.value] = orderBy(
           this.responses.map(m => {
-              try {
-                return {
-                  destinyUserInfo: {
-                    ...m.destinyUserInfo,
-                    groupId: m.groupId
-                  },
-                  value: m.historicalStats[scope.value].allTime[statId.value].basic.value,
-                  displayValue: m.historicalStats[scope.value].allTime[statId.value].basic.displayValue
-                };
-              } catch (e) {
-                return {
-                  destinyUserInfo: {
-                    ...m?.destinyUserInfo,
-                    groupId: m.groupId
-                  },
-                  value: 0,
-                  displayValue: 0
-                };
-              }
-            })
-            .filter(m => m?.destinyUserInfo?.membershipId),
+            try {
+              return {
+                destinyUserInfo: {
+                  ...m.destinyUserInfo,
+                  groupId: m.groupId
+                },
+                value: m.historicalStats[scope.value].allTime[statId.value].basic.value,
+                displayValue: m.historicalStats[scope.value].allTime[statId.value].basic.displayValue
+              };
+            } catch (e) {
+              return {
+                destinyUserInfo: {
+                  ...m.destinyUserInfo,
+                  groupId: m.groupId
+                },
+                value: 0,
+                displayValue: 0
+              };
+            }
+          }),
           [m => m.value],
           ['desc']
         );
@@ -303,7 +303,7 @@ class RosterLeaderboards extends React.Component {
 
       this.statIdsSummary.forEach(statId => {
         const target = statId.value === 'activitiesWon' ? 'activitiesCleared' : statId.value;
-        
+
         leaderboards.summary[target] = this.responses.reduce((a, m) => {
           try {
             return a + m.historicalStats[scope.value].allTime[statId.value].basic.value;
@@ -324,12 +324,14 @@ class RosterLeaderboards extends React.Component {
   }
 
   prettyValue = (statId, value, displayValue) => {
-    const stat = this.statIds.concat(this.statIdsSummary).concat(this.scopes.reduce((a, s) => {
-      return [
-        ...a,
-        ...s.statIds || []
-      ]
-    }, [])).find(s => s.value === statId);
+    const stat = this.statIds
+      .concat(this.statIdsSummary)
+      .concat(
+        this.scopes.reduce((a, s) => {
+          return [...a, ...(s.statIds || [])];
+        }, [])
+      )
+      .find(s => s.value === statId);
 
     if (stat && stat.type === 'moment') {
       return duration({ hours: Math.ceil(value / 3600) }, { unit: 'hours', abbreviated: true });
@@ -340,7 +342,7 @@ class RosterLeaderboards extends React.Component {
     } else {
       return displayValue;
     }
-  }
+  };
 
   elScopes = scope => {
     const scopes = this.scopes.map(s => {
@@ -369,7 +371,7 @@ class RosterLeaderboards extends React.Component {
       const definitionStat = manifest.DestinyHistoricalStatsDefinition[statId];
       const scope = this.scopes.find(s => s.value === scopeId);
       const stat = (scope.statIds || []).concat(this.statIds).find(s => s.value === statId);
-      
+
       return (
         <div key={statId} className='module'>
           <div className='module-header'>
@@ -393,7 +395,7 @@ class RosterLeaderboards extends React.Component {
             })}
           </ul>
         </div>
-      )
+      );
     } else {
       return Object.entries(this.state.leaderboards[scopeId])
         .map(([statId, data]) => {
@@ -491,7 +493,7 @@ class RosterLeaderboards extends React.Component {
                     <div className='name'>{stat.name ? stat.name : definitionStat.statName}</div>
                     <div className='value'>{this.prettyValue(statId, value)}</div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -519,7 +521,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(RosterLeaderboards);
+export default connect(mapStateToProps, mapDispatchToProps)(RosterLeaderboards);

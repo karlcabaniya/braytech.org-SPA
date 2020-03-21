@@ -41,6 +41,7 @@ class Header extends React.Component {
     if (prevProps.member.data.updated !== this.props.member.data.updated && this.state.lastUpdate !== this.props.member.data.updated && !this.state.updateFlash && this.mounted) {
       this.setState({ lastUpdate: this.props.member.data.updated, updateFlash: true });
     }
+    
     if (this.state.updateFlash) {
       window.setTimeout(() => {
         if (this.mounted) {
@@ -48,6 +49,7 @@ class Header extends React.Component {
         }
       }, 4000);
     }
+
     if (this.state.navOpen) {
       this.navEl.current.addEventListener('touchmove', this.nav_touchMove, true);
     }
