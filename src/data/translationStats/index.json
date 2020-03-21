@@ -1,125 +1,156 @@
 {
   "de": {
-    "translated": 375,
+    "translated": 371,
     "notTranslated": 289,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "debug": {
-    "translated": 664,
-    "notTranslated": 0,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
-  },
-  "en": {
-    "translated": 664,
+    "translated": 660,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
+  },
+  "en": {
+    "translated": 660,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "es-mx": {
-    "translated": 651,
+    "translated": 647,
     "notTranslated": 13,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "es": {
-    "translated": 651,
+    "translated": 647,
     "notTranslated": 13,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "fr": {
-    "translated": 580,
+    "translated": 576,
     "notTranslated": 84,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "it": {
-    "translated": 662,
+    "translated": 658,
     "notTranslated": 2,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "ja": {
     "translated": 606,
-    "notTranslated": 58,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "notTranslated": 54,
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "ko": {
-    "translated": 561,
+    "translated": 557,
     "notTranslated": 103,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 664,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "notTranslated": 660,
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "pt-br": {
-    "translated": 579,
+    "translated": 575,
     "notTranslated": 85,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "ru": {
-    "translated": 662,
+    "translated": 658,
     "notTranslated": 2,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "zh-chs": {
-    "translated": 466,
+    "translated": 462,
     "notTranslated": 198,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   },
   "zh-cht": {
-    "translated": 382,
+    "translated": 378,
     "notTranslated": 282,
-    "added": [
-      "Begin your trial by speaking with Saint-14.",
-      "Selected passage"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Bathe with my loyalists in their pools",
+      "COME– I must congratulate you in person! [maniacal laughter]",
+      "Demonstrate your tenacity for the game, my champion",
+      "Smell the roses, Guardian... Feed my hungry pets"
+    ]
   }
 }

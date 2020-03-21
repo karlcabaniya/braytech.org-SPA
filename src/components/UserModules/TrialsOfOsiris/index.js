@@ -42,8 +42,6 @@ class TrialsOfOsiris extends React.Component {
 
     const definitionPassage = passage && manifest.DestinyInventoryItemDefinition[passage.itemHash];
 
-    console.log(passage);
-
     return (
       <div className='user-module trials-of-osiris'>
         <div className='icon'>

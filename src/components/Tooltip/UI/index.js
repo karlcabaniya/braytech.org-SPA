@@ -19,17 +19,19 @@ class UI extends React.Component {
     const { t, member } = this.props;
 
     const item = {
-      itemHash: this.props.hash,
+      itemHash: +this.props.hash,
       itemInstanceId: this.props.instanceid,
       itemComponents: null,
-      relatedHash: this.props.related,
-      quantity: parseInt(this.props.quantity || 1, 10),
-      state: parseInt(this.props.state || 0, 10),
+      relatedHash: +this.props.related,
+      quantity: +this.props.quantity || 1,
+      state: +this.props.state || 0,
       rarity: 'common',
       type: this.props.type
     };
 
     const definition = item.type === 'braytech' ? manifest.BraytechDefinition[item.itemHash] : item.type === 'stat' ? manifest.DestinyStatDefinition[item.itemHash] || manifest.DestinyHistoricalStatsDefinition[item.itemHash] : item.type === 'modifier' ? manifest.DestinyActivityModifierDefinition[item.itemHash] : false;
+
+    console.log(definition)
 
     if (!definition) {
       return null;

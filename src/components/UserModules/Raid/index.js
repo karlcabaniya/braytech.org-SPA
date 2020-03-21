@@ -157,42 +157,38 @@ class Raid extends React.Component {
         phaseOrder: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].phaseHashes) || [],
         phases: {
           3847906370: {
-            name: t('The Pleasure Gardens'),
-            description: t('Smell the roses, Guardian... Feed my hungry pets'),
             icon: manifest.DestinyActivityModifierDefinition[871205855].displayProperties.icon
           },
           2188993306: {
-            name: t('The Royal Pools'),
-            description: t('Bathe with my loyalists in their pools'),
             icon: manifest.DestinyActivityModifierDefinition[3296085675].displayProperties.icon
           },
           1431486395: {
-            name: t('The Gauntlet'),
-            description: t('Demonstrate your tenacity for the game, my champion'),
             icon: manifest.DestinyActivityModifierDefinition[2863316929].displayProperties.icon
           },
           4231923662: {
-            name: t('The Throne'),
-            description: t('COME– I must congratulate you in person! [maniacal laughter]'),
             icon: manifest.DestinyActivityModifierDefinition[2770077977].displayProperties.icon
           }
         },
         challenges: {
           871205855: {
             name: t('The Pleasure Gardens'),
-            description: t('Relic holders may only shoot one plant per phase.')
+            description: t('Relic holders may only shoot one plant per phase.'),
+            collectibles: [3125541834]
           },
           3296085675: {
             name: t('The Royal Pools'),
-            description: t('One Guardian must remain in the middle with their feet in the water during the entire encounter.')
+            description: t('One Guardian must remain in the middle with their feet in the water during the entire encounter.'),
+            collectibles: [3125541835]
           },
           2863316929: {
             name: t('The Gauntlet'),
-            description: t('Guardians cannot stand on the same plate more than once.')
+            description: t('Guardians cannot stand on the same plate more than once.'),
+            collectibles: [3125541833]
           },
           2770077977: {
             name: t('The Throne'),
-            description: t('Burn all 4 plates at the same time for every damage phase. Do not fire before all plates are activated.')
+            description: t('Burn all 4 plates at the same time for every damage phase. Do not fire before all plates are activated.'),
+            collectibles: [3125541832]
           }
         },
         collectibles: [199171389],
@@ -203,6 +199,7 @@ class Raid extends React.Component {
     const leviathanStyle = key => {
 
       const records = [...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].triumphs) || []), ...data[key].triumphs];
+      const collectibles = [...data[key].collectibles, ...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].collectibles) || [])];
 
       return (
         <div className='user-module raid'>
@@ -212,16 +209,16 @@ class Raid extends React.Component {
           <h3>{data[key].name}</h3>
           <h4>{t('Challenge')}</h4>
           <ul className='list modifiers'>
-            {data[key].challenge.map((p, i) => {
+            {data[key].challenge.map((challenge, c) => {
               return (
-                <li key={i}>
+                <li key={c}>
                   <div className='icon'>
-                    <ObservedImage className='image' src={`https://www.bungie.net${data[key].challenges[p].icon || (manifest.DestinyActivityModifierDefinition[p] && manifest.DestinyActivityModifierDefinition[p].displayProperties && manifest.DestinyActivityModifierDefinition[p].displayProperties.icon)}`} />
+                    <ObservedImage className='image' src={`https://www.bungie.net${data[key].challenges[challenge].icon || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.icon)}`} />
                   </div>
                   <div className='text'>
-                    <div className='name'>{data[key].challenges[p].name || (manifest.DestinyActivityModifierDefinition[p] && manifest.DestinyActivityModifierDefinition[p].displayProperties && manifest.DestinyActivityModifierDefinition[p].displayProperties.name)}</div>
+                    <div className='name'>{data[key].challenges[challenge].name || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.name)}</div>
                     <div className='description'>
-                      <p>{data[key].challenges[p].description}</p>
+                      <p>{data[key].challenges[challenge].description}</p>
                     </div>
                   </div>
                 </li>
@@ -231,16 +228,12 @@ class Raid extends React.Component {
           {data[key].phaseOrder?.length ? (
             <>
               <h4>{t('Rotation')}</h4>
-              <ul className='list modifiers'>
-                {data[key].phaseOrder.map((p, i) => {
+              <ul className='list modifiers condensed'>
+                {data[key].phaseOrder.map((phaseHash, p) => {
                   return (
-                    <li key={i}>
+                    <li key={p} className='tooltip' data-hash={phaseHash} data-type='modifier'>
                       <div className='icon'>
-                        <ObservedImage className='image' src={`https://www.bungie.net${data[key].phases[p].icon}`} />
-                      </div>
-                      <div className='text'>
-                        <div className='name'>{data[key].phases[p].name}</div>
-                        <div className='description'>{data[key].phases[p].description}</div>
+                        <ObservedImage className='image' src={`https://www.bungie.net${data[key].phases[phaseHash].icon}`} />
                       </div>
                     </li>
                   );
@@ -250,7 +243,7 @@ class Raid extends React.Component {
           ) : null}
           <h4>{t('Collectibles')}</h4>
           <ul className='list collection-items'>
-            <Collectibles selfLinkFrom='/this-week' hashes={data[key].collectibles} />
+            <Collectibles selfLinkFrom='/this-week' hashes={collectibles} />
           </ul>
           {records.length ? (
             <>

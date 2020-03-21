@@ -8,8 +8,9 @@ import DestinyClanBannerDefinition from '../data/manifest/en/DestinyClanBannerDe
 import DestinyActivityDefinition from '../data/manifest/en/DestinyActivityDefinition/';
 import DestinyHistoricalStatsDefinition from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
 
+import DestinyActivityModifierDefinition_EN from '../data/manifest/en/DestinyActivityModifierDefinition/';
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
-import DestinyPresentationNodeDefinition_EN from '../data/manifest/en/DestinyPresentationNodeDefinition/';
+// import DestinyPresentationNodeDefinition_EN from '../data/manifest/en/DestinyPresentationNodeDefinition/';
 
 const customs = {
   de: {
@@ -20,8 +21,9 @@ const customs = {
     DestinyClanBannerDefinition,
     DestinyActivityDefinition,
     DestinyHistoricalStatsDefinition,
-    DestinyPresentationNodeDefinition: DestinyPresentationNodeDefinition_EN,
-    DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_EN
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
+    DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_EN,
+    // DestinyPresentationNodeDefinition: DestinyPresentationNodeDefinition_EN
   },
   es: {
     braytech: braytech_ES,
@@ -79,7 +81,8 @@ const manifest = {
     customsMerge(newManifest.DestinyHistoricalStatsDefinition, customs.en.DestinyHistoricalStatsDefinition);
     customsMerge(newManifest.DestinyInventoryItemDefinition, customs[lang].DestinyInventoryItemDefinition);
 
-    Object.assign(newManifest.DestinyPresentationNodeDefinition, customs.en.DestinyPresentationNodeDefinition);
+    // Object.assign(newManifest.DestinyPresentationNodeDefinition, customs.en.DestinyPresentationNodeDefinition);
+    Object.assign(newManifest.DestinyActivityModifierDefinition, customs.en.DestinyActivityModifierDefinition);
 
 
     // add emotes to flair presentation node

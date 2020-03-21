@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
-import { Records, unredeemed } from '../Records';
+import { Records, unredeemedRecords } from '../Records';
 
 class RecordsUnredeemed extends React.Component {
   render() {
     const { member, limit, selfLinkFrom = false } = this.props;
     
-    const hashes = unredeemed(member);
+    const hashes = unredeemedRecords(member);
 
     return (
       <>

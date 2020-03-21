@@ -20,31 +20,33 @@ import { Common } from '../../svg';
 
 import './styles.css';
 
-const selfLink = hash => {
-  let link = ['/triumphs'];
-  let root = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.recordsRootNode];
-  let seals = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.medalsRootNode];
+function selfLinkRecord(hash) {
+  const link = ['/triumphs'];
+  const root = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.recordsRootNode];
+  const seals = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.medalsRootNode];
 
   root.children.presentationNodes.forEach(nP => {
-    let nodePrimary = manifest.DestinyPresentationNodeDefinition[nP.presentationNodeHash];
+    const nodePrimary = manifest.DestinyPresentationNodeDefinition[nP.presentationNodeHash];
 
     nodePrimary.children.presentationNodes.forEach(nS => {
-      let nodeSecondary = manifest.DestinyPresentationNodeDefinition[nS.presentationNodeHash];
+      const nodeSecondary = manifest.DestinyPresentationNodeDefinition[nS.presentationNodeHash];
 
       nodeSecondary.children.presentationNodes.forEach(nT => {
-        let nodeTertiary = manifest.DestinyPresentationNodeDefinition[nT.presentationNodeHash];
+        const nodeTertiary = manifest.DestinyPresentationNodeDefinition[nT.presentationNodeHash];
 
         if (nodeTertiary.children.records.length) {
-          let found = nodeTertiary.children.records.find(c => c.recordHash === parseInt(hash, 10));
+          const found = nodeTertiary.children.records.find(c => c.recordHash === hash);
+
           if (found) {
             link.push(nodePrimary.hash, nodeSecondary.hash, nodeTertiary.hash, found.recordHash);
           }
         } else {
           nodeTertiary.children.presentationNodes.forEach(nQ => {
-            let nodeQuaternary = manifest.DestinyPresentationNodeDefinition[nQ.presentationNodeHash];
+            const nodeQuaternary = manifest.DestinyPresentationNodeDefinition[nQ.presentationNodeHash];
 
             if (nodeQuaternary.children.records.length) {
-              let found = nodeQuaternary.children.records.find(c => c.recordHash === hash);
+              const found = nodeQuaternary.children.records.find(c => c.recordHash === hash);
+
               if (found) {
                 link.push(nodePrimary.hash, nodeSecondary.hash, nodeTertiary.hash, nodeQuaternary.hash, found.recordHash);
               }
@@ -57,16 +59,17 @@ const selfLink = hash => {
 
   if (link.length === 1) {
     seals.children.presentationNodes.forEach(nP => {
-      let nodePrimary = manifest.DestinyPresentationNodeDefinition[nP.presentationNodeHash];
+      const nodePrimary = manifest.DestinyPresentationNodeDefinition[nP.presentationNodeHash];
 
-      if (nodePrimary.completionRecordHash === parseInt(hash, 10)) {
+      if (nodePrimary.completionRecordHash === hash) {
         link.push('seal', nodePrimary.hash);
 
         return;
       }
 
       if (nodePrimary.children.records.length) {
-        let found = nodePrimary.children.records.find(c => c.recordHash === parseInt(hash, 10));
+        const found = nodePrimary.children.records.find(c => c.recordHash === hash);
+
         if (found) {
           link.push('seal', nodePrimary.hash, found.recordHash);
         }
@@ -74,17 +77,16 @@ const selfLink = hash => {
     });
   }
 
-  link = link.join('/');
-  return link;
+  return link.join('/');
 };
 
-const unredeemed = member => {
+function unredeemedRecords(member) {
   const characterRecords = member && member.data.profile.characterRecords.data;
   const profileRecords = member && member.data.profile.profileRecords.data.records;
 
   const hashes = [];
 
-  let records = {
+  const records = {
     ...profileRecords,
     ...characterRecords[member.characterId].records
   };
@@ -127,8 +129,8 @@ class Records extends React.Component {
 
   handler_toggleTrack = e => {
     let tracked = this.props.triumphs.tracked;
-    let hashToTrack = parseInt(e.currentTarget.dataset.hash, 10);
-    let target = tracked.indexOf(hashToTrack);
+    const hashToTrack = +e.currentTarget.dataset.hash;
+    const target = tracked.indexOf(hashToTrack);
 
     if (target > -1) {
       tracked = tracked.filter((hash, index) => index !== target);
@@ -139,18 +141,51 @@ class Records extends React.Component {
     this.props.setTrackedTriumphs(tracked);
   };
 
+  makeLink = (hash, isCollectionBadge) => {
+    const definitionRecord = manifest.DestinyRecordDefinition[hash];
+    
+    const triumphsPathname = selfLinkRecord(hash);
+    const collectionsPathname = `/collections/badge/${isCollectionBadge?.badgeHash}`;
+    const readPathname = `/read/record/${definitionRecord.hash}`;
+    
+    if (this.props.readLink) {
+      return {
+        pathname: definitionRecord.loreHash && !this.props.selfLinkFrom ? readPathname : triumphsPathname,
+        state: {
+          from: this.props.location.pathname
+        }
+      };
+    } else if (!this.props.selfLinkFrom && isCollectionBadge) {
+      return {
+        pathname: collectionsPathname,
+        state: {
+          from: paths.removeMemberIds(this.props.location.pathname)
+        }
+      };
+    } else if (this.props.selfLinkFrom) {
+      return {
+        pathname: triumphsPathname,
+        state: {
+          from: this.props.selfLinkFrom
+        }
+      };
+    } else {
+      return false;
+    }
+  }
+
   render() {
     const { t, hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, forceDisplay = false } = this.props;
-    const highlight = parseInt(this.props.highlight, 10) || false;
+    const highlight = +this.props.highlight || false;
     const recordsRequested = hashes;
-    const characterId = member && member.characterId;
-    const characterRecords = member && member.data && member.data.profile.characterRecords.data;
-    const profileRecords = member && member.data && member.data.profile.profileRecords.data.records;
-    const profileRecordsTracked = member && member.data && member.data.profile.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
+    const characterId = member.characterId;
+    const characterRecords = member.data && member.data.profile.characterRecords.data;
+    const profileRecords = member.data && member.data.profile.profileRecords.data.records;
+    const profileRecordsTracked = member.data && member.data.profile.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
     const tracked = triumphs.tracked;
 
     let recordsOutput = [];
-    recordsRequested.forEach((hash, i) => {
+    recordsRequested.forEach((hash, h) => {
       const definitionRecord = manifest.DestinyRecordDefinition[hash];
 
       if (!definitionRecord) return;
@@ -163,13 +198,6 @@ class Records extends React.Component {
       // if (definitionRecord.intervalInfo.intervalObjectives.length)
 
       // console.log(recordData);
-
-      let link = selfLink(hash);
-
-      // readLink
-      if (definitionRecord.loreHash && !selfLinkFrom && readLink) {
-        link = `/read/record/${definitionRecord.hash}`;
-      }
 
       const recordState = {
         distance: 0,
@@ -325,7 +353,7 @@ class Records extends React.Component {
           hash: definitionRecord.hash,
           element: (
             <li
-              key={`${definitionRecord.hash}${i}`}
+              key={h}
               ref={ref}
               className={cx('redacted', {
                 highlight: highlight && highlight === definitionRecord.hash
@@ -347,49 +375,22 @@ class Records extends React.Component {
         let description = definitionRecord.displayProperties.description !== '' ? definitionRecord.displayProperties.description : false;
         description = !description && definitionRecord.loreHash ? manifest.DestinyLoreDefinition[definitionRecord.loreHash].displayProperties.description.slice(0, 117).trim() + '...' : description;
 
-        const isCollectionBadge = associationsCollectionsBadges.find(ass => ass.recordHash === definitionRecord.hash);
+        const isCollectionBadge = associationsCollectionsBadges.find(badge => badge.recordHash === definitionRecord.hash);
 
-        let linkTo;
-        if (link && selfLinkFrom) {
-          linkTo = {
-            pathname: link,
-            state: {
-              from: selfLinkFrom
-            }
-          };
-        }
-        if (link && readLink) {
-          linkTo = {
-            pathname: link,
-            state: {
-              from: this.props.location.pathname
-            }
-          };
-        }
-        if (link && !selfLinkFrom && isCollectionBadge) {
-          linkTo = {
-            pathname: `/collections/badge/${isCollectionBadge.badgeHash}`,
-            state: {
-              from: paths.removeMemberIds(this.props.location.pathname)
-            }
-          };
-        }
+        const link = this.makeLink(hash, isCollectionBadge);
 
-        let rewards;
-        if (definitionRecord.rewardItems && definitionRecord.rewardItems.length) {
-          rewards = definitionRecord.rewardItems
-            .map(r => {
-              let definitionItem = manifest.DestinyInventoryItemDefinition[r.itemHash];
-              let definitionCollectible = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] : false;
+        const rewards = definitionRecord.rewardItems
+          ?.map(r => {
+            let definitionItem = manifest.DestinyInventoryItemDefinition[r.itemHash];
+            let definitionCollectible = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] : false;
 
-              if (definitionCollectible && !definitionCollectible.redacted) {
-                return definitionCollectible.hash;
-              } else {
-                return false;
-              }
-            })
-            .filter(r => r);
-        }
+            if (definitionCollectible && !definitionCollectible.redacted) {
+              return definitionCollectible.hash;
+            } else {
+              return false;
+            }
+          })
+          .filter(r => r);
 
         recordsOutput.push({
           completed: enumeratedState.recordRedeemed,
@@ -397,10 +398,10 @@ class Records extends React.Component {
           hash: definitionRecord.hash,
           element: (
             <li
-              key={`${definitionRecord.hash}${i}`}
+              key={h}
               ref={ref}
               className={cx({
-                linked: link && linkTo,
+                linked: Boolean(link),
                 highlight: highlight && highlight === definitionRecord.hash,
                 completed: enumeratedState.recordRedeemed,
                 unredeemed: !enumeratedState.recordRedeemed && !enumeratedState.objectiveNotCompleted,
@@ -446,7 +447,7 @@ class Records extends React.Component {
                   <Collectibles forceDisplay selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} />
                 </ul>
               ) : null}
-              {link && linkTo ? !selfLinkFrom && readLink ? <Link to={linkTo} /> : <ProfileLink to={linkTo} /> : null}
+              {link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
             </li>
           )
         });
@@ -505,6 +506,6 @@ Records = compose(
   withTranslation()
 )(Records);
 
-export { Records, selfLink, unredeemed };
+export { Records, selfLinkRecord, unredeemedRecords };
 
 export default Records;

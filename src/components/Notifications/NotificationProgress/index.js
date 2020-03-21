@@ -9,7 +9,7 @@ import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { ProfileLink } from '../../ProfileLink';
 import { enumerateRecordState } from '../../../utils/destinyEnums';
-import { selfLink } from '../../Records';
+import { selfLinkRecord } from '../../Records';
 
 import './styles.css';
 
@@ -152,9 +152,9 @@ class NotificationProgress extends React.Component {
     const { t } = this.props;
 
     if (this.state.progress.type === 'record') {
-      let definitionRecord = manifest.DestinyRecordDefinition[this.state.progress.hash];
+      const definitionRecord = manifest.DestinyRecordDefinition[this.state.progress.hash];
 
-      let link = selfLink(definitionRecord.hash);
+      const link = selfLinkRecord(definitionRecord.hash);
 
       let description = definitionRecord.displayProperties.description !== '' ? definitionRecord.displayProperties.description : false;
       description = !description && definitionRecord.loreHash ? manifest.DestinyLoreDefinition[definitionRecord.loreHash].displayProperties.description.slice(0, 142).trim() + '...' : description;

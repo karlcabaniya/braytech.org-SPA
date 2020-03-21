@@ -10,7 +10,7 @@ import unobtainable from '../../../data/records/unobtainable';
 import { enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
 import { ProfileLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
-import { unredeemed } from '../../../components/Records';
+import { unredeemedRecords } from '../../../components/Records';
 import RecordsAlmost from '../../../components/RecordsAlmost';
 import RecordsTracked from '../../../components/RecordsTracked';
 import Search from '../../../components/Search';
@@ -51,11 +51,14 @@ class Root extends React.Component {
 
             if (recordData) {
               if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
+              
               if (recordData.intervalObjectives?.length) {
                 if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
               } else {
                 if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
-              }              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
+              }
+              
+              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
 
               recordData.hash = definitionRecord.hash;
               recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;
@@ -162,7 +165,7 @@ class Root extends React.Component {
       });
     });
 
-    const unredeemedTriumphCount = unredeemed(member).length;
+    const unredeemedTriumphCount = unredeemedRecords(member).length;
 
     return (
       <>

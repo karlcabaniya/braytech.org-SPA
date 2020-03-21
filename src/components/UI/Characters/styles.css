@@ -92,7 +92,7 @@
 .characters-list .char .button .metric .progress {
   position: absolute;
   right: 10.5%;
-  bottom: 11%;
+  bottom: 10%;
   z-index: 4;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.8);
