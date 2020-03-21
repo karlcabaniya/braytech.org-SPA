@@ -156,7 +156,7 @@ class Quests extends React.Component {
       if (item.itemCategoryHashes.includes(16) || item.itemCategoryHashes.includes(2250046497) || (item.objectives && item.objectives.questlineItemHash)) {
         return 'quests';
       }
-      if (!item.objectives || item.objectives.length === 0 || item.sockets) {
+      if (!item.objectives || item.objectives.length === 0 || item.sockets || item.traitIds?.indexOf('inventory_filtering.quest') > -1) {
         return 'items';
       }
 

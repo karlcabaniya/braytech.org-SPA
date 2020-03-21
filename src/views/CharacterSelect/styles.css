@@ -165,7 +165,7 @@
 @media screen and (max-width: 1280px) {
 
   #character-select .profile .user {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(200px, 100%);
   }
 
 }

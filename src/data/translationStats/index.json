@@ -1,124 +1,124 @@
 {
   "de": {
     "translated": 375,
-    "notTranslated": 287,
+    "notTranslated": 289,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 662,
+    "translated": 664,
     "notTranslated": 0,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "en": {
-    "translated": 662,
+    "translated": 664,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 651,
-    "notTranslated": 11,
+    "notTranslated": 13,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "es": {
     "translated": 651,
-    "notTranslated": 11,
+    "notTranslated": 13,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "fr": {
     "translated": 580,
-    "notTranslated": 82,
+    "notTranslated": 84,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "it": {
-    "translated": 651,
-    "notTranslated": 11,
+    "translated": 662,
+    "notTranslated": 2,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "ja": {
     "translated": 606,
-    "notTranslated": 56,
+    "notTranslated": 58,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "ko": {
     "translated": 561,
-    "notTranslated": 101,
+    "notTranslated": 103,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 662,
+    "notTranslated": 664,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 579,
-    "notTranslated": 83,
+    "notTranslated": 85,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "ru": {
-    "translated": 652,
-    "notTranslated": 10,
+    "translated": 662,
+    "notTranslated": 2,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 466,
-    "notTranslated": 196,
+    "notTranslated": 198,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 382,
-    "notTranslated": 280,
+    "notTranslated": 282,
     "added": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Selected passage"
     ],
     "removed": []
   }

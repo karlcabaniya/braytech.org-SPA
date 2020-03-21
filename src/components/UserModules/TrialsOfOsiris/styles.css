@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.user-module.trials-of-osiris .icon {
+.user-module.trials-of-osiris > .icon {
   position: absolute;
   top: 0;
   right: 0;
@@ -12,7 +12,7 @@
   opacity: 0.15;
 }
 
-.user-module.trials-of-osiris .icon svg {
+.user-module.trials-of-osiris > .icon svg {
   height: 100%;
   width: 100%;
   fill: white;
@@ -60,6 +60,26 @@
 
 .user-module.trials-of-osiris .history .game.loss div {
   background-color: #c53c32;
+}
+
+.user-module.trials-of-osiris .passage {
+  display: grid;
+  grid-template-columns: 48px auto;
+  gap: 10px;
+}
+
+.user-module.trials-of-osiris .passage .icon {
+  position: relative;
+  height: unset;
+  padding-bottom: 80%;
+}
+
+.user-module.trials-of-osiris .passage .text .name {
+  margin: 0 0 4px;
+}
+
+.user-module.trials-of-osiris .passage .text .description {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .user-module.trials-of-osiris .info {
