@@ -82,7 +82,7 @@ class Settings extends React.Component {
     this.mounted = false;
   }
 
-  swAvailable = process.env.NODE_ENV === 'production' && process.env.REACT_APP_BETA === 'true' && 'serviceWorker' in navigator;
+  swAvailable = process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator;
 
   swInstalled = async () => {
     if (this.swAvailable) {
