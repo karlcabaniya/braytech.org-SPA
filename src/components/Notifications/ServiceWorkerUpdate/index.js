@@ -13,9 +13,7 @@ class ServiceWorkerUpdate extends React.Component {
   }
 
   render() {
-    const { updateAvailable } = this.props;
-
-    if (updateAvailable) {
+    if (this.props.updateAvailable) {
       return (
         <div id="service-worker-update">
           <div className='wrapper'>

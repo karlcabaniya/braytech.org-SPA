@@ -16,16 +16,12 @@ import MemberLink from '../MemberLink';
 import './styles.css';
 
 class Roster extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {
-        sort: false,
-        dir: 'desc'
-      }
-    };
-  }
+  state = {
+    order: {
+      sort: false,
+      dir: 'desc'
+    }
+  };
 
   componentDidMount() {
     const { member } = this.props;
@@ -146,7 +142,7 @@ class Roster extends React.Component {
                     <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                       <LastClassIcon />
                     </div>
-                    <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 930, max: lastCharacter.light >= 960 })}>
+                    <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 1000, max: lastCharacter.light >= 1010 })}>
                       {lastCharacter.light}
                     </div>
                     <div className='icon season-rank'>

@@ -1,7 +1,7 @@
 #service-worker-update {
   position: relative;
   padding: 0 3rem;
-  background-color: #000000;
+  background-color: rgb(220, 81, 59);
   z-index: 19;
 }
 
@@ -20,7 +20,7 @@
   display: grid;
   align-content: center;  
   font-family: var(--fontText);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 

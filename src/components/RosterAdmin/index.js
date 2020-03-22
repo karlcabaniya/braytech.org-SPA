@@ -18,14 +18,10 @@ import Button from '../UI/Button';
 import './styles.css';
 
 class Actions extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      frozen: false,
-      primed: false
-    };
-  }
+  state = {
+    frozen: false,
+    primed: false
+  };
 
   memberRank = (membershipId, promote = false) => async e => {
     const { groupMembers } = this.props;
@@ -323,17 +319,13 @@ Actions = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation(
 DownloadData = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(DownloadData);
 
 class RosterAdmin extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {
-        sort: false,
-        dir: 'desc'
-      },
-      softUpdate: new Date().getTime()
-    };
-  }
+  state = {
+    order: {
+      sort: false,
+      dir: 'desc'
+    },
+    softUpdate: new Date().getTime()
+  };
 
   componentDidMount() {
     const { member } = this.props;
@@ -372,9 +364,8 @@ class RosterAdmin extends React.Component {
   }
 
   softUpdate = () => {
-    this.setState(p => {
-      p.softUpdate = new Date().getTime();
-      return p;
+    this.setState({
+      softUpdate: new Date().getTime()
     });
   };
 
@@ -466,7 +457,7 @@ class RosterAdmin extends React.Component {
                       <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                         <LastClassIcon />
                       </div>
-                      <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 930, max: lastCharacter.light >= 960 })}>
+                      <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 100, max: lastCharacter.light >= 1010 })}>
                         {lastCharacter.light}
                       </div>
                       <div className='icon season-rank'>
