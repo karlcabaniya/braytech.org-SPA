@@ -1,0 +1,288 @@
+{
+  "platform_xbox": {
+    "displayProperties": {
+      "name": "Xbox",
+      "description": "Платформа, к которой принадлежит этот профиль."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Платформа"
+  },
+  "platform_playstation": {
+    "displayProperties": {
+      "name": "Playstation",
+      "description": "Платформа, к которой принадлежит этот профиль."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Платформа"
+  },
+  "platform_steam": {
+    "displayProperties": {
+      "name": "Steam",
+      "description": "Платформа, к которой принадлежит этот профиль."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Платформа"
+  },
+  "platform_battlenet": {
+    "displayProperties": {
+      "name": "Battle.net",
+      "description": "Платформа, к которой принадлежит этот профиль."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Платформа"
+  },
+  "platform_stadia": {
+    "displayProperties": {
+      "name": "Stadia",
+      "description": "Платформа, к которой принадлежит этот профиль."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Платформа"
+  },
+  "warmind": {
+    "displayProperties": {
+      "name": "Руководитель",
+      "description": "Том Чапмен, создатель и разработчик Braytech."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Искусственный интеллект"
+  },
+  "patron-veteran": {
+    "displayProperties": {
+      "name": "Подпрограмма",
+      "description": "Этот Страж - маяк света, который своими действиями доказал, что ценит храбрость и служба превыше всего."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Награда Patron"
+  },
+  "patron": {
+    "displayProperties": {
+      "name": "Исследователь",
+      "description": "Технический сотрудник Clovis Bray, этот Страж стремится улучшить Braytech."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Награда Patron"
+  },
+  "commonality": {
+    "displayProperties": {
+      "name": "Редкость",
+      "description": "Процент игроков, проиндексированных VOLUSPA, которые получили или выполнили это."
+    },
+    "itemType": 1
+  },
+  "score": {
+    "displayProperties": {
+      "name": "Награда за триумф",
+      "description": "Получение триумфа принесет данное количество очков."
+    },
+    "itemType": 1
+  },
+  "record_intervals": {
+    "displayProperties": {
+      "name": "Интервалы триумфов",
+      "description": "Некоторые записи имеют интервалы. Различные интервалы имеют различные требования и значения баллов."
+    },
+    "itemType": 1
+  },
+  "character_bound": {
+    "displayProperties": {
+      "name": "Привязано к персонажу",
+      "description": "Эти предметы привязаны к персонажу. Это означает, что для каждого персонажа они уникальны."
+    },
+    "itemType": 1
+  },
+  "coverage": {
+    "displayProperties": {
+      "name": "Перевод",
+      "description": "Процент перевода на данный язык."
+    },
+    "itemType": 1
+  },
+  "total_resets": {
+    "displayProperties": {
+      "name": "Total resets",
+      "description": "All seasons' resets. Tracks from Season 4 onward."
+    },
+    "itemType": 1
+  },
+  "braytech_purple_rune": {
+    "displayProperties": {
+      "description": "A purple rune. Purple runes include; Rune of Joy, Rune of the Beast, and Rune of Jubilation.",
+      "name": "Purple Rune",
+      "icon": "/static/images/extracts/ui/rune_purple.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune0",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_red_rune": {
+    "displayProperties": {
+      "description": "A red rune. Red runes include; Rune of Ambition, Rune of Gluttony, and Rune of Cunning.",
+      "name": "Red Rune",
+      "icon": "/static/images/extracts/ui/rune_red.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune3",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_green_rune": {
+    "displayProperties": {
+      "description": "A green rune. Green runes include; Rune of War, Rune of Pride, and Rune of Desire.",
+      "name": "Green Rune",
+      "icon": "/static/images/extracts/ui/rune_green.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune6",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_blue_rune": {
+    "displayProperties": {
+      "description": "A blue rune. Blue runes include; Rune of Excess, Rune of Wealth, and Rune of Pleasure.",
+      "name": "Blue Rune",
+      "icon": "/static/images/extracts/ui/rune_blue.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune9",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_no_rune": {
+    "displayProperties": {
+      "description": "Insert a rune into this slot",
+      "name": "Empty slot",
+      "icon": "/static/images/extracts/ui/0560-00006055.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Action",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Common",
+      "tierType": 1
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune20",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_remove_rune": {
+    "displayProperties": {
+      "description": "Remove any runes from this slot",
+      "name": "Empty slot",
+      "icon": "/static/images/extracts/ui/0560-00006055.png",
+       "localIcon": true,
+      "hasIcon": true
+   },
+   "itemTypeDisplayName": "Action",
+   "uiItemDisplayStyle": "",
+   "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Common",
+      "tierType": 1
+    },
+    "plug": {
+     "plugCategoryIdentifier": "penumbra.runes.legendary.rune21",
+     "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  }
+}
