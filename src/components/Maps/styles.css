@@ -131,7 +131,7 @@ html.backdropfilter .map-omega .acrylic {
 
 .map-omega .control.characters .character-emblem .wrapper .light {
   top: 10%;
-  right: 2%;
+  right: 3.5%;
   font-size: 26px;
 }
 
@@ -301,7 +301,7 @@ html.backdropfilter .map-omega .acrylic {
   }
 
   .map-omega .control.characters .character-emblem .wrapper .group,
-  .map-omega .control.characters .character-emblem .wrapper .level {
+  .map-omega .control.characters .character-emblem .wrapper .metric {
     display: none;
   }
 

@@ -90,12 +90,14 @@ class RefreshService extends React.Component {
 
     // user has been inactive for TIMEOUT so we'll stop pinging the API
     if (!this.activeWithinTimespan(TIMEOUT)) {
+      this.props.setState({ stale: true });
+
       return;
     }
 
     const { membershipType, membershipId, characterId, data: previousMemberLoad } = this.props.member;
       
-    this.props.setState(true);
+    this.props.setState({ loading: true });
 
     try {
 
@@ -119,11 +121,13 @@ class RefreshService extends React.Component {
           }
         });
       }
+
+      this.props.setState({ loading: false, stale: false });
     } catch (e) {
       console.warn(`Error while refreshing profile - ignoring`, e);
-    }
 
-    this.props.setState(false);
+      this.props.setState({ loading: false, stale: true });
+    }
   };
 }
 
@@ -139,8 +143,8 @@ function mapDispatchToProps(dispatch) {
     setMember: payload => {
       dispatch({ type: 'MEMBER_LOADED', payload });
     },
-    setState: loading => {
-      dispatch({ type: 'SET_REFRESH_STATE', payload: { loading } });
+    setState: value => {
+      dispatch({ type: 'SET_REFRESH_STATE', payload: value });
     }
   };
 }

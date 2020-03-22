@@ -72,8 +72,9 @@
 
 .character-emblem .wrapper .light {
   position: absolute;
-  right: 12px;
-  top: 13px;
+  right: 3.5%;
+  top: 10%;
+  z-index: 4;
   font-size: 38px;
   font-weight: 500;
   line-height: 1;
@@ -95,12 +96,50 @@
   line-height: 1;
 }
 
-.character-emblem .wrapper .level {
+.character-emblem .wrapper .metric .progress {
   position: absolute;
-  right: 12px;
-  top: 51px;
-  font-size: 18px;
-  color: #fff;
+  right: 11%;
+  bottom: 11%;
+  z-index: 4;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.character-emblem .wrapper .metric .gonfalon {
+  position: absolute;
+  top: -1px;
+  right: 8px;
+  z-index: 4;
+  width: 7.598%;
+  padding-bottom: 22.153%;
+}
+
+.character-emblem .wrapper .metric .gonfalon .trait {
+  top: unset;
+  bottom: 38%;
+  left: 0;
+  width: 100%;
+  height: unset;
+  padding-bottom: 100%;
+  background-size: 90%;
+}
+
+.character-emblem .wrapper .metric .gonfalon .metric {
+  top: unset;
+  bottom: 17%;
+  left: 0;
+  width: 100%;
+  height: unset;
+  padding-bottom: 100%;
+  background-size: 152%;
+}
+
+.character-emblem .wrapper .metric .gonfalon .banner.complete.dl {
+  opacity: 0;
+}
+
+.character-emblem .wrapper .metric .gonfalon.complete .banner.complete.dl {
+  opacity: 1;
 }
 
 .character-emblem.auxiliary .wrapper {
@@ -175,12 +214,6 @@
   .character-emblem .wrapper .light::before {
     font-size: 11px;
     left: -12px;
-  }
-
-  .character-emblem .wrapper .level {
-    top: 51%;
-    right: 2%;
-    font-size: 14px;
   }
 
   .character-emblem .wrapper .progress {

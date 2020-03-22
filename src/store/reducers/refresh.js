@@ -1,5 +1,6 @@
 const defaultState = {
-  loading: false
+  loading: false,
+  stale: false
 };
 
 export default function reducer(state = defaultState, action) {

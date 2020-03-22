@@ -202,7 +202,7 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   height: 100%;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
   background-size: 400% 400%;
   background-repeat: no-repeat;
 }
@@ -370,15 +370,33 @@ html.backdropfilter .wrapper.dark-mode #header .braytech {
   transition: width 1s;
 }
 
-#header.profile-header .characters .list li .spinner {
+#header.profile-header .characters .list li .refresh {
+  position: absolute;
+  right: 0;
+}
+
+#header.profile-header .characters .list li .refresh .spinner {
   position: absolute;
   right: 0;
   opacity: 0;
   z-index: 4;
 }
 
-#header.profile-header .characters .list li .spinner.visible {
+#header.profile-header .characters .list li .refresh .spinner.visible {
   opacity: 0.5;
+}
+
+#header.profile-header .characters .list li .refresh .stale {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: var(--fontText);
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+#header.profile-header .characters .list li .refresh .stale.visible {
+  opacity: 1;
 }
 
 #header.profile-header .characters .list li:hover {
@@ -811,6 +829,10 @@ html.backdropfilter #header .nav {
     top: 2px;
     left: -6px;
     font-size: 6px;
+  }
+
+  #header.profile-header .characters .list li .refresh .stale {
+    font-size: 12px;
   }
 
   #header.profile-header .characters .list li .progress-bar {

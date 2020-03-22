@@ -338,7 +338,10 @@ class Header extends React.Component {
                       {progressSeasonalRank.level} / {classHashToString(character.classHash, character.genderHash)} / <span className='light'>{character.light}</span>
                     </div>
                     <ProgressBar hideCheck {...progressSeasonalRank} />
-                    <Spinner className={refresh.loading ? 'visible' : undefined} mini />
+                    <div className='refresh'>
+                      <Spinner className={refresh.loading ? 'visible' : undefined} mini />
+                      <div className={cx('stale', { visible: refresh.stale && !refresh.loading })}>{t('Stale')}</div>
+                    </div>
                     <Link
                       to={{
                         pathname: '/character-select',
