@@ -27,33 +27,52 @@
 }
 
 /* iron banner icon */
-.list.modes li .icon svg .iron-banner-2 .falling-1,
-.list.modes li .icon svg .iron-banner-2 .falling-2,
-.list.modes li .icon svg .iron-banner-2 .falling-3 {
+.list.modes li .icon svg .iron-banner-2 .leaf1,
+.list.modes li .icon svg .iron-banner-2 .leaf2,
+.list.modes li .icon svg .iron-banner-2 .leaf3,
+.list.modes li .icon svg .iron-banner-2 .leaf4,
+.list.modes li .icon svg .iron-banner-2 .leaf5,
+.list.modes li .icon svg .iron-banner-2 .leaf6,
+.list.modes li .icon svg .iron-banner-2 .leaf7 {
   transform-origin: center center;
   animation: crucible-modes-falling-leaf 3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite;
 }
 
-.list.modes li .icon svg .iron-banner-2 .triangle {
+.list.modes li .icon svg .iron-banner-2 .leaf1 {
+  animation-delay: 0.5s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .leaf2 {
+  animation-delay: 1s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .leaf3 {
+  animation-delay: 1.5s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .leaf4 {
+  animation-delay: 2s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .leaf5 {
+  animation-delay: 2.5s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .leaf6 {
+  animation-delay: 3s;
+}
+
+.list.modes li .icon svg .iron-banner-2 .circles circle {
   transform-origin: center center;
   animation: rotate-linear 20s linear infinite;
 }
 
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(1),
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3),
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(5) {
-  animation-direction: reverse;
-  animation-duration: 30s;
-}
-
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4),
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(3) {
+.list.modes li .icon svg .iron-banner-2 .circles circle:nth-child(2) {
   animation-duration: 10s;
 }
 
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(4)
-.list.modes li .icon svg .iron-banner-2 .triangle:nth-child(5) {
-  animation-duration: 15s;
+.list.modes li .icon svg .iron-banner-2 .circles circle:nth-child(3) {
+  animation-direction: reverse;
 }
 
 /* trials of osiris icon */
