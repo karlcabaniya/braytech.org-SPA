@@ -1,9 +1,10 @@
 import { merge } from 'lodash';
 
-import braytech_EN from '../data/manifest/en/braytech/';
-import braytech_ES from '../data/manifest/es/braytech/';
-import braytech_IT from '../data/manifest/it/braytech/';
-import braytech_RU from '../data/manifest/ru/braytech/';
+import braytech_EN from '../data/manifest/en/Braytech/';
+import braytech_ES from '../data/manifest/es/Braytech/';
+import braytech_ESMX from '../data/manifest/es/Braytech/';
+import braytech_IT from '../data/manifest/it/Braytech/';
+import braytech_RU from '../data/manifest/ru/Braytech/';
 import DestinyClanBannerDefinition from '../data/manifest/en/DestinyClanBannerDefinition/';
 import DestinyActivityDefinition from '../data/manifest/en/DestinyActivityDefinition/';
 import DestinyHistoricalStatsDefinition from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
@@ -12,9 +13,13 @@ import DestinyActivityModifierDefinition_EN from '../data/manifest/en/DestinyAct
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
 // import DestinyPresentationNodeDefinition_EN from '../data/manifest/en/DestinyPresentationNodeDefinition/';
 
+import DestinyActivityModifierDefinition_ES from '../data/manifest/es/DestinyActivityModifierDefinition/';
+import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-mx/DestinyActivityModifierDefinition/';
+
 const customs = {
   de: {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   en: {
     braytech: braytech_EN,
@@ -27,36 +32,47 @@ const customs = {
   },
   es: {
     braytech: braytech_ES,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ES
   },
   'es-mx': {
-    braytech: braytech_EN,
+    braytech: braytech_ESMX,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ESMX
   },
   fr: {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   it: {
     braytech: braytech_IT,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ja: {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ko: {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   pl: {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'pt-br': {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ru: {
     braytech: braytech_RU,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'zh-chs': {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'zh-cht': {
     braytech: braytech_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   }
 };
 
@@ -82,7 +98,7 @@ const manifest = {
     customsMerge(newManifest.DestinyInventoryItemDefinition, customs[lang].DestinyInventoryItemDefinition);
 
     // Object.assign(newManifest.DestinyPresentationNodeDefinition, customs.en.DestinyPresentationNodeDefinition);
-    Object.assign(newManifest.DestinyActivityModifierDefinition, customs.en.DestinyActivityModifierDefinition);
+    Object.assign(newManifest.DestinyActivityModifierDefinition, customs[lang].DestinyActivityModifierDefinition);
 
 
     // add emotes to flair presentation node

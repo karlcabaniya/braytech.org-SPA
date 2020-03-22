@@ -116,11 +116,10 @@
 }
 
 #this-week .module .list.modifiers li .text .name {
-  margin: 0 0 3px;
+  margin: 0 0 4px;
 }
 
 #this-week .module .list.modifiers li .text .description {
-  white-space: pre-line;
   color: rgba(255, 255, 255, 0.5);
 }
 

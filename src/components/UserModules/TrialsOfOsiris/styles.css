@@ -86,3 +86,9 @@
   padding: 2rem 0;
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  .user-module.trials-of-osiris > .icon {
+    opacity: 0.1;
+  }
+}

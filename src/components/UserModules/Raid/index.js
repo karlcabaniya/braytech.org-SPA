@@ -1,9 +1,7 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import ReactMarkdown from 'react-markdown';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import Collectibles from '../../Collectibles';
@@ -14,7 +12,7 @@ import './styles.css';
 
 class Raid extends React.Component {
   render() {
-    const { t, member, raidKey = 'gos' } = this.props;
+    const { member, raidKey = 'gos' } = this.props;
     const milestones = member.data.milestones;
     const characterActivities = member.data.profile.characterActivities.data;
 
@@ -218,7 +216,7 @@ class Raid extends React.Component {
                   <div className='text'>
                     <div className='name'>{data[key].challenges[challenge].name || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.name)}</div>
                     <div className='description'>
-                      <p>{data[key].challenges[challenge].description}</p>
+                      {data[key].challenges[challenge].description}
                     </div>
                   </div>
                 </li>
@@ -277,7 +275,9 @@ class Raid extends React.Component {
             </ul>
             <div className='text'>
               <div className='name'>{data[key].challenges[data[key].challenge[0]].name}</div>
-              <ReactMarkdown className='description' source={data[key].challenges[data[key].challenge[0]].description} />
+              <div className='description'>
+                {data[key].challenges[data[key].challenge[0]].description}
+              </div>
             </div>
           </div>
           <h4>{t('Collectibles')}</h4>
@@ -306,4 +306,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Raid);
+export default connect(mapStateToProps)(Raid);

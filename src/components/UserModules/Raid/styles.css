@@ -6,13 +6,9 @@
 }
 
 .user-module.raid .challenge .name {
-  margin: 0 0 3px;
+  margin: 0 0 4px;
 }
 
 .user-module.raid .challenge .description {
-  
-}
-
-.user-module.raid .challenge .description p {
   color: rgba(255, 255, 255, 0.5);
 }

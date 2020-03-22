@@ -19,10 +19,10 @@ class UI extends React.Component {
     const { t, member } = this.props;
 
     const item = {
-      itemHash: +this.props.hash,
+      itemHash: this.props.hash,
       itemInstanceId: this.props.instanceid,
       itemComponents: null,
-      relatedHash: +this.props.related,
+      relatedHash: this.props.related,
       quantity: +this.props.quantity || 1,
       state: +this.props.state || 0,
       rarity: 'common',
