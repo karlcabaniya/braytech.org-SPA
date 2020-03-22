@@ -223,5 +223,26 @@
       "description": "I've built a new module for the _Now_ view. It's based on activity challenges and will reflect what you see in your game's Director (the maps).\n\nI'm still not 100% satisfied with the modules available for _Now_, but I feel closer now.\n\nBefore long, we will have built enough modules that we'll have what we need to accomplish this hefty task. The fact of the matter is, whether we wanted it or not, we've stepped into a war with the Cabal on Mars. So let's get to taking out their command, one by one. Valus Ta'aurc. From what I can gather he commands the Siege Dancers from an Imperial Land Tank outside of Rubicon. He's well protected, but with the right team, we can punch through those defenses, take this beast out, and break their grip on Freehold.",
       "prompt": true
     }
+  },
+  {
+    "id": "jgvyv26fxjqaj2p39nxz6p",
+    "date": "2020-03-22T07:54:36.997Z",
+    "expiry": 1209600000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Patreon: March",
+      "image": "/static/images/notifications/patreon.png",
+      "description": "Hello my loves. Time for another this month in Braytech update.\n\nI've been making lots of little resilience updates to Braytech. All sorts of stuff to prevent and mitigate issues.\n\ntl;dr you can install Braytech as a web app\n\nYou can find out more about this big change, and Patreon, by hitting _View post_.",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "type": "external",
+        "target": "https://www.patreon.com/posts/35136383",
+        "text": "View post",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
   }
 ]
