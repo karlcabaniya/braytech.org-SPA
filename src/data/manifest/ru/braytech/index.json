@@ -98,6 +98,13 @@
     },
     "itemType": 1
   },
+  "total_resets": {
+    "displayProperties": {
+      "name": "Total resets",
+      "description": "All seasons' resets. Tracks from Season 4 onward."
+    },
+    "itemType": 1
+  },
   "braytech_purple_rune": {
     "displayProperties": {
       "description": "A purple rune. Purple runes include; Rune of Joy, Rune of the Beast, and Rune of Jubilation.",

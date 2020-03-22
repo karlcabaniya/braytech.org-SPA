@@ -1,10 +1,10 @@
 import { merge } from 'lodash';
 
-import braytech_EN from '../data/manifest/en/Braytech/';
-import braytech_ES from '../data/manifest/es/Braytech/';
-import braytech_ESMX from '../data/manifest/es/Braytech/';
-import braytech_IT from '../data/manifest/it/Braytech/';
-import braytech_RU from '../data/manifest/ru/Braytech/';
+import Braytech_EN from '../data/manifest/en/Braytech/';
+import Braytech_ES from '../data/manifest/es/Braytech/';
+import Braytech_ESMX from '../data/manifest/es/Braytech/';
+import Braytech_IT from '../data/manifest/it/Braytech/';
+import Braytech_RU from '../data/manifest/ru/Braytech/';
 import DestinyClanBannerDefinition from '../data/manifest/en/DestinyClanBannerDefinition/';
 import DestinyActivityDefinition from '../data/manifest/en/DestinyActivityDefinition/';
 import DestinyHistoricalStatsDefinition from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
@@ -18,11 +18,11 @@ import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-mx/Desti
 
 const customs = {
   de: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   en: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyClanBannerDefinition,
     DestinyActivityDefinition,
     DestinyHistoricalStatsDefinition,
@@ -31,47 +31,47 @@ const customs = {
     // DestinyPresentationNodeDefinition: DestinyPresentationNodeDefinition_EN
   },
   es: {
-    braytech: braytech_ES,
+    Braytech: Braytech_ES,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ES
   },
   'es-mx': {
-    braytech: braytech_ESMX,
+    Braytech: Braytech_ESMX,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ESMX
   },
   fr: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   it: {
-    braytech: braytech_IT,
+    Braytech: Braytech_IT,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ja: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ko: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   pl: {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'pt-br': {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   ru: {
-    braytech: braytech_RU,
+    Braytech: Braytech_RU,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'zh-chs': {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   },
   'zh-cht': {
-    braytech: braytech_EN,
+    Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
   }
 };
@@ -88,7 +88,7 @@ const customsMerge = (bungie, customs) => {
 
 const manifest = {
   set: (newManifest, lang) => {
-    newManifest.BraytechDefinition = customs[lang].braytech;
+    newManifest.BraytechDefinition = customs[lang].Braytech;
     newManifest.DestinyClanBannerDefinition = customs.en.DestinyClanBannerDefinition;
 
     // Object.assign(newManifest.DestinyActivityDefinition, customs.en.DestinyActivityDefinition);
