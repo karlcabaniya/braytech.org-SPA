@@ -70,11 +70,17 @@ class RefreshService extends React.Component {
     window.clearInterval(this.refreshAccountDataInterval);
   }
 
-  handler_click = () => {
+  handler_click = e => {
+    const wasInactive = !this.activeWithinTimespan(TIMEOUT);
+
     this.track();
+
+    // if was inactive, fire service immediately 
+    // instead of waiting for interval timer
+    if (wasInactive) this.service();
   };
 
-  handler_visibility = () => {
+  handler_visibility = e => {
     if (document.hidden === false) {
       this.track();
       this.service();
@@ -88,7 +94,8 @@ class RefreshService extends React.Component {
       return;
     }
 
-    // user has been inactive for TIMEOUT so we'll stop pinging the API
+    // user has been inactive for TIMEOUT 
+    // so we'll stop pinging the API
     if (!this.activeWithinTimespan(TIMEOUT)) {
       this.props.setState({ stale: true });
 

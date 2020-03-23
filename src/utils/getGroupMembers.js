@@ -7,10 +7,18 @@ export async function getGroupMembers(group, getPending = false) {
     type: 'GROUP_MEMBERS_LOADING'
   });
 
-  let groupMembersResponse = await bungie.GetMembersOfGroup(group.groupId);
-  let groupMembersPendingResponse = getPending ? await bungie.GetPendingMemberships(group.groupId) : false;
+  const groupMembersResponse = await bungie.GetMembersOfGroup(group.groupId);
+  const groupMembersPendingResponse = getPending ? await bungie.GetPendingMemberships(group.groupId) : false;
 
-  let memberResponses = groupMembersResponse && groupMembersResponse.ErrorCode === 1 && await Promise.all(
+  if (!groupMembersResponse || (getPending && !groupMembersPendingResponse)) {
+    store.dispatch({
+      type: 'GROUP_MEMBERS_ERROR'
+    });
+
+    return true;
+  }
+
+  const memberResponses = groupMembersResponse?.ErrorCode === 1 && await Promise.all(
     groupMembersResponse.Response.results.map(async member => {
       try {
         const profile = await bungie.GetProfile({
@@ -24,7 +32,7 @@ export async function getGroupMembers(group, getPending = false) {
           }
         });
 
-        if (profile && profile.ErrorCode === 1 && profile.Response) {
+        if (profile?.ErrorCode === 1 && profile.Response) {
           if (!profile.Response.characterProgressions.data) {
             return member;
           }
@@ -35,12 +43,13 @@ export async function getGroupMembers(group, getPending = false) {
         return member;
       } catch (e) {
         member.profile = false;
+
         return member;
       }
     })
   );
 
-  let pendingResponses = groupMembersPendingResponse && groupMembersPendingResponse.ErrorCode === 1 && await Promise.all(
+  const pendingResponses = groupMembersPendingResponse?.ErrorCode === 1 && await Promise.all(
     groupMembersPendingResponse.Response.results.map(async member => {
       try {
         const profile = await bungie.GetProfile({
@@ -54,7 +63,7 @@ export async function getGroupMembers(group, getPending = false) {
           }
         });
 
-        if (profile && profile.ErrorCode === 1 && profile.Response) {
+        if (profile?.ErrorCode === 1 && profile.Response) {
           if (!profile.Response.characterProgressions.data) {
             return member;
           }
@@ -75,7 +84,7 @@ export async function getGroupMembers(group, getPending = false) {
     })
   );
 
-  let payload = {
+  const payload = {
     groupId: group.groupId,
     members: memberResponses || [],
     pending: pendingResponses || [],

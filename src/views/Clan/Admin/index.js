@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { t } from '../../../utils/i18n';
 import { NoAuth } from '../../../components/BungieAuth';
 import Spinner from '../../../components/UI/Spinner';
 import RosterAdmin from '../../../components/RosterAdmin';
@@ -25,13 +26,10 @@ class AdminView extends React.Component {
       <>
         <ClanViewsLinks />
         <div className='module'>
-          {groupMembers.loading && groupMembers.members.length === 0 ? <Spinner /> : null}
-          <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? (
-            <Spinner mini />
-          ) : (
-            <div className='ttl' />
-          ) : null}</div>
-          {groupMembers.loading && groupMembers.members.length === 0 ? null : <RosterAdmin />}
+          {groupMembers.loading && groupMembers.members.length < 1 ? <Spinner /> : null}
+          {!groupMembers.loading && groupMembers.error && groupMembers.members.length < 1 ? <div className='info'>{t('There was a network error.')}</div> : null}
+          <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? <Spinner mini /> : <div className='ttl' /> : null}</div>
+          <RosterAdmin />
         </div>
       </>
     );

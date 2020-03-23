@@ -328,28 +328,30 @@ class RosterAdmin extends React.Component {
   };
 
   componentDidMount() {
-    const { member } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
+    this.mounted = true;
 
-    if (group) {
-      this.callGetGroupMembers(group);
+    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
+
+    if (groupMembership) {
+      this.callGetGroupMembers();
       this.startInterval();
     }
   }
 
   componentWillUnmount() {
+    this.mounted = false;
+
     this.clearInterval();
   }
 
   callGetGroupMembers = async () => {
-    const { member, groupMembers } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
-    let now = new Date();
+    const groupMembers = this.props.groupMembers;
+    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
 
-    // console.log(now - groupMembers.lastUpdated);
+    const now = new Date().getTime();
 
-    if (group && (now - groupMembers.lastUpdated > 30000 || group.groupId !== groupMembers.groupId)) {
-      await getGroupMembers(group, true);
+    if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
+      await getGroupMembers(groupMembership.group, true);
 
       this.props.rebindTooltips();
     }
@@ -395,7 +397,8 @@ class RosterAdmin extends React.Component {
       }) || member.membershipId === '4611686018449662397';
 
     const results = showOnline ? groupMembers.members.filter(r => r.isOnline) : groupMembers.members.concat(groupMembers.pending);
-    let members = [];
+    
+    let roster = [];
 
     results.forEach(m => {
       if (m.ignore) {
@@ -431,7 +434,7 @@ class RosterAdmin extends React.Component {
       //   console.log(m)
       // }
 
-      members.push({
+      roster.push({
         pending: m.pending,
         sorts: {
           private: isPrivate,
@@ -530,19 +533,19 @@ class RosterAdmin extends React.Component {
     let order = this.state.order;
 
     if (order.sort === 'lastCharacter') {
-      members = orderBy(members, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'joinDate') {
-      members = orderBy(members, [m => m.sorts.private, m => m.sorts.joinDate, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.joinDate, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'weeklyXp') {
-      members = orderBy(members, [m => m.sorts.private, m => m.sorts.weeklyXp, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.weeklyXp, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'rank') {
-      members = orderBy(members, [m => m.sorts.private, m => m.sorts.rank, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.rank, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else {
-      members = orderBy(members, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastActivity, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc', 'desc']);
+      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastActivity, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc', 'desc']);
     }
 
-    if (!mini) {
-      members.unshift({
+    if (!mini && roster.length) {
+      roster.unshift({
         sorts: {},
         el: {
           full: (
@@ -579,18 +582,18 @@ class RosterAdmin extends React.Component {
 
     return (
       <>
-        {!mini && members.filter(m => m.pending).length ? <ul className={cx('list', 'roster', 'admin', 'pending')}>{members.filter(m => m.pending).map(m => m.el.full)}</ul> : null}
+        {!mini && roster.filter(m => m.pending).length ? <ul className={cx('list', 'roster', 'admin', 'pending')}>{roster.filter(m => m.pending).map(m => m.el.full)}</ul> : null}
         <ul className={cx('list', 'roster', 'admin', { mini: mini })}>
           {mini
             ? this.props.limit
-              ? members
+              ? roster
                   .filter(m => !m.pending)
                   .slice(0, this.props.limit)
                   .map(m => m.el.mini)
-              : members.filter(m => !m.pending).map(m => m.el.mini)
-            : members.filter(m => !m.pending).map(m => m.el.full)}
+              : roster.filter(m => !m.pending).map(m => m.el.mini)
+            : roster.filter(m => !m.pending).map(m => m.el.full)}
         </ul>
-        {!mini && <DownloadData />}
+        {!mini && roster.length > 0 && <DownloadData />}
         {mini ? (
           <ProfileLink className='button' to='/clan/roster'>
             <div className='text'>{t('See full roster')}</div>

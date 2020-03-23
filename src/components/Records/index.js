@@ -116,6 +116,18 @@ function unredeemedRecords(member) {
   return hashes;
 };
 
+function recordDescription(hash) {
+  const definitionRecord = manifest.DestinyRecordDefinition[hash];
+
+  if (definitionRecord?.displayProperties?.description !== '') {
+    return definitionRecord.displayProperties?.description;
+  } else if (definitionRecord?.loreHash && manifest.DestinyLoreDefinition[definitionRecord.loreHash]) {
+    return manifest.DestinyLoreDefinition[definitionRecord.loreHash]?.displayProperties.description.slice(0, 142).trim() + '...';
+  } else {
+    return '';
+  }
+}
+
 class Records extends React.Component {
   scrollToRecordRef = React.createRef();
 
@@ -372,9 +384,6 @@ class Records extends React.Component {
           )
         });
       } else {
-        let description = definitionRecord.displayProperties.description !== '' ? definitionRecord.displayProperties.description : false;
-        description = !description && definitionRecord.loreHash ? manifest.DestinyLoreDefinition[definitionRecord.loreHash].displayProperties.description.slice(0, 117).trim() + '...' : description;
-
         const isCollectionBadge = associationsCollectionsBadges.find(badge => badge.recordHash === definitionRecord.hash);
 
         const link = this.makeLink(hash, isCollectionBadge);
@@ -391,6 +400,8 @@ class Records extends React.Component {
             }
           })
           .filter(r => r);
+        
+        const description = recordDescription(definitionRecord.hash);
 
         recordsOutput.push({
           completed: enumeratedState.recordRedeemed,
@@ -417,7 +428,7 @@ class Records extends React.Component {
               ) : null}
               <div className='properties'>
                 <div className='icon'>
-                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon}`} />
+                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                 </div>
                 <div className='text'>
                   <div className='name'>{definitionRecord.displayProperties.name}</div>
@@ -506,6 +517,6 @@ Records = compose(
   withTranslation()
 )(Records);
 
-export { Records, selfLinkRecord, unredeemedRecords };
+export { Records, selfLinkRecord, unredeemedRecords, recordDescription };
 
 export default Records;

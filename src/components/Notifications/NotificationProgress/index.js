@@ -1,15 +1,14 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { transform, isEqual, isObject } from 'lodash';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { ProfileLink } from '../../ProfileLink';
 import { enumerateRecordState } from '../../../utils/destinyEnums';
-import { selfLinkRecord } from '../../Records';
+import { selfLinkRecord, recordDescription } from '../../Records';
 
 import './styles.css';
 
@@ -156,19 +155,18 @@ class NotificationProgress extends React.Component {
 
       const link = selfLinkRecord(definitionRecord.hash);
 
-      let description = definitionRecord.displayProperties.description !== '' ? definitionRecord.displayProperties.description : false;
-      description = !description && definitionRecord.loreHash ? manifest.DestinyLoreDefinition[definitionRecord.loreHash].displayProperties.description.slice(0, 142).trim() + '...' : description;
+      
 
       return (
         <div id='notification-progress' className={cx('record', { lore: definitionRecord.loreHash, timedOut: this.state.progress.timedOut })}>
           <div className='type'>
-            <div className='text'>Triumph completed</div>
+            <div className='text'>{t('Triumph completed')}</div>
           </div>
           <div className='item'>
             <div className='properties'>
-              <div className='name'>{definitionRecord.displayProperties.name}</div>
-              <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon}`} noConstraints />
-              <div className='description'>{description}</div>
+              <div className='name'>{definitionRecord?.displayProperties.name}</div>
+              <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} noConstraints />
+              <div className='description'>{recordDescription(definitionRecord.hash)}</div>
             </div>
             {this.state.progress.number > 1 ? <div className='more'>{t('And {{number}} more', { number: this.state.progress.number - 1 })}</div> : null}
           </div>
@@ -187,7 +185,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(NotificationProgress);
+export default connect(mapStateToProps)(NotificationProgress);

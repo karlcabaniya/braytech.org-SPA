@@ -24,29 +24,31 @@ class Roster extends React.Component {
   };
 
   componentDidMount() {
-    const { member } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
+    this.mounted = true;
 
-    if (group) {
-      this.callGetGroupMembers(group);
+    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
+
+    if (groupMembership) {
+      this.callGetGroupMembers();
       this.startInterval();
     }
   }
 
   componentWillUnmount() {
+    this.mounted = false;
+
     this.clearInterval();
   }
 
   callGetGroupMembers = async () => {
     const { member, auth, groupMembers } = this.props;
-    const result = member.data.groups.results.length > 0 ? member.data.groups.results[0] : false;
-
     const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find(m => m.membershipId === member.membershipId);
+    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
 
-    let now = new Date();
-
-    if (result && (now - groupMembers.lastUpdated > 30000 || result.group.groupId !== groupMembers.groupId)) {
-      await getGroupMembers(result.group, result.member.memberType > 2 && isAuthed);
+    const now = new Date().getTime();
+    
+    if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
+      await getGroupMembers(groupMembership.group, groupMembership.member.memberType > 2 && isAuthed);
 
       this.props.rebindTooltips();
     }
@@ -314,7 +316,7 @@ class Roster extends React.Component {
       roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc']);
     }
 
-    if (!mini) {
+    if (!mini && roster.length) {
       roster.unshift({
         sorts: {},
         el: {
