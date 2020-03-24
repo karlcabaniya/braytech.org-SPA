@@ -11,9 +11,10 @@
   max-width: calc(1920px - 6rem);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: auto auto;
-  align-content: center;
+  grid-template-columns: auto minmax(max-content, 180px);
+  align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 #service-worker-update .wrapper > .text {
@@ -21,6 +22,7 @@
   align-content: center;  
   font-family: var(--fontText);
   font-size: 14px;
+  line-height: 1.6;
 }
 
 
@@ -34,7 +36,7 @@
   #service-worker-update .wrapper {
     max-width: calc(1920px - 4rem);
     grid-template-columns: 1fr;
-    grid-gap: 1rem;
+    gap: 10px;
   }
 
 }

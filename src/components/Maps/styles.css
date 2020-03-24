@@ -40,10 +40,9 @@
   pointer-events: none;
 }
 
-html.backdropfilter .map-omega .control li,
-html.backdropfilter .map-omega .acrylic {
+.map-omega .control li,
+.map-omega .acrylic {
   background-color: transparent;
-  backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
 .map-omega .control .list li::before {

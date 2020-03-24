@@ -2,13 +2,10 @@ import React from 'react';
 import cx from 'classnames';
 
 class ObservedImageInner extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      downloaded: false,
-      styles: {}
-    };
-  }
+  state = {
+    downloaded: false,
+    styles: {}
+  };
 
   observe = () => {
     const { className = 'image', src, ratio = false, noConstraints } = this.props;

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { t } from '../../utils/i18n';
 import Button from '../../components/UI/Button';
+import ServiceWorkerUpdate from '../../components/Notifications/ServiceWorkerUpdate';
 
 import './styles.css';
 
@@ -57,28 +58,31 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.error) {
       return (
-        <div className='view' id='error-boundary'>
-          <div className='properties'>
-            <div className='name'>{t('Error')}</div>
-            <div className='description'>{this.state.errorMessage}</div>
-            {this.props.app ? (
-              <>
-                <div className='next'>{t('Braytech has encountered a fatal error. This incident has been reported.')}</div>
-                <div className='actions'>
-                  <Button text={t('Reload')} action={this.handler_reload} />
-                  {this.swAvailable && this.state.swInstalled ? <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.handler_swDump} /> : null}
-                </div>
-              </>
-            ) : (
-              <>
-                <div className='next'>{t('Braytech has encountered a temporary error. This incident has been reported.')}</div>
-                <div className='actions'>
-                  <Button text={t('Reload')} action={this.handler_reload} />
-                </div>
-              </>
-            )}
+        <>
+          <ServiceWorkerUpdate {...this.props} />
+          <div className='view' id='error-boundary'>
+            <div className='properties'>
+              <div className='name'>{t('Error')}</div>
+              <div className='description'>{this.state.errorMessage}</div>
+              {this.props.app ? (
+                <>
+                  <div className='next'>{t('Braytech has encountered a fatal error. This incident has been reported.')}</div>
+                  <div className='actions'>
+                    <Button text={t('Reload')} action={this.handler_reload} />
+                    {this.swAvailable && this.state.swInstalled ? <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.handler_swDump} /> : null}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className='next'>{t('Braytech has encountered a temporary error. This incident has been reported.')}</div>
+                  <div className='actions'>
+                    <Button text={t('Reload')} action={this.handler_reload} />
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       );
     }
 

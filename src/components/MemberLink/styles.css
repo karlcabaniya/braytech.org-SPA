@@ -202,11 +202,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-html.backdropfilter #member-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-html.backdropfilter .wrapper.dark #member-overlay {
+.wrapper.dark #member-overlay {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -226,8 +222,9 @@ html.backdropfilter .wrapper.dark #member-overlay {
   left: 0;
   width: 100%;
   height: 1rem;
-  border-top: 2px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(180, 180, 180, 0.6);
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
 #member-overlay .background .acrylic {
@@ -236,16 +233,6 @@ html.backdropfilter .wrapper.dark #member-overlay {
   left: 0;
   width: 100%;
   height: calc(100% - 1rem);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-html.backdropfilter #member-overlay .background .border-top {
-  border-top: 2px solid rgba(255, 255, 255, 0.6);
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
-}
-
-html.backdropfilter #member-overlay .background .acrylic {
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
@@ -490,8 +477,7 @@ html.backdropfilter #member-overlay .background .acrylic {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#member-overlay.error .background .border-top,
-html.backdropfilter #member-overlay.error .background .border-top {
+#member-overlay.error .background .border-top {
   background-color: rgb(220, 81, 59);
 }
 
@@ -552,12 +538,12 @@ html.backdropfilter #member-overlay.error .background .border-top {
   color: #333;
 }
 
-.wrapper.light #member-overlay .sticky-nav.ultra-black {
-  background-color: hsla(0, 0%, 0%, 0.6);
+.wrapper.light #member-overlay .sticky-nav {
+  background-color: hsla(0, 0%, 3%, 0.8);
 }
 
-html.backdropfilter .wrapper.light #member-overlay .sticky-nav {
-  background-color: hsla(0, 0%, 3%, 0.8);
+.wrapper.light #member-overlay .sticky-nav.ultra-black {
+  background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 

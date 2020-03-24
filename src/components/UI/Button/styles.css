@@ -137,3 +137,16 @@
     transform: translateX(0px);
   }
 }
+
+button.shiny::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 400%;
+  animation: highlight-wave 1.5s linear 0s infinite forwards;
+}
+
+button.shiny:hover::before {
+  background: rgba(255, 255, 255, 0.2) linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: 400%;
+}

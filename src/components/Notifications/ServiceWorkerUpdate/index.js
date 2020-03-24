@@ -21,7 +21,7 @@ class ServiceWorkerUpdate extends React.Component {
               {t('An update for Braytech is available. Please reload the app to start using it immediately.')}
             </div>
             <div className='action'>
-              <Button text={t('Reload')} action={this.handler_reload} />
+              <Button className='shiny' text={t('Reload')} action={this.handler_reload} />
             </div>
           </div>
         </div>

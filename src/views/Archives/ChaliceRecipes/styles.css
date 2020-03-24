@@ -99,13 +99,9 @@
 }
 
 #archives.chalice-of-opulence .frame .ui .slots [class^="slot"] .slot-inner .active-plug .list.chalice-items .linked {
-  background-color: rgba(146, 146, 146, 0.8);
-  cursor: pointer;
-}
-
-html.backdropfilter #archives.chalice-of-opulence .frame .ui .slots [class^="slot"] .slot-inner .active-plug .list.chalice-items .linked {
   background-color: rgba(146, 146, 146, 0);
   backdrop-filter: blur(4px) saturate(1.2);
+  cursor: pointer;
 }
 
 #archives.chalice-of-opulence .frame .ui .slots [class^="slot"] .slot-inner .active-plug .list.chalice-items {
@@ -199,46 +195,22 @@ html.backdropfilter #archives.chalice-of-opulence .frame .ui .slots [class^="slo
   top: 0;
   left: 79px;
   z-index: 11;
-}
-
-#archives.chalice-of-opulence .overlay .list.chalice-items li {
-  background-color: rgba(146, 146, 146, 0.8);
-  cursor: pointer;
-}
-
-html.backdropfilter #archives.chalice-of-opulence .overlay {
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(7px) saturate(1.2);
 }
 
-html.backdropfilter .wrapper.dark #archives.chalice-of-opulence .overlay {
-  backdrop-filter: blur(7px) saturate(1.2);
+#archives.chalice-of-opulence .overlay .list.chalice-items li {
+  background-color: rgba(146, 146, 146, 0.2);
+  cursor: pointer;
 }
 
 #archives.chalice-of-opulence .overlay .list.chalice-items li.active {
-  background-color: rgba(218, 189, 154, 0.6);
-}
-
-html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items li {
-  background-color: rgba(146, 146, 146, 0.2);
-}
-
-html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items li.active {
-  background-color: rgba(218, 189, 154, 0.6);
+  background-color: rgba(218, 189, 154, 0.4);
 }
 
 #archives.chalice-of-opulence .overlay .list.chalice-items li.active::before {
   box-shadow: inset 0 0 0 2px rgba(218, 189, 154, 1);
 }
-
-html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items li.active {
-  background-color: rgba(218, 189, 154, 0.4);
-}
-
-html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items li.active::before {
-  box-shadow: inset 0 0 0 2px rgba(218, 189, 154, 1);
-}
-
 
 
 @media screen and (max-width: 1024px) {
@@ -257,11 +229,6 @@ html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items l
     box-shadow: none;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
-  html.backdropfilter #archives.chalice-of-opulence .overlay {
-    background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(17px) saturate(1.2);
   }
 
@@ -444,10 +411,6 @@ html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items l
   }
   
   #archives.chalice-of-opulence .overlay .list.chalice-items li.active::before {
-    box-shadow: inset 0 0 0 1px rgba(218, 189, 154, 1);
-  }
-  
-  html.backdropfilter #archives.chalice-of-opulence .overlay .list.chalice-items li.active::before {
     box-shadow: inset 0 0 0 1px rgba(218, 189, 154, 1);
   }
 

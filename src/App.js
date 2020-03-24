@@ -285,7 +285,7 @@ class App extends React.Component {
         </div>
       );
     }
-
+    
     return (
       <BrowserRouter>
         <Route

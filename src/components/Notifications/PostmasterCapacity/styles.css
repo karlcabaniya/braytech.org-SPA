@@ -40,15 +40,11 @@
   left: 0;
   width: 100%;
   height: calc(100% - 6px);
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-#postmaster-capacity .background .border-top {
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
-html.backdropfilter #postmaster-capacity .background .acrylic {
-  background-color: rgba(0, 0, 0, 0.6);
+#postmaster-capacity .background .border-top {
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 

@@ -18,24 +18,14 @@
   height: 40px;
   z-index: 20;
   padding: 0 3rem;
-  background-color: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   font-family: var(--fontText);
+  backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
 #header.navOpen .braytech {
   position: fixed;
-}
-
-.wrapper.dark #header .braytech {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-html.backdropfilter #header .braytech,
-html.backdropfilter .wrapper.dark #header .braytech {
-  background-color: rgba(255, 255, 255, 0);
-  backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
 #header .braytech .wrapper {
@@ -485,15 +475,11 @@ html.backdropfilter .wrapper.dark #header .braytech {
   height: 100%;
   padding: 40px 0 0;
   z-index: 17;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
-}
-
-html.backdropfilter #header .nav {
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
 #header .nav .wrap {

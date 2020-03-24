@@ -51,7 +51,7 @@ class AppEntry extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <ErrorBoundary app>
+        <ErrorBoundary app {...this.state}>
           <App {...this.state} />
         </ErrorBoundary>
       </Provider>
