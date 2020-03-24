@@ -18,50 +18,6 @@
   fill: white;
 }
 
-.user-module.trials-of-osiris .history {
-  display: grid;
-  grid-auto-flow: column;
-  column-gap: 4px;
-  justify-content: left;
-}
-
-.user-module.trials-of-osiris .history:not(:last-child) {
-  margin: 0 0 10px;
-}
-
-.user-module.trials-of-osiris .history .game {
-  position: relative;
-  width: 18px;
-  height: 18px;
-}
-
-.user-module.trials-of-osiris .history .game::before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
-}
-
-.user-module.trials-of-osiris .history .game div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 6px);
-  height: calc(100% - 6px);
-  margin: 3px;
-}
-
-.user-module.trials-of-osiris .history .game.win div {  
-  background-color: #d9df26;
-}
-
-.user-module.trials-of-osiris .history .game.loss div {
-  background-color: #c53c32;
-}
-
 .user-module.trials-of-osiris .passage {
   display: grid;
   grid-template-columns: 48px auto;

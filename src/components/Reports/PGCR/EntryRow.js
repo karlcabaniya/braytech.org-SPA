@@ -1,10 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { classHashToString } from '../../../utils/destinyConverters';
+import TrialsNodes from '../../UI/TrialsNodes';
 import ObservedImage from '../../ObservedImage';
 
 // import ReportPlayer from '../ReportPlayer';
@@ -27,8 +28,7 @@ function formatValue(column, entry, playerCache = []) {
     }    
   } else if (column.async) {
     // async profile data
-    const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId);
-    return cache && cache[column.key] ? cache[column.key] : '–';
+    return column.value || '–';
   } else if (column.root) {
     // entry object root
     if (column.round) {
@@ -47,7 +47,9 @@ function formatValue(column, entry, playerCache = []) {
 
 export function EntryHeader(props) {
   const { playerCache, activityDetails, entry, team } = props;
-  const { t, i18n } = useTranslation();
+
+  console.log(props)
+  const cache = playerCache?.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
 
   const headers = {
     default: [
@@ -108,6 +110,7 @@ export function EntryHeader(props) {
         name: t('Glory points'),
         abbr: 'G',
         type: 'value',
+        value: cache.points?.glory,
         async: true,
         hideInline: true
       }
@@ -221,8 +224,7 @@ export function EntryDetail(props) {
 }
 
 export function DefaultDetail(props) {
-  const { playerCache, activityDetails, entry } = props;
-  const { t, i18n } = useTranslation();
+  const { entry } = props;
 
   const [killsMelee, killsGrenade, killsSuper] = [
     { key: 'weaponKillsMelee', type: 'value', extended: true },
@@ -337,15 +339,16 @@ function hasActivitySpecific(modes) {
 
 export function CrucibleDetail(props) {
   const { playerCache, activityDetails, entry } = props;
-  const { t, i18n } = useTranslation();
 
-  const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId);
+  const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
 
   const medals = Object.keys(entry.extended.values)
     .filter(key => !medalExclusions.includes(key))
     .sort((a, b) => (entry.extended.values[b].basic?.value || 0) - (entry.extended.values[a].basic?.value || 0));
 
   const activity = hasActivitySpecific(activityDetails.modes);
+
+  console.log(cache)
 
   const activitySpecific = {
     supremacy: [
@@ -417,15 +420,30 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li>{t('Glory points')}</li>
-              <li className={cx({ na: !cache?.['gloryPoints'] })}>{cache?.['gloryPoints'] || '–'}</li>
+              <li className={cx({ na: !cache.points?.glory })}>{cache.points?.glory || '–'}</li>
             </ul>
           </li>
           <li>
             <ul>
               <li>{t('Valor resets')}</li>
-              <li className={cx({ na: !cache?.['valorResets'] })}>{cache?.['valorResets'] || '–'}</li>
+              <li className={cx({ na: !cache.resets?.valor })}>{cache.resets?.valor || '–'}</li>
             </ul>
           </li>
+          {activityDetails.mode === 84 ? (
+            <li>
+              <ul className={cx({ single: cache.trials?.wins > -1 && cache.trials?.wins !== undefined })}>
+                <li>{t('Trials passage')}</li>
+                <li className={cx({ na: cache.trials?.wins < 0 || cache.trials?.wins === undefined })}>
+                  {cache.trials?.wins > -1 && cache.trials?.wins !== undefined ? (
+                    <>
+                      <TrialsNodes value={cache.trials?.wins} />
+                      <TrialsNodes value={cache.trials?.losses} losses />
+                    </>
+                  ) : '–'}
+                </li>
+              </ul>
+            </li>
+          ) : null}
         </ul>
         {/* <ReportPlayer characterId={entry.characterId} /> */}
       </div>
@@ -571,7 +589,6 @@ export function CrucibleDetail(props) {
 
 export function GambitDetail(props) {
   const { playerCache, activityDetails, entry } = props;
-  const { t, i18n } = useTranslation();
 
   const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId);
 
@@ -708,13 +725,13 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li>{t('Infamy points')}</li>
-              <li className={cx({ na: !cache?.['infamyPoints'] })}>{cache?.['infamyPoints'] || '–'}</li>
+              <li className={cx({ na: !cache.points?.infamy })}>{cache.points?.infamy || '–'}</li>
             </ul>
           </li>
           <li>
             <ul>
               <li>{t('Infamy resets')}</li>
-              <li className={cx({ na: !cache?.['infamyResets'] })}>{cache?.['infamyResets'] || '–'}</li>
+              <li className={cx({ na: !cache.resets?.infamy })}>{cache.resets?.infamy || '–'}</li>
             </ul>
           </li>
         </ul>

@@ -64,7 +64,7 @@
 
 .list.modes li .icon svg .iron-banner-2 .circles circle {
   transform-origin: center center;
-  animation: rotate-linear 20s linear infinite;
+  animation: rotate-linear 30s linear infinite;
 }
 
 .list.modes li .icon svg .iron-banner-2 .circles circle:nth-child(2) {

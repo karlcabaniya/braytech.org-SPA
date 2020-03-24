@@ -1073,5 +1073,10 @@
     "date": "2020-03-22T03:03:17.125Z",
     "version": "2.21.7",
     "content": "- re-enabled service worker on production Braytech"
+  },
+  {
+    "date": "2020-03-24T10:18:12.215Z",
+    "version": "2.21.13",
+    "content": "- refactored _Clan_ rosters\n-  fixed some bugs\n- improved _Reports_ and added _Trials_ nodes"
   }
 ]

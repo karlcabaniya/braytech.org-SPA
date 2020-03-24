@@ -588,6 +588,11 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
+.list.reports li .entries .list .detail .group ul li ul.single {
+  grid-auto-flow: unset;
+  row-gap: 7px;
+}
+
 .list.reports li .entries .list .detail .group .pairs li:first-child {
   color: rgba(255, 255, 255, 0.6);
 }

@@ -37,20 +37,18 @@ class ReportItem extends React.Component {
   ref_parent = React.createRef();
 
   handler_expand = e => {
-    this.setState(p => ({
-      ...p,
+    this.setState({
       expandedReport: true
-    }));
+    });
 
     this.updatePlayerCache();
   };
 
   handler_contract = e => {
-    this.setState(p => ({
-      ...p,
+    this.setState({
       expandedReport: false,
       expandedPlayers: []
-    }));
+    });
 
     if (!headInViewport(this.ref_parent.current)) {
       this.ref_parent.current.scrollIntoView({ behavior: 'smooth' });
@@ -71,8 +69,7 @@ class ReportItem extends React.Component {
               ...p.playerCache,
               {
                 membershipId: e.player.destinyUserInfo.membershipId,
-                ...progression.points,
-                ...progression.resets
+                ...progression
               }
             ]
           })); 
@@ -82,7 +79,7 @@ class ReportItem extends React.Component {
   };
 
   getProgression = async (membershipType, membershipId) => {
-    let response = await bungie.GetProfile({
+    const response = await bungie.GetProfile({
       params: {
         membershipType,
         membershipId,
@@ -97,6 +94,9 @@ class ReportItem extends React.Component {
         },
         resets: {
           
+        },
+        trials: {
+
         }
       };
     }
@@ -111,16 +111,22 @@ class ReportItem extends React.Component {
     const gloryPoints = characterProgressions[characterId].progressions[2000925172].currentProgress.toLocaleString();
     const valorPoints = characterProgressions[characterId].progressions[2626549951].currentProgress.toLocaleString();
     const infamyPoints = characterProgressions[characterId].progressions[2772425241].currentProgress.toLocaleString();
+    const trialsWins = characterProgressions[characterId].progressions[1062449239].level;
+    const trialsLosses = characterProgressions[characterId].progressions[2093709363].level;
     
     return {
       points: {
-        gloryPoints,
-        valorPoints,
-        infamyPoints
+        glory: gloryPoints,
+        valor: valorPoints,
+        infamy: infamyPoints
       },
       resets: {
-        valorResets: utils.calculateResets(3882308435, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal,
-        infamyResets: utils.calculateResets(2772425241, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal
+        valor: utils.calculateResets(3882308435, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal,
+        infamy: utils.calculateResets(2772425241, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal
+      },
+      trials: {
+        wins: trialsWins,
+        losses: trialsLosses
       }
     };
   };

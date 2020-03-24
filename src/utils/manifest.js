@@ -15,6 +15,7 @@ import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInvent
 
 import DestinyActivityModifierDefinition_ES from '../data/manifest/es/DestinyActivityModifierDefinition/';
 import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-mx/DestinyActivityModifierDefinition/';
+import DestinyActivityModifierDefinition_RU from '../data/manifest/ru/DestinyActivityModifierDefinition/';
 
 const customs = {
   de: {
@@ -64,7 +65,7 @@ const customs = {
   },
   ru: {
     Braytech: Braytech_RU,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU
   },
   'zh-chs': {
     Braytech: Braytech_EN,

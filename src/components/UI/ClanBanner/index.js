@@ -90,7 +90,7 @@ class ClanBanner extends React.Component {
   }
 
   doLoad = async () => {
-    this.setState({ loading: true });
+    if (this.mounted) this.setState({ loading: true });
 
     const images = await Promise.all(
       Object.keys(this.bannerConfig).map(async key => {
@@ -108,7 +108,7 @@ class ClanBanner extends React.Component {
       this.bannerConfig[key].el = el;
     });
     
-    this.setState({ loading: false });
+    if (this.mounted) this.setState({ loading: false });
   }
 
   componentDidUpdate(p, s) {

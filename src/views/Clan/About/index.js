@@ -131,7 +131,7 @@ class AboutView extends React.Component {
             <div>{t('Leadership')}</div>
           </div>
           {groupMembers.loading ? <Spinner mini /> : null}
-          {!groupMembers.loading && groupMembers.error && groupMembers.members.length < 1 ? <div className='info'>{t('There was a network error.')}</div> : null}
+          {!groupMembers.loading && groupMembers.error && groupMembers.members.length < 1 ? <div className='info'>{t('There was a network error')}</div> : null}
           <Roster mini limit='10' filter='admins' />
         </div>
       </>

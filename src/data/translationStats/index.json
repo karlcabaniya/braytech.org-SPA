@@ -1,86 +1,140 @@
 {
   "de": {
     "translated": 371,
-    "notTranslated": 289,
-    "added": [],
-    "removed": []
+    "notTranslated": 293,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "debug": {
-    "translated": 660,
+    "translated": 664,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "en": {
-    "translated": 660,
+    "translated": 664,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "There was a network error."
+    ]
   },
   "es-mx": {
     "translated": 660,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 4,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "es": {
     "translated": 660,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 4,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "fr": {
     "translated": 576,
-    "notTranslated": 84,
-    "added": [],
-    "removed": []
+    "notTranslated": 88,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "it": {
     "translated": 658,
-    "notTranslated": 2,
-    "added": [],
-    "removed": []
+    "notTranslated": 6,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "ja": {
     "translated": 606,
-    "notTranslated": 54,
-    "added": [],
-    "removed": []
+    "notTranslated": 58,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "ko": {
     "translated": 557,
-    "notTranslated": 103,
-    "added": [],
-    "removed": []
+    "notTranslated": 107,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 660,
-    "added": [],
-    "removed": []
+    "notTranslated": 664,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "pt-br": {
     "translated": 575,
-    "notTranslated": 85,
-    "added": [],
-    "removed": []
+    "notTranslated": 89,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "ru": {
-    "translated": 658,
-    "notTranslated": 2,
-    "added": [],
-    "removed": []
+    "translated": 660,
+    "notTranslated": 4,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "zh-chs": {
     "translated": 462,
-    "notTranslated": 198,
-    "added": [],
-    "removed": []
+    "notTranslated": 202,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   },
   "zh-cht": {
     "translated": 378,
-    "notTranslated": 282,
-    "added": [],
-    "removed": []
+    "notTranslated": 286,
+    "added": [
+      "There was a network error"
+    ],
+    "removed": [
+      "There was a network error."
+    ]
   }
 }
