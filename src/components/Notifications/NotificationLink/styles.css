@@ -149,15 +149,15 @@ html.backdropfilter #notification-overlay.error .background .border-top {
   justify-content: space-between;
 }
 
-.wrapper.light-mode #notification-overlay .sticky-nav .destiny-key span {
+.wrapper.light #notification-overlay .sticky-nav .destiny-key span {
   color: #333;
 }
 
-.wrapper.light-mode #notification-overlay .sticky-nav.ultra-black {
+.wrapper.light #notification-overlay .sticky-nav.ultra-black {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
-html.backdropfilter .wrapper.light-mode #notification-overlay .sticky-nav {
+html.backdropfilter .wrapper.light #notification-overlay .sticky-nav {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 

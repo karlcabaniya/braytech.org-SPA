@@ -1,13 +1,22 @@
 import * as ls from '../../utils/localStorage';
 
-const saved = ls.get('setting.theme') ? ls.get('setting.theme') : false;
-const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const user = ls.get('setting.theme') ? ls.get('setting.theme') : false;
+const prefersDark = getSystemPreference();
 
-const initial = saved?.selected ? saved : { selected: prefersDark ? 'dark-mode' : 'light-mode' };
+const initial = {
+  system: prefersDark ? 'dark' : 'light',
+  user,
+  active: !user ? prefersDark ? 'dark' : 'light' : user
+};
 
-function updateScrollbars(selected) {
-  let root = document.documentElement;
-  if (selected === 'dark-mode') {
+function getSystemPreference() {
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+function updateScrollbars(theme) {
+  const root = document.documentElement;
+
+  if (theme === 'dark') {
     root.style.setProperty('--scrollbar-track', '#202020');
     root.style.setProperty('--scrollbar-draggy', '#414141');
   } else {
@@ -17,20 +26,25 @@ function updateScrollbars(selected) {
 }
 
 export default function reducer(state = initial, action) {
+  const prefersDark = getSystemPreference();
+
   switch (action.type) {
     case 'SET_THEME':
-      ls.set('setting.theme', {
-        selected: action.payload
-      });
+      const user = action.payload === 'system' ? false : action.payload;
+      const active = !user ? prefersDark ? 'dark' : 'light' : user;
 
-      updateScrollbars(action.payload);
-      
+      ls.set('setting.theme', user);
+
+      updateScrollbars(active);
+
       return {
-        selected: action.payload
+        system: prefersDark ? 'dark' : 'light',
+        user,
+        active
       };
     default:
 
-      updateScrollbars(state.selected);
+      updateScrollbars(state.active);
       
       return state;
   }

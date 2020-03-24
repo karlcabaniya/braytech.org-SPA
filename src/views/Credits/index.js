@@ -63,7 +63,7 @@ class Credits extends React.Component {
     const { t } = this.props;
 
     return (
-      <div className={cx('view', this.props.theme.selected)} id='credits'>
+      <div className={cx('view', this.props.theme.active)} id='credits'>
         <div className='module intro'>
           <div className='page-header'>
             <div className='name'>{t('Credits')}</div>

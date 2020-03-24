@@ -384,11 +384,11 @@
   opacity: 0.8;
 }
 
-.wrapper.dark-mode .list.reports li .entries .list.fireteam.stacked::before {
+.wrapper.dark .list.reports li .entries .list.fireteam.stacked::before {
   opacity: 0.2;
 }
 
-.wrapper.dark-mode .list.reports li .entries .list.fireteam.stacked:hover::before {
+.wrapper.dark .list.reports li .entries .list.fireteam.stacked:hover::before {
   opacity: 0.4;
 }
 

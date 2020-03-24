@@ -1078,5 +1078,10 @@
     "date": "2020-03-24T10:18:12.215Z",
     "version": "2.21.13",
     "content": "- refactored _Clan_ rosters\n-  fixed some bugs\n- improved _Reports_ and added _Trials_ nodes"
+  },
+  {
+    "date": "2020-03-24T12:21:25.020Z",
+    "version": "2.21.14",
+    "content": "- updated theme settings and language"
   }
 ]

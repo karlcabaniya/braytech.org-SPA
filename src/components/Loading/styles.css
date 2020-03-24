@@ -17,7 +17,7 @@
   pointer-events: none;
 }
 
-.wrapper.dark-mode #loading {
+.wrapper.dark #loading {
   background-color: #141414;
 }
 

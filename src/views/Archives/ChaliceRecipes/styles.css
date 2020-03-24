@@ -211,7 +211,7 @@ html.backdropfilter #archives.chalice-of-opulence .overlay {
   backdrop-filter: blur(7px) saturate(1.2);
 }
 
-html.backdropfilter .wrapper.dark-mode #archives.chalice-of-opulence .overlay {
+html.backdropfilter .wrapper.dark #archives.chalice-of-opulence .overlay {
   backdrop-filter: blur(7px) saturate(1.2);
 }
 

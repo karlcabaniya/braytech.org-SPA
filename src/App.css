@@ -33,15 +33,15 @@
 
 }
 
-#root > .wrapper.dark-mode {
+#root > .wrapper.dark {
   background-color: #111111;
 }
 
-#root > .wrapper.dark-mode #footer {
+#root > .wrapper.dark #footer {
   color: rgba(255, 255, 255, 0.6);
 }
 
-#root > .wrapper.dark-mode #footer ul li:last-child a {
+#root > .wrapper.dark #footer ul li:last-child a {
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -690,15 +690,15 @@ html.backdropfilter .sticky-nav {
   }
 }
 
-.wrapper.dark-mode .sticky-nav {
+.wrapper.dark .sticky-nav {
   background-color: hsla(0, 0%, 5%, 0.8);
 }
 
-.wrapper.dark-mode .sticky-nav.ultra-black {
+.wrapper.dark .sticky-nav.ultra-black {
   background-color: hsla(0, 0%, 0%, 0.8);
 }
 
-html.backdropfilter .wrapper.dark-mode .sticky-nav {
+html.backdropfilter .wrapper.dark .sticky-nav {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 

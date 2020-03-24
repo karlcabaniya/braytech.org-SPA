@@ -266,7 +266,7 @@ class Header extends React.Component {
     const progressSeasonalRank = member?.data && utils.progressionSeasonRank(member);
 
     return (
-      <div id='header' className={cx(this.props.theme.selected, { 'profile-header': isProfileRoute, navOpen: this.state.navOpen })}>
+      <div id='header' className={cx(this.props.theme.active, { 'profile-header': isProfileRoute, navOpen: this.state.navOpen })}>
         <div className='braytech'>
           <div className='wrapper'>
             <div className='logo'>

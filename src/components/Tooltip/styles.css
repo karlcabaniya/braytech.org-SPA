@@ -28,7 +28,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6)
 }
 
-.wrapper.dark-mode #tooltip {
+.wrapper.dark #tooltip {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
 } */
 

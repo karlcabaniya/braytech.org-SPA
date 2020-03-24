@@ -204,11 +204,14 @@ class Settings extends React.Component {
               <div>{t('Theme')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_setTheme('light-mode')}>
-                <Checkbox linked checked={this.props.theme.selected === 'light-mode'} text={t('Light mode')} />
+              <li onClick={this.handler_setTheme('light')}>
+                <Checkbox linked checked={this.props.theme.user === 'light'} text={t('Light')} />
               </li>
-              <li onClick={this.handler_setTheme('dark-mode')}>
-                <Checkbox linked checked={this.props.theme.selected === 'dark-mode'} text={t('Dark mode')} />
+              <li onClick={this.handler_setTheme('dark')}>
+                <Checkbox linked checked={this.props.theme.user === 'dark'} text={t('Dark')} />
+              </li>
+              <li onClick={this.handler_setTheme('system')}>
+                <Checkbox linked checked={!this.props.theme.user} text={t('Match system')} />
               </li>
             </ul>
             <div className='sub-header sub'>

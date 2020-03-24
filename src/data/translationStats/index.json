@@ -1,140 +1,180 @@
 {
   "de": {
-    "translated": 371,
-    "notTranslated": 293,
+    "translated": 369,
+    "notTranslated": 296,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "debug": {
-    "translated": 664,
+    "translated": 665,
     "notTranslated": 0,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "en": {
-    "translated": 664,
+    "translated": 665,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "es-mx": {
-    "translated": 660,
-    "notTranslated": 4,
+    "translated": 658,
+    "notTranslated": 7,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "es": {
-    "translated": 660,
-    "notTranslated": 4,
+    "translated": 658,
+    "notTranslated": 7,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "fr": {
-    "translated": 576,
-    "notTranslated": 88,
+    "translated": 574,
+    "notTranslated": 91,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "it": {
-    "translated": 658,
-    "notTranslated": 6,
+    "translated": 656,
+    "notTranslated": 9,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "ja": {
-    "translated": 606,
-    "notTranslated": 58,
+    "translated": 604,
+    "notTranslated": 61,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "ko": {
-    "translated": 557,
-    "notTranslated": 107,
+    "translated": 555,
+    "notTranslated": 110,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 664,
+    "notTranslated": 665,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "pt-br": {
-    "translated": 575,
-    "notTranslated": 89,
+    "translated": 573,
+    "notTranslated": 92,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "ru": {
-    "translated": 660,
-    "notTranslated": 4,
+    "translated": 658,
+    "notTranslated": 7,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "zh-chs": {
-    "translated": 462,
-    "notTranslated": 202,
+    "translated": 460,
+    "notTranslated": 205,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   },
   "zh-cht": {
-    "translated": 378,
-    "notTranslated": 286,
+    "translated": 376,
+    "notTranslated": 289,
     "added": [
-      "There was a network error"
+      "Dark",
+      "Light",
+      "Match system"
     ],
     "removed": [
-      "There was a network error."
+      "Dark mode",
+      "Light mode"
     ]
   }
 }

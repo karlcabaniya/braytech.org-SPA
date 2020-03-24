@@ -277,7 +277,7 @@ class App extends React.Component {
     if (this.state.status.code !== 'ready') {
       // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
       return (
-        <div className={cx('wrapper', this.props.theme.selected)}>
+        <div className={cx('wrapper', this.props.theme.active)}>
           <Suspense fallback={<SuspenseLoading full />}>
             <AppLoading state={this.state.status} />
             <NotificationLink />
@@ -290,7 +290,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route
           render={route => (
-            <div className={cx('wrapper', this.props.theme.selected, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+            <div className={cx('wrapper', this.props.theme.active, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate {...this.props} />
               <NotificationLink />
               <NotificationProgress />

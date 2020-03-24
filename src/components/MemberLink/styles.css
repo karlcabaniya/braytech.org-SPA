@@ -206,7 +206,7 @@ html.backdropfilter #member-overlay {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-html.backdropfilter .wrapper.dark-mode #member-overlay {
+html.backdropfilter .wrapper.dark #member-overlay {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -215,7 +215,7 @@ html.backdropfilter .wrapper.dark-mode #member-overlay {
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
 }
 
-.wrapper.dark-mode #member-overlay .wrapper-outer {
+.wrapper.dark #member-overlay .wrapper-outer {
   position: relative;
   box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 0.5);
 }
@@ -409,7 +409,7 @@ html.backdropfilter #member-overlay .background .acrylic {
   letter-spacing: 0.5px;
 }
 
-.wrapper.light-mode #member-overlay .wrapper-inner .characters .char .title {
+.wrapper.light #member-overlay .wrapper-inner .characters .char .title {
   /* color: rgba(255, 255, 255, 0.8); */
 }
 
@@ -548,15 +548,15 @@ html.backdropfilter #member-overlay.error .background .border-top {
   justify-content: space-between;
 }
 
-.wrapper.light-mode #member-overlay .sticky-nav .destiny-key span {
+.wrapper.light #member-overlay .sticky-nav .destiny-key span {
   color: #333;
 }
 
-.wrapper.light-mode #member-overlay .sticky-nav.ultra-black {
+.wrapper.light #member-overlay .sticky-nav.ultra-black {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
-html.backdropfilter .wrapper.light-mode #member-overlay .sticky-nav {
+html.backdropfilter .wrapper.light #member-overlay .sticky-nav {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 

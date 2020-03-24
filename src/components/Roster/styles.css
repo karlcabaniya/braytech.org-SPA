@@ -15,7 +15,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.wrapper.dark-mode .list.roster:not(.mini) .row:hover {
+.wrapper.dark .list.roster:not(.mini) .row:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
 

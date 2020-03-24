@@ -84,10 +84,10 @@
   transition: background-color 0.25s, width 1s ease-in-out;
 }
 
-.wrapper.dark-mode .progress-bar .check:not(.ed)::before {
+.wrapper.dark .progress-bar .check:not(.ed)::before {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.wrapper.dark-mode .progress-bar .bar {
+.wrapper.dark .progress-bar .bar {
   background-color: rgba(0, 0, 0, 0.1);
 }

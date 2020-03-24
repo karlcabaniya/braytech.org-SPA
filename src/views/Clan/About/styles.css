@@ -111,9 +111,14 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-#clan.about .module.roster .spinner,
-#clan.about .module.roster .list.roster {
-  margin: 20px 0 0;
+#clan.about .module.roster {
+  position: relative;
+}
+
+#clan.about .module.roster .spinner.mini {
+  position: absolute;
+  top: 18px;
+  right: 0;
 }
 
 

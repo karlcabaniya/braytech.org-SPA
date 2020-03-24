@@ -28,12 +28,12 @@
   position: fixed;
 }
 
-.wrapper.dark-mode #header .braytech {
+.wrapper.dark #header .braytech {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
 html.backdropfilter #header .braytech,
-html.backdropfilter .wrapper.dark-mode #header .braytech {
+html.backdropfilter .wrapper.dark #header .braytech {
   background-color: rgba(255, 255, 255, 0);
   backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
@@ -841,15 +841,15 @@ html.backdropfilter #header .nav {
   }
 }
 
-#header.profile-header.dark-mode .background {
+#header.profile-header.dark .background {
   background-color: #1a1a1a;
 }
 
-#header.profile-header.dark-mode .characters .list li .progress-bar .bar {
+#header.profile-header.dark .characters .list li .progress-bar .bar {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#header.dark-mode.read .braytech,
-#header.dark-mode.inspect .braytech {
+#header.dark.read .braytech,
+#header.dark.inspect .braytech {
   background-color: rgba(255, 255, 255, 0);
 }

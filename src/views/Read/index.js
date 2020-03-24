@@ -112,7 +112,7 @@ class Read extends React.Component {
 
     return (
       <>
-        <div className={cx('view', 'dark-mode', kind)} id='read'>
+        <div className={cx('view', 'dark', kind)} id='read'>
           <div className='bg' />
           <div className='wrap'>
             <div className='flair left' />
