@@ -412,7 +412,7 @@ class Legend extends React.Component {
 
       const time = new Date().toISOString();
 
-      const theme = this.themes[this.state.theme.active];
+      const theme = this.themes[this.state.theme.selected];
       const dyes = theme.variants[this.state.theme.variantIndex].dyes.reduce((a, v) => {
         if (this.state.theme.selected === 'mono') {
           let saturation = this.state.theme.mono.saturation;
