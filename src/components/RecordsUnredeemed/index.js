@@ -1,20 +1,17 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import cx from 'classnames';
 
 import { Records, unredeemedRecords } from '../Records';
 
 class RecordsUnredeemed extends React.Component {
   render() {
     const { member, limit, selfLinkFrom = false } = this.props;
-    
+
     const hashes = unredeemedRecords(member);
 
     return (
       <>
-        <ul className={cx('list record-items')}>
+        <ul className='list record-items'>
           <Records selfLink hashes={hashes} ordered='rarity' limit={limit} selfLinkFrom={selfLinkFrom} />
         </ul>
       </>
@@ -29,7 +26,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(RecordsUnredeemed);
+export default connect(mapStateToProps)(RecordsUnredeemed);

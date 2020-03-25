@@ -31,25 +31,26 @@ function difference(object, base) {
 }
 
 class NotificationProgress extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    progress: {
+      type: false,
+      hash: false,
+      number: 0,
+      timedOut: true
+    }
+  };
 
-    this.state = {
-      progress: {
-        type: false,
-        hash: false,
-        number: 0,
-        timedOut: true
-      }
-    };
-    this.timer = false;
-  }
+  timer = false;
 
+  // this method hides the toast after 10 seconds and unloads the setTimeout
+  // if there are any changes to component props, it may also be called by componentDidUpdate
   timeOut = () => {
     if (!this.timer && !this.state.progress.timedOut && this.state.progress.hash) {
       this.timer = setTimeout((prevState = this.state) => {
         this.timer = false;
+
         console.log('timed out');
+
         this.setState(p => ({
           progress: {
             ...p.progress,
@@ -60,14 +61,14 @@ class NotificationProgress extends React.Component {
     }
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(p) {
     this.timeOut();
 
     const member = this.props.member;
     const fresh = this.props.member.data;
     const stale = this.props.member.prevData || false;
 
-    if (prevProps.member.membershipId !== this.props.member.membershipId) {
+    if (p.member.membershipId !== this.props.member.membershipId) {
       // console.log('membershipId mismatch');
       return;
     }
@@ -77,62 +78,39 @@ class NotificationProgress extends React.Component {
       return;
     }
 
-    // console.log('characters', difference(fresh.profile.characters, stale.profile.characters));
-    // console.log('profileRecords', difference(fresh.profile.profileRecords.data.records, stale.profile.profileRecords.data.records));
-    // console.log('characterRecords', difference(fresh.profile.characterRecords.data[characterId].records, stale.profile.characterRecords.data[characterId].records));
-    // console.log('profileProgression', difference(fresh.profile.profileProgression, stale.profile.profileProgression));
-    // console.log('characterProgressions', difference(fresh.profile.characterProgressions.data[characterId], stale.profile.characterProgressions.data[characterId]));
-    // console.log('profileCollectibles', difference(fresh.profile.profileCollectibles.data.collectibles, stale.profile.profileCollectibles.data.collectibles));
-    // console.log('characterCollectibles', difference(fresh.profile.characterCollectibles.data[characterId].collectibles, stale.profile.characterCollectibles.data[characterId].collectibles));
-
     if (!this.state.progress.timedOut) {
       // console.log('not timed out yet');
       return;
     }
 
-    let profileRecords = difference(fresh.profile.profileRecords.data.records, stale.profile.profileRecords.data.records);
-    let characterRecords = difference(fresh.profile.characterRecords.data[member.characterId].records, stale.profile.characterRecords.data[member.characterId].records);
+    const records = {
+      ...difference(fresh.profile.profileRecords.data.records, stale.profile.profileRecords.data.records),
+      ...difference(fresh.profile.characterRecords.data[member.characterId].records, stale.profile.characterRecords.data[member.characterId].records)
+    };
 
-    // console.log(profileRecords);
+    // console.log(records);
 
-    let progress = {
+    const progress = {
       type: false,
       hash: false,
       number: 0,
       timedOut: false
     };
 
-    if (Object.keys(profileRecords).length > 0) {
-      Object.keys(profileRecords).forEach(key => {
-        if (profileRecords[key].state === undefined) {
+    if (Object.keys(records).length > 0) {
+      Object.keys(records).forEach(key => {
+        if (records[key].state === undefined) {
           return;
         }
-        let state = enumerateRecordState(profileRecords[key].state);
-        // console.log(state);
-        if (!state.objectiveNotCompleted && !state.recordRedeemed) {
-          if (progress.hash) {
-            progress.number = progress.number + 1;
-            return;
-          }
-          progress.type = 'record';
-          progress.hash = key;
-          progress.number = progress.number + 1;
-        }
-      });
-    }
 
-    if (Object.keys(characterRecords).length > 0) {
-      Object.keys(characterRecords).forEach(key => {
-        if (characterRecords[key].state === undefined) {
-          return;
-        }
-        let state = enumerateRecordState(characterRecords[key].state);
-        // console.log(state);
-        if (!state.objectiveNotCompleted && !state.recordRedeemed) {
+        const state = enumerateRecordState(records[key].state);
+
+        if (!state.objectiveNotCompleted) {
           if (progress.hash) {
             progress.number = progress.number + 1;
             return;
           }
+
           progress.type = 'record';
           progress.hash = key;
           progress.number = progress.number + 1;
@@ -175,9 +153,9 @@ class NotificationProgress extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(s) {
   return {
-    member: state.member
+    member: s.member
   };
 }
 
