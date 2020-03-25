@@ -310,7 +310,7 @@
 .list.record-items .none-tracked {
   grid-column: 1/-1;
   margin: 0 0 1rem;
-  padding: 2rem 0;
+  padding: 1rem 0 2rem;
   font-style: italic;
   letter-spacing: 1px;
   font-size: 14px;

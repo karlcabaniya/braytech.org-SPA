@@ -35,151 +35,171 @@
   font-size: 16px;
 }
 
-.activity-mode-icons .falling-1,
-.activity-mode-icons .falling-2,
-.activity-mode-icons .falling-3 {
+/* iron banner icon */
+.activity-mode-icons svg .iron-banner-2 .leaf1,
+.activity-mode-icons svg .iron-banner-2 .leaf2,
+.activity-mode-icons svg .iron-banner-2 .leaf3,
+.activity-mode-icons svg .iron-banner-2 .leaf4,
+.activity-mode-icons svg .iron-banner-2 .leaf5,
+.activity-mode-icons svg .iron-banner-2 .leaf6,
+.activity-mode-icons svg .iron-banner-2 .leaf7 {
   transform-origin: center center;
-  animation: crucible-modes-falling-leaf 3s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+  animation: crucible-modes-falling-leaf 3s cubic-bezier(0.39, 0.575, 0.565, 1) infinite;
 }
 
-.activity-mode-icons .falling-2 {
+.activity-mode-icons svg .iron-banner-2 .leaf1 {
+  animation-delay: 0.5s;
+}
+
+.activity-mode-icons svg .iron-banner-2 .leaf2 {
   animation-delay: 1s;
 }
 
-.activity-mode-icons .falling-3 {
+.activity-mode-icons svg .iron-banner-2 .leaf3 {
   animation-delay: 1.5s;
 }
 
-@keyframes crucible-modes-falling-leaf {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(28%);
-  }
+.activity-mode-icons svg .iron-banner-2 .leaf4 {
+  animation-delay: 2s;
 }
 
-.activity-mode-icons .petals {
+.activity-mode-icons svg .iron-banner-2 .leaf5 {
+  animation-delay: 2.5s;
+}
+
+.activity-mode-icons svg .iron-banner-2 .leaf6 {
+  animation-delay: 3s;
+}
+
+.activity-mode-icons svg .iron-banner-2 .circles circle {
+  transform-origin: center center;
+  animation: rotate-linear 30s linear infinite;
+}
+
+.activity-mode-icons svg .iron-banner-2 .circles circle:nth-child(2) {
+  animation-duration: 10s;
+}
+
+.activity-mode-icons svg .iron-banner-2 .circles circle:nth-child(3) {
+  animation-direction: reverse;
+}
+
+.activity-mode-icons svg .petals {
   opacity: 1 !important;
 }
 
-.activity-mode-icons .petals path {
+.activity-mode-icons svg .petals path {
   opacity: 0;
   transform-origin: center center;
   animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
   fill: #ff76b3 !important;
 }
 
-.activity-mode-icons .petals path:nth-child(1) {
+.activity-mode-icons svg .petals path:nth-child(1) {
   animation-delay: 0.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(2) {
+.activity-mode-icons svg .petals path:nth-child(2) {
   animation-delay: 1s;
 }
 
-.activity-mode-icons .petals path:nth-child(3) {
+.activity-mode-icons svg .petals path:nth-child(3) {
   animation-delay: 1.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(4) {
+.activity-mode-icons svg .petals path:nth-child(4) {
   animation-delay: 2s;
 }
 
-.activity-mode-icons .petals path:nth-child(5) {
+.activity-mode-icons svg .petals path:nth-child(5) {
   animation-delay: 2.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(6) {
+.activity-mode-icons svg .petals path:nth-child(6) {
   animation-delay: 3s;
 }
 
-.activity-mode-icons .petals path:nth-child(7) {
+.activity-mode-icons svg .petals path:nth-child(7) {
   animation-delay: 3.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(8) {
+.activity-mode-icons svg .petals path:nth-child(8) {
   animation-delay: 4s;
 }
 
-.activity-mode-icons .petals path:nth-child(9) {
+.activity-mode-icons svg .petals path:nth-child(9) {
   animation-delay: 4.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(10) {
+.activity-mode-icons svg .petals path:nth-child(10) {
   animation-delay: 5s;
 }
 
-.activity-mode-icons .petals path:nth-child(11) {
+.activity-mode-icons svg .petals path:nth-child(11) {
   animation-delay: 5.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(12) {
+.activity-mode-icons svg .petals path:nth-child(12) {
   animation-delay: 6s;
 }
 
-.activity-mode-icons .petals path:nth-child(13) {
+.activity-mode-icons svg .petals path:nth-child(13) {
   animation-delay: 6.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(14) {
+.activity-mode-icons svg .petals path:nth-child(14) {
   animation-delay: 7s;
 }
 
-.activity-mode-icons .petals path:nth-child(15) {
+.activity-mode-icons svg .petals path:nth-child(15) {
   animation-delay: 7.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(16) {
+.activity-mode-icons svg .petals path:nth-child(16) {
   animation-delay: 8s;
 }
 
-.activity-mode-icons .petals path:nth-child(17) {
+.activity-mode-icons svg .petals path:nth-child(17) {
   animation-delay: 8.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(18) {
+.activity-mode-icons svg .petals path:nth-child(18) {
   animation-delay: 9s;
 }
 
-.activity-mode-icons .petals path:nth-child(19) {
+.activity-mode-icons svg .petals path:nth-child(19) {
   animation-delay: 9.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(20) {
+.activity-mode-icons svg .petals path:nth-child(20) {
   animation-delay: 10s;
 }
 
-.activity-mode-icons .petals path:nth-child(21) {
+.activity-mode-icons svg .petals path:nth-child(21) {
   animation-delay: 10.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(22) {
+.activity-mode-icons svg .petals path:nth-child(22) {
   animation-delay: 11s;
 }
 
-.activity-mode-icons .petals path:nth-child(23) {
+.activity-mode-icons svg .petals path:nth-child(23) {
   animation-delay: 11.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(24) {
+.activity-mode-icons svg .petals path:nth-child(24) {
   animation-delay: 12s;
 }
 
-.activity-mode-icons .petals path:nth-child(25) {
+.activity-mode-icons svg .petals path:nth-child(25) {
   animation-delay: 12.5s;
 }
 
-.activity-mode-icons .petals path:nth-child(26) {
+.activity-mode-icons svg .petals path:nth-child(26) {
   animation-delay: 13s;
 }
 
-.activity-mode-icons .petals path:nth-child(27) {
+.activity-mode-icons svg .petals path:nth-child(27) {
   animation-delay: 13.5s;
 }
 
