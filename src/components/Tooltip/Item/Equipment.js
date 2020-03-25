@@ -203,10 +203,10 @@ const Equipment = props => {
 
                               return (
                                 <div key={p.plugItem.hash} className={cx('plug', { intrinsic: s.isIntrinsic, enabled: true })}>
-                                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${p.plugItem.displayProperties.icon ? p.plugItem.displayProperties.icon : `/img/misc/missing_icon_d2.png`}`} />
+                                  <ObservedImage className='image icon' src={`https://www.bungie.net${p.plugItem.displayProperties.icon ? p.plugItem.displayProperties.icon : `/img/misc/missing_icon_d2.png`}`} />
                                   <div className='text'>
                                     <div className='name'>{p.plugItem.displayProperties.name}</div>
-                                    <div className='description'>{stringToIcons(s.isIntrinsic ? p.plugItem.displayProperties.description : p.plugItem.itemTypeDisplayName)}</div>
+                                    <div className='type'>{stringToIcons(s.isIntrinsic ? p.plugItem.displayProperties.description : p.plugItem.itemTypeDisplayName)}</div>
                                   </div>
                                 </div>
                               );

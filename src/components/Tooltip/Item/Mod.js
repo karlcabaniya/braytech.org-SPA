@@ -1,9 +1,8 @@
 import React from 'react';
-import i18n from 'i18next';
 import cx from 'classnames';
 
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { stringToIcons } from '../../../utils/destinyUtils';
 import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import ObservedImage from '../../ObservedImage';
 
@@ -36,12 +35,18 @@ const Mod = props => {
         <div className={cx('value', energyType.string)}>
           <div className='icon'>{energyType.icon}</div> {energyCost.energyCost}
         </div>
-        <div className='text'>{i18n.t('Energy cost')}</div>
+        <div className='text'>{t('Energy cost')}</div>
       </div>
     );
   }
 
-  if (perks && perks.length) {
+  if (description) {
+    blocks.push(<BungieText value={description} />);
+  }
+
+  if (description && perks.length) blocks.push(<div className='line' />);
+
+  if (perks.length) {
     blocks.push(
       <div className={cx('sockets perks', { one: perks.length === 0 })}>
         {perks
@@ -50,11 +55,11 @@ const Mod = props => {
 
             return (
               <div key={p.perkHash} className='socket'>
-                <div className={cx('plug', { one: true, enabled: true, 'no-icon': true })}>
-                  {/* <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} /> */}
+                <div className={cx('plug', { enabled: true })}>
+                  <ObservedImage className='image icon' src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} />
                   <div className='text'>
-                    {/* <div className='name'>{definitionPerk.displayProperties && definitionPerk.displayProperties.name}</div> */}
-                    <div className='description'>{stringToIcons(definitionPerk.displayProperties?.description)}</div>
+                    <div className='name'>{definitionPerk.displayProperties?.name}</div>
+                    <BungieText value={definitionPerk.displayProperties?.description} />
                   </div>
                 </div>
               </div>
@@ -65,21 +70,11 @@ const Mod = props => {
     );
   }
 
-  if (perks && perks.length > 0 && description) blocks.push(<div className='line' />);
-
-  if (description) {
-    blocks.push(
-      <div className='description'>
-        <pre>{description}</pre>
-      </div>
-    );
-  }
-
-  if ((description && sourceString) || (perks && perks.length && sourceString)) blocks.push(<div className='line' />);
+  if ((description && !perks.length && sourceString) || (perks.length && sourceString)) blocks.push(<div className='line' />);
 
   if (sourceString) {
     blocks.push(
-      <div className='description'>
+      <div className='source'>
         <p>{sourceString}</p>
       </div>
     );

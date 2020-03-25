@@ -594,14 +594,24 @@ const replaceWithIcon = (conversionRules, textSegment) => {
   return (replacement && replacement.unicode) || textSegment;
 };
 
-export function stringToIcons(string) {
+export function stringToIcons(string, returnString) {
   // powered by DIM brilliance: @delphiactual, @sundevour, @bhollis
   // https://github.com/DestinyItemManager/DIM/blob/master/src/app/progress/ObjectiveDescription.tsx
 
-  return string
+  if (returnString) {
+    return string
+    .split(iconPlaceholder)
+    .filter(Boolean)
+    .map(t => replaceWithIcon(generateConversionTable(), t))
+    .join('');
+    
+  } else {
+    return string
     .split(iconPlaceholder)
     .filter(Boolean)
     .map(t => replaceWithIcon(generateConversionTable(), t));
+    
+  }  
 }
 
 // thank you DIM (https://github.com/DestinyItemManager/DIM/blob/master/src/app/inventory/store/well-rested.ts)

@@ -1,9 +1,12 @@
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import i18next from 'i18next';
 import backend from 'i18next-xhr-backend';
 import { initReactI18next } from 'react-i18next';
 import moment from 'moment';
 
 import * as ls from './localStorage';
+import { stringToIcons } from './destinyUtils';
 
 let _defaultLanguage = 'en';
 let _currentLanguage;
@@ -218,3 +221,7 @@ export const fromNow = (timestamp, abbreviated = false) => {
       .fromNow();
   }
 };
+
+export function BungieText(props) {
+  return <ReactMarkdown className='description' source={stringToIcons(props.value, true)} />
+}
