@@ -148,14 +148,10 @@ class NotificationProgress extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
     if (this.state.progress.type === 'record') {
       const definitionRecord = manifest.DestinyRecordDefinition[this.state.progress.hash];
 
-      const link = selfLinkRecord(definitionRecord.hash);
-
-      
+      const link = selfLinkRecord(definitionRecord.hash);     
 
       return (
         <div id='notification-progress' className={cx('record', { lore: definitionRecord.loreHash, timedOut: this.state.progress.timedOut })}>
