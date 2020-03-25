@@ -15,9 +15,9 @@ class ErrorBoundary extends React.Component {
     return { error };
   }
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({ errorInfo });
-  }
+  // componentDidCatch(error, errorInfo) {
+  //   this.setState({ errorInfo });
+  // }
 
   async componentDidMount() {
     this.mounted = true;
@@ -66,7 +66,7 @@ class ErrorBoundary extends React.Component {
             <div className='properties'>
               <div className='name'>{t('Error')}</div>
               <div className='description'>{this.state.error.message}</div>
-              {this.state.errorInfo?.componentStack ? <div className='stack'>{this.state.errorInfo.componentStack}</div> : null}
+              {this.state.error.stack ? <div className='stack'>{this.state.error.stack}</div> : null}
               {this.props.app ? (
                 <>
                   <ReactMarkdown className='next' renderers={{ link: linkHelper }} source={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />

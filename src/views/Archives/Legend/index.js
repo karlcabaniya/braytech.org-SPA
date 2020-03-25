@@ -25,25 +25,21 @@ import './characters.css';
 import './triumphs.css';
 import './variants.css';
 
-class Legend extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      theme: {
-        selected: 'bnet',
-        variantIndex: 0,
-        mono: {
-          hue: 144,
-          saturation: 0,
-          luminance: 0
-        }
-      },
-      blob: false
-    };
-
-    this.ref_page = React.createRef();
-  }
+class Legend extends React.Component { 
+  state = {
+    theme: {
+      selected: 'bnet',
+      variantIndex: 0,
+      mono: {
+        hue: 144,
+        saturation: 0,
+        luminance: 0
+      }
+    },
+    blob: false
+  };
+  
+  ref_page = React.createRef();
 
   componentDidMount() {
     this.mounted = true;
@@ -418,7 +414,7 @@ class Legend extends React.Component {
 
       const theme = this.themes[this.state.theme.active];
       const dyes = theme.variants[this.state.theme.variantIndex].dyes.reduce((a, v) => {
-        if (this.state.theme.active === 'mono') {
+        if (this.state.theme.selected === 'mono') {
           let saturation = this.state.theme.mono.saturation;
           let luminance = this.state.theme.mono.luminance;
 
@@ -461,7 +457,7 @@ class Legend extends React.Component {
                   <ul className='list settings'>
                     {Object.keys(this.themes).map(key => (
                       <li key={key} onClick={!this.themes[key].disabled ? this.handler_setTheme(key) : null}>
-                        <Checkbox linked checked={this.state.theme.active === key} text={this.themes[key].name} disabled={this.themes[key].disabled} />
+                        <Checkbox linked checked={this.state.theme.selected === key} text={this.themes[key].name} disabled={this.themes[key].disabled} />
                         <div className='info'>
                           <p>{this.themes[key].description}</p>
                         </div>
@@ -469,14 +465,14 @@ class Legend extends React.Component {
                     ))}
                   </ul>
                 </div>
-                {theme.variants.length > 1 || this.state.theme.active === 'mono' ? (
+                {theme.variants.length > 1 || this.state.theme.selected === 'mono' ? (
                   <div className='col'>
                     <div className='module-header'>
                       <div>{t('Options')}</div>
                     </div>
                     <ul className='list settings'>
                       {theme.variants.map((v, i) => {
-                        if (this.state.theme.active === 'mono') {
+                        if (this.state.theme.selected === 'mono') {
                           return (
                             <React.Fragment key={i}>
                               <li>
@@ -527,7 +523,7 @@ class Legend extends React.Component {
               </div>
             </div>
           </div>
-          <div ref={this.ref_page} className={cx('page', this.state.theme.active, `variant-${this.state.theme.variantIndex}`)} style={dyes}>
+          <div ref={this.ref_page} className={cx('page', this.state.theme.selected, `variant-${this.state.theme.variantIndex}`)} style={dyes}>
             {theme.variants[this.state.theme.variantIndex].background ? (
               <div className='background'>
                 <ObservedImage noConstraints src={theme.variants[this.state.theme.variantIndex].background.src} />

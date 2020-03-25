@@ -24,6 +24,14 @@
   backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
+html.no-backdrop-filter #header .braytech {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+html.no-backdrop-filter .wrapper.dark #header .braytech {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 #header.navOpen .braytech {
   position: fixed;
 }

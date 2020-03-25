@@ -1,180 +1,154 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 296,
+    "notTranslated": 295,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "debug": {
-    "translated": 665,
+    "translated": 664,
     "notTranslated": 0,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "en": {
-    "translated": 665,
+    "translated": 664,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "es-mx": {
-    "translated": 658,
-    "notTranslated": 7,
+    "translated": 656,
+    "notTranslated": 8,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "es": {
-    "translated": 658,
-    "notTranslated": 7,
+    "translated": 656,
+    "notTranslated": 8,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "fr": {
     "translated": 574,
-    "notTranslated": 91,
+    "notTranslated": 90,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "it": {
-    "translated": 656,
-    "notTranslated": 9,
+    "translated": 654,
+    "notTranslated": 10,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "ja": {
     "translated": 604,
-    "notTranslated": 61,
+    "notTranslated": 60,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "ko": {
     "translated": 555,
-    "notTranslated": 110,
+    "notTranslated": 109,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 665,
+    "notTranslated": 664,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "pt-br": {
     "translated": 573,
-    "notTranslated": 92,
+    "notTranslated": 91,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "ru": {
-    "translated": 658,
-    "notTranslated": 7,
+    "translated": 656,
+    "notTranslated": 8,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "zh-chs": {
     "translated": 460,
-    "notTranslated": 205,
+    "notTranslated": 204,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   },
   "zh-cht": {
     "translated": 376,
-    "notTranslated": 289,
+    "notTranslated": 288,
     "added": [
-      "Dark",
-      "Light",
-      "Match system"
+      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
     ],
     "removed": [
-      "Dark mode",
-      "Light mode"
+      "Braytech has encountered a fatal error. This incident has been reported.",
+      "Braytech has encountered a temporary error. This incident has been reported."
     ]
   }
 }
