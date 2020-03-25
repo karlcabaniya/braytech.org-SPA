@@ -94,6 +94,13 @@ async function timed(name, promise) {
   return result;
 }
 
+// Girl, bye, Modernizr
+function CSSFeatureDetects() {
+  if (document.body.style.backdropFilter === undefined) {
+    document.documentElement.classList.add('no-backdrop-filter');
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -167,6 +174,8 @@ class App extends React.Component {
   async componentDidMount() {
     this.hanlder_resizeViewport();
     window.addEventListener('resize', this.hanlder_resizeViewport);
+
+    CSSFeatureDetects();
 
     if (!window.navigator.onLine) {
       this.setState({ status: { code: 'navigator_offline' } });
@@ -285,7 +294,7 @@ class App extends React.Component {
         </div>
       );
     }
-    
+    throw new Error('jesus christ');
     return (
       <BrowserRouter>
         <Route

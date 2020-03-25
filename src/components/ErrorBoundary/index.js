@@ -1,20 +1,22 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import { t } from '../../utils/i18n';
+import { linkHelper } from '../../utils/markdown';
 import Button from '../../components/UI/Button';
 import ServiceWorkerUpdate from '../../components/Notifications/ServiceWorkerUpdate';
 
 import './styles.css';
 
 class ErrorBoundary extends React.Component {
-  state = { swInstalled: false, swUnregisterAttempt: false, error: false, errorMessage: null };
+  state = { swInstalled: false, swUnregisterAttempt: false, error: false, errorInfo: undefined };
 
   static getDerivedStateFromError(error) {
-    return { error: true, errorMessage: error.message };
+    return { error };
   }
 
   componentDidCatch(error, errorInfo) {
-
+    this.setState({ errorInfo });
   }
 
   async componentDidMount() {
@@ -63,10 +65,11 @@ class ErrorBoundary extends React.Component {
           <div className='view' id='error-boundary'>
             <div className='properties'>
               <div className='name'>{t('Error')}</div>
-              <div className='description'>{this.state.errorMessage}</div>
+              <div className='description'>{this.state.error.message}</div>
+              {this.state.errorInfo?.componentStack ? <div className='stack'>{this.state.errorInfo.componentStack}</div> : null}
               {this.props.app ? (
                 <>
-                  <div className='next'>{t('Braytech has encountered a fatal error. This incident has been reported.')}</div>
+                  <ReactMarkdown className='next' renderers={{ link: linkHelper }} source={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
                   <div className='actions'>
                     <Button text={t('Reload')} action={this.handler_reload} />
                     {this.swAvailable && this.state.swInstalled ? <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.handler_swDump} /> : null}
@@ -74,7 +77,7 @@ class ErrorBoundary extends React.Component {
                 </>
               ) : (
                 <>
-                  <div className='next'>{t('Braytech has encountered a temporary error. This incident has been reported.')}</div>
+                  <ReactMarkdown className='next' renderers={{ link: linkHelper }} source={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
                   <div className='actions'>
                     <Button text={t('Reload')} action={this.handler_reload} />
                   </div>

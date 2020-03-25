@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.21.15",
+  "version": "2.21.16",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -18,7 +18,6 @@
     "chalice-runes": "node --experimental-modules scripts/prepareChaliceRunes.mjs"
   },
   "dependencies": {
-    "@sentry/browser": "^5.15.0",
     "classnames": "^2.2.6",
     "dexie": "^2.0.4",
     "entities": "^2.0.0",
