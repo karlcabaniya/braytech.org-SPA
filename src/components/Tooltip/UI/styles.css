@@ -1,0 +1,10 @@
+#tooltip .frame.ui .header {
+  background-color: hsla(0, 0%, 0%, 0.9);
+  border-top: 5px solid rgb(204, 204, 204);
+  color: #fff;
+}
+
+#tooltip .frame.ui .stats {
+  border-top: none;
+  border-color: red;
+}

@@ -1,11 +1,10 @@
 import React from 'react';
-import { compose } from 'redux';
-import { withTranslation } from 'react-i18next';
 
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
 const Braytech = (props) => {
-  const { t, itemHash, relatedHash } = props;
+  const { itemHash, relatedHash } = props;
 
   const definition = manifest.BraytechDefinition[itemHash];
 
@@ -14,11 +13,7 @@ const Braytech = (props) => {
 
   return (
     <>
-      {description ? (
-        <div className='description'>
-          <pre>{description}</pre>
-        </div>
-      ) : null}
+      {description ? <BungieText value={description} /> : null}
       {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? <div className='line' /> : null}
       {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? (
         <div className='description'>
@@ -35,6 +30,4 @@ const Braytech = (props) => {
   );
 };
 
-export default compose(
-  withTranslation()
-)(Braytech);
+export default Braytech;

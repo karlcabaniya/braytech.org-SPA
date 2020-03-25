@@ -72,7 +72,7 @@ class TrialsOfOsiris extends React.Component {
                 </div>
               ))
             ) : (
-              <div className='info'>{t('Begin your trial by speaking with Saint-14.')}</div>
+              <div className='info'>{t('Begin your trials by speaking with Saint-14.')}</div>
             )}
           </>
         ) : null}

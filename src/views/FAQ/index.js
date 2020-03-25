@@ -31,10 +31,10 @@ class FAQ extends React.Component {
         a: [<Markdown key='0' className='markdown' source={t("Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).")} />, <Diagram1 key='1' />]
       },
       {
-        k: 'braytech-beta',
+        k: 'braytech',
         i: 1,
-        q: t("Braytech Beta won't update to the newest version"),
-        a: [<Markdown key='0' className='markdown' source={t("From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._")} />]
+        q: t("Braytech won't update to the newest version"),
+        a: [<Markdown key='0' className='markdown' source={t("From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._")} />]
       },
       {
         k: 'api',
@@ -63,20 +63,6 @@ class FAQ extends React.Component {
             <ul>
               {qa
                 .filter(q => q.k === 'braytech')
-                .map((qa, index) => {
-                  return (
-                    <li key={index} className='qa'>
-                      <a className='hyperlink' href='/' onClick={this.handler_scrollTo(qa.i)}>
-                        {qa.q}
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
-            <h4>Braytech Beta</h4>
-            <ul>
-              {qa
-                .filter(q => q.k === 'braytech-beta')
                 .map((qa, index) => {
                   return (
                     <li key={index} className='qa'>

@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
 const Default = props => {
@@ -10,15 +11,7 @@ const Default = props => {
   // description
   const description = definition && (definition.statDescription || (definition.displayProperties?.description !== '' && definition.displayProperties?.description));
 
-  return (
-    <>
-      {description ? (
-        <div className='description'>
-          <pre>{description}</pre>
-        </div>
-      ) : null}
-    </>
-  );
+  return description ? <BungieText value={description} /> : null;
 };
 
 export default Default;

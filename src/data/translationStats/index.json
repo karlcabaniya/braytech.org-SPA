@@ -1,24 +1,30 @@
 {
   "de": {
-    "translated": 369,
-    "notTranslated": 295,
+    "translated": 368,
+    "notTranslated": 296,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "debug": {
     "translated": 664,
     "notTranslated": 0,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "en": {
@@ -26,129 +32,163 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "es-mx": {
-    "translated": 656,
-    "notTranslated": 8,
+    "translated": 653,
+    "notTranslated": 11,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "es": {
-    "translated": 656,
-    "notTranslated": 8,
+    "translated": 653,
+    "notTranslated": 11,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "fr": {
-    "translated": 574,
-    "notTranslated": 90,
+    "translated": 573,
+    "notTranslated": 91,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "it": {
-    "translated": 654,
-    "notTranslated": 10,
+    "translated": 652,
+    "notTranslated": 12,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "ja": {
-    "translated": 604,
-    "notTranslated": 60,
+    "translated": 602,
+    "notTranslated": 62,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "ko": {
-    "translated": 555,
-    "notTranslated": 109,
+    "translated": 553,
+    "notTranslated": 111,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "pl": {
     "translated": 0,
     "notTranslated": 664,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "pt-br": {
-    "translated": 573,
-    "notTranslated": 91,
+    "translated": 571,
+    "notTranslated": 93,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "ru": {
-    "translated": 656,
-    "notTranslated": 8,
+    "translated": 653,
+    "notTranslated": 11,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "zh-chs": {
-    "translated": 460,
-    "notTranslated": 204,
+    "translated": 459,
+    "notTranslated": 205,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   },
   "zh-cht": {
-    "translated": 376,
-    "notTranslated": 288,
+    "translated": 375,
+    "notTranslated": 289,
     "added": [
-      "Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance."
+      "Begin your trials by speaking with Saint-14.",
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
     ],
     "removed": [
-      "Braytech has encountered a fatal error. This incident has been reported.",
-      "Braytech has encountered a temporary error. This incident has been reported."
+      "Begin your trial by speaking with Saint-14.",
+      "Braytech Beta won't update to the newest version",
+      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
     ]
   }
 }

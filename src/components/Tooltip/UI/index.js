@@ -7,6 +7,8 @@ import cx from 'classnames';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 
+import './styles.css';
+
 import Default from './Default';
 import Braytech from './Braytech';
 
@@ -61,7 +63,7 @@ class UI extends React.Component {
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'ui', item.rarity)}>
+        <div className='frame ui'>
           <div className='header'>
             <div className='name'>{definition.displayProperties?.name || definition.statName}</div>
             {definition.itemTypeDisplayName ? <div className='kind'>{definition.itemTypeDisplayName}</div> : <div />}

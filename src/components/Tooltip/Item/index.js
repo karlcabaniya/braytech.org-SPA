@@ -13,6 +13,8 @@ import { masterwork } from '../../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../../utils/destinyItems/utils';
 import ObservedImage from '../../ObservedImage';
 
+import './styles.css';
+
 import Default from './Default';
 import Equipment from './Equipment';
 import SubClass from './SubClass';
