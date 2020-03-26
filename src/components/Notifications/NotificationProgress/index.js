@@ -32,9 +32,17 @@ function difference(object, base) {
 
 class NotificationProgress extends React.Component {
   state = {
+    // progress: {
+    //   type: 'record',
+    //   className: ['record redeemed'],
+    //   hash: 945314810,
+    //   number: 0,
+    //   timedOut: false
+    // }
     progress: {
-      type: false,
-      hash: false,
+      type: undefined,
+      hash: undefined,
+      className: [],
       number: 0,
       timedOut: true
     }
@@ -105,13 +113,15 @@ class NotificationProgress extends React.Component {
 
         const state = enumerateRecordState(records[key].state);
 
-        if (!state.objectiveNotCompleted) {
+        if (!state.objectiveNotCompleted || state.recordRedeemed) {
           if (progress.hash) {
             progress.number = progress.number + 1;
+
             return;
           }
 
           progress.type = 'record';
+          progress.className = state.recordRedeemed ? ['record', 'redeemed'] : ['record']
           progress.hash = key;
           progress.number = progress.number + 1;
         }
@@ -126,23 +136,22 @@ class NotificationProgress extends React.Component {
   }
 
   render() {
-    if (this.state.progress.type === 'record') {
-      const definitionRecord = manifest.DestinyRecordDefinition[this.state.progress.hash];
+    const { type, className, hash, number, timedOut } = this.state.progress;
+
+    if (type === 'record') {
+      const definitionRecord = manifest.DestinyRecordDefinition[hash];
 
       const link = selfLinkRecord(definitionRecord.hash);     
 
       return (
-        <div id='notification-progress' className={cx('record', { lore: definitionRecord.loreHash, timedOut: this.state.progress.timedOut })}>
-          <div className='type'>
-            <div className='text'>{t('Triumph completed')}</div>
-          </div>
+        <div id='notification-progress' className={cx(className, { lore: definitionRecord.loreHash, timedOut: timedOut })}>
           <div className='item'>
             <div className='properties'>
               <div className='name'>{definitionRecord?.displayProperties.name}</div>
               <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} noConstraints />
               <div className='description'>{recordDescription(definitionRecord.hash)}</div>
             </div>
-            {this.state.progress.number > 1 ? <div className='more'>{t('And {{number}} more', { number: this.state.progress.number - 1 })}</div> : null}
+            {number > 1 ? <div className='more'>{t('And {{number}} more', { number: number - 1 })}</div> : null}
           </div>
           {link ? <ProfileLink to={link} /> : null}
         </div>

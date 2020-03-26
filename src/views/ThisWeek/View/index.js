@@ -10,7 +10,7 @@ import { DestinyKey } from '../../../components/UI/Button';
 import CustomiseTip from '../../../components/UserModules/CustomiseTip';
 
 import Flashpoint from '../../../components/UserModules/Flashpoint';
-import Events from '../../../components/UserModules/Events';
+import { Events, eventsCalendar } from '../../../components/UserModules/Events';
 import WeeklyVanguardSinge from '../../../components/UserModules/WeeklyVanguardSinge';
 import CrucibleRotators from '../../../components/UserModules/CrucibleRotators';
 import Nightfalls from '../../../components/UserModules/Nightfalls';
@@ -125,20 +125,15 @@ class ThisWeek extends React.Component {
       cycleInfo.week[cycle] = Math.floor((cycleInfo.elapsed[cycle] / msPerWk) % cycleInfo.cycle[cycle]) + 1;
     }
 
-    const userHead = {
+    const userHeadGroup = {
       ...layout.groups.find(g => g.id === 'head'),
       ...headOverride,
       type: 'user',
       className: ['head']
     };
 
-    userHead.cols = userHead.cols.map(c => {
+    userHeadGroup.cols = userHeadGroup.cols.map(c => {
       const className = [];
-
-      // const FeaturedActivitiesIndex = c.mods.findIndex(m => m.component === 'FeaturedActivities');
-      // if (FeaturedActivitiesIndex > -1) {
-      //   c.mods[FeaturedActivitiesIndex].condition = Boolean(characterActivities[member.characterId].availableActivities.filter(a => [3753505781, 1454880421].includes(a.activityHash)).length);
-      // }
 
       if (c.mods.filter(m => moduleRules.double.filter(f => f === m.component).length).length) className.push('double');
 
@@ -184,8 +179,13 @@ class ThisWeek extends React.Component {
         };
       });
 
-    const modules = [
-      userHead,
+    const groups = [
+      {
+        className: ['full', 'events'],
+        condition: eventsCalendar.filter(e => this.props.member.data.profile.characterActivities.data[this.props.member.characterId].availableActivities.filter(a => a.activityHash === e.activityHash).length).length,
+        components: ['Events']
+      },
+      userHeadGroup,
       {
         className: ['full', 'tip', 'customise-tip'],
         condition: tips.indexOf('CustomiseTipModule') < 0,
@@ -197,11 +197,11 @@ class ThisWeek extends React.Component {
     return (
       <>
         <div className='groups'>
-          {modules.map((group, g) => {
+          {groups.filter(m => m).map((group, g) => {
             if (group.components) {
               if (group.condition === undefined || group.condition) {
                 return (
-                  <div key={g} className={cx('group', ...(group.className || []))}>
+                  <div key={g} className={cx('group', group.className)}>
                     {group.components.map((c, i) => {
                       const Component = this.components[c].reference;
 
@@ -218,12 +218,12 @@ class ThisWeek extends React.Component {
               const cols = getCols(group.cols);
 
               return (
-                <div key={g} className={cx('group', ...(group.className || []), { 'double-pear': groupDoubleSpan > 1 } )}>
+                <div key={g} className={cx('group', group.className, { 'double-pear': groupDoubleSpan > 1 } )}>
                   {cols
                     .map((col, c) => {
                       if ((col.condition === undefined || col.condition) && col.mods.length) {
                         return (
-                          <div key={c} className={cx('column', ...(col.className || []))}>
+                          <div key={c} className={cx('column', col.className)}>
                             {col.mods
                               .map((mod, m) => {
                                 if (mod.condition === undefined || mod.condition) {
@@ -235,7 +235,7 @@ class ThisWeek extends React.Component {
 
                                   if (!Component) {
                                     return (
-                                      <div key={m} className={cx('module', ...(mod.className || []))}>
+                                      <div key={m} className={cx('module', mod.className)}>
                                         <div className='info'>
                                           <p>
                                             {t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}
@@ -246,7 +246,7 @@ class ThisWeek extends React.Component {
                                   }
 
                                   return (
-                                    <div key={m} className={cx('module', ...(mod.className || []))}>
+                                    <div key={m} className={cx('module', mod.className)}>
                                       <Component cycleInfo={cycleInfo} {...settings} />
                                     </div>
                                   );

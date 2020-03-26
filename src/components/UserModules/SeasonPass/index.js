@@ -188,7 +188,7 @@ class SeasonPass extends React.Component {
     const seasonRank = progressionSeasonRank(member);
 
     return (
-      <div className='season-pass'>
+      <div className='wrapper'>
         <div className='module status'>
           <div className='sub-header'>
             <div>{t('Season pass')}</div>

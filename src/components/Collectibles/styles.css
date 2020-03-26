@@ -40,6 +40,18 @@
   opacity: 1;
 }
 
+.list.collection-items li.solar .icon .image {
+  background-color: var(--energy-solar);
+}
+
+.list.collection-items li.arc .icon .image {
+  background-color: var(--energy-arc);
+}
+
+.list.collection-items li.void .icon .image {
+  background-color: var(--energy-void);
+}
+
 .list.collection-items li .text {
   flex-basis: calc(100% - 48px - 1rem);
   margin: 0 0 0 1rem;

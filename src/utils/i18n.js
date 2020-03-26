@@ -223,5 +223,7 @@ export const fromNow = (timestamp, abbreviated = false) => {
 };
 
 export function BungieText(props) {
-  return <ReactMarkdown className='description' source={stringToIcons(props.value, true)} />
+  const { className = 'description', value = '' } = props;
+
+  return <ReactMarkdown className={className} source={stringToIcons(value, true)} />
 }

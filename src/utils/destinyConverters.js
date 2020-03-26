@@ -127,20 +127,15 @@ export function displayValue(value = '', objectiveHash, styleOverride = 0) {
 }
 
 export function energyStatToType(statHash) {
-  let typeHash;
-
-  switch (statHash) {
-    case 3625423501:
-      typeHash = 728351493; // arc
-      break;
-    case 16120457:
-      typeHash = 4069572561; // void
-      break;
-    default:
-      typeHash = 591714140; // solar
+  if (enums.energyStats.solar.indexOf(statHash) > -1) {
+    return 591714140;   // solar
+  } else if (enums.energyStats.arc.indexOf(statHash) > -1) {
+    return 728351493;   // void
+  } else if (enums.energyStats.void.indexOf(statHash) > -1) {
+    return 4069572561;  // void
+  } else {
+    return 1198124803;  // any
   }
-
-  return typeHash;
 }
 
 export function energyTypeToAsset(type) {

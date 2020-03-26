@@ -98,8 +98,8 @@ const getUniqueGroupID = groups => {
 }
 
 export const moduleRules = {
-  full: ['Nightfalls'],
-  double: ['DreamingCityShatteredThrone', 'Events'],
+  full: ['Nightfalls', 'Events'],
+  double: ['DreamingCityShatteredThrone'],
   head: []
 };
 

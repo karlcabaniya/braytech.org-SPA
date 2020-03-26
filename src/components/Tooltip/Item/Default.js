@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { t, duration, timestampToDuration } from '../../../utils/i18n';
+import { t, duration, timestampToDuration, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
@@ -80,11 +80,7 @@ const Default = props => {
 
   // description
   if (description) {
-    blocks.push(
-      <div className='description'>
-        <pre>{description}</pre>
-      </div>
-    );
+    blocks.push(<BungieText value={description} />);
   }
 
   // objectives?

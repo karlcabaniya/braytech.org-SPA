@@ -131,7 +131,7 @@
 }
 
 #tooltip .damage .power.solar {
-  color: #ef641f;
+  color: var(--energy-solar);
 }
 
 #tooltip .damage .power .icon.solar::before {
@@ -139,7 +139,7 @@
 }
 
 #tooltip .damage .power.arc {
-  color: #79bbe7;
+  color: var(--energy-arc);
 }
 
 #tooltip .damage .power .icon.arc::before {
@@ -147,7 +147,7 @@
 }
 
 #tooltip .damage .power.void {
-  color: #a371c2;
+  color: var(--energy-void);
 }
 
 #tooltip .damage .power .icon.void::before {
@@ -404,15 +404,15 @@
 }
 
 #tooltip .energy .value.solar {
-  color: #ef641f;
+  color: var(--energy-solar);
 }
 
 #tooltip .energy .value.arc {
-  color: #79bbe7;
+  color: var(--energy-arc);
 }
 
 #tooltip .energy .value.void {
-  color: #a371c2;
+  color: var(--energy-void);
 }
 
 #tooltip .energy .text {

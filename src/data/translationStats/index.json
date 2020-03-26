@@ -1,194 +1,114 @@
 {
   "de": {
     "translated": 368,
-    "notTranslated": 296,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 295,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "debug": {
-    "translated": 664,
-    "notTranslated": 0,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
-    "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
-    ]
-  },
-  "en": {
-    "translated": 664,
+    "translated": 663,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
+    ]
+  },
+  "en": {
+    "translated": 663,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Triumph completed"
     ]
   },
   "es-mx": {
     "translated": 653,
-    "notTranslated": 11,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 10,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "es": {
     "translated": 653,
-    "notTranslated": 11,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 10,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "fr": {
     "translated": 573,
-    "notTranslated": 91,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 90,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "it": {
     "translated": 652,
-    "notTranslated": 12,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 11,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 62,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 61,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "ko": {
     "translated": 553,
-    "notTranslated": 111,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 110,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 664,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 663,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "pt-br": {
     "translated": 571,
-    "notTranslated": 93,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 92,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "ru": {
     "translated": 653,
-    "notTranslated": 11,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 10,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "zh-chs": {
     "translated": 459,
-    "notTranslated": 205,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 204,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   },
   "zh-cht": {
     "translated": 375,
-    "notTranslated": 289,
-    "added": [
-      "Begin your trials by speaking with Saint-14.",
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ],
+    "notTranslated": 288,
+    "added": [],
     "removed": [
-      "Begin your trial by speaking with Saint-14.",
-      "Braytech Beta won't update to the newest version",
-      "From _Settings_ you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to restart to update.\n\nIf this fails, you can try _Reload_. If all is lost, _Dump service worker_.\n\n_For the technically inclined, the unpredictable behaviour of service workers—especially on iOS—is why I haven't redeployed one to production after what happened last time._"
+      "Triumph completed"
     ]
   }
 }

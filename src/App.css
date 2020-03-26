@@ -1,3 +1,9 @@
+#root {
+  --energy-solar: #ef641f;
+  --energy-arc: #79bbe7;
+  --energy-void: #a371c2;
+}
+
 #root .main {
   min-height: calc(100vh - 82px);
 }

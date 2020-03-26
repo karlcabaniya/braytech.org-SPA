@@ -2,6 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import cx from 'classnames';
 
+import { BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { stringToIcons } from '../../../utils/destinyUtils';
@@ -89,11 +90,7 @@ const Equipment = props => {
 
   // flair
   if (flair) {
-    blocks.push(
-      <div className='flair'>
-        <p>{flair}</p>
-      </div>
-    );
+    blocks.push(<BungieText className='flair' value={flair} />);
   }
 
   if ((primaryStat && displayStats) || (flair && displayStats) || (flair && !displayStats && displaySockets)) blocks.push(<div className='line' />);

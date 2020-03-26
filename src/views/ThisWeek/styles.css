@@ -19,10 +19,15 @@
 }
 
 #this-week .group.head {
-  padding: 4rem 3rem 3rem;
+  padding: 3rem;
   margin: 0;
   background-color: rgba(255, 255, 255, 0.05);
   overflow: hidden;
+}
+
+#this-week .group:first-child {
+  padding: 4rem 3rem 3rem;
+  margin: 0;
 }
 
 #this-week .group:not(.head) .column {

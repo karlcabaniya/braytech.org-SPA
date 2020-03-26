@@ -10,6 +10,7 @@ import { commonality } from '../../utils/destinyUtils';
 import { ProfileLink } from '../../components/ProfileLink';
 import ObservedImage from '../../components/ObservedImage';
 import { enumerateCollectibleState } from '../../utils/destinyEnums';
+import { energyStatToType, energyTypeToAsset } from '../../utils/destinyConverters';
 
 import './styles.css';
 
@@ -126,7 +127,6 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={definitionCollectible.hash}
-                    ref={ref}
                     className={cx('redacted', 'tooltip', {
                       highlight: highlight && highlight === definitionCollectible.hash
                     })}
@@ -241,6 +241,9 @@ class Collectibles extends React.Component {
               )
             });
           } else {
+            const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
+            const energyAsset = definitionItem?.investmentStats?.[0]?.statTypeHash && energyTypeToAsset(energyStatToType(definitionItem.investmentStats[0].statTypeHash));
+
             collectiblesOutput.push({
               discovered: !enumerateCollectibleState(state).notAcquired,
               hash: definitionCollectible.hash,
@@ -248,7 +251,7 @@ class Collectibles extends React.Component {
                 <li
                   key={definitionCollectible.hash}
                   ref={ref}
-                  className={cx('tooltip', {
+                  className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).notAcquired,
                     highlight: highlight && highlight === definitionCollectible.hash
                   })}
@@ -299,6 +302,9 @@ class Collectibles extends React.Component {
           return;
         }
 
+        const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
+        const energyAsset = definitionItem?.investmentStats?.[0]?.statTypeHash && energyTypeToAsset(energyStatToType(definitionItem.investmentStats[0].statTypeHash));
+
         const link = selfLinkCollectible(definitionCollectible.hash);
 
         collectiblesOutput.push({
@@ -307,7 +313,7 @@ class Collectibles extends React.Component {
           element: (
             <li
               key={definitionCollectible.hash}
-              className={cx({
+              className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
                 tooltip: viewport.width <= 600 && link && selfLinkFrom && !forceTooltip ? false : true,
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).notAcquired

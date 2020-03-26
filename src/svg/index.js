@@ -119,6 +119,8 @@ import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg'
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
 import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
 
+import { ReactComponent as IronBanner } from './events/iron-banner.svg';
+
 const Common = {
   Arc,
   Solar,
@@ -135,24 +137,28 @@ const Common = {
   Braytech,
   Tracking,
   CrossSave
-}
+};
 
 const Miscellaneous = {
   WarmindHalf,
   TrialsOfOsirisDevice,
   CurseCycle
-}
+};
+
+const Events = {
+  IronBanner
+};
 
 const Loading = {
   ClovisBray: FlairClovisBray,
   WarmindHalf
-}
+};
 
 const Flair = {
   ClovisBray: FlairClovisBray,
   Warmind: DestinationsHellasBasin,
   Superintendent: FlairSuperintendent
-}
+};
 
 const Destinations = {
   ArcadianValley: DestinationsArcadianValley,
@@ -161,8 +167,8 @@ const Destinations = {
   TheTangledShore: DestinationsTheTangledShore,
   HellasBasin: DestinationsHellasBasin,
   FieldsOfGlass: DestinationsFieldsOfGlass,
-  EchoMesa: DestinationsEchoMesa,
-}
+  EchoMesa: DestinationsEchoMesa
+};
 
 const Campaign = {
   RedWar: CampaignRedWar,
@@ -170,7 +176,7 @@ const Campaign = {
   Warmind: CampaignWarmind,
   Forsaken: CampaignForsaken,
   Shadowkeep: CampaignShadowkeep
-}
+};
 
 const Tooltips = {
   FastTravel: TooltipFastTravel,
@@ -189,7 +195,7 @@ const Tooltips = {
   Raid: TooltipRaid,
   SeasonalArena: TooltipSeasonalArena,
   TrialsOfOsiris: TooltipTrialsOfOsiris
-}
+};
 
 const Maps = {
   FastTravel: MapsFastTravel,
@@ -210,7 +216,7 @@ const Maps = {
   MapsPatrolBossVex,
   MapsPatrolBoss,
   MapsPatrolMinion
-}
+};
 
 const Views = {
   Index: {
@@ -248,7 +254,7 @@ const Views = {
     TraitSeasonal,
     TraitCareer
   }
-}
+};
 
 const Activities = {
   Standing: {
@@ -292,6 +298,6 @@ const Activities = {
   Raid: {
     Raid: RaidIcon
   }
-}
+};
 
-export { Activities, Campaign, Common, Destinations, Flair, Loading, Miscellaneous, Maps, Tooltips, Views };
+export { Activities, Campaign, Common, Destinations, Events, Flair, Loading, Miscellaneous, Maps, Tooltips, Views };

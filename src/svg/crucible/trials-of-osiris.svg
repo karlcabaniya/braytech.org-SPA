@@ -3,9 +3,9 @@
   <g class="Layer_2" data-name="Layer 2">
     <g class="trials">
       <circle cx="102.20227" cy="102.20224" r="58.04511" style="fill: #caa265"/>
-      <g>
-        <polygon class="hexagon" points="142.26 32.818 62.246 32.818 22.239 102.112 62.246 171.406 142.26 171.406 182.267 102.112 142.26 32.818" style="fill: none;stroke: #fff;stroke-miterlimit: 10;opacity: 0.5"/>
-        <polygon class="hexagon" points="102.253 22.099 32.959 62.105 32.959 142.119 102.253 182.126 171.547 142.119 171.547 62.105 102.253 22.099" style="fill: none;stroke: #fff;stroke-miterlimit: 10;opacity: 0.5"/>
+      <g style="opacity: 0.2">
+        <polygon class="hexagon" points="142.26 32.818 62.246 32.818 22.239 102.112 62.246 171.406 142.26 171.406 182.267 102.112 142.26 32.818" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
+        <polygon class="hexagon" points="102.253 22.099 32.959 62.105 32.959 142.119 102.253 182.126 171.547 142.119 171.547 62.105 102.253 22.099" style="fill: none;stroke: #fff;stroke-miterlimit: 10"/>
       </g>
       <g>
         <g class="dots dots6" style="opacity: 0.1">

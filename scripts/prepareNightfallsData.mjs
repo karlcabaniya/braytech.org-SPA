@@ -134,9 +134,9 @@ async function run() {
     3718330161: {
       // Nightfall: Tree of Probabilities
       sort: 15,
-      triumphs: [2282894388, 2222885351],
+      triumphs: [2282894388, 3636866482],
       items: [],
-      collectibles: [1279318110, 3490589924],
+      collectibles: [1279318110, 1463718184],
       ordealHashes: [2660931442, 2660931444, 2660931445, 2660931447],
       affectsSpeedEmblemObjective: true
     },

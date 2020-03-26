@@ -73,8 +73,26 @@ export const DestinyItemSubType = {
 
 export const DestinyInventoryBucket = {
   Shaders: 2973005342,
-  Modifications: 3313201758 // costmetics
+  Modifications: 3313201758
 };
+
+export const energyStats = {
+  solar: [
+    2018193158, // capacity
+    3344745325  // cost
+  ],
+  arc: [
+    3625423501, // capacity
+    3779394102  // cost
+  ],
+  void: [
+    16120457,   // capacity
+    2399985800  // cost
+  ],
+  any: [
+    3578062600  // cost
+  ]
+}
 
 export const DestinySocketCategoryStyle = {
   Unknown: 0,
@@ -539,9 +557,9 @@ export const nightfalls = {
   3718330161: {
     // Nightfall: Tree of Probabilities
     sort: 15,
-    triumphs: [2282894388, 2222885351],
+    triumphs: [2282894388, 3636866482],
     items: [],
-    collectibles: [1279318110, 3490589924],
+    collectibles: [1279318110, 1463718184],
     ordealHashes: [2660931442, 2660931443, 2660931444, 2660931445, 2660931447],
     grandmasterHash: 2023667984,
     affectsSpeedEmblemObjective: true

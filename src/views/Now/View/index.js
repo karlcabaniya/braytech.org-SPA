@@ -180,7 +180,7 @@ class Now extends React.Component {
             if (group.components) {
               if (group.condition === undefined || group.condition) {
                 return (
-                  <div key={g} className={cx('group', ...(group.className || []))}>
+                  <div key={g} className={cx('group', group.className)}>
                     {group.components.map((c, i) => {
                       const Component = this.components[c].reference;
 
@@ -197,12 +197,12 @@ class Now extends React.Component {
               const cols = getCols(group.cols);
 
               return (
-                <div key={g} className={cx('group', ...(group.className || []), { 'double-pear': groupDoubleSpan > 1 } )}>
+                <div key={g} className={cx('group', group.className, { 'double-pear': groupDoubleSpan > 1 } )}>
                   {cols
                     .map((col, c) => {
                       if ((col.condition === undefined || col.condition) && col.mods.length) {
                         return (
-                          <div key={c} className={cx('column', ...(col.className || []))}>
+                          <div key={c} className={cx('column', col.className)}>
                             {col.mods
                               .map((mod, m) => {
                                 if (mod.condition === undefined || mod.condition) {
@@ -214,7 +214,7 @@ class Now extends React.Component {
 
                                   if (!Component) {
                                     return (
-                                      <div key={m} className={cx('module', ...(mod.className || []))}>
+                                      <div key={m} className={cx('module', mod.className)}>
                                         <div className='info'>
                                           <p>
                                             {t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}
@@ -225,7 +225,7 @@ class Now extends React.Component {
                                   }
 
                                   return (
-                                    <div key={m} className={cx('module', ...(mod.className || []))}>
+                                    <div key={m} className={cx('module', mod.className)}>
                                       <Component cycleInfo={cycleInfo} {...settings} />
                                     </div>
                                   );
