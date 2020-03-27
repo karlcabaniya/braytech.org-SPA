@@ -12,6 +12,10 @@
   opacity: 0.5;
 }
 
+.wrapper.dark .user-module.flashpoint .icon {
+  opacity: 0.2;
+}
+
 .user-module.flashpoint .icon svg {
   height: 100%;
   width: 100%;
@@ -22,7 +26,5 @@
 }
 
 @media screen and (max-width: 600px) {
-  .user-module.flashpoint .icon {
-    opacity: 0.25;
-  }
+  
 }

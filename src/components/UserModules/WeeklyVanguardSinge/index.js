@@ -84,13 +84,7 @@ class WeeklyVanguardSinge extends React.Component {
             </p>
           </div>
           <div className={cx('icon', activeSinge.className)}>
-            <div className='outer'>
-              <SVG />
-            </div>
-            <div className='inner'>
-              <SVG />
-            </div>
-            {/* <div className='name'>{definitionSinge.displayProperties.name}</div> */}
+            <SVG />
           </div>
         </div>
       );

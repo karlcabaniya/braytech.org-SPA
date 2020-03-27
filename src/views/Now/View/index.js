@@ -125,13 +125,13 @@ class Now extends React.Component {
       cycleInfo.week[cycle] = Math.floor((cycleInfo.elapsed[cycle] / msPerWk) % cycleInfo.cycle[cycle]) + 1;
     }
 
-    const userHead = {
+    const userHeadGroup = {
       ...layout.groups.find(g => g.id === 'head'),
       type: 'user',
       className: ['head']
     };
 
-    const userBody = layout.groups
+    const userBodyGroup = layout.groups
       .filter(g => g.type === 'body')
       .map(group => {
         const className = [];
@@ -159,7 +159,7 @@ class Now extends React.Component {
       });
 
     const modules = [
-      userHead,
+      userHeadGroup,
       {
         className: ['full', 'tip', 'customise-tip'],
         condition: tips.indexOf('CustomiseTipModule') < 0,
@@ -170,7 +170,7 @@ class Now extends React.Component {
         condition: auth ? false : !auth && tips.indexOf('AuthUpsellModule') < 0 ? true : false,
         components: ['AuthUpsell']
       },
-      ...userBody
+      ...userBodyGroup
     ];
 
     return (

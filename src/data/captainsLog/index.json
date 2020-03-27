@@ -1083,5 +1083,10 @@
     "date": "2020-03-24T12:21:25.020Z",
     "version": "2.21.14",
     "content": "- updated theme settings and language"
+  },
+  {
+    "date": "2020-03-27T06:42:37.976Z",
+    "version": "2.21.26",
+    "content": "- new Iron Banner icon\n- new _Events_ module for _This Week_ view\n- Mod elemental affinity is now shown without requiring tooltip\n- house keeping\n- other great improvements"
   }
 ]

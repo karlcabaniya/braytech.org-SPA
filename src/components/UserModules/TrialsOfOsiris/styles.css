@@ -12,6 +12,10 @@
   opacity: 0.2;
 }
 
+.wrapper.dark .user-module.trials-of-osiris > .icon {
+  opacity: 0.075;
+}
+
 .user-module.trials-of-osiris > .icon svg {
   height: 100%;
   width: 100%;
@@ -44,7 +48,5 @@
 }
 
 @media screen and (max-width: 600px) {
-  .user-module.trials-of-osiris > .icon {
-    opacity: 0.075;
-  }
+  
 }

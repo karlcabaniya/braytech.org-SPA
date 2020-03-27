@@ -143,7 +143,7 @@ class ThisWeek extends React.Component {
       };
     });
 
-    const userBody = layout.groups
+    const userBodyGroup = layout.groups
       .filter(g => g.type === 'body')
       .map(group => {
         const className = [];
@@ -191,7 +191,7 @@ class ThisWeek extends React.Component {
         condition: tips.indexOf('CustomiseTipModule') < 0,
         components: ['CustomiseTip']
       },
-      ...userBody
+      ...userBodyGroup
     ];
 
     return (

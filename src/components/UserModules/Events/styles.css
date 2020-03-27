@@ -8,6 +8,7 @@
   min-height: 21rem;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgb(66, 107, 75);
 }
 
 .group.events .group.iron-banner .event {
@@ -23,7 +24,7 @@
   height: 100%;
   display: grid;
   align-items: center;
-  opacity: 0.15;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -41,6 +42,9 @@
 
 #this-week .group.events .group.iron-banner .event .text .description p {
   max-width: 600px;
+}
+
+#this-week .group.events .group.iron-banner .event .text .description p:first-child {
   font-size: 16px;
 }
 
@@ -50,4 +54,32 @@
 
 #this-week .group.events .group.iron-banner .module .list:not(:last-child) {
   margin: 0 0 3rem;
+}
+
+
+
+@media screen and (max-width: 1440px) {
+  .group.events .group.iron-banner .event {
+    grid-row: span 2;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .group.events .group.iron-banner .event {
+    grid-row: unset;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #this-week .group.events .group.iron-banner {
+    padding: 3rem 2rem 2rem;
+  }
+
+  .group.events .group.iron-banner .event {
+    grid-column: unset;
+  }
+
+  #this-week .group.events .group.iron-banner .module .inventory-items {
+    grid-template-columns: repeat(auto-fill, 48px);
+  }
 }

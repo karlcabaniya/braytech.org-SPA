@@ -12,6 +12,10 @@
   opacity: 0.15;
 }
 
+.wrapper.dark .user-module.dreaming-city-curse-cycle .icon {
+  opacity: 0.075;
+}
+
 .user-module.dreaming-city-curse-cycle .icon svg {
   fill: #ffffff;
   height: 100%;
@@ -20,8 +24,6 @@
 
 @media screen and (max-width: 600px) {
 
-  .user-module.dreaming-city-curse-cycle .icon {
-    opacity: 0.1;
-  }
+  
 
 }
