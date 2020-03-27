@@ -24,19 +24,14 @@ class Events extends React.Component {
     const characterActivities = member.data.profile.characterActivities.data;
 
     const activeEvents = eventsCalendar.filter(e => characterActivities[this.props.member.characterId].availableActivities.filter(a => a.activityHash === e.activityHash).length);
-    const inventory = member.data.profile.profileInventory.data?.items
-      ?.slice()
-      .concat(member.data.profile.characterInventories.data?.[member.characterId]?.items);
 
-    // console.log(activeEvents, inventory)
+    // console.log(activeEvents)
 
     if (activeEvents.length < 1) {
       return null;
     } else if (activeEvents.length === 1) {
       const event = activeEvents[0];
       const definitionActivity = manifest.DestinyActivityDefinition[event.activityHash];
-
-      // const ironBannerTokens = [{ bucketHash: 1469714392, itemHash: 1873857625, quantity: 0, ...inventory?.filter(i => i.itemHash === 1873857625)?.[0] }];
 
       const season10items = [
         {
@@ -104,21 +99,7 @@ class Events extends React.Component {
             </div>
           </div>
           <div className='module'>
-            {/* <div className='sub-header'>
-              <div>{t('Bounties')}</div>
-            </div>
-            <ul className='list inventory-items'>
-              <Items items={tokens} />
-            </ul>
-            <div className='sub-header'>
-              <div>{t('Rewards')}</div>
-            </div>
-            <ul className='list inventory-items'>
-              <Items items={tokens} />
-            </ul> */}
-            <div className='sub-header'>
-              <div>{t('Collectibles')}</div>
-            </div>
+            <h4>{t('Collectibles')}</h4>
             <ul className='list inventory-items'>
               <Items items={season10items.filter(i => {
                 const definitionItem = manifest.DestinyInventoryItemDefinition[i.itemHash];
@@ -128,13 +109,11 @@ class Events extends React.Component {
                 } else {
                   return false;
                 }
-              })} hideQuantity />
+              })} />
             </ul>
           </div>
           <div className='module'>
-            <div className='sub-header'>
-              <div>{t('Records')}</div>
-            </div>
+            <h4>{t('Records')}</h4>
             <ul className='list record-items'>
               <Records selfLinkFrom='/this-week' hashes={[945314810]} ordered />
             </ul>

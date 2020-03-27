@@ -11,6 +11,10 @@
   background-color: rgb(66, 107, 75);
 }
 
+.group.events .group.iron-banner h4 {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .group.events .group.iron-banner .event {
   position: relative;
   grid-column: span 2;
