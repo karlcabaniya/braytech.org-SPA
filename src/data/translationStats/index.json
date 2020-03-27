@@ -2,17 +2,21 @@
   "de": {
     "translated": 368,
     "notTranslated": 295,
-    "added": [],
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "debug": {
     "translated": 663,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "en": {
@@ -20,95 +24,117 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "es-mx": {
-    "translated": 653,
-    "notTranslated": 10,
-    "added": [],
+    "translated": 652,
+    "notTranslated": 11,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "es": {
-    "translated": 653,
-    "notTranslated": 10,
-    "added": [],
+    "translated": 652,
+    "notTranslated": 11,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "fr": {
-    "translated": 573,
-    "notTranslated": 90,
-    "added": [],
+    "translated": 572,
+    "notTranslated": 91,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "it": {
-    "translated": 652,
-    "notTranslated": 11,
-    "added": [],
+    "translated": 651,
+    "notTranslated": 12,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "ja": {
-    "translated": 602,
-    "notTranslated": 61,
-    "added": [],
+    "translated": 601,
+    "notTranslated": 62,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "ko": {
-    "translated": 553,
-    "notTranslated": 110,
-    "added": [],
+    "translated": 552,
+    "notTranslated": 111,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "pl": {
     "translated": 0,
     "notTranslated": 663,
-    "added": [],
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "pt-br": {
-    "translated": 571,
-    "notTranslated": 92,
-    "added": [],
+    "translated": 570,
+    "notTranslated": 93,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "ru": {
-    "translated": 653,
-    "notTranslated": 10,
-    "added": [],
+    "translated": 652,
+    "notTranslated": 11,
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "zh-chs": {
     "translated": 459,
     "notTranslated": 204,
-    "added": [],
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   },
   "zh-cht": {
     "translated": 375,
     "notTranslated": 288,
-    "added": [],
+    "added": [
+      "Active event"
+    ],
     "removed": [
-      "Triumph completed"
+      "Event"
     ]
   }
 }
