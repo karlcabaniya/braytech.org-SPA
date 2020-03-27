@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.21.28",
+  "version": "2.21.29",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +22,7 @@
     "dexie": "^2.0.4",
     "entities": "^2.0.0",
     "html2canvas": "^1.0.0-rc.5",
-    "i18next": "^19.3.3",
+    "i18next": "^19.3.4",
     "i18next-xhr-backend": "^3.2.2",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",
@@ -40,7 +40,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "three": "^0.114.0",
+    "three": "^0.115.0",
     "three-orbitcontrols": "^2.110.3"
   },
   "devDependencies": {
