@@ -1,7 +1,8 @@
 import React from 'react';
-import cx from 'classnames';
+import ReactMarkdown from 'react-markdown';
 
 import { t } from '../../../utils/i18n';
+import ObservedImage from '../../../components/ObservedImage';
 
 class GrimoireCard extends React.Component {
   state = {};
@@ -21,14 +22,17 @@ class GrimoireCard extends React.Component {
     
     return (
       <div className='card'>
-        <div className='name'>{definitionCard.cardName}</div>
-        {definitionCard.cardIntro ? (
-          <div className='intro'>
-            <div>{definitionCard.cardIntro}</div>
-            <div className='attribution'>{definitionCard.cardIntroAttribution}</div>
-          </div>
-        ) : null}
-        <div className='description'>{definitionCard.cardDescription}</div>
+        <ObservedImage src={`https://www.bungie.net${definitionCard.highResolution.image.sheetPath}`} />
+        <div className='text'>
+          <div className='name'>{definitionCard.cardName}</div>
+          {definitionCard.cardIntro ? (
+            <div className='intro'>
+              <div className='text'>{definitionCard.cardIntro}</div>
+              <div className='attribution'>{definitionCard.cardIntroAttribution}</div>
+            </div>
+          ) : null}
+          <ReactMarkdown className='description' source={definitionCard.cardDescription} />
+        </div>
       </div>
     );
   }

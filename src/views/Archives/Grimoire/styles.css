@@ -1,22 +1,34 @@
 #archives.grimoire .content {
-  grid-template-columns: 340px auto;
+  grid-template-columns: auto;
 }
 
 .grimoire .card {
-  
+  display: grid;
+  grid-template-columns: 340px auto;
+  gap: 3rem;
 }
 
-.grimoire .card .name {
+.grimoire .card .image {
+  position: relative;
+  height: unset;
+  padding-bottom: 130%;
+}
+
+.grimoire .card .text {
+  max-width: 600px;
+}
+
+.grimoire .card .text .name {
   font-size: 32px;
   line-height: 1;
 }
 
-.grimoire .card .intro {
+.grimoire .card .text .intro {
   margin: 1rem 0 0;
   font-size: 22px;
   line-height: 1;
 }
 
-.grimoire .card .description {
+.grimoire .card .text .description {
   margin: 2rem 0 0;
 }

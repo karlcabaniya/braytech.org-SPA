@@ -4,7 +4,7 @@ import { slowImport } from '../../../App';
 import { SuspenseLoading } from '../../../components/Loading';
 import i18n from '../../../utils/i18n';
 
-const GrimoireDefinitionsEN = React.lazy(() => import('./en/'));
+const GrimoireDefinitionsEN = React.lazy(() => slowImport(import('./en/')));
 const GrimoireDefinitionsDE = React.lazy(() => slowImport(import('./de/')));
 const GrimoireDefinitionsES = React.lazy(() => slowImport(import('./es/')));
 const GrimoireDefinitionsFR = React.lazy(() => slowImport(import('./fr/')));
