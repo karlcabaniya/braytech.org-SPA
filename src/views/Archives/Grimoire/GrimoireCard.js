@@ -20,7 +20,16 @@ class GrimoireCard extends React.Component {
     console.log(definitionCard);
     
     return (
-      null
+      <div className='card'>
+        <div className='name'>{definitionCard.cardName}</div>
+        {definitionCard.cardIntro ? (
+          <div className='intro'>
+            <div>{definitionCard.cardIntro}</div>
+            <div className='attribution'>{definitionCard.cardIntroAttribution}</div>
+          </div>
+        ) : null}
+        <div className='description'>{definitionCard.cardDescription}</div>
+      </div>
     );
   }
 }
