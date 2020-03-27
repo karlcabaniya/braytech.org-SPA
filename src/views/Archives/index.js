@@ -37,6 +37,12 @@ export function NavLinks() {
           </div>
           <NavLink to='/archives/chalice-of-opulence' />
         </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Archives.Grimoire />
+          </div>
+          <NavLink to='/archives/grimoire' />
+        </li>
       </ul>
     </div>
   );

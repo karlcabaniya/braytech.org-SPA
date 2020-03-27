@@ -1,140 +1,125 @@
 {
   "de": {
     "translated": 368,
-    "notTranslated": 295,
+    "notTranslated": 297,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 663,
+    "translated": 665,
     "notTranslated": 0,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 663,
+    "translated": 665,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 652,
-    "notTranslated": 11,
+    "notTranslated": 13,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 652,
-    "notTranslated": 11,
+    "notTranslated": 13,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 572,
-    "notTranslated": 91,
+    "notTranslated": 93,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 651,
-    "notTranslated": 12,
+    "notTranslated": 14,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 62,
+    "notTranslated": 64,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 552,
-    "notTranslated": 111,
+    "notTranslated": 113,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 0,
-    "notTranslated": 663,
+    "notTranslated": 665,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 570,
-    "notTranslated": 93,
+    "notTranslated": 95,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 652,
-    "notTranslated": 11,
+    "notTranslated": 13,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 459,
-    "notTranslated": 204,
+    "notTranslated": 206,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 375,
-    "notTranslated": 288,
+    "notTranslated": 290,
     "added": [
-      "Active event"
+      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.",
+      "Destiny1.Grimoire.IronBanner"
     ],
-    "removed": [
-      "Event"
-    ]
+    "removed": []
   }
 }

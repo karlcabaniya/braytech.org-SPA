@@ -118,6 +118,7 @@ import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowke
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
 import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
+import { ReactComponent as Grimoire } from './miscellaneous/grimoire.svg';
 
 import { ReactComponent as IronBanner } from './events/iron-banner.svg';
 
@@ -246,7 +247,8 @@ const Views = {
     Overview: Stats,
     Eververse,
     ChaliceOfOpulence,
-    Tricorn
+    Tricorn,
+    Grimoire
   },
   Trackers: {
     TraitAll,

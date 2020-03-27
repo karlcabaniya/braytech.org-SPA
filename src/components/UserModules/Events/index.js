@@ -93,8 +93,8 @@ class Events extends React.Component {
               </div>
               <h3>{definitionActivity.displayProperties?.name}</h3>
               <div className='description'>
-                <p>A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.</p>
-                <p>The Lords of Iron, ancient warriors from the City's founding, have no time for mollycoddling. The City remembers Felwinter and Jolder, Skorri and Timur, Radegast and Gheleon and the others, for their invincible patrols during Six Fronts and the Wall-building. The Iron Banner asks Guardians to live up to that legend.</p>
+                <p>{t('A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.')}</p>
+                <p>{t('Destiny1.Grimoire.IronBanner')}</p>
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@ class Events extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member
   };

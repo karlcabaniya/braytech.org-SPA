@@ -12,6 +12,7 @@
   "#####A mostly typical Hive ogre, _Damkath's_ vulnerability is a pulsating cow-sized cyst on his upper-back.": "🌐",
   "#####A mostly typical Hive ogre, _Nur Abath_ is protected by an invulnerability shield that draws its power from nearby minions. Clear them out to disable his shield and proceed to destroy him.": "🌐",
   "#####A single colour–or none–at various saturations and luminances": "🌐",
+  "#####A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.": "🌐",
   "#####A summary of Destiny's most rare records and collectibles": "🌐",
   "#####A tool that enables users to rapidly discover required combinations for specific rewards from _The Menagerie_.": "🌐",
   "#####A typical Hive knight, _Bok Litur_ is well-defended and well-armed. A challenging foe.": "🌐",
@@ -176,6 +177,7 @@
   "Describing the anatomy of collectibles and records": "Zum Aufbau von Sammlungsgegenständen und Triumphen",
   "#####Destiny 1 colours": "🌐",
   "#####Destiny 2 colours": "🌐",
+  "Destiny1.Grimoire.IronBanner": "The Lords of Iron, ancient warriors from the City's founding, have no time for mollycoddling. The City remembers Felwinter and Jolder, Skorri and Timur, Radegast and Gheleon and the others, for their invincible patrols during Six Fronts and the Wall-building. The Iron Banner asks Guardians to live up to that legend."
   "#####Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.": "🌐",
   "#####Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.": "🌐",
   "Developer": "Entwickler",

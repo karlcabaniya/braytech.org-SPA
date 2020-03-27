@@ -8,6 +8,7 @@ import Archives from '../views/Archives';
 import Eververse from '../views/Archives/Eververse';
 import Manifest from '../views/Archives/Manifest';
 import LastWish from '../views/Archives/LastWish';
+import Grimoire from '../views/Archives/Grimoire';
 
 // Lazy components
 const Legend = React.lazy(() => slowImport(import('../views/Archives/Legend')));
@@ -28,6 +29,7 @@ class ArchivesRoutes extends React.Component {
           <Route path={`${match.url}/last-wish`} component={LastWish} />
           <SuspenseRoute path={`${match.url}/chalice-of-opulence/debug`} exact component={ChaliceRecipesDebug} />
           <SuspenseRoute path={`${match.url}/chalice-of-opulence/:rune1?/:rune2?/:rune3?`} exact component={ChaliceRecipes} />
+          <Route path={`${match.url}/grimoire/:cardId?`} exact component={Grimoire} />
           <Route path={`${match.url}`} component={Archives} />
         </Switch>
       </>

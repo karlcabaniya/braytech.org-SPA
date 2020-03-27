@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import cx from 'classnames';
@@ -78,9 +78,9 @@ const RedirectRoute = props => <Route {...props} render={({ location }) => <Redi
 export const SuspenseRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={route => (
     <ErrorBoundary>
-      <Suspense fallback={<SuspenseLoading />}>
+      <React.Suspense fallback={<SuspenseLoading />}>
         <Component {...route} />
-      </Suspense>
+      </React.Suspense>
     </ErrorBoundary>
   )} />
 );
@@ -287,10 +287,10 @@ class App extends React.Component {
       // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
       return (
         <div className={cx('wrapper', this.props.theme.active)}>
-          <Suspense fallback={<SuspenseLoading full />}>
+          <React.Suspense fallback={<SuspenseLoading full />}>
             <AppLoading state={this.state.status} />
             <NotificationLink />
-          </Suspense>
+          </React.Suspense>
         </div>
       );
     }
