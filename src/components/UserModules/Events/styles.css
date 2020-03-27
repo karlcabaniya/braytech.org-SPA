@@ -83,6 +83,12 @@
     grid-column: unset;
   }
 
+  .group.events .group.iron-banner .event .icon svg {
+    width: auto;
+    height: 140%;
+    left: 20%;
+  }
+
   #this-week .group.events .group.iron-banner .module .inventory-items {
     grid-template-columns: repeat(auto-fill, 48px);
   }

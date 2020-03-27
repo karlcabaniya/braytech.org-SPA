@@ -33,10 +33,13 @@
   font-family: monospace;
   font-size: 12px;
   line-height: 1.6;
-  white-space: pre-wrap;
   padding: 10px;
   margin: 1rem 0 0;
   background-color: rgb(220, 81, 59);
+}
+
+#error-boundary .properties .stack pre {
+  white-space: pre-wrap;
 }
 
 #error-boundary .properties .next {
@@ -61,6 +64,10 @@
 
   #error-boundary .properties .name {
     font-size: 24px;
+  }
+
+  #error-boundary .properties .stack {
+    font-size: 10px;
   }
 
 }

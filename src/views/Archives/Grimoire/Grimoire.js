@@ -46,7 +46,7 @@ class Grimoire extends React.Component {
         <div className='buff'>
           <NavLinks />
           <div className='content'>
-            <GrimoireCard card={definitionCard} />
+            {definitionCard && <GrimoireCard card={definitionCard} />}
           </div>
         </div>
       </div>

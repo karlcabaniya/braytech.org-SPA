@@ -73,11 +73,20 @@ class Eververse extends React.Component {
 
     const definitionVendor = manifest.DestinyVendorDefinition[3361454721];
     // console.log(definitionVendor);
+
+    const repeatConumables = [
+      353932628,  // Concentrated Mattergem
+      3187955025, // Glimmershard
+      2638689062, // Scavenger's Boon
+    ];
     
     const weeks_featuredSilverItems = project(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 3), 6);
     const weeks_brightDustItems = project(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 9), 7);
-    const weeks_featuredBrightDustItems = project(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 4).slice(3), 4);
+    const weeks_featuredBrightDustItems = project(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 4).filter(i => repeatConumables.indexOf(i.itemHash) < 0), 4);
     const weeks_brightDustConsumables = project(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 10).slice(3), 4);
+
+    console.log(definitionVendor.itemList.filter(i => i.displayCategoryIndex === 3).map(i => manifest.DestinyInventoryItemDefinition[i.itemHash].displayProperties.name))
+    console.log(definitionVendor.itemList.filter(i => i.itemHash === 10656656))
 
     return (
       <div className='view eververse' id='archives'>
@@ -106,7 +115,7 @@ class Eververse extends React.Component {
                     <li className='category'>{t('Featured silver items')}</li>
                     <li>
                       <ul className='list inventory-items'>
-                        <Items items={weeks_featuredSilverItems[n]?.filter(i => i.itemHash !== 827183327)} />
+                        <Items items={weeks_featuredSilverItems[n]} />
                       </ul>
                     </li>
                   </ul>
@@ -122,7 +131,9 @@ class Eververse extends React.Component {
                     <li className='category'>{t('Bright dust items')}</li>
                     <li>
                       <ul className='list inventory-items'>
-                        {weeks_brightDustConsumables[n] && <Items items={[...w, ...weeks_brightDustConsumables[n]]} />}
+                        {/* {weeks_brightDustConsumables[n] && <Items items={[...w, ...weeks_brightDustConsumables[n]]} />} */}
+                        
+                        <Items items={[...w]} />
                       </ul>
                     </li>
                   </ul>
