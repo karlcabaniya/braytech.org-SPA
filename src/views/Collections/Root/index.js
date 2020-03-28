@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { badgeImages } from '../../../utils/destinyEnums';
 import ObservedImage from '../../../components/ObservedImage';
@@ -13,8 +12,14 @@ import { ProfileLink } from '../../../components/ProfileLink';
 import { enumerateCollectibleState } from '../../../utils/destinyEnums';
 
 class Root extends React.Component {
+  componentDidUpdate(p) {
+    if (p.member.data.updated !== this.props.member.data.updated) {
+      this.props.rebindTooltips();
+    }
+  }
+
   render() {
-    const { t, member, viewport } = this.props;
+    const { member, viewport } = this.props;
 
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
@@ -43,7 +48,6 @@ class Root extends React.Component {
               const definitionNodeChildNodeChildNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChildNodeChildNodeChild.presentationNodeHash];
 
               definitionNodeChildNodeChildNodeChildNode.children.collectibles.forEach(collectible => {
-
                 const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[member.characterId].collectibles[collectible.collectibleHash];
 
                 if (scope) {
@@ -96,7 +100,7 @@ class Root extends React.Component {
         const definitionNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChild.presentationNodeHash];
 
         const sweep = [];
-        
+
         definitionNodeChildNode.children.collectibles.forEach(collectible => {
           const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[member.characterId].collectibles[collectible.collectibleHash];
 
@@ -199,9 +203,12 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps
-  ),
-  withTranslation()
-)(Root);
+function mapDispatchToProps(dispatch) {
+  return {
+    rebindTooltips: value => {
+      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Root);

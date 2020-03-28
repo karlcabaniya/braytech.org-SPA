@@ -3,22 +3,20 @@
     "translated": 369,
     "notTranslated": 297,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "debug": {
     "translated": 666,
     "notTranslated": 0,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "en": {
@@ -26,128 +24,117 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "es-mx": {
     "translated": 653,
     "notTranslated": 13,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "es": {
     "translated": 653,
     "notTranslated": 13,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "fr": {
     "translated": 573,
     "notTranslated": 93,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "it": {
     "translated": 652,
     "notTranslated": 14,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "ja": {
-    "translated": 602,
-    "notTranslated": 64,
+    "translated": 603,
+    "notTranslated": 63,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "ko": {
     "translated": 553,
     "notTranslated": 113,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "pl": {
-    "translated": 1,
-    "notTranslated": 665,
+    "translated": 2,
+    "notTranslated": 664,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "pt-br": {
     "translated": 571,
     "notTranslated": 95,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "ru": {
     "translated": 653,
     "notTranslated": 13,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "zh-chs": {
     "translated": 460,
     "notTranslated": 206,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   },
   "zh-cht": {
     "translated": 376,
     "notTranslated": 290,
     "added": [
-      "Events.IronBanner",
-      "Grimoire"
+      "Each relic holder may only shoot one plant per phase."
     ],
     "removed": [
-      "A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled."
+      "Relic holders may only shoot one plant per phase."
     ]
   }
 }

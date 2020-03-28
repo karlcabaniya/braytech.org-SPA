@@ -304,7 +304,8 @@
   }
   
   .characters-list .char .button .metric .progress {
-    font-size: 12px;
+    bottom: 12%;
+    font-size: 13px;
   }
 }
 

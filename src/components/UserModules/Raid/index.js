@@ -170,7 +170,7 @@ class Raid extends React.Component {
         challenges: {
           871205855: {
             name: t('The Pleasure Gardens'),
-            description: t('Relic holders may only shoot one plant per phase.'),
+            description: t('Each relic holder may only shoot one plant per phase.'),
             collectibles: [3125541834]
           },
           3296085675: {
