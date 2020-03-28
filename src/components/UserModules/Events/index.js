@@ -93,7 +93,7 @@ class Events extends React.Component {
               </div>
               <h3>{definitionActivity.displayProperties?.name}</h3>
               <div className='description'>
-                <p>{t('A special week-long Crucible event that challenges teams of 6 to go head-to-head in the most competitive form of Control. Light level advantages enabled.')}</p>
+                <p>{t('Events.IronBanner')}</p>
                 <p>{t('Destiny1.Grimoire.IronBanner')}</p>
               </div>
             </div>
