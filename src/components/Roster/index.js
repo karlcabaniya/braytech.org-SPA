@@ -51,6 +51,8 @@ class Roster extends React.Component {
       await getGroupMembers(groupMembership.group, groupMembership.member.memberType > 2 && isAuthed);
 
       this.props.rebindTooltips();
+    } else {
+      this.props.rebindTooltips();
     }
   };
 

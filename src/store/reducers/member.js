@@ -24,9 +24,9 @@ function loadMemberAndReset(membershipType, membershipId, characterId) {
     characterId: characterId || null,
     data: false,
     prevData: false,
+    loading: true,
     error: false,
-    stale: false,
-    loading: true
+    stale: false
   };
 }
 
@@ -110,6 +110,9 @@ async function loadMember(membershipType, membershipId, characterId) {
 }
 
 export default function memberReducer(state = defaultState, action) {
+  
+  if (process.env.NODE_ENV === 'development') console.log(action);
+
   if (!action.payload) return state;
 
   const { membershipId, characterId, data, error } = action.payload;

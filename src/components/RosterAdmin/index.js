@@ -354,6 +354,8 @@ class RosterAdmin extends React.Component {
       await getGroupMembers(groupMembership.group, true);
 
       this.props.rebindTooltips();
+    } else {
+      this.props.rebindTooltips();
     }
   };
 

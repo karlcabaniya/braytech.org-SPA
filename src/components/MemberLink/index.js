@@ -29,30 +29,26 @@ function fireteamPadding(maxParty = 0, openSlots, partyMemberCount) {
 }
 
 class MemberLink extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      member: {
-        membershipType: this.props.type,
-        membershipId: this.props.id,
-        displayName: this.props.displayName
-      },
-      overrideMember: {},
-      basic: {
-        loading: true,
-        data: false,
-        error: false
-      },
-      all: {
-        loading: false,
-        data: false,
-        error: false
-      },
-      overlay: false,
-      tainted: false
-    };
-  }
+  state = {
+    member: {
+      membershipType: this.props.type,
+      membershipId: this.props.id,
+      displayName: this.props.displayName
+    },
+    overrideMember: {},
+    basic: {
+      loading: true,
+      data: false,
+      error: false
+    },
+    all: {
+      loading: false,
+      data: false,
+      error: false
+    },
+    overlay: false,
+    tainted: false
+  };
 
   componentWillUnmount() {
     this.mounted = false;
@@ -269,7 +265,7 @@ class MemberLink extends React.Component {
   handler_onCharacterClick = characterId => e => {
     const { membershipType, membershipId } = this.state.member;
 
-    store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType, membershipId, characterId: characterId } });
+    store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType, membershipId, characterId } });
   };
 
   render() {
