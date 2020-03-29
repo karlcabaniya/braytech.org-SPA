@@ -58,7 +58,7 @@ class CharacterSelect extends React.Component {
       <>
         {loading ? (
           <Spinner />
-        ) : member.data ? (
+        ) : member.data && member.characterId ? (
           <>
             <div className='sub-header'>
               <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
@@ -80,7 +80,7 @@ class CharacterSelect extends React.Component {
           <div className='device'>
             <Common.Braytech />
           </div>
-          {reverseUI && profileCharacterSelect && !error ? (
+          {reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? (
             <div className='module profile'>
               {profileCharacterSelect}
             </div>
@@ -93,7 +93,7 @@ class CharacterSelect extends React.Component {
             <BungieAuthMini />
             <ProfileSearch resultsListItems={this.resultsListItems} />
           </div>
-          {!reverseUI && profileCharacterSelect && !error ? (
+          {!reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? (
             <div className='module profile'>
               {profileCharacterSelect}
             </div>

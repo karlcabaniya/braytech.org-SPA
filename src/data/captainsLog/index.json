@@ -1088,5 +1088,10 @@
     "date": "2020-03-27T06:42:37.976Z",
     "version": "2.21.26",
     "content": "- new Iron Banner icon\n- new _Events_ module for _This Week_ view\n- Mod elemental affinity is now shown without requiring tooltip\n- house keeping\n- other great improvements"
+  },
+  {
+    "date": "2020-03-29T06:21:11.144Z",
+    "version": "2.21.36",
+    "content": "- added logic to handle profile requests where a character is unavailable i.e. deleted"
   }
 ]

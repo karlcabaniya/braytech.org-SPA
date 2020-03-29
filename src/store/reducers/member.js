@@ -17,6 +17,7 @@ const defaultState = {
 // means we don't have to add `async` to our reducer (which is bad)
 function loadMemberAndReset(membershipType, membershipId, characterId) {
   loadMember(membershipType, membershipId, characterId);
+
   return {
     membershipId,
     membershipType,
@@ -36,6 +37,7 @@ async function loadMember(membershipType, membershipId, characterId) {
   try {
     const data = await getMember(membershipType, membershipId);
 
+    // Required data is private/unavailable -> return error
     if (data.profile && data.profile.ErrorCode === 1 && !data.profile.Response.profileProgression.data) {
       store.dispatch({ type: 'MEMBER_LOAD_ERROR', payload: { membershipId, membershipType, error: { ErrorCode: 'private' } } });
 
@@ -58,7 +60,30 @@ async function loadMember(membershipType, membershipId, characterId) {
           throw Error('BUNGIE');
         }
       }
-    });    
+    });
+
+    // Requested characterId was not found -> maybe it's been deleted
+    if (data.profile && characterId && data.profile.Response.characters.data.indexOf(characterId) === -1) {
+      store.dispatch({
+        type: 'MEMBER_LOAD_ERROR',
+        payload: {
+          membershipId,
+          membershipType,
+          characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
+          data: {
+            profile: data.profile.Response,
+            groups: data.groups.Response,
+            milestones: data.milestones.Response
+          },
+          error: {
+            ErrorCode: 'character_unavailable',
+            recoverable: true
+          }
+        }
+      });
+
+      return;
+    }
 
     store.dispatch({
       type: 'MEMBER_LOADED',
@@ -103,7 +128,7 @@ export default function memberReducer(state = defaultState, action) {
     // Otherwise, make sure the character ID is in sync with what we're being
     // told by the profile route. In most cases this will be a no-op.
     // if (state.characterId !== characterId) console.log('Updating characterId');
-    return { ...state, characterId };
+    return { ...state, characterId, error: false };
   }
 
   if (action.type === 'MEMBER_LOAD_MEMBERSHIP') {
@@ -124,25 +149,27 @@ export default function memberReducer(state = defaultState, action) {
     case 'MEMBER_CHARACTER_SELECT':
       return {
         ...state,
-        characterId
+        characterId,
+        error: false
       };
     case 'MEMBER_LOAD_ERROR':
       return {
         ...state,
+        characterId,
+        data,
         loading: false,
         error
       };
     case 'MEMBER_LOADED':
       if (state.prevData !== data) data.updated = new Date().getTime();
-      // console.log(characterId);
+
       return {
         ...state,
         characterId: state.characterId ? state.characterId : data.profile.characters.data.length && data.profile.characters.data[0].characterId ? data.profile.characters.data[0].characterId : false,
         data: { ...state.data, ...data },
         prevData: state.data,
         loading: false,
-        stale: false,
-        error: false
+        stale: false
       };
     case 'MEMBER_LOADING':
       return {

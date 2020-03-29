@@ -52,6 +52,17 @@ class ProfileError extends React.Component {
       );
     }
 
+    if (error.ErrorCode === 'character_unavailable') {
+      return (
+        <div className='error'>
+          <div className='sub-header'>
+            <div>{t('Character unavailable')}</div>
+          </div>
+          <p>{t("The character you tried to load is unavailable—maybe it's been deleted.")}</p>
+        </div>
+      );
+    }
+
     return (
       <div className='error'>
         <div className='sub-header'>

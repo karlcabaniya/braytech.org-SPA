@@ -38,7 +38,7 @@ class Header extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.member.data.updated !== this.props.member.data.updated && this.state.lastUpdate !== this.props.member.data.updated && !this.state.updateFlash && this.mounted) {
+    if (prevProps.member.data?.updated !== this.props.member.data?.updated && this.state.lastUpdate !== this.props.member.data?.updated && !this.state.updateFlash && this.mounted) {
       this.setState({ lastUpdate: this.props.member.data.updated, updateFlash: true });
     }
     

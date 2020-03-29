@@ -1,140 +1,125 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 297,
+    "notTranslated": 299,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 666,
+    "translated": 668,
     "notTranslated": 0,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 666,
+    "translated": 668,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 653,
-    "notTranslated": 13,
+    "notTranslated": 15,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "es": {
     "translated": 653,
-    "notTranslated": 13,
+    "notTranslated": 15,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 573,
-    "notTranslated": 93,
+    "notTranslated": 95,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "it": {
     "translated": 652,
-    "notTranslated": 14,
+    "notTranslated": 16,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 603,
-    "notTranslated": 63,
+    "notTranslated": 65,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 553,
-    "notTranslated": 113,
+    "notTranslated": 115,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 664,
+    "notTranslated": 666,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "pt-br": {
-    "translated": 571,
-    "notTranslated": 95,
+    "translated": 663,
+    "notTranslated": 5,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 653,
-    "notTranslated": 13,
+    "notTranslated": 15,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 460,
-    "notTranslated": 206,
+    "notTranslated": 208,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 376,
-    "notTranslated": 290,
+    "notTranslated": 292,
     "added": [
-      "Each relic holder may only shoot one plant per phase."
+      "Character unavailable",
+      "The character you tried to load is unavailable—maybe it's been deleted."
     ],
-    "removed": [
-      "Relic holders may only shoot one plant per phase."
-    ]
+    "removed": []
   }
 }
