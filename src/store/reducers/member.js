@@ -63,7 +63,7 @@ async function loadMember(membershipType, membershipId, characterId) {
     });
 
     // Requested characterId was not found -> maybe it's been deleted
-    if (data.profile && characterId && data.profile.Response.characters.data.indexOf(characterId) === -1) {
+    if (data.profile && characterId && !data.profile.Response.characters.data.filter(c => c.characterId === characterId).length) {
       store.dispatch({
         type: 'MEMBER_LOAD_ERROR',
         payload: {
