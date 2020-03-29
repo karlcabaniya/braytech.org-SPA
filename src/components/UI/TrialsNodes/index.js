@@ -15,7 +15,9 @@ export default function TrialsNodes(props) {
           if (props.value > s) {
             return (
               <div key={s} className='game loss'>
-                <div />
+                <div>
+                  <i className='segoe-uniEF2C' />
+                </div>
               </div>
             );
           } else {

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 
-import { t } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
@@ -71,7 +70,7 @@ class Checklist extends React.Component {
             {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {description ? <ReactMarkdown className='text' source={description} /> : null}
+              {description ? <BungieText className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -141,7 +140,7 @@ class Record extends React.Component {
             {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {description ? <ReactMarkdown className='text' source={description} /> : null}
+              {description ? <BungieText className='text' source={description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -207,7 +206,7 @@ class Node extends React.Component {
             {node.location.within ? <div className='inside-location'>{locatedText(node.location.within.id, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{locationString}</div>
-              {node.displayProperties.description ? <ReactMarkdown className='text' source={node.displayProperties.description} /> : null}
+              {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {node.availability && node.availability.type === 'cycle' ? (
               <div className='highlight'>

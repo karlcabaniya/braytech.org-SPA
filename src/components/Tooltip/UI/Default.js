@@ -11,7 +11,7 @@ const Default = props => {
   // description
   const description = definition && (definition.statDescription || (definition.displayProperties?.description !== '' && definition.displayProperties?.description));
 
-  return description ? <BungieText value={description} /> : null;
+  return description ? <BungieText className='description' value={description} /> : null;
 };
 
 export default Default;

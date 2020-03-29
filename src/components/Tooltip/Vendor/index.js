@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import destinations from '../../../data/lowlines/maps/destinations';
@@ -14,7 +13,7 @@ import './styles.css';
 
 class Vendor extends React.Component {
   render() {
-    const { t, hash } = this.props;
+    const { hash } = this.props;
 
     const definitionVendor = manifest.DestinyVendorDefinition[hash];
 
@@ -43,11 +42,10 @@ class Vendor extends React.Component {
         </>
       );
     } else {
-
       const name = definitionVendor.displayProperties?.name || t('Unknown');
 
       const subTitle = definitionVendor.displayProperties?.subtitle;
-      const description =definitionVendor.displayProperties?.description;
+      const description = definitionVendor.displayProperties?.description;
 
       const largeIcon = definitionVendor.displayProperties?.largeIcon;
 
@@ -94,12 +92,8 @@ class Vendor extends React.Component {
               ) : null}
               {description || definitionDestination ? (
                 <div className='description'>
-                  {definitionDestination ? (
-                    <div className='destination'>
-                      {[bubbleName, destinationName, placeName].filter(s => s).join(', ')}
-                    </div>
-                  ) : null}
-                  {description ? <pre>{description}</pre> : null}
+                  {definitionDestination ? <div className='destination'>{[bubbleName, destinationName, placeName].filter(s => s).join(', ')}</div> : null}
+                  {description ? <BungieText value={description} /> : null}
                 </div>
               ) : null}
             </div>
@@ -118,7 +112,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Vendor);
+export default connect(mapStateToProps)(Vendor);

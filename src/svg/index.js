@@ -14,6 +14,7 @@ import { ReactComponent as TooltipMenagerie } from './tooltips/menagerie.svg';
 import { ReactComponent as TooltipRaid } from './tooltips/raid.svg';
 import { ReactComponent as TooltipSeasonalArena } from './tooltips/seasonal-arena.svg';
 import { ReactComponent as TooltipTrialsOfOsiris } from './tooltips/trials-of-osiris.svg';
+import { ReactComponent as TooltipIronBanner } from './tooltips/iron-banner.svg';
 
 import { ReactComponent as MapsFastTravel } from './maps/fast-travel.svg';
 import { ReactComponent as MapsRegionChest } from './maps/region-chest.svg';
@@ -120,8 +121,6 @@ import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-o
 import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
 import { ReactComponent as Grimoire } from './miscellaneous/grimoire.svg';
 
-import { ReactComponent as IronBanner } from './events/iron-banner.svg';
-
 const Common = {
   Arc,
   Solar,
@@ -147,7 +146,7 @@ const Miscellaneous = {
 };
 
 const Events = {
-  IronBanner
+  IronBanner: TooltipIronBanner
 };
 
 const Loading = {
@@ -195,7 +194,8 @@ const Tooltips = {
   Menagerie: TooltipMenagerie,
   Raid: TooltipRaid,
   SeasonalArena: TooltipSeasonalArena,
-  TrialsOfOsiris: TooltipTrialsOfOsiris
+  TrialsOfOsiris: TooltipTrialsOfOsiris,
+  IronBanner: TooltipIronBanner
 };
 
 const Maps = {

@@ -13,7 +13,7 @@ const Braytech = (props) => {
 
   return (
     <>
-      {description ? <BungieText value={description} /> : null}
+      {description ? <BungieText className='description' value={description} /> : null}
       {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? <div className='line' /> : null}
       {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? (
         <div className='description'>

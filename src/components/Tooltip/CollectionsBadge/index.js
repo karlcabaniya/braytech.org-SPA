@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { classHashToIcon } from '../../../utils/destinyConverters';
@@ -12,7 +11,7 @@ import './styles.css';
 
 class CollectionsBadge extends React.Component {
   render() {
-    const { t, member, hash } = this.props;
+    const { member, hash } = this.props;
 
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
@@ -136,4 +135,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(CollectionsBadge);
+export default connect(mapStateToProps)(CollectionsBadge);

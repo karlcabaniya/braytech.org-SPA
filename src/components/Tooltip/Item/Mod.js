@@ -41,7 +41,7 @@ const Mod = props => {
   }
 
   if (description) {
-    blocks.push(<BungieText value={description} />);
+    blocks.push(<BungieText className='description' value={description} />);
   }
 
   if (description && perks.length) blocks.push(<div className='line' />);

@@ -123,6 +123,18 @@
   background-color: hsla(35, 40%, 39%, 0.8);
 }
 
+#tooltip .frame.activity.crucible.iron-banner .header {
+  border-top-color: #6aa477;
+}
+
+#tooltip .frame.activity.crucible.iron-banner .header .icon {
+  background-color: hsla(133, 34%, 22%, 0.8);
+}
+
+#tooltip .frame.activity.crucible.iron-banner .header .text {
+  background-color: hsla(133, 34%, 33%, 0.8);
+}
+
 #tooltip .frame.activity.forge .header {
   border-top-color: #975e73;
 }

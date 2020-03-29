@@ -80,7 +80,7 @@ const Default = props => {
 
   // description
   if (description) {
-    blocks.push(<BungieText value={description} />);
+    blocks.push(<BungieText className='description' value={description} />);
   }
 
   // objectives?

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import * as utils from '../../../utils/destinyUtils';
@@ -297,6 +298,12 @@ class Activity extends React.Component {
           activityTypeDisplay.icon = <Tooltips.TrialsOfOsiris />
           activityTypeDisplay.className = 'crucible trials-of-osiris';
         }
+
+        // Iron Banner
+        if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 3753505781) {
+          activityTypeDisplay.icon = <Tooltips.IronBanner />
+          activityTypeDisplay.className = 'crucible iron-banner';
+        }
       }
 
       if (modeFiltered === 'raid') {
@@ -473,7 +480,7 @@ class Activity extends React.Component {
                       )}
                     </div>
                   ) : null}
-                  <pre>{activityTypeDisplay.description}</pre>
+                  <BungieText value={activityTypeDisplay.description} />
                 </div>
               ) : null}
               {matchmakingProperties && definitionActivity.placeHash !== 2961497387 ? (
