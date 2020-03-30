@@ -84,9 +84,8 @@ function Archives() {
             <div key={i} className='module'>
               <h3>{entry.name}</h3>
               <ReactMarkdown className='text' source={entry.description} />
-              <Link className='button cta' to={entry.link}>
+              <Link className='button' to={entry.link}>
                 <div className='text'>{entry.wip ? 'WIP' : t('Launch')}</div>
-                <i className='segoe-uniE0AB' />
               </Link>
             </div>
           ))}

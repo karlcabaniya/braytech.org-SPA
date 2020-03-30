@@ -59,7 +59,7 @@ const Mod = props => {
                   <ObservedImage className='image icon' src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} />
                   <div className='text'>
                     <div className='name'>{definitionPerk.displayProperties?.name}</div>
-                    <BungieText value={definitionPerk.displayProperties?.description} />
+                    <BungieText className='description' value={definitionPerk.displayProperties?.description} />
                   </div>
                 </div>
               </div>

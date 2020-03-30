@@ -68,12 +68,20 @@ class RecordsAlmost extends React.Component {
       let progressValueDecimal = 0;
 
       if (recordData.intervalObjectives) {
-        const nextIncomplete = recordData.intervalObjectives.find(o => !o.complete);
+        const nextIndex = recordData.intervalObjectives.findIndex(o => !o.complete);
+        const lastIndex = nextIndex - 1 || 0;
 
-        if (!nextIncomplete) return;
+        if (!recordData.intervalObjectives[nextIndex]) return;
+
+        // if (hash === 759958308) console.log(recordData, recordData.intervalObjectives[lastIndex], recordData.intervalObjectives[nextIndex]);
+
+        const progress = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress;
+        const completionValue = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue;
+
+        // console.log(progress, completionValue)
 
         completionValueDiviser += 1;
-        progressValueDecimal += Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
+        progressValueDecimal += Math.min(progress / completionValue, 1);
       } else if (recordData.objectives) {
         recordData.objectives.forEach(objective => {
           completionValueDiviser += 1;
@@ -89,14 +97,12 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      let selfLinkFrom = this.props.selfLinkFrom || false;
+      const selfLinkFrom = this.props.selfLinkFrom || false;
 
-      let definitionRecord = manifest.DestinyRecordDefinition[hash] || false;
-      let score = 0;
+      const definitionRecord = manifest.DestinyRecordDefinition[hash];
+      const score = definitionRecord?.completionInfo?.ScoreValue || 0;
 
-      if (definitionRecord && definitionRecord.completionInfo) {
-        score = definitionRecord.completionInfo.ScoreValue;
-      }
+      // if (hash === 759958308) console.log(distance, progressValueDecimal, completionValueDiviser)
 
       // if (hash === 452100546) console.log(definitionRecord.displayProperties.name, distance, progressValueDecimal, completionValueDiviser)
 
@@ -122,9 +128,8 @@ class RecordsAlmost extends React.Component {
       <>
         <ul className={cx('list record-items')}>{almost.map(r => r.element)}</ul>
         {this.props.pageLink ? (
-          <ProfileLink className='button cta' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
+          <ProfileLink className='button' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
             <div className='text'>{t('See next {{limit}}', { limit: 200 })}</div>
-            <i className='segoe-uniE0AB' />
           </ProfileLink>
         ) : null}
       </>

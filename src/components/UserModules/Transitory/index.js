@@ -93,17 +93,19 @@ class Transitory extends React.Component {
           <div>{t('Fireteam')}</div>
           <div>{data && loading ? <Spinner mini /> : null}</div>
         </div>
-        <h4>{t('Members')}</h4>
         {data && partyMembers.length ? (
-          <ul className='list fireteam-members'>
-            {partyMembers.map((member, m) => {
-              return (
-                <li key={m}>
-                  <MemberLink id={member.membershipId} displayName={member.displayName} />
-                </li>
-              );
-            })}
-          </ul>
+          <>
+            <h4>{t('Members')}</h4>
+            <ul className='list fireteam-members'>
+              {partyMembers.map((member, m) => {
+                return (
+                  <li key={m}>
+                    <MemberLink id={member.membershipId} displayName={member.displayName} />
+                  </li>
+                );
+              })}
+            </ul>
+          </>
         ) : data && partyMembers.length < 1 ? (
           <div className='info'>{t('Offline')}</div>
         ) : (

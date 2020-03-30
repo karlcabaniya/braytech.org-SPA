@@ -287,13 +287,22 @@ class Records extends React.Component {
           next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0
         };
 
-        recordState.objectives = [...recordState.intervals.slice(-1)];
+        // this appears to do nothing lol
+        // recordState.objectives = [...recordState.intervals.slice(-1)];
+
+        const nextIndex = recordData.intervalObjectives.findIndex(o => !o.complete);
+        const lastIndex = nextIndex - 1 || 0;
+        const lastInterval = recordData.intervalObjectives[recordData.intervalObjectives.length - 1];
+
+        if (!recordData.intervalObjectives[nextIndex]) return;
+
+        const progress = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress;
+        const completionValue = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue;
+
+        const completionValueDiviser = 1;
+        const progressValueDecimal = Math.min(progress / completionValue, 1);
         
-        const nextIncomplete = recordData && recordData.intervalObjectives.find(o => !o.complete);
-
-        recordState.distance = nextIncomplete && Math.min(nextIncomplete.progress / nextIncomplete.completionValue, 1);
-
-        const lastInterval = recordState.intervals[recordState.intervals.length - 1];
+        recordState.distance = progressValueDecimal / completionValueDiviser;
 
         recordState.intervalEl = (
           <div className='progress-bar intervals'>

@@ -49,56 +49,18 @@ class Clan extends React.Component {
   }
 
   createRow = m => {
-    const { member } = this.props;
-
     const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
-    const isSelf = !isPrivate ? m.profile.profile.data.userInfo.membershipType.toString() === member.membershipType && m.profile.profile.data.userInfo.membershipId === member.membershipId : false;
-
-    const characterIds = !isPrivate ? m.profile.characters.data.map(c => c.characterId) : [];
 
     const lastActivities = utils.lastPlayerActivity(m);
-    const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [a => a.lastPlayed], ['desc'])[0];
-
-    const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
-
-    const weeklyXp = !isPrivate
-      ? characterIds.reduce((currentValue, characterId) => {
-          let characterProgress = m.profile.characterProgressions.data[characterId].progressions[540048094].weeklyProgress || 0;
-          return characterProgress + currentValue;
-        }, 0)
-      : 0;
-
-    const seasonRank = !isPrivate ? utils.progressionSeasonRank({ characterId: m.profile.characters.data[0].characterId, data: m }).level : 0;
-
-    const triumphScore = !isPrivate ? m.profile.profileRecords.data.score : 0;
-
-    let valorPoints = !isPrivate ? m.profile.characterProgressions.data[m.profile.characters.data[0].characterId].progressions[2626549951].currentProgress : 0;
-    let valorResets = !isPrivate ? utils.calculateResets(3882308435, m.profile.characters.data[0].characterId, m.profile.characterProgressions.data, m.profile.characterRecords.data, m.profile.profileRecords.data.records).total : 0;
-    let gloryPoints = !isPrivate ? m.profile.characterProgressions.data[m.profile.characters.data[0].characterId].progressions[2000925172].currentProgress : 0;
-    let infamyPoints = !isPrivate ? m.profile.characterProgressions.data[m.profile.characters.data[0].characterId].progressions[2772425241].currentProgress : 0;
-    let infamyResets = !isPrivate ? utils.calculateResets(2772425241, m.profile.characters.data[0].characterId, m.profile.characterProgressions.data, m.profile.characterRecords.data, m.profile.profileRecords.data.records).total : 0;
+    const { lastPlayed } = orderBy(lastActivities, [a => a.lastPlayed], ['desc'])[0];
 
     const preferredClass = !isPrivate ? m.profile.characters.data[0].classType : null;
-
-    const totalValor = utils.totalValor();
-    const totalInfamy = utils.totalInfamy();
-
-    valorPoints = valorResets * totalValor + valorPoints;
-    infamyPoints = infamyResets * totalInfamy + infamyPoints;
 
     return {
       private: isPrivate,
       isOnline: m.isOnline,
-      fireteamId: m.fireteamId,
       lastPlayed,
-      lastCharacter,
-      preferredClass,
-      triumphScore,
-      gloryPoints,
-      valorPoints,
-      infamyPoints,
-      weeklyXp: (weeklyXp / characterIds.length) * 5000,
-      rank: m.memberType
+      preferredClass
     };
   };
 

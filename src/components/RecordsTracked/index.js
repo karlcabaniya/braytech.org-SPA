@@ -49,9 +49,8 @@ class RecordsTracked extends React.Component {
           ) : null}
         </ul>
         {pageLink && hashes.length > 0 ? (
-          <ProfileLink className='button cta' to={{ pathname: '/triumphs/tracked', state: { from: '/triumphs' } }}>
+          <ProfileLink className='button' to={{ pathname: '/triumphs/tracked', state: { from: '/triumphs' } }}>
             <div className='text'>{t('See all tracked')}</div>
-            <i className='segoe-uniE0AB' />
           </ProfileLink>
         ) : null}
       </>
