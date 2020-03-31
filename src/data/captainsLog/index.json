@@ -1093,5 +1093,10 @@
     "date": "2020-03-29T06:21:11.144Z",
     "version": "2.21.36",
     "content": "- added logic to handle profile requests where a character is unavailable i.e. deleted"
+  },
+  {
+    "date": "2020-03-31T22:17:00.933Z",
+    "version": "2.21.40",
+    "content": "- adjusted the way triumph record completition is evaluated\n- general improvements"
   }
 ]

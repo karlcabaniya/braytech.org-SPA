@@ -110,8 +110,9 @@ async function loadMember(membershipType, membershipId, characterId) {
 }
 
 export default function memberReducer(state = defaultState, action) {
+  const now = new Date().getTime();
   
-  if (process.env.NODE_ENV === 'development') console.log(action);
+  // if (process.env.NODE_ENV === 'development') console.log(action);
 
   if (!action.payload) return state;
 
@@ -164,15 +165,14 @@ export default function memberReducer(state = defaultState, action) {
         error
       };
     case 'MEMBER_LOADED':
-      if (state.prevData !== data) data.updated = new Date().getTime();
-
       return {
         ...state,
         characterId: state.characterId ? state.characterId : data.profile.characters.data.length && data.profile.characters.data[0].characterId ? data.profile.characters.data[0].characterId : false,
         data: { ...state.data, ...data },
         prevData: state.data,
         loading: false,
-        stale: false
+        stale: false,
+        updated: now
       };
     case 'MEMBER_LOADING':
       return {

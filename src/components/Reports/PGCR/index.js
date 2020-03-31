@@ -5,7 +5,6 @@ import { withTranslation } from 'react-i18next';
 import { orderBy, groupBy } from 'lodash';
 import cx from 'classnames';
 
-import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
 import * as utils from '../../../utils/destinyUtils';
 import { Button, DestinyKey } from '../../UI/Button';

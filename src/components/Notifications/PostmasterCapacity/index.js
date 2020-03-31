@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 import ReactGA from 'react-ga';
 
-import * as ls from '../../../utils/localStorage';
-
 import './styles.css';
 
 class PostmasterCapacity extends React.Component {

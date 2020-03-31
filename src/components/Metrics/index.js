@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
@@ -83,8 +82,7 @@ class Metrics extends React.Component {
   }
 
   render() {
-    const { t, hashes, member, selfLinkFrom } = this.props;
-    const highlight = +this.props.highlight || false;
+    const { hashes, member } = this.props;
     const metrics = member.data?.profile.metrics.data.metrics;
     
     return hashes.map((hash, h) => {
@@ -95,9 +93,6 @@ class Metrics extends React.Component {
       }
 
       const objectiveProgress = metrics?.[definitionMetric.hash].objectiveProgress || {};
-
-      const traitHash = definitionMetric.traitHashes.find(h => h !== 1434215347);
-      const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];
 
       const images = utils.metricImages(definitionMetric.hash);
 
@@ -133,8 +128,7 @@ Metrics = compose(
   withRouter,
   connect(
     mapStateToProps
-  ),
-  withTranslation()
+  )
 )(Metrics);
 
 export { Metrics, selfLink };

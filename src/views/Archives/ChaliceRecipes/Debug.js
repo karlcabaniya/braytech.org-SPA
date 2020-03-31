@@ -6,7 +6,6 @@ import { withTranslation } from 'react-i18next';
 import manifest from '../../../utils/manifest';
 import Items from '../../../components/Items';
 
-import { NavLinks } from '../';
 import ChaliceCombos from '../../../data/chaliceData';
 
 import './styles.css';

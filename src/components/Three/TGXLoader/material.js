@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import * as THREE from 'three';
 
 // Custom ShaderMaterial that implements Destiny gear dyes
