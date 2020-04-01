@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as utils from '../../../utils/destinyUtils';
 import { classHashToString } from '../../../utils/destinyConverters';
 import { ProfileNavLink } from '../../ProfileLink';
@@ -16,18 +15,13 @@ import Spinner from '../Spinner';
 import './styles.css';
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    navOpen: false,
+    lastUpdate: false,
+    updateFlash: false
+  };
 
-    this.state = {
-      navOpen: false,
-      lastUpdate: false,
-      updateFlash: false
-    };
-
-    this.updateFlash = false;
-    this.navEl = React.createRef();
-  }
+  ref_navEl = React.createRef();
 
   componentDidMount() {
     this.mounted = true;
@@ -51,7 +45,7 @@ class Header extends React.Component {
     }
 
     if (this.state.navOpen) {
-      this.navEl.current.addEventListener('touchmove', this.nav_touchMove, true);
+      this.ref_navEl.current.addEventListener('touchmove', this.nav_touchMove, true);
     }
   }
 
@@ -78,21 +72,21 @@ class Header extends React.Component {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
           <i className='segoe-uniE106' />
-          {this.props.t('Exit')}
+          {t('Exit')}
         </div>
       );
     } else {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
           <i className='segoe-uniEA55' />
-          {this.props.t('Views')}
+          {t('Views')}
         </div>
       );
     }
   };
 
   render() {
-    const { t, location, viewport, member, refresh } = this.props;
+    const { location, viewport, member, refresh } = this.props;
 
     const isProfileRoute = utils.isProfileRoute(location) && member.data;
 
@@ -396,7 +390,7 @@ class Header extends React.Component {
           </div>
         ) : null}
         {this.state.navOpen ? (
-          <div className='nav' ref={this.navEl}>
+          <div className='nav' ref={this.ref_navEl}>
             <div className='wrap'>
               <div className='types'>
                 <div className='type progression'>
@@ -475,4 +469,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Header);
+export default connect(mapStateToProps)(Header);

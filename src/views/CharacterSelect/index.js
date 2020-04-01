@@ -1,9 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import * as ls from '../../utils/localStorage';
 import * as enums from '../../utils/destinyEnums';
 import Spinner from '../../components/UI/Spinner';
@@ -47,7 +46,7 @@ class CharacterSelect extends React.Component {
   ));
 
   render() {
-    const { t, member, viewport, location } = this.props;
+    const { member, viewport, location } = this.props;
     const { error, loading } = member;
 
     const reverseUI = viewport.width <= 600;
@@ -116,16 +115,10 @@ function mapDispatchToProps(dispatch) {
     setMember: value => {
       dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: value });
     },
-    setMemberByRoute: value => {
-      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
-    },
     setMemberCharacterId: value => {
       dispatch({ type: 'MEMBER_SET_CHARACTERID', payload: value });
     }
   };
 }
 
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  withTranslation()
-)(CharacterSelect);
+export default connect(mapStateToProps, mapDispatchToProps)(CharacterSelect);

@@ -162,9 +162,9 @@ class NotificationProgress extends React.Component {
   }
 }
 
-function mapStateToProps(s) {
+function mapStateToProps(state) {
   return {
-    member: s.member
+    member: state.member
   };
 }
 

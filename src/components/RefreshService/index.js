@@ -6,15 +6,20 @@ import getMember from '../../utils/getMember';
 const AUTO_REFRESH_INTERVAL = 30 * 1000;
 const TIMEOUT = 60 * 60 * 1000;
 
-class RefreshService extends React.Component {
+class RefreshService extends React.Component { 
   componentDidMount() {
+    // ensure refresh state is accurate in case member data is updated by some other means
+    if (new Date().getTime() - this.props.member.updated <= TIMEOUT) {
+      this.props.setState({ loading: false, stale: false });
+    }
+
     // start the countdown
     this.init();
   }
 
-  componentDidUpdate(prevProps) {
-    // if previous member prop data doesn't equal current member prop data, if config service was turned off/on
-    if (prevProps.member.data !== this.props.member.data || this.props.member.stale) {
+  componentDidUpdate(p) {
+    // if previous member prop data doesn't equal current member prop data
+    if (p.member.data !== this.props.member.data || this.props.member.stale) {
       // member data is stale -> go now
       if (this.props.member.stale) {
         this.track();
@@ -55,11 +60,11 @@ class RefreshService extends React.Component {
   }
 
   track() {
-    this.lastActivityTimestamp = Date.now();
+    this.lastActivityTimestamp = new Date().getTime();
   }
 
   activeWithinTimespan(timespan) {
-    return Date.now() - this.lastActivityTimestamp <= timespan;
+    return new Date().getTime() - this.lastActivityTimestamp <= timespan;
   }
 
   startInterval() {
@@ -138,7 +143,7 @@ class RefreshService extends React.Component {
   };
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     refresh: state.refresh

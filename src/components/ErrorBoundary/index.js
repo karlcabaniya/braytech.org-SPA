@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { t } from '../../utils/i18n';
-import { linkHelper } from '../../utils/markdown';
+import { t, BraytechText } from '../../utils/i18n';
 import Button from '../../components/UI/Button';
 import ServiceWorkerUpdate from '../../components/Notifications/ServiceWorkerUpdate';
 
@@ -73,7 +72,7 @@ class ErrorBoundary extends React.Component {
               ) : null}
               {this.props.app ? (
                 <>
-                  <ReactMarkdown className='next' renderers={{ link: linkHelper }} source={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
+                  <BraytechText className='next' value={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
                   <div className='actions'>
                     <Button text={t('Reload')} action={this.handler_reload} />
                     {this.swAvailable && this.state.swInstalled ? <Button text={t('Dump service worker')} disabled={!this.state.swInstalled || this.state.swUnregisterAttempt} action={this.handler_swDump} /> : null}
@@ -81,7 +80,7 @@ class ErrorBoundary extends React.Component {
                 </>
               ) : (
                 <>
-                  <ReactMarkdown className='next' renderers={{ link: linkHelper }} source={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
+                  <BraytechText className='next' value={t('Braytech has encountered a fatal error. If one of the available actions does not resolve your issue, please join the [Discord](https://discord.braytech.org) for further assistance.')} />
                   <div className='actions'>
                     <Button text={t('Reload')} action={this.handler_reload} />
                   </div>

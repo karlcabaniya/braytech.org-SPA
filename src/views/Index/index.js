@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import Moment from 'react-moment';
 
-import { t, fromNow } from '../../utils/i18n';
+import { t, fromNow, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
@@ -173,7 +171,7 @@ class Index extends React.Component {
             {manifest.statistics.scrapes?.last?.tracking ? (
               <div className='module stats'>
                 <h3>{t('VOLUSPA statistics')}</h3>
-                <ReactMarkdown className='description' source={`For the most part, Braytech is a front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifiers and regularly collates statistics based upon them. These stats are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the stat that denotes how common an article is amongst players.`} />
+                <BraytechText className='description' value={`For the most part, Braytech is a front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifiers and regularly collates statistics based upon them. These stats are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the stat that denotes how common an article is amongst players.`} />
                 <ul>
                   <li>
                     <div className='value'>{manifest.statistics.scrapes.last.tracking.toLocaleString()}</div>
@@ -230,7 +228,7 @@ class Index extends React.Component {
                 <Button text={t('Newer')} action={this.handler_onClickNext} disabled={this.state.log === 0 ? true : false} />
               </div>
             </div>
-            <ReactMarkdown className='log-content' source={this.logs[this.state.log].content} />
+            <BraytechText className='log-content' value={this.logs[this.state.log].content} />
           </div>
         </div>
       </div>

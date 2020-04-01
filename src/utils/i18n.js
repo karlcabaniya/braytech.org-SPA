@@ -7,6 +7,7 @@ import moment from 'moment';
 
 import * as ls from './localStorage';
 import { stringToIcons } from './destinyUtils';
+import { linkHelper } from './markdown';
 
 let _defaultLanguage = 'en';
 let _currentLanguage;
@@ -226,4 +227,10 @@ export function BungieText(props) {
   const { className, value = '' } = props;
 
   return <ReactMarkdown className={className} source={stringToIcons(value, true)} />
+}
+
+export function BraytechText(props) {
+  const { className, value = '', ...rest } = props;
+
+  return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} />
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Markdown from 'react-markdown';
 import moment from 'moment';
 import cx from 'classnames';
 
-import { t } from '../../../utils/i18n';
+import { t, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
 import Roster from '../../../components/Roster';
@@ -104,7 +103,7 @@ class AboutView extends React.Component {
           <div className='members'>
             {t('Founded')} {moment(group.creationDate).format('MMMM YYYY')} / {group.memberCount} {t('Members')}
           </div>
-          <Markdown className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} source={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} />
+          <BraytechText className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} />
         </div>
         <div className='module progression'>
           <div className='sub-header'>
