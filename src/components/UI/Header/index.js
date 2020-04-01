@@ -17,8 +17,8 @@ import './styles.css';
 class Header extends React.Component {
   state = {
     navOpen: false,
-    lastUpdate: false,
-    updateFlash: false
+    updated: false,
+    flash: false
   };
 
   ref_navEl = React.createRef();
@@ -31,15 +31,15 @@ class Header extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.member.data?.updated !== this.props.member.data?.updated && this.state.lastUpdate !== this.props.member.data?.updated && !this.state.updateFlash && this.mounted) {
-      this.setState({ lastUpdate: this.props.member.data.updated, updateFlash: true });
+  componentDidUpdate(p) {
+    if (p.member.updated !== this.props.member.updated && this.state.updated !== this.props.member.updated && !this.state.flash && this.mounted) {
+      this.setState({ updated: this.props.member.updated, flash: true });
     }
     
-    if (this.state.updateFlash) {
+    if (this.state.flash) {
       window.setTimeout(() => {
         if (this.mounted) {
-          this.setState({ updateFlash: false });
+          this.setState({ flash: false });
         }
       }, 4000);
     }
@@ -317,7 +317,7 @@ class Header extends React.Component {
         </div>
         {isProfileRoute && character ? (
           <div className='profile'>
-            <div className={cx('background', { 'update-flash': this.state.updateFlash })}>
+            <div className={cx('background', { 'update-flash': this.state.flash })}>
               <EmblemBackground hash={character.emblemHash} />
             </div>
             <div className='ui'>
