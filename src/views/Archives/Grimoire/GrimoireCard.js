@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
+import { Link } from 'react-router-dom';
 
-import { t } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import ObservedImage from '../../../components/ObservedImage';
 
 class GrimoireCard extends React.Component {
@@ -9,6 +9,8 @@ class GrimoireCard extends React.Component {
 
   componentDidMount() {
     this.mounted = true;
+
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
@@ -16,22 +18,44 @@ class GrimoireCard extends React.Component {
   }
 
   render() {
-    const definitionCard = this.props.card;
+    const { definitions, themeId, pageId, cardId } = this.props;
 
-    console.log(definitionCard);
-    
+    const definitionCard = definitions.DestinyGrimoireCardDefinition[cardId];
+    const definitionTheme = definitions.DestinyGrimoireDefinition.themeCollection.find(t => t.themeId === themeId);
+    const definitionPage = definitionTheme && definitionTheme.pageCollection.find(p => p.pageId === pageId);
+
+    console.log(definitionCard, definitionTheme, definitionPage);
+
     return (
-      <div className='card'>
-        <ObservedImage src={`https://www.bungie.net${definitionCard.highResolution.image.sheetPath}`} />
-        <div className='text'>
-          <div className='name'>{definitionCard.cardName}</div>
-          {definitionCard.cardIntro ? (
-            <div className='intro'>
-              <div className='text'>{definitionCard.cardIntro}</div>
-              <div className='attribution'>{definitionCard.cardIntroAttribution}</div>
+      <div className='detail'>
+        <div className='header'>
+          <div className='wrapper'>
+            <div className='text'>
+              <div className='crumbs'>
+                <Link to={`/archives/grimoire/${definitionTheme.themeId}`}>{definitionTheme.themeName}</Link>
+                <Link to={`/archives/grimoire/${definitionTheme.themeId}/${definitionPage.pageId}`}>{definitionPage.pageName}</Link>
+              </div>
+              <div className='name'>{definitionCard.cardName}</div>
             </div>
-          ) : null}
-          <ReactMarkdown className='description' source={definitionCard.cardDescription} />
+            <div className='art'>
+              <div className='card'>
+                <ObservedImage src={`https://www.bungie.net${definitionCard.highResolution.image.sheetPath}`} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='content'>
+          <div className='wrapper'>
+            <div className='text'>
+              {definitionCard.cardIntro ? (
+                <div className='intro'>
+                  <div className='text'>{definitionCard.cardIntro}</div>
+                  <div className='attribution'>{definitionCard.cardIntroAttribution}</div>
+                </div>
+              ) : null}
+              <BungieText className='description' value={definitionCard.cardDescription} />
+            </div>
+          </div>
         </div>
       </div>
     );

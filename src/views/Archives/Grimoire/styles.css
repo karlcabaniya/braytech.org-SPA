@@ -1,34 +1,274 @@
 #archives.grimoire .content {
-  grid-template-columns: auto;
+  grid-template-columns: unset;
 }
 
-.grimoire .card {
+#archives.grimoire .container {
+  min-height: 100vh;
+}
+
+
+
+
+
+
+
+.grimoire .container .wrapper {
   display: grid;
-  grid-template-columns: 340px auto;
+  grid-template-columns: auto;
+  gap: 3rem;
+  align-items: start;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.grimoire .container .header {
+  padding: calc(5rem + 40px) 3rem 5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.grimoire .container .content {
+  padding: 3rem;
+}
+
+
+
+
+
+.grimoire .themes .list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 3rem;
 }
 
-.grimoire .card .image {
+.grimoire .themes .list li {
+  display: grid;
+  height: unset;
+}
+
+
+
+.grimoire .theme {
+  
+}
+
+.grimoire .theme .header .text {
+  position: sticky;
+  top: 3rem;
+}
+
+.grimoire .theme .header .text .sub-name {
+  margin: 0 0 1rem;
+  font-family: var(--fontText);
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.grimoire .theme .header .text .name {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: rgb(255, 255, 255);
+}
+
+.grimoire .theme .pages .page > .name {
+  font-family: var(--fontText);
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 1rem;
+}
+
+.grimoire .theme .pages .page:not(:last-child) {
+  margin: 0 0 3rem;
+}
+
+.grimoire .theme .pages .page .cards {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2rem;
+}
+
+.grimoire .theme .pages .page .cards {
+  
+}
+
+.grimoire .theme .pages .page .cards .art {
   position: relative;
   height: unset;
   padding-bottom: 130%;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 0 10px;
 }
 
-.grimoire .card .text {
-  max-width: 600px;
+.grimoire .theme .pages .page .cards .art .button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 }
 
-.grimoire .card .text .name {
-  font-size: 32px;
-  line-height: 1;
+.grimoire .theme .pages .page .cards .text .name {
+  font-size: 16px;
 }
 
-.grimoire .card .text .intro {
-  margin: 1rem 0 0;
-  font-size: 22px;
-  line-height: 1;
+@media screen and (max-width: 1600px) {
+
+  .grimoire .theme .pages .page .cards {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
 }
 
-.grimoire .card .text .description {
-  margin: 2rem 0 0;
+@media screen and (max-width: 1024px) {
+
+  .grimoire .theme .pages .page .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .grimoire .theme .pages .page .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .grimoire .theme .pages .page .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+
+
+
+
+
+
+.grimoire .detail .wrapper {
+  grid-template-columns: 3fr 2fr;
+}
+
+.grimoire .detail .header .art {
+  position: relative;
+}
+
+.grimoire .detail .header .art .card {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 130%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.grimoire .detail .header .art .card .image {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 130%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.grimoire .content {
+  padding: 3rem;
+}
+
+.grimoire .detail .text {
+  max-width: 700px;  
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grimoire .detail .text .crumbs {
+  margin: 0 0 1rem;
+  font-family: var(--fontText);
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.grimoire .detail .text .crumbs a:not(:first-child)::before {
+  content: ' // ';
+}
+
+.grimoire .detail .text .crumbs a:first-child {
+  color: rgb(255, 255, 255);
+}
+
+.grimoire .detail .text .name {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: rgb(255, 255, 255);
+}
+
+.grimoire .detail .text .intro {
+  margin: 0 0 2rem;
+}
+
+.grimoire .detail .text .intro .text {
+  font-size: 28px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.grimoire .detail .text .intro .attribution {
+  margin: 8px 0 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.grimoire .detail .text .description {
+  font-size: 18px;
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .grimoire .detail .wrapper {
+    grid-template-columns: auto;
+    row-gap: 2rem;
+  }
+
+  .grimoire .container .header {
+    padding: calc(3rem + 40px) 2rem 2rem;
+  }
+
+  .grimoire .container .content {
+    padding: 2rem;
+  }
+
+  .grimoire .detail .header .art .card {
+    position: relative;
+  }
+
+  .grimoire .detail .text .name {
+    font-size: 36px;
+  }
+
+  .grimoire .detail .text .intro {
+    margin: 0 0 1rem;
+  }
+
+  .grimoire .detail .text .intro .text {
+    font-size: 24px;
+  }
+
+  .grimoire .detail .text .intro .attribution,
+  .grimoire .detail .text .description {
+    font-size: 16px;
+  }
+
 }

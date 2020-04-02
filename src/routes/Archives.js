@@ -29,7 +29,7 @@ class ArchivesRoutes extends React.Component {
           <Route path={`${match.url}/last-wish`} component={LastWish} />
           <SuspenseRoute path={`${match.url}/chalice-of-opulence/debug`} exact component={ChaliceRecipesDebug} />
           <SuspenseRoute path={`${match.url}/chalice-of-opulence/:rune1?/:rune2?/:rune3?`} exact component={ChaliceRecipes} />
-          <Route path={`${match.url}/grimoire/:cardId?`} exact component={Grimoire} />
+          <Route path={`${match.url}/grimoire/:themeId?/:pageId?/:cardId?`} exact component={Grimoire} />
           <Route path={`${match.url}`} component={Archives} />
         </Switch>
       </>
