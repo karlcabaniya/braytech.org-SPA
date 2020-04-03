@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
+import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
@@ -31,16 +30,6 @@ class Read extends React.Component {
     }
   }
 
-  recordStateCheck = e => {
-    let hash = parseInt(e.currentTarget.dataset.hash, 10);
-    let state = this.recordState(hash);
-
-    if (!enumerateRecordState(state).recordRedeemed) {
-      // e.preventDefault();
-    } else {
-    }
-  };
-
   recordState = hash => {
     if (!this.props.member.data) {
       return 0;
@@ -50,65 +39,21 @@ class Read extends React.Component {
     const profileRecords = this.props.member.data.profile.profileRecords.data.records;
     const characterId = this.props.member.characterId;
 
-    let state;
     if (profileRecords[hash]) {
-      state = profileRecords[hash] ? profileRecords[hash].state : 0;
+      return profileRecords[hash] ? profileRecords[hash].state : 0;
     } else if (characterRecords[characterId].records[hash]) {
-      state = characterRecords[characterId].records[hash] ? characterRecords[characterId].records[hash].state : 0;
+      return characterRecords[characterId].records[hash] ? characterRecords[characterId].records[hash].state : 0;
     } else {
-      state = 0;
+      return 0;
     }
-
-    return state;
   };
 
   render() {
-    const { t } = this.props;
-    const kind = this.props.match.params.kind ? this.props.match.params.kind : false;
-    const hash = this.props.match.params.hash ? this.props.match.params.hash : false;
+    const { kind, hash } = this.props.match.params;
 
-    let parentDefinition;
-    let recordDefinition;
-    let pageName;
-    let content;
-    if (kind === 'book') {
-      parentDefinition = manifest.DestinyPresentationNodeDefinition[hash];
-    } else if (kind === 'record') {
-      recordDefinition = manifest.DestinyRecordDefinition[hash];
-      parentDefinition = manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].parentNodeHashes[0]];
-    } else {
-    }
-
-    if (kind === 'book') {
-      pageName = false;
-      content = (
-        <ul className={cx('list')}>
-          {parentDefinition.children.records.map(entry => {
-            let definition = manifest.DestinyRecordDefinition[entry.recordHash];
-            if (!definition.loreHash) {
-              return null;
-            }
-            let state = this.recordState(entry.recordHash);
-            return (
-              <li key={entry.recordHash} className={cx('linked')}>
-                <Link to={`/read/record/${entry.recordHash}`} onClick={this.recordStateCheck} data-hash={entry.recordHash}>
-                  {!enumerateRecordState(state).recordRedeemed ? '???' : definition.displayProperties.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      );
-    } else if (kind === 'record') {
-      let loreHash = recordDefinition.loreHash;
-      const loreDefininition = manifest.DestinyLoreDefinition[loreHash];
-
-      pageName = loreDefininition.displayProperties.name;
-      content = <div className='text'>{loreDefininition.displayProperties.description}</div>;
-    } else {
-    }
-
-    let backLinkPath = this.state.from;
+    const definitionParent = kind === 'book' ? manifest.DestinyPresentationNodeDefinition[hash] : manifest.DestinyPresentationNodeDefinition[manifest.DestinyRecordDefinition[hash].parentNodeHashes[0]];
+    const definitionRecord = manifest.DestinyRecordDefinition[hash];
+    const definitionLore = definitionRecord?.loreHash && manifest.DestinyLoreDefinition[definitionRecord.loreHash];
 
     return (
       <>
@@ -117,9 +62,9 @@ class Read extends React.Component {
           <div className='wrap'>
             <div className='flair left' />
             <div className='flair right' />
-            <div className={cx('page-name', { null: !pageName })}>
+            <div className={cx('page-name', { null: !definitionLore?.displayProperties.name })}>
               <span className='quote-l' />
-              <span>{pageName}</span>
+              <span>{definitionLore?.displayProperties.name}</span>
               <span className='quote-r' />
             </div>
             <div className='pair'>
@@ -127,19 +72,20 @@ class Read extends React.Component {
                 <div className='sticky'>
                   <div className={cx('display', kind)}>
                     <div className='cover'>
-                      <ObservedImage className='image' src={`/static/images/extracts/books/${bookCovers[parentDefinition?.hash]}`} />
+                      <ObservedImage src={`/static/images/extracts/books/${bookCovers[definitionParent?.hash]}`} />
                     </div>
                     <div className='ui'>
-                      <div className='book-name'>{parentDefinition?.displayProperties.name}</div>
+                      <div className='book-name'>{definitionParent?.displayProperties.name}</div>
                       <ul className={cx('list', { 'is-root': kind === 'book' })}>
                         <li className='linked'>
-                          <Link to={`/read/book/${parentDefinition?.hash}`}>{t('All pages')}</Link>
+                          <div className='text'>{t('All pages')}</div>
+                          <Link to={`/read/book/${definitionParent?.hash}`} />
                         </li>
                         <li className='linked'>
-                          <a href={`https://www.ishtar-collective.net/entries/${recordDefinition ? recordDefinition.loreHash : ''}`} target='_blank' rel='noopener noreferrer'>
-                            <span className='destiny-ishtar' />
-                            Go to Ishtar
-                          </a>
+                          <span className='destiny-ishtar' />
+                          <div className='text'>Ishtar Collective</div>
+                          {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+                          <a href={`https://www.ishtar-collective.net/entries/${definitionRecord ? definitionRecord.loreHash : ''}`} target='_blank' rel='noopener noreferrer' />
                         </li>
                       </ul>
                     </div>
@@ -147,26 +93,48 @@ class Read extends React.Component {
                   <div className='dots' />
                 </div>
               </div>
-              <div className='content'>{content}</div>
+              <div className='content'>
+                {kind === 'book' ? (
+                  <ul className={cx('list')}>
+                    {definitionParent.children.records.map((record, r) => {
+                      const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
+
+                      if (!definitionRecord?.loreHash) {
+                        return null;
+                      }
+
+                      const state = enumerateRecordState(this.recordState(record.recordHash));
+
+                      return (
+                        <li key={r} className={cx('linked')}>
+                          <Link to={`/read/record/${record.recordHash}`}>{!state.recordRedeemed ? '???' : definitionRecord.displayProperties.name}</Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                ) : kind === 'record' ? (
+                  <BungieText className='text' value={definitionLore.displayProperties.description} />
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
-        {kind === 'record' || backLinkPath ? (
+        {kind === 'record' || this.state.from ? (
           <div className='sticky-nav'>
             <div className='wrapper'>
               <div />
               <ul>
                 {kind === 'record' ? (
                   <li>
-                    <Link className='button' to={`/read/book/${parentDefinition?.hash}`}>
+                    <Link className='button' to={`/read/book/${definitionParent?.hash}`}>
                       <DestinyKey type='more' />
                       {t('All pages')}
                     </Link>
                   </li>
                 ) : null}
-                {backLinkPath ? (
+                {this.state.from ? (
                   <li>
-                    <Link className='button' to={backLinkPath}>
+                    <Link className='button' to={this.state.from}>
                       <DestinyKey type='dismiss' />
                       {t('Dismiss')}
                     </Link>
@@ -188,7 +156,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Read);
+export default connect(mapStateToProps)(Read);

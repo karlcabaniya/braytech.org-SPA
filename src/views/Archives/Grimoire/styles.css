@@ -34,27 +34,86 @@
 
 
 
+.grimoire .themes .header .text .name {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  color: rgb(255, 255, 255);
+}
 
-.grimoire .themes .list {
+.grimoire .themes .collections {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 3rem;
 }
 
-.grimoire .themes .list li {
+.grimoire .themes .collections .collection {
+  
   display: grid;
-  height: unset;
+  justify-items: center;
 }
+
+.grimoire .themes .collections .collection .art {
+  position: relative;
+  margin: 0 0 1rem;
+}
+
+.grimoire .themes .collections .collection .art .icon {
+  padding: 2rem;
+}
+
+.grimoire .themes .collections .collection .art .icon svg {
+  width: 100%;
+  height: auto;
+  fill: white;
+  opacity: 0.8;
+}
+
+.grimoire .themes .collections .collection .art .button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.grimoire .themes .collections .collection .text .name {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .grimoire .themes .collections {
+    grid-template-columns: repeat(3, 1fr);
+  }  
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .grimoire .themes .header .text .name {
+    font-size: 36px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .grimoire .themes .collections {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }  
+
+}
+
+
+
 
 
 
 .grimoire .theme {
   
-}
-
-.grimoire .theme .header .text {
-  position: sticky;
-  top: 3rem;
 }
 
 .grimoire .theme .header .text .sub-name {
@@ -137,6 +196,14 @@
 
   .grimoire .theme .pages .page .cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .grimoire .theme .header .text .name {
+    font-size: 36px;
   }
 
 }

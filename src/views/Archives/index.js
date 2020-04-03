@@ -51,6 +51,12 @@ export function NavLinks() {
 function Archives() {
   const entries = [
     {
+      name: t('Grimoire'),
+      description: t("The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."),
+      deployed: "2020-04-03T04:19:34.356Z",
+      link: '/archives/grimoire'
+    },
+    {
       name: t('Eververse Season Overview'),
       description: t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny."),
       deployed: "2020-01-10T00:00:00.000Z",

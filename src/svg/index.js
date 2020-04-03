@@ -119,7 +119,14 @@ import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowke
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
 import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
-import { ReactComponent as Grimoire } from './miscellaneous/grimoire.svg';
+
+import { ReactComponent as GrimoireIcon } from './grimoire/grimoire.svg';
+import { ReactComponent as GrimoireActivities } from './grimoire/activities.svg';
+import { ReactComponent as GrimoireAllies } from './grimoire/allies.svg';
+import { ReactComponent as GrimoireEnemies } from './grimoire/enemies.svg';
+import { ReactComponent as GrimoireGuardian } from './grimoire/guardian.svg';
+import { ReactComponent as GrimoireInventory } from './grimoire/inventory.svg';
+import { ReactComponent as GrimoirePlaces } from './grimoire/places.svg';
 
 const Common = {
   Arc,
@@ -139,25 +146,12 @@ const Common = {
   CrossSave
 };
 
-const Miscellaneous = {
-  WarmindHalf,
-  TrialsOfOsirisDevice,
-  CurseCycle
-};
-
-const Events = {
-  IronBanner: TooltipIronBanner
-};
-
-const Loading = {
-  ClovisBray: FlairClovisBray,
-  WarmindHalf
-};
-
-const Flair = {
-  ClovisBray: FlairClovisBray,
-  Warmind: DestinationsHellasBasin,
-  Superintendent: FlairSuperintendent
+const Campaign = {
+  RedWar: CampaignRedWar,
+  CurseOfOsiris: CampaignCurseOfOsiris,
+  Warmind: CampaignWarmind,
+  Forsaken: CampaignForsaken,
+  Shadowkeep: CampaignShadowkeep
 };
 
 const Destinations = {
@@ -170,32 +164,28 @@ const Destinations = {
   EchoMesa: DestinationsEchoMesa
 };
 
-const Campaign = {
-  RedWar: CampaignRedWar,
-  CurseOfOsiris: CampaignCurseOfOsiris,
-  Warmind: CampaignWarmind,
-  Forsaken: CampaignForsaken,
-  Shadowkeep: CampaignShadowkeep
+const Events = {
+  IronBanner: TooltipIronBanner
 };
 
-const Tooltips = {
-  FastTravel: TooltipFastTravel,
-  Vendor: TooltipVendor,
-  Adventure: TooltipAdventure,
-  Story: TooltipStory,
-  Crucible: TooltipCrucible,
-  Strike: TooltipStrike,
-  Dungeon: TooltipDungeon,
-  ForgeIgnition: TooltipForgeIgnition,
-  Shadowkeep: TooltipShadowkeep,
-  Gambit: TooltipGambit,
-  GambitPrime: TooltipGambitPrime,
-  Reckoning: TooltipReckoning,
-  Menagerie: TooltipMenagerie,
-  Raid: TooltipRaid,
-  SeasonalArena: TooltipSeasonalArena,
-  TrialsOfOsiris: TooltipTrialsOfOsiris,
-  IronBanner: TooltipIronBanner
+const Flair = {
+  ClovisBray: FlairClovisBray,
+  Warmind: DestinationsHellasBasin,
+  Superintendent: FlairSuperintendent
+};
+
+const Grimoire = {
+  Activities: GrimoireActivities,
+  Allies: GrimoireAllies,
+  Enemies: GrimoireEnemies,
+  Guardian: GrimoireGuardian,
+  Inventory: GrimoireInventory,
+  Places: GrimoirePlaces
+};
+
+const Loading = {
+  ClovisBray: FlairClovisBray,
+  WarmindHalf
 };
 
 const Maps = {
@@ -217,6 +207,32 @@ const Maps = {
   MapsPatrolBossVex,
   MapsPatrolBoss,
   MapsPatrolMinion
+};
+
+const Miscellaneous = {
+  WarmindHalf,
+  TrialsOfOsirisDevice,
+  CurseCycle
+};
+
+const Tooltips = {
+  FastTravel: TooltipFastTravel,
+  Vendor: TooltipVendor,
+  Adventure: TooltipAdventure,
+  Story: TooltipStory,
+  Crucible: TooltipCrucible,
+  Strike: TooltipStrike,
+  Dungeon: TooltipDungeon,
+  ForgeIgnition: TooltipForgeIgnition,
+  Shadowkeep: TooltipShadowkeep,
+  Gambit: TooltipGambit,
+  GambitPrime: TooltipGambitPrime,
+  Reckoning: TooltipReckoning,
+  Menagerie: TooltipMenagerie,
+  Raid: TooltipRaid,
+  SeasonalArena: TooltipSeasonalArena,
+  TrialsOfOsiris: TooltipTrialsOfOsiris,
+  IronBanner: TooltipIronBanner
 };
 
 const Views = {
@@ -248,7 +264,7 @@ const Views = {
     Eververse,
     ChaliceOfOpulence,
     Tricorn,
-    Grimoire
+    Grimoire: GrimoireIcon
   },
   Trackers: {
     TraitAll,
@@ -302,4 +318,4 @@ const Activities = {
   }
 };
 
-export { Activities, Campaign, Common, Destinations, Events, Flair, Loading, Miscellaneous, Maps, Tooltips, Views };
+export { Activities, Campaign, Common, Destinations, Events, Flair, Grimoire, Loading, Miscellaneous, Maps, Tooltips, Views };

@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(217deg, hsla(201, 10%, 60%, 0.8), hsla(201, 10%, 60%, 0) 70.71%), linear-gradient(127deg, hsla(29, 7%, 50%, 0.8), hsla(29, 7%, 50%, 0) 70.71%), linear-gradient(336deg, hsla(213, 20%, 50%, 0.8), hsla(213, 20%, 50%, 0) 70.71%);
+  background: linear-gradient(217deg, hsla(201, 20%, 60%, 0.8), hsla(201, 20%, 60%, 0) 70.71%), linear-gradient(127deg, hsla(29, 17%, 50%, 0.8), hsla(29, 17%, 50%, 0) 70.71%), linear-gradient(336deg, hsla(213, 30%, 50%, 0.8), hsla(213, 30%, 50%, 0) 70.71%);
 }
 
 #read .bg::before {
@@ -21,13 +21,13 @@
   width: 100%;
   height: 100%;
   background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewbox='0 0 24 24'><circle cx='1' cy='1' r='1' fill='white' ></circle></svg>");
-  opacity: 0.07;
+  opacity: 0.1;
 }
 
 #read .wrap {
   position: relative;
   width: 1320px;
-  margin: 4rem auto;
+  margin: 8rem auto;
   padding: 0 3rem;
 }
 
@@ -125,26 +125,26 @@
 #read .wrap .nav .sticky::before {
   content: ' ';
   position: absolute;
-  top: -226px;
+  top: -240px;
   left: 0;
   width: 100%;
-  height: 70px;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='27' height='27' viewbox='0 0 27 27'><circle cx='1.5' cy='1.5' r='1.5' fill='white' ></circle></svg>");
-  background-position: 2px 0;
-  opacity: 0.2;
+  height: 100px;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewbox='0 0 25 25'><circle cx='1.25' cy='1.25' r='1.25' fill='white' ></circle></svg>");
+  background-position: 4px 0;
+  opacity: 0.3;
 }
 
 #read .wrap .nav .sticky .display {
-  padding: 0 0 32px;
+  padding: 0 0 1rem;
 }
 
 #read .wrap .nav .dots {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='27' height='27' viewbox='0 0 27 27'><circle cx='1.5' cy='1.5' r='1.5' fill='white' ></circle></svg>");
-  background-position: 2px 0;
-  opacity: 0.2;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewbox='0 0 25 25'><circle cx='1.25' cy='1.25' r='1.25' fill='white' ></circle></svg>");
+  background-position: 4px 7px;
+  opacity: 0.3;
 }
 
 #read .wrap .nav .cover .image {
@@ -154,7 +154,7 @@
 }
 
 #read .wrap .nav .book-name {
-  margin: 0 0 64px;
+  margin: 0 0 3rem;
   padding: 20px 0;
   text-align: center;
   font-size: 16px;
@@ -189,7 +189,8 @@
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0 1rem;
 }
 
 #read .wrap .nav .list .linked::before {
@@ -205,8 +206,16 @@
   transition: unset;
 }
 
-#read .wrap .nav .list .linked a span {
-  margin: 0 8px 0 0;
+#read .wrap .nav .list .linked:nth-child(2) {
+  display: grid;
+  grid-template-columns: min-content auto;
+  gap: 10px;
+}
+
+#read .wrap .nav .list .linked .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #read .wrap .content {
@@ -214,7 +223,6 @@
 }
 
 #read .wrap .content .text {
-  white-space: pre-wrap;
   font-size: 20px;
   line-height: 1.8;
 }
@@ -235,7 +243,7 @@
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
 }
 
@@ -265,6 +273,7 @@
 @media screen and (max-width: 600px) {
   #read .wrap {
     padding: 0 2rem;
+    margin: 5rem auto;
   }
 
   #read .wrap .flair {

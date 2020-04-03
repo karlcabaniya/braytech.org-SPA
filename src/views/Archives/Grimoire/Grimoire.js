@@ -7,6 +7,7 @@ import cx from 'classnames';
 import { t } from '../../../utils/i18n';
 import ObservedImage from '../../../components/ObservedImage';
 import { Button, DestinyKey } from '../../../components/UI/Button';
+import { Grimoire as Icons } from '../../../svg';
 
 import { NavLinks } from '../';
 
@@ -31,14 +32,14 @@ class Grimoire extends React.Component {
   }
 
   render() {
-    const { definitions, viewport, member } = this.props;
+    const { definitions } = this.props;
     const { themeId, pageId, cardId } = this.props.match.params;
 
     const definitionCard = definitions.DestinyGrimoireCardDefinition[cardId];
     const definitionTheme = definitions.DestinyGrimoireDefinition.themeCollection.find(t => t.themeId === themeId);
     const definitionPage = definitionTheme && definitionTheme.pageCollection.find(p => p.pageId === pageId);
 
-    // console.log(definitions, definitionCard, definitionTheme);
+    console.log(definitions);
 
     return (
       <div className='view grimoire' id='archives'>
@@ -58,13 +59,25 @@ class Grimoire extends React.Component {
               </div>
               <div className='content'>
                 <div className='wrapper'>
-                  <ul className='list'>
-                    {definitions.DestinyGrimoireDefinition.themeCollection.map((theme, t) => (
-                      <li key={t} className='linked'>
-                        <Link to={`/archives/grimoire/${theme.themeId}`}>{theme.themeName}</Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className='collections'>
+                    {definitions.DestinyGrimoireDefinition.themeCollection.map((theme, t) => {
+                      const Icon = Icons[theme.themeId];
+
+                      return (
+                        <div key={t} className='collection'>
+                          <div className='art'>
+                            <div className='icon'>
+                              <Icon />
+                            </div>
+                            <Link className='button' to={`/archives/grimoire/${theme.themeId}`} />
+                          </div>
+                          <div className='text'>
+                            <div className='name'>{theme.themeName}</div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

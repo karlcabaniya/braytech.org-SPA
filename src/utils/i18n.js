@@ -223,10 +223,22 @@ export const fromNow = (timestamp, abbreviated = false) => {
   }
 };
 
-export function BungieText(props) {
-  const { className, value = '' } = props;
+function escapeString(value) {
+  const characters = ['#', '##', '###', '####', '#####', '######', '#', '**', '__', '*', '_', '***', '___', '__*', '**_', '>', '>>', '(', ')', '[', ']', '`', '``', '```', '---', '-', '+'];
 
-  return <ReactMarkdown className={className} source={stringToIcons(value, true)} />
+  characters.forEach(character => {
+    const test = new RegExp(`(?<![\\\\])[\\${character}]`, 'g');
+    
+    value = value.replace(test, '\\$&');
+  })
+
+  return value;
+}
+
+export function BungieText(props) {
+  const { className, value = '', ...rest } = props;
+
+  return <ReactMarkdown className={className} source={stringToIcons(value, true)} {...rest} />
 }
 
 export function BraytechText(props) {
