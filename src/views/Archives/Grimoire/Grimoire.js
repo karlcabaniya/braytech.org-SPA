@@ -2,14 +2,10 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
-import ObservedImage from '../../../components/ObservedImage';
-import { Button, DestinyKey } from '../../../components/UI/Button';
+import { DestinyKey } from '../../../components/UI/Button';
 import { Grimoire as Icons } from '../../../svg';
-
-import { NavLinks } from '../';
 
 import './styles.css';
 
@@ -17,18 +13,10 @@ import GrimoireCard from './GrimoireCard';
 import GrimoireTheme from './GrimoireTheme';
 
 class Grimoire extends React.Component {
-  state = {};
-
   componentDidMount() {
-    this.mounted = true;
-
     window.scrollTo(0, 0);
 
     this.props.rebindTooltips();
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
   }
 
   render() {
@@ -105,13 +93,6 @@ class Grimoire extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    member: state.member,
-    viewport: state.viewport
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: value => {
@@ -120,4 +101,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(Grimoire);
+export default compose(connect(null, mapDispatchToProps), withRouter)(Grimoire);

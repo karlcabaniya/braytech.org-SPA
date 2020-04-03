@@ -23,8 +23,26 @@
 }
 
 .grimoire .container .header {
+  position: relative;
   padding: calc(5rem + 40px) 3rem 5rem;
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+.grimoire .crumbs {
+  margin: 0 0 1rem;
+  font-family: var(--fontText);
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.grimoire .crumbs a:not(:first-child)::before {
+  content: ' // ';
+}
+
+.grimoire .crumbs a:not(:last-child):first-child {
+  color: rgb(255, 255, 255);
 }
 
 .grimoire .container .content {
@@ -116,6 +134,29 @@
   
 }
 
+.grimoire .theme .header {
+  overflow: hidden;
+}
+
+.grimoire .theme .header .wrapper {
+  position: relative;
+}
+
+.grimoire .theme .header .icon {
+  
+}
+
+.grimoire .theme .header .icon svg {
+  position: absolute;
+  right: 20%;
+  top: -18%;
+  width: auto;
+  height: 150%;
+  fill: white;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
 .grimoire .theme .header .text .sub-name {
   margin: 0 0 1rem;
   font-family: var(--fontText);
@@ -132,13 +173,23 @@
   color: rgb(255, 255, 255);
 }
 
-.grimoire .theme .pages .page > .name {
-  font-family: var(--fontText);
-  font-size: 16px;
+.grimoire .theme .pages .page h4 {
+  font-size: 24px;
   line-height: 1.4;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  margin: 0 0 2rem;
+}
+
+.grimoire .theme .pages .page h4::before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .grimoire .theme .pages .page:not(:last-child) {
@@ -210,8 +261,18 @@
 
 @media screen and (max-width: 600px) {
 
+  .grimoire .theme .header .icon svg {
+    right: 3%;
+    top: 3%;
+    height: 114%;
+  }
+
   .grimoire .theme .pages .page .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grimoire .theme .pages .page h4 {
+    font-size: 22px;
   }
 
 }
@@ -254,23 +315,6 @@
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.grimoire .detail .text .crumbs {
-  margin: 0 0 1rem;
-  font-family: var(--fontText);
-  font-size: 16px;
-  line-height: 1.4;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.grimoire .detail .text .crumbs a:not(:first-child)::before {
-  content: ' // ';
-}
-
-.grimoire .detail .text .crumbs a:first-child {
-  color: rgb(255, 255, 255);
 }
 
 .grimoire .detail .text .name {

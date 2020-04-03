@@ -1098,5 +1098,10 @@
     "date": "2020-03-31T22:17:00.933Z",
     "version": "2.21.40",
     "content": "- adjusted the way triumph record completition is evaluated\n- general improvements"
+  },
+  {
+    "date": "2020-04-03T05:05:24.240Z",
+    "version": "2.21.45",
+    "content": "- Destiny 1 Grimoire viewer added to _Archives_ view"
   }
 ]

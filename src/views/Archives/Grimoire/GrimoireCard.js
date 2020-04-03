@@ -1,20 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { t, BungieText } from '../../../utils/i18n';
+import { BungieText } from '../../../utils/i18n';
 import ObservedImage from '../../../components/ObservedImage';
 
 class GrimoireCard extends React.Component {
-  state = {};
-
   componentDidMount() {
-    this.mounted = true;
-
     window.scrollTo(0, 0);
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
   }
 
   render() {
@@ -23,8 +15,6 @@ class GrimoireCard extends React.Component {
     const definitionCard = definitions.DestinyGrimoireCardDefinition[cardId];
     const definitionTheme = definitions.DestinyGrimoireDefinition.themeCollection.find(t => t.themeId === themeId);
     const definitionPage = definitionTheme && definitionTheme.pageCollection.find(p => p.pageId === pageId);
-
-    console.log(definitionCard, definitionTheme, definitionPage);
 
     return (
       <div className='detail'>
