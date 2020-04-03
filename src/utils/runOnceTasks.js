@@ -57,4 +57,10 @@ export default function runOnceTasks() {
     ls.update('history.tasks', { id: 'adjustLayouts_february152020' });
   }
 
+  if (!history.find(t => t.id === 'resetTheme_april032020')) {
+    ls.del('setting.theme');
+
+    ls.update('history.tasks', { id: 'resetTheme_april032020' });
+  }
+
 }

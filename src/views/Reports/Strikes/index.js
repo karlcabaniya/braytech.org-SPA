@@ -1,24 +1,17 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as bungie from '../../../utils/bungie';
-
 import Spinner from '../../../components/UI/Spinner';
 import Mode from '../../../components/Reports/Mode';
 import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class Strikes extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false
-    };
-  }
+  state = {
+    loading: false
+  };
 
   strikes = {
     all: {
@@ -41,7 +34,14 @@ class Strikes extends React.Component {
       }));
     }
 
-    let stats = await bungie.GetHistoricalStats(member.membershipType, member.membershipId, member.characterId, '1', Object.values(this.strikes.all).map(m => m.mode), '0');
+    let stats = await bungie.GetHistoricalStats(
+      member.membershipType,
+      member.membershipId,
+      member.characterId,
+      '1',
+      Object.values(this.strikes.all).map(m => m.mode),
+      '0'
+    );
 
     stats = (stats && stats.ErrorCode === 1 && stats.Response) || [];
 
@@ -98,13 +98,8 @@ class Strikes extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
-    const mode = this.props.mode ? parseInt(this.props.mode) : 18;
-    const offset = parseInt(this.props.offset);
-
     return (
-      <div className={cx('view', 'strikes')} id='multiplayer'>
+      <div className='view strikes' id='multiplayer'>
         <div className='module-l1'>
           <div className='module-l2'>
             <div className='content head'>
@@ -121,7 +116,9 @@ class Strikes extends React.Component {
             <div className='content'>
               {Object.values(this.strikes.all.allStrikes).length > 1 ? (
                 <ul className='list modes'>
-                  {Object.values(this.strikes.all).map(m => <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />)}
+                  {Object.values(this.strikes.all).map(m => (
+                    <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />
+                  ))}
                 </ul>
               ) : (
                 <Spinner mini />
@@ -134,7 +131,7 @@ class Strikes extends React.Component {
             <div className='sub-header'>
               <div>{t('Recent strikes')}</div>
             </div>
-            <Matches mode={mode} limit='40' offset={offset} root='/reports/strikes' />
+            <Matches mode={this.props.mode || 18} limit='40' offset={this.props.offset} root='/reports/strikes' />
           </div>
         </div>
       </div>
@@ -149,7 +146,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Strikes);
+export default connect(mapStateToProps)(Strikes);

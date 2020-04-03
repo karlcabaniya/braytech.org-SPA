@@ -1,24 +1,17 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as bungie from '../../../utils/bungie';
-import manifest from '../../../utils/manifest';
 import Spinner from '../../../components/UI/Spinner';
 import Mode from '../../../components/Reports/Mode';
 import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class Gambit extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false
-    };
-  }
+  state = {
+    loading: false
+  };
 
   gambit = {
     all: {
@@ -101,12 +94,8 @@ class Gambit extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
-    const offset = parseInt(this.props.offset, 10);
-
     return (
-      <div className={cx('view', 'gambit')} id='multiplayer'>
+      <div className='view gambit' id='multiplayer'>
         <div className='module-l1'>
           <div className='module-l2'>
             <div className='content head'>
@@ -136,7 +125,7 @@ class Gambit extends React.Component {
             <div className='sub-header'>
               <div>{t('Recent matches')}</div>
             </div>
-            <Matches mode={this.props.mode ? parseInt(this.props.mode) : 75} limit='40' offset={offset} root='/reports/gambit' />
+            <Matches mode={this.props.mode || 75} limit='40' offset={this.props.offset} root='/reports/gambit' />
           </div>
         </div>
       </div>
@@ -151,7 +140,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Gambit);
+export default  connect(mapStateToProps)(Gambit);

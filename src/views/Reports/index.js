@@ -1,7 +1,5 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
 import './styles.css';
 
@@ -12,14 +10,10 @@ import Raids from './Raids';
 import Strikes from './Strikes';
 
 class Reports extends React.Component {
-  componentDidMount() {
-    
-  }
-
   render() {
-    const type = this.props.match.params.type || false;
-    const mode = this.props.match.params.mode || false;
-    const offset = this.props.match.params.offset || 0;
+    const type = this.props.match.params.type;
+    const mode = +this.props.match.params.mode || 0;
+    const offset = +this.props.match.params.offset || 0;
 
     if (type === 'crucible') {
       return <Crucible mode={mode} offset={offset} />;
@@ -42,7 +36,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Reports);
+export default connect(mapStateToProps)(Reports);

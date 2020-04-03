@@ -59,7 +59,7 @@ class ProfileRoutes extends React.Component {
           <Route path={`${match.url}/character`} exact component={Character} />
           <Route path={`${match.url}/quests/:hash(\\d+)?`} exact component={Quests} />
           <Route path={`${match.url}/quests/bounty-tracker/:sort?`} exact component={BountyTracker} />
-          <Route path={`${match.url}/reports/:type?/:mode(\\d+)?/:offset(\\d+)?`} component={Reports} />
+          <Route path={`${match.url}/reports/:type?/:mode(\\-?\\d+)?/:offset(\\d+)?`} component={Reports} />
           <Route path={`${match.url}/`} render={route => <Redirect to={{ pathname: `${match.url}/now` }} />} />
         </Switch>
       </>

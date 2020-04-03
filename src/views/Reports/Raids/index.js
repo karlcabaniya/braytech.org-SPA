@@ -1,9 +1,7 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as bungie from '../../../utils/bungie';
 import Spinner from '../../../components/UI/Spinner';
 import Mode from '../../../components/Reports/Mode';
@@ -11,13 +9,9 @@ import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class Raids extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false
-    };
-  }
+  state = {
+    loading: false
+  };
 
   raids = {
     all: {
@@ -94,12 +88,8 @@ class Raids extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
-    const offset = parseInt(this.props.offset, 10);
-
     return (
-      <div className={cx('view', 'gambit')} id='multiplayer'>
+      <div className='view gambit' id='multiplayer'>
         <div className='module-l1'>
           <div className='module-l2'>
             <div className='content head'>
@@ -129,7 +119,7 @@ class Raids extends React.Component {
             <div className='sub-header'>
               <div>{t('Recent raids')}</div>
             </div>
-            <Matches mode={this.props.mode ? parseInt(this.props.mode) : 4} limit='40' offset={offset} root='/reports/raids' />
+            <Matches mode={this.props.mode || 4} limit='40' offset={this.props.offset} root='/reports/raids' />
           </div>
         </div>
       </div>
@@ -144,7 +134,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Raids);
+export default connect(mapStateToProps)(Raids);

@@ -1,9 +1,7 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as bungie from '../../../utils/bungie';
 import Spinner from '../../../components/UI/Spinner';
 import Mode from '../../../components/Reports/Mode';
@@ -11,13 +9,9 @@ import Matches from '../../../components/Reports/Matches';
 import ParentModeLinks from '../ParentModeLinks';
 
 class Crucible extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false
-    };
-  }
+  state = {
+    loading: false
+  };
 
   crucible = {
     all: {
@@ -198,12 +192,8 @@ class Crucible extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
-    const offset = parseInt(this.props.offset, 10);
-
     return (
-      <div className={cx('view', 'crucible')} id='multiplayer'>
+      <div className='view crucible' id='multiplayer'>
         <div className='module-l1'>
           <div className='module-l2'>
             <div className='content head'>
@@ -252,7 +242,7 @@ class Crucible extends React.Component {
             <div>{t('Recent matches')}</div>
           </div>
           <div className='content'>
-            <Matches mode={this.props.mode ? parseInt(this.props.mode) : 5} limit='40' offset={offset} root='/reports/crucible' />
+            <Matches mode={this.props.mode || 5} limit='40' offset={this.props.offset} root='/reports/crucible' />
           </div>
         </div>
       </div>
@@ -267,4 +257,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Crucible);
+export default connect(mapStateToProps)(Crucible);
