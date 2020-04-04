@@ -14,44 +14,44 @@ import { energyStatToType, energyTypeToAsset } from '../../utils/destinyConverte
 
 import './styles.css';
 
-function selfLinkCollectible(hash) {   
+function selfLinkCollectible(hash) {
   const link = ['/collections'];
   const root = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.collectionRootNode];
 
-  root.children.presentationNodes.forEach(nP => {
-    const nodePrimary = manifest.DestinyPresentationNodeDefinition[nP.presentationNodeHash];
+  root.children.presentationNodes.forEach((primary) => {
+    const definitionPrimaryNode = manifest.DestinyPresentationNodeDefinition[primary.presentationNodeHash];
 
-    nodePrimary.children.presentationNodes.forEach(nS => {
-      const nodeSecondary = manifest.DestinyPresentationNodeDefinition[nS.presentationNodeHash];
+    definitionPrimaryNode.children.presentationNodes.forEach((secondary) => {
+      const definitionSecondaryNode = manifest.DestinyPresentationNodeDefinition[secondary.presentationNodeHash];
 
-      nodeSecondary.children.presentationNodes.forEach(nT => {
-        const nodeTertiary = manifest.DestinyPresentationNodeDefinition[nT.presentationNodeHash];
+      definitionSecondaryNode.children.presentationNodes.forEach((tertiary) => {
+        const definitionTertiaryNode = manifest.DestinyPresentationNodeDefinition[tertiary.presentationNodeHash];
 
-        if (nodeTertiary.children.collectibles.length) {
-          const found = nodeTertiary.children.collectibles.find(c => c.collectibleHash === hash);
+        if (definitionTertiaryNode.children.collectibles.length) {
+          const collectible = definitionTertiaryNode.children.collectibles.find((collectible) => collectible.collectibleHash === hash);
 
-          if (found) {
-            link.push(nodePrimary.hash, nodeSecondary.hash, nodeTertiary.hash, found.collectibleHash);
+          if (collectible) {
+            link.push(definitionPrimaryNode.hash, definitionSecondaryNode.hash, definitionTertiaryNode.hash, collectible.collectibleHash);
           }
-        } else if (nodeTertiary.children.presentationNodes.length) {
-          nodeTertiary.children.presentationNodes.forEach(nQ => {
-            const nodeQuaternary = manifest.DestinyPresentationNodeDefinition[nQ.presentationNodeHash];
+        } else if (definitionTertiaryNode.children.presentationNodes.length) {
+          definitionTertiaryNode.children.presentationNodes.forEach((quaternary) => {
+            const definitionQuaternaryNode = manifest.DestinyPresentationNodeDefinition[quaternary.presentationNodeHash];
 
-            if (nodeQuaternary.children.collectibles.length) {
-              const found = nodeQuaternary.children.collectibles.find(c => c.collectibleHash === hash);
+            if (definitionQuaternaryNode.children.collectibles.length) {
+              const collectible = definitionQuaternaryNode.children.collectibles.find((collectible) => collectible.collectibleHash === hash);
 
-              if (found) {
-                link.push(nodePrimary.hash, nodeSecondary.hash, nodeTertiary.hash, nodeQuaternary.hash, found.collectibleHash);
+              if (collectible) {
+                link.push(definitionPrimaryNode.hash, definitionSecondaryNode.hash, definitionTertiaryNode.hash, definitionQuaternaryNode.hash, collectible.collectibleHash);
               }
-            } else if (nodeQuaternary.children.presentationNodes.length) {
-              nodeQuaternary.children.presentationNodes.forEach(nQ => {
-                const nodeQuinary = manifest.DestinyPresentationNodeDefinition[nQ.presentationNodeHash];
+            } else if (definitionQuaternaryNode.children.presentationNodes.length) {
+              definitionQuaternaryNode.children.presentationNodes.forEach((quaternary) => {
+                const definitionQuinaryNode = manifest.DestinyPresentationNodeDefinition[quaternary.presentationNodeHash];
 
-                if (nodeQuinary.children.collectibles.length) {
-                  const found = nodeQuinary.children.collectibles.find(c => c.collectibleHash === hash);
+                if (definitionQuinaryNode.children.collectibles.length) {
+                  const collectible = definitionQuinaryNode.children.collectibles.find((collectible) => collectible.collectibleHash === hash);
 
-                  if (found) {
-                    link.push(nodePrimary.hash, nodeSecondary.hash, nodeTertiary.hash, nodeQuaternary.hash, nodeQuinary.hash, found.collectibleHash);
+                  if (collectible) {
+                    link.push(definitionPrimaryNode.hash, definitionSecondaryNode.hash, definitionTertiaryNode.hash, definitionQuaternaryNode.hash, definitionQuinaryNode.hash, collectible.collectibleHash);
                   }
                 }
               });
@@ -63,7 +63,7 @@ function selfLinkCollectible(hash) {
   });
 
   return link.join('/');
-};
+}
 
 class Collectibles extends React.Component {
   scrollToRecordRef = React.createRef();
@@ -73,7 +73,7 @@ class Collectibles extends React.Component {
 
     if (highlight && this.scrollToRecordRef.current !== null) {
       window.scrollTo({
-        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2
+        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2,
       });
     }
   }
@@ -87,7 +87,7 @@ class Collectibles extends React.Component {
   render() {
     const { t, member, collectibles, viewport, selfLinkFrom, forceDisplay, forceTooltip, inspect } = this.props;
     const highlight = +this.props.match?.params?.quinary || +this.props.highlight || false;
-    const collectiblesRequested = this.props.hashes?.filter(h => h);
+    const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
     const characterCollectibles = member.data?.profile.characterCollectibles.data;
     const profileCollectibles = member.data?.profile.profileCollectibles.data;
@@ -98,13 +98,13 @@ class Collectibles extends React.Component {
       const tertiaryDefinition = manifest.DestinyPresentationNodeDefinition[this.props.node];
 
       if (tertiaryDefinition.children.presentationNodes.length > 0) {
-        tertiaryDefinition.children.presentationNodes.forEach(node => {
+        tertiaryDefinition.children.presentationNodes.forEach((node) => {
           const definitionNode = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
 
           let row = [];
           let rowState = [];
 
-          definitionNode.children.collectibles.forEach(child => {
+          definitionNode.children.collectibles.forEach((child) => {
             const definitionCollectible = manifest.DestinyCollectibleDefinition[child.collectibleHash];
 
             const scope = profileCollectibles.collectibles[child.collectibleHash] ? profileCollectibles.collectibles[child.collectibleHash] : characterCollectibles[characterId].collectibles[child.collectibleHash];
@@ -128,7 +128,7 @@ class Collectibles extends React.Component {
                   <li
                     key={definitionCollectible.hash}
                     className={cx('redacted', 'tooltip', {
-                      highlight: highlight && highlight === definitionCollectible.hash
+                      highlight: highlight && highlight === definitionCollectible.hash,
                     })}
                     data-hash='343'
                   >
@@ -140,7 +140,7 @@ class Collectibles extends React.Component {
                       {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
                     </div>
                   </li>
-                )
+                ),
               });
             } else {
               row.push({
@@ -151,7 +151,7 @@ class Collectibles extends React.Component {
                     key={definitionCollectible.hash}
                     className={cx('item', 'tooltip', {
                       completed: !enumerateCollectibleState(state).notAcquired && !enumerateCollectibleState(state).invisible,
-                      highlight: highlight && highlight === definitionCollectible.hash
+                      highlight: highlight && highlight === definitionCollectible.hash,
                     })}
                     data-hash={definitionCollectible.itemHash}
                   >
@@ -164,14 +164,14 @@ class Collectibles extends React.Component {
                     </div>
                     {inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
                   </li>
-                )
+                ),
               });
             }
           });
 
-          row = row.filter(c => c).map(obj => obj.element);
+          row = row.filter((c) => c).map((obj) => obj.element);
 
-          if (row.filter(c => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+          if (row.filter((c) => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
             row.push(
               <li key='lol' className='all-completed'>
                 <div className='properties'>
@@ -181,14 +181,14 @@ class Collectibles extends React.Component {
             );
           }
 
-          const ref = definitionNode.children.collectibles.find(c => c.collectibleHash === highlight) ? this.scrollToRecordRef : null;
+          const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.scrollToRecordRef : null;
 
           collectiblesOutput.push(
             <li
               key={definitionNode.hash}
               ref={ref}
               className={cx('is-set', {
-                completed: rowState.filter(collectible => !enumerateCollectibleState(collectible).notAcquired).length === rowState.length
+                completed: rowState.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length === rowState.length,
               })}
             >
               <div className='text'>
@@ -201,7 +201,7 @@ class Collectibles extends React.Component {
           );
         });
       } else {
-        tertiaryDefinition.children.collectibles.forEach(child => {
+        tertiaryDefinition.children.collectibles.forEach((child) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[child.collectibleHash];
 
           const scope = profileCollectibles?.collectibles[child.collectibleHash] ? profileCollectibles.collectibles[child.collectibleHash] : characterCollectibles?.[characterId].collectibles[child.collectibleHash];
@@ -226,7 +226,7 @@ class Collectibles extends React.Component {
                   key={definitionCollectible.hash}
                   ref={ref}
                   className={cx('redacted', 'tooltip', {
-                    highlight: highlight && highlight === definitionCollectible.hash
+                    highlight: highlight && highlight === definitionCollectible.hash,
                   })}
                   data-hash='343'
                 >
@@ -238,7 +238,7 @@ class Collectibles extends React.Component {
                     {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
                   </div>
                 </li>
-              )
+              ),
             });
           } else {
             const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
@@ -253,7 +253,7 @@ class Collectibles extends React.Component {
                   ref={ref}
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).notAcquired,
-                    highlight: highlight && highlight === definitionCollectible.hash
+                    highlight: highlight && highlight === definitionCollectible.hash,
                   })}
                   data-hash={definitionCollectible.itemHash}
                 >
@@ -266,12 +266,12 @@ class Collectibles extends React.Component {
                   </div>
                   {inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
                 </li>
-              )
+              ),
             });
           }
         });
 
-        if (collectiblesOutput.filter(c => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+        if (collectiblesOutput.filter((c) => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
           collectiblesOutput.push({
             element: (
               <li key='lol' className='all-completed'>
@@ -279,14 +279,14 @@ class Collectibles extends React.Component {
                   <div className='text'>{t('All discovered')}</div>
                 </div>
               </li>
-            )
+            ),
           });
         }
 
-        collectiblesOutput = collectiblesOutput.filter(c => c).map(obj => obj.element);
+        collectiblesOutput = collectiblesOutput.filter((c) => c).map((obj) => obj.element);
       }
     } else {
-      collectiblesRequested.forEach(hash => {
+      collectiblesRequested.forEach((hash) => {
         const definitionCollectible = manifest.DestinyCollectibleDefinition[hash];
 
         if (!definitionCollectible) return null;
@@ -316,7 +316,7 @@ class Collectibles extends React.Component {
               className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
                 tooltip: viewport.width <= 600 && link && selfLinkFrom && !forceTooltip ? false : true,
                 linked: link && selfLinkFrom,
-                completed: !enumerateCollectibleState(state).notAcquired
+                completed: !enumerateCollectibleState(state).notAcquired,
               })}
               data-hash={definitionCollectible.itemHash}
             >
@@ -330,7 +330,7 @@ class Collectibles extends React.Component {
               {link && selfLinkFrom && !inspect ? <ProfileLink to={{ pathname: link, state: { from: selfLinkFrom } }} /> : null}
               {inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
             </li>
-          )
+          ),
         });
       });
 
@@ -342,11 +342,11 @@ class Collectibles extends React.Component {
                 <div className='text'>{t('All discovered')}</div>
               </div>
             </li>
-          )
+          ),
         });
       }
 
-      collectiblesOutput = collectiblesOutput.filter(c => c).map(obj => obj.element);
+      collectiblesOutput = collectiblesOutput.filter((c) => c).map((obj) => obj.element);
     }
 
     return collectiblesOutput;
@@ -357,15 +357,15 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     collectibles: state.collectibles,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
