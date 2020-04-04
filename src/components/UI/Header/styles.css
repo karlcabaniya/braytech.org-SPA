@@ -285,11 +285,12 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 #header.profile-header .characters .list li .displayName {
   position: relative;
   flex-basis: 100%;
+  margin: 6px 0 8px;
   font-size: 36px;
   letter-spacing: 2px;
   line-height: 1;
   font-weight: 500;
-  margin: 6px 0 8px;
+  color: rgb(255, 255, 255);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

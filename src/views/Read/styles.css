@@ -176,6 +176,8 @@
 }
 
 #read .wrap .nav .list {
+  display: grid;
+  gap: 3px;
   transition: opacity 1s;
 }
 
@@ -185,12 +187,10 @@
 }
 
 #read .wrap .nav .list .linked {
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.6);
+  display: grid;
   padding: 0 1rem;
+  margin: 0;
+  background-color: transparent;
 }
 
 #read .wrap .nav .list .linked::before {
@@ -198,12 +198,9 @@
 }
 
 #read .wrap .nav .list .linked:hover {
+  margin: 0;
   background-color: rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 1);
-}
-
-#read .wrap .nav .list .linked a {
-  transition: unset;
 }
 
 #read .wrap .nav .list .linked:nth-child(2) {
@@ -213,6 +210,10 @@
 }
 
 #read .wrap .nav .list .linked .text {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -235,16 +236,14 @@
 #read.book .content .list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3px;
+  gap: 3px;
 }
 
 #read.book .content .list .linked {
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.6);
+  display: grid;
   margin: 0;
+  padding: 0 1rem;
+  background-color: transparent;
 }
 
 #read.book .content .list .linked::before {
@@ -256,8 +255,14 @@
   color: rgba(255, 255, 255, 1);
 }
 
-#read.book .content .list .linked a {
-  transition: unset;
+#read.book .content .list .linked .text {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1024px) {
@@ -319,15 +324,9 @@
   }
 
   #read .wrap .nav .sticky::before {
-    content: ' ';
-    position: absolute;
-    top: -182px;
-    left: 0;
-    width: 100%;
-    height: 96px;
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24'><circle cx='1.5' cy='1.5' r='1.5' fill='white' ></circle></svg>");
-    background-position: 2px 0;
+    top: -176px;
     opacity: 0.2;
+    background-position: 4px -18px;
   }
 
   #read .wrap .nav .dots {

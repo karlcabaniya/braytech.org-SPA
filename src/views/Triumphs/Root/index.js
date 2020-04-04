@@ -8,6 +8,7 @@ import manifest from '../../../utils/manifest';
 import duds from '../../../data/records/duds';
 import unobtainable from '../../../data/records/unobtainable';
 import { enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
+import { displayValue } from '../../../utils/destinyConverters';
 import { ProfileLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
 import { unredeemedRecords } from '../../../components/Records';
@@ -165,7 +166,8 @@ class Root extends React.Component {
       });
     });
 
-    const unredeemedTriumphCount = unredeemedRecords(member).length;
+    const unredeemedTriumphLength = unredeemedRecords(member).map(record => record.recordHash).length;
+    const unredeemedTriumphScoreValue = unredeemedRecords(member).reduce((sum, record) => sum + record.scoreValue, 0);
 
     return (
       <>
@@ -174,16 +176,19 @@ class Root extends React.Component {
             <div>{t('Total score')}</div>
           </div>
           <div className='total-score'>{this.props.member.data.profile.profileRecords.data.score.toLocaleString()}</div>
-          {unredeemedTriumphCount > 0 ? (
-            <ul className='list record-items notification-unredeemed'>
-              <li className='linked unredeemed'>
-                <div className='text'>
-                  {unredeemedTriumphCount} {t('unredeemed triumphs')}
-                </div>
-                <i className='segoe-uniE0AB' />
-                <ProfileLink to={{ pathname: '/triumphs/unredeemed', state: { from: '/triumphs' } }} />
-              </li>
-            </ul>
+          {unredeemedTriumphLength > 0 ? (
+            <>
+              <ul className='list record-items notification-unredeemed'>
+                <li className='linked unredeemed'>
+                  <div className='text'>
+                    {unredeemedTriumphLength} {t('unredeemed triumphs')}
+                  </div>
+                  <i className='segoe-uniE0AB' />
+                  <ProfileLink to={{ pathname: '/triumphs/unredeemed', state: { from: '/triumphs' } }} />
+                </li>
+              </ul>
+              <div className='info'>{t('Redeem these records and increase your triumph score by {{scoreValue}} points.', { scoreValue: displayValue(unredeemedTriumphScoreValue) })}</div>
+            </>
           ) : null}
           <div className='sub-header'>
             <div>{t('Search')}</div>

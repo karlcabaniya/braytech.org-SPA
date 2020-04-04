@@ -259,7 +259,6 @@
 
 
 #triumphs.root .list.notification-unredeemed {
-  margin: 0 0 calc(2rem + 24px);
   grid-template-columns: 1fr;
 }
 
@@ -278,6 +277,9 @@
   font-size: 13px;
 }
 
+#triumphs.root .list.notification-unredeemed ~ .info {
+  margin: 1rem 0 calc(2rem + 24px);
+}
 
 @media screen and (max-width: 1600px) {
   #triumphs > .almost-complete .list.record-items,

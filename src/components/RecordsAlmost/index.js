@@ -15,7 +15,7 @@ class RecordsAlmost extends React.Component {
   scrollToRecordRef = React.createRef();
 
   render() {
-    const { member, collectibles, sort, limit } = this.props;
+    const { member, collectibles, sort, limit, selfLinkFrom = false } = this.props;
     const characterRecords = member && member.data.profile.characterRecords.data;
     const profileRecords = member && member.data.profile.profileRecords.data.records;
 
@@ -97,8 +97,6 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      const selfLinkFrom = this.props.selfLinkFrom || false;
-
       const definitionRecord = manifest.DestinyRecordDefinition[hash];
       const score = definitionRecord?.completionInfo?.ScoreValue || 0;
 
@@ -110,7 +108,7 @@ class RecordsAlmost extends React.Component {
         distance,
         score,
         commonality: manifest.statistics.triumphs?.[definitionRecord.hash] || 0,
-        element: <Records key={hash} selfLink selfLinkFrom={selfLinkFrom} hashes={[hash]} />
+        recordHash: definitionRecord.hash
       });
     });
 
@@ -126,7 +124,9 @@ class RecordsAlmost extends React.Component {
 
     return (
       <>
-        <ul className={cx('list record-items')}>{almost.map(r => r.element)}</ul>
+        <ul className={cx('list record-items')}>
+          <Records selfLinkFrom={selfLinkFrom} hashes={almost.map(record => record.recordHash)} />
+        </ul>
         {this.props.pageLink ? (
           <ProfileLink className='button' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
             <div className='text'>{t('See next {{limit}}', { limit: 200 })}</div>

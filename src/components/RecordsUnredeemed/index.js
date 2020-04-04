@@ -7,12 +7,12 @@ class RecordsUnredeemed extends React.Component {
   render() {
     const { member, limit, selfLinkFrom = false } = this.props;
 
-    const hashes = unredeemedRecords(member);
+    const hashes = unredeemedRecords(member).map(record => record.recordHash);
 
     return (
       <>
         <ul className='list record-items'>
-          <Records selfLink hashes={hashes} ordered='rarity' limit={limit} selfLinkFrom={selfLinkFrom} />
+          <Records hashes={hashes} ordered='rarity' limit={limit} selfLinkFrom={selfLinkFrom} />
         </ul>
       </>
     );
