@@ -1,111 +1,111 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 300,
+    "notTranslated": 301,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "debug": {
-    "translated": 669,
+    "translated": 670,
     "notTranslated": 0,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "en": {
-    "translated": 669,
+    "translated": 670,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 668,
-    "notTranslated": 1,
+    "notTranslated": 2,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "es": {
     "translated": 668,
-    "notTranslated": 1,
+    "notTranslated": 2,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "fr": {
     "translated": 573,
-    "notTranslated": 96,
+    "notTranslated": 97,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "it": {
     "translated": 652,
-    "notTranslated": 17,
+    "notTranslated": 18,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "ja": {
     "translated": 603,
-    "notTranslated": 66,
+    "notTranslated": 67,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "ko": {
     "translated": 553,
-    "notTranslated": 116,
+    "notTranslated": 117,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 667,
+    "notTranslated": 668,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 663,
-    "notTranslated": 6,
+    "notTranslated": 7,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "ru": {
     "translated": 668,
-    "notTranslated": 1,
+    "notTranslated": 2,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 460,
-    "notTranslated": 209,
+    "notTranslated": 210,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 376,
-    "notTranslated": 293,
+    "notTranslated": 294,
     "added": [
-      "The lore of old, Destiny 1's Grimoire cards are backed up, archived, and preserved here."
+      "Redeem these records and increase your triumph score by {{scoreValue}} points."
     ],
     "removed": []
   }
