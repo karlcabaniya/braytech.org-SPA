@@ -25,27 +25,27 @@ function selfLinkRecord(hash) {
   const root = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.recordsRootNode];
   const seals = manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.medalsRootNode];
 
-  root.children.presentationNodes.forEach(primary => {
+  root.children.presentationNodes.forEach((primary) => {
     const definitionPrimaryNode = manifest.DestinyPresentationNodeDefinition[primary.presentationNodeHash];
 
-    definitionPrimaryNode.children.presentationNodes.forEach(secondary => {
+    definitionPrimaryNode.children.presentationNodes.forEach((secondary) => {
       const definitionSecondaryNode = manifest.DestinyPresentationNodeDefinition[secondary.presentationNodeHash];
 
-      definitionSecondaryNode.children.presentationNodes.forEach(tertiary => {
+      definitionSecondaryNode.children.presentationNodes.forEach((tertiary) => {
         const definitionTertiaryNode = manifest.DestinyPresentationNodeDefinition[tertiary.presentationNodeHash];
 
         if (definitionTertiaryNode.children.records.length) {
-          const record = definitionTertiaryNode.children.records.find(record => record.recordHash === hash);
+          const record = definitionTertiaryNode.children.records.find((record) => record.recordHash === hash);
 
           if (record) {
             link.push(definitionPrimaryNode.hash, definitionSecondaryNode.hash, definitionTertiaryNode.hash, record.recordHash);
           }
         } else {
-          definitionTertiaryNode.children.presentationNodes.forEach(quaternary => {
+          definitionTertiaryNode.children.presentationNodes.forEach((quaternary) => {
             const definitionQuaternaryNode = manifest.DestinyPresentationNodeDefinition[quaternary.presentationNodeHash];
 
             if (definitionQuaternaryNode.children.records.length) {
-              const record = definitionQuaternaryNode.children.records.find(record => record.recordHash === hash);
+              const record = definitionQuaternaryNode.children.records.find((record) => record.recordHash === hash);
 
               if (record) {
                 link.push(definitionPrimaryNode.hash, definitionSecondaryNode.hash, definitionTertiaryNode.hash, definitionQuaternaryNode.hash, record.recordHash);
@@ -58,7 +58,7 @@ function selfLinkRecord(hash) {
   });
 
   if (link.length === 1) {
-    seals.children.presentationNodes.forEach(primary => {
+    seals.children.presentationNodes.forEach((primary) => {
       const definitionPrimaryNode = manifest.DestinyPresentationNodeDefinition[primary.presentationNodeHash];
 
       if (definitionPrimaryNode.completionRecordHash === hash) {
@@ -68,7 +68,7 @@ function selfLinkRecord(hash) {
       }
 
       if (definitionPrimaryNode.children.records.length) {
-        const record = definitionPrimaryNode.children.records.find(record => record.recordHash === hash);
+        const record = definitionPrimaryNode.children.records.find((record) => record.recordHash === hash);
 
         if (record) {
           link.push('seal', definitionPrimaryNode.hash, record.recordHash);
@@ -78,7 +78,25 @@ function selfLinkRecord(hash) {
   }
 
   return link.join('/');
-};
+}
+
+function selfLinkRead(hash) {
+  const definitionRecord = manifest.DestinyRecordDefinition[hash];
+
+  if (definitionRecord?.loreHash) {
+    return `/read/record/${definitionRecord.hash}`;
+  } else if (definitionRecord) {
+    const parentNodes = definitionRecord.parentNodeHashes.filter((hash) => hash !== 2693736750);
+
+    if (parentNodes.length === 1) {
+      return `/read/book/${parentNodes[0]}`;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
 
 function unredeemedRecords(member) {
   const characterRecords = member.data?.profile.characterRecords.data;
@@ -88,7 +106,7 @@ function unredeemedRecords(member) {
 
   const merged = {
     ...profileRecords,
-    ...characterRecords[member.characterId].records
+    ...characterRecords[member.characterId].records,
   };
 
   Object.entries(merged).forEach(([key, record]) => {
@@ -99,31 +117,34 @@ function unredeemedRecords(member) {
     }
 
     if (definitionRecord.parentNodeHashes?.length && !enumerateRecordState(record.state).invisible && !enumerateRecordState(record.state).objectiveNotCompleted && !enumerateRecordState(record.state).recordRedeemed) {
-      
       // temporary fix for https://github.com/Bungie-net/api/issues/1167
       // check to see if belongs to transitory expired seal || is undying seal child
       const definitionParent = definitionRecord.parentNodeHashes?.length && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
       const parentCompletionRecordData = definitionParent && definitionParent.completionRecordHash && definitionParent.scope === 1 ? characterRecords[member.characterId].records[definitionParent.completionRecordHash] : profileRecords[definitionParent.completionRecordHash];
 
-      if ((definitionParent.hash === 3303651244) || (parentCompletionRecordData && enumerateRecordState(parentCompletionRecordData.state).rewardUnavailable && enumerateRecordState(parentCompletionRecordData.state).objectiveNotCompleted) || (parentCompletionRecordData && enumerateRecordState(parentCompletionRecordData).invisible)) {
+      if (definitionParent.hash === 3303651244 || (parentCompletionRecordData && enumerateRecordState(parentCompletionRecordData.state).rewardUnavailable && enumerateRecordState(parentCompletionRecordData.state).objectiveNotCompleted) || (parentCompletionRecordData && enumerateRecordState(parentCompletionRecordData).invisible)) {
         return;
       } else {
-        const scoreValue = record.intervalObjectives ? record.intervalObjectives.filter(interval => interval.complete).reduce((sum, interval) => {
-          const scoreValue = definitionRecord.intervalInfo.intervalObjectives.find(objective => objective.intervalObjectiveHash === interval.objectiveHash)?.intervalScoreValue || 0;
+        const scoreValue = record.intervalObjectives
+          ? record.intervalObjectives
+              .filter((interval) => interval.complete)
+              .reduce((sum, interval) => {
+                const scoreValue = definitionRecord.intervalInfo.intervalObjectives.find((objective) => objective.intervalObjectiveHash === interval.objectiveHash)?.intervalScoreValue || 0;
 
-          return sum + scoreValue;
-        }, 0) : record.scoreValue || 0;
+                return sum + scoreValue;
+              }, 0)
+          : record.scoreValue || 0;
 
         records.push({
           recordHash: definitionRecord.hash,
-          scoreValue
+          scoreValue,
         });
       }
     }
   });
 
   return records;
-};
+}
 
 function recordDescription(hash) {
   const definitionRecord = manifest.DestinyRecordDefinition[hash];
@@ -143,12 +164,12 @@ class Records extends React.Component {
   componentDidMount() {
     if (this.props.highlight && this.scrollToRecordRef.current !== null) {
       window.scrollTo({
-        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2
+        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2,
       });
     }
   }
 
-  handler_toggleTrack = e => {
+  handler_toggleTrack = (e) => {
     let tracked = this.props.triumphs.tracked;
     const hashToTrack = +e.currentTarget.dataset.hash;
     const target = tracked.indexOf(hashToTrack);
@@ -163,37 +184,35 @@ class Records extends React.Component {
   };
 
   makeLink = (hash, isCollectionBadge) => {
-    const definitionRecord = manifest.DestinyRecordDefinition[hash];
-    
     const triumphsPathname = selfLinkRecord(hash);
     const collectionsPathname = `/collections/badge/${isCollectionBadge?.badgeHash}`;
-    const readPathname = definitionRecord.loreHash ? `/read/record/${definitionRecord.hash}` : `/read/book/${this.props.match.params.tertiary}`;
+    const readPathname = selfLinkRead(hash);
 
     if (this.props.readLink) {
       return {
         pathname: !this.props.selfLinkFrom ? readPathname : triumphsPathname,
         state: {
-          from: this.props.location.pathname
-        }
+          from: this.props.location.pathname,
+        },
       };
     } else if (!this.props.selfLinkFrom && isCollectionBadge) {
       return {
         pathname: collectionsPathname,
         state: {
-          from: paths.removeMemberIds(this.props.location.pathname)
-        }
+          from: paths.removeMemberIds(this.props.location.pathname),
+        },
       };
     } else if (this.props.selfLinkFrom) {
       return {
         pathname: triumphsPathname,
         state: {
-          from: this.props.selfLinkFrom
-        }
+          from: this.props.selfLinkFrom,
+        },
       };
     } else {
       return false;
     }
-  }
+  };
 
   render() {
     const { hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, forceDisplay = false } = this.props;
@@ -212,7 +231,7 @@ class Records extends React.Component {
       if (!definitionRecord) return;
 
       // console.log(definitionRecord.displayProperties.name);
-      
+
       const recordScope = definitionRecord.scope || 0;
       const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
@@ -225,40 +244,40 @@ class Records extends React.Component {
         score: {
           value: 0,
           progress: 0,
-          next: 0
+          next: 0,
         },
         objectives: [],
         intervals: [],
-        intervalEl: null
+        intervalEl: null,
       };
 
       if (definitionRecord.objectiveHashes) {
         recordState.score = {
           value: definitionRecord.completionInfo.ScoreValue,
           progress: definitionRecord.completionInfo.ScoreValue,
-          next: definitionRecord.completionInfo.ScoreValue
+          next: definitionRecord.completionInfo.ScoreValue,
         };
 
         recordState.objectives = definitionRecord.objectiveHashes.map((hash, i) => {
-          const data = recordData && recordData.objectives.find(o => o.objectiveHash === hash);
+          const data = recordData && recordData.objectives.find((o) => o.objectiveHash === hash);
 
           return {
             ...data,
             score: definitionRecord.completionInfo.ScoreValue,
-            el: <ProgressBar key={`${hash}${i}`} {...data} />
+            el: <ProgressBar key={`${hash}${i}`} {...data} />,
           };
         });
 
         const distance = recordState.objectives.reduce(
           (a, v) => {
             return {
-              completionValueDiviser: a.completionValueDiviser += 1,
-              progressValueDecimal: (a.progressValueDecimal += Math.min(v.progress / v.completionValue, 1) || 0)
+              completionValueDiviser: (a.completionValueDiviser += 1),
+              progressValueDecimal: (a.progressValueDecimal += Math.min(v.progress / v.completionValue, 1) || 0),
             };
           },
           {
             completionValueDiviser: 0,
-            progressValueDecimal: 0
+            progressValueDecimal: 0,
           }
         );
 
@@ -268,7 +287,7 @@ class Records extends React.Component {
       if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
         recordState.intervals = definitionRecord.intervalInfo.intervalObjectives.map((interval, i) => {
           const definitionInterval = manifest.DestinyObjectiveDefinition[interval.intervalObjectiveHash];
-          const data = (recordData && recordData.intervalObjectives.find(o => o.objectiveHash === interval.intervalObjectiveHash)) || {};
+          const data = (recordData && recordData.intervalObjectives.find((o) => o.objectiveHash === interval.intervalObjectiveHash)) || {};
           const unredeemed = i + 1 > recordData.intervalsRedeemedCount && data.complete;
 
           return {
@@ -278,7 +297,7 @@ class Records extends React.Component {
             ...data,
             unredeemed,
             score: interval.intervalScoreValue,
-            el: <ProgressBar key={definitionInterval.hash} {...data} />
+            el: <ProgressBar key={definitionInterval.hash} {...data} />,
           };
         });
 
@@ -293,10 +312,10 @@ class Records extends React.Component {
               return a;
             }
           }, 0),
-          next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0
+          next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0,
         };
 
-        const nextIndex = recordData.intervalObjectives.findIndex(o => !o.complete);
+        const nextIndex = recordData.intervalObjectives.findIndex((o) => !o.complete);
         const lastIndex = nextIndex - 1 || 0;
         const lastInterval = recordData.intervalObjectives[recordData.intervalObjectives.length - 1];
 
@@ -307,7 +326,7 @@ class Records extends React.Component {
 
         const completionValueDiviser = 1;
         const progressValueDecimal = Math.min(progress / completionValue, 1);
-        
+
         recordState.distance = progressValueDecimal / completionValueDiviser;
 
         recordState.intervalEl = (
@@ -382,7 +401,7 @@ class Records extends React.Component {
               key={h}
               ref={ref}
               className={cx('redacted', {
-                highlight: highlight && highlight === definitionRecord.hash
+                highlight: highlight && highlight === definitionRecord.hash,
               })}
             >
               <div className='properties'>
@@ -395,15 +414,15 @@ class Records extends React.Component {
                 </div>
               </div>
             </li>
-          )
+          ),
         });
       } else {
-        const isCollectionBadge = associationsCollectionsBadges.find(badge => badge.recordHash === definitionRecord.hash);
+        const isCollectionBadge = associationsCollectionsBadges.find((badge) => badge.recordHash === definitionRecord.hash);
 
         const link = this.makeLink(hash, isCollectionBadge);
 
         const rewards = definitionRecord.rewardItems
-          ?.map(r => {
+          ?.map((r) => {
             let definitionItem = manifest.DestinyInventoryItemDefinition[r.itemHash];
             let definitionCollectible = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] : false;
 
@@ -413,8 +432,8 @@ class Records extends React.Component {
               return false;
             }
           })
-          .filter(r => r);
-        
+          .filter((r) => r);
+
         const description = recordDescription(definitionRecord.hash);
 
         recordsOutput.push({
@@ -432,7 +451,7 @@ class Records extends React.Component {
                 unredeemed: !enumeratedState.recordRedeemed && !enumeratedState.objectiveNotCompleted,
                 tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.recordRedeemed && enumeratedState.objectiveNotCompleted,
                 'no-description': !description,
-                'has-intervals': recordState.intervals.length
+                'has-intervals': recordState.intervals.length,
               })}
             >
               {!enumeratedState.recordRedeemed && enumeratedState.objectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
@@ -452,9 +471,9 @@ class Records extends React.Component {
                         {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
                       </div>
                     ) : null}
-                    {recordState.intervals.length && recordState.intervals.filter(i => i.complete).length !== recordState.intervals.length ? (
+                    {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
                       <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
-                        {t('{{a}} of {{b}}', { a: recordState.intervals.filter(i => i.complete).length, b: recordState.intervals.length })}
+                        {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
                       </div>
                     ) : null}
                     {recordState.score.value !== 0 ? (
@@ -466,7 +485,7 @@ class Records extends React.Component {
                   <div className='description'>{description}</div>
                 </div>
               </div>
-              <div className='objectives'>{recordState.intervals.length ? recordState.intervalEl : recordState.objectives.map(e => e.el)}</div>
+              <div className='objectives'>{recordState.intervals.length ? recordState.intervalEl : recordState.objectives.map((e) => e.el)}</div>
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
                   <Collectibles forceDisplay selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} />
@@ -474,7 +493,7 @@ class Records extends React.Component {
               ) : null}
               {link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
             </li>
-          )
+          ),
         });
       }
     });
@@ -487,14 +506,14 @@ class Records extends React.Component {
               <div className='text'>{t('All completed')}</div>
             </div>
           </li>
-        )
+        ),
       });
     }
 
     if (ordered === 'progress') {
-      recordsOutput = orderBy(recordsOutput, [item => item.progressDistance], ['desc']);
+      recordsOutput = orderBy(recordsOutput, [(item) => item.progressDistance], ['desc']);
     } else if (ordered) {
-      recordsOutput = orderBy(recordsOutput, [item => item.completed], ['asc']);
+      recordsOutput = orderBy(recordsOutput, [(item) => item.completed], ['asc']);
     } else {
     }
 
@@ -502,7 +521,7 @@ class Records extends React.Component {
       recordsOutput = recordsOutput.slice(0, limit);
     }
 
-    return recordsOutput.map(obj => obj.element);
+    return recordsOutput.map((obj) => obj.element);
   }
 }
 
@@ -510,25 +529,19 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     triumphs: state.triumphs,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setTrackedTriumphs: value => {
+    setTrackedTriumphs: (value) => {
       dispatch({ type: 'SET_TRACKED_TRIUMPHS', payload: value });
-    }
+    },
   };
 }
 
-Records = compose(
-  withRouter,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )
-)(Records);
+Records = compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Records);
 
 export { Records, selfLinkRecord, unredeemedRecords, recordDescription };
 
