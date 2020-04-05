@@ -1,112 +1,140 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 301,
+    "notTranslated": 303,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "debug": {
-    "translated": 670,
+    "translated": 672,
     "notTranslated": 0,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "en": {
-    "translated": 670,
+    "translated": 672,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "es-mx": {
     "translated": 668,
-    "notTranslated": 2,
+    "notTranslated": 4,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "es": {
     "translated": 668,
-    "notTranslated": 2,
+    "notTranslated": 4,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "fr": {
     "translated": 573,
-    "notTranslated": 97,
+    "notTranslated": 99,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "it": {
     "translated": 652,
-    "notTranslated": 18,
+    "notTranslated": 20,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "ja": {
     "translated": 603,
-    "notTranslated": 67,
+    "notTranslated": 69,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "ko": {
     "translated": 553,
-    "notTranslated": 117,
+    "notTranslated": 119,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 668,
+    "notTranslated": 670,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "pt-br": {
     "translated": 663,
-    "notTranslated": 7,
+    "notTranslated": 9,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "ru": {
     "translated": 668,
-    "notTranslated": 2,
+    "notTranslated": 4,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "zh-chs": {
     "translated": 460,
-    "notTranslated": 210,
+    "notTranslated": 212,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   },
   "zh-cht": {
     "translated": 376,
-    "notTranslated": 294,
+    "notTranslated": 296,
     "added": [
-      "Redeem these records and increase your triumph score by {{scoreValue}} points."
+      "_Destiny Tracker_ Elo"
     ],
-    "removed": []
+    "removed": [
+      "Destiny Tracker Elo"
+    ]
   }
 }

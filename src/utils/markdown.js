@@ -14,3 +14,5 @@ export const linkHelper = props => {
     return <a className='hyperlink' href={props.href} target='_blank' rel='noopener noreferrer'>{props.children}</a>;
   }
 };
+
+export const noParagraphs = ['paragraph'];

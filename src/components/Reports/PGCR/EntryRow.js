@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
-import { t } from '../../../utils/i18n';
+import { t, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { classHashToString } from '../../../utils/destinyConverters';
@@ -466,21 +466,33 @@ export function CrucibleDetail(props) {
             </ul>
           </li>
           {activityDetails.mode === 84 ? (
-            <li>
-              <ul className={cx({ single: cache.trials?.wins > -1 && cache.trials?.wins !== undefined })}>
-                <li>{t('Trials passage')}</li>
-                <li className={cx({ na: cache.trials?.wins < 0 || cache.trials?.wins === undefined })}>
-                  {cache.trials?.wins > -1 && cache.trials?.wins !== undefined ? (
-                    <>
-                      <TrialsNodes value={cache.trials?.wins} />
-                      <TrialsNodes value={cache.trials?.losses} losses />
-                    </>
-                  ) : (
-                    '–'
-                  )}
-                </li>
-              </ul>
-            </li>
+            <>
+              <li>
+                <ul>
+                  <li>
+                    <span className='tooltip' data-hash='destiny_tracker_elo' data-type='braytech'>
+                      <BraytechText value={t('_Destiny Tracker_ Elo')} textOnly />
+                    </span>
+                  </li>
+                  <li className={cx({ na: !cache.elo?.currentElo })}>{cache.elo?.currentElo?.toLocaleString() || '–'}</li>
+                </ul>
+              </li>
+              <li>
+                <ul className={cx({ single: cache.trials?.wins > -1 && cache.trials?.wins !== undefined })}>
+                  <li>{t('Trials passage')}</li>
+                  <li className={cx({ na: cache.trials?.wins < 0 || cache.trials?.wins === undefined })}>
+                    {cache.trials?.wins > -1 && cache.trials?.wins !== undefined ? (
+                      <>
+                        <TrialsNodes value={cache.trials?.wins} />
+                        <TrialsNodes value={cache.trials?.losses} losses />
+                      </>
+                    ) : (
+                      '–'
+                    )}
+                  </li>
+                </ul>
+              </li>
+            </>
           ) : null}
         </ul>
         {/* <ReportPlayer characterId={entry.characterId} /> */}

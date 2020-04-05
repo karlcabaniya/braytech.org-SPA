@@ -105,6 +105,13 @@
     },
     "itemType": 1
   },
+  "destiny_tracker_elo": {
+    "displayProperties": {
+      "name": "Destiny Tracker Elo",
+      "description": "Elo ratings from a third-party web site, _Destiny Tracker_. _Destiny Tracker_ provides Elo ratings for all Destiny players who participate in _Crucible_ and _Gambit_ activities."
+    },
+    "itemType": 1
+  },
   "braytech_purple_rune": {
     "displayProperties": {
       "description": "A purple rune. Purple runes include; Rune of Joy, Rune of the Beast, and Rune of Jubilation.",

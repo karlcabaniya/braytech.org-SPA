@@ -7,7 +7,7 @@ import moment from 'moment';
 
 import * as ls from './localStorage';
 import { stringToIcons } from './destinyUtils';
-import { linkHelper } from './markdown';
+import { linkHelper, noParagraphs } from './markdown';
 
 let _defaultLanguage = 'en';
 let _currentLanguage;
@@ -242,7 +242,9 @@ export function BungieText(props) {
 }
 
 export function BraytechText(props) {
-  const { className, value = '', ...rest } = props;
+  const { className, value = '', textOnly, ...rest } = props;
 
-  return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} />
+  const disallowedTypes = textOnly ? noParagraphs : false;
+
+  return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />
 }
