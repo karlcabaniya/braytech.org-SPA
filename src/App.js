@@ -252,6 +252,7 @@ class App extends React.Component {
   }
 
   async downloadNewManifestTables(paths) {
+    // paths is an object where key is table name and value is json file path
     return Promise.all(
       [
         'DestinyPlaceDefinition',
@@ -292,9 +293,9 @@ class App extends React.Component {
         'DestinyActivityModifierDefinition',
         'DestinyReportReasonCategoryDefinition',
         'DestinyArtifactDefinition',
-        'DestinyBreakerTypeDefinition',
-        'DestinyChecklistDefinition',
-        'DestinyEnergyTypeDefinition',
+        'DestinyBreakerTypeDefinition',   // download each of these individual JSON files
+        'DestinyChecklistDefinition',     // and return them as a key value pair where
+        'DestinyEnergyTypeDefinition',    // key is table name and value is response value
       ].map(async (key) => [key, await bungie.DownloadJsonFile(paths[key])])
     );
   }
@@ -304,12 +305,15 @@ class App extends React.Component {
 
     const [tables, DestinyHistoricalStatsDefinition] = await Promise.all([timed('downloadManifest', this.downloadNewManifestTables(paths)), timed('downloadManifestHistoricalStats', bungie.GetHistoricalStatsDefinition({ params: { locale: this.currentLanguage } }))]);
 
+    // translate array of arrays to an object key value pair
+    // it's expected as such by the rest of the app
     const manifest = tables.reduce((manifest, [key, value]) => {
       manifest[key] = value;
 
       return manifest;
     }, {});
 
+    // add DestinyHistoricalStatsDefinition table to manifest, it's downloaded from a different endpoint
     if (DestinyHistoricalStatsDefinition.ErrorCode === 1 && DestinyHistoricalStatsDefinition.Response) {
       manifest.DestinyHistoricalStatsDefinition = DestinyHistoricalStatsDefinition.Response;
     } else {
