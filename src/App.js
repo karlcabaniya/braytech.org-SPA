@@ -58,12 +58,12 @@ import Test from './views/Test';
 
 export function slowImport(value, ms = 3000) {
   if (process.env.NODE_ENV === 'development') {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => resolve(value), ms);
     });
   } else {
     return value;
-  }  
+  }
 }
 
 // Lazy components
@@ -72,17 +72,20 @@ const Maps = React.lazy(() => slowImport(import('./views/Maps')));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
-const RedirectRoute = props => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
+const RedirectRoute = (props) => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
 
 // Wrap lazy-loaded components with react-router and ErrorBoundary component
 export const SuspenseRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={route => (
-    <ErrorBoundary>
-      <React.Suspense fallback={<SuspenseLoading />}>
-        <Component {...route} />
-      </React.Suspense>
-    </ErrorBoundary>
-  )} />
+  <Route
+    {...rest}
+    render={(route) => (
+      <ErrorBoundary>
+        <React.Suspense fallback={<SuspenseLoading />}>
+          <Component {...route} />
+        </React.Suspense>
+      </ErrorBoundary>
+    )}
+  />
 );
 
 // Print timings of promises to console (and performance logger)
@@ -108,8 +111,8 @@ class App extends React.Component {
     this.state = {
       status: {
         code: false,
-        detail: false
-      }
+        detail: false,
+      },
     };
 
     // Get stored language
@@ -122,7 +125,7 @@ class App extends React.Component {
       storedManifest: timed('getStoredManifest', this.getStoredManifest()),
       manifestIndex: timed('GetDestinyManifest', bungie.GetDestinyManifest({ errors: { hide: true } })),
       bungieSettings: timed('GetCommonSettings', bungie.GetCommonSettings({ errors: { hide: true } })),
-      voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics())
+      voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics()),
     };
 
     // Set initial profile to saved profile but may be overridden by URL
@@ -138,7 +141,7 @@ class App extends React.Component {
 
     if (['zh-cn', 'zh-tw'].indexOf(momentLocale) > -1) {
       moment.defineLocale('rel-abr', {
-        parentLocale: momentLocale
+        parentLocale: momentLocale,
       });
     } else {
       moment.defineLocale('rel-abr', {
@@ -157,8 +160,8 @@ class App extends React.Component {
           M: '1M',
           MM: '%dM',
           y: '1y',
-          yy: '%dy'
-        }
+          yy: '%dy',
+        },
       });
     }
     // #endregion
@@ -169,7 +172,7 @@ class App extends React.Component {
     this.props.setViewport({ width: window.innerWidth, height: window.innerHeight });
   };
 
-  // Upon App.js mount; bind window reisze handler, 
+  // Upon App.js mount; bind window reisze handler,
   // check if client online, start fetching manifest
   async componentDidMount() {
     this.hanlder_resizeViewport();
@@ -199,8 +202,8 @@ class App extends React.Component {
 
   async getStoredManifest() {
     const manifest = {};
-    
-    await dexie.table('manifest').each(row => {
+
+    await dexie.table('manifest').each((row) => {
       manifest[row.table] = row.definitions;
       manifest.version = row.version;
     });
@@ -250,10 +253,7 @@ class App extends React.Component {
   async downloadNewManifest(version) {
     this.setState({ status: { code: 'fetchManifest' } });
 
-    const [manifest, DestinyHistoricalStatsDefinition] = await Promise.all([
-      timed('downloadManifest', bungie.manifest(version)),
-      timed('downloadManifestHistoricalStats', bungie.GetHistoricalStatsDefinition({ params: { locale: this.currentLanguage } }))      
-    ]);
+    const [manifest, DestinyHistoricalStatsDefinition] = await Promise.all([timed('downloadManifest', bungie.DownloadJsonFile(version)), timed('downloadManifestHistoricalStats', bungie.GetHistoricalStatsDefinition({ params: { locale: this.currentLanguage } }))]);
 
     if (DestinyHistoricalStatsDefinition.ErrorCode === 1 && DestinyHistoricalStatsDefinition.Response) {
       manifest.DestinyHistoricalStatsDefinition = DestinyHistoricalStatsDefinition.Response;
@@ -265,7 +265,7 @@ class App extends React.Component {
 
     try {
       await timed('clearTable', dexie.table('manifest').clear());
-      await timed('storeManifest', dexie.table('manifest').bulkAdd(Object.keys(manifest).map(table => ({ table, definitions: manifest[table], version }))));
+      await timed('storeManifest', dexie.table('manifest').bulkAdd(Object.keys(manifest).map((table) => ({ table, definitions: manifest[table], version }))));
     } catch (error) {
       // Can't write a manifest if we're in private mode in safari
       console.warn(`Error while trying to store the manifest in indexeddb: ${error}`);
@@ -298,18 +298,18 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Route
-          render={route => (
+          render={(route) => (
             <div className={cx('wrapper', this.props.theme.active, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate {...this.props} />
               <NotificationLink />
               <NotificationProgress />
 
-              <Tooltip {...route} onRef={ref => this.TooltipComponent = ref} />
+              <Tooltip {...route} onRef={(ref) => (this.TooltipComponent = ref)} />
               <Route component={GoogleAnalytics.GoogleAnalytics} />
 
               <div className='main'>
                 <Route component={Header} />
-                
+
                 <Switch>
                   <Route path='/:membershipType([1|2|3|4|5])/:membershipId([0-9]+)/:characterId([0-9]+)?' component={ProfileRoutes} />
                   <Route path='/archives' component={ArchivesRoutes} />
@@ -333,9 +333,9 @@ class App extends React.Component {
                   <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
                   <Route path='/read/:kind?/:hash?' exact component={Read} />
                   <Route path='/compare/:object?' exact component={Compare} />
-                  
+
                   <Route path='/commonality' exact component={Commonality} />
-                  <Route path='/settings' exact render={route => <Settings {...route} availableLanguages={this.availableLanguages} />} />
+                  <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                   <Route path='/faq' exact component={FAQ} />
                   <Route path='/credits' exact component={Credits} />
 
@@ -344,14 +344,13 @@ class App extends React.Component {
                   <SuspenseRoute path='/three' exact component={TestThree} />
 
                   <Route path='/' component={Index} />
-                          
                 </Switch>
               </div>
 
               {/* Don't run the refresh service if we're currently selecting
                 a character, as the refresh will cause the member to
                 continually reload itself */}
-              <Route path='/character-select' children={route => !route.match && <RefreshService {...route} />} />
+              <Route path='/character-select' children={(route) => !route.match && <RefreshService {...route} />} />
 
               <Footer />
             </div>
@@ -365,18 +364,18 @@ class App extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    theme: state.theme
+    theme: state.theme,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setViewport: value => {
+    setViewport: (value) => {
       dispatch({ type: 'VIEWPORT_CHANGED', payload: value });
     },
-    setMemberByRoute: value => {
+    setMemberByRoute: (value) => {
       dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
-    }
+    },
   };
 }
 

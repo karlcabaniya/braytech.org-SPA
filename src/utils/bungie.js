@@ -275,7 +275,7 @@ export const ReportOffensivePostGameCarnageReportPlayer = async options =>
     method: 'post'
   });
 
-export const manifest = async version => fetch(`https://www.bungie.net${version}`).then(a => a.json());
+export const DownloadJsonFile = async path => fetch(`https://www.bungie.net${path}`).then(a => a.json());
 
 export const GetDestinyManifest = async options => apiRequest('/Platform/Destiny2/Manifest/', options);
 
