@@ -1,11 +1,11 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy, groupBy } from 'lodash';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import * as bungie from '../../../utils/bungie';
+import { GetElo } from '../../../utils/thirdPartyApis';
 import * as utils from '../../../utils/destinyUtils';
 import { Button, DestinyKey } from '../../UI/Button';
 import MemberLink from '../../MemberLink';
@@ -16,37 +16,37 @@ import { EntryHeader, EntryDetail } from './EntryRow';
 import './styles.css';
 
 const unfinishableActivityModes = [
-  6,  // Patrol
+  6, // Patrol
   76, // Reckoning
 ];
 
-const headInViewport = function(element) {
+const headInViewport = function (element) {
   const bounding = element.getBoundingClientRect();
 
   return bounding.top >= 0;
-}
+};
 
 class ReportItem extends React.Component {
   state = {
     expandedReport: Boolean(this.props.expanded),
     expandedPlayers: [],
-    playerCache: []
-  }
+    playerCache: [],
+  };
 
   ref_parent = React.createRef();
 
-  handler_expand = e => {
+  handler_expand = (e) => {
     this.setState({
-      expandedReport: true
+      expandedReport: true,
     });
 
     this.updatePlayerCache();
   };
 
-  handler_contract = e => {
+  handler_contract = (e) => {
     this.setState({
       expandedReport: false,
-      expandedPlayers: []
+      expandedPlayers: [],
     });
 
     if (!headInViewport(this.ref_parent.current)) {
@@ -58,23 +58,33 @@ class ReportItem extends React.Component {
     const { report } = this.props;
 
     if (report) {
-      report.entries.forEach(async e => {
+      report.entries.forEach(async (e) => {
         const progression = await this.getProgression(e.player.destinyUserInfo.membershipType, e.player.destinyUserInfo.membershipId, e.characterId);
 
         if (this.mounted) {
-          this.setState(p => ({
+          this.setState((p) => ({
             ...p,
             playerCache: [
               ...p.playerCache,
               {
                 membershipId: e.player.destinyUserInfo.membershipId,
-                ...progression
-              }
-            ]
-          })); 
+                ...progression,
+              },
+            ],
+          }));
         }
       });
     }
+  };
+
+  getElo = async (membershipId, mode, season) => {
+    const response = await GetElo({ params: { membershipId, mode, season } });
+
+    if (response) {
+      return response.find((m) => m.mode === mode) || {};
+    }
+
+    return {};
   };
 
   getProgression = async (membershipType, membershipId) => {
@@ -82,23 +92,20 @@ class ReportItem extends React.Component {
       params: {
         membershipType,
         membershipId,
-        components: '202,900'
-      }
+        components: '202,900',
+      },
     });
 
     if (!response || (response && response.ErrorCode !== 1) || (response && response.ErrorCode === 1 && !response.Response.characterProgressions.data)) {
       return {
-        points: {
-          
-        },
-        resets: {
-          
-        },
-        trials: {
-
-        }
+        points: {},
+        resets: {},
+        trials: {},
+        elo: {},
       };
     }
+
+    const elo = this.props.report.activityDetails.mode === 84 && (await this.getElo(membershipId, 84, 10));
 
     // in case the PGCR refers to a character that has since been deleted, as is the case with "5364501167"
     const characterId = Object.keys(response.Response.characterProgressions.data)[0];
@@ -107,46 +114,42 @@ class ReportItem extends React.Component {
     const characterRecords = response.Response.characterRecords.data;
     const profileRecords = response.Response.profileRecords.data.records;
 
-    const gloryPoints = characterProgressions[characterId].progressions[2000925172].currentProgress.toLocaleString();
-    const valorPoints = characterProgressions[characterId].progressions[2626549951].currentProgress.toLocaleString();
-    const infamyPoints = characterProgressions[characterId].progressions[2772425241].currentProgress.toLocaleString();
+    const gloryPoints = characterProgressions[characterId].progressions[2000925172].currentProgress;
+    const valorPoints = characterProgressions[characterId].progressions[2626549951].currentProgress;
+    const infamyPoints = characterProgressions[characterId].progressions[2772425241].currentProgress;
     const trialsWins = characterProgressions[characterId].progressions[1062449239].level;
     const trialsLosses = characterProgressions[characterId].progressions[2093709363].level;
-    
+
     return {
       points: {
         glory: gloryPoints,
         valor: valorPoints,
-        infamy: infamyPoints
+        infamy: infamyPoints,
       },
       resets: {
         valor: utils.calculateResets(3882308435, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal,
-        infamy: utils.calculateResets(2772425241, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal
+        infamy: utils.calculateResets(2772425241, characterId, characterProgressions, characterRecords, profileRecords).resetsTotal,
       },
       trials: {
         wins: trialsWins,
-        losses: trialsLosses
-      }
+        losses: trialsLosses,
+      },
+      elo,
     };
   };
 
-  handler_togglePlayer = characterId => e => {
+  handler_togglePlayer = (characterId) => (e) => {
     const { expandedPlayers } = this.state;
 
     if (expandedPlayers.includes(characterId)) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        expandedPlayers: [
-          ...p.expandedPlayers.filter(c => c !== characterId)
-        ]
+        expandedPlayers: [...p.expandedPlayers.filter((c) => c !== characterId)],
       }));
     } else {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        expandedPlayers: [
-          ...p.expandedPlayers,
-          characterId
-        ]
+        expandedPlayers: [...p.expandedPlayers, characterId],
       }));
     }
   };
@@ -170,23 +173,21 @@ class ReportItem extends React.Component {
   }
 
   render() {
-    const { t, member, report, expanded } = this.props;
+    const { member, report, expanded } = this.props;
 
     const characters = member.data && member.data.profile.characters.data;
-    const characterIds = characters && characters.map(c => c.characterId);
+    const characterIds = characters && characters.map((c) => c.characterId);
 
     const { expandedReport, expandedPlayers, playerCache } = this.state;
 
-    const isFinishable = !unfinishableActivityModes.filter(mode => report.activityDetails.modes.indexOf(mode) > -1).length;
+    const isFinishable = !unfinishableActivityModes.filter((mode) => report.activityDetails.modes.indexOf(mode) > -1).length;
 
-   
     if (expandedReport) console.log(this.props);
 
-    const entry = characterIds && report.entries.find(entry => characterIds.includes(entry.characterId));
+    const entry = characterIds && report.entries.find((entry) => characterIds.includes(entry.characterId));
     const standing = entry && entry.values.standing && entry.values.standing.basic.value !== undefined ? entry.values.standing.basic.value : -1;
 
-
-    const entries = report.entries.map(entry => {
+    const entries = report.entries.map((entry) => {
       const dnf = entry.values.completed.basic.value === 0 && isFinishable ? true : false;
       const isExpandedPlayer = expandedPlayers.includes(entry.characterId);
 
@@ -202,36 +203,41 @@ class ReportItem extends React.Component {
                 </div>
                 <EntryHeader activityDetails={report.activityDetails} entry={entry} playerCache={playerCache} />
               </li>
-              {isExpandedPlayer ? <li>
-                <EntryDetail activityDetails={report.activityDetails} entry={entry} playerCache={playerCache} />
-              </li> : null}
+              {isExpandedPlayer ? (
+                <li>
+                  <EntryDetail activityDetails={report.activityDetails} entry={entry} playerCache={playerCache} />
+                </li>
+              ) : null}
             </ul>
           </li>
-        )
+        ),
       };
     });
-
-
 
     const body = (
       <>
         <ReportHeaderLarge characterIds={characterIds} {...report} />
         <div className='entries'>
           {report.teams && report.teams.length ? (
-            orderBy(report.teams, [t => t.score.basic.value], ['desc']).map(team => {
-              const fireteams = Object.values(groupBy(entries.filter(e => e.teamId === team.teamId), 'fireteamId'));
+            orderBy(report.teams, [(t) => t.score.basic.value], ['desc']).map((team) => {
+              const fireteams = Object.values(
+                groupBy(
+                  entries.filter((e) => e.teamId === team.teamId),
+                  'fireteamId'
+                )
+              );
 
               return (
                 <ul key={team.teamId} className='team'>
                   <li className={cx('header team', team.teamId === 17 ? 'alpha' : 'bravo')}>
                     <div className='team name'>{team.teamId === 17 ? t('Alpha team') : t('Bravo team')}</div>
-                    <EntryHeader activityDetails={report.activityDetails} team />                    
+                    <EntryHeader activityDetails={report.activityDetails} team />
                     <div className='team score hideInline'>{team.score.basic.displayValue}</div>
                   </li>
                   {fireteams.map((f, i) => {
                     return (
                       <li key={i}>
-                        <ul className={cx('list', 'fireteam', { stacked: f.length > 1 })}>{f.map(e => e.element)}</ul>
+                        <ul className={cx('list', 'fireteam', { stacked: f.length > 1 })}>{f.map((e) => e.element)}</ul>
                       </li>
                     );
                   })}
@@ -248,7 +254,7 @@ class ReportItem extends React.Component {
               {Object.values(groupBy(entries, 'fireteamId')).map((f, i) => {
                 return (
                   <li key={i}>
-                    <ul className={cx('list', 'fireteam', { stacked: f.length > 1 })}>{f.map(e => e.element)}</ul>
+                    <ul className={cx('list', 'fireteam', { stacked: f.length > 1 })}>{f.map((e) => e.element)}</ul>
                   </li>
                 );
               })}
@@ -281,35 +287,28 @@ class ReportItem extends React.Component {
 
     return (
       <li key={report.activityDetails.instanceId} ref={this.ref_parent} className={cx('linked', { isExpanded: expandedReport, standing: standing > -1, victory: standing === 0 })} onClick={!expandedReport ? this.handler_expand : undefined}>
-      {!expandedReport ? <ReportHeader characterIds={characterIds} {...report} /> : body}
+        {!expandedReport ? <ReportHeader characterIds={characterIds} {...report} /> : body}
       </li>
     );
-    
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-ReportItem = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(ReportItem);
+ReportItem = connect(mapStateToProps, mapDispatchToProps)(ReportItem);
 
 export default ReportItem;
 

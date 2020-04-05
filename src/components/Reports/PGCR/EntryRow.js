@@ -25,10 +25,10 @@ function formatValue(column, entry, playerCache = []) {
       return Number.parseFloat(entry.extended.values[column.key].basic[column.type]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     } else {
       return entry.extended.values[column.key].basic[column.type].toLocaleString();
-    }    
+    }
   } else if (column.async) {
     // async profile data
-    return column.value || '–';
+    return column.value?.toLocaleString() || '–';
   } else if (column.root) {
     // entry object root
     if (column.round) {
@@ -48,8 +48,9 @@ function formatValue(column, entry, playerCache = []) {
 export function EntryHeader(props) {
   const { playerCache, activityDetails, entry, team } = props;
 
-  console.log(props)
-  const cache = playerCache?.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
+  // console.log(props);
+
+  const cache = playerCache?.find((p) => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
 
   const headers = {
     default: [
@@ -57,53 +58,53 @@ export function EntryHeader(props) {
         key: 'opponentsDefeated',
         name: t('Kills + assists'),
         abbr: 'KA',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'kills',
         name: t('Kills'),
         abbr: 'K',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'deaths',
         name: t('Deaths'),
         abbr: 'D',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'killsDeathsRatio',
         name: t('K/D'),
         abbr: 'KD',
         type: 'value',
-        round: true
-      }
+        round: true,
+      },
     ],
     crucible: [
       {
         key: 'opponentsDefeated',
         name: t('Kills + assists'),
         abbr: 'KA',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'kills',
         name: t('Kills'),
         abbr: 'K',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'deaths',
         name: t('Deaths'),
         abbr: 'D',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'killsDeathsRatio',
         name: t('K/D'),
         abbr: 'KD',
         type: 'value',
-        round: true
+        round: true,
       },
       {
         key: 'gloryPoints',
@@ -112,93 +113,129 @@ export function EntryHeader(props) {
         type: 'value',
         value: cache.points?.glory,
         async: true,
-        hideInline: true
-      }
+        hideInline: true,
+      },
     ],
-    strikes: [
+    trials: [
       {
         key: 'opponentsDefeated',
         name: t('Kills + assists'),
         abbr: 'KA',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'kills',
         name: t('Kills'),
         abbr: 'K',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'deaths',
         name: t('Deaths'),
         abbr: 'D',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'killsDeathsRatio',
         name: t('K/D'),
         abbr: 'KD',
         type: 'value',
-        round: true
+        round: true,
+      },
+      {
+        key: 'trialsElo',
+        name: t('Elo'),
+        abbr: 'E',
+        type: 'value',
+        value: cache.elo?.currentElo,
+        async: true,
+        hideInline: true,
+      },
+    ],
+    strikes: [
+      {
+        key: 'opponentsDefeated',
+        name: t('Kills + assists'),
+        abbr: 'KA',
+        type: 'value',
+      },
+      {
+        key: 'kills',
+        name: t('Kills'),
+        abbr: 'K',
+        type: 'value',
+      },
+      {
+        key: 'deaths',
+        name: t('Deaths'),
+        abbr: 'D',
+        type: 'value',
+      },
+      {
+        key: 'killsDeathsRatio',
+        name: t('K/D'),
+        abbr: 'KD',
+        type: 'value',
+        round: true,
       },
       {
         key: 'score',
         name: manifest.DestinyHistoricalStatsDefinition['score']?.statName,
         abbr: 'S',
         type: 'value',
-        hideInline: true
-      }
+        hideInline: true,
+      },
     ],
     gambit: [
       {
         key: 'opponentsDefeated',
         name: t('Kills + assists'),
         abbr: 'KA',
-        type: 'value'
+        type: 'value',
       },
       {
         key: 'motesDeposited',
         name: t('Motes deposited'),
         abbr: 'MD',
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'motesLost',
         name: t('Motes lost'),
         abbr: 'ML',
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'invasionKills',
         name: t('Invasion kills'),
         abbr: 'IK',
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'blockerKills',
         name: t('Blocker kills'),
         type: 'value',
         extended: true,
-        hideInline: true
-      }
-    ]
+        hideInline: true,
+      },
+    ],
   };
 
-  const variety = (enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1)?.name && headers[enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1)?.name] && enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1)?.name) || 'default';
+  const variety = (enums.simplifiedAcivityModes.find((m) => m.modes.indexOf(activityDetails.mode) > -1)?.name && headers[enums.simplifiedAcivityModes.find((m) => m.modes.indexOf(activityDetails.mode) > -1)?.name] && enums.simplifiedAcivityModes.find((m) => m.modes.indexOf(activityDetails.mode) > -1)?.name) || 'default';
 
   if (team) {
-    return headers[variety].map((column, i) => (
-      <div key={i} className={cx(column.key, { hideInline: column.hideInline })}>
+    return headers[variety].map((column, c) => (
+      <div key={c} className={cx(column.key, { hideInline: column.hideInline })}>
         <div className='full'>{column.name}</div>
         <div className='abbr'>{column.abbr}</div>
       </div>
     ));
   } else {
-    return headers[variety].map((column, i) => (
-      <div key={i} className={cx(column.key, { hideInline: column.hideInline, extended: column.extended })}>
+    return headers[variety].map((column, c) => (
+      <div key={c} className={cx(column.key, { hideInline: column.hideInline, extended: column.extended })}>
         {column.expanded ? <div className='name'>{column.name}</div> : null}
         <div className='value'>{formatValue(column, entry, playerCache)}</div>
       </div>
@@ -209,11 +246,12 @@ export function EntryHeader(props) {
 export function EntryDetail(props) {
   const mode = props.activityDetails.mode;
 
-  const variety = enums.simplifiedAcivityModes.find(m => m.modes.indexOf(mode) > -1)?.name;
+  const variety = enums.simplifiedAcivityModes.find((m) => m.modes.indexOf(mode) > -1)?.name;
 
   const rows = {
     crucible: CrucibleDetail,
-    gambit: GambitDetail
+    trials: CrucibleDetail,
+    gambit: GambitDetail,
   };
 
   if (!variety || !rows[variety]) return <DefaultDetail {...props} />;
@@ -229,8 +267,8 @@ export function DefaultDetail(props) {
   const [killsMelee, killsGrenade, killsSuper] = [
     { key: 'weaponKillsMelee', type: 'value', extended: true },
     { key: 'weaponKillsGrenade', type: 'value', extended: true },
-    { key: 'weaponKillsSuper', type: 'value', extended: true }
-  ].map(column => formatValue(column, entry));
+    { key: 'weaponKillsSuper', type: 'value', extended: true },
+  ].map((column) => formatValue(column, entry));
 
   if (!entry.extended?.weapons?.length && killsMelee === '0' && killsGrenade === '0' && killsSuper === '0') {
     return (
@@ -340,15 +378,13 @@ function hasActivitySpecific(modes) {
 export function CrucibleDetail(props) {
   const { playerCache, activityDetails, entry } = props;
 
-  const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
+  const cache = playerCache.find((p) => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
 
   const medals = Object.keys(entry.extended.values)
-    .filter(key => !medalExclusions.includes(key))
+    .filter((key) => !medalExclusions.includes(key))
     .sort((a, b) => (entry.extended.values[b].basic?.value || 0) - (entry.extended.values[a].basic?.value || 0));
 
   const activity = hasActivitySpecific(activityDetails.modes);
-
-  console.log(cache)
 
   const activitySpecific = {
     supremacy: [
@@ -356,13 +392,13 @@ export function CrucibleDetail(props) {
         key: 'supremacyCrestsSecured',
         name: t('Crests secured'),
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'supremacyCrestsRecovered',
         name: t('Crests recovered'),
         type: 'value',
-        extended: true
+        extended: true,
       },
       // {
       //   key: 'supremacySecureRate',
@@ -370,36 +406,36 @@ export function CrucibleDetail(props) {
       //   custom: true
       // },
       {
-        divider: true
+        divider: true,
       },
       {
         key: 'supremacyOwnKillEnemyTagsCaptured',
         name: t('Kills secured'),
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'supremacyAllyKillEnemyTagsCaptured',
         name: t('Allied kills secured'),
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
-        divider: true
+        divider: true,
       },
       {
         key: 'supremacyOwnTagsRecovered',
         name: t('Crests recovered'),
         type: 'value',
-        extended: true
+        extended: true,
       },
       {
         key: 'supremacyAllyTagsRecovered',
         name: t('Ally crests recovered'),
         type: 'value',
-        extended: true
-      }
-    ]
+        extended: true,
+      },
+    ],
   };
 
   return (
@@ -420,13 +456,13 @@ export function CrucibleDetail(props) {
           <li>
             <ul>
               <li>{t('Glory points')}</li>
-              <li className={cx({ na: !cache.points?.glory })}>{cache.points?.glory || '–'}</li>
+              <li className={cx({ na: !cache.points?.glory })}>{cache.points?.glory?.toLocaleString() || '–'}</li>
             </ul>
           </li>
           <li>
             <ul>
               <li>{t('Valor resets')}</li>
-              <li className={cx({ na: !cache.resets?.valor })}>{cache.resets?.valor || '–'}</li>
+              <li className={cx({ na: !cache.resets?.valor })}>{cache.resets?.valor?.toLocaleString() || '–'}</li>
             </ul>
           </li>
           {activityDetails.mode === 84 ? (
@@ -439,7 +475,9 @@ export function CrucibleDetail(props) {
                       <TrialsNodes value={cache.trials?.wins} />
                       <TrialsNodes value={cache.trials?.losses} losses />
                     </>
-                  ) : '–'}
+                  ) : (
+                    '–'
+                  )}
                 </li>
               </ul>
             </li>
@@ -590,11 +628,11 @@ export function CrucibleDetail(props) {
 export function GambitDetail(props) {
   const { playerCache, activityDetails, entry } = props;
 
-  const cache = playerCache.find(p => p.membershipId === entry.player.destinyUserInfo.membershipId);
+  const cache = playerCache.find((p) => p.membershipId === entry.player.destinyUserInfo.membershipId);
 
   const medals = Object.keys(entry.extended.values)
-    .filter(key => !medalExclusions.includes(key))
-    .filter(key => key.indexOf('medal') > -1);
+    .filter((key) => !medalExclusions.includes(key))
+    .filter((key) => key.indexOf('medal') > -1);
 
   const activitySpecific = [
     // Motes
@@ -602,109 +640,109 @@ export function GambitDetail(props) {
       key: 'motesDeposited',
       name: t('Motes deposited'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'motesLost',
       name: t('Motes lost'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'motesDenied',
       name: t('Motes denied'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
-      divider: true
+      divider: true,
     },
     // PVP
     {
       key: 'invasions',
       name: t('Invasions'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'invasionKills',
       name: t('Invasion kills'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'invasionDeaths',
       name: t('Invasion deaths'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'invaderKills',
       name: t('Invader kills'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'invaderDeaths',
       name: t('Invader deaths'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
-      divider: true
+      divider: true,
     },
     // Mobs
     {
       key: 'mobKills',
       name: t('Mob kills'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'highValueKills',
       name: t('High value targets'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'blockerKills',
       name: t('Blocker kills'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'smallBlockersSent',
       name: t('Small blockers sent'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'mediumBlockersSent',
       name: t('Medium blockers sent'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'largeBlockersSent',
       name: t('Large blockers sent'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
-      divider: true
+      divider: true,
     },
     {
       key: 'primevalDamage',
       name: t('Primeval damage'),
       type: 'value',
-      extended: true
+      extended: true,
     },
     {
       key: 'primevalHealing',
       name: t('Primeval healing'),
       type: 'displayValue',
-      extended: true
-    }
+      extended: true,
+    },
   ];
 
   return (
