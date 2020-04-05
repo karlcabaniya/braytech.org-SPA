@@ -169,16 +169,41 @@
 }
 
 #collections.root .parent .node .text div {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  position: relative;
   padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   text-align: center;
   text-transform: uppercase;
   font-size: 14px;
-  font-weight: 500;
 }
 
 #collections.root .parent .node .text div:first-child {
+  font-family: var(--fontText);
+  font-weight: 500;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#collections.root .parent .node .text div::before,
+#collections.root .parent .node .text div::after {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 7px;
+  height: 1px;
+  background-color: white;
+  opacity: 0.8;
+}
+
+#collections.root .parent .node .text div::after {
+  left: unset;
+  right: 0;
+}
+
+#collections.root .parent .node .text div:last-child::before,
+#collections.root .parent .node .text div:last-child::after {
+  top: unset;
+  bottom: -1px;
 }
 
 #collections.root .parent .node .text .state {

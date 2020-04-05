@@ -615,7 +615,7 @@ button.square.active {
   height: 60px;
   z-index: 10;
   background-color: hsla(0, 0%, 3%, 0);
-  backdrop-filter: blur(7px) brightness(1.2);
+  backdrop-filter: blur(12px) brightness(1.1);
   font-size: 14px;
   user-select: none;
 }
@@ -689,15 +689,11 @@ button.square.active {
 }
 
 .wrapper.dark .sticky-nav {
-  background-color: hsla(0, 0%, 5%, 0.8);
+  background-color: hsla(0, 0%, 3%, 0.8);
 }
 
 .wrapper.dark .sticky-nav.ultra-black {
   background-color: hsla(0, 0%, 0%, 0.8);
-}
-
-.wrapper.dark .sticky-nav {
-  background-color: hsla(0, 0%, 3%, 0.8);
 }
 
 @keyframes animation-background-highlight {

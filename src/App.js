@@ -304,7 +304,7 @@ class App extends React.Component {
               <NotificationLink />
               <NotificationProgress />
 
-              <Tooltip {...route} onRef={(ref) => (this.TooltipComponent = ref)} />
+              <Tooltip {...route} />
               <Route component={GoogleAnalytics.GoogleAnalytics} />
 
               <div className='main'>
