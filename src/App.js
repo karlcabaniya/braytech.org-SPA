@@ -226,13 +226,14 @@ class App extends React.Component {
     }
 
     const currentVersion = manifestIndex && manifestIndex.ErrorCode === 1 && manifestIndex.Response.jsonWorldContentPaths[this.currentLanguage];
+    const paths = manifestIndex && manifestIndex.ErrorCode === 1 && manifestIndex.Response.jsonWorldComponentContentPaths[this.currentLanguage];
 
     let tmpManifest = null;
 
     if (!storedManifest || currentVersion !== storedManifest.version) {
       // Manifest missing from IndexedDB or doesn't match the current version -
       // download a new one and store it.
-      tmpManifest = await this.downloadNewManifest(currentVersion);
+      tmpManifest = await this.downloadNewManifest(currentVersion, paths);
     } else {
       tmpManifest = storedManifest;
     }
@@ -250,10 +251,64 @@ class App extends React.Component {
     this.setState({ status: { code: 'ready' } });
   }
 
-  async downloadNewManifest(version) {
+  async downloadNewManifestTables(paths) {
+    return Promise.all(
+      [
+        'DestinyPlaceDefinition',
+        'DestinyActivityDefinition',
+        'DestinyActivityTypeDefinition',
+        'DestinyClassDefinition',
+        'DestinyGenderDefinition',
+        'DestinyInventoryBucketDefinition',
+        'DestinyRaceDefinition',
+        'DestinyTalentGridDefinition',
+        'DestinySandboxPerkDefinition',
+        'DestinyStatGroupDefinition',
+        'DestinyFactionDefinition',
+        'DestinyItemCategoryDefinition',
+        'DestinyDamageTypeDefinition',
+        'DestinyActivityModeDefinition',
+        'DestinyCollectibleDefinition',
+        'DestinyStatDefinition',
+        'DestinyItemTierTypeDefinition',
+        'DestinyMetricDefinition',
+        'DestinyPlugSetDefinition',
+        'DestinyPresentationNodeDefinition',
+        'DestinyRecordDefinition',
+        'DestinyDestinationDefinition',
+        'DestinyEquipmentSlotDefinition',
+        'DestinyInventoryItemDefinition',
+        'DestinyLocationDefinition',
+        'DestinyLoreDefinition',
+        'DestinyObjectiveDefinition',
+        'DestinyProgressionDefinition',
+        'DestinySeasonDefinition',
+        'DestinySeasonPassDefinition',
+        'DestinySocketCategoryDefinition',
+        'DestinySocketTypeDefinition',
+        'DestinyTraitDefinition',
+        'DestinyVendorDefinition',
+        'DestinyMilestoneDefinition',
+        'DestinyActivityModifierDefinition',
+        'DestinyReportReasonCategoryDefinition',
+        'DestinyArtifactDefinition',
+        'DestinyBreakerTypeDefinition',
+        'DestinyChecklistDefinition',
+        'DestinyEnergyTypeDefinition',
+      ].map(async (key) => [key, await bungie.DownloadJsonFile(paths[key])])
+    );
+  }
+
+  async downloadNewManifest(version, paths) {
     this.setState({ status: { code: 'fetchManifest' } });
 
-    const [manifest, DestinyHistoricalStatsDefinition] = await Promise.all([timed('downloadManifest', bungie.DownloadJsonFile(version)), timed('downloadManifestHistoricalStats', bungie.GetHistoricalStatsDefinition({ params: { locale: this.currentLanguage } }))]);
+    const [tables, DestinyHistoricalStatsDefinition] = await Promise.all([timed('downloadManifest', this.downloadNewManifestTables(paths)), timed('downloadManifestHistoricalStats', bungie.GetHistoricalStatsDefinition({ params: { locale: this.currentLanguage } }))]);
+
+    const manifest = tables.reduce((manifest, [key, value]) => {
+      manifest[key] = value;
+
+      return manifest;
+    }, {});
 
     if (DestinyHistoricalStatsDefinition.ErrorCode === 1 && DestinyHistoricalStatsDefinition.Response) {
       manifest.DestinyHistoricalStatsDefinition = DestinyHistoricalStatsDefinition.Response;
