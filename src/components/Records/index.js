@@ -316,13 +316,11 @@ class Records extends React.Component {
         };
 
         const nextIndex = recordData.intervalObjectives.findIndex((o) => !o.complete);
-        const lastIndex = nextIndex - 1 || 0;
+        const lastIndex = nextIndex > 0 ? nextIndex - 1 : recordData.intervalObjectives.length - 1;
         const lastInterval = recordData.intervalObjectives[recordData.intervalObjectives.length - 1];
 
-        if (!recordData.intervalObjectives[nextIndex]) return;
-
-        const progress = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress;
-        const completionValue = lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue;
+        const progress = nextIndex > -1 ? lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress : 1;
+        const completionValue = nextIndex > -1 ? lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue : 1;
 
         const completionValueDiviser = 1;
         const progressValueDecimal = Math.min(progress / completionValue, 1);
@@ -466,6 +464,8 @@ class Records extends React.Component {
                 <div className='text'>
                   <div className='name'>{definitionRecord.displayProperties.name}</div>
                   <div className='meta'>
+                    {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
+                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance}</div> : null}
                     {manifest.statistics.triumphs ? (
                       <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
                         {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%

@@ -64,14 +64,12 @@
   display: flex;
 }
 
-.list.record-items li .properties .text .meta .commonality,
-.list.record-items li .properties .text .meta .intervals {
+.list.record-items li .properties .text .meta div {
   position: relative;
   margin: 0 1rem 0 0;
 }
 
-.list.record-items li .properties .text .meta .commonality::after,
-.list.record-items li .properties .text .meta .intervals::after {
+.list.record-items li .properties .text .meta div::after {
   content: '  /  ';
   position: absolute;
   right: -1rem;
@@ -80,11 +78,11 @@
   pointer-events: none;
 }
 
-.list.record-items li .properties .text .meta > div:last-child:first-child {
+.list.record-items li .properties .text .meta > div:last-child {
   margin: 0;
 }
 
-.list.record-items li .properties .text .meta > div:last-child:first-child::after {
+.list.record-items li .properties .text .meta > div:last-child::after {
   content: none;
 }
 

@@ -1103,5 +1103,10 @@
     "date": "2020-04-03T05:05:24.240Z",
     "version": "2.21.45",
     "content": "- Destiny 1 Grimoire viewer added to _Archives_ view"
+  },
+  {
+    "date": "2020-04-06T05:44:13.347Z",
+    "version": "2.22.0",
+    "content": "- fixed a major triumphs records bug where they disappeared into the nether once completed\n- added _Destiny Tracker_ Elo to _Trials_ games reports\n- under the hood renos (manifest componentisation)"
   }
 ]
