@@ -17,19 +17,19 @@ class SealNode extends React.Component {
     const characterId = this.props.member.characterId;
 
     const characters = this.props.member.data.profile.characters.data;
-    const character = characters.find(character => character.characterId === characterId);
+    const character = characters.find((character) => character.characterId === characterId);
     const profileRecords = this.props.member.data.profile.profileRecords.data.records;
 
     // for MOMENTS OF TRIUMPH: MMXIX
     const characterRecords = this.props.member.data.profile.characterRecords.data;
 
     const definitionSeal = manifest.DestinyPresentationNodeDefinition[this.props.match.params.secondary];
-    
+
     const definitionCompletionRecord = definitionSeal.completionRecordHash && manifest.DestinyRecordDefinition[definitionSeal.completionRecordHash];
 
     // for MOMENTS OF TRIUMPH: MMXIX
     const states = [];
-    definitionSeal.children.records.forEach(record => {
+    definitionSeal.children.records.forEach((record) => {
       const scope = profileRecords[record.recordHash] ? profileRecords[record.recordHash] : characterRecords[characterId].records[record.recordHash];
       if (scope) {
         states.push(scope);
@@ -42,7 +42,7 @@ class SealNode extends React.Component {
 
     // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
     if (definitionSeal.hash === 1002334440) {
-      progress = states.filter(s => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
+      progress = states.filter((s) => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
       total = 23;
     }
 
@@ -78,7 +78,7 @@ class SealNode extends React.Component {
                   <div
                     className='fill'
                     style={{
-                      width: `${(progress / total) * 100}%`
+                      width: `${(progress / total) * 100}%`,
                     }}
                   />
                 ) : null}
@@ -88,16 +88,16 @@ class SealNode extends React.Component {
           {manifest.statistics.triumphs?.[definitionSeal.completionRecordHash] ? (
             <div className='commonality'>
               <h4>{t('Seal commonality')}</h4>
-              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionSeal.completionRecordHash}>{commonality(manifest.statistics.triumphs?.[definitionSeal.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div>
-              <div className='description'>
-                {t("The seal's rarity represented as a percentage of players who are indexed by VOLUSPA.")}
+              <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionSeal.completionRecordHash}>
+                {commonality(manifest.statistics.triumphs?.[definitionSeal.completionRecordHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
               </div>
+              <div className='description'>{t("The seal's rarity represented as a percentage of players who are indexed by VOLUSPA.")}</div>
             </div>
           ) : null}
         </div>
         <div className='entries'>
           <ul className='list tertiary record-items'>
-            <Records hashes={definitionSeal.children.records.map(child => child.recordHash)} highlight={this.props.match.params.tertiary || false} />
+            <Records hashes={definitionSeal.children.records.map((child) => child.recordHash)} highlight={this.props.match.params.tertiary} />
           </ul>
         </div>
       </div>
@@ -108,12 +108,8 @@ class SealNode extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
-export default compose(
-  withRouter,
-  connect(mapStateToProps),
-  withTranslation()
-)(SealNode);
+export default compose(withRouter, connect(mapStateToProps), withTranslation())(SealNode);

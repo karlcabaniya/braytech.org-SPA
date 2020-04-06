@@ -89,6 +89,7 @@
 }
 
 #index .row.header .highlights .highlight .icon {
+  pointer-events: none;
 }
 
 #index .row.header .highlights .highlight .icon svg {

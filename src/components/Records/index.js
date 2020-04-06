@@ -159,12 +159,12 @@ function recordDescription(hash) {
 }
 
 class Records extends React.Component {
-  scrollToRecordRef = React.createRef();
+  ref_scrollTo = React.createRef();
 
   componentDidMount() {
-    if (this.props.highlight && this.scrollToRecordRef.current !== null) {
+    if (this.props.highlight && this.ref_scrollTo.current !== null) {
       window.scrollTo({
-        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2,
+        top: this.ref_scrollTo.current.offsetTop + this.ref_scrollTo.current.offsetHeight / 2 - window.innerHeight / 2,
       });
     }
   }
@@ -319,8 +319,8 @@ class Records extends React.Component {
         const lastIndex = nextIndex > 0 ? nextIndex - 1 : recordData.intervalObjectives.length - 1;
         const lastInterval = recordData.intervalObjectives[recordData.intervalObjectives.length - 1];
 
-        const progress = nextIndex > -1 ? lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress : 1;
-        const completionValue = nextIndex > -1 ? lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue : 1;
+        const progress = nextIndex > -1 ? (lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress) : 1;
+        const completionValue = nextIndex > -1 ? (lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue) : 1;
 
         const completionValueDiviser = 1;
         const progressValueDecimal = Math.min(progress / completionValue, 1);
@@ -387,7 +387,7 @@ class Records extends React.Component {
         return;
       }
 
-      const ref = highlight === definitionRecord.hash ? this.scrollToRecordRef : null;
+      const ref = highlight === definitionRecord.hash ? this.ref_scrollTo : undefined;
 
       if (definitionRecord.redacted) {
         recordsOutput.push({
@@ -399,7 +399,7 @@ class Records extends React.Component {
               key={h}
               ref={ref}
               className={cx('redacted', {
-                highlight: highlight && highlight === definitionRecord.hash,
+                highlight: highlight === definitionRecord.hash,
               })}
             >
               <div className='properties'>
@@ -444,7 +444,7 @@ class Records extends React.Component {
               ref={ref}
               className={cx({
                 linked: Boolean(link),
-                highlight: highlight && highlight === definitionRecord.hash,
+                highlight: highlight === definitionRecord.hash,
                 completed: enumeratedState.recordRedeemed,
                 unredeemed: !enumeratedState.recordRedeemed && !enumeratedState.objectiveNotCompleted,
                 tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.recordRedeemed && enumeratedState.objectiveNotCompleted,

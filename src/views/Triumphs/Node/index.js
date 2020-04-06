@@ -24,17 +24,17 @@ class PresentationNode extends React.Component {
     if (!definitionPrimary) {
       return null;
     }
-    
+
     const secondaryHash = this.props.match.params.secondary || definitionPrimary.children.presentationNodes[0].presentationNodeHash;
     const definitionSecondary = manifest.DestinyPresentationNodeDefinition[secondaryHash];
 
     const tertiaryHash = this.props.match.params.tertiary || definitionSecondary.children.presentationNodes[0].presentationNodeHash;
     const definitionTertiary = manifest.DestinyPresentationNodeDefinition[tertiaryHash];
 
-    const quaternaryHash = this.props.match.params.quaternary || false;
+    const quaternaryHash = this.props.match.params.quaternary;
 
     const primaryChildren = [];
-    definitionPrimary.children.presentationNodes.forEach(child => {
+    definitionPrimary.children.presentationNodes.forEach((child) => {
       const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
       const isActive = (match, location) => {
@@ -57,28 +57,30 @@ class PresentationNode extends React.Component {
     });
 
     const secondaryChildren = [];
-    definitionSecondary.children.presentationNodes.forEach(child => {
+    definitionSecondary.children.presentationNodes.forEach((child) => {
       const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
       if (definitionNode.redacted) {
         return;
       }
 
-      const states = definitionNode.children.records.map(record => {
-        const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
-        const scopeRecord = definitionRecord.scope || 0;
-        const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
+      const states = definitionNode.children.records
+        .map((record) => {
+          const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
+          const scopeRecord = definitionRecord.scope || 0;
+          const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
-        if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
-        if (recordData.intervalObjectives?.length) {
-          if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
-        } else {
-          if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
-        }
-        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
-        
-        return recordData;
-      }).filter(record => record);
+          if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+          if (recordData.intervalObjectives?.length) {
+            if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          } else {
+            if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          }
+          if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+
+          return recordData;
+        })
+        .filter((record) => record);
 
       const isActive = (match, location) => {
         if (this.props.match.params.tertiary === undefined && definitionSecondary.children.presentationNodes.indexOf(child) === 0) {
@@ -90,8 +92,8 @@ class PresentationNode extends React.Component {
         }
       };
 
-      const secondaryProgress = states.filter(record => enumerateRecordState(record.state).recordRedeemed).length;
-      const secondaryTotal = collectibles && collectibles.hideInvisibleRecords ? states.filter(record => !enumerateRecordState(record.state).invisible).length : states.length;
+      const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).recordRedeemed).length;
+      const secondaryTotal = collectibles && collectibles.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).invisible).length : states.length;
 
       if (secondaryTotal === 0) {
         return;
@@ -109,34 +111,37 @@ class PresentationNode extends React.Component {
         </li>
       );
     });
-    
-    const recordHashes = definitionTertiary.children.records.filter(record => {
-      const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
-      const scopeRecord = definitionRecord.scope || 0;
-      const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
-      if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
-      if (recordData.intervalObjectives?.length) {
-        if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
-      } else {
-        if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
-      }
-      if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+    const recordHashes = definitionTertiary.children.records
+      .filter((record) => {
+        const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
+        const scopeRecord = definitionRecord.scope || 0;
+        const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
-      return true;
-    }).map(record => record.recordHash);
+        if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+        if (recordData.intervalObjectives?.length) {
+          if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+        } else {
+          if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+        }
+        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+
+        return true;
+      })
+      .map((record) => record.recordHash);
 
     return (
       <div className='node'>
         <div className='header'>
           <div className='name'>
-            {definitionPrimary.displayProperties.name}{definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
+            {definitionPrimary.displayProperties.name}
+            {definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
           </div>
         </div>
         <div className='children'>
           <ul
             className={cx('list', 'primary', {
-              'single-primary': definitionPrimary.children.presentationNodes.length === 1
+              'single-primary': definitionPrimary.children.presentationNodes.length === 1,
             })}
           >
             {primaryChildren}
@@ -153,15 +158,11 @@ class PresentationNode extends React.Component {
   }
 }
 
-
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
-export default compose(
-  withRouter,
-  connect(mapStateToProps),
-)(PresentationNode);
+export default compose(withRouter, connect(mapStateToProps))(PresentationNode);

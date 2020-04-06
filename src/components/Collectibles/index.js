@@ -2,9 +2,9 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { commonality } from '../../utils/destinyUtils';
 import { ProfileLink } from '../../components/ProfileLink';
@@ -66,27 +66,27 @@ function selfLinkCollectible(hash) {
 }
 
 class Collectibles extends React.Component {
-  scrollToRecordRef = React.createRef();
+  ref_scrollTo = React.createRef();
 
   componentDidMount() {
-    const highlight = parseInt(this.props.match && this.props.match.params.quinary ? this.props.match.params.quinary : this.props.highlight, 10) || false;
+    const highlight = this.props.match?.params.quinary ? +this.props.match.params.quinary : +this.props.highlight || false;
 
-    if (highlight && this.scrollToRecordRef.current !== null) {
+    if (highlight && this.ref_scrollTo.current !== null) {
       window.scrollTo({
-        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2,
+        top: this.ref_scrollTo.current.offsetTop + this.ref_scrollTo.current.offsetHeight / 2 - window.innerHeight / 2,
       });
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.collectibles !== this.props.collectibles) {
+  componentDidUpdate(p) {
+    if (p.collectibles !== this.props.collectibles) {
       this.props.rebindTooltips();
     }
   }
 
   render() {
-    const { t, member, collectibles, viewport, selfLinkFrom, forceDisplay, forceTooltip, inspect } = this.props;
-    const highlight = +this.props.match?.params?.quinary || +this.props.highlight || false;
+    const { member, collectibles, viewport, selfLinkFrom, forceDisplay, forceTooltip, inspect } = this.props;
+    const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
     const characterCollectibles = member.data?.profile.characterCollectibles.data;
@@ -128,7 +128,7 @@ class Collectibles extends React.Component {
                   <li
                     key={definitionCollectible.hash}
                     className={cx('redacted', 'tooltip', {
-                      highlight: highlight && highlight === definitionCollectible.hash,
+                      highlight: highlight  === definitionCollectible.hash,
                     })}
                     data-hash='343'
                   >
@@ -151,7 +151,7 @@ class Collectibles extends React.Component {
                     key={definitionCollectible.hash}
                     className={cx('item', 'tooltip', {
                       completed: !enumerateCollectibleState(state).notAcquired && !enumerateCollectibleState(state).invisible,
-                      highlight: highlight && highlight === definitionCollectible.hash,
+                      highlight: highlight  === definitionCollectible.hash,
                     })}
                     data-hash={definitionCollectible.itemHash}
                   >
@@ -181,7 +181,7 @@ class Collectibles extends React.Component {
             );
           }
 
-          const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.scrollToRecordRef : null;
+          const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.ref_scrollTo : null;
 
           collectiblesOutput.push(
             <li
@@ -215,7 +215,7 @@ class Collectibles extends React.Component {
             return;
           }
 
-          const ref = highlight === definitionCollectible.hash ? this.scrollToRecordRef : null;
+          const ref = highlight === definitionCollectible.hash ? this.ref_scrollTo : null;
 
           if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
             collectiblesOutput.push({
@@ -226,7 +226,7 @@ class Collectibles extends React.Component {
                   key={definitionCollectible.hash}
                   ref={ref}
                   className={cx('redacted', 'tooltip', {
-                    highlight: highlight && highlight === definitionCollectible.hash,
+                    highlight: highlight  === definitionCollectible.hash,
                   })}
                   data-hash='343'
                 >
@@ -253,7 +253,7 @@ class Collectibles extends React.Component {
                   ref={ref}
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).notAcquired,
-                    highlight: highlight && highlight === definitionCollectible.hash,
+                    highlight: highlight  === definitionCollectible.hash,
                   })}
                   data-hash={definitionCollectible.itemHash}
                 >
@@ -369,4 +369,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps), withTranslation())(Collectibles);
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Collectibles);

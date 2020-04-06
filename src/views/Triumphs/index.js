@@ -18,17 +18,13 @@ import Unredeemed from './Unredeemed/';
 import DudDebug from './DudDebug/';
 
 class Triumphs extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    almostCompleteSort: 0,
+  };
 
-    this.state = {
-      almostCompleteSort: 0
-    };
-  }
-
-  handler_toggleCompleted = e => {
+  handler_toggleCompleted = (e) => {
     this.props.setCollectibleDisplayState({
-      hideCompletedRecords: !this.props.collectibles.hideCompletedRecords
+      hideCompletedRecords: !this.props.collectibles.hideCompletedRecords,
     });
   };
 
@@ -40,15 +36,15 @@ class Triumphs extends React.Component {
   };
 
   componentDidMount() {
-    if (!this.props.match.params.quaternary) {
+    if (!this.props.match.params.quaternary && !this.props.match.params.primary !== 'seal' && !this.props.match.params.tertiary) {
       window.scrollTo(0, 0);
     }
 
     this.props.rebindTooltips();
   }
 
-  componentDidUpdate(prevProps) {
-    if ((!this.props.match.params.quaternary && prevProps.location.pathname !== this.props.location.pathname) || (!prevProps.match.params.quaternary && this.props.location.pathname === '/triumphs/almost-complete' && prevProps.location.pathname !== this.props.location.pathname)) {
+  componentDidUpdate(p) {
+    if (((!this.props.match.params.quaternary && p.location.pathname !== this.props.location.pathname) || (!p.match.params.quaternary && this.props.location.pathname === '/triumphs/almost-complete' && p.location.pathname !== this.props.location.pathname)) && !this.props.match.params.primary !== 'seal' && !this.props.match.params.tertiary) {
       window.scrollTo(0, 0);
     }
   }
@@ -243,25 +239,19 @@ class Triumphs extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setCollectibleDisplayState: value => {
+    setCollectibleDisplayState: (value) => {
       dispatch({ type: 'SET_COLLECTIBLES', payload: value });
     },
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(Triumphs);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Triumphs);

@@ -19,7 +19,7 @@ import Search from '../../../components/Search';
 class Root extends React.Component {
   render() {
     const { t, member, collectibles } = this.props;
-    const character = member.data.profile.characters.data.find(c => c.characterId === member.characterId);
+    const character = member.data.profile.characters.data.find((c) => c.characterId === member.characterId);
     const profileRecords = member.data.profile.profileRecords.data.records;
     const characterRecords = member.data.profile.characterRecords.data;
 
@@ -31,34 +31,34 @@ class Root extends React.Component {
     const recordsStates = [];
 
     // standard nodes
-    parent.children.presentationNodes.forEach(child => {
+    parent.children.presentationNodes.forEach((child) => {
       const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
       const states = [];
 
-      definitionNode.children.presentationNodes.forEach(nodeChild => {
+      definitionNode.children.presentationNodes.forEach((nodeChild) => {
         const definitionNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChild.presentationNodeHash];
 
-        definitionNodeChildNode.children.presentationNodes.forEach(nodeChildNodeChild => {
+        definitionNodeChildNode.children.presentationNodes.forEach((nodeChildNodeChild) => {
           const definitionNodeChildNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChildNodeChild.presentationNodeHash];
 
           if (definitionNodeChildNodeChildNode.redacted) {
             return;
           }
 
-          definitionNodeChildNodeChildNode.children.records.forEach(record => {
+          definitionNodeChildNodeChildNode.children.records.forEach((record) => {
             const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
             const recordScope = definitionRecord.scope || 0;
             const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
             if (recordData) {
               if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
-              
+
               if (recordData.intervalObjectives?.length) {
                 if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
               } else {
                 if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
               }
-              
+
               if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
 
               recordData.hash = definitionRecord.hash;
@@ -71,8 +71,8 @@ class Root extends React.Component {
         });
       });
 
-      const nodeProgress = states.filter(record => enumerateRecordState(record.state).recordRedeemed).length;
-      const nodeTotal = states.filter(record => !enumerateRecordState(record.state).invisible).length;
+      const nodeProgress = states.filter((record) => enumerateRecordState(record.state).recordRedeemed).length;
+      const nodeTotal = states.filter((record) => !enumerateRecordState(record.state).invisible).length;
 
       nodes.push(
         <li key={definitionNode.hash} className={cx('linked', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
@@ -92,7 +92,7 @@ class Root extends React.Component {
     });
 
     // seal nodes
-    sealsParent.children.presentationNodes.forEach(child => {
+    sealsParent.children.presentationNodes.forEach((child) => {
       const definitionSeal = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
       if (definitionSeal.redacted) {
@@ -112,7 +112,7 @@ class Root extends React.Component {
 
       const states = [];
 
-      definitionSeal.children.records.forEach(record => {
+      definitionSeal.children.records.forEach((record) => {
         const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
         const recordScope = definitionRecord.scope || 0;
         const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
@@ -128,10 +128,10 @@ class Root extends React.Component {
 
       // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
       if (definitionSeal.hash === 1002334440) {
-        nodeProgress = states.filter(s => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
+        nodeProgress = states.filter((s) => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
         nodeTotal = 23;
       }
-      
+
       // undying seal
       if (definitionSeal.hash === 3303651244 && nodeProgress !== nodeTotal) {
         return;
@@ -147,7 +147,7 @@ class Root extends React.Component {
           <li
             key={definitionSeal.hash}
             className={cx('linked', {
-              completed: nodeTotal && isComplete
+              completed: nodeTotal && isComplete,
             })}
           >
             {nodeTotal && nodeProgress !== nodeTotal ? <div className='progress-bar-background' style={{ width: `${(nodeProgress / nodeTotal) * 100}%` }} /> : null}
@@ -162,11 +162,11 @@ class Root extends React.Component {
             </div>
             <ProfileLink to={`/triumphs/seal/${definitionSeal.hash}`} />
           </li>
-        )
+        ),
       });
     });
 
-    const unredeemedTriumphLength = unredeemedRecords(member).map(record => record.recordHash).length;
+    const unredeemedTriumphLength = unredeemedRecords(member).map((record) => record.recordHash).length;
     const unredeemedTriumphScoreValue = unredeemedRecords(member).reduce((sum, record) => sum + record.scoreValue, 0);
 
     return (
@@ -197,17 +197,17 @@ class Root extends React.Component {
           <div className='sub-header'>
             <div>{t('Triumphs')}</div>
             <div>
-              {recordsStates.filter(state => !state.seal).filter(state => enumerateRecordState(state.state).recordRedeemed).length}/{recordsStates.filter(state => !state.seal).filter(state => !enumerateRecordState(state.state).invisible).length}
+              {recordsStates.filter((state) => !state.seal).filter((state) => enumerateRecordState(state.state).recordRedeemed).length}/{recordsStates.filter((state) => !state.seal).filter((state) => !enumerateRecordState(state.state).invisible).length}
             </div>
           </div>
           <ul className='list parents'>{nodes}</ul>
           <div className='sub-header'>
             <div>{t('Seals')}</div>
             <div>
-              {sealNodes.filter(n => n.completed).length}/{sealNodes.length}
+              {sealNodes.filter((n) => n.completed).length}/{sealNodes.length}
             </div>
           </div>
-          <ul className='list parents seals'>{sealNodes.map(n => n.element)}</ul>
+          <ul className='list parents seals'>{sealNodes.map((n) => n.element)}</ul>
         </div>
         <div className='module'>
           <div className='sub-header'>
@@ -233,11 +233,8 @@ class Root extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withTranslation()
-)(Root);
+export default compose(connect(mapStateToProps), withTranslation())(Root);
