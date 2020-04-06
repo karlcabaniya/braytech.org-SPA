@@ -244,7 +244,7 @@ export function BungieText(props) {
 export function BraytechText(props) {
   const { className, value = '', textOnly, ...rest } = props;
 
-  const disallowedTypes = textOnly ? noParagraphs : false;
+  const disallowedTypes = textOnly && noParagraphs;
 
   return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />
 }

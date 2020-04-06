@@ -1,11 +1,10 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 import moment from 'moment';
 
+import { t } from '../../utils/i18n';
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
 import { classHashToIcon } from '../../utils/destinyConverters';
@@ -19,8 +18,8 @@ class Roster extends React.Component {
   state = {
     order: {
       sort: false,
-      dir: 'desc'
-    }
+      dir: 'desc',
+    },
   };
 
   componentDidMount() {
@@ -32,6 +31,8 @@ class Roster extends React.Component {
       this.callGetGroupMembers();
       this.startInterval();
     }
+
+    this.props.rebindTooltips();
   }
 
   componentWillUnmount() {
@@ -40,19 +41,21 @@ class Roster extends React.Component {
     this.clearInterval();
   }
 
+  componentDidUpdate(p) {
+    if (p.groupMembers.lastUpdated !== this.props.groupMembers.lastUpdated) {
+      this.props.rebindTooltips();
+    }
+  }
+
   callGetGroupMembers = async () => {
     const { member, auth, groupMembers } = this.props;
-    const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find(m => m.membershipId === member.membershipId);
+    const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId);
     const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
 
     const now = new Date().getTime();
-    
+
     if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
       await getGroupMembers(groupMembership.group, groupMembership.member.memberType > 2 && isAuthed);
-
-      this.props.rebindTooltips();
-    } else {
-      this.props.rebindTooltips();
     }
   };
 
@@ -64,29 +67,29 @@ class Roster extends React.Component {
     window.clearInterval(this.refreshClanDataInterval);
   }
 
-  handler_changeSortTo = to => e => {
-    this.setState(p => ({
+  handler_changeSortTo = (to) => (e) => {
+    this.setState((p) => ({
       ...p,
       order: {
         ...p.order,
         dir: p.order.sort === to && p.order.dir === 'desc' ? 'asc' : 'desc',
-        sort: to
-      }
+        sort: to,
+      },
     }));
   };
 
-  createRow = m => {
+  createRow = (m) => {
     const { member } = this.props;
 
     const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
     const isSelf = !isPrivate ? m.profile.profile.data.userInfo.membershipType.toString() === member.membershipType && m.profile.profile.data.userInfo.membershipId === member.membershipId : false;
 
-    const characterIds = !isPrivate ? m.profile.characters.data.map(c => c.characterId) : [];
+    const characterIds = !isPrivate ? m.profile.characters.data.map((c) => c.characterId) : [];
 
     const lastActivities = utils.lastPlayerActivity(m);
-    const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [a => a.lastPlayed], ['desc'])[0];
+    const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [(a) => a.lastPlayed], ['desc'])[0];
 
-    const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
+    const lastCharacter = !isPrivate ? m.profile.characters.data.find((c) => c.characterId === lastCharacterId) : false;
 
     const LastClassIcon = !isPrivate ? classHashToIcon(lastCharacter.classHash) : null;
 
@@ -131,7 +134,7 @@ class Roster extends React.Component {
         infamyPoints,
         weeklyXp: (weeklyXp / characterIds.length) * 5000,
         seasonRank,
-        rank: m.memberType
+        rank: m.memberType,
       },
       el: {
         full: (
@@ -146,31 +149,19 @@ class Roster extends React.Component {
                     <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                       <LastClassIcon />
                     </div>
-                    <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 1000, max: lastCharacter.light >= 1010 })}>
-                      {lastCharacter.light}
-                    </div>
-                    <div className='icon season-rank'>
-                      {seasonRank}
-                    </div>
+                    <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 1000, max: lastCharacter.light >= 1010 })}>{lastCharacter.light}</div>
+                    <div className='icon season-rank'>{seasonRank}</div>
                   </li>
                   <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
                     {m.isOnline && lastActivityString ? (
                       <div className='tooltip' data-type='activity' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
                         <div>
                           {lastActivityString}
-                          <span>
-                            {moment(lastPlayed)
-                              .locale('rel-abr')
-                              .fromNow(true)}
-                          </span>
+                          <span>{moment(lastPlayed).locale('rel-abr').fromNow(true)}</span>
                         </div>
                       </div>
                     ) : (
-                      <div>
-                        {moment(lastPlayed)
-                          .locale('rel-abr')
-                          .fromNow()}
-                      </div>
+                      <div>{moment(lastPlayed).locale('rel-abr').fromNow()}</div>
                     )}
                   </li>
                   <li className='col triumph-score'>{triumphScore.toLocaleString()}</li>
@@ -207,40 +198,40 @@ class Roster extends React.Component {
               </li>
             </ul>
           </li>
-        )
-      }
+        ),
+      },
     };
   };
 
   render() {
-    const { t, groupMembers, mini, showOnline, filter } = this.props;
+    const { groupMembers, mini, showOnline, filter } = this.props;
 
     let results = [...groupMembers.members];
 
     if (showOnline) {
-      results = results.filter(r => r.isOnline);
+      results = results.filter((r) => r.isOnline);
     }
 
     if (filter && filter === 'admins') {
-      results = results.filter(m => m.memberType > 2);
+      results = results.filter((m) => m.memberType > 2);
     }
 
     const fireteams = [];
     let roster = [];
 
     results
-      .filter(r => r.profile && r.profile.profileTransitoryData && r.profile.profileTransitoryData.data)
+      .filter((r) => r.profile && r.profile.profileTransitoryData && r.profile.profileTransitoryData.data)
       .forEach((m, i) => {
         const membershipId = m.profile.profile.data.userInfo.membershipId;
         const transitory = m.profile.profileTransitoryData.data;
 
-        const index = fireteams.findIndex(f => f.members.find(m => m.membershipId === membershipId));
+        const index = fireteams.findIndex((f) => f.members.find((m) => m.membershipId === membershipId));
 
         if (index < 0 && transitory.partyMembers.length > 1) {
           fireteams.push({
             id: i,
             currentActivity: transitory.currentActivity,
-            members: transitory.partyMembers
+            members: transitory.partyMembers,
           });
         }
       });
@@ -248,18 +239,18 @@ class Roster extends React.Component {
     const order = this.state.order;
 
     if (!order.sort) {
-      fireteams.forEach(f => {
+      fireteams.forEach((f) => {
         const group = [];
 
-        f.members.forEach(n => {
-          const m = results.find(m => m.destinyUserInfo.membershipId === n.membershipId);
+        f.members.forEach((n) => {
+          const m = results.find((m) => m.destinyUserInfo.membershipId === n.membershipId);
 
           if (!m) return;
           // they're not a clan member
 
           const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
 
-          const fireteam = !isPrivate ? fireteams.find(f => f.members.find(n => n.membershipId === m.profile.profile.data.userInfo.membershipId)) : false;
+          const fireteam = !isPrivate ? fireteams.find((f) => f.members.find((n) => n.membershipId === m.profile.profile.data.userInfo.membershipId)) : false;
           m.fireteamId = fireteam && fireteam.id;
 
           const row = this.createRow(m);
@@ -273,16 +264,16 @@ class Roster extends React.Component {
             private: false,
             isOnline: true,
             fireteamId: f.id + 10,
-            lastPlayed: f.currentActivity.startTime
+            lastPlayed: f.currentActivity.startTime,
           },
-          group
+          group,
         });
       });
 
       results
-        .filter(r => !fireteams.find(f => f.members.find(n => n.membershipId === r.destinyUserInfo.membershipId)))
-        .forEach(m => {
-          const fireteam = fireteams.find(f => f.members.find(n => n.membershipId === m.destinyUserInfo.membershipId));
+        .filter((r) => !fireteams.find((f) => f.members.find((n) => n.membershipId === r.destinyUserInfo.membershipId)))
+        .forEach((m) => {
+          const fireteam = fireteams.find((f) => f.members.find((n) => n.membershipId === m.destinyUserInfo.membershipId));
           m.fireteamId = fireteam && fireteam.id;
 
           const row = this.createRow(m);
@@ -290,10 +281,10 @@ class Roster extends React.Component {
           roster.push(row);
         });
     } else {
-      results.forEach(m => {
+      results.forEach((m) => {
         const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
 
-        const fireteam = !isPrivate ? fireteams.find(f => f.members.find(n => n.membershipId === m.profile.profile.data.userInfo.membershipId)) : false;
+        const fireteam = !isPrivate ? fireteams.find((f) => f.members.find((n) => n.membershipId === m.profile.profile.data.userInfo.membershipId)) : false;
         m.fireteamId = fireteam && fireteam.id;
 
         const row = this.createRow(m);
@@ -303,19 +294,19 @@ class Roster extends React.Component {
     }
 
     if (order.sort === 'lastCharacter') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'triumphScore') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.triumphScore, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.triumphScore, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'valor') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.valorPoints, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.valorPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'glory') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.gloryPoints, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.gloryPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'infamy') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.infamyPoints, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.infamyPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'weeklyXp') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.weeklyXp, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.weeklyXp, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.isOnline, (m) => m.sorts.lastPlayed, (m) => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc']);
     }
 
     if (!mini && roster.length) {
@@ -356,12 +347,12 @@ class Roster extends React.Component {
                 </li>
               </ul>
             </li>
-          )
-        }
+          ),
+        },
       });
     }
 
-    if (mini && showOnline && groupMembers.members.filter(member => member.isOnline).length < 1) {
+    if (mini && showOnline && groupMembers.members.filter((member) => member.isOnline).length < 1) {
       return (
         <div className='roster'>
           <div className='info'>{t("There's no one here right now.")}</div>
@@ -376,33 +367,33 @@ class Roster extends React.Component {
           <ul className={cx('list', 'roster', { mini: mini })}>
             {mini
               ? this.props.limit
-                ? roster.slice(0, this.props.limit).map(r => {
+                ? roster.slice(0, this.props.limit).map((r) => {
                     if (r.isFireteam) {
                       return (
                         <li key={r.sorts.fireteamId} className='fireteam'>
-                          <ul>{r.group.map(m => m.el.mini)}</ul>
+                          <ul>{r.group.map((m) => m.el.mini)}</ul>
                         </li>
                       );
                     } else {
                       return r.el.mini;
                     }
                   })
-                : roster.map(r => {
+                : roster.map((r) => {
                     if (r.isFireteam) {
                       return (
                         <li key={r.sorts.fireteamId} className='fireteam'>
-                          <ul>{r.group.map(m => m.el.mini)}</ul>
+                          <ul>{r.group.map((m) => m.el.mini)}</ul>
                         </li>
                       );
                     } else {
                       return r.el.mini;
                     }
                   })
-              : roster.map(r => {
+              : roster.map((r) => {
                   if (r.isFireteam) {
                     return (
                       <li key={r.sorts.fireteamId} className='fireteam'>
-                        <ul>{r.group.map(m => m.el.full)}</ul>
+                        <ul>{r.group.map((m) => m.el.full)}</ul>
                       </li>
                     );
                   } else {
@@ -426,16 +417,16 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     auth: state.auth,
-    groupMembers: state.groupMembers
+    groupMembers: state.groupMembers,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Roster);
+export default connect(mapStateToProps, mapDispatchToProps)(Roster);

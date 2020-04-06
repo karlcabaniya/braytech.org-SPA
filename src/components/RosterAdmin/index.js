@@ -1,11 +1,10 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 import moment from 'moment';
 
+import { t } from '../../utils/i18n';
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
 import { classHashToIcon, groupMemberTypeToString } from '../../utils/destinyConverters';
@@ -20,18 +19,18 @@ import './styles.css';
 class Actions extends React.Component {
   state = {
     frozen: false,
-    primed: false
+    primed: false,
   };
 
-  memberRank = (membershipId, promote = false) => async e => {
+  memberRank = (membershipId, promote = false) => async (e) => {
     const { groupMembers } = this.props;
 
-    let member = groupMembers.members.concat(groupMembers.pending).find(r => r.destinyUserInfo.membershipId === membershipId);
+    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: true
+        frozen: true,
       }));
 
       let memberType = promote ? member.memberType + 1 : member.memberType - 1;
@@ -45,23 +44,23 @@ class Actions extends React.Component {
         this.props.softUpdate();
       }
 
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: false
+        frozen: false,
       }));
     }
   };
 
-  memberKick = membershipId => async e => {
+  memberKick = (membershipId) => async (e) => {
     const { groupMembers } = this.props;
 
-    let member = groupMembers.members.concat(groupMembers.pending).find(r => r.destinyUserInfo.membershipId === membershipId);
+    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
       if (this.state.primed) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
-          frozen: true
+          frozen: true,
         }));
 
         const response = await bungie.KickMember(member.groupId, member.destinyUserInfo.membershipType, member.destinyUserInfo.membershipId);
@@ -72,31 +71,31 @@ class Actions extends React.Component {
           // update parent component through state :s
           this.props.softUpdate();
         }
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           frozen: false,
-          primed: false
+          primed: false,
         }));
       } else {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           frozen: false,
-          primed: true
+          primed: true,
         }));
       }
     }
   };
 
-  memberApprove = membershipId => async e => {
+  memberApprove = (membershipId) => async (e) => {
     const { groupMembers } = this.props;
     const group = this.props.member.data.groups.results.length > 0 ? this.props.member.data.groups.results[0].group : false;
 
-    let member = groupMembers.members.concat(groupMembers.pending).find(r => r.destinyUserInfo.membershipId === membershipId);
+    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: true
+        frozen: true,
       }));
 
       const response = await bungie.ApprovePendingForList(member.groupId, {
@@ -104,10 +103,10 @@ class Actions extends React.Component {
           {
             membershipType: member.destinyUserInfo.membershipType,
             membershipId: member.destinyUserInfo.membershipId,
-            displayName: member.destinyUserInfo.displayName
-          }
+            displayName: member.destinyUserInfo.displayName,
+          },
         ],
-        message: 'This is a message'
+        message: 'This is a message',
       });
       if (response && response.ErrorCode === 1) {
         member.memberType = group.features.joinLevel;
@@ -115,22 +114,22 @@ class Actions extends React.Component {
 
         this.props.softUpdate();
       }
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: false
+        frozen: false,
       }));
     }
   };
 
-  memberDeny = membershipId => async e => {
+  memberDeny = (membershipId) => async (e) => {
     const { groupMembers } = this.props;
 
-    let member = groupMembers.members.concat(groupMembers.pending).find(r => r.destinyUserInfo.membershipId === membershipId);
+    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: true
+        frozen: true,
       }));
 
       const response = await bungie.DenyPendingForList(member.groupId, {
@@ -138,10 +137,10 @@ class Actions extends React.Component {
           {
             membershipType: member.destinyUserInfo.membershipType,
             membershipId: member.destinyUserInfo.membershipId,
-            displayName: member.destinyUserInfo.displayName
-          }
+            displayName: member.destinyUserInfo.displayName,
+          },
         ],
-        message: 'This is a message'
+        message: 'This is a message',
       });
       if (response && response.ErrorCode === 1) {
         member.pending = false;
@@ -150,23 +149,23 @@ class Actions extends React.Component {
         this.props.softUpdate();
       }
 
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        frozen: false
+        frozen: false,
       }));
     }
   };
 
-  memberBan = membershipId => async e => {
+  memberBan = (membershipId) => async (e) => {
     const { groupMembers } = this.props;
 
-    let member = groupMembers.members.concat(groupMembers.pending).find(r => r.destinyUserInfo.membershipId === membershipId);
+    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
       if (this.state.primed) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
-          frozen: true
+          frozen: true,
         }));
 
         const response = await bungie.BanMember(member.groupId, member.destinyUserInfo.membershipType, member.destinyUserInfo.membershipId);
@@ -176,23 +175,23 @@ class Actions extends React.Component {
 
           this.props.softUpdate();
         }
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           frozen: false,
-          primed: false
+          primed: false,
         }));
       } else {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           frozen: false,
-          primed: true
+          primed: true,
         }));
       }
     }
   };
 
   render() {
-    const { t, m: member, available } = this.props;
+    const { m: member, available } = this.props;
 
     if (member.pending) {
       return (
@@ -216,36 +215,35 @@ class Actions extends React.Component {
 
 class DownloadData extends React.Component {
   state = {
-    generated: false
-  }
+    generated: false,
+  };
 
-  handler_generate = e => {
+  handler_generate = (e) => {
     const { groupMembers } = this.props;
 
     if (!groupMembers.members?.length) {
       return;
     }
 
-    const members = groupMembers.members.map(m => {
-
+    const members = groupMembers.members.map((m) => {
       const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
 
-      const characterIds = !isPrivate ? m.profile.characters.data.map(c => c.characterId) : [];
+      const characterIds = !isPrivate ? m.profile.characters.data.map((c) => c.characterId) : [];
 
       const lastActivities = utils.lastPlayerActivity(m);
-      const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [a => a.lastPlayed], ['desc'])[0];
+      const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [(a) => a.lastPlayed], ['desc'])[0];
 
       const weeklyXp = !isPrivate
         ? characterIds.reduce((currentValue, characterId) => {
-          let characterProgress = m.profile.characterProgressions.data[characterId].progressions[540048094].weeklyProgress || 0;
-          return characterProgress + currentValue;
-        }, 0)
+            let characterProgress = m.profile.characterProgressions.data[characterId].progressions[540048094].weeklyProgress || 0;
+            return characterProgress + currentValue;
+          }, 0)
         : 0;
-      
+
       const seasonRank = !isPrivate ? utils.progressionSeasonRank({ characterId: m.profile.characters.data[0].characterId, data: m }).level : 0;
 
       const triumphScore = !isPrivate ? m.profile.profileRecords.data.score : 0;
-      
+
       let valorPoints = !isPrivate ? m.profile.characterProgressions.data[m.profile.characters.data[0].characterId].progressions[2626549951].currentProgress : 0;
       let valorResets = !isPrivate ? utils.calculateResets(3882308435, m.profile.characters.data[0].characterId, m.profile.characterProgressions.data, m.profile.characterRecords.data, m.profile.profileRecords.data.records).total : 0;
       let gloryPoints = !isPrivate ? m.profile.characterProgressions.data[m.profile.characters.data[0].characterId].progressions[2000925172].currentProgress : 0;
@@ -271,8 +269,8 @@ class DownloadData extends React.Component {
         valorSeason: valorPoints,
         valorResets,
         infamySeason: infamyPoints,
-        infamyResets
-      }
+        infamyResets,
+      };
     });
 
     const keys = members && members.length && Object.keys(members[0]);
@@ -282,12 +280,12 @@ class DownloadData extends React.Component {
       return [...a, values];
     }, []);
 
-    const csv = `${keys.join(',')}\n${values.map(m => `${m.join(',')}`).join(`\n`)}`;
+    const csv = `${keys.join(',')}\n${values.map((m) => `${m.join(',')}`).join(`\n`)}`;
 
     const url = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
 
     this.setState({ generated: url });
-  }
+  };
 
   componentDidUpdate(p, s) {
     if (p.groupMembers.lastUpdated !== this.props.groupMembers.lastUpdated) {
@@ -300,7 +298,7 @@ class DownloadData extends React.Component {
   }
 
   render() {
-    const { t, groupMembers } = this.props;
+    const { groupMembers } = this.props;
 
     const buttonDisabled = !groupMembers.groupId || groupMembers.loading;
     const time = new Date().toISOString();
@@ -311,20 +309,20 @@ class DownloadData extends React.Component {
           <div className='text'>{t('Download roster data')}</div>
         </a>
       </div>
-    )
+    );
   }
 }
 
-Actions = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Actions);
-DownloadData = compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(DownloadData);
+Actions = connect(mapStateToProps, mapDispatchToProps)(Actions);
+DownloadData = connect(mapStateToProps, mapDispatchToProps)(DownloadData);
 
 class RosterAdmin extends React.Component {
   state = {
     order: {
       sort: false,
-      dir: 'desc'
+      dir: 'desc',
     },
-    softUpdate: new Date().getTime()
+    softUpdate: new Date().getTime(),
   };
 
   componentDidMount() {
@@ -336,12 +334,20 @@ class RosterAdmin extends React.Component {
       this.callGetGroupMembers();
       this.startInterval();
     }
+
+    this.props.rebindTooltips();
   }
 
   componentWillUnmount() {
     this.mounted = false;
 
     this.clearInterval();
+  }
+
+  componentDidUpdate(p) {
+    if (p.groupMembers.lastUpdated !== this.props.groupMembers.lastUpdated) {
+      this.props.rebindTooltips();
+    }
   }
 
   callGetGroupMembers = async () => {
@@ -352,10 +358,6 @@ class RosterAdmin extends React.Component {
 
     if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
       await getGroupMembers(groupMembership.group, true);
-
-      this.props.rebindTooltips();
-    } else {
-      this.props.rebindTooltips();
     }
   };
 
@@ -369,27 +371,27 @@ class RosterAdmin extends React.Component {
 
   softUpdate = () => {
     this.setState({
-      softUpdate: new Date().getTime()
+      softUpdate: new Date().getTime(),
     });
   };
 
-  handler_changeSortTo = to => e => {
-    this.setState(p => ({
+  handler_changeSortTo = (to) => (e) => {
+    this.setState((p) => ({
       ...p,
       order: {
         ...p.order,
         dir: p.order.sort === to && p.order.dir === 'desc' ? 'asc' : 'desc',
-        sort: to
-      }
+        sort: to,
+      },
     }));
   };
 
   render() {
-    const { t, member, auth, groupMembers, mini, showOnline = false } = this.props;
+    const { member, auth, groupMembers, mini, showOnline = false } = this.props;
 
     const isAdmin =
-      member.data.groups.results.find(r => {
-        const authed = auth.destinyMemberships.find(m => m.membershipId === member.membershipId);
+      member.data.groups.results.find((r) => {
+        const authed = auth.destinyMemberships.find((m) => m.membershipId === member.membershipId);
 
         if (r.member.memberType > 2 && authed && r.member.destinyUserInfo.membershipId === authed.membershipId) {
           return true;
@@ -398,11 +400,11 @@ class RosterAdmin extends React.Component {
         }
       }) || member.membershipId === '4611686018449662397';
 
-    const results = showOnline ? groupMembers.members.filter(r => r.isOnline) : groupMembers.members.concat(groupMembers.pending);
-    
+    const results = showOnline ? groupMembers.members.filter((r) => r.isOnline) : groupMembers.members.concat(groupMembers.pending);
+
     let roster = [];
 
-    results.forEach(m => {
+    results.forEach((m) => {
       if (m.ignore) {
         return;
       }
@@ -410,12 +412,12 @@ class RosterAdmin extends React.Component {
       const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;
       const isSelf = !isPrivate ? m.profile.profile.data.userInfo.membershipType.toString() === member.membershipType && m.profile.profile.data.userInfo.membershipId === member.membershipId : false;
 
-      const characterIds = !isPrivate ? m.profile.characters.data.map(c => c.characterId) : [];
+      const characterIds = !isPrivate ? m.profile.characters.data.map((c) => c.characterId) : [];
 
       const lastActivities = utils.lastPlayerActivity(m);
-      const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [a => a.lastPlayed], ['desc'])[0];
+      const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [(a) => a.lastPlayed], ['desc'])[0];
 
-      const lastCharacter = !isPrivate ? m.profile.characters.data.find(c => c.characterId === lastCharacterId) : false;
+      const lastCharacter = !isPrivate ? m.profile.characters.data.find((c) => c.characterId === lastCharacterId) : false;
 
       const LastClassIcon = !isPrivate ? classHashToIcon(lastCharacter.classHash) : null;
 
@@ -447,7 +449,7 @@ class RosterAdmin extends React.Component {
           lastCharacter: !isPrivate ? lastCharacter : false,
           weeklyXp: (weeklyXp / characterIds.length) * 5000,
           seasonRank,
-          rank: m.memberType
+          rank: m.memberType,
         },
         el: {
           full: (
@@ -462,40 +464,22 @@ class RosterAdmin extends React.Component {
                       <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                         <LastClassIcon />
                       </div>
-                      <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 100, max: lastCharacter.light >= 1010 })}>
-                        {lastCharacter.light}
-                      </div>
-                      <div className='icon season-rank'>
-                        {seasonRank}
-                      </div>
+                      <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 100, max: lastCharacter.light >= 1010 })}>{lastCharacter.light}</div>
+                      <div className='icon season-rank'>{seasonRank}</div>
                     </li>
                     <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
                       {m.isOnline && lastActivityString ? (
                         <div className='tooltip' data-type='activity' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
                           <div>
                             {lastActivityString}
-                            <span>
-                              {moment(lastPlayed)
-                                .locale('rel-abr')
-                                .fromNow(true)}
-                            </span>
+                            <span>{moment(lastPlayed).locale('rel-abr').fromNow(true)}</span>
                           </div>
                         </div>
                       ) : (
-                        <div>
-                          {moment(lastPlayed)
-                            .locale('rel-abr')
-                            .fromNow()}
-                        </div>
+                        <div>{moment(lastPlayed).locale('rel-abr').fromNow()}</div>
                       )}
                     </li>
-                    <li className='col joinDate'>
-                      {!m.pending
-                        ? moment(m.joinDate)
-                            .locale('rel-abr')
-                            .fromNow()
-                        : null}
-                    </li>
+                    <li className='col joinDate'>{!m.pending ? moment(m.joinDate).locale('rel-abr').fromNow() : null}</li>
                     <li className='col weeklyXp'>
                       <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                     </li>
@@ -527,23 +511,23 @@ class RosterAdmin extends React.Component {
                 </li>
               </ul>
             </li>
-          )
-        }
+          ),
+        },
       });
     });
 
     let order = this.state.order;
 
     if (order.sort === 'lastCharacter') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.lastCharacter.light, m => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'joinDate') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.joinDate, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.joinDate, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'weeklyXp') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.weeklyXp, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.weeklyXp, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'rank') {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.rank, m => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.rank, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else {
-      roster = orderBy(roster, [m => m.sorts.private, m => m.sorts.isOnline, m => m.sorts.lastActivity, m => m.sorts.lastPlayed, m => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc', 'desc']);
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.isOnline, (m) => m.sorts.lastActivity, (m) => m.sorts.lastPlayed, (m) => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc', 'desc']);
     }
 
     if (!mini && roster.length) {
@@ -577,23 +561,23 @@ class RosterAdmin extends React.Component {
                 <li className='col actions no-sort' />
               </ul>
             </li>
-          )
-        }
+          ),
+        },
       });
     }
 
     return (
       <>
-        {!mini && roster.filter(m => m.pending).length ? <ul className={cx('list', 'roster', 'admin', 'pending')}>{roster.filter(m => m.pending).map(m => m.el.full)}</ul> : null}
+        {!mini && roster.filter((m) => m.pending).length ? <ul className={cx('list', 'roster', 'admin', 'pending')}>{roster.filter((m) => m.pending).map((m) => m.el.full)}</ul> : null}
         <ul className={cx('list', 'roster', 'admin', { mini: mini })}>
           {mini
             ? this.props.limit
               ? roster
-                  .filter(m => !m.pending)
+                  .filter((m) => !m.pending)
                   .slice(0, this.props.limit)
-                  .map(m => m.el.mini)
-              : roster.filter(m => !m.pending).map(m => m.el.mini)
-            : roster.filter(m => !m.pending).map(m => m.el.full)}
+                  .map((m) => m.el.mini)
+              : roster.filter((m) => !m.pending).map((m) => m.el.mini)
+            : roster.filter((m) => !m.pending).map((m) => m.el.full)}
         </ul>
         {!mini && roster.length > 0 && <DownloadData />}
         {mini ? (
@@ -610,22 +594,22 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     auth: state.auth,
-    groupMembers: state.groupMembers
+    groupMembers: state.groupMembers,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    pushNotification: value => {
+    pushNotification: (value) => {
       dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
     },
-    markStale: member => {
+    markStale: (member) => {
       dispatch({ type: 'MEMBER_IS_STALE', payload: { membershipType: member.membershipType, membershipId: member.membershipId } });
     },
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(RosterAdmin);
+export default connect(mapStateToProps, mapDispatchToProps)(RosterAdmin);
