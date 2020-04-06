@@ -465,7 +465,7 @@ class Records extends React.Component {
                   <div className='name'>{definitionRecord.displayProperties.name}</div>
                   <div className='meta'>
                     {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
-                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance}</div> : null}
+                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
                     {manifest.statistics.triumphs ? (
                       <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
                         {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%

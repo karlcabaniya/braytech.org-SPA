@@ -104,6 +104,7 @@ export function damageTypeToAsset(type) {
   };
 }
 
+// https://bungie-net.github.io/multi/schema_Destiny-DestinyUnlockValueUIStyle.html#schema_Destiny-DestinyUnlockValueUIStyle
 export function displayValue(value = '', objectiveHash, styleOverride = 0) {
   const enumerated = manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle ? enums.enumerateUnlockValueUIStyle(manifest.DestinyObjectiveDefinition[objectiveHash].inProgressValueStyle) : enums.enumerateUnlockValueUIStyle(styleOverride);
 

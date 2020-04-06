@@ -8,6 +8,7 @@ import Moment from 'react-moment';
 
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
+import { activityModeExtras } from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
 import { Activities } from '../../../svg';
 
@@ -15,34 +16,7 @@ class ReportHeader extends React.Component {
   render() {
     const { characterIds, activityDetails, period, entries } = this.props;
 
-    const modeExtras = [
-      {
-        modes: [73],
-        name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name
-      },
-      {
-        modes: [71],
-        name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name
-      },
-      {
-        modes: [43],
-        name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name
-      },
-      {
-        modes: [81],
-        name: manifest.DestinyActivityDefinition[952904835].displayProperties.name
-      },
-      {
-        modes: [4],
-        name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
-      },
-      {
-        modes: [31],
-        name: manifest.DestinyActivityDefinition[3780095688].displayProperties.name
-      }
-    ];
-
-    const modeExtra = modeExtras.find(m => m.modes.includes(activityDetails.mode));
+    const extras = activityModeExtras(activityDetails.mode);
 
     // map definition - Rusted Lands, etc
     const definitionMap = manifest.DestinyActivityDefinition[activityDetails.referenceId];
@@ -60,8 +34,8 @@ class ReportHeader extends React.Component {
     const realEndTime = moment(period).add(entry.values.activityDurationSeconds.basic.value, 'seconds');
 
     let mode = definitionMode?.displayProperties?.name;
-    if (modeExtra?.name) {
-      mode = modeExtra.name;
+    if (extras?.name) {
+      mode = extras.name;
     } else if (definitionActivity?.directActivityModeType === 37) {
       mode = definitionActivity.displayProperties?.name;
     } else if (definitionActivity?.hash === 1166905690) {
@@ -84,34 +58,7 @@ class ReportHeaderLarge extends React.Component {
   render() {
     const { t, characterIds, activityDetails, period, entries, teams } = this.props;
 
-    const modeExtras = [
-      {
-        modes: [73],
-        name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name
-      },
-      {
-        modes: [71],
-        name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name
-      },
-      {
-        modes: [43],
-        name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name
-      },
-      {
-        modes: [81],
-        name: manifest.DestinyActivityDefinition[952904835].displayProperties.name
-      },
-      {
-        modes: [4],
-        name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name
-      },
-      {
-        modes: [31],
-        name: manifest.DestinyActivityDefinition[3780095688].displayProperties.name
-      }
-    ];
-
-    const modeExtra = modeExtras.find(m => m.modes.includes(activityDetails.mode));
+    const extras = activityModeExtras(activityDetails.mode);
 
     // map definition - Rusted Lands, etc
     const definitionMap = manifest.DestinyActivityDefinition[activityDetails.referenceId];
@@ -150,8 +97,8 @@ class ReportHeaderLarge extends React.Component {
     const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? Activities.Standing.Gambit.Victory : Activities.Standing.Crucible.Victory;
 
     let mode = definitionMode?.displayProperties?.name;
-    if (modeExtra?.name) {
-      mode = modeExtra.name;
+    if (extras?.name) {
+      mode = extras.name;
     } else if (definitionActivity?.directActivityModeType === 37) {
       mode = definitionActivity.displayProperties?.name;
     } else if (definitionActivity?.hash === 1166905690) {
