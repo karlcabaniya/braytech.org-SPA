@@ -239,51 +239,34 @@
   }
 }
 
-.list.reports li > .head .standing .icon .victory-gambit .radial {
+.list.reports li > .head .standing .icon .victory.trials .hexagon {
+  transform-origin: center center;
+  animation: rotate-linear 32s infinite linear reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.trials .hexagon2 {
+  animation: rotate-linear 16s infinite linear reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.trials .circles circle {
   transform-origin: center center;
   animation: rotate-linear 32s infinite linear;
-  opacity: 0.4;
 }
 
-.list.reports li > .head .standing .icon .victory-gambit .radial-1,
-.list.reports li > .head .standing .icon .victory-gambit .radial-2,
-.list.reports li > .head .standing .icon .victory-gambit .radial-background {
-  opacity: 0;
-  transform-origin: center center;
+.list.reports li > .head .standing .icon .victory.trials .circles circle:nth-child(2) {
+  animation: rotate-linear 28s infinite linear;
 }
 
-.list.reports li > .head .standing .icon .victory-gambit .radial-1 {
-  animation: standing-victory-gambit-radial-scale 1s 1 0s cubic-bezier(0.46, 0.03, 0.52, 0.96) forwards;
+.list.reports li > .head .standing .icon .victory.trials .circles circle:nth-child(3) {
+  animation: rotate-linear 24s infinite linear;
 }
 
-.list.reports li > .head .standing .icon .victory-gambit .radial-2 {
-  animation: standing-victory-gambit-radial-scale 1s 1 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96) forwards;
+.list.reports li > .head .standing .icon .victory.trials .circles circle:nth-child(3) {
+  animation: rotate-linear 20s infinite linear;
 }
 
-.list.reports li > .head .standing .icon .victory-gambit .radial-background {
-  animation: standing-victory-gambit-radial-background-scale 3s 1 0s cubic-bezier(0.46, 0.03, 0.52, 0.96) forwards;
-}
-
-@keyframes standing-victory-gambit-radial-scale {
-  0% {
-    transform: scale(1.4);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes standing-victory-gambit-radial-background-scale {
-  0% {
-    transform: scale(0.4);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+.list.reports li > .head .standing .icon .victory.trials .circles circle:nth-child(4) {
+  animation: rotate-linear 16s infinite linear;
 }
 
 .list.reports li > .head .standing .text {

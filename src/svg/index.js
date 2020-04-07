@@ -97,7 +97,8 @@ import { ReactComponent as RaidIcon } from './raid/raid.svg';
 
 import { ReactComponent as StandingCrucibleVictory } from './crucible/standing-victory.svg';
 import { ReactComponent as StandingCrucibleDefeat } from './crucible/standing-defeat.svg';
-import { ReactComponent as StandingGambitVictory } from './gambit/standing-victory-gambit.svg';
+import { ReactComponent as StandingTrialsVictory } from './crucible/standing-victory-trials.svg';
+import { ReactComponent as StandingGambitVictory } from './gambit/standing-victory.svg';
 
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
 import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
@@ -143,7 +144,7 @@ const Common = {
   SealTitle,
   Braytech,
   Tracking,
-  CrossSave
+  CrossSave,
 };
 
 const Campaign = {
@@ -151,7 +152,7 @@ const Campaign = {
   CurseOfOsiris: CampaignCurseOfOsiris,
   Warmind: CampaignWarmind,
   Forsaken: CampaignForsaken,
-  Shadowkeep: CampaignShadowkeep
+  Shadowkeep: CampaignShadowkeep,
 };
 
 const Destinations = {
@@ -161,17 +162,17 @@ const Destinations = {
   TheTangledShore: DestinationsTheTangledShore,
   HellasBasin: DestinationsHellasBasin,
   FieldsOfGlass: DestinationsFieldsOfGlass,
-  EchoMesa: DestinationsEchoMesa
+  EchoMesa: DestinationsEchoMesa,
 };
 
 const Events = {
-  IronBanner: TooltipIronBanner
+  IronBanner: TooltipIronBanner,
 };
 
 const Flair = {
   ClovisBray: FlairClovisBray,
   Warmind: DestinationsHellasBasin,
-  Superintendent: FlairSuperintendent
+  Superintendent: FlairSuperintendent,
 };
 
 const Grimoire = {
@@ -180,12 +181,12 @@ const Grimoire = {
   Enemies: GrimoireEnemies,
   Guardian: GrimoireGuardian,
   Inventory: GrimoireInventory,
-  Places: GrimoirePlaces
+  Places: GrimoirePlaces,
 };
 
 const Loading = {
   ClovisBray: FlairClovisBray,
-  WarmindHalf
+  WarmindHalf,
 };
 
 const Maps = {
@@ -206,13 +207,13 @@ const Maps = {
   MapsPatrolBossHive,
   MapsPatrolBossVex,
   MapsPatrolBoss,
-  MapsPatrolMinion
+  MapsPatrolMinion,
 };
 
 const Miscellaneous = {
   WarmindHalf,
   TrialsOfOsirisDevice,
-  CurseCycle
+  CurseCycle,
 };
 
 const Tooltips = {
@@ -232,7 +233,7 @@ const Tooltips = {
   Raid: TooltipRaid,
   SeasonalArena: TooltipSeasonalArena,
   TrialsOfOsiris: TooltipTrialsOfOsiris,
-  IronBanner: TooltipIronBanner
+  IronBanner: TooltipIronBanner,
 };
 
 const Views = {
@@ -244,45 +245,48 @@ const Views = {
     Maps: HighlightMaps,
     ThisWeek: HighlightThisWeek,
     Quests: HighlightQuests,
-    Reports: HighlightReports
+    Reports: HighlightReports,
   },
   Clan: {
     About: HighlightClan,
     Stats,
     Roster,
-    RosterAdmin
+    RosterAdmin,
   },
   Reports: {
     Explore: HighlightMaps,
     Crucible: TooltipCrucible,
     Gambit: TooltipGambit,
     Strikes: TooltipStrike,
-    Raids: TooltipRaid
+    Raids: TooltipRaid,
   },
   Archives: {
     Overview: Stats,
     Eververse,
     ChaliceOfOpulence,
     Tricorn,
-    Grimoire: GrimoireIcon
+    Grimoire: GrimoireIcon,
   },
   Trackers: {
     TraitAll,
     TraitWeekly,
     TraitSeasonal,
-    TraitCareer
-  }
+    TraitCareer,
+  },
 };
 
 const Activities = {
   Standing: {
     Crucible: {
       Victory: StandingCrucibleVictory,
-      Defeat: StandingCrucibleDefeat
+      Defeat: StandingCrucibleDefeat,
+    },
+    Trials: {
+      Victory: StandingTrialsVictory,
     },
     Gambit: {
-      Victory: StandingGambitVictory
-    }
+      Victory: StandingGambitVictory,
+    },
   },
   Crucible: {
     Default: CrucibleIconDefault,
@@ -302,20 +306,20 @@ const Activities = {
     Lockdown: CrucibleIconLockdown,
     MomentumControl: CrucibleIconMomentumControl,
     IronBanner: CrucibleIconIronBanner,
-    TrialsOfOsiris: CrucibleIconTrialsOfOsiris
+    TrialsOfOsiris: CrucibleIconTrialsOfOsiris,
   },
   Gambit: {
     Gambit: GambitIconGambit,
     GambitPrime: GambitIconGambitPrime,
-    Reckoning: GambitIconReckoning
+    Reckoning: GambitIconReckoning,
   },
   Strikes: {
     Strikes: VanguardIconStrikes,
-    ScoredNightfallStrikes: VanguardIconScoredNightfallStrikes
+    ScoredNightfallStrikes: VanguardIconScoredNightfallStrikes,
   },
   Raid: {
-    Raid: RaidIcon
-  }
+    Raid: RaidIcon,
+  },
 };
 
 export { Activities, Campaign, Common, Destinations, Events, Flair, Grimoire, Loading, Miscellaneous, Maps, Tooltips, Views };

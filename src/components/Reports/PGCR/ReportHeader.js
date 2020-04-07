@@ -94,7 +94,7 @@ class ReportHeaderLarge extends React.Component {
     
     const simplifiedAcivityMode = enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1);
 
-    const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? Activities.Standing.Gambit.Victory : Activities.Standing.Crucible.Victory;
+    const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? Activities.Standing.Gambit.Victory : activityDetails.mode === 84 ? Activities.Standing.Trials.Victory : Activities.Standing.Crucible.Victory;
 
     let mode = definitionMode?.displayProperties?.name;
     if (extras?.name) {
