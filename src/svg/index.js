@@ -98,6 +98,7 @@ import { ReactComponent as RaidIcon } from './raid/raid.svg';
 import { ReactComponent as StandingCrucibleVictory } from './crucible/standing-victory.svg';
 import { ReactComponent as StandingCrucibleDefeat } from './crucible/standing-defeat.svg';
 import { ReactComponent as StandingTrialsVictory } from './crucible/standing-victory-trials.svg';
+import { ReactComponent as StandingIronBannerVictory } from './crucible/standing-victory-iron-banner.svg';
 import { ReactComponent as StandingGambitVictory } from './gambit/standing-victory.svg';
 
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
@@ -283,6 +284,9 @@ const Activities = {
     },
     Trials: {
       Victory: StandingTrialsVictory,
+    },
+    IronBanner: {
+      Victory: StandingIronBannerVictory,
     },
     Gambit: {
       Victory: StandingGambitVictory,

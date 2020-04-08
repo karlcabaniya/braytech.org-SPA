@@ -269,6 +269,76 @@
   animation: rotate-linear 16s infinite linear;
 }
 
+.list.reports li > .head .standing .icon .victory.iron-banner .dots {
+  transform-origin: center center;
+  animation: rotate-linear 44s infinite linear;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .dots:nth-child(2) {
+  animation: rotate-linear 48s infinite linear reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .dots:nth-child(3) {
+  animation: rotate-linear 54s infinite linear;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .dots:nth-child(3) {
+  animation: rotate-linear 58s infinite linear reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .dots:nth-child(4) {
+  animation: rotate-linear 62s infinite linear;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .dots:nth-child(5) {
+  animation: rotate-linear 66s infinite linear reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .gradients circle {
+  transform-origin: center center;
+  animation: standing-iron-banner-gradient 10s infinite linear;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .gradients circle:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .gradients circle:nth-child(3) {
+  animation-duration: 20s;
+  animation-delay: 7.5s;
+  animation-direction: reverse;
+}
+
+.list.reports li > .head .standing .icon .victory.iron-banner .gradients circle:nth-child(4) {
+  animation-delay: 10s;
+  animation-direction: reverse;
+}
+
+@keyframes standing-iron-banner-gradient {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  20% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  80% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+}
+
 .list.reports li > .head .standing .text {
   position: absolute;
   top: 40%;
