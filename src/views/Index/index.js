@@ -209,7 +209,7 @@ class Index extends React.Component {
               </a>
             </div>
             <div className='module tags'>
-              {this.supporters.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
+              {this.supporters?.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
             </div>
           </div>
         </div>

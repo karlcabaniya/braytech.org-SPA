@@ -95,7 +95,7 @@ class Credits extends React.Component {
             <div>{t('Patreon supporters')}</div>
           </div>
           <div className='tags'>
-            {this.supporters.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
+            {this.supporters?.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
           </div>
         </div>
       </div>
