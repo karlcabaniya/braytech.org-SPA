@@ -9,15 +9,14 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Map } from 'react-leaflet';
 
-import maps from '../../data/lowlines/maps/destinations';
-// import nodes from '../../data/lowlines/maps/nodes';
+import maps from '../../data/maps';
+// import nodes from '../../data/maps/nodes';
 
 import manifest from '../../utils/manifest';
 import * as ls from '../../utils/localStorage';
+import { resolveDestination, getMapCenter } from '../../utils/maps';
 import { checklists, lookup } from '../../utils/checklists';
 import Spinner from '../../components/UI/Spinner';
-
-import * as utils from './utils';
 
 import { Layers, BackgroundLayer } from './Layers';
 import Static from './Nodes/Static';
@@ -52,9 +51,9 @@ class Maps extends React.Component {
     }
 
     // Prepare to define viewport based on props i.e. route params
-    const resolved = utils.resolveDestination(p.params.map).id;
+    const resolved = resolveDestination(p.params.map).id;
 
-    let center = utils.getMapCenter(resolved);
+    let center = getMapCenter(resolved);
     let zoom = 0;
 
     if (p.params.highlight) {
@@ -111,13 +110,13 @@ class Maps extends React.Component {
   }
 
   setDestination = destination => {
-    const resolved = utils.resolveDestination(destination);
+    const resolved = resolveDestination(destination);
 
     if (this.mounted) {
       this.setState(p => ({
         viewport: {
           ...p.viewport,
-          center: utils.getMapCenter(resolved.id)
+          center: getMapCenter(resolved.id)
         }
       }));
     }
@@ -163,7 +162,7 @@ class Maps extends React.Component {
 
   handler_toggleDestinationsList = e => {
     const href = e.target.href;
-    const id = utils.resolveDestination(this.props.params.map).id;
+    const id = resolveDestination(this.props.params.map).id;
 
     if (href.includes(id)) {
       this.setState(p => {
@@ -257,7 +256,7 @@ class Maps extends React.Component {
   handler_map_mouseDown = e => {
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
-    const destination = utils.resolveDestination(this.props.params.map).id;
+    const destination = resolveDestination(this.props.params.map).id;
 
     const map = maps[destination].map;
 
@@ -298,7 +297,7 @@ class Maps extends React.Component {
   render() {
     const { member, viewport, settings, params } = this.props;
 
-    const destination = utils.resolveDestination(params.map);
+    const destination = resolveDestination(params.map);
     const map = maps[destination.id].map;
     const bounds = [
       [0, 0],

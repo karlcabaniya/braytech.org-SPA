@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.22.6",
+  "version": "2.22.7",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +21,7 @@
     "classnames": "^2.2.6",
     "dexie": "^2.0.4",
     "html2canvas": "^1.0.0-rc.5",
-    "i18next": "^19.3.4",
+    "i18next": "^19.4.0",
     "i18next-xhr-backend": "^3.2.2",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",

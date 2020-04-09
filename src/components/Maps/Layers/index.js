@@ -1,11 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
-
 import { ImageOverlay } from 'react-leaflet';
 
-import maps from '../../../data/lowlines/maps/destinations';
-
-import * as utils from '../utils';
+import { destinations } from '../../../utils/maps';
+import maps from '../../../data/maps';
 
 import './styles.css';
 
@@ -16,7 +14,7 @@ class Layers extends React.Component {
     this.state = {
       loading: true,
       error: false,
-      destinations: utils.destinations.map(d => ({ ...d, loading: true, error: false, layers: [] }))
+      destinations: destinations.map(d => ({ ...d, loading: true, error: false, layers: [] }))
     };
   }
 

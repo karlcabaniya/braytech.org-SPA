@@ -4,7 +4,7 @@ import { orderBy } from 'lodash';
 import store from '../store';
 import { t } from './i18n';
 
-import data from '../data/lowlines/checklists';
+import data from '../data/checklists';
 import manifest from './manifest';
 import { enumerateRecordState } from './destinyEnums';
 import { Maps } from '../svg';

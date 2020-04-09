@@ -7,7 +7,7 @@ import ObservedImage from '../../../ObservedImage';
 import Button from '../../../UI/Button';
 import { bookCovers } from '../../../../utils/destinyEnums';
 import { checklists, lookup } from '../../../../utils/checklists';
-import nodes from '../../../../data/lowlines/maps/nodes';
+import nodes from '../../../../data/maps/nodes';
 
 function findNodeType(checklistHash, recordHash) {
   if (checklistHash) {

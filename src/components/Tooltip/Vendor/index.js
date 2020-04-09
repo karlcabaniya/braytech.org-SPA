@@ -4,9 +4,13 @@ import cx from 'classnames';
 
 import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
+import { lookup } from '../../../utils/maps';
 import ObservedImage from '../../ObservedImage';
-import destinations from '../../../data/lowlines/maps/destinations';
-import nodes from '../../../data/lowlines/maps/nodes';
+
+import maps from '../../../data/maps';
+import nodes from '../../../data/maps/nodes';
+import nodesRuntime from '../../../data/maps/runtime';
+
 import { Tooltips } from '../../../svg';
 
 import './styles.css';
@@ -14,6 +18,8 @@ import './styles.css';
 class Vendor extends React.Component {
   render() {
     const { hash } = this.props;
+
+    const runtime = nodesRuntime(this.props.member);
 
     const definitionVendor = manifest.DestinyVendorDefinition[hash];
 
@@ -52,7 +58,7 @@ class Vendor extends React.Component {
       const locations = definitionVendor.locations?.length;
       const definitionDestination = locations.length > 1 ? manifest.DestinyDestinationDefinition[definitionVendor.locations[1].destinationHash] : manifest.DestinyDestinationDefinition[definitionVendor.locations[0].destinationHash];
 
-      const destination = definitionDestination && Object.values(destinations).find(d => d.destination.hash === definitionDestination.hash);
+      const destination = definitionDestination && Object.values(maps).find(d => d.destination.hash === definitionDestination.hash);
       const bubble = destination && destination.map.bubbles.find(b => b.nodes.find(n => n.vendorHash === definitionVendor.hash));
 
       const definitionBubble = (bubble && bubble.hash && definitionDestination.bubbles.find(b => b.hash === bubble.hash)) || (bubble && bubble.name);
@@ -61,8 +67,8 @@ class Vendor extends React.Component {
       const destinationName = definitionDestination && definitionDestination.displayProperties.name;
       const placeName = definitionPlace && definitionPlace.displayProperties.name && definitionPlace.displayProperties.name !== definitionDestination.displayProperties.name && definitionPlace.displayProperties.name;
       const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
-
-      const extras = nodes && nodes.find(d => d.vendorHash === definitionVendor.hash);
+    
+      const extras = lookup({ key: 'vendorHash', value: definitionVendor.hash });
       const screenshot = extras && extras.screenshot;
 
       // console.log(definitionVendor.hash, (definitionBubble && definitionBubble.hash) || 'No bubble')

@@ -10,7 +10,7 @@ import MemberLink from '../../components/MemberLink';
 import './styles.css';
 
 class Credits extends React.Component {
-  supporters = this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter(m => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
+  supporters = manifest.statistics?.patrons && this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter(m => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
 
   thanks = [
     {

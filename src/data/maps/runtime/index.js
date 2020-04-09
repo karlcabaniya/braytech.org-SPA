@@ -1,17 +1,19 @@
 import React from 'react';
-import i18next from 'i18next';
 
-import manifest from '../../../../utils/manifest';
-import { Maps } from '../../../../svg'
+import { t } from '../../../utils/i18n';
+import manifest from '../../../utils/manifest';
+import { Maps } from '../../../svg';
 
 const cycleInfo = {
   epoch: {
     // start of cycle in UTC
-    wanderingNightmares: new Date(`2019-10-01T17:00:00Z`).getTime()
+    wanderingNightmares: new Date(`2019-10-01T17:00:00Z`).getTime(),
+    curse: new Date(`2018-09-11T17:00:00Z`).getTime()
   },
   cycle: {
     // how many week cycle
     wanderingNightmares: 4,
+    curse: 3
   },
   elapsed: {}, // elapsed time since cycle started
   week: {} // current week in cycle
@@ -45,7 +47,7 @@ const hydrateObjectives = (member, objectives) => {
   });
 }
 
-export default (member = false) => {
+export default (member, array) => {
   const nodes = {
     tower: [],
     edz: [],
@@ -54,11 +56,11 @@ export default (member = false) => {
         hash: 'wanderingNightmareXortal',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409498].progressDescription,
-          description: i18next.t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
         },
         type: {
           hash: 'patrol-boss',
-          name: i18next.t('Patrol boss'),
+          name: t('Patrol boss'),
           category: 'enemy',
           race: 'hive'
         },
@@ -99,11 +101,11 @@ export default (member = false) => {
         hash: 'wanderingNightmareHorkis',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409496].progressDescription,
-          description: i18next.t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
         },
         type: {
           hash: 'patrol-boss',
-          name: i18next.t('Patrol boss'),
+          name: t('Patrol boss'),
           category: 'enemy',
           race: 'fallen'
         },
@@ -144,11 +146,11 @@ export default (member = false) => {
         hash: 'wanderingNightmareJaxx',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409497].progressDescription,
-          description: i18next.t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
         },
         type: {
           hash: 'patrol-boss',
-          name: i18next.t('Patrol boss'),
+          name: t('Patrol boss'),
           category: 'enemy',
           race: 'hive'
         },
@@ -189,11 +191,11 @@ export default (member = false) => {
         hash: 'wanderingNightmareFallenCouncil',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409499].progressDescription,
-          description: i18next.t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
         },
         type: {
           hash: 'patrol-boss',
-          name: i18next.t('Patrol boss'),
+          name: t('Patrol boss'),
           category: 'enemy',
           race: 'fallen'
         },
@@ -237,7 +239,80 @@ export default (member = false) => {
     'fields-of-glass': [],
     'hellas-basin': [],
     'tangled-shore': [],
-    'dreaming-city': []
+    'dreaming-city': [
+      {
+        vendorHash: 1841717884,
+        type: {
+          category: 'vendor',
+        },
+        icon: <Maps.Vendor />,
+        location: {
+          destinationHash: 2779202173,
+          bubbleHash: 3522109173,
+          points: [
+            {
+              x: 503,
+              y: -310
+            }
+          ]
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.curse,
+          now: cycleInfo.week.curse === 1
+        },
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-1-2.jpg'
+      },
+      {
+        vendorHash: 1841717884,
+        type: {
+          category: 'vendor',
+        },
+        icon: <Maps.Vendor />,
+        location: {
+          destinationHash: 2779202173,
+          bubbleHash: 2762866308,
+          points: [
+            {
+              x: -430,
+              y: -138
+            }
+          ]
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.curse,
+          now: cycleInfo.week.curse === 2
+        },
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-2-2.jpg'
+      },
+      {
+        vendorHash: 1841717884,
+        type: {
+          category: 'vendor',
+        },
+        icon: <Maps.Vendor />,
+        location: {
+          destinationHash: 2779202173,
+          bubbleHash: 706937272,
+          points: [
+            {
+              x: 68,
+              y: 259
+            }
+          ]
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.curse,
+          now: cycleInfo.week.curse === 3
+        },
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-3-2.jpg'
+      }
+    ]
   }
 
   if (member && member.data) {
@@ -256,8 +331,16 @@ export default (member = false) => {
       })
     }
 
-    return hydrated;
+    if (array) {
+      return Object.entries(hydrated).reduce((array, [destination, nodes]) => [...array, ...nodes], []);
+    } else {
+      return hydrated;
+    }
   } else {
-    return nodes;
+    if (array) {
+      return Object.entries(nodes).reduce((array, [destination, nodes]) => [...array, ...nodes], []);
+    } else {
+      return nodes;
+    }
   }
 }

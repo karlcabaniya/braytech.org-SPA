@@ -6,8 +6,8 @@ import { withTranslation } from 'react-i18next';
 import { Marker } from 'react-leaflet';
 
 import checklists from '../../../utils/checklists';
-import maps from '../../../data/lowlines/maps/destinations';
-import nodes from '../../../data/lowlines/maps/nodes';
+import maps from '../../../data/maps';
+import nodes from '../../../data/maps/nodes';
 
 import * as marker from '../markers';
 

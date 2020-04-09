@@ -3,16 +3,14 @@ import ReactDOMServer from 'react-dom/server';
 import L from 'leaflet';
 import cx from 'classnames';
 
-import { ReactComponent as SVGFastTravel } from '../../../svg/maps/fast-travel.svg';
-import { ReactComponent as SVGVendor } from '../../../svg/maps/vendor.svg';
-import { ReactComponent as SVGForgeIgnition } from '../../../svg/maps/forge-ignition.svg';
+import { Maps } from '../../../svg';
 
 import './styles.css';
 
 export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
   let icon = marker.icon || null;
   if (tooltip.type === 'vendor') {
-    icon = <SVGVendor />;
+    icon = <Maps.Vendor />;
   }
 
   const html = (
@@ -58,7 +56,7 @@ export const iconFastTravel = L.divIcon({
   html: ReactDOMServer.renderToString(
     <div className='wrapper'>
       <div className='icon'>
-        <SVGFastTravel />
+        <Maps.FastTravel />
       </div>
     </div>
   )
@@ -70,7 +68,7 @@ export const iconForgeIgnition = {
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
         <div className='icon tooltip' data-context='maps' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
-          <SVGForgeIgnition />
+          <Maps.ForgeIgnition />
         </div>
       </div>
     )
@@ -80,7 +78,7 @@ export const iconForgeIgnition = {
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
         <div className='icon tooltip' data-context='maps' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
-          <SVGForgeIgnition />
+          <Maps.ForgeIgnition />
         </div>
       </div>
     )
@@ -90,7 +88,7 @@ export const iconForgeIgnition = {
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
         <div className='icon tooltip' data-context='maps' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
-          <SVGForgeIgnition />
+          <Maps.ForgeIgnition />
         </div>
       </div>
     )
@@ -100,7 +98,7 @@ export const iconForgeIgnition = {
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
         <div className='icon tooltip' data-context='maps' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
-          <SVGForgeIgnition />
+          <Maps.ForgeIgnition />
         </div>
       </div>
     )

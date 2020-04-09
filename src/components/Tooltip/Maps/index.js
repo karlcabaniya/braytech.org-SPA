@@ -7,8 +7,8 @@ import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
 import { checklists, lookup } from '../../../utils/checklists';
-import nodes from '../../../data/lowlines/maps/nodes';
-import runtime from '../../../data/lowlines/maps/runtime';
+import nodes from '../../../data/maps/nodes';
+import runtime from '../../../data/maps/runtime';
 
 import './styles.css';
 

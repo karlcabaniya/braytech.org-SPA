@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { Marker } from 'react-leaflet';
 
-import maps from '../../../data/lowlines/maps/destinations';
-import nodesRuntime from '../../../data/lowlines/maps/runtime/';
+import { Common } from '../../../svg';
+import maps from '../../../data/maps';
+import nodesRuntime from '../../../data/maps/runtime';
 
 import * as marker from '../markers';
 
@@ -45,6 +45,8 @@ class Runtime extends React.Component {
     return (
       (this.state.nodes &&
         this.state.nodes[this.props.id].map((node, i) => {
+          if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
+
           return node.location.points.map(point => {
             const markerOffsetX = mapXOffset + viewWidth / 2;
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
@@ -59,13 +61,17 @@ class Runtime extends React.Component {
             const offsetY = markerOffsetY + point.y;
 
             if (node.type.hash === 'patrol-boss') {
-              if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
-
               const icon = marker.icon({ hash: node.hash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+            } else if (node.type.category === 'vendor') {
+              const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? `has-screenshot` : '']);
+
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else {
-              return null;
+              const icon = marker.icon({ hash: node.hash, type: 'maps' }, [node.screenshot ? `has-screenshot` : ''], { icon: <Common.Info /> });
+              
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             }
           });
         })) ||

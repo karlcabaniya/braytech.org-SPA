@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import manifest from '../../../../utils/manifest';
+import { destinations } from '../../../../utils/maps';
 
-import * as utils from '../../utils';
-import maps from '../../../../data/lowlines/maps/destinations';
+import maps from '../../../../data/maps';
 
 class Destinations extends React.Component {
   state = {};
@@ -26,7 +26,7 @@ class Destinations extends React.Component {
     return (
       <div className={cx('control', 'destinations', { visible })}>
         <ul className='list'>
-          {utils.destinations.map(d => {
+          {destinations.map(d => {
             const definitionActivity = manifest.DestinyActivityDefinition[maps[d.id].destination.activityHash];
             const definitionDestintion = manifest.DestinyDestinationDefinition[maps[d.id].destination.hash];
 

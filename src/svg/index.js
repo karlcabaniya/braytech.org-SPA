@@ -17,6 +17,7 @@ import { ReactComponent as TooltipTrialsOfOsiris } from './tooltips/trials-of-os
 import { ReactComponent as TooltipIronBanner } from './tooltips/iron-banner.svg';
 
 import { ReactComponent as MapsFastTravel } from './maps/fast-travel.svg';
+import { ReactComponent as MapsVendor } from './maps/vendor.svg';
 import { ReactComponent as MapsRegionChest } from './maps/region-chest.svg';
 import { ReactComponent as MapsLostSector } from './maps/lost-sector.svg';
 import { ReactComponent as MapsGhostScan } from './maps/ghost-scan.svg';
@@ -27,6 +28,7 @@ import { ReactComponent as MapsAhamkaraBones } from './maps/ahamkara-bones.svg';
 import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
+import { ReactComponent as MapsForgeIgnition } from './maps/forge-ignition.svg';
 import { ReactComponent as MapsPatrolBossCabalRedLegion } from './maps/patrol-boss-cabal-red-legion.svg';
 import { ReactComponent as MapsPatrolBossFallenDusk } from './maps/patrol-boss-fallen-dusk.svg';
 import { ReactComponent as MapsPatrolBossHive } from './maps/patrol-boss-hive.svg';
@@ -192,6 +194,7 @@ const Loading = {
 
 const Maps = {
   FastTravel: MapsFastTravel,
+  Vendor: MapsVendor,
   RegionChest: MapsRegionChest,
   LostSector: MapsLostSector,
   Adventure: TooltipAdventure,
@@ -203,6 +206,7 @@ const Maps = {
   FelineFriend: MapsFelineFriend,
   JadeRabbit: MapsJadeRabbit,
   Record: MapsRecord,
+  ForgeIgnition: MapsForgeIgnition,
   MapsPatrolBossCabalRedLegion,
   MapsPatrolBossFallenDusk,
   MapsPatrolBossHive,

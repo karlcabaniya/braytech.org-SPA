@@ -90,18 +90,16 @@ class ThisWeek extends React.Component {
   render() {
     const { t, layout, tips } = this.props;
 
-    const resetTime = '17:00:00Z';
-
     const cycleInfo = {
       epoch: {
         // start of cycle in UTC
-        ascendant: new Date(`2018-09-04T${resetTime}`).getTime(),
-        curse: new Date(`2018-09-11T${resetTime}`).getTime(),
-        ep: new Date(`2018-05-08T${resetTime}`).getTime(),
-        reckoning: new Date(`2019-05-21T${resetTime}`).getTime(),
-        whisper: new Date(`2019-05-28T${resetTime}`).getTime(),
-        zerohour: new Date(`2019-05-28T${resetTime}`).getTime(),
-        menagerie: new Date(`2019-06-04T${resetTime}`).getTime()
+        ascendant: new Date(`2018-09-04T17:00:00Z`).getTime(),
+        curse: new Date(`2018-09-11T17:00:00Z`).getTime(),
+        ep: new Date(`2018-05-08T17:00:00Z`).getTime(),
+        reckoning: new Date(`2019-05-21T17:00:00Z`).getTime(),
+        whisper: new Date(`2019-05-28T17:00:00Z`).getTime(),
+        zerohour: new Date(`2019-05-28T17:00:00Z`).getTime(),
+        menagerie: new Date(`2019-06-04T17:00:00Z`).getTime()
       },
       cycle: {
         // how many week cycle

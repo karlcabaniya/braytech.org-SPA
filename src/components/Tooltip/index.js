@@ -174,17 +174,17 @@ class Tooltip extends React.Component {
     this.ref_tooltip.current.addEventListener('touchend', this.helper_tooltipTouchEnd);
   };
 
-  componentDidUpdate(prevProps) {
-    if (this.props.tooltips.bindTime !== prevProps.tooltips.bindTime) {
+  componentDidUpdate(p) {
+    if (this.props.tooltips.bindTime !== p.tooltips.bindTime) {
       this.bind_TooltipItem();
     }
 
-    if (this.props.location && prevProps.location.pathname !== this.props.location.pathname) {
+    if (this.props.location && p.location.pathname !== this.props.location.pathname) {
       // console.log('location change');
       this.bind_TooltipItem(true);
     }
 
-    if (this.props.member.data?.updated !== prevProps.member.data?.updated) {
+    if (this.props.member.updated !== p.member.updated) {
       this.bind_TooltipItem();
     }
 

@@ -3,7 +3,7 @@ import { Marker } from 'react-leaflet';
 
 import manifest from '../../../utils/manifest';
 
-import maps from '../../../data/lowlines/maps/destinations';
+import maps from '../../../data/maps';
 
 import * as marker from '../markers';
 
