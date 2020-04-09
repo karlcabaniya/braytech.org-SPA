@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 import newLight from './newLight.json';
 
-const path = 'src/data/lowlines/checklists/index.json';
+const path = 'src/data/checklists/index.json';
 const data = JSON.parse(fs.readFileSync(path));
 
 const assisted = JSON.parse(fs.readFileSync('scripts/dump/index.json'));

@@ -59,7 +59,7 @@ class Runtime extends React.Component {
             const offsetY = markerOffsetY + point.y;
 
             if (node.type.hash === 'patrol-boss') {
-              const icon = marker.icon({ hash: node.hash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon });
+              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else if (node.type.category === 'vendor') {
@@ -67,7 +67,7 @@ class Runtime extends React.Component {
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else {
-              const icon = marker.icon({ hash: node.hash, type: 'maps' }, [node.screenshot ? `has-screenshot` : ''], { icon: <Common.Info /> });
+              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? `has-screenshot` : ''], { icon: <Common.Info /> });
               
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             }

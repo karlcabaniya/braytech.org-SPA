@@ -1,13 +1,10 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-
 import { Marker } from 'react-leaflet';
 
 import checklists from '../../../utils/checklists';
+import { cartographer } from '../../../utils/maps';
 import maps from '../../../data/maps';
-import nodes from '../../../data/maps/nodes';
 
 import * as marker from '../markers';
 
@@ -165,52 +162,33 @@ class Checklists extends React.Component {
       }
     };
 
+    const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
+
     Object.keys(lists).forEach(key => {
-      const list = lists[key];
+      const checklistId = +key;
+      const list = lists[checklistId];
+
+      const useRecordHash = recordLists.indexOf(checklistId) > -1;
 
       const adjusted = {
         ...list,
-        visible: this.state.checklists[key].visible,
-        tooltipType: 'checklist',
+        visible: this.state.checklists[checklistId].visible,
+        tooltipType: checklistId === 4178338182 ? 'activity' : useRecordHash ? 'record' : 'checklist',
         items: list.items.map(i => {
-          const node = nodes.find(n => n.checklistHash === i.checklistHash);
+          const node = useRecordHash ? cartographer({ key: 'recordHash', value: i.recordHash }) : cartographer({ key: 'checklistHash', value: i.checklistHash });
 
           return {
             ...i,
-            tooltipHash: i.checklistHash,
-            screenshot: node && node.screenshot && true
+            tooltipHash: checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
+            screenshot: Boolean(node?.screenshot)
           };
         })
       };
 
-      if (list.checklistId === 4178338182) {
-        adjusted.tooltipType = 'activity';
-        adjusted.items = adjusted.items.map(i => {
-          return {
-            ...i,
-            tooltipHash: i.activityHash
-          };
-        });
-      }
-
-      // record-based nodes
-      if ([1420597821, 3305936921, 655926402, 4285512244, 2474271317].includes(list.checklistId)) {
-        adjusted.tooltipType = 'record';
-        adjusted.items = adjusted.items.map(i => {
-          const node = nodes.find(n => n.recordHash === i.recordHash);
-
-          return {
-            ...i,
-            tooltipHash: i.recordHash,
-            screenshot: node && node.screenshot && true
-          };
-        });
-      }
-
       lists[key] = adjusted;
     });
 
-    // console.log(lists);
+    console.log(lists);
 
     this.setState({
       checklists: lists
@@ -220,18 +198,11 @@ class Checklists extends React.Component {
   handler_markerMouseOver = e => {
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
-    let dataset = {};
-    try {
-      dataset = e.target._icon.children[0].children[0].dataset;
-    } catch (e) {}
+    const dataset = e.target?._icon?.children?.[0]?.children?.[0]?.dataset;
 
-    const node = dataset.hash && nodes.find(n => (dataset.type === 'checklist' && n.checklistHash && n.checklistHash === parseInt(dataset.hash, 10)) || (dataset.type === 'record' && n.recordHash && n.recordHash === parseInt(dataset.hash, 10)) || (dataset.type === 'activity' && n.activityHash && n.activityHash === parseInt(dataset.hash, 10)));
+    const node = dataset.hash && cartographer({ key: dataset.type === 'activity' ? 'activityHash' : dataset.type === 'record' ? 'recordHash' : 'checklistHash', value: dataset.hash })
 
     console.log(node);
-
-    const item = node && this.state.checklists[node.checklistId].items.find(i => (i.checklistHash && node.checklistHash && i.checklistHash === node.checklistHash) || (i.recordHash && node.recordHash && i.recordHash === node.recordHash));
-
-    // console.log(item);
   };
 
   render() {
@@ -251,7 +222,7 @@ class Checklists extends React.Component {
       if (!checklist.visible || !checklist.items) return null;
 
       return checklist.items
-        .filter(i => i.destinationHash === maps[this.props.id].destination.hash)
+        .filter(node => node.destinationHash === maps[this.props.id].destination.hash && !node.invisible)
         .map((node, i) => {
           if (node.points.length) {
             return node.points.map(point => {
@@ -295,7 +266,7 @@ class Checklists extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     collectibles: state.collectibles,
@@ -312,10 +283,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(
-  connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  ),
-  withTranslation()
-)(Checklists);
+  )(Checklists);

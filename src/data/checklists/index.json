@@ -1284,6 +1284,7 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -1305,6 +1306,7 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -1389,6 +1391,7 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -1515,6 +1518,7 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8455,10 +8459,11 @@
       "recordHash": 3024450468,
       "points": [
         {
-          "x": -334,
+          "x": -368,
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8476,10 +8481,11 @@
       "recordHash": 3024450468,
       "points": [
         {
-          "x": -368,
+          "x": -334,
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8501,6 +8507,7 @@
           "y": 765
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8522,6 +8529,7 @@
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8543,6 +8551,7 @@
           "y": 764
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8564,6 +8573,7 @@
           "y": 765
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8585,6 +8595,7 @@
           "y": 766
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8606,6 +8617,7 @@
           "y": 767
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8627,6 +8639,7 @@
           "y": 767
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "The Shattered Throne",
@@ -8648,6 +8661,7 @@
           "y": 91
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Tower of Opened Eyes",
@@ -8690,6 +8704,7 @@
           "y": 19
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Keep of Voices",
@@ -8711,6 +8726,7 @@
           "y": -17
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Keep of Voices",
@@ -8732,6 +8748,7 @@
           "y": -55
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Hall of Two Souls",

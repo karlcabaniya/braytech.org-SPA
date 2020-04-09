@@ -8,8 +8,6 @@ import { cartographer } from '../../../utils/maps';
 import ObservedImage from '../../ObservedImage';
 
 import maps from '../../../data/maps';
-import nodes from '../../../data/maps/nodes';
-import nodesRuntime from '../../../data/maps/runtime';
 
 import { Tooltips } from '../../../svg';
 
@@ -17,11 +15,7 @@ import './styles.css';
 
 class Vendor extends React.Component {
   render() {
-    const { hash } = this.props;
-
-    const runtime = nodesRuntime(this.props.member);
-
-    const definitionVendor = manifest.DestinyVendorDefinition[hash];
+    const definitionVendor = manifest.DestinyVendorDefinition[this.props.hash];
 
     if (!definitionVendor) {
       console.warn('Hash not found');

@@ -32,7 +32,7 @@ export function cartographer(search, member) {
     return false;
   }
 
-  const icon = typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon];
+  const icon = dynamic?.icon || node?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
   return {
     ...(definitionMaps || {}),

@@ -25,14 +25,14 @@ class Checklist extends React.Component {
   render() {
     const checklistEntry = lookup({ key: 'checklistHash', value: this.props.hash });
 
-    if (!checklistEntry) {
+    const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'checklistHash', array: [checklistEntry.checklistHash] } });
+    const checklistItem = checklist?.items?.[0];
+
+    if (!checklistEntry || !checklistItem) {
       console.warn('Hash not found');
 
       return null;
     }
-
-    const checklist = checklistEntry.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'checklistHash', array: [checklistEntry.checklistHash] } });
-    const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
 
     const extras = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
     const screenshot = extras && extras.screenshot;
@@ -145,7 +145,7 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const node = cartographer({ key: 'nodeHash', value: this.props.hash })
+    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member)
 
     if (!node) {
       console.warn('Hash not found');
