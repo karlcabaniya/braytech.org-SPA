@@ -5938,5 +5938,17 @@
     "vendorHash": 863940356,
     "bubbleHash": 824533556,
     "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
+  },
+  {
+    "nodeHash": 1,
+    "screenshot": "/static/images/screenshots/fast-travel/portal_1091325847.jpg"
+  },
+  {
+    "nodeHash": 2,
+    "screenshot": "/static/images/screenshots/fast-travel/portal_278887670.jpg"
+  },
+  {
+    "nodeHash": 3,
+    "screenshot": "/static/images/screenshots/fast-travel/portal_768261954.jpg"
   }
 ]

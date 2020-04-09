@@ -25,10 +25,8 @@ class Runtime extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(p, s) {
-    const { member } = this.props;
-    
-    if (((!p.member.data && member.data) || p.member.data.updated !== member.data.updated || p.member.characterId !== member.characterId) && this.mounted) {
+  componentDidUpdate(p, s) {   
+    if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
       this.setState({ nodes: nodesRuntime(this.props.member) })
     }
   }

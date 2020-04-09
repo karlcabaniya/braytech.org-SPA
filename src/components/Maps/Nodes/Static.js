@@ -8,8 +8,8 @@ import maps from '../../../data/maps';
 import * as marker from '../markers';
 
 class Static extends React.Component {
-  state = {}
-  
+  state = {};
+
   componentDidMount() {
     this.mounted = true;
   }
@@ -27,7 +27,7 @@ class Static extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
-    return maps[this.props.id].map.bubbles.map(bubble =>
+    return maps[this.props.id].map.bubbles.map((bubble) =>
       bubble.nodes.map((node, i) => {
         const markerOffsetX = mapXOffset + viewWidth / 2;
         const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
@@ -37,10 +37,10 @@ class Static extends React.Component {
 
         if (node.type === 'title') {
           const definitionDestination = maps[this.props.id].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
-          const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find(b => b.hash === bubble.hash);
+          const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find((b) => b.hash === bubble.hash);
           const definitionName = definitionBubble && definitionBubble.displayProperties?.name !== '' && definitionBubble.displayProperties.name;
 
-          const name = (bubble.sub && definitionName && `<i class='segoe-uniE1761'></i> ${definitionName}`) || definitionName || bubble.name;
+          const name = (bubble.sub && (definitionName || bubble.name) && `<i class='segoe-uniE1761'></i> ${definitionName || bubble.name}`) || definitionName || bubble.name;
 
           const icon = marker.text(['interaction-none', bubble.type], name);
 
@@ -49,6 +49,8 @@ class Static extends React.Component {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'])} zIndexOffset='-1000' />;
         } else if (node.type === 'fast-travel') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
+        } else if (node.type === 'portal') {
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconPortal[node.nodeHash]} zIndexOffset='-1000' />;
         } else if (node.type === 'forge') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' />;
         } else {

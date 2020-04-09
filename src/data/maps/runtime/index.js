@@ -53,7 +53,7 @@ export default (member, array) => {
     edz: [],
     'the-moon': [
       {
-        hash: 'wanderingNightmareXortal',
+        nodeHash: 'wanderingNightmareXortal',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409498].progressDescription,
           description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
@@ -98,7 +98,7 @@ export default (member, array) => {
         screenshot: '/static/images/screenshots/enemies/sorrows-harbor_patrol-boss_nightmareXortal.jpg'
       },
       {
-        hash: 'wanderingNightmareHorkis',
+        nodeHash: 'wanderingNightmareHorkis',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409496].progressDescription,
           description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
@@ -143,7 +143,7 @@ export default (member, array) => {
         screenshot: '/static/images/screenshots/enemies/anchor-of-light_patrol-boss_nightmareHorkis.jpg'
       },
       {
-        hash: 'wanderingNightmareJaxx',
+        nodeHash: 'wanderingNightmareJaxx',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409497].progressDescription,
           description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
@@ -188,7 +188,7 @@ export default (member, array) => {
         screenshot: '/static/images/screenshots/enemies/hellmouth_patrol-boss_nightmareJaxx.jpg'
       },
       {
-        hash: 'wanderingNightmareFallenCouncil',
+        nodeHash: 'wanderingNightmareFallenCouncil',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409499].progressDescription,
           description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })

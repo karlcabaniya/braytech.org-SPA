@@ -2600,27 +2600,70 @@
           "name": "Harbinger's Seclude",
           "id": "harbingers-seclude",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": 532,
+              "y": 714
+            },
+            {
+              "type": "portal",
+              "nodeHash": 1,
+              "x": 505,
+              "y": 829
+            }
+          ]
         },
         {
           "hash": 278887670,
           "name": "Gardens of Esila",
           "id": "gardens-of-esila",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": 79,
+              "y": -646
+            },
+            {
+              "type": "portal",
+              "nodeHash": 2,
+              "x": 45,
+              "y": -571
+            }
+          ]
         },
         {
           "hash": 768261954,
           "name": "Spine of Keres",
           "id": "spine-of-keres",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": -655,
+              "y": 51
+            },
+            {
+              "type": "portal",
+              "nodeHash": 3,
+              "x": -563,
+              "y": 175
+            }
+          ]
         },
         {
           "name": "The Confluence",
           "id": "confluence",
           "type": "suburb",
-          "nodes": []
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": 68,
+              "y": -19
+            }
+          ]
         },
         {
           "hash": 4058265372,

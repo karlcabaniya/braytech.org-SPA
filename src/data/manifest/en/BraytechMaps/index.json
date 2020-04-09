@@ -1,0 +1,47 @@
+{
+  "1": {
+    "displayProperties": {
+      "name": "The Confluence West",
+      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "location": {
+      "destinationHash": 2779202173,
+      "bubbleHash": 1091325847
+    }
+  },
+  "2": {
+    "displayProperties": {
+      "name": "The Confluence East",
+      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "location": {
+      "destinationHash": 2779202173,
+      "bubbleHash": 278887670
+    }
+  },
+  "3": {
+    "displayProperties": {
+      "name": "The Confluence South",
+      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "location": {
+      "destinationHash": 2779202173,
+      "bubbleHash": 768261954
+    }
+  }
+}

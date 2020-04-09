@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { lookup } from '../../../utils/maps';
+import { cartographer } from '../../../utils/maps';
 import ObservedImage from '../../ObservedImage';
 
 import maps from '../../../data/maps';
@@ -68,7 +68,7 @@ class Vendor extends React.Component {
       const placeName = definitionPlace && definitionPlace.displayProperties.name && definitionPlace.displayProperties.name !== definitionDestination.displayProperties.name && definitionPlace.displayProperties.name;
       const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
     
-      const extras = lookup({ key: 'vendorHash', value: definitionVendor.hash });
+      const extras = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
       const screenshot = extras && extras.screenshot;
 
       // console.log(definitionVendor.hash, (definitionBubble && definitionBubble.hash) || 'No bubble')

@@ -91,8 +91,6 @@ class Tooltip extends React.Component {
   };
 
   helper_targetTouchStart = e => {
-    console.log('touch start');
-
     this.touchPosition = {
       x: e.changedTouches[0].clientX,
       y: e.changedTouches[0].clientY
@@ -158,7 +156,7 @@ class Tooltip extends React.Component {
       this.resetState();
     }
 
-    let targets = document.querySelectorAll('.tooltip');
+    const targets = document.querySelectorAll('.tooltip');
     targets.forEach(target => {
       target.addEventListener('touchstart', this.helper_targetTouchStart);
       target.addEventListener('touchmove', this.helper_targetTouchMove);

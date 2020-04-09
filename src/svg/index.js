@@ -17,6 +17,7 @@ import { ReactComponent as TooltipTrialsOfOsiris } from './tooltips/trials-of-os
 import { ReactComponent as TooltipIronBanner } from './tooltips/iron-banner.svg';
 
 import { ReactComponent as MapsFastTravel } from './maps/fast-travel.svg';
+import { ReactComponent as MapsPortal } from './maps/portal.svg';
 import { ReactComponent as MapsVendor } from './maps/vendor.svg';
 import { ReactComponent as MapsRegionChest } from './maps/region-chest.svg';
 import { ReactComponent as MapsLostSector } from './maps/lost-sector.svg';
@@ -194,6 +195,7 @@ const Loading = {
 
 const Maps = {
   FastTravel: MapsFastTravel,
+  Portal: MapsPortal,
   Vendor: MapsVendor,
   RegionChest: MapsRegionChest,
   LostSector: MapsLostSector,

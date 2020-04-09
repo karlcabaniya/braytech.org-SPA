@@ -92,13 +92,11 @@ class Checklists extends React.Component {
   }
 
   componentDidUpdate(p, s) {
-    const { member } = this.props;
-
-    if ((p.member.data.updated !== member.data.updated || p.member.characterId !== member.characterId) && this.mounted) {
+    if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
       this.generateChecklists(this.state.id);
     }
 
-    if (s.checklists !== this.state.checklists && this.mounted) {
+    if (this.mounted && s.checklists !== this.state.checklists) {
       this.props.rebindTooltips();
     }
   }

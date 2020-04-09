@@ -62,6 +62,39 @@ export const iconFastTravel = L.divIcon({
   )
 });
 
+export const iconPortal = {
+  1: L.divIcon({
+    className: 'icon-marker native portal',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-type='maps' data-hash='1'>
+          <Maps.Portal />
+        </div>
+      </div>
+    )
+  }),
+  2: L.divIcon({
+    className: 'icon-marker native portal',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-type='maps' data-hash='2'>
+          <Maps.Portal />
+        </div>
+      </div>
+    )
+  }),
+  3: L.divIcon({
+    className: 'icon-marker native portal',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-type='maps' data-hash='3'>
+          <Maps.Portal />
+        </div>
+      </div>
+    )
+  })
+};
+
 export const iconForgeIgnition = {
   1506080581: L.divIcon({
     className: 'icon-marker native forge',

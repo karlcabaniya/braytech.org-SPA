@@ -7,8 +7,7 @@ import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
 import { checklists, lookup } from '../../../utils/checklists';
-import nodes from '../../../data/maps/nodes';
-import runtime from '../../../data/maps/runtime';
+import { cartographer } from '../../../utils/maps';
 
 import './styles.css';
 
@@ -24,9 +23,7 @@ function locatedText(type, activityName) {
 
 class Checklist extends React.Component {
   render() {
-    const { hash } = this.props;
-
-    const checklistEntry = lookup({ key: 'checklistHash', value: hash });
+    const checklistEntry = lookup({ key: 'checklistHash', value: this.props.hash });
 
     if (!checklistEntry) {
       console.warn('Hash not found');
@@ -37,18 +34,16 @@ class Checklist extends React.Component {
     const checklist = checklistEntry.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'checklistHash', array: [checklistEntry.checklistHash] } });
     const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
 
-    const extras = nodes && nodes.find(d => d.checklistHash === checklistItem.checklistHash);
+    const extras = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
     const screenshot = extras && extras.screenshot;
     const description = extras && extras.description;
 
     const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
-    console.log(checklistItem);
-
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'map', 'checklist')}>
+        <div className='frame map checklist'>
           <div className='header'>
             <div className='icon'>{checklist.checklistIcon}</div>
             <div className='text'>
@@ -82,9 +77,7 @@ class Checklist extends React.Component {
 
 class Record extends React.Component {
   render() {
-    const { hash } = this.props;
-
-    const checklistEntry = lookup({ key: 'recordHash', value: hash });
+    const checklistEntry = lookup({ key: 'recordHash', value: this.props.hash });
 
     if (!checklistEntry) {
       console.warn('Hash not found');
@@ -98,7 +91,7 @@ class Record extends React.Component {
     const definitionRecord = manifest.DestinyRecordDefinition[checklistItem.recordHash];
     const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
 
-    const extras = nodes && nodes.find(d => d.recordHash === checklistItem.recordHash);
+    const extras = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
     const screenshot = extras && extras.screenshot;
     const description = extras && extras.description;
 
@@ -107,7 +100,7 @@ class Record extends React.Component {
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'map', 'record', 'lore')}>
+        <div className='frame map record lore'>
           <div className='header'>
             <div className='icon'>{checklist.checklistIcon}</div>
             <div className='text'>
@@ -152,15 +145,7 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const { member, hash } = this.props;
-
-    const nodes = runtime(member);
-    const node =
-      nodes &&
-      Object.values(nodes).find(d => d.find(n => n.hash === hash)) &&
-      Object.values(nodes)
-        .find(d => d.find(n => n.hash === hash))
-        .find(n => n.hash === hash);
+    const node = cartographer({ key: 'nodeHash', value: this.props.hash })
 
     if (!node) {
       console.warn('Hash not found');
@@ -168,21 +153,21 @@ class Node extends React.Component {
       return null;
     }
 
-    const definitionDestination = manifest.DestinyDestinationDefinition[node.location.destinationHash];
-    const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
-    const definitionBubble = definitionDestination && definitionDestination.bubbles.find(b => b.hash === node.location.bubbleHash);
+    console.log(node)
 
-    const destinationName = definitionDestination && definitionDestination.displayProperties.name;
-    const placeName = definitionPlace && definitionPlace.displayProperties.name && definitionPlace.displayProperties.name !== definitionDestination.displayProperties.name && definitionPlace.displayProperties.name;
-    const bubbleName = definitionBubble && definitionBubble.displayProperties && definitionBubble.displayProperties.name;
+    const definitionDestination = manifest.DestinyDestinationDefinition[node.location?.destinationHash];
+    const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
+    const definitionBubble = definitionDestination?.bubbles?.find(b => b.hash === node.location.bubbleHash);
+
+    const destinationName = definitionDestination?.displayProperties?.name;
+    const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
+    const bubbleName = definitionBubble?.displayProperties?.name;
 
     const locationString = [bubbleName, destinationName, placeName].filter(s => s).join(', ');
 
-    const locatedActivityName = node.location.within && node.location.within.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash] && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties && manifest.DestinyActivityDefinition[node.location.within.activityHash].displayProperties.name;
+    const locatedActivityName = node.location?.within?.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash]?.displayProperties?.name;
 
-    console.log(node);
-
-    const completed = node.related && node.related.objectives && node.related.objectives.filter(o => !o.complete).length < 1;
+    const completed = node.related?.objectives?.filter(o => !o.complete).length < 1;
 
     return (
       <>
@@ -200,15 +185,15 @@ class Node extends React.Component {
           <div className='black'>
             {node.screenshot ? (
               <div className='screenshot'>
-                <ObservedImage className='image' src={node.screenshot} />
+                <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
-            {node.location.within ? <div className='inside-location'>{locatedText(node.location.within.id, locatedActivityName)}</div> : null}
+            {node.location?.within ? <div className='inside-location'>{locatedText(node.location.within.id, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{locationString}</div>
               {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
-            {node.availability && node.availability.type === 'cycle' ? (
+            {node.availability?.type === 'cycle' ? (
               <div className='highlight'>
                 {t('Available')}: {t('every {{numberWeeks}} weeks', { numberWeeks: node.availability.cycleLength })}
               </div>
