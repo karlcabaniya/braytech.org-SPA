@@ -16,10 +16,7 @@ export const checklists = {
       checklistId: 4178338182,
       items: checklistItems(4178338182, true),
       characterBound: true,
-      itemName: i => {
-        if (!manifest.DestinyActivityDefinition[i.activityHash]) console.log(i);
-        return manifest.DestinyActivityDefinition[i.activityHash] && manifest.DestinyActivityDefinition[i.activityHash].displayProperties.name;
-      },
+      itemName: i => manifest.DestinyActivityDefinition[i.activityHash]?.displayProperties.name,
       itemLocation: i => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionBubble = definitionDestination.bubbles.find(b => b.hash === i.bubbleHash);

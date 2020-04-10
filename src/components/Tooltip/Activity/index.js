@@ -151,6 +151,7 @@ class Activity extends React.Component {
 
     if (!definitionActivity) {
       console.warn('Hash not found');
+      
       return null;
     }
 
@@ -320,12 +321,12 @@ class Activity extends React.Component {
       if (modeFiltered === 'forge') {
         activityTypeDisplay = {
           ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity?.displayProperties.name || t('Unknown'),
-          description: definitionActivityPlaylist?.displayProperties.description || definitionActivity?.displayProperties.description || t('Unknown'),
+          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown'),
+          description: definitionActivityPlaylist?.displayProperties.description || definitionActivity.displayProperties.description || t('Unknown'),
           mode: definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
-          activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity?.activityLightLevel,
+          activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity.activityLightLevel,
           className: 'forge',
-          pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity?.pgcrImage,
+          pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage,
           icon: <Tooltips.ForgeIgnition />,
         };
       }
@@ -419,7 +420,7 @@ class Activity extends React.Component {
       if (modeFiltered === 'dungeon') {
         activityTypeDisplay = {
           ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity?.displayProperties.name,
+          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name,
           mode: manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name,
           className: 'dungeon',
           icon: <Tooltips.Dungeon />,
@@ -437,7 +438,7 @@ class Activity extends React.Component {
         };
       }
 
-      const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity?.matchmaking;
+      const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity.matchmaking;
 
       const checklistEntry = lookup({ key: 'activityHash', value: hash });
 
