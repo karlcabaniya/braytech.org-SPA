@@ -166,5 +166,8 @@
     "eligibilityRequirements": {
       "gameVersion": "osiris"
     }
+  },
+  "2032534090": {
+    "activityLightLevel": 750
   }
 }

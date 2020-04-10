@@ -137,3 +137,26 @@ export const iconForgeIgnition = {
     )
   })
 }
+
+export const iconDungeon = {
+  2032534090: L.divIcon({
+    className: 'icon-marker native dungeon',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-context='maps' data-hash='2032534090' data-mode='608898761' data-playlist='2032534090' data-type='activity'>
+          <Maps.Dungeon />
+        </div>
+      </div>
+    )
+  }),
+  1375089621: L.divIcon({
+    className: 'icon-marker native dungeon',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-context='maps' data-hash='1375089621' data-mode='608898761' data-playlist='1375089621' data-type='activity'>
+          <Maps.Dungeon />
+        </div>
+      </div>
+    )
+  })
+}

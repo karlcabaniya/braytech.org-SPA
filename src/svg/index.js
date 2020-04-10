@@ -29,6 +29,7 @@ import { ReactComponent as MapsAhamkaraBones } from './maps/ahamkara-bones.svg';
 import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
+import { ReactComponent as MapsDungeon } from './maps/dungeon.svg';
 import { ReactComponent as MapsForgeIgnition } from './maps/forge-ignition.svg';
 import { ReactComponent as MapsPatrolBossCabalRedLegion } from './maps/patrol-boss-cabal-red-legion.svg';
 import { ReactComponent as MapsPatrolBossFallenDusk } from './maps/patrol-boss-fallen-dusk.svg';
@@ -208,6 +209,7 @@ const Maps = {
   FelineFriend: MapsFelineFriend,
   JadeRabbit: MapsJadeRabbit,
   Record: MapsRecord,
+  Dungeon: MapsDungeon,
   ForgeIgnition: MapsForgeIgnition,
   MapsPatrolBossCabalRedLegion,
   MapsPatrolBossFallenDusk,

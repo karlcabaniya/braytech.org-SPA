@@ -134,7 +134,7 @@ const adventures = [
   3909841711,
   3920569453,
   4094398454,
-  4238309598
+  4238309598,
 ];
 const levelAdvantagesEnabled = [3753505781, 1166905690];
 
@@ -226,7 +226,7 @@ class Activity extends React.Component {
           definitionActivity.destinationHash && manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].displayProperties
             ? {
                 ...manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].displayProperties,
-                place: manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties.name
+                place: manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties.name,
               }
             : false,
 
@@ -234,7 +234,7 @@ class Activity extends React.Component {
 
         pgcrImage: definitionActivity.pgcrImage,
 
-        icon: <Tooltips.FastTravel />
+        icon: <Tooltips.FastTravel />,
       };
 
       // console.log(activityTypeDisplay, definitionActivity, mode, definitionActivityPlaylist)
@@ -246,7 +246,7 @@ class Activity extends React.Component {
           mode: undefined,
           destination: false,
           description: t('In orbit, planning something terribly heroic.'),
-          activityLightLevel: false
+          activityLightLevel: false,
         };
       }
 
@@ -255,11 +255,11 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           destination: {
             name: definitionPlaceDefinition.displayProperties.name,
-            place: false
+            place: false,
           },
           description: manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description,
           activityLightLevel: false,
-          mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name
+          mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
         };
       }
 
@@ -268,7 +268,7 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name,
           className: 'story',
-          icon: <Tooltips.Story />
+          icon: <Tooltips.Story />,
         };
       }
 
@@ -280,12 +280,12 @@ class Activity extends React.Component {
           description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
           destination: {
             name: definitionActivity.displayProperties.name,
-            place: definitionActivity.displayProperties.description
+            place: definitionActivity.displayProperties.description,
           },
           className: 'crucible',
           activityLightLevel: false,
           isCrucible: true,
-          icon: <Tooltips.Crucible />
+          icon: <Tooltips.Crucible />,
         };
 
         // Survival, Survival: Freelance
@@ -295,13 +295,13 @@ class Activity extends React.Component {
 
         // Trials of Osiris
         if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 1166905690) {
-          activityTypeDisplay.icon = <Tooltips.TrialsOfOsiris />
+          activityTypeDisplay.icon = <Tooltips.TrialsOfOsiris />;
           activityTypeDisplay.className = 'crucible trials-of-osiris';
         }
 
         // Iron Banner
         if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 3753505781) {
-          activityTypeDisplay.icon = <Tooltips.IronBanner />
+          activityTypeDisplay.icon = <Tooltips.IronBanner />;
           activityTypeDisplay.className = 'crucible iron-banner';
         }
       }
@@ -313,7 +313,7 @@ class Activity extends React.Component {
           description: definitionActivity.displayProperties.description,
           mode: definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name,
           className: 'raid',
-          icon: <Tooltips.Raid />
+          icon: <Tooltips.Raid />,
         };
       }
 
@@ -326,7 +326,7 @@ class Activity extends React.Component {
           activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity?.activityLightLevel,
           className: 'forge',
           pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity?.pgcrImage,
-          icon: <Tooltips.ForgeIgnition />
+          icon: <Tooltips.ForgeIgnition />,
         };
       }
 
@@ -335,12 +335,12 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           destination: {
             name: activityTypeDisplay.destination.name,
-            place: false
+            place: false,
           },
           mode: false,
           activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
           className: 'menagerie',
-          icon: <Tooltips.Menagerie />
+          icon: <Tooltips.Menagerie />,
         };
       }
 
@@ -350,7 +350,7 @@ class Activity extends React.Component {
           mode: definitionActivity.originalDisplayProperties?.name,
           description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
           className: 'reckoning',
-          icon: <Tooltips.Reckoning />
+          icon: <Tooltips.Reckoning />,
         };
       }
 
@@ -362,11 +362,11 @@ class Activity extends React.Component {
           description: definitionActivityMode.displayProperties.description,
           destination: {
             name: definitionActivity.displayProperties.name,
-            place: definitionActivity.displayProperties.description
+            place: definitionActivity.displayProperties.description,
           },
           className: 'gambit',
           activityLightLevel: false,
-          icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />
+          icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />,
         };
       }
 
@@ -375,12 +375,12 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
           className: 'strike',
-          icon: <Tooltips.Strike />
+          icon: <Tooltips.Strike />,
         };
       }
 
       if (modeFiltered === 'nightfall-ordeal') {
-        const strikeHash = Object.keys(enums.nightfalls).find(k => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
+        const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
         const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
 
         activityTypeDisplay = {
@@ -391,7 +391,7 @@ class Activity extends React.Component {
           mode: definitionActivity.displayProperties.name,
           description: definitionStrke.displayProperties.description,
           className: 'strike',
-          icon: <Tooltips.Strike />
+          icon: <Tooltips.Strike />,
         };
       }
 
@@ -400,7 +400,7 @@ class Activity extends React.Component {
           ...activityTypeDisplay,
           mode: t('Adventure'),
           className: 'adventure',
-          icon: <Tooltips.Adventure />
+          icon: <Tooltips.Adventure />,
         };
       }
 
@@ -412,7 +412,7 @@ class Activity extends React.Component {
           description: definitionActivity.displayProperties.description,
           suggestion: t('Equip Dreambane armor mods to enhance your light within this activity.'),
           className: 'shadowkeep nightmare-hunt',
-          icon: <Tooltips.Shadowkeep />
+          icon: <Tooltips.Shadowkeep />,
         };
       }
 
@@ -422,7 +422,7 @@ class Activity extends React.Component {
           name: definitionActivityPlaylist?.displayProperties.name || definitionActivity?.displayProperties.name,
           mode: manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name,
           className: 'dungeon',
-          icon: <Tooltips.Dungeon />
+          icon: <Tooltips.Dungeon />,
         };
       }
 
@@ -433,7 +433,7 @@ class Activity extends React.Component {
           description: definitionActivityPlaylist?.displayProperties.description,
           mode: manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name,
           className: 'seasonal-arena',
-          icon: <Tooltips.SeasonalArena />
+          icon: <Tooltips.SeasonalArena />,
         };
       }
 
@@ -519,7 +519,7 @@ class Activity extends React.Component {
                   {t('Recommended light')}: <span>{activityTypeDisplay.activityLightLevel}</span>
                 </div>
               ) : null}
-              {context === 'maps' && checklistItem && checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null}
+              {/* {context === 'maps' && checklistItem && checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null} */}
             </div>
           </div>
         </>
@@ -532,7 +532,7 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     viewport: state.viewport,
-    tooltips: state.tooltips
+    tooltips: state.tooltips,
   };
 }
 

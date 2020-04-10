@@ -2662,6 +2662,12 @@
               "type": "title",
               "x": 68,
               "y": -19
+            },
+            {
+              "type": "dungeon",
+              "x": -26,
+              "y": 467,
+              "activityHash": 2032534090
             }
           ]
         },
@@ -3500,6 +3506,12 @@
               "type": "title",
               "x": 267,
               "y": 231
+            },
+            {
+              "type": "dungeon",
+              "x": 92,
+              "y": 420,
+              "activityHash": 1375089621
             }
           ]
         },

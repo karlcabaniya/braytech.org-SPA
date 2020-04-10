@@ -245,6 +245,34 @@
   height: 48px;
 }
 
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon {
+  width: 128px;
+}
+
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .outer,
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .inner {
+  transform-origin: center center;
+  transition: transform 0.25s;
+}
+
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon:hover .outer {
+  transform: scale(1.1);
+}
+
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon:hover .inner {
+  transform: scale(0.85);
+}
+
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .outer g,
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .inner g {
+  transform-origin: center center;
+  animation: maps-rotate-linear 90s linear both infinite;
+}
+
+.map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .inner g {
+  animation-direction: reverse;
+}
+
 @keyframes maps-rotate-sleep {
   0% {
     transform: rotate(0deg);
