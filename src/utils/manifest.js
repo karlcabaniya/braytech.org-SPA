@@ -6,7 +6,7 @@ import Braytech_ESMX from '../data/manifest/es/Braytech/';
 import Braytech_IT from '../data/manifest/it/Braytech/';
 import Braytech_RU from '../data/manifest/ru/Braytech/';
 
-import Maps_EN from '../data/manifest/en/BraytechMaps/';
+import BraytechMaps_EN from '../data/manifest/en/BraytechMaps/';
 
 import DestinyClanBannerDefinition_EN from '../data/manifest/en/DestinyClanBannerDefinition/';
 import DestinyActivityDefinition_EN from '../data/manifest/en/DestinyActivityDefinition/';
@@ -23,7 +23,7 @@ const customs = {
   de: {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   en: {
     Braytech: Braytech_EN,
@@ -32,62 +32,62 @@ const customs = {
     DestinyHistoricalStatsDefinition: DestinyHistoricalStatsDefinition_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
     DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   es: {
     Braytech: Braytech_ES,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ES,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   'es-mx': {
     Braytech: Braytech_ESMX,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ESMX,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   fr: {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   it: {
     Braytech: Braytech_IT,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   ja: {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   ko: {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   pl: {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   'pt-br': {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   ru: {
     Braytech: Braytech_RU,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   'zh-chs': {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
   'zh-cht': {
     Braytech: Braytech_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    BraytechMaps: Maps_EN,
+    BraytechMaps: BraytechMaps_EN,
   },
 };
 
