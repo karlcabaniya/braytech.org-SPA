@@ -23,6 +23,10 @@
   margin-bottom: 1rem;
 }
 
+#error-boundary .properties .agent {
+  margin: 0 0 1rem;
+}
+
 #error-boundary .properties .description {
   max-width: 690px;
   color: rgba(255, 255, 255, 0.8);

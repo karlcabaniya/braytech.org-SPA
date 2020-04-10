@@ -353,7 +353,7 @@ class App extends React.Component {
         </div>
       );
     }
-    //throw new Error('jesus christ');
+    // throw new Error('jesus christ');
     return (
       <BrowserRouter>
         <Route

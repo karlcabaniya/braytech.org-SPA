@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 
 import { t, BraytechText } from '../../utils/i18n';
 import Button from '../../components/UI/Button';
 import ServiceWorkerUpdate from '../../components/Notifications/ServiceWorkerUpdate';
+import packageJSON from '../../../package.json';
 
 import './styles.css';
 
@@ -64,6 +64,7 @@ class ErrorBoundary extends React.Component {
           <div className='view' id='error-boundary'>
             <div className='properties'>
               <div className='name'>{t('Error')}</div>
+              <div className='agent'>{packageJSON.version} / {navigator.userAgent}</div>
               <div className='description'>{this.state.error.message}</div>
               {this.state.error.stack ? (
                 <div className='stack'>
