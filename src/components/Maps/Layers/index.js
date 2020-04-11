@@ -22,7 +22,6 @@ class Layers extends React.Component {
     this.mounted = true;
 
     this.prepareLayers(this.props.id);
-    this.props.partial(this.state.destinations.map((d) => ({ destinationHash: d.destinationHash, loading: d.loading })));
   }
 
   componentWillUnmount() {
