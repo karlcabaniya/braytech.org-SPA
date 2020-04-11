@@ -45,11 +45,14 @@ class Flashpoint extends React.Component {
 
     const definitionMilestoneFlashpoint = manifest.DestinyMilestoneDefinition[463010297];
 
-    if (!milestones) {
+    const milestoneFlashpointQuestItem = definitionMilestoneFlashpoint?.quests[milestones?.[463010297]?.availableQuests?.[0]?.questItemHash];
+    const destinationHash = milestoneFlashpointQuestItem?.destinationHash;
+
+    if (!milestones || !destinationHash) {
       return (
         <div className='user-module flashpoint'>
           <div className='page-header'>
-            <div className='sub-name'>{definitionMilestoneFlashpoint.displayProperties && definitionMilestoneFlashpoint.displayProperties.name}</div>
+            <div className='sub-name'>{definitionMilestoneFlashpoint?.displayProperties?.name}</div>
             <div className='name'>{t('Unknown')}</div>
           </div>
           <div className='info'>{t('Beep-boop?')}</div>
@@ -57,15 +60,12 @@ class Flashpoint extends React.Component {
       );
     }
 
-    const milestoneFlashpointQuestItem = milestones[463010297].availableQuests && milestones[463010297].availableQuests.length && manifest.DestinyMilestoneDefinition[463010297].quests[milestones[463010297].availableQuests[0].questItemHash];
-    const destinationHash = milestoneFlashpointQuestItem.destinationHash;
-
     const definitionFlashpointVendor = vendorMap[destinationHash] && manifest.DestinyVendorDefinition[vendorMap[destinationHash]];
     const definitionFlashpointFaction = definitionFlashpointVendor && manifest.DestinyFactionDefinition[definitionFlashpointVendor.factionHash];
 
     const Icon = iconMap[destinationHash] || null;
 
-    const vendorName = definitionFlashpointVendor && definitionFlashpointVendor.displayProperties?.name;
+    const vendorName = definitionFlashpointVendor?.displayProperties?.name;
     const locationName = manifest.DestinyDestinationDefinition[destinationHash]?.bubbles.find(b => b.hash === vendorBubbleMap[definitionFlashpointVendor.hash])?.displayProperties?.name;
 
     return (
@@ -75,7 +75,7 @@ class Flashpoint extends React.Component {
           <div className='sub-name'>{definitionMilestoneFlashpoint.displayProperties && definitionMilestoneFlashpoint.displayProperties.name}</div>
           <div className='name'>{manifest.DestinyDestinationDefinition[destinationHash].displayProperties.name}</div>
         </div>
-        {definitionFlashpointVendor && definitionFlashpointVendor.displayProperties ? (
+        {definitionFlashpointVendor?.displayProperties ? (
           <div className='text'>
             <p>{t('{{vendorName}} is waiting for you at {{destinationName}}.', { vendorName, destinationName: locationName })}</p>
             <p>

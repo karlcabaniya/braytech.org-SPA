@@ -1,5 +1,7 @@
 import React from 'react';
 
+import store from '../store';
+
 import manifest from '../utils/manifest';
 import maps from '../data/maps';
 import nodes from '../data/maps/nodes';
@@ -15,6 +17,16 @@ export function resolveDestination(value) {
   } else if (destinationByHash) {
     return destinationByHash;
   } else {
+    const state = store.getState();
+    const milestones = state.member.data?.milestones;
+
+    const definitionMilestoneFlashpoint = manifest.DestinyMilestoneDefinition[463010297];
+
+    const milestoneFlashpointQuestItem = definitionMilestoneFlashpoint?.quests[milestones?.[463010297]?.availableQuests?.[0]?.questItemHash];
+    const destinationHash = milestoneFlashpointQuestItem?.destinationHash;
+
+    if (destinationHash) return destinations.find((d) => d.destinationHash === destinationHash);
+    
     return destinations.find((d) => d.default);
   }
 }
