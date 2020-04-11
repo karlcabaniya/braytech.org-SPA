@@ -97,7 +97,7 @@ class Record extends React.Component {
 
     const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
-    const definitionBubble = checklistItem.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
+    const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
 
     const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
 

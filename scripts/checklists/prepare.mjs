@@ -1,24 +1,11 @@
 import fs from 'fs';
-import Manifest from '../manifest';
+import Manifest from '../manifest.js';
 import _ from 'lodash';
 
 import newLight from './newLight.json';
 
 const path = 'src/data/checklists/index.json';
 const data = JSON.parse(fs.readFileSync(path));
-
-const assisted = JSON.parse(fs.readFileSync('scripts/dump/index.json'));
-const nodes = [];
-
-Object.keys(assisted).forEach(key => {
-  if (!assisted[key].map.bubbles) return;
-
-  assisted[key].map.bubbles.forEach(bubble => {
-    bubble.nodes.forEach(node => {
-      nodes.push(node);
-    });
-  })
-});
 
 // console.log(nodes)
 
@@ -88,37 +75,41 @@ async function run() {
     const existing = (data[id] && data[id].find(c => c.checklistHash === item.hash)) || {};
     const mapping = newLight.checklists[item.hash] || {};
 
-    const destinationHash = item.destinationHash || mapping.destinationHash;
-    const bubbleHash = item.bubbleHash || mapping.bubbleHash;
+    const destinationHash = item.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+    const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
+    const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-    // Try to find the destination, place and bubble by the hashes if we have them
-    const destination = destinationHash && manifest.DestinyDestinationDefinition[destinationHash];
-    const place = destination && manifest.DestinyPlaceDefinition[destination.placeHash];
-    const bubble = bubbleHash && _.find(destination.bubbles, { hash: bubbleHash });
+    const bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+    const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
+
+    // If we don't have a bubble, see if we can infer one from the bubble ID
+    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleHash]);
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
     const numberMatch = item.displayProperties.name.match(/([0-9]+)/);
     const itemNumber = numberMatch && numberMatch[0];
 
-    // If we don't have a bubble, see if we can infer one from the bubble ID
-    const bubbleName = (bubble && bubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleId]);
-    const backupBubbleName = !(bubble && bubble.displayProperties.name) && (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleId]);
+    const recordHash = (mapping && mapping.recordHash) || (existing && existing.recordHash) || undefined;
 
     let name = bubbleName;
     if (manifest.DestinyChecklistDefinition[365218222].entries.find(h => h.hash === item.hash)) {
       name = manifest.DestinyInventoryItemDefinition[item.itemHash].displayProperties.description.replace('CB.NAV/RUN.()', '');
     } else if (item.activityHash) {
       name = manifest.DestinyActivityDefinition[item.activityHash].displayProperties.name;
-    } else if (mapping && mapping.recordHash) {
-      const definitionRecord = manifest.DestinyRecordDefinition[mapping.recordHash];
+    } else if (recordHash) {
+      const definitionRecord = manifest.DestinyRecordDefinition[recordHash];
       const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
 
       if (definitionLore) name = definitionLore.displayProperties.name;
     }
 
+    const points = (mapping && mapping.points) || (existing && existing.points) || [];
+
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
-    const withinLostSector = bubble && bubble.hash && data[3142056444].find(l => l.bubbleHash === bubble.hash) && id !== 3142056444;
+    const withinLostSector = bubbleHash && data[3142056444].find(l => l.bubbleHash === bubbleHash) && id !== 3142056444;
+
+    const activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
 
     let located = undefined;
     if (withinLostSector) {
@@ -128,20 +119,19 @@ async function run() {
     } else if (mapping && mapping.activityHash) {
       located = 'activity';
     }
-    
+
     const changes = {
       destinationHash,
       bubbleHash,
-      bubbleName: backupBubbleName,
-      activityHash: mapping.activityHash || item.activityHash,
+      activityHash,
       checklistHash: item.hash,
       itemHash: item && item.itemHash,
-      recordHash: mapping.recordHash,
-      points: (mapping && mapping.points) || [],
+      recordHash,
+      points,
       sorts: {
-        destination: destination && destination.displayProperties.name,
+        destination: definitionDestination && definitionDestination.displayProperties.name,
         bubble: bubbleName,
-        place: place && place.displayProperties.name,
+        place: definitionPlace && definitionPlace.displayProperties.name,
         name,
         number: itemNumber && parseInt(itemNumber, 10)
       },
@@ -150,7 +140,8 @@ async function run() {
       }
     }
 
-    const updates = _.mergeWith(existing, changes, merger);
+    //const updates = _.mergeWith(existing, changes, merger);
+    const updates = changes;
 
     return updates;
   }
@@ -171,10 +162,16 @@ async function run() {
       }
     } else if (typeof c === 'object') {
       return _.mergeWith(e, c, merger);
-    } else if (c && c !== '') {
+    }
+    // else if (c && c !== '') {
+    //   return c;
+    // }
+    // else if (e !== c) {
+    //   return c;
+    // }
+    else {
+      // console.log(c)
       return c;
-    } else {
-      return e;
     }
   }
 
@@ -186,55 +183,60 @@ async function run() {
     return recordHashes
       .map((hash, itemNumber) => {
         const existing = (data[presentationHash] && data[presentationHash].find(c => c.recordHash === hash)) || {};
-
-        const item = manifest.DestinyRecordDefinition[hash];
-
         const mapping = newLight.records[hash];
+
+        //if (hash === 242464657) console.log(mapping)
             
-        const destinationHash = mapping && mapping.destinationHash;
-        const destination = destinationHash && manifest.DestinyDestinationDefinition[destinationHash];
-        const place = destination && manifest.DestinyPlaceDefinition[destination.placeHash];
-        const bubble = destination && _.find(destination.bubbles, { hash: mapping.bubbleHash });
+        const destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+        const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
+        const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
+
+        const bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+        const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
         // If we don't have a bubble, see if we can infer one from the bubble ID
-        const bubbleName = (bubble && bubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleId]);
-        const backupBubbleName = !(bubble && bubble.displayProperties.name) && (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleId]);
+        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleHash]);
+
+        const recordHash = hash;
 
         let name = bubbleName;
-        if (item.activityHash) {
-          name = manifest.DestinyActivityDefinition[item.activityHash].displayProperties.name;
-        } else if (mapping && mapping.recordHash) {
-          const definitionRecord = manifest.DestinyRecordDefinition[mapping.recordHash];
+        if (recordHash) {
+          const definitionRecord = manifest.DestinyRecordDefinition[recordHash];
           const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
     
           if (definitionLore) name = definitionLore.displayProperties.name;
         }
+
+        const points = (mapping && mapping.points) || (existing && existing.points) || [];
         
         // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
-        const withinLostSector = bubble && bubble.hash && data[3142056444].find(l => l.bubbleHash === bubble.hash) && hash !== 3142056444;
+        const withinLostSector = definitionBubble && definitionBubble.hash && data[3142056444].find(l => l.bubbleHash === definitionBubble.hash) && hash !== 3142056444;
+
+        const pursuitHash = (mapping && mapping.pursuitHash) || (existing && existing.pursuitHash) || undefined;
+        const activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
 
         let located = undefined;
         if (withinLostSector) {
           located = 'lost-sector';
-        } else if (mapping && mapping.activityHash && manifest.DestinyActivityDefinition[mapping.activityHash].activityModeTypes.includes(18)) {
+        } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(18)) {
           located = 'strike';
-        } else if (mapping && mapping.activityHash) {
+        } else if (activityHash) {
           located = 'activity';
         }
 
+        // if (hash === 242464657) console.log(existing, bubbleHash)
+
         const changes = {
           destinationHash,
-          bubbleHash: mapping && mapping.bubbleHash,
-          bubbleName: backupBubbleName,
-          recordName: item.displayProperties.name,
-          recordHash: hash,
-          pursuitHash: mapping && mapping.pursuitHash,
-          activityHash: mapping && mapping.activityHash,
-          points: (mapping && mapping.points) || [],
+          bubbleHash,
+          recordHash,
+          pursuitHash,
+          activityHash,
+          points,
           sorts: {
-            destination: destination && destination.displayProperties.name,
+            destination: definitionDestination && definitionDestination.displayProperties.name,
             bubble: bubbleName,
-            place: place && place.displayProperties.name,
+            place: definitionPlace && definitionPlace.displayProperties.name,
             name,
             number: (itemNumber + 1)
           },
@@ -256,9 +258,10 @@ async function run() {
         //   if (!changes[key]) delete changes[key];
         // });
 
-        const updates = _.mergeWith(existing, changes, merger);
+        //const updates = _.mergeWith(existing, changes, merger);
+        const updates = changes;
 
-        //if (changes.recordHash === 3390078237) console.log(updates)
+        //if (changes.recordHash === 242464657) console.log(existing, changes, updates)
 
         return updates;
       })

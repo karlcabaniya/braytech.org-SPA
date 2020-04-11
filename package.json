@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.22.20",
+  "version": "2.22.21",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -9,7 +9,7 @@
     "analyze": "node scripts/analyzeBundle.js",
     "translations": "node scripts/extractTranslations2.js --stats --delete-unused",
     "map-nodes": "node --experimental-modules scripts/prepareNodesData.mjs",
-    "checklists": "node --experimental-modules scripts/checklists/prepare.mjs",
+    "checklists": "node --experimental-modules --experimental-json-modules scripts/checklists/prepare.mjs",
     "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs",
     "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",
     "eververse": "node --experimental-modules scripts/prepareEververseData.mjs",
