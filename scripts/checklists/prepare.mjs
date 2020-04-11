@@ -2,12 +2,11 @@ import fs from 'fs';
 import Manifest from '../manifest.js';
 import _ from 'lodash';
 
-import newLight from './newLight.json';
+import lowlidev from './lowlines.json';
+import newLight from './worthy.json';
 
 const path = 'src/data/checklists/index.json';
 const data = JSON.parse(fs.readFileSync(path));
-
-// console.log(nodes)
 
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
@@ -27,18 +26,6 @@ const manualBubbleNames = {
   adytum: 'The Corrupted',
   'queens-court': 'The Queens Court',
   'ascendant-plane': 'Dark Monastery'
-};
-
-// Anything here gets merged in to created items - use it when you need to
-// override something in item()
-const itemOverrides = {
-  // Brephos II is listed as Temple of Illyn, but it's only available
-  // during the strike, so hardcode it here to be consistent with the other
-  // strike item.
-  1370818869: {
-    bubbleHash: false,
-    bubbleName: 'The Corrupted'
-  }
 };
 
 const itemDeletions = [
@@ -74,16 +61,16 @@ async function run() {
   function checklistItem(id, item) {
     const existing = (data[id] && data[id].find(c => c.checklistHash === item.hash)) || {};
     const mapping = newLight.checklists[item.hash] || {};
+    const lowlines = lowlidev[id] && lowlidev[id].find(n => (n.checklistHash === +item.hash) || (n.activityHash === +item.activityHash));
 
     const destinationHash = item.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
     const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-    const bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+    const bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
-    // If we don't have a bubble, see if we can infer one from the bubble ID
-    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleHash]);
+    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (lowlines && lowlines.bubbleName);
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
@@ -140,8 +127,8 @@ async function run() {
       }
     }
 
-    //const updates = _.mergeWith(existing, changes, merger);
-    const updates = changes;
+    const updates = _.mergeWith(existing, changes, merger);
+    //const updates = changes;
 
     return updates;
   }
@@ -184,18 +171,16 @@ async function run() {
       .map((hash, itemNumber) => {
         const existing = (data[presentationHash] && data[presentationHash].find(c => c.recordHash === hash)) || {};
         const mapping = newLight.records[hash];
-
-        //if (hash === 242464657) console.log(mapping)
+        const lowlines = lowlidev[presentationHash] && lowlidev[presentationHash].find(n => (n.recordHash === hash));
             
         const destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
         const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
         const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-        const bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+        const bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
         const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
-
-        // If we don't have a bubble, see if we can infer one from the bubble ID
-        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (mapping && mapping.bubbleId && manualBubbleNames[mapping.bubbleHash]);
+    
+        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (lowlines && lowlines.bubbleName);
 
         const recordHash = hash;
 
@@ -258,8 +243,8 @@ async function run() {
         //   if (!changes[key]) delete changes[key];
         // });
 
-        //const updates = _.mergeWith(existing, changes, merger);
-        const updates = changes;
+        const updates = _.mergeWith(existing, changes, merger);
+        //const updates = changes;
 
         //if (changes.recordHash === 242464657) console.log(existing, changes, updates)
 

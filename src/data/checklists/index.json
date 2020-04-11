@@ -3,8 +3,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 1031266598,
       "itemHash": 3176346434,
+      "recordHash": null,
       "points": [
         {
           "x": -60,
@@ -23,8 +25,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 4055612072,
       "itemHash": 3176346432,
+      "recordHash": null,
       "points": [
         {
           "x": -144,
@@ -43,8 +47,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 381956243,
       "itemHash": 3176346433,
+      "recordHash": null,
       "points": [
         {
           "x": -226,
@@ -63,8 +69,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3541081426,
       "itemHash": 3176346438,
+      "recordHash": null,
       "points": [
         {
           "x": 184,
@@ -83,8 +91,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158407403,
+      "bubbleName": false,
       "checklistHash": 1698656021,
       "itemHash": 3176346439,
+      "recordHash": null,
       "points": [
         {
           "x": -82,
@@ -105,8 +115,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3240044932,
       "itemHash": 3176346436,
+      "recordHash": null,
       "points": [
         {
           "x": -68,
@@ -125,8 +137,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 1046632799,
       "itemHash": 3176346437,
+      "recordHash": null,
       "points": [
         {
           "x": 127,
@@ -145,8 +159,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 677148329,
       "itemHash": 1291432521,
+      "recordHash": null,
       "points": [
         {
           "x": 40,
@@ -165,8 +181,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 2268035590,
       "itemHash": 1291432520,
+      "recordHash": null,
       "points": [
         {
           "x": -29,
@@ -185,8 +203,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3786878451,
       "itemHash": 1291432523,
+      "recordHash": null,
       "points": [
         {
           "x": 39,
@@ -205,8 +225,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 2444409480,
       "itemHash": 1291432522,
+      "recordHash": null,
       "points": [
         {
           "x": -74,
@@ -225,8 +247,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 3957860341,
       "itemHash": 1291432525,
+      "recordHash": null,
       "points": [
         {
           "x": 177,
@@ -245,8 +269,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 738006194,
       "itemHash": 1291432524,
+      "recordHash": null,
       "points": [
         {
           "x": 139,
@@ -265,8 +291,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 156484287,
       "itemHash": 1291432527,
+      "recordHash": null,
       "points": [
         {
           "x": -421,
@@ -285,8 +313,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 1628739428,
       "itemHash": 1291432526,
+      "recordHash": null,
       "points": [
         {
           "x": -477,
@@ -305,8 +335,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 2662731326,
       "itemHash": 1291432512,
+      "recordHash": null,
       "points": [
         {
           "x": -431,
@@ -325,8 +357,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 3901710881,
       "itemHash": 1241099761,
+      "recordHash": null,
       "points": [
         {
           "x": -38,
@@ -345,8 +379,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 2892815744,
       "itemHash": 1241099762,
+      "recordHash": null,
       "points": [
         {
           "x": 44,
@@ -365,8 +401,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 1708307467,
       "itemHash": 1241099763,
+      "recordHash": null,
       "points": [
         {
           "x": 81,
@@ -385,8 +423,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 833227926,
+      "bubbleName": false,
       "checklistHash": 1349662538,
       "itemHash": 1241099764,
+      "recordHash": null,
       "points": [
         {
           "x": -274,
@@ -405,8 +445,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 833227926,
+      "bubbleName": false,
       "checklistHash": 3523064621,
       "itemHash": 1241099765,
+      "recordHash": null,
       "points": [
         {
           "x": -245,
@@ -425,8 +467,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 980824599,
       "itemHash": 1241099767,
+      "recordHash": null,
       "points": [
         {
           "x": -302,
@@ -445,8 +489,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 2516672582,
       "itemHash": 1241099768,
+      "recordHash": null,
       "points": [
         {
           "x": -472,
@@ -465,8 +511,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 3732386537,
       "itemHash": 1241099769,
+      "recordHash": null,
       "points": [
         {
           "x": 74,
@@ -485,8 +533,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3742434372,
       "itemHash": 1257877346,
+      "recordHash": null,
       "points": [
         {
           "x": 165,
@@ -505,8 +555,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 1034154197,
       "itemHash": 1257877345,
+      "recordHash": null,
       "points": [
         {
           "x": 184,
@@ -525,8 +577,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 2172120594,
       "itemHash": 1257877344,
+      "recordHash": null,
       "points": [
         {
           "x": 40,
@@ -545,8 +599,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 142015059,
       "itemHash": 1257877351,
+      "recordHash": null,
       "points": [
         {
           "x": 59,
@@ -565,8 +621,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 135585929,
       "itemHash": 1257877349,
+      "recordHash": null,
       "points": [
         {
           "x": 235,
@@ -585,8 +643,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 3214839526,
       "itemHash": 1257877348,
+      "recordHash": null,
       "points": [
         {
           "x": 242,
@@ -605,8 +665,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 833227926,
+      "bubbleName": false,
       "checklistHash": 2870761015,
       "itemHash": 1257877355,
+      "recordHash": null,
       "points": [
         {
           "x": -357,
@@ -625,8 +687,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 883696636,
       "itemHash": 1257877354,
+      "recordHash": null,
       "points": [
         {
           "x": -276,
@@ -645,8 +709,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 1556894012,
       "itemHash": 1341765378,
+      "recordHash": null,
       "points": [
         {
           "x": -422,
@@ -665,8 +731,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 2373259383,
       "itemHash": 1341765379,
+      "recordHash": null,
       "points": [
         {
           "x": -396,
@@ -685,8 +753,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158822960,
+      "bubbleName": false,
       "checklistHash": 2720923690,
       "itemHash": 1341765376,
+      "recordHash": null,
       "points": [
         {
           "x": 265,
@@ -707,8 +777,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 3790287757,
       "itemHash": 1341765377,
+      "recordHash": null,
       "points": [
         {
           "x": -476,
@@ -727,8 +799,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 2096130528,
       "itemHash": 1341765382,
+      "recordHash": null,
       "points": [
         {
           "x": -432,
@@ -747,8 +821,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 1040754817,
       "itemHash": 1341765381,
+      "recordHash": null,
       "points": [
         {
           "x": -79,
@@ -767,8 +843,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3638799958,
+      "bubbleName": false,
       "checklistHash": 2544178564,
       "itemHash": 1341765386,
+      "recordHash": null,
       "points": [
         {
           "x": -14,
@@ -787,8 +865,10 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3638799958,
+      "bubbleName": false,
       "checklistHash": 350766431,
       "itemHash": 1341765387,
+      "recordHash": null,
       "points": [
         {
           "x": -61,
@@ -807,19 +887,19 @@
   ],
   "655926402": [
     {
+      "recordName": "The Length of a Chain | Part I",
       "recordHash": 3448739524,
       "points": [],
       "sorts": {
-        "name": "The Length of a Chain | Part I",
         "number": 1
       },
       "extended": {}
     },
     {
+      "recordName": "The Length of a Chain | Part II",
       "recordHash": 3448739527,
       "points": [],
       "sorts": {
-        "name": "The Length of a Chain | Part II",
         "number": 2
       },
       "extended": {}
@@ -827,6 +907,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
+      "recordName": "At the Gate | Part I",
       "recordHash": 3448739526,
       "points": [
         {
@@ -836,8 +918,9 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "At the Gate | Part I",
+        "name": "High Plains",
         "number": 3
       },
       "extended": {}
@@ -845,6 +928,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
+      "recordName": "At the Gate | Part II",
       "recordHash": 3448739521,
       "points": [
         {
@@ -854,8 +939,9 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "At the Gate | Part II",
+        "name": "High Plains",
         "number": 4
       },
       "extended": {}
@@ -863,6 +949,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
+      "recordName": "Through the Gate",
       "recordHash": 3448739520,
       "points": [
         {
@@ -872,17 +960,18 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "Through the Gate",
+        "name": "High Plains",
         "number": 5
       },
       "extended": {}
     },
     {
+      "recordName": "In the Garden",
       "recordHash": 3448739523,
       "points": [],
       "sorts": {
-        "name": "In the Garden",
         "number": 6
       },
       "extended": {}
@@ -890,6 +979,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 628920395,
+      "bubbleName": false,
+      "recordName": "On the Hunt",
       "recordHash": 3448739522,
       "points": [
         {
@@ -901,7 +992,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Shipyard AWO-43",
         "place": "The Tangled Shore",
-        "name": "On the Hunt",
+        "name": "Shipyard AWO-43",
         "number": 7
       },
       "extended": {
@@ -909,10 +1000,10 @@
       }
     },
     {
+      "recordName": "After the Heart | Part I",
       "recordHash": 3448739533,
       "points": [],
       "sorts": {
-        "name": "After the Heart | Part I",
         "number": 8
       },
       "extended": {}
@@ -920,6 +1011,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1690293884,
+      "bubbleName": false,
+      "recordName": "After the Heart | Part II",
       "recordHash": 3448739532,
       "points": [
         {
@@ -931,7 +1024,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Hall of the Exalted",
         "place": "The Tangled Shore",
-        "name": "After the Heart | Part II",
+        "name": "Hall of the Exalted",
         "number": 9
       },
       "extended": {}
@@ -939,6 +1032,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328795,
+      "bubbleName": false,
+      "recordName": "Jolyon",
       "recordHash": 3431961938,
       "points": [
         {
@@ -950,7 +1045,7 @@
         "destination": "European Dead Zone",
         "bubble": "The Drain",
         "place": "Earth",
-        "name": "Jolyon",
+        "name": "The Drain",
         "number": 10
       },
       "extended": {
@@ -960,6 +1055,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 486266603,
+      "bubbleName": false,
+      "recordName": "After the Fall",
       "recordHash": 3431961939,
       "points": [
         {
@@ -971,7 +1068,7 @@
         "destination": "European Dead Zone",
         "bubble": "Flooded Chasm",
         "place": "Earth",
-        "name": "After the Fall",
+        "name": "Flooded Chasm",
         "number": 11
       },
       "extended": {
@@ -981,6 +1078,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 698761455,
+      "bubbleName": false,
+      "recordName": "Kings",
       "recordHash": 3431961936,
       "points": [
         {
@@ -992,7 +1091,7 @@
         "destination": "European Dead Zone",
         "bubble": "Excavation Site XII",
         "place": "Earth",
-        "name": "Kings",
+        "name": "Excavation Site XII",
         "number": 12
       },
       "extended": {
@@ -1002,6 +1101,8 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
+      "recordName": "Fanatic | Part I",
       "recordHash": 3431961937,
       "points": [
         {
@@ -1013,7 +1114,7 @@
         "destination": "Hellas Basin",
         "bubble": "Alton Dynamo",
         "place": "Mars",
-        "name": "Fanatic | Part I",
+        "name": "Alton Dynamo",
         "number": 13
       },
       "extended": {}
@@ -1021,6 +1122,8 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
+      "recordName": "Fanatic | Part II",
       "recordHash": 3431961942,
       "points": [
         {
@@ -1032,7 +1135,7 @@
         "destination": "Hellas Basin",
         "bubble": "Olympus Descent",
         "place": "Mars",
-        "name": "Fanatic | Part II",
+        "name": "Olympus Descent",
         "number": 14
       },
       "extended": {}
@@ -1040,6 +1143,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
+      "recordName": "The Severance",
       "recordHash": 3431961943,
       "points": [
         {
@@ -1051,7 +1156,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Soriks's Cut",
         "place": "The Tangled Shore",
-        "name": "The Severance",
+        "name": "Soriks's Cut",
         "number": 15
       },
       "extended": {}
@@ -1059,6 +1164,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
+      "recordName": "Fikrul",
       "recordHash": 3431961940,
       "points": [
         {
@@ -1070,7 +1177,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Soriks's Cut",
         "place": "The Tangled Shore",
-        "name": "Fikrul",
+        "name": "Soriks's Cut",
         "number": 16
       },
       "extended": {}
@@ -1078,6 +1185,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2299503584,
+      "bubbleName": false,
+      "recordName": "Docking",
       "recordHash": 3431961941,
       "points": [
         {
@@ -1089,7 +1198,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Kingship Dock",
         "place": "The Tangled Shore",
-        "name": "Docking",
+        "name": "Kingship Dock",
         "number": 17
       },
       "extended": {
@@ -1099,6 +1208,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 699959402,
+      "bubbleName": false,
+      "recordName": "Petra",
       "recordHash": 3431961946,
       "points": [
         {
@@ -1110,7 +1221,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Trapper's Cave",
         "place": "The Tangled Shore",
-        "name": "Petra",
+        "name": "Trapper's Cave",
         "number": 18
       },
       "extended": {
@@ -1120,6 +1231,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
+      "recordName": "Free | Part I",
       "recordHash": 3431961947,
       "points": [
         {
@@ -1131,7 +1244,7 @@
         "destination": "The Tangled Shore",
         "bubble": "The Cobble",
         "place": "The Tangled Shore",
-        "name": "Free | Part I",
+        "name": "The Cobble",
         "number": 19
       },
       "extended": {}
@@ -1139,6 +1252,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
+      "recordName": "Free | Part II",
       "recordHash": 3415184383,
       "points": [
         {
@@ -1150,7 +1265,7 @@
         "destination": "The Tangled Shore",
         "bubble": "The Cobble",
         "place": "The Tangled Shore",
-        "name": "Free | Part II",
+        "name": "The Cobble",
         "number": 20
       },
       "extended": {}
@@ -1159,6 +1274,8 @@
   "1297424116": [
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1370818871,
       "recordHash": 1859033168,
       "points": [
@@ -1167,8 +1284,10 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Archiloquy",
         "number": 1
@@ -1177,6 +1296,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1370818868,
       "recordHash": 1859033171,
       "points": [
@@ -1185,8 +1306,10 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Brephos I",
         "number": 2
@@ -1195,6 +1318,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": false,
+      "bubbleName": "The Corrupted",
       "checklistHash": 1370818869,
       "recordHash": 1859033170,
       "points": [
@@ -1205,6 +1330,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Temple of Illyn",
         "place": "The Dreaming City",
         "name": "Brephos II",
         "number": 3
@@ -1213,6 +1339,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Cimmerian Garrison",
       "checklistHash": 1370818866,
       "recordHash": 1859033173,
       "points": [
@@ -1223,6 +1351,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Cimmerian Garrison",
         "place": "The Dreaming City",
         "name": "Brephos III",
         "number": 4
@@ -1231,6 +1360,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Corrupted",
       "checklistHash": 1370818867,
       "recordHash": 1859033172,
       "points": [
@@ -1241,6 +1372,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Corrupted",
         "place": "The Dreaming City",
         "name": "Cosmogyre I",
         "number": 5
@@ -1249,6 +1381,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1370818864,
       "recordHash": 1859033175,
       "points": [
@@ -1257,8 +1391,10 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Cosmogyre II",
         "number": 6
@@ -1268,6 +1404,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1370818865,
       "recordHash": 1859033174,
       "points": [
@@ -1287,6 +1424,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Agonarch Abyss",
       "checklistHash": 1370818878,
       "recordHash": 1859033177,
       "points": [
@@ -1297,6 +1436,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Agonarch Abyss",
         "place": "The Dreaming City",
         "name": "Cosmogyre IV",
         "number": 8
@@ -1305,6 +1445,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Shattered Ruins",
       "checklistHash": 1370818879,
       "recordHash": 1859033176,
       "points": [
@@ -1315,6 +1457,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Shattered Ruins",
         "place": "The Dreaming City",
         "name": "Ecstasiate I",
         "number": 9
@@ -1323,6 +1466,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Keep of Honed Edges",
       "checklistHash": 1387596457,
       "recordHash": 1842255614,
       "points": [
@@ -1333,6 +1478,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Keep of Honed Edges",
         "place": "The Dreaming City",
         "name": "Ecstasiate II",
         "number": 10
@@ -1341,6 +1487,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Dark Monastery",
       "checklistHash": 1387596456,
       "recordHash": 1842255615,
       "points": [
@@ -1351,6 +1499,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Dark Monastery",
         "place": "The Dreaming City",
         "name": "Ecstasiate III",
         "number": 11
@@ -1359,6 +1508,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1387596459,
       "recordHash": 1842255612,
       "points": [
@@ -1367,8 +1518,10 @@
           "y": 726
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Fideicide I",
         "number": 12
@@ -1377,6 +1530,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Queens Court",
       "checklistHash": 1387596458,
       "recordHash": 1842255613,
       "points": [
@@ -1387,6 +1542,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Queens Court",
         "place": "The Dreaming City",
         "name": "Fideicide II",
         "number": 13
@@ -1396,6 +1552,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1387596461,
       "recordHash": 1842255610,
       "points": [
@@ -1415,6 +1572,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Forfeit Shrine",
       "checklistHash": 1387596460,
       "recordHash": 1842255611,
       "points": [
@@ -1425,6 +1584,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Forfeit Shrine",
         "place": "The Dreaming City",
         "name": "Heresiology",
         "number": 15
@@ -1433,6 +1593,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Ouroborea",
       "checklistHash": 1387596463,
       "recordHash": 1842255608,
       "points": [
@@ -1443,6 +1605,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Ouroborea",
         "place": "The Dreaming City",
         "name": "Imponent I",
         "number": 16
@@ -1454,6 +1617,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
+      "recordName": "Pressure",
       "recordHash": 2121305070,
       "points": [
         {
@@ -1463,8 +1628,9 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "Pressure",
+        "name": "High Plains",
         "number": 1
       },
       "extended": {}
@@ -1472,6 +1638,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 628920395,
+      "bubbleName": false,
+      "recordName": "Ghost Hunter",
       "recordHash": 2121305069,
       "points": [
         {
@@ -1483,7 +1651,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Shipyard AWO-43",
         "place": "The Tangled Shore",
-        "name": "Ghost Hunter",
+        "name": "Shipyard AWO-43",
         "number": 2
       },
       "extended": {
@@ -1493,8 +1661,9 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2128740634,
+      "bubbleName": false,
+      "recordName": "The Chosen's Choice",
       "recordHash": 2121305068,
-      "activityHash": 851841785,
       "points": [
         {
           "x": -977,
@@ -1505,16 +1674,19 @@
         "destination": "The Tangled Shore",
         "bubble": "The Boil",
         "place": "The Tangled Shore",
-        "name": "The Chosen's Choice",
+        "name": "The Boil",
         "number": 3
       },
       "extended": {
         "located": "activity"
-      }
+      },
+      "activityHash": 851841785
     },
     {
       "destinationHash": 359854275,
       "bubbleHash": 1690293884,
+      "bubbleName": false,
+      "recordName": "The We Before Us",
       "recordHash": 2121305067,
       "points": [
         {
@@ -1526,7 +1698,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Hall of the Exalted",
         "place": "The Tangled Shore",
-        "name": "The We Before Us",
+        "name": "Hall of the Exalted",
         "number": 4
       },
       "extended": {}
@@ -1534,6 +1706,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 656412905,
+      "bubbleName": false,
+      "recordName": "Don't Call Me Ghost",
       "recordHash": 2121305066,
       "points": [
         {
@@ -1545,7 +1719,7 @@
         "destination": "European Dead Zone",
         "bubble": "Shaft 13",
         "place": "Earth",
-        "name": "Don't Call Me Ghost",
+        "name": "Shaft 13",
         "number": 5
       },
       "extended": {
@@ -1555,6 +1729,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328795,
+      "bubbleName": false,
+      "recordName": "Compliments",
       "recordHash": 2121305065,
       "points": [
         {
@@ -1566,7 +1742,7 @@
         "destination": "European Dead Zone",
         "bubble": "The Drain",
         "place": "Earth",
-        "name": "Compliments",
+        "name": "The Drain",
         "number": 6
       },
       "extended": {
@@ -1576,6 +1752,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2917555722,
+      "bubbleName": false,
+      "recordName": "No Rez for the Weary",
       "recordHash": 2121305064,
       "points": [
         {
@@ -1587,7 +1765,7 @@
         "destination": "European Dead Zone",
         "bubble": "The Quarry",
         "place": "Earth",
-        "name": "No Rez for the Weary",
+        "name": "The Quarry",
         "number": 7
       },
       "extended": {
@@ -1597,6 +1775,8 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1843052824,
+      "bubbleName": false,
+      "recordName": "Confession of Hope | Part One",
       "recordHash": 2121305063,
       "points": [
         {
@@ -1608,7 +1788,7 @@
         "destination": "New Pacific Arcology",
         "bubble": "Arboretum",
         "place": "Titan, Moon of Saturn",
-        "name": "Confession of Hope | Part One",
+        "name": "Arboretum",
         "number": 8
       },
       "extended": {}
@@ -1616,6 +1796,8 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
+      "recordName": "The Watchful Eye",
       "recordHash": 2121305062,
       "points": [
         {
@@ -1627,7 +1809,7 @@
         "destination": "New Pacific Arcology",
         "bubble": "Siren's Watch",
         "place": "Titan, Moon of Saturn",
-        "name": "The Watchful Eye",
+        "name": "Siren's Watch",
         "number": 9
       },
       "extended": {}
@@ -1635,6 +1817,8 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 964095576,
+      "bubbleName": false,
+      "recordName": "Into the Fray",
       "recordHash": 2104527484,
       "points": [
         {
@@ -1646,7 +1830,7 @@
         "destination": "New Pacific Arcology",
         "bubble": "DS Quarters-2",
         "place": "Titan, Moon of Saturn",
-        "name": "Into the Fray",
+        "name": "DS Quarters-2",
         "number": 10
       },
       "extended": {
@@ -1656,6 +1840,8 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
+      "recordName": "Struck by Wonder",
       "recordHash": 2104527485,
       "points": [
         {
@@ -1667,7 +1853,7 @@
         "destination": "Arcadian Valley",
         "bubble": "Watcher's Grave",
         "place": "Nessus",
-        "name": "Struck by Wonder",
+        "name": "Watcher's Grave",
         "number": 11
       },
       "extended": {}
@@ -1675,6 +1861,8 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
+      "recordName": "Confession of Hope | Part Two",
       "recordHash": 2104527486,
       "points": [
         {
@@ -1686,7 +1874,7 @@
         "destination": "Arcadian Valley",
         "bubble": "The Tangle",
         "place": "Nessus",
-        "name": "Confession of Hope | Part Two",
+        "name": "The Tangle",
         "number": 12
       },
       "extended": {}
@@ -1694,6 +1882,8 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2670041043,
+      "bubbleName": false,
+      "recordName": "A Hero's Requiem",
       "recordHash": 2104527487,
       "points": [
         {
@@ -1705,7 +1895,7 @@
         "destination": "Arcadian Valley",
         "bubble": "The Rift",
         "place": "Nessus",
-        "name": "A Hero's Requiem",
+        "name": "The Rift",
         "number": 13
       },
       "extended": {
@@ -1715,6 +1905,8 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 1018391425,
+      "bubbleName": false,
+      "recordName": "From Fallen Ground",
       "recordHash": 2104527480,
       "points": [
         {
@@ -1726,7 +1918,7 @@
         "destination": "Mercury",
         "bubble": "Pariah's Refuge",
         "place": "Mercury",
-        "name": "From Fallen Ground",
+        "name": "Pariah's Refuge",
         "number": 14
       },
       "extended": {
@@ -1736,6 +1928,8 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 4012600681,
+      "bubbleName": false,
+      "recordName": "Ghost Community Theater Presents",
       "recordHash": 2104527481,
       "points": [
         {
@@ -1747,7 +1941,7 @@
         "destination": "Echo Mesa",
         "bubble": "Aphix Conduit",
         "place": "Io",
-        "name": "Ghost Community Theater Presents",
+        "name": "Aphix Conduit",
         "number": 15
       },
       "extended": {
@@ -1757,6 +1951,8 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 4012600682,
+      "bubbleName": false,
+      "recordName": "Difference of Opinion",
       "recordHash": 2104527482,
       "points": [
         {
@@ -1768,7 +1964,7 @@
         "destination": "Echo Mesa",
         "bubble": "Sanctum of Bones",
         "place": "Io",
-        "name": "Difference of Opinion",
+        "name": "Sanctum of Bones",
         "number": 16
       },
       "extended": {
@@ -1778,6 +1974,8 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
+      "recordName": "Protector of Ghosts",
       "recordHash": 2104527483,
       "points": [
         {
@@ -1789,7 +1987,7 @@
         "destination": "Echo Mesa",
         "bubble": "Terrabase Charon",
         "place": "Io",
-        "name": "Protector of Ghosts",
+        "name": "Terrabase Charon",
         "number": 17
       },
       "extended": {}
@@ -1797,6 +1995,8 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158407403,
+      "bubbleName": false,
+      "recordName": "Savin",
       "recordHash": 2104527476,
       "points": [
         {
@@ -1808,7 +2008,7 @@
         "destination": "Hellas Basin",
         "bubble": "Core Terminus",
         "place": "Mars",
-        "name": "Savin",
+        "name": "Core Terminus",
         "number": 18
       },
       "extended": {
@@ -1818,6 +2018,8 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
+      "recordName": "Pulled Pork",
       "recordHash": 2104527477,
       "points": [
         {
@@ -1829,7 +2031,7 @@
         "destination": "Hellas Basin",
         "bubble": "Alton Dynamo",
         "place": "Mars",
-        "name": "Pulled Pork",
+        "name": "Alton Dynamo",
         "number": 19
       },
       "extended": {}
@@ -1837,6 +2039,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1090543652,
+      "bubbleName": false,
+      "recordName": "Who Guards the Guardians?",
       "recordHash": 2154860341,
       "points": [
         {
@@ -1848,7 +2052,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Wolfship Turbine",
         "place": "The Tangled Shore",
-        "name": "Who Guards the Guardians?",
+        "name": "Wolfship Turbine",
         "number": 20
       },
       "extended": {
@@ -1858,6 +2062,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2299503584,
+      "bubbleName": false,
+      "recordName": "Whether Windmills or Cranes",
       "recordHash": 2154860340,
       "points": [
         {
@@ -1869,7 +2075,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Kingship Dock",
         "place": "The Tangled Shore",
-        "name": "Whether Windmills or Cranes",
+        "name": "Kingship Dock",
         "number": 21
       },
       "extended": {
@@ -1879,6 +2085,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
+      "recordName": "Batteries Not Included",
       "recordHash": 2154860343,
       "points": [
         {
@@ -1890,7 +2098,7 @@
         "destination": "The Tangled Shore",
         "bubble": "The Cobble",
         "place": "The Tangled Shore",
-        "name": "Batteries Not Included",
+        "name": "The Cobble",
         "number": 22
       },
       "extended": {}
@@ -1898,6 +2106,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 824533556,
+      "bubbleName": false,
+      "recordName": "To Map the Unknown",
       "recordHash": 2154860342,
       "points": [
         {
@@ -1909,7 +2119,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Spider's Safehouse",
         "place": "The Tangled Shore",
-        "name": "To Map the Unknown",
+        "name": "Spider's Safehouse",
         "number": 23
       },
       "extended": {}
@@ -1919,7 +2129,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 2754290383,
+      "recordHash": null,
       "points": [
         {
           "x": -481,
@@ -1938,7 +2150,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 4069164097,
+      "recordHash": null,
       "points": [
         {
           "x": -88,
@@ -1957,7 +2171,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 3577247371,
+      "recordHash": null,
       "points": [
         {
           "x": -460,
@@ -1976,7 +2192,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 2313471548,
+      "recordHash": null,
       "points": [
         {
           "x": -110,
@@ -1995,7 +2213,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 2693527578,
+      "recordHash": null,
       "points": [
         {
           "x": 33,
@@ -2014,7 +2234,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 2890414560,
+      "recordHash": null,
       "points": [
         {
           "x": -336,
@@ -2033,7 +2255,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 2317648357,
+      "recordHash": null,
       "points": [
         {
           "x": 252,
@@ -2052,7 +2276,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 3860391092,
+      "recordHash": null,
       "points": [
         {
           "x": 317,
@@ -2071,7 +2297,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 3096918071,
+      "recordHash": null,
       "points": [
         {
           "x": 318,
@@ -2090,7 +2318,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 3156467474,
+      "recordHash": null,
       "points": [
         {
           "x": 66.79,
@@ -2109,7 +2339,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 2473593253,
+      "recordHash": null,
       "points": [
         {
           "x": 172.52,
@@ -2128,7 +2360,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 505173108,
+      "recordHash": null,
       "points": [
         {
           "x": -56.38,
@@ -2147,7 +2381,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3854937584,
+      "bubbleName": false,
       "checklistHash": 3557288846,
+      "recordHash": null,
       "points": [
         {
           "x": -423.71,
@@ -2166,7 +2402,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3854937584,
+      "bubbleName": false,
       "checklistHash": 3658842337,
+      "recordHash": null,
       "points": [
         {
           "x": -529.44,
@@ -2185,7 +2423,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3854937584,
+      "bubbleName": false,
       "checklistHash": 1116639056,
+      "recordHash": null,
       "points": [
         {
           "x": -514.18,
@@ -2204,7 +2444,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 72017611,
+      "recordHash": null,
       "points": [
         {
           "x": -607.92,
@@ -2223,7 +2465,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 3212130160,
+      "recordHash": null,
       "points": [
         {
           "x": -857.53,
@@ -2242,7 +2486,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 97796737,
+      "recordHash": null,
       "points": [
         {
           "x": -709.29,
@@ -2261,7 +2507,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 113362963,
+      "recordHash": null,
       "points": [
         {
           "x": -154.48,
@@ -2280,7 +2528,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 2355206132,
+      "recordHash": null,
       "points": [
         {
           "x": -295.09,
@@ -2299,7 +2549,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 28658981,
+      "recordHash": null,
       "points": [
         {
           "x": -264.57,
@@ -2318,7 +2570,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 2482079866,
+      "recordHash": null,
       "points": [
         {
           "x": -833.55,
@@ -2337,7 +2591,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 576743835,
+      "recordHash": null,
       "points": [
         {
           "x": -951.27,
@@ -2356,7 +2612,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 3307732497,
+      "recordHash": null,
       "points": [
         {
           "x": -1013.4,
@@ -2375,7 +2633,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 823939877,
+      "recordHash": null,
       "points": [
         {
           "x": 338.2,
@@ -2394,7 +2654,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 908643859,
+      "recordHash": null,
       "points": [
         {
           "x": 430.85,
@@ -2413,7 +2675,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 1085712440,
+      "recordHash": null,
       "points": [
         {
           "x": 320.76,
@@ -2432,6 +2696,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 589814471,
       "recordHash": 3541301354,
       "points": [
@@ -2452,6 +2717,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 2503906440,
       "recordHash": 3541301354,
       "points": [
@@ -2472,6 +2738,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 3609559330,
       "recordHash": 3541301354,
       "points": [
@@ -2492,7 +2759,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 89704164,
+      "recordHash": null,
       "points": [
         {
           "x": -271.96,
@@ -2511,7 +2780,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 1956319555,
+      "recordHash": null,
       "points": [
         {
           "x": -268,
@@ -2530,7 +2801,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 1375559682,
+      "recordHash": null,
       "points": [
         {
           "x": -337.96,
@@ -2549,7 +2822,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 387879790,
+      "recordHash": null,
       "points": [
         {
           "x": 211.16,
@@ -2568,7 +2843,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 92809392,
+      "recordHash": null,
       "points": [
         {
           "x": 21.08,
@@ -2587,7 +2864,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 463653643,
+      "recordHash": null,
       "points": [
         {
           "x": 46.16,
@@ -2606,7 +2885,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 4143709398,
+      "recordHash": null,
       "points": [
         {
           "x": 477,
@@ -2625,7 +2906,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 2049004329,
+      "recordHash": null,
       "points": [
         {
           "x": 658,
@@ -2644,7 +2927,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 1780053523,
+      "recordHash": null,
       "points": [
         {
           "x": 638,
@@ -2663,7 +2948,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 2925348591,
+      "recordHash": null,
       "points": [
         {
           "x": 1135,
@@ -2682,7 +2969,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 3059588176,
+      "recordHash": null,
       "points": [
         {
           "x": 1141,
@@ -2701,7 +2990,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 1281044779,
+      "recordHash": null,
       "points": [
         {
           "x": 1210,
@@ -2720,7 +3011,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 131897336,
+      "recordHash": null,
       "points": [
         {
           "x": 793,
@@ -2739,7 +3032,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 1295226450,
+      "recordHash": null,
       "points": [
         {
           "x": 854,
@@ -2758,7 +3053,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 379286227,
+      "recordHash": null,
       "points": [
         {
           "x": 854,
@@ -2777,7 +3074,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 2662231509,
+      "recordHash": null,
       "points": [
         {
           "x": 25,
@@ -2796,7 +3095,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 1881681731,
+      "recordHash": null,
       "points": [
         {
           "x": 264,
@@ -2815,7 +3116,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 3128564200,
+      "recordHash": null,
       "points": [
         {
           "x": -169,
@@ -2834,6 +3137,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "checklistHash": 1704777267,
       "recordHash": 2994199542,
       "points": [
@@ -2854,7 +3158,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "checklistHash": 2779832084,
+      "recordHash": null,
       "points": [
         {
           "x": 488,
@@ -2873,7 +3179,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "checklistHash": 4128910789,
+      "recordHash": null,
       "points": [
         {
           "x": 608,
@@ -2892,7 +3200,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 2414643433,
+      "recordHash": null,
       "points": [
         {
           "x": 1001,
@@ -2911,7 +3221,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 4048519991,
+      "recordHash": null,
       "points": [
         {
           "x": 805,
@@ -2930,7 +3242,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 517025716,
+      "recordHash": null,
       "points": [
         {
           "x": 884,
@@ -2949,7 +3263,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 1965760095,
+      "recordHash": null,
       "points": [
         {
           "x": 76,
@@ -2968,7 +3284,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 93401344,
+      "recordHash": null,
       "points": [
         {
           "x": 34,
@@ -2987,7 +3305,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 722167505,
+      "recordHash": null,
       "points": [
         {
           "x": 174,
@@ -3006,7 +3326,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "checklistHash": 2809244994,
+      "recordHash": null,
       "points": [
         {
           "x": -32.2,
@@ -3025,7 +3347,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "checklistHash": 3811207701,
+      "recordHash": null,
       "points": [
         {
           "x": 507.82,
@@ -3044,7 +3368,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "checklistHash": 781161764,
+      "recordHash": null,
       "points": [
         {
           "x": -490.48,
@@ -3063,7 +3389,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "checklistHash": 4084570599,
+      "recordHash": null,
       "points": [
         {
           "x": 8,
@@ -3082,7 +3410,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "checklistHash": 1353530822,
+      "recordHash": null,
       "points": [
         {
           "x": 1.3,
@@ -3101,7 +3431,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 4157158378,
+      "recordHash": null,
       "points": [
         {
           "x": 148,
@@ -3120,7 +3452,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 2270250077,
+      "recordHash": null,
       "points": [
         {
           "x": 147,
@@ -3139,7 +3473,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 1250639948,
+      "recordHash": null,
       "points": [
         {
           "x": -47,
@@ -3158,7 +3494,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 2495538001,
+      "recordHash": null,
       "points": [
         {
           "x": 179,
@@ -3177,7 +3515,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3644688446,
+      "recordHash": null,
       "points": [
         {
           "x": 170,
@@ -3196,7 +3536,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3739130591,
+      "recordHash": null,
       "points": [
         {
           "x": -62,
@@ -3215,6 +3557,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 2700275579,
       "recordHash": 2419556790,
       "points": [
@@ -3235,6 +3578,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 633083132,
       "recordHash": 2419556790,
       "points": [
@@ -3255,6 +3599,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 1105312397,
       "recordHash": 2419556790,
       "points": [
@@ -3275,6 +3620,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 2326920926,
       "recordHash": 2419556790,
       "points": [
@@ -3295,6 +3641,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 1109476065,
       "recordHash": 2358176597,
       "points": [
@@ -3315,6 +3662,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 1007922574,
       "recordHash": 2358176597,
       "points": [
@@ -3335,6 +3683,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 2728000495,
       "recordHash": 2358176597,
       "points": [
@@ -3355,6 +3704,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 2013384876,
       "recordHash": 2358176597,
       "points": [
@@ -3375,6 +3725,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
       "checklistHash": 3986286066,
       "recordHash": 2769541312,
       "points": [
@@ -3395,6 +3746,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
       "checklistHash": 216809093,
       "recordHash": 2769541312,
       "points": [
@@ -3415,6 +3767,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
       "checklistHash": 3162697940,
       "recordHash": 2769541312,
       "points": [
@@ -3435,6 +3788,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
       "checklistHash": 2357751383,
       "recordHash": 2769541312,
       "points": [
@@ -3455,6 +3809,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1608679832,
+      "bubbleName": false,
       "checklistHash": 847545115,
       "recordHash": 3428487153,
       "points": [
@@ -3475,6 +3830,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1608679832,
+      "bubbleName": false,
       "checklistHash": 3817650588,
       "recordHash": 1391735969,
       "points": [
@@ -3495,6 +3851,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1608679832,
+      "bubbleName": false,
       "checklistHash": 3311088557,
       "recordHash": 1391735969,
       "points": [
@@ -3515,6 +3872,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1608679832,
+      "bubbleName": false,
       "checklistHash": 1640978814,
       "recordHash": 1391735969,
       "points": [
@@ -3535,6 +3893,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
       "checklistHash": 341637691,
       "recordHash": 444152197,
       "points": [
@@ -3555,6 +3914,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
       "checklistHash": 3694727100,
       "recordHash": 444152197,
       "points": [
@@ -3575,6 +3935,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1635947699,
+      "bubbleName": false,
       "checklistHash": 3649605808,
       "recordHash": 3428487153,
       "points": [
@@ -3595,6 +3956,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1635947699,
+      "bubbleName": false,
       "checklistHash": 3197493071,
       "recordHash": 3428487153,
       "points": [
@@ -3615,6 +3977,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1635947699,
+      "bubbleName": false,
       "checklistHash": 3944676206,
       "recordHash": 3428487153,
       "points": [
@@ -3635,6 +3998,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1635947699,
+      "bubbleName": false,
       "checklistHash": 3778887197,
       "recordHash": 3428487153,
       "points": [
@@ -3655,6 +4019,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
       "checklistHash": 1678213457,
       "recordHash": 3428487153,
       "points": [
@@ -3675,6 +4040,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
       "checklistHash": 2827363902,
       "recordHash": 3428487153,
       "points": [
@@ -3695,6 +4061,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
       "checklistHash": 2921806047,
       "recordHash": 3428487153,
       "points": [
@@ -3715,6 +4082,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 3520035140,
+      "bubbleName": false,
       "checklistHash": 1875856732,
       "recordHash": 1391735969,
       "points": [
@@ -3735,6 +4103,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1026950430,
+      "bubbleName": false,
       "checklistHash": 858668439,
       "recordHash": 3428487153,
       "points": [
@@ -3755,6 +4124,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1026950430,
+      "bubbleName": false,
       "checklistHash": 2449085400,
       "recordHash": 3428487153,
       "points": [
@@ -3775,6 +4145,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1026950430,
+      "bubbleName": false,
       "checklistHash": 3283298249,
       "recordHash": 3428487153,
       "points": [
@@ -3795,6 +4166,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1026950430,
+      "bubbleName": false,
       "checklistHash": 3612414514,
       "recordHash": 3428487153,
       "points": [
@@ -3815,6 +4187,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
       "checklistHash": 1997430677,
       "recordHash": 2121305070,
       "points": [
@@ -3825,6 +4198,7 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
         "name": "Pressure",
         "number": 99
@@ -3834,6 +4208,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 3326367698,
+      "bubbleName": false,
       "checklistHash": 3947020272,
       "points": [
         {
@@ -3853,6 +4228,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 3326367698,
+      "bubbleName": false,
       "checklistHash": 3812883599,
       "points": [
         {
@@ -3872,6 +4248,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 3326367698,
+      "bubbleName": false,
       "checklistHash": 731133614,
       "points": [
         {
@@ -3891,6 +4268,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 417490937,
+      "bubbleName": false,
       "checklistHash": 3147488613,
       "points": [
         {
@@ -3910,6 +4288,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 417490937,
+      "bubbleName": false,
       "checklistHash": 3364328658,
       "points": [
         {
@@ -3929,6 +4308,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 417490937,
+      "bubbleName": false,
       "checklistHash": 2448388435,
       "points": [
         {
@@ -3948,6 +4328,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4195493657,
+      "bubbleName": false,
       "checklistHash": 2499619401,
       "points": [
         {
@@ -3967,6 +4348,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4195493657,
+      "bubbleName": false,
       "checklistHash": 340933878,
       "points": [
         {
@@ -3986,6 +4368,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4195493657,
+      "bubbleName": false,
       "checklistHash": 74989591,
       "points": [
         {
@@ -4005,6 +4388,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4025450777,
+      "bubbleName": false,
       "checklistHash": 204962005,
       "points": [
         {
@@ -4024,6 +4408,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4025450777,
+      "bubbleName": false,
       "checklistHash": 3138619650,
       "points": [
         {
@@ -4043,6 +4428,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 4025450777,
+      "bubbleName": false,
       "checklistHash": 3719379523,
       "points": [
         {
@@ -4073,12 +4459,13 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "Anchor of Light",
         "place": "The Moon",
-        "name": "Anchor of Light",
-        "number": 1
+        "number": 1,
+        "bubble": "Anchor of Light",
+        "name": "Anchor of Light"
       },
-      "extended": {}
+      "extended": {},
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
@@ -4092,12 +4479,13 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "Hellmouth",
         "place": "The Moon",
-        "name": "Hellmouth",
-        "number": 2
+        "number": 2,
+        "bubble": "Hellmouth",
+        "name": "Hellmouth"
       },
-      "extended": {}
+      "extended": {},
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
@@ -4111,12 +4499,13 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "Archer's Line",
         "place": "The Moon",
-        "name": "Archer's Line",
-        "number": 3
+        "number": 3,
+        "bubble": "Archer's Line",
+        "name": "Archer's Line"
       },
-      "extended": {}
+      "extended": {},
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
@@ -4130,12 +4519,13 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
         "place": "The Moon",
-        "name": "Sorrow's Harbor",
-        "number": 4
+        "number": 4,
+        "bubble": "Sorrow's Harbor",
+        "name": "Sorrow's Harbor"
       },
-      "extended": {}
+      "extended": {},
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
@@ -4149,14 +4539,15 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "K1 Logistics",
         "place": "The Moon",
-        "name": "K1 Logistics",
-        "number": 5
+        "number": 5,
+        "bubble": "K1 Logistics",
+        "name": "K1 Logistics"
       },
       "extended": {
         "located": "lost-sector"
-      }
+      },
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
@@ -4170,18 +4561,20 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "K1 Revelation",
         "place": "The Moon",
-        "name": "K1 Revelation",
-        "number": 6
+        "number": 6,
+        "bubble": "K1 Revelation",
+        "name": "K1 Revelation"
       },
       "extended": {
         "located": "lost-sector"
-      }
+      },
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
       "bubbleHash": 286194652,
+      "bubbleName": false,
       "checklistHash": 3977481189,
       "points": [
         {
@@ -4210,16 +4603,18 @@
       ],
       "sorts": {
         "destination": "The Moon",
-        "bubble": "Chamber of Night",
         "place": "The Moon",
-        "name": "Chamber of Night",
-        "number": 8
+        "number": 8,
+        "bubble": "Chamber of Night",
+        "name": "Chamber of Night"
       },
-      "extended": {}
+      "extended": {},
+      "bubbleName": false
     },
     {
       "destinationHash": 290444260,
       "bubbleHash": 2204642885,
+      "bubbleName": false,
       "checklistHash": 2115406343,
       "points": [
         {
@@ -4241,7 +4636,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 2920200623,
+      "recordHash": null,
       "points": [
         {
           "x": 317,
@@ -4260,7 +4657,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 1533707526,
+      "recordHash": null,
       "points": [
         {
           "x": 342,
@@ -4279,7 +4678,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 2286037801,
+      "recordHash": null,
       "points": [
         {
           "x": 380,
@@ -4298,7 +4699,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 15952112,
+      "recordHash": null,
       "points": [
         {
           "x": 394,
@@ -4317,7 +4720,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "checklistHash": 706033843,
+      "recordHash": null,
       "points": [
         {
           "x": 450,
@@ -4336,7 +4741,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2647120390,
+      "bubbleName": false,
       "checklistHash": 2191600255,
+      "recordHash": null,
       "points": [
         {
           "x": 564,
@@ -4355,7 +4762,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2647120390,
+      "bubbleName": false,
       "checklistHash": 1823844950,
+      "recordHash": null,
       "points": [
         {
           "x": 593,
@@ -4374,7 +4783,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2647120390,
+      "bubbleName": false,
       "checklistHash": 2738322873,
+      "recordHash": null,
       "points": [
         {
           "x": 577,
@@ -4393,7 +4804,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
       "checklistHash": 2612420553,
+      "recordHash": null,
       "points": [
         {
           "x": 212,
@@ -4412,7 +4825,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
       "checklistHash": 2738178364,
+      "recordHash": null,
       "points": [
         {
           "x": 297,
@@ -4431,7 +4846,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
       "checklistHash": 1117495887,
+      "recordHash": null,
       "points": [
         {
           "x": 304,
@@ -4450,7 +4867,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
       "checklistHash": 1468797866,
+      "recordHash": null,
       "points": [
         {
           "x": 320,
@@ -4469,7 +4888,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2243000836,
+      "bubbleName": false,
       "checklistHash": 2787444525,
+      "recordHash": null,
       "points": [
         {
           "x": 237,
@@ -4488,7 +4909,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 368757528,
+      "bubbleName": false,
       "checklistHash": 1852491429,
+      "recordHash": null,
       "points": [
         {
           "x": 277,
@@ -4507,7 +4930,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 368757528,
+      "bubbleName": false,
       "checklistHash": 3497811400,
+      "recordHash": null,
       "points": [
         {
           "x": 241,
@@ -4526,7 +4951,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 368757528,
+      "bubbleName": false,
       "checklistHash": 813021547,
+      "recordHash": null,
       "points": [
         {
           "x": 189,
@@ -4545,7 +4972,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 2507692969,
+      "recordHash": null,
       "points": [
         {
           "x": -346,
@@ -4564,7 +4993,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 2208993308,
+      "recordHash": null,
       "points": [
         {
           "x": 17,
@@ -4583,7 +5014,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 3141855791,
+      "recordHash": null,
       "points": [
         {
           "x": 4,
@@ -4602,7 +5035,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 601336330,
+      "recordHash": null,
       "points": [
         {
           "x": -163,
@@ -4621,7 +5056,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "checklistHash": 1495525517,
+      "recordHash": null,
       "points": [
         {
           "x": -27,
@@ -4640,7 +5077,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 2926351942,
+      "recordHash": null,
       "points": [
         {
           "x": -472,
@@ -4659,7 +5098,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 59454447,
+      "recordHash": null,
       "points": [
         {
           "x": -511,
@@ -4678,7 +5119,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 3804543196,
+      "recordHash": null,
       "points": [
         {
           "x": -341,
@@ -4697,7 +5140,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 2390321485,
+      "recordHash": null,
       "points": [
         {
           "x": -87,
@@ -4716,7 +5161,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "checklistHash": 1814005450,
+      "recordHash": null,
       "points": [
         {
           "x": -279,
@@ -4735,7 +5182,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2701633580,
+      "bubbleName": false,
       "checklistHash": 3326352133,
+      "recordHash": null,
       "points": [
         {
           "x": 205,
@@ -4754,7 +5203,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2701633580,
+      "bubbleName": false,
       "checklistHash": 635128104,
+      "recordHash": null,
       "points": [
         {
           "x": 155,
@@ -4773,7 +5224,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1329445049,
+      "bubbleName": false,
       "checklistHash": 1427733666,
+      "recordHash": null,
       "points": [
         {
           "x": -346,
@@ -4792,7 +5245,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "bubbleName": false,
       "checklistHash": 2033620375,
+      "recordHash": null,
       "points": [
         {
           "x": 138,
@@ -4811,7 +5266,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "bubbleName": false,
       "checklistHash": 375526862,
+      "recordHash": null,
       "points": [
         {
           "x": 116,
@@ -4830,7 +5287,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "bubbleName": false,
       "checklistHash": 3765685361,
+      "recordHash": null,
       "points": [
         {
           "x": 125,
@@ -4849,8 +5308,9 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2241206483,
-      "activityHash": 4261351281,
+      "bubbleName": false,
       "checklistHash": 2799709240,
+      "recordHash": null,
       "points": [
         {
           "x": -597,
@@ -4866,13 +5326,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 4261351281
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2241206483,
-      "activityHash": 4261351281,
+      "bubbleName": false,
       "checklistHash": 619741013,
+      "recordHash": null,
       "points": [
         {
           "x": -657,
@@ -4888,13 +5350,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 4261351281
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2241206483,
-      "activityHash": 4261351281,
+      "bubbleName": false,
       "checklistHash": 81948082,
+      "recordHash": null,
       "points": [
         {
           "x": -718,
@@ -4910,12 +5374,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 4261351281
     },
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3331349367,
+      "bubbleName": false,
       "checklistHash": 1157589714,
+      "recordHash": null,
       "points": [
         {
           "x": 568,
@@ -4934,7 +5401,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3331349367,
+      "bubbleName": false,
       "checklistHash": 2868885819,
+      "recordHash": null,
       "points": [
         {
           "x": 606,
@@ -4953,7 +5422,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3331349367,
+      "bubbleName": false,
       "checklistHash": 967037272,
+      "recordHash": null,
       "points": [
         {
           "x": 619,
@@ -4972,7 +5443,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 2768204331,
+      "recordHash": null,
       "points": [
         {
           "x": -39,
@@ -4991,7 +5464,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 145185218,
+      "recordHash": null,
       "points": [
         {
           "x": 78,
@@ -5010,7 +5485,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 3849148005,
+      "recordHash": null,
       "points": [
         {
           "x": -124,
@@ -5029,7 +5506,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 1561360340,
+      "recordHash": null,
       "points": [
         {
           "x": 121,
@@ -5048,7 +5527,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "checklistHash": 3578984807,
+      "recordHash": null,
       "points": [
         {
           "x": 228,
@@ -5067,7 +5548,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4206151375,
+      "bubbleName": false,
       "checklistHash": 3222380274,
+      "recordHash": null,
       "points": [
         {
           "x": -1049,
@@ -5086,7 +5569,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3854937584,
+      "bubbleName": false,
       "checklistHash": 1284663771,
+      "recordHash": null,
       "points": [
         {
           "x": -552,
@@ -5105,7 +5590,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3854937584,
+      "bubbleName": false,
       "checklistHash": 1001598066,
+      "recordHash": null,
       "points": [
         {
           "x": -494,
@@ -5124,7 +5611,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 1427361604,
+      "recordHash": null,
       "points": [
         {
           "x": -850,
@@ -5143,7 +5632,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 3446252721,
+      "recordHash": null,
       "points": [
         {
           "x": -708,
@@ -5162,7 +5653,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 97567758,
+      "recordHash": null,
       "points": [
         {
           "x": -595,
@@ -5181,7 +5674,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "checklistHash": 2209645019,
+      "recordHash": null,
       "points": [
         {
           "x": -851,
@@ -5200,7 +5695,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 119587106,
+      "bubbleName": false,
       "checklistHash": 3448616917,
+      "recordHash": null,
       "points": [
         {
           "x": 38,
@@ -5219,7 +5716,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 119587106,
+      "bubbleName": false,
       "checklistHash": 1333617848,
+      "recordHash": null,
       "points": [
         {
           "x": -70,
@@ -5238,7 +5737,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 119587106,
+      "bubbleName": false,
       "checklistHash": 2451662235,
+      "recordHash": null,
       "points": [
         {
           "x": -57,
@@ -5257,7 +5758,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 1483671366,
+      "recordHash": null,
       "points": [
         {
           "x": -214,
@@ -5276,7 +5779,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 2911741167,
+      "recordHash": null,
       "points": [
         {
           "x": -241,
@@ -5295,7 +5800,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "checklistHash": 2361862620,
+      "recordHash": null,
       "points": [
         {
           "x": -170,
@@ -5314,7 +5821,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 1326408520,
+      "recordHash": null,
       "points": [
         {
           "x": -733,
@@ -5333,7 +5842,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 3976055845,
+      "recordHash": null,
       "points": [
         {
           "x": -715,
@@ -5352,7 +5863,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "checklistHash": 696550530,
+      "recordHash": null,
       "points": [
         {
           "x": -854,
@@ -5371,7 +5884,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3600472775,
+      "bubbleName": false,
       "checklistHash": 2761367130,
+      "recordHash": null,
       "points": [
         {
           "x": 294,
@@ -5390,7 +5905,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3600472775,
+      "bubbleName": false,
       "checklistHash": 854884291,
+      "recordHash": null,
       "points": [
         {
           "x": 486,
@@ -5409,7 +5926,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3600472775,
+      "bubbleName": false,
       "checklistHash": 1141127808,
+      "recordHash": null,
       "points": [
         {
           "x": 395,
@@ -5428,7 +5947,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 2980987172,
+      "recordHash": null,
       "points": [
         {
           "x": 453,
@@ -5447,7 +5968,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 1426068241,
+      "recordHash": null,
       "points": [
         {
           "x": 468,
@@ -5466,7 +5989,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 2372350830,
+      "recordHash": null,
       "points": [
         {
           "x": 460,
@@ -5485,7 +6010,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 4187728059,
+      "recordHash": null,
       "points": [
         {
           "x": 331,
@@ -5504,7 +6031,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "checklistHash": 2285879512,
+      "recordHash": null,
       "points": [
         {
           "x": 398,
@@ -5523,7 +6052,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2886912260,
+      "bubbleName": false,
       "checklistHash": 1273441503,
+      "recordHash": null,
       "points": [
         {
           "x": -1348,
@@ -5542,7 +6073,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 3334635926,
+      "recordHash": null,
       "points": [
         {
           "x": 249,
@@ -5561,7 +6094,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 532635327,
+      "recordHash": null,
       "points": [
         {
           "x": 165,
@@ -5580,7 +6115,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "checklistHash": 1901808940,
+      "recordHash": null,
       "points": [
         {
           "x": 266,
@@ -5599,7 +6136,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 702543394,
+      "bubbleName": false,
       "checklistHash": 2582598949,
+      "recordHash": null,
       "points": [
         {
           "x": -220,
@@ -5618,7 +6157,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 702543394,
+      "bubbleName": false,
       "checklistHash": 4227918920,
+      "recordHash": null,
       "points": [
         {
           "x": -261,
@@ -5637,7 +6178,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1843052824,
+      "bubbleName": false,
       "checklistHash": 2467921825,
+      "recordHash": null,
       "points": [
         {
           "x": 974,
@@ -5656,7 +6199,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1843052824,
+      "bubbleName": false,
       "checklistHash": 2370332724,
+      "recordHash": null,
       "points": [
         {
           "x": 809,
@@ -5675,7 +6220,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1843052824,
+      "bubbleName": false,
       "checklistHash": 92886727,
+      "recordHash": null,
       "points": [
         {
           "x": 946,
@@ -5694,7 +6241,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 326882937,
+      "bubbleName": false,
       "checklistHash": 2099860274,
+      "recordHash": null,
       "points": [
         {
           "x": 577,
@@ -5713,7 +6262,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 326882937,
+      "bubbleName": false,
       "checklistHash": 1640698523,
+      "recordHash": null,
       "points": [
         {
           "x": 630,
@@ -5732,7 +6283,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 326882937,
+      "bubbleName": false,
       "checklistHash": 522654136,
+      "recordHash": null,
       "points": [
         {
           "x": 624,
@@ -5751,7 +6304,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 414380065,
+      "bubbleName": false,
       "checklistHash": 3809028134,
+      "recordHash": null,
       "points": [
         {
           "x": 593,
@@ -5770,7 +6325,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 3286134225,
+      "recordHash": null,
       "points": [
         {
           "x": 125,
@@ -5789,7 +6346,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 504509156,
+      "recordHash": null,
       "points": [
         {
           "x": 41,
@@ -5808,7 +6367,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 2296400119,
+      "recordHash": null,
       "points": [
         {
           "x": 255,
@@ -5827,7 +6388,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 3594270226,
+      "recordHash": null,
       "points": [
         {
           "x": -43,
@@ -5846,7 +6409,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "checklistHash": 4090383285,
+      "recordHash": null,
       "points": [
         {
           "x": 98,
@@ -5865,7 +6430,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 334231652,
+      "bubbleName": false,
       "checklistHash": 2488492993,
+      "recordHash": null,
       "points": [
         {
           "x": -105,
@@ -5884,7 +6451,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 334231652,
+      "bubbleName": false,
       "checklistHash": 3815223124,
+      "recordHash": null,
       "points": [
         {
           "x": -44,
@@ -5903,7 +6472,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 369549035,
+      "recordHash": null,
       "points": [
         {
           "x": -229,
@@ -5922,7 +6493,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 2424480898,
+      "recordHash": null,
       "points": [
         {
           "x": -352,
@@ -5941,7 +6514,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 1409018917,
+      "recordHash": null,
       "points": [
         {
           "x": -322,
@@ -5960,7 +6535,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "checklistHash": 3416198548,
+      "recordHash": null,
       "points": [
         {
           "x": -231,
@@ -5979,7 +6556,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 3327797828,
+      "bubbleName": false,
       "checklistHash": 3595366409,
+      "recordHash": null,
       "points": [
         {
           "x": -607,
@@ -5998,7 +6577,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 3327797828,
+      "bubbleName": false,
       "checklistHash": 3296563836,
+      "recordHash": null,
       "points": [
         {
           "x": -739,
@@ -6017,7 +6598,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 3327797828,
+      "bubbleName": false,
       "checklistHash": 2376738191,
+      "recordHash": null,
       "points": [
         {
           "x": -731,
@@ -6036,7 +6619,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 274074864,
+      "recordHash": null,
       "points": [
         {
           "x": 234,
@@ -6055,7 +6640,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 1531993101,
+      "recordHash": null,
       "points": [
         {
           "x": 180,
@@ -6074,7 +6661,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 637803914,
+      "recordHash": null,
       "points": [
         {
           "x": 58,
@@ -6093,7 +6682,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 3178323375,
+      "recordHash": null,
       "points": [
         {
           "x": 81,
@@ -6112,7 +6703,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "checklistHash": 2245460892,
+      "recordHash": null,
       "points": [
         {
           "x": 209,
@@ -6131,7 +6724,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 896012584,
+      "bubbleName": false,
       "checklistHash": 3621126393,
+      "recordHash": null,
       "points": [
         {
           "x": -199,
@@ -6150,7 +6745,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2224987225,
+      "bubbleName": false,
       "checklistHash": 3267068662,
+      "recordHash": null,
       "points": [
         {
           "x": 276,
@@ -6169,7 +6766,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2224987225,
+      "bubbleName": false,
       "checklistHash": 1888720159,
+      "recordHash": null,
       "points": [
         {
           "x": 406,
@@ -6188,7 +6787,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2224987225,
+      "bubbleName": false,
       "checklistHash": 3216317068,
+      "recordHash": null,
       "points": [
         {
           "x": 113,
@@ -6207,7 +6808,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 138682577,
+      "recordHash": null,
       "points": [
         {
           "x": 530,
@@ -6226,7 +6829,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 1652024804,
+      "recordHash": null,
       "points": [
         {
           "x": 639,
@@ -6245,7 +6850,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3254430284,
+      "bubbleName": false,
       "checklistHash": 3443915767,
+      "recordHash": null,
       "points": [
         {
           "x": 552,
@@ -6264,7 +6871,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 537009175,
+      "bubbleName": false,
       "checklistHash": 3994204292,
+      "recordHash": null,
       "points": [
         {
           "x": 773,
@@ -6283,7 +6892,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 301010312,
+      "recordHash": null,
       "points": [
         {
           "x": 824,
@@ -6302,7 +6913,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 3416588901,
+      "recordHash": null,
       "points": [
         {
           "x": 850,
@@ -6321,7 +6934,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "checklistHash": 4007593410,
+      "recordHash": null,
       "points": [
         {
           "x": 934,
@@ -6340,7 +6955,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 542273287,
+      "bubbleName": false,
       "checklistHash": 2014746732,
+      "recordHash": null,
       "points": [
         {
           "x": 751,
@@ -6359,7 +6976,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 542273287,
+      "bubbleName": false,
       "checklistHash": 491541817,
+      "recordHash": null,
       "points": [
         {
           "x": 1112,
@@ -6378,7 +6997,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "checklistHash": 826274860,
+      "recordHash": null,
       "points": [
         {
           "x": 602,
@@ -6397,7 +7018,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 3959793642,
+      "recordHash": null,
       "points": [
         {
           "x": 408,
@@ -6416,7 +7039,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 3903162131,
+      "recordHash": null,
       "points": [
         {
           "x": -191,
@@ -6435,7 +7060,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 2916483792,
+      "recordHash": null,
       "points": [
         {
           "x": 37,
@@ -6454,7 +7081,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 850025481,
+      "recordHash": null,
       "points": [
         {
           "x": -166,
@@ -6473,7 +7102,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "checklistHash": 394292070,
+      "recordHash": null,
       "points": [
         {
           "x": -72,
@@ -6492,7 +7123,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1429357501,
+      "bubbleName": false,
       "checklistHash": 2241654182,
+      "recordHash": null,
       "points": [
         {
           "x": 579,
@@ -6511,7 +7144,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1429357501,
+      "bubbleName": false,
       "checklistHash": 777902543,
+      "recordHash": null,
       "points": [
         {
           "x": 485,
@@ -6530,7 +7165,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 186016854,
+      "recordHash": null,
       "points": [
         {
           "x": 889,
@@ -6549,7 +7186,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 553772159,
+      "recordHash": null,
       "points": [
         {
           "x": 972,
@@ -6568,7 +7207,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 2623699692,
+      "recordHash": null,
       "points": [
         {
           "x": 815,
@@ -6587,7 +7228,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 287051485,
+      "recordHash": null,
       "points": [
         {
           "x": 975,
@@ -6606,7 +7249,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3311195705,
+      "bubbleName": false,
       "checklistHash": 1240361690,
+      "recordHash": null,
       "points": [
         {
           "x": 951,
@@ -6625,7 +7270,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 1450715904,
+      "recordHash": null,
       "points": [
         {
           "x": 1006,
@@ -6644,7 +7291,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 2117645021,
+      "recordHash": null,
       "points": [
         {
           "x": 1144,
@@ -6663,7 +7312,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 3070955226,
+      "recordHash": null,
       "points": [
         {
           "x": 1151,
@@ -6682,7 +7333,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 2384365695,
+      "recordHash": null,
       "points": [
         {
           "x": 1099,
@@ -6701,7 +7354,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "checklistHash": 159325932,
+      "recordHash": null,
       "points": [
         {
           "x": 1066,
@@ -6720,7 +7375,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2382012660,
+      "bubbleName": false,
       "checklistHash": 1272530121,
+      "recordHash": null,
       "points": [
         {
           "x": 1317,
@@ -6739,8 +7396,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3395411000,
-      "activityHash": 2971335647,
+      "bubbleName": false,
       "checklistHash": 4135304289,
+      "recordHash": null,
       "points": [
         {
           "x": 759,
@@ -6756,13 +7414,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 2971335647
     },
     {
       "destinationHash": 126924919,
       "bubbleHash": 2724699327,
-      "activityHash": 2971335647,
+      "bubbleName": false,
       "checklistHash": 332249208,
+      "recordHash": null,
       "points": [
         {
           "x": 1158,
@@ -6778,13 +7438,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 2971335647
     },
     {
       "destinationHash": 126924919,
       "bubbleHash": 2724699327,
-      "activityHash": 2971335647,
+      "bubbleName": false,
       "checklistHash": 2871705493,
+      "recordHash": null,
       "points": [
         {
           "x": 1240,
@@ -6800,12 +7462,15 @@
       },
       "extended": {
         "located": "strike"
-      }
+      },
+      "activityHash": 2971335647
     },
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 2580075029,
+      "recordHash": null,
       "points": [
         {
           "x": -377,
@@ -6824,7 +7489,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 40618744,
+      "recordHash": null,
       "points": [
         {
           "x": 91,
@@ -6843,7 +7510,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 1942467291,
+      "recordHash": null,
       "points": [
         {
           "x": 33,
@@ -6862,7 +7531,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 4125357326,
+      "recordHash": null,
       "points": [
         {
           "x": -43,
@@ -6881,7 +7552,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 3179074993,
+      "recordHash": null,
       "points": [
         {
           "x": -213,
@@ -6900,7 +7573,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 1160183876,
+      "recordHash": null,
       "points": [
         {
           "x": -325,
@@ -6919,7 +7594,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 2189340887,
+      "recordHash": null,
       "points": [
         {
           "x": 76,
@@ -6938,7 +7615,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2871560606,
+      "bubbleName": false,
       "checklistHash": 3952893274,
+      "recordHash": null,
       "points": [
         {
           "x": -291,
@@ -6957,7 +7636,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 3361818035,
+      "recordHash": null,
       "points": [
         {
           "x": 616,
@@ -6976,7 +7657,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 3035465354,
+      "recordHash": null,
       "points": [
         {
           "x": 849,
@@ -6995,7 +7678,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 3929654541,
+      "recordHash": null,
       "points": [
         {
           "x": 546,
@@ -7014,7 +7699,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 348155036,
+      "recordHash": null,
       "points": [
         {
           "x": 529,
@@ -7033,7 +7720,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 1281017519,
+      "recordHash": null,
       "points": [
         {
           "x": 472,
@@ -7052,7 +7741,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 4189491718,
+      "recordHash": null,
       "points": [
         {
           "x": 270,
@@ -7071,7 +7762,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 646854697,
+      "recordHash": null,
       "points": [
         {
           "x": 666,
@@ -7090,7 +7783,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2192450996,
+      "bubbleName": false,
       "checklistHash": 3631646504,
+      "recordHash": null,
       "points": [
         {
           "x": 956,
@@ -7109,7 +7804,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 50709803,
+      "recordHash": null,
       "points": [
         {
           "x": -619,
@@ -7128,7 +7825,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 1722657986,
+      "recordHash": null,
       "points": [
         {
           "x": -879,
@@ -7147,7 +7846,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 1131653477,
+      "recordHash": null,
       "points": [
         {
           "x": -681,
@@ -7166,7 +7867,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 3138833108,
+      "recordHash": null,
       "points": [
         {
           "x": -1090,
@@ -7185,7 +7888,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 861490279,
+      "recordHash": null,
       "points": [
         {
           "x": -979,
@@ -7204,7 +7909,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 3069418910,
+      "recordHash": null,
       "points": [
         {
           "x": -785,
@@ -7223,7 +7930,9 @@
     {
       "destinationHash": 333456177,
       "bubbleHash": 2372580540,
+      "bubbleName": false,
       "checklistHash": 1812102977,
+      "recordHash": null,
       "points": [
         {
           "x": -649,
@@ -7241,7 +7950,10 @@
     },
     {
       "destinationHash": 4188263703,
+      "bubbleHash": 0,
+      "bubbleName": "The Farm",
       "checklistHash": 2127236170,
+      "recordHash": null,
       "points": [
         {
           "x": 109,
@@ -7250,14 +7962,19 @@
       ],
       "sorts": {
         "destination": "The Farm",
+        "bubble": "The Farm",
         "place": "Earth",
+        "name": "The Farm",
         "number": 161
       },
       "extended": {}
     },
     {
       "destinationHash": 4188263703,
+      "bubbleHash": 0,
+      "bubbleName": "The Farm",
       "checklistHash": 1711258227,
+      "recordHash": null,
       "points": [
         {
           "x": 129,
@@ -7266,14 +7983,19 @@
       ],
       "sorts": {
         "destination": "The Farm",
+        "bubble": "The Farm",
         "place": "Earth",
+        "name": "The Farm",
         "number": 162
       },
       "extended": {}
     },
     {
       "destinationHash": 4188263703,
+      "bubbleHash": 0,
+      "bubbleName": "The Farm",
       "checklistHash": 1763506864,
+      "recordHash": null,
       "points": [
         {
           "x": 498,
@@ -7282,14 +8004,19 @@
       ],
       "sorts": {
         "destination": "The Farm",
+        "bubble": "The Farm",
         "place": "Earth",
+        "name": "The Farm",
         "number": 163
       },
       "extended": {}
     },
     {
       "destinationHash": 4188263703,
+      "bubbleHash": 0,
+      "bubbleName": "The Farm",
       "checklistHash": 3249685481,
+      "recordHash": null,
       "points": [
         {
           "x": 246,
@@ -7298,7 +8025,9 @@
       ],
       "sorts": {
         "destination": "The Farm",
+        "bubble": "The Farm",
         "place": "Earth",
+        "name": "The Farm",
         "number": 164
       },
       "extended": {}
@@ -7306,394 +8035,426 @@
   ],
   "2474271317": [
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 4195493657,
+      "recordName": "I.I: Of Tattered Blood and Broken Bone",
       "recordHash": 4212118078,
+      "sorts": {
+        "number": 1,
+        "destination": "The Moon",
+        "bubble": "Hellmouth",
+        "place": "The Moon",
+        "name": "Hellmouth"
+      },
+      "extended": {},
       "points": [
         {
           "x": -197,
           "y": 89
         }
       ],
+      "destinationHash": 290444260,
+      "bubbleHash": 4195493657,
+      "bubbleName": false
+    },
+    {
+      "recordName": "I.II: Of Tattered Blood and Broken Bone",
+      "recordHash": 4212118079,
       "sorts": {
+        "number": 2,
         "destination": "The Moon",
         "bubble": "Hellmouth",
         "place": "The Moon",
-        "name": "I.I: Of Tattered Blood and Broken Bone",
-        "number": 1
+        "name": "Hellmouth"
       },
-      "extended": {}
-    },
-    {
-      "destinationHash": 290444260,
-      "bubbleHash": 4195493657,
-      "recordHash": 4212118079,
+      "extended": {},
       "points": [
         {
           "x": 1,
           "y": -14
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "I.II: Of Tattered Blood and Broken Bone",
-        "number": 2
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 4195493657,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 3326367698,
+      "recordName": "I.III: Of Tattered Blood and Broken Bone",
       "recordHash": 4212118076,
+      "sorts": {
+        "number": 3,
+        "destination": "The Moon",
+        "bubble": "Archer's Line",
+        "place": "The Moon",
+        "name": "Archer's Line"
+      },
+      "extended": {},
       "points": [
         {
           "x": -479,
           "y": -301
         }
       ],
+      "destinationHash": 290444260,
+      "bubbleHash": 3326367698,
+      "bubbleName": false
+    },
+    {
+      "recordName": "I.IV: Of Tattered Blood and Broken Bone",
+      "recordHash": 4212118077,
       "sorts": {
+        "number": 4,
         "destination": "The Moon",
         "bubble": "Archer's Line",
         "place": "The Moon",
-        "name": "I.III: Of Tattered Blood and Broken Bone",
-        "number": 3
+        "name": "Archer's Line"
       },
-      "extended": {}
-    },
-    {
-      "destinationHash": 290444260,
-      "bubbleHash": 3326367698,
-      "recordHash": 4212118077,
+      "extended": {},
       "points": [
         {
           "x": -591,
           "y": -364
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "I.IV: Of Tattered Blood and Broken Bone",
-        "number": 4
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 3326367698,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 4025450777,
+      "recordName": "II: An Audience with Slaughter",
       "recordHash": 4212118074,
+      "sorts": {
+        "number": 5,
+        "destination": "The Moon",
+        "bubble": "Anchor of Light",
+        "place": "The Moon",
+        "name": "Anchor of Light"
+      },
+      "extended": {},
       "points": [
         {
           "x": -96,
           "y": -464
         }
       ],
+      "destinationHash": 290444260,
+      "bubbleHash": 4025450777,
+      "bubbleName": false
+    },
+    {
+      "recordName": "III: Ritualistic Circle Pit",
+      "recordHash": 4212118075,
       "sorts": {
+        "number": 6,
         "destination": "The Moon",
         "bubble": "Anchor of Light",
         "place": "The Moon",
-        "name": "II: An Audience with Slaughter",
-        "number": 5
+        "name": "Anchor of Light"
       },
-      "extended": {}
-    },
-    {
-      "destinationHash": 290444260,
-      "bubbleHash": 4025450777,
-      "recordHash": 4212118075,
+      "extended": {},
       "points": [
         {
           "x": -189,
           "y": -384
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "III: Ritualistic Circle Pit",
-        "number": 6
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 4025450777,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 417490937,
+      "recordName": "IV: Blood Sport",
       "recordHash": 4212118072,
+      "sorts": {
+        "number": 7,
+        "destination": "The Moon",
+        "bubble": "Sorrow's Harbor",
+        "place": "The Moon",
+        "name": "Sorrow's Harbor"
+      },
+      "extended": {},
       "points": [
         {
           "x": 451,
           "y": 110
         }
       ],
+      "destinationHash": 290444260,
+      "bubbleHash": 417490937,
+      "bubbleName": false
+    },
+    {
+      "recordName": "V: A Sinister Plot",
+      "recordHash": 4212118073,
       "sorts": {
+        "number": 8,
         "destination": "The Moon",
         "bubble": "Sorrow's Harbor",
         "place": "The Moon",
-        "name": "IV: Blood Sport",
-        "number": 7
+        "name": "Sorrow's Harbor"
       },
-      "extended": {}
-    },
-    {
-      "destinationHash": 290444260,
-      "bubbleHash": 417490937,
-      "recordHash": 4212118073,
+      "extended": {},
       "points": [
         {
           "x": 155,
           "y": 358
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "V: A Sinister Plot",
-        "number": 8
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 417490937,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 877913945,
+      "recordName": "VI: Blood Sport",
       "recordHash": 4212118070,
+      "sorts": {
+        "number": 9,
+        "destination": "The Moon",
+        "bubble": "Temple of Crota",
+        "place": "The Moon",
+        "name": "Temple of Crota"
+      },
+      "extended": {},
       "points": [
         {
           "x": 139,
           "y": -207
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Temple of Crota",
-        "place": "The Moon",
-        "name": "VI: Blood Sport",
-        "number": 9
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 877913945,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 286194652,
+      "recordName": "VII: The Severed and the Unmade",
       "recordHash": 4212118071,
+      "sorts": {
+        "number": 10,
+        "destination": "The Moon",
+        "bubble": "Circle of Bones",
+        "place": "The Moon",
+        "name": "Circle of Bones"
+      },
+      "extended": {},
       "points": [
         {
           "x": -198,
           "y": -116
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Circle of Bones",
-        "place": "The Moon",
-        "name": "VII: The Severed and the Unmade",
-        "number": 10
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 286194652,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1973847113,
+      "recordName": "VIII: A Sacrifice of Self",
       "recordHash": 2028468509,
+      "sorts": {
+        "number": 11,
+        "destination": "The Moon",
+        "bubble": "Chamber of Night",
+        "place": "The Moon",
+        "name": "Chamber of Night"
+      },
+      "extended": {},
       "points": [
         {
           "x": -303,
           "y": -713
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Chamber of Night",
-        "place": "The Moon",
-        "name": "VIII: A Sacrifice of Self",
-        "number": 11
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1973847113,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1008270286,
+      "recordName": "IX.I: The Unmaking",
       "recordHash": 2028468508,
+      "sorts": {
+        "number": 12,
+        "destination": "The Moon",
+        "bubble": "The World's Grave",
+        "place": "The Moon",
+        "name": "The World's Grave"
+      },
+      "extended": {},
       "points": [
         {
           "x": 85,
           "y": -90
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The World's Grave",
-        "place": "The Moon",
-        "name": "IX.I: The Unmaking",
-        "number": 12
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1008270286,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1149128373,
+      "recordName": "IX.II: The Unmaking",
       "recordHash": 2028468511,
+      "sorts": {
+        "number": 13,
+        "destination": "The Moon",
+        "bubble": "The Gatehouse",
+        "place": "The Moon",
+        "name": "The Gatehouse"
+      },
+      "extended": {},
       "points": [
         {
           "x": -185,
           "y": -176
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Gatehouse",
-        "place": "The Moon",
-        "name": "IX.II: The Unmaking",
-        "number": 13
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1149128373,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1835313730,
+      "recordName": "X: Faith in Bone",
       "recordHash": 2028468510,
+      "sorts": {
+        "number": 14,
+        "destination": "The Moon",
+        "bubble": "Lunar Battlegrounds",
+        "place": "The Moon",
+        "name": "Lunar Battlegrounds"
+      },
+      "extended": {},
       "points": [
         {
           "x": 325,
           "y": -259
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Lunar Battlegrounds",
-        "place": "The Moon",
-        "name": "X: Faith in Bone",
-        "number": 14
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1835313730,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 240420607,
+      "recordName": "XI: The Anti-Logic",
       "recordHash": 2028468505,
+      "sorts": {
+        "number": 15,
+        "destination": "The Moon",
+        "place": "The Moon",
+        "bubble": "Sanctuary",
+        "name": "Sanctuary"
+      },
+      "extended": {},
       "points": [
         {
           "x": -279,
           "y": -780
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sanctuary",
-        "place": "The Moon",
-        "name": "XI: The Anti-Logic",
-        "number": 15
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 240420607,
+      "bubbleName": false
     },
     {
-      "destinationHash": 290444260,
+      "recordName": "VIII.X: Apocrypha",
       "recordHash": 2028468504,
-      "activityHash": 1375089621,
+      "sorts": {
+        "number": 16,
+        "destination": "The Moon",
+        "place": "The Moon"
+      },
+      "extended": {
+        "located": "activity"
+      },
       "points": [
         {
           "x": 1041,
           "y": 401
         }
       ],
+      "destinationHash": 290444260,
+      "activityHash": 1375089621
+    },
+    {
+      "recordName": "IX.X: Apocrypha",
+      "recordHash": 2028468507,
       "sorts": {
+        "number": 17,
         "destination": "The Moon",
-        "place": "The Moon",
-        "name": "VIII.X: Apocrypha",
-        "number": 16
+        "place": "The Moon"
       },
       "extended": {
         "located": "activity"
-      }
-    },
-    {
-      "destinationHash": 290444260,
-      "recordHash": 2028468507,
-      "activityHash": 1375089621,
+      },
       "points": [
         {
           "x": 645,
           "y": 496
         }
       ],
+      "destinationHash": 290444260,
+      "activityHash": 1375089621
+    },
+    {
+      "recordName": "IX.X.I: Apocrypha",
+      "recordHash": 2028468506,
       "sorts": {
+        "number": 18,
         "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X: Apocrypha",
-        "number": 17
+        "place": "The Moon"
       },
       "extended": {
         "located": "activity"
-      }
-    },
-    {
-      "destinationHash": 290444260,
-      "recordHash": 2028468506,
-      "activityHash": 1375089621,
+      },
       "points": [
         {
           "x": 228,
           "y": 511
         }
       ],
+      "destinationHash": 290444260,
+      "activityHash": 1375089621
+    },
+    {
+      "recordName": "IX.X.II: Apocrypha",
+      "recordHash": 2028468501,
       "sorts": {
+        "number": 19,
         "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X.I: Apocrypha",
-        "number": 18
+        "place": "The Moon"
       },
       "extended": {
         "located": "activity"
-      }
-    },
-    {
-      "destinationHash": 290444260,
-      "recordHash": 2028468501,
-      "activityHash": 1375089621,
+      },
       "points": [
         {
           "x": 477,
           "y": 333
         }
       ],
+      "destinationHash": 290444260,
+      "activityHash": 1375089621
+    },
+    {
+      "recordName": "XI.X: Apocrypha",
+      "recordHash": 2028468500,
       "sorts": {
+        "number": 20,
         "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X.II: Apocrypha",
-        "number": 19
+        "place": "The Moon"
       },
       "extended": {
         "located": "activity"
-      }
-    },
-    {
-      "destinationHash": 290444260,
-      "recordHash": 2028468500,
-      "activityHash": 1375089621,
+      },
       "points": [
         {
           "x": 297,
           "y": 332
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "XI.X: Apocrypha",
-        "number": 20
-      },
-      "extended": {
-        "located": "activity"
-      }
+      "destinationHash": 290444260,
+      "activityHash": 1375089621
     }
   ],
   "2609997025": [
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252171,
       "recordHash": 3024450468,
       "points": [
@@ -7702,8 +8463,10 @@
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 1
@@ -7712,6 +8475,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252168,
       "recordHash": 3024450468,
       "points": [
@@ -7720,8 +8485,10 @@
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 2
@@ -7730,6 +8497,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252169,
       "recordHash": 3024450468,
       "points": [
@@ -7738,8 +8507,10 @@
           "y": 765
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 3
@@ -7748,6 +8519,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252174,
       "recordHash": 3024450468,
       "points": [
@@ -7756,8 +8529,10 @@
           "y": 763
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 4
@@ -7766,6 +8541,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252175,
       "recordHash": 3024450468,
       "points": [
@@ -7774,8 +8551,10 @@
           "y": 764
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 5
@@ -7784,6 +8563,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252172,
       "recordHash": 3024450468,
       "points": [
@@ -7792,8 +8573,10 @@
           "y": 765
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 6
@@ -7802,6 +8585,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252173,
       "recordHash": 3024450468,
       "points": [
@@ -7810,8 +8595,10 @@
           "y": 766
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 7
@@ -7820,6 +8607,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252162,
       "recordHash": 3024450468,
       "points": [
@@ -7828,8 +8617,10 @@
           "y": 767
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 8
@@ -7838,6 +8629,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "The Shattered Throne",
       "checklistHash": 1101252163,
       "recordHash": 3024450468,
       "points": [
@@ -7846,8 +8639,10 @@
           "y": 767
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 9
@@ -7857,6 +8652,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2856378140,
+      "bubbleName": false,
       "checklistHash": 1118029885,
       "recordHash": 3024450464,
       "points": [
@@ -7865,6 +8661,7 @@
           "y": 91
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Tower of Opened Eyes",
@@ -7877,6 +8674,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3202673012,
+      "bubbleName": false,
       "checklistHash": 1118029884,
       "recordHash": 3024450464,
       "points": [
@@ -7897,6 +8695,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2000651678,
+      "bubbleName": false,
       "checklistHash": 1118029887,
       "recordHash": 3024450464,
       "points": [
@@ -7905,6 +8704,7 @@
           "y": 19
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Keep of Voices",
@@ -7917,6 +8717,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2000651678,
+      "bubbleName": false,
       "checklistHash": 1118029886,
       "recordHash": 3024450464,
       "points": [
@@ -7925,6 +8726,7 @@
           "y": -17
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Keep of Voices",
@@ -7937,6 +8739,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3118644576,
+      "bubbleName": false,
       "checklistHash": 1118029881,
       "recordHash": 3024450464,
       "points": [
@@ -7945,6 +8748,7 @@
           "y": -55
         }
       ],
+      "invisible": true,
       "sorts": {
         "destination": "The Dreaming City",
         "bubble": "Hall of Two Souls",
@@ -7957,6 +8761,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1585801249,
+      "bubbleName": false,
       "checklistHash": 1118029880,
       "recordHash": 2974117604,
       "points": [
@@ -7977,6 +8782,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1585801249,
+      "bubbleName": false,
       "checklistHash": 1118029883,
       "recordHash": 2974117604,
       "points": [
@@ -7997,6 +8803,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
       "checklistHash": 1118029882,
       "recordHash": 2974117605,
       "points": [
@@ -8017,6 +8824,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
       "checklistHash": 1118029877,
       "recordHash": 2974117605,
       "points": [
@@ -8037,6 +8845,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
       "checklistHash": 1118029876,
       "recordHash": 2974117605,
       "points": [
@@ -8057,6 +8866,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 278887670,
+      "bubbleName": false,
       "checklistHash": 1067696996,
       "recordHash": 2974117611,
       "points": [
@@ -8077,6 +8887,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 278887670,
+      "bubbleName": false,
       "checklistHash": 1067696997,
       "recordHash": 2974117611,
       "points": [
@@ -8097,6 +8908,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 1067696998,
       "recordHash": 2974117611,
       "points": [
@@ -8117,6 +8929,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1067696999,
       "recordHash": 3024450469,
       "points": [
@@ -8137,6 +8950,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1067696992,
       "recordHash": 3024450469,
       "points": [
@@ -8157,6 +8971,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1067696993,
       "recordHash": 3024450469,
       "points": [
@@ -8176,6 +8991,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Cimmerian Garrison",
       "checklistHash": 1067696994,
       "recordHash": 3024450471,
       "points": [
@@ -8186,6 +9003,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Cimmerian Garrison",
         "place": "The Dreaming City",
         "name": "Nigh I",
         "number": 26
@@ -8194,6 +9012,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Cimmerian Garrison",
       "checklistHash": 1067696995,
       "recordHash": 3024450471,
       "points": [
@@ -8204,6 +9024,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Cimmerian Garrison",
         "place": "The Dreaming City",
         "name": "Nigh I",
         "number": 27
@@ -8212,6 +9033,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Cimmerian Garrison",
       "checklistHash": 1067697004,
       "recordHash": 3024450471,
       "points": [
@@ -8222,6 +9045,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Cimmerian Garrison",
         "place": "The Dreaming City",
         "name": "Nigh I",
         "number": 28
@@ -8230,6 +9054,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Shattered Ruins",
       "checklistHash": 1067697005,
       "recordHash": 3024450469,
       "points": [
@@ -8240,6 +9066,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Shattered Ruins",
         "place": "The Dreaming City",
         "name": "Imponent V",
         "number": 29
@@ -8248,6 +9075,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Shattered Ruins",
       "checklistHash": 1084474583,
       "recordHash": 3024450469,
       "points": [
@@ -8258,6 +9087,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Shattered Ruins",
         "place": "The Dreaming City",
         "name": "Imponent V",
         "number": 30
@@ -8266,6 +9096,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Agonarch Abyss",
       "checklistHash": 1084474582,
       "recordHash": 3024450465,
       "points": [
@@ -8276,6 +9108,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Agonarch Abyss",
         "place": "The Dreaming City",
         "name": "Palingenesis I",
         "number": 31
@@ -8284,6 +9117,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Agonarch Abyss",
       "checklistHash": 1084474581,
       "recordHash": 3024450465,
       "points": [
@@ -8294,6 +9129,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Agonarch Abyss",
         "place": "The Dreaming City",
         "name": "Palingenesis I",
         "number": 32
@@ -8302,6 +9138,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Agonarch Abyss",
       "checklistHash": 1084474580,
       "recordHash": 3024450465,
       "points": [
@@ -8312,6 +9150,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Agonarch Abyss",
         "place": "The Dreaming City",
         "name": "Palingenesis I",
         "number": 33
@@ -8320,6 +9159,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Keep of Honed Edges",
       "checklistHash": 1084474579,
       "recordHash": 2974117605,
       "points": [
@@ -8330,6 +9171,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Keep of Honed Edges",
         "place": "The Dreaming City",
         "name": "Imponent IV",
         "number": 34
@@ -8338,6 +9180,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Keep of Honed Edges",
       "checklistHash": 1084474578,
       "recordHash": 2974117605,
       "points": [
@@ -8348,6 +9192,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Keep of Honed Edges",
         "place": "The Dreaming City",
         "name": "Imponent IV",
         "number": 35
@@ -8356,6 +9201,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Ouroborea",
       "checklistHash": 1084474577,
       "recordHash": 3024450470,
       "points": [
@@ -8366,6 +9213,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Ouroborea",
         "place": "The Dreaming City",
         "name": "Nigh II",
         "number": 36
@@ -8374,6 +9222,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Ouroborea",
       "checklistHash": 1084474576,
       "recordHash": 3024450470,
       "points": [
@@ -8384,6 +9234,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Ouroborea",
         "place": "The Dreaming City",
         "name": "Nigh II",
         "number": 37
@@ -8392,6 +9243,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Ouroborea",
       "checklistHash": 1084474591,
       "recordHash": 3024450470,
       "points": [
@@ -8402,6 +9255,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Ouroborea",
         "place": "The Dreaming City",
         "name": "Nigh II",
         "number": 38
@@ -8410,6 +9264,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Forfeit Shrine",
       "checklistHash": 1084474590,
       "recordHash": 2974117611,
       "points": [
@@ -8420,6 +9276,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Forfeit Shrine",
         "place": "The Dreaming City",
         "name": "Imponent II",
         "number": 39
@@ -8428,6 +9285,8 @@
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 0,
+      "bubbleName": "Forfeit Shrine",
       "checklistHash": 1034141726,
       "recordHash": 2974117611,
       "points": [
@@ -8438,6 +9297,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Forfeit Shrine",
         "place": "The Dreaming City",
         "name": "Imponent II",
         "number": 40
@@ -8449,6 +9309,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
       "checklistHash": 2576690974,
       "recordHash": 473797693,
       "points": [
@@ -8469,6 +9330,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 278887670,
+      "bubbleName": false,
       "checklistHash": 2420371297,
       "recordHash": 473797693,
       "points": [
@@ -8489,6 +9351,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 2253687296,
       "recordHash": 473797693,
       "points": [
@@ -8509,6 +9372,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
       "checklistHash": 1159650715,
       "recordHash": 473797693,
       "points": [
@@ -8529,6 +9393,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 2853314242,
       "recordHash": 473797693,
       "points": [
@@ -8549,6 +9414,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
       "checklistHash": 56362725,
       "recordHash": 473797693,
       "points": [
@@ -8569,6 +9435,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
       "checklistHash": 4262976548,
       "recordHash": 473797693,
       "points": [
@@ -8589,6 +9456,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
       "checklistHash": 3629051903,
       "recordHash": 473797693,
       "points": [
@@ -8609,6 +9477,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
       "checklistHash": 3255812950,
       "recordHash": 473797693,
       "points": [
@@ -8631,7 +9500,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 2396353243,
+      "recordHash": null,
       "points": [
         {
           "x": 250,
@@ -8650,7 +9521,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 1940327752,
+      "recordHash": null,
       "points": [
         {
           "x": 116,
@@ -8669,7 +9542,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 2195137425,
+      "recordHash": null,
       "points": [
         {
           "x": 217,
@@ -8688,7 +9563,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 1587021054,
+      "recordHash": null,
       "points": [
         {
           "x": 136,
@@ -8707,7 +9584,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 3129904887,
+      "recordHash": null,
       "points": [
         {
           "x": 220,
@@ -8726,7 +9605,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 4157946388,
+      "recordHash": null,
       "points": [
         {
           "x": 8,
@@ -8745,7 +9626,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 694083773,
+      "recordHash": null,
       "points": [
         {
           "x": 96,
@@ -8764,7 +9647,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 469307546,
+      "recordHash": null,
       "points": [
         {
           "x": -21,
@@ -8783,7 +9668,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158407403,
+      "bubbleName": false,
       "checklistHash": 1544879171,
+      "recordHash": null,
       "points": [
         {
           "x": -50,
@@ -8804,7 +9691,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158407403,
+      "bubbleName": false,
       "checklistHash": 1647038864,
+      "recordHash": null,
       "points": [
         {
           "x": -152,
@@ -8825,7 +9714,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 1426667374,
+      "recordHash": null,
       "points": [
         {
           "x": 128,
@@ -8844,7 +9735,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 2646836353,
+      "recordHash": null,
       "points": [
         {
           "x": 157,
@@ -8863,7 +9756,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 2665635000,
+      "recordHash": null,
       "points": [
         {
           "x": 174,
@@ -8882,7 +9777,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 230993931,
+      "recordHash": null,
       "points": [
         {
           "x": 13,
@@ -8901,7 +9798,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3336709962,
+      "recordHash": null,
       "points": [
         {
           "x": 40,
@@ -8920,7 +9819,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 225769517,
+      "recordHash": null,
       "points": [
         {
           "x": 195,
@@ -8939,7 +9840,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 4073240388,
+      "recordHash": null,
       "points": [
         {
           "x": 22,
@@ -8958,7 +9861,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 2250860135,
+      "recordHash": null,
       "points": [
         {
           "x": -5,
@@ -8977,7 +9882,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 540619062,
+      "recordHash": null,
       "points": [
         {
           "x": 61,
@@ -8996,7 +9903,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 4136367049,
+      "recordHash": null,
       "points": [
         {
           "x": 25,
@@ -9015,7 +9924,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3638799958,
+      "bubbleName": false,
       "checklistHash": 2349056649,
+      "recordHash": null,
       "points": [
         {
           "x": 18,
@@ -9034,7 +9945,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 2025841142,
+      "recordHash": null,
       "points": [
         {
           "x": 88,
@@ -9053,7 +9966,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 1097686451,
+      "recordHash": null,
       "points": [
         {
           "x": 59,
@@ -9072,7 +9987,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3638799958,
+      "bubbleName": false,
       "checklistHash": 3533574080,
+      "recordHash": null,
       "points": [
         {
           "x": -13,
@@ -9091,7 +10008,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3605407829,
+      "recordHash": null,
       "points": [
         {
           "x": 65,
@@ -9110,7 +10029,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 1494352690,
+      "recordHash": null,
       "points": [
         {
           "x": -45,
@@ -9129,7 +10050,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 1379369263,
+      "recordHash": null,
       "points": [
         {
           "x": -23,
@@ -9148,7 +10071,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 2564969772,
+      "recordHash": null,
       "points": [
         {
           "x": -178,
@@ -9167,7 +10092,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158822960,
+      "bubbleName": false,
       "checklistHash": 2233867329,
+      "recordHash": null,
       "points": [
         {
           "x": 220,
@@ -9188,7 +10115,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 3934324270,
+      "recordHash": null,
       "points": [
         {
           "x": -467,
@@ -9207,7 +10136,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 1645477936,
+      "recordHash": null,
       "points": [
         {
           "x": -468,
@@ -9226,7 +10157,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 1473251939,
+      "recordHash": null,
       "points": [
         {
           "x": -407,
@@ -9245,7 +10178,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 249065638,
+      "recordHash": null,
       "points": [
         {
           "x": -500,
@@ -9264,7 +10199,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 2847032313,
+      "recordHash": null,
       "points": [
         {
           "x": -361,
@@ -9283,7 +10220,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 3820608348,
+      "recordHash": null,
       "points": [
         {
           "x": -513,
@@ -9302,7 +10241,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 4186273247,
+      "recordHash": null,
       "points": [
         {
           "x": -422,
@@ -9321,7 +10262,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 1326643362,
+      "recordHash": null,
       "points": [
         {
           "x": -439,
@@ -9340,7 +10283,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 833227926,
+      "bubbleName": false,
       "checklistHash": 4203150661,
+      "recordHash": null,
       "points": [
         {
           "x": -233,
@@ -9359,7 +10304,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1254321814,
+      "bubbleName": false,
       "checklistHash": 3311015016,
+      "recordHash": null,
       "points": [
         {
           "x": -305,
@@ -9378,7 +10325,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "checklistHash": 3767040507,
+      "recordHash": null,
       "points": [
         {
           "x": 173,
@@ -9397,7 +10346,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 4204472107,
+      "bubbleName": false,
       "checklistHash": 1502183275,
+      "recordHash": null,
       "points": [
         {
           "x": -225,
@@ -9416,7 +10367,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 4090043800,
+      "recordHash": null,
       "points": [
         {
           "x": 48,
@@ -9435,7 +10388,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 24063045,
+      "bubbleName": false,
       "checklistHash": 1420566113,
+      "recordHash": null,
       "points": [
         {
           "x": 1,
@@ -9454,7 +10409,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "checklistHash": 200500046,
+      "recordHash": null,
       "points": [
         {
           "x": -20,
@@ -9473,7 +10430,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158822960,
+      "bubbleName": false,
       "checklistHash": 1359222727,
+      "recordHash": null,
       "points": [
         {
           "x": 237,
@@ -9496,6 +10455,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 4012600681,
+      "bubbleName": false,
       "checklistHash": 4137615299,
       "recordHash": 1277163032,
       "points": [
@@ -9516,6 +10476,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 4012600682,
+      "bubbleName": false,
       "checklistHash": 2270999908,
       "recordHash": 1277163032,
       "points": [
@@ -9536,6 +10497,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2815380496,
+      "bubbleName": false,
       "checklistHash": 3883378312,
       "recordHash": 1277163032,
       "points": [
@@ -9556,7 +10518,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328792,
+      "bubbleName": false,
       "checklistHash": 2777193860,
+      "recordHash": null,
       "points": [
         {
           "x": -121.78,
@@ -9575,7 +10539,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328795,
+      "bubbleName": false,
       "checklistHash": 3240560483,
+      "recordHash": null,
       "points": [
         {
           "x": 67.88,
@@ -9594,7 +10560,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328794,
+      "bubbleName": false,
       "checklistHash": 3402131234,
+      "recordHash": null,
       "points": [
         {
           "x": 194.32,
@@ -9613,7 +10581,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1943701544,
+      "bubbleName": false,
       "checklistHash": 815928620,
+      "recordHash": null,
       "points": [
         {
           "x": -505.46,
@@ -9632,7 +10602,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 698761453,
+      "bubbleName": false,
       "checklistHash": 4091723403,
+      "recordHash": null,
       "points": [
         {
           "x": -866.25,
@@ -9651,7 +10623,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 698761454,
+      "bubbleName": false,
       "checklistHash": 2554253964,
+      "recordHash": null,
       "points": [
         {
           "x": -598.11,
@@ -9670,7 +10644,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 698761455,
+      "bubbleName": false,
       "checklistHash": 3850160541,
+      "recordHash": null,
       "points": [
         {
           "x": -555.6,
@@ -9689,7 +10665,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 486266603,
+      "bubbleName": false,
       "checklistHash": 1850051473,
+      "recordHash": null,
       "points": [
         {
           "x": -261.3,
@@ -9708,7 +10686,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2917555721,
+      "bubbleName": false,
       "checklistHash": 1505712119,
+      "recordHash": null,
       "points": [
         {
           "x": -977.43,
@@ -9727,7 +10707,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2917555722,
+      "bubbleName": false,
       "checklistHash": 245987256,
+      "recordHash": null,
       "points": [
         {
           "x": -698.39,
@@ -9746,7 +10728,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3221637869,
+      "bubbleName": false,
       "checklistHash": 526088259,
+      "recordHash": null,
       "points": [
         {
           "x": 387.25,
@@ -9765,7 +10749,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3221637870,
+      "bubbleName": false,
       "checklistHash": 2954440164,
+      "recordHash": null,
       "points": [
         {
           "x": 415.59,
@@ -9784,7 +10770,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3221637871,
+      "bubbleName": false,
       "checklistHash": 1306638037,
+      "recordHash": null,
       "points": [
         {
           "x": 318.58,
@@ -9803,7 +10791,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 656412907,
+      "bubbleName": false,
       "checklistHash": 874424041,
+      "recordHash": null,
       "points": [
         {
           "x": 108.21,
@@ -9822,7 +10812,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 656412904,
+      "bubbleName": false,
       "checklistHash": 3010602390,
+      "recordHash": null,
       "points": [
         {
           "x": 16.65,
@@ -9841,7 +10833,9 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 656412905,
+      "bubbleName": false,
       "checklistHash": 2508300599,
+      "recordHash": null,
       "points": [
         {
           "x": 288.06,
@@ -9860,7 +10854,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 3286847986,
+      "bubbleName": false,
       "checklistHash": 1719798656,
+      "recordHash": null,
       "points": [
         {
           "x": -196.72,
@@ -9879,7 +10875,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 964095576,
+      "bubbleName": false,
       "checklistHash": 3267113018,
+      "recordHash": null,
       "points": [
         {
           "x": 60.68,
@@ -9898,7 +10896,9 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 964095579,
+      "bubbleName": false,
       "checklistHash": 3359286509,
+      "recordHash": null,
       "points": [
         {
           "x": 79.16,
@@ -9917,7 +10917,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2670041043,
+      "bubbleName": false,
       "checklistHash": 2485656913,
+      "recordHash": null,
       "points": [
         {
           "x": 995,
@@ -9936,7 +10938,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4135982017,
+      "bubbleName": false,
       "checklistHash": 2248063191,
+      "recordHash": null,
       "points": [
         {
           "x": -123,
@@ -9955,7 +10959,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1266022411,
+      "bubbleName": false,
       "checklistHash": 2069372641,
+      "recordHash": null,
       "points": [
         {
           "x": 574,
@@ -9974,7 +10980,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3740799821,
+      "bubbleName": false,
       "checklistHash": 2806770339,
+      "recordHash": null,
       "points": [
         {
           "x": 836,
@@ -9993,7 +11001,9 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 597444871,
+      "bubbleName": false,
       "checklistHash": 925785517,
+      "recordHash": null,
       "points": [
         {
           "x": -30,
@@ -10012,7 +11022,9 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 1018391425,
+      "bubbleName": false,
       "checklistHash": 3107552723,
+      "recordHash": null,
       "points": [
         {
           "x": 162.1,
@@ -10031,7 +11043,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158407403,
+      "bubbleName": false,
       "checklistHash": 3205937151,
+      "recordHash": null,
       "points": [
         {
           "x": -47,
@@ -10050,7 +11064,9 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158822960,
+      "bubbleName": false,
       "checklistHash": 2025886454,
+      "recordHash": null,
       "points": [
         {
           "x": 194,
@@ -10069,6 +11085,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 628920395,
+      "bubbleName": false,
       "checklistHash": 592877507,
       "recordHash": 3308633273,
       "points": [
@@ -10089,6 +11106,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2299503584,
+      "bubbleName": false,
       "checklistHash": 4232901662,
       "recordHash": 3517489196,
       "points": [
@@ -10109,6 +11127,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2403500745,
+      "bubbleName": false,
       "checklistHash": 1616620401,
       "recordHash": 1391735969,
       "points": [
@@ -10129,6 +11148,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1090543652,
+      "bubbleName": false,
       "checklistHash": 2693451640,
       "recordHash": 641038864,
       "points": [
@@ -10149,6 +11169,7 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 699959402,
+      "bubbleName": false,
       "checklistHash": 1134123378,
       "recordHash": 376008854,
       "points": [
@@ -10169,6 +11190,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 735161098,
+      "bubbleName": false,
       "checklistHash": 3360907267,
       "recordHash": 4143851405,
       "points": [
@@ -10189,6 +11211,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 544256237,
+      "bubbleName": false,
       "checklistHash": 486022069,
       "recordHash": 2574072230,
       "points": [
@@ -10209,6 +11232,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3366050756,
+      "bubbleName": false,
       "checklistHash": 97924869,
       "recordHash": 1641495327,
       "points": [
@@ -10229,6 +11253,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 3107092550,
+      "bubbleName": false,
       "checklistHash": 1949102307,
       "points": [
         {
@@ -10248,6 +11273,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 848710979,
+      "bubbleName": false,
       "checklistHash": 4102839450,
       "points": [
         {
@@ -10267,6 +11293,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 730551779,
+      "bubbleName": false,
       "checklistHash": 3978091702,
       "points": [
         {
@@ -10286,6 +11313,7 @@
     {
       "destinationHash": 290444260,
       "bubbleHash": 2367480803,
+      "bubbleName": false,
       "checklistHash": 2955806106,
       "points": [
         {
@@ -10307,6 +11335,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 278887670,
+      "bubbleName": false,
+      "recordName": "Revanche II",
       "recordHash": 276019960,
       "points": [
         {
@@ -10318,7 +11348,7 @@
         "destination": "The Dreaming City",
         "bubble": "Gardens of Esila",
         "place": "The Dreaming City",
-        "name": "Revanche II",
+        "name": "Gardens of Esila",
         "number": 1
       },
       "extended": {}
@@ -10326,6 +11356,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3522109173,
+      "bubbleName": false,
+      "recordName": "Revanche III",
       "recordHash": 276019963,
       "points": [
         {
@@ -10337,7 +11369,7 @@
         "destination": "The Dreaming City",
         "bubble": "The Strand",
         "place": "The Dreaming City",
-        "name": "Revanche III",
+        "name": "The Strand",
         "number": 2
       },
       "extended": {}
@@ -10345,6 +11377,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
+      "recordName": "Revanche IV",
       "recordHash": 276019962,
       "points": [
         {
@@ -10356,7 +11390,7 @@
         "destination": "The Dreaming City",
         "bubble": "Rheasilvia",
         "place": "The Dreaming City",
-        "name": "Revanche IV",
+        "name": "Rheasilvia",
         "number": 3
       },
       "extended": {}
@@ -10364,6 +11398,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2762866308,
+      "bubbleName": false,
+      "recordName": "Revanche V",
       "recordHash": 276019965,
       "points": [
         {
@@ -10375,7 +11411,7 @@
         "destination": "The Dreaming City",
         "bubble": "Rheasilvia",
         "place": "The Dreaming City",
-        "name": "Revanche V",
+        "name": "Rheasilvia",
         "number": 4
       },
       "extended": {}
@@ -10383,6 +11419,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 4058265372,
+      "bubbleName": false,
+      "recordName": "Telic I",
       "recordHash": 276019964,
       "points": [
         {
@@ -10394,7 +11432,7 @@
         "destination": "The Dreaming City",
         "bubble": "Font of Starlight",
         "place": "The Dreaming City",
-        "name": "Telic I",
+        "name": "Font of Starlight",
         "number": 5
       },
       "extended": {}
@@ -10402,6 +11440,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
+      "recordName": "Telic II",
       "recordHash": 276019967,
       "points": [
         {
@@ -10413,7 +11453,7 @@
         "destination": "The Dreaming City",
         "bubble": "Divalian Mists",
         "place": "The Dreaming City",
-        "name": "Telic II",
+        "name": "Divalian Mists",
         "number": 6
       },
       "extended": {}
@@ -10421,6 +11461,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1091325847,
+      "bubbleName": false,
+      "recordName": "Tyrannocide I",
       "recordHash": 276019966,
       "points": [
         {
@@ -10432,7 +11474,7 @@
         "destination": "The Dreaming City",
         "bubble": "Harbinger's Seclude",
         "place": "The Dreaming City",
-        "name": "Tyrannocide I",
+        "name": "Harbinger's Seclude",
         "number": 7
       },
       "extended": {}
@@ -10440,6 +11482,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 706937272,
+      "bubbleName": false,
+      "recordName": "Tyrannocide II",
       "recordHash": 276019953,
       "points": [
         {
@@ -10451,7 +11495,7 @@
         "destination": "The Dreaming City",
         "bubble": "Divalian Mists",
         "place": "The Dreaming City",
-        "name": "Tyrannocide II",
+        "name": "Divalian Mists",
         "number": 8
       },
       "extended": {}
@@ -10459,6 +11503,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1519764506,
+      "bubbleName": "High Plains",
+      "recordName": "Tyrannocide III",
       "recordHash": 276019952,
       "points": [
         {
@@ -10468,8 +11514,9 @@
       ],
       "sorts": {
         "destination": "The Tangled Shore",
+        "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "Tyrannocide III",
+        "name": "High Plains",
         "number": 9
       },
       "extended": {}
@@ -10477,6 +11524,8 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 768261954,
+      "bubbleName": false,
+      "recordName": "Tyrannocide IV",
       "recordHash": 259242246,
       "points": [
         {
@@ -10488,7 +11537,7 @@
         "destination": "The Dreaming City",
         "bubble": "Spine of Keres",
         "place": "The Dreaming City",
-        "name": "Tyrannocide IV",
+        "name": "Spine of Keres",
         "number": 10
       },
       "extended": {}
@@ -10496,6 +11545,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 699959402,
+      "bubbleName": false,
+      "recordName": "Tyrannocide V",
       "recordHash": 259242247,
       "points": [
         {
@@ -10507,7 +11558,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Trapper's Cave",
         "place": "The Tangled Shore",
-        "name": "Tyrannocide V",
+        "name": "Trapper's Cave",
         "number": 11
       },
       "extended": {
@@ -10517,6 +11568,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2128740634,
+      "bubbleName": false,
+      "recordName": "Regent",
       "recordHash": 259242244,
       "points": [
         {
@@ -10528,7 +11581,7 @@
         "destination": "The Tangled Shore",
         "bubble": "The Boil",
         "place": "The Tangled Shore",
-        "name": "Regent",
+        "name": "The Boil",
         "number": 12
       },
       "extended": {}
@@ -10536,6 +11589,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 628920395,
+      "bubbleName": false,
+      "recordName": "Illyn",
       "recordHash": 259242245,
       "points": [
         {
@@ -10547,7 +11602,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Shipyard AWO-43",
         "place": "The Tangled Shore",
-        "name": "Illyn",
+        "name": "Shipyard AWO-43",
         "number": 13
       },
       "extended": {
@@ -10557,6 +11612,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 831797607,
+      "bubbleName": false,
+      "recordName": "Nitrogen",
       "recordHash": 259242242,
       "points": [
         {
@@ -10568,7 +11625,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Hellrise Canyon",
         "place": "The Tangled Shore",
-        "name": "Nitrogen",
+        "name": "Hellrise Canyon",
         "number": 14
       },
       "extended": {}
@@ -10576,6 +11633,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 1690293884,
+      "bubbleName": false,
+      "recordName": "Refusal",
       "recordHash": 259242243,
       "points": [
         {
@@ -10587,7 +11646,7 @@
         "destination": "The Tangled Shore",
         "bubble": "Hall of the Exalted",
         "place": "The Tangled Shore",
-        "name": "Refusal",
+        "name": "Hall of the Exalted",
         "number": 15
       },
       "extended": {}
@@ -10595,6 +11654,8 @@
     {
       "destinationHash": 359854275,
       "bubbleHash": 2067748134,
+      "bubbleName": false,
+      "recordName": "Fleet",
       "recordHash": 259242240,
       "points": [
         {
@@ -10606,7 +11667,7 @@
         "destination": "The Tangled Shore",
         "bubble": "The Cobble",
         "place": "The Tangled Shore",
-        "name": "Fleet",
+        "name": "The Cobble",
         "number": 16
       },
       "extended": {}
@@ -10614,6 +11675,8 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3077328794,
+      "bubbleName": false,
+      "recordName": "Of Earth and the Reef",
       "recordHash": 259242241,
       "points": [
         {
@@ -10625,7 +11688,7 @@
         "destination": "European Dead Zone",
         "bubble": "Scavenger's Den",
         "place": "Earth",
-        "name": "Of Earth and the Reef",
+        "name": "Scavenger's Den",
         "number": 17
       },
       "extended": {
@@ -10635,6 +11698,8 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 3327797828,
+      "bubbleName": false,
+      "recordName": "Pilgrimage",
       "recordHash": 259242254,
       "points": [
         {
@@ -10646,7 +11711,7 @@
         "destination": "New Pacific Arcology",
         "bubble": "Sinking Docks",
         "place": "Titan, Moon of Saturn",
-        "name": "Pilgrimage",
+        "name": "Sinking Docks",
         "number": 18
       },
       "extended": {}
@@ -10654,6 +11719,8 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4135982017,
+      "bubbleName": false,
+      "recordName": "Flayed",
       "recordHash": 259242255,
       "points": [
         {
@@ -10665,7 +11732,7 @@
         "destination": "Arcadian Valley",
         "bubble": "The Conflux",
         "place": "Nessus",
-        "name": "Flayed",
+        "name": "The Conflux",
         "number": 19
       },
       "extended": {
@@ -10675,6 +11742,8 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2815380496,
+      "bubbleName": false,
+      "recordName": "Gensym Scribe",
       "recordHash": 242464659,
       "points": [
         {
@@ -10686,7 +11755,7 @@
         "destination": "Echo Mesa",
         "bubble": "Grove of Ulan-Tan",
         "place": "Io",
-        "name": "Gensym Scribe",
+        "name": "Grove of Ulan-Tan",
         "number": 20
       },
       "extended": {
@@ -10696,6 +11765,8 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 1018391425,
+      "bubbleName": false,
+      "recordName": "Exegesis",
       "recordHash": 242464658,
       "points": [
         {
@@ -10707,7 +11778,7 @@
         "destination": "Mercury",
         "bubble": "Pariah's Refuge",
         "place": "Mercury",
-        "name": "Exegesis",
+        "name": "Pariah's Refuge",
         "number": 21
       },
       "extended": {
@@ -10716,7 +11787,9 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": 3522109173,
+      "bubbleHash": 0,
+      "bubbleName": "Dark Monastery",
+      "recordName": "King's Wrath",
       "recordHash": 242464657,
       "points": [
         {
@@ -10726,9 +11799,9 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Strand",
+        "bubble": "Dark Monastery",
         "place": "The Dreaming City",
-        "name": "King's Wrath",
+        "name": "Dark Monastery",
         "number": 22
       },
       "extended": {}
@@ -10736,6 +11809,8 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 158822960,
+      "bubbleName": false,
+      "recordName": "Emissary",
       "recordHash": 242464656,
       "points": [
         {
@@ -10747,7 +11822,7 @@
         "destination": "Hellas Basin",
         "bubble": "Ma'adim Subterrane",
         "place": "Mars",
-        "name": "Emissary",
+        "name": "Ma'adim Subterrane",
         "number": 23
       },
       "extended": {
@@ -10759,6 +11834,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "activityHash": 122988657,
       "checklistHash": 3365966558,
       "points": [
@@ -10779,6 +11855,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "activityHash": 1228327586,
       "checklistHash": 1236319313,
       "points": [
@@ -10799,6 +11876,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "activityHash": 3002511278,
       "checklistHash": 2829005633,
       "points": [
@@ -10819,8 +11897,10 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "activityHash": 3780356141,
       "checklistHash": 567965726,
+      "recordHash": null,
       "points": [
         {
           "x": -189.36,
@@ -10839,8 +11919,10 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 4200309587,
+      "bubbleName": false,
       "activityHash": 1829866365,
       "checklistHash": 4294254332,
+      "recordHash": null,
       "points": [
         {
           "x": 43.9,
@@ -10859,8 +11941,10 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 2212414297,
+      "bubbleName": false,
       "activityHash": 1971154629,
       "checklistHash": 1028576328,
+      "recordHash": null,
       "points": [
         {
           "x": -845.54,
@@ -10879,6 +11963,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "activityHash": 2174556965,
       "checklistHash": 362030994,
       "points": [
@@ -10899,6 +11984,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "activityHash": 3304835347,
       "checklistHash": 2910437552,
       "points": [
@@ -10919,8 +12005,10 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3861059923,
+      "bubbleName": false,
       "activityHash": 539897061,
       "checklistHash": 3935103948,
+      "recordHash": null,
       "points": [
         {
           "x": -130.5,
@@ -10939,8 +12027,10 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3340296448,
+      "bubbleName": false,
       "activityHash": 1159314159,
       "checklistHash": 1560430124,
+      "recordHash": null,
       "points": [
         {
           "x": 133.28,
@@ -10959,6 +12049,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 3091570009,
+      "bubbleName": false,
       "activityHash": 320680002,
       "checklistHash": 3256129871,
       "points": [
@@ -10979,6 +12070,7 @@
     {
       "destinationHash": 1199524104,
       "bubbleHash": 1094980045,
+      "bubbleName": false,
       "activityHash": 1254990192,
       "checklistHash": 1857289065,
       "points": [],
@@ -10994,6 +12086,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "activityHash": 3500791146,
       "checklistHash": 68735378,
       "points": [
@@ -11014,6 +12107,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "activityHash": 2949941834,
       "checklistHash": 1962795426,
       "points": [
@@ -11034,6 +12128,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 577912749,
+      "bubbleName": false,
       "activityHash": 622895925,
       "checklistHash": 1938916192,
       "points": [
@@ -11054,6 +12149,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 1161967626,
+      "bubbleName": false,
       "activityHash": 1824067376,
       "checklistHash": 3789580564,
       "points": [
@@ -11074,8 +12170,10 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 697305512,
+      "bubbleName": false,
       "activityHash": 1651979106,
       "checklistHash": 1613294042,
+      "recordHash": null,
       "points": [
         {
           "x": -282,
@@ -11094,6 +12192,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "activityHash": 1289867188,
       "checklistHash": 2192627023,
       "points": [
@@ -11114,6 +12213,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "activityHash": 2665134323,
       "checklistHash": 2453810416,
       "points": [
@@ -11134,6 +12234,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 4205285323,
+      "bubbleName": false,
       "activityHash": 1981289329,
       "checklistHash": 2731809302,
       "points": [
@@ -11154,6 +12255,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 2132187573,
+      "bubbleName": false,
       "activityHash": 1063969232,
       "checklistHash": 4184575069,
       "points": [
@@ -11174,6 +12276,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 3710329679,
+      "bubbleName": false,
       "activityHash": 359488722,
       "checklistHash": 1210828643,
       "points": [
@@ -11194,6 +12297,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 1702304883,
+      "bubbleName": false,
       "activityHash": 963938931,
       "checklistHash": 65676844,
       "points": [
@@ -11214,6 +12318,7 @@
     {
       "destinationHash": 126924919,
       "bubbleHash": 933267223,
+      "bubbleName": false,
       "activityHash": 1225970098,
       "checklistHash": 2679676863,
       "points": [
@@ -11234,6 +12339,7 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "activityHash": 3277510674,
       "checklistHash": 1705076671,
       "points": [
@@ -11254,8 +12360,10 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 1291433366,
+      "bubbleName": false,
       "activityHash": 789332628,
       "checklistHash": 107870839,
+      "recordHash": null,
       "points": [
         {
           "x": -236.32,
@@ -11274,8 +12382,10 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "activityHash": 3211568383,
       "checklistHash": 225793782,
+      "recordHash": null,
       "points": [
         {
           "x": 48.8,
@@ -11294,8 +12404,10 @@
     {
       "destinationHash": 2388758973,
       "bubbleHash": 4035573696,
+      "bubbleName": false,
       "activityHash": 3645117987,
       "checklistHash": 1297379016,
+      "recordHash": null,
       "points": [
         {
           "x": 126.68,
@@ -11314,6 +12426,7 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "activityHash": 2307090074,
       "checklistHash": 844419501,
       "itemHash": 1060902857,
@@ -11336,6 +12449,7 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "activityHash": 2067233851,
       "checklistHash": 1942564430,
       "itemHash": 3951064360,
@@ -11358,8 +12472,10 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "activityHash": 1725302079,
       "checklistHash": 2580399170,
+      "recordHash": null,
       "points": [
         {
           "x": -48.28,
@@ -11378,8 +12494,10 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "activityHash": 1279862229,
       "checklistHash": 3642813504,
+      "recordHash": null,
       "points": [
         {
           "x": 69.64,
@@ -11398,8 +12516,10 @@
     {
       "destinationHash": 1993421442,
       "bubbleHash": 2822410613,
+      "bubbleName": false,
       "activityHash": 1570598249,
       "checklistHash": 390214624,
+      "recordHash": null,
       "points": [
         {
           "x": 36.14,
@@ -11418,6 +12538,7 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "activityHash": 1294490226,
       "checklistHash": 1509536061,
       "points": [
@@ -11438,6 +12559,7 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "activityHash": 340004423,
       "checklistHash": 437556607,
       "points": [
@@ -11458,6 +12580,7 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 1461622515,
+      "bubbleName": false,
       "activityHash": 2302677459,
       "checklistHash": 361578967,
       "points": [
@@ -11478,6 +12601,7 @@
     {
       "destinationHash": 308080871,
       "bubbleHash": 3899539020,
+      "bubbleName": false,
       "activityHash": 2966841322,
       "checklistHash": 3357269531,
       "points": [
@@ -11498,205 +12622,223 @@
   ],
   "4285512244": [
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 3326367698,
+      "recordName": "Ghost Fragment: Gunnvor's Ghost",
       "recordHash": 3390078235,
-      "pursuitHash": 2313160420,
+      "sorts": {
+        "number": 1,
+        "destination": "The Moon",
+        "bubble": "Archer's Line",
+        "place": "The Moon",
+        "name": "Archer's Line"
+      },
+      "extended": {},
       "points": [
         {
           "x": -636,
           "y": -414
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Gunnvor's Ghost",
-        "number": 1
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 3326367698,
+      "bubbleName": false,
+      "pursuitHash": 2313160420
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1008270286,
+      "recordName": "Ghost Fragment: Sai Mota's Ghost",
       "recordHash": 3390078234,
-      "pursuitHash": 993395957,
+      "sorts": {
+        "number": 2,
+        "destination": "The Moon",
+        "bubble": "The World's Grave",
+        "place": "The Moon",
+        "name": "The World's Grave"
+      },
+      "extended": {},
       "points": [
         {
           "x": -79,
           "y": -176
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The World's Grave",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Sai Mota's Ghost",
-        "number": 2
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1008270286,
+      "bubbleName": false,
+      "pursuitHash": 993395957
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 2204642885,
+      "recordName": "Ghost Fragment: Gimble-4's Ghost",
       "recordHash": 3390078233,
-      "pursuitHash": 2244757358,
+      "sorts": {
+        "number": 3,
+        "destination": "The Moon",
+        "bubble": "Shrine of Oryx",
+        "place": "The Moon",
+        "name": "Shrine of Oryx"
+      },
+      "extended": {},
       "points": [
         {
           "x": -450,
           "y": 124
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Shrine of Oryx",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Gimble-4's Ghost",
-        "number": 3
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 2204642885,
+      "bubbleName": false,
+      "pursuitHash": 2244757358
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1149128373,
+      "recordName": "Ghost Fragment: Eris Morn's Ghost",
       "recordHash": 3390078232,
-      "pursuitHash": 687082423,
+      "sorts": {
+        "number": 4,
+        "destination": "The Moon",
+        "bubble": "The Gatehouse",
+        "place": "The Moon",
+        "name": "The Gatehouse"
+      },
+      "extended": {},
       "points": [
         {
           "x": -189,
           "y": -118
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Gatehouse",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Eris Morn's Ghost",
-        "number": 4
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1149128373,
+      "bubbleName": false,
+      "pursuitHash": 687082423
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 4066175629,
+      "recordName": "Ghost Fragment: Toland's Ghost",
       "recordHash": 3390078239,
-      "pursuitHash": 3799864144,
+      "sorts": {
+        "number": 5,
+        "destination": "The Moon",
+        "bubble": "The Summoning Pits",
+        "place": "The Moon",
+        "name": "The Summoning Pits"
+      },
+      "extended": {},
       "points": [
         {
           "x": -166,
           "y": 30
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Summoning Pits",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Toland's Ghost",
-        "number": 5
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 4066175629,
+      "bubbleName": false,
+      "pursuitHash": 3799864144
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 1835313730,
+      "recordName": "Ghost Fragment: Vyhar's Ghost",
       "recordHash": 3390078238,
-      "pursuitHash": 3140210033,
+      "sorts": {
+        "number": 6,
+        "destination": "The Moon",
+        "bubble": "Lunar Battlegrounds",
+        "place": "The Moon",
+        "name": "Lunar Battlegrounds"
+      },
+      "extended": {},
       "points": [
         {
           "x": 532,
           "y": -310
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Lunar Battlegrounds",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Vyhar's Ghost",
-        "number": 6
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 1835313730,
+      "bubbleName": false,
+      "pursuitHash": 3140210033
     },
     {
+      "recordName": "Ghost Fragment: Lonesome Ghost",
+      "recordHash": 3390078237,
+      "sorts": {
+        "number": 7,
+        "destination": "The Moon",
+        "bubble": "Anchor of Light",
+        "place": "The Moon",
+        "name": "Anchor of Light"
+      },
+      "extended": {},
       "destinationHash": 290444260,
       "bubbleHash": 4025450777,
-      "recordHash": 3390078237,
-      "pursuitHash": 2962817690,
+      "bubbleName": false,
       "points": [
         {
           "x": -52,
           "y": -492
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Lonesome Ghost",
-        "number": 7
-      },
-      "extended": {}
+      "pursuitHash": 2962817690
     },
     {
-      "destinationHash": 290444260,
+      "recordName": "Ghost Fragment: Omar Agah's Ghost",
       "recordHash": 3390078236,
-      "pursuitHash": 3277020515,
-      "activityHash": 1375089621,
+      "sorts": {
+        "number": 8,
+        "destination": "The Moon",
+        "place": "The Moon"
+      },
+      "extended": {
+        "located": "activity"
+      },
       "points": [
         {
           "x": 171,
           "y": 340
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Omar Agah's Ghost",
-        "number": 8
-      },
-      "extended": {
-        "located": "activity"
-      }
+      "destinationHash": 290444260,
+      "pursuitHash": 3277020515,
+      "activityHash": 1375089621
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 286194652,
+      "recordName": "Ghost Fragment: Eriana-3's Ghost",
       "recordHash": 3390078227,
-      "pursuitHash": 1343473388,
+      "sorts": {
+        "number": 9,
+        "destination": "The Moon",
+        "bubble": "Circle of Bones",
+        "place": "The Moon",
+        "name": "Circle of Bones"
+      },
+      "extended": {},
       "points": [
         {
           "x": -188,
           "y": -126
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Circle of Bones",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Eriana-3's Ghost",
-        "number": 9
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 286194652,
+      "bubbleName": false,
+      "pursuitHash": 1343473388
     },
     {
-      "destinationHash": 290444260,
-      "bubbleHash": 4195493657,
+      "recordName": "Ghost Fragment: Vell Tarlowe's Ghost",
       "recordHash": 3390078226,
-      "pursuitHash": 2743180254,
+      "sorts": {
+        "number": 10,
+        "destination": "The Moon",
+        "bubble": "Hellmouth",
+        "place": "The Moon",
+        "name": "Hellmouth"
+      },
+      "extended": {},
       "points": [
         {
           "x": -195,
           "y": 40
         }
       ],
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Vell Tarlowe's Ghost",
-        "number": 10
-      },
-      "extended": {}
+      "destinationHash": 290444260,
+      "bubbleHash": 4195493657,
+      "bubbleName": false,
+      "pursuitHash": 2743180254
     }
   ]
 }
