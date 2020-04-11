@@ -3,7 +3,7 @@ import React from 'react';
 import store from '../store';
 
 import manifest from '../utils/manifest';
-import maps from '../data/maps';
+import director from '../data/maps';
 import nodes from '../data/maps/nodes';
 import runtime from '../data/maps/runtime';
 import { Maps } from '../svg';
@@ -26,7 +26,7 @@ export function resolveDestination(value) {
     const destinationHash = milestoneFlashpointQuestItem?.destinationHash;
 
     if (destinationHash) return destinations.find((d) => d.destinationHash === destinationHash);
-    
+
     return destinations.find((d) => d.default);
   }
 }
@@ -35,29 +35,47 @@ const iconsMap = {
   portal: <Maps.Portal />,
 };
 
+function findGraph(search) {
+  const place = Object.values(director).find((place) => place.map.bubbles?.find(bubble => bubble.nodes.find(node => node[search.key] === +search.value)));
+  const bubble = place?.map.bubbles?.find(bubble => bubble.nodes.find(node => node[search.key] === +search.value));
+  const node = bubble?.nodes.find(node => node[search.key] === +search.value);
+
+  if (place) {
+    return {
+      destinationHash: place.destination.hash,
+      bubbleHash: bubble.hash,
+      node
+    }
+  }
+
+  return undefined;
+}
+
 export function cartographer(search, member) {
   const definitionMaps = manifest.BraytechMapsDefinition[search.value];
-  const node = nodes.find((node) => node[search.key] && node[search.key] === +search.value);
-  const dynamic = runtime(member, true).find((node) => node.availability.now && node[search.key] && node[search.key] === search.value);
+  const graph = findGraph(search);
+  const filteredNodes = nodes.filter((node) => node[search.key] === +search.value);
+  const dynamic = runtime(member, true).find((node) => node.availability.now && node[search.key] === search.value);
 
-  if (!definitionMaps && !node && !dynamic) {
+  if (!definitionMaps && !filteredNodes && !dynamic) {
     return false;
   }
 
-  const icon = dynamic?.icon || node?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
+  const icon = dynamic?.icon || filteredNodes?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
   return {
     ...(definitionMaps || {}),
-    ...(node || {}),
     ...(dynamic || {}),
+    graph,
+    nodes: filteredNodes,
     icon,
   };
 }
 
 export function getMapCenter(id) {
-  if (!maps[id]) return [0, 0];
+  if (!director[id]) return [0, 0];
 
-  const map = maps[id].map;
+  const map = director[id].map;
 
   const centerYOffset = -(map.center && map.center.y) || 0;
   const centerXOffset = (map.center && map.center.x) || 0;

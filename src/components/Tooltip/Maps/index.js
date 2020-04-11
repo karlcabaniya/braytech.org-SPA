@@ -145,7 +145,7 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member)
+    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
 
     if (!node) {
       console.warn('Hash not found');
@@ -153,21 +153,21 @@ class Node extends React.Component {
       return null;
     }
 
-    console.log(node)
+    console.log(node);
 
     const definitionDestination = manifest.DestinyDestinationDefinition[node.location?.destinationHash];
     const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-    const definitionBubble = definitionDestination?.bubbles?.find(b => b.hash === node.location.bubbleHash);
+    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === node.location.bubbleHash);
 
     const destinationName = definitionDestination?.displayProperties?.name;
     const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
     const bubbleName = definitionBubble?.displayProperties?.name;
 
-    const locationString = [bubbleName, destinationName, placeName].filter(s => s).join(', ');
+    const locationString = [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
 
     const locatedActivityName = node.location?.within?.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash]?.displayProperties?.name;
 
-    const completed = node.related?.objectives?.filter(o => !o.complete).length < 1;
+    const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 
     return (
       <>
@@ -215,7 +215,7 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     viewport: state.viewport,
-    tooltips: state.tooltips
+    tooltips: state.tooltips,
   };
 }
 

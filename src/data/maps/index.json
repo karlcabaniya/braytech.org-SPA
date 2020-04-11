@@ -991,8 +991,8 @@
             },
             {
               "type": "fast-travel",
-              "x": 70,
-              "y": 59
+              "x": 75,
+              "y": 66
             },
             {
               "type": "vendor",
@@ -2653,6 +2653,7 @@
           ]
         },
         {
+          "hash": 27792021731,
           "name": "The Confluence",
           "id": "confluence",
           "type": "suburb",

@@ -10,133 +10,11 @@ import * as enums from '../../../utils/destinyEnums';
 import * as utils from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
 import { checklists, lookup } from '../../../utils/checklists';
+import { cartographer } from '../../../utils/maps';
 
 import { Tooltips } from '../../../svg';
 
 import './styles.css';
-
-const adventures = [
-  53954174,
-  78673128,
-  96442917,
-  122988657,
-  185515551,
-  319240296,
-  320680002,
-  340004423,
-  359488722,
-  449926115,
-  539897061,
-  622895925,
-  625165976,
-  632790902,
-  723733266,
-  785871069,
-  789332628,
-  801458995,
-  808931822,
-  856342832,
-  919252154,
-  963938931,
-  993905880,
-  999972877,
-  1018040791,
-  1018385878,
-  1063969232,
-  1107208644,
-  1159314159,
-  1225970098,
-  1228327586,
-  1254990192,
-  1265390366,
-  1275562432,
-  1279862229,
-  1289867188,
-  1294490226,
-  1302437673,
-  1333621919,
-  1416597166,
-  1418217191,
-  1466550401,
-  1491022087,
-  1503376677,
-  1570598249,
-  1643069750,
-  1651979106,
-  1657356109,
-  1671235700,
-  1682036469,
-  1725302079,
-  1740310101,
-  1773400654,
-  1783922093,
-  1800749202,
-  1811228210,
-  1823921651,
-  1824067376,
-  1829866365,
-  1874578888,
-  1956541147,
-  1969800443,
-  1971154629,
-  1981289329,
-  1987624188,
-  2067233851,
-  2069143995,
-  2174556965,
-  2219006909,
-  2231840083,
-  2245202378,
-  2250935166,
-  2258680077,
-  2302677459,
-  2307090074,
-  2310677039,
-  2340776707,
-  2517540332,
-  2574607799,
-  2665134323,
-  2675435236,
-  2737739053,
-  2752743635,
-  2831644165,
-  2949941834,
-  2966841322,
-  3002511278,
-  3015346707,
-  3033151437,
-  3042112297,
-  3069330044,
-  3140524926,
-  3148431353,
-  3211568383,
-  3248193378,
-  3255524827,
-  3277510674,
-  3283790633,
-  3289681664,
-  3304835347,
-  3370527053,
-  3384410381,
-  3485876484,
-  3500791146,
-  3601218952,
-  3644215993,
-  3645117987,
-  3664729722,
-  3664915501,
-  3691789482,
-  3700722865,
-  3752039537,
-  3780356141,
-  3836086286,
-  3872525353,
-  3909841711,
-  3920569453,
-  4094398454,
-  4238309598,
-];
-const levelAdvantagesEnabled = [3753505781, 1166905690];
 
 class Activity extends React.Component {
   render() {
@@ -147,11 +25,12 @@ class Activity extends React.Component {
     const definitionActivityModeParent = definitionActivityMode && definitionActivityMode.parentHashes && definitionActivityMode.parentHashes.length && manifest.DestinyActivityModeDefinition[definitionActivityMode.parentHashes[0]];
     const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlist];
     const definitionActivityType = definitionActivityPlaylist?.activityTypeHash && manifest.DestinyActivityTypeDefinition[definitionActivityPlaylist.activityTypeHash];
-    const definitionPlaceDefinition = definitionActivity && definitionActivity.placeHash && manifest.DestinyPlaceDefinition[definitionActivity.placeHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[definitionActivity?.destinationHash];
+    const definitionPlace = manifest.DestinyPlaceDefinition[definitionActivity?.placeHash];
 
     if (!definitionActivity) {
       console.warn('Hash not found');
-      
+
       return null;
     }
 
@@ -176,7 +55,7 @@ class Activity extends React.Component {
       );
     } else {
       const activityType = (hash, activityTypeHash, activityModeHashes = []) => {
-        if (adventures.includes(hash)) {
+        if (enums.adventures.includes(hash)) {
           return 'adventure';
         } else if (enums.ordealHashes.includes(hash)) {
           return 'nightfall-ordeal';
@@ -216,20 +95,17 @@ class Activity extends React.Component {
 
       const modeFiltered = activityType(definitionActivity.hash, definitionActivity.activityTypeHash, definitionActivity.activityModeHashes ? definitionActivity.activityModeHashes.concat([mode]) : [mode]);
 
-      let activityTypeDisplay = {
+      const map = cartographer({ key: 'activityHash', value: definitionActivity.hash }, this.props.member);
+      const definitionBubble = map?.graph?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.graph.bubbleHash);
+
+      const activityTypeDisplay = {
         name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),
 
         mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
 
         description: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.description ? definitionActivity.selectionScreenDisplayProperties.description : definitionActivity.displayProperties && definitionActivity.displayProperties.description ? definitionActivity.displayProperties.description : t('Unknown'),
 
-        destination:
-          definitionActivity.destinationHash && manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].displayProperties
-            ? {
-                ...manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].displayProperties,
-                place: manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties && manifest.DestinyPlaceDefinition[manifest.DestinyDestinationDefinition[definitionActivity.destinationHash].placeHash].displayProperties.name,
-              }
-            : false,
+        destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name].filter((a, b, self) => self.indexOf(a) === b),
 
         activityLightLevel: definitionActivity.activityLightLevel && definitionActivity.activityLightLevel !== 10 && definitionActivity.activityLightLevel,
 
@@ -241,53 +117,35 @@ class Activity extends React.Component {
       // console.log(activityTypeDisplay, definitionActivity, mode, definitionActivityPlaylist)
 
       if (definitionActivity.placeHash === 2961497387) {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: manifest.DestinyPlaceDefinition[2961497387].displayProperties.name,
-          mode: undefined,
-          destination: false,
-          description: t('In orbit, planning something terribly heroic.'),
-          activityLightLevel: false,
-        };
+        activityTypeDisplay.name = manifest.DestinyPlaceDefinition[2961497387].displayProperties.name;
+        activityTypeDisplay.mode = undefined;
+        activityTypeDisplay.destination = [];
+        activityTypeDisplay.description = t('In orbit, planning something terribly heroic.');
+        activityTypeDisplay.activityLightLevel = false;
       }
 
       if (modeFiltered === 'patrol') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          destination: {
-            name: definitionPlaceDefinition.displayProperties.name,
-            place: false,
-          },
-          description: manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description,
-          activityLightLevel: false,
-          mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
-        };
+        activityTypeDisplay.destination = [definitionPlace?.displayProperties.name];
+        activityTypeDisplay.description = manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description;
+        activityTypeDisplay.activityLightLevel = false;
+        activityTypeDisplay.mode = definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name;
       }
 
       if (modeFiltered === 'story') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          mode: manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name,
-          className: 'story',
-          icon: <Tooltips.Story />,
-        };
+        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name;
+        activityTypeDisplay.className = 'story';
+        activityTypeDisplay.icon = <Tooltips.Story />;
       }
 
       if (modeFiltered === 'crucible') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
-          mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
-          description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-          destination: {
-            name: definitionActivity.displayProperties.name,
-            place: definitionActivity.displayProperties.description,
-          },
-          className: 'crucible',
-          activityLightLevel: false,
-          isCrucible: true,
-          icon: <Tooltips.Crucible />,
-        };
+        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties?.name || t('Unknown');
+        activityTypeDisplay.mode = manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name;
+        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties?.description || t('Unknown');
+        activityTypeDisplay.destination = [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description];
+        activityTypeDisplay.className = 'crucible';
+        activityTypeDisplay.activityLightLevel = false;
+        activityTypeDisplay.isCrucible = true;
+        activityTypeDisplay.icon = <Tooltips.Crucible />;
 
         // Survival, Survival: Freelance
         if (definitionActivityPlaylist && [135537449, 740891329].includes(definitionActivityPlaylist.hash)) {
@@ -308,134 +166,95 @@ class Activity extends React.Component {
       }
 
       if (modeFiltered === 'raid') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivity.displayProperties.name,
-          description: definitionActivity.displayProperties.description,
-          mode: definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name,
-          className: 'raid',
-          icon: <Tooltips.Raid />,
-        };
+        activityTypeDisplay.name = definitionActivity.displayProperties.name;
+        activityTypeDisplay.description = definitionActivity.displayProperties.description;
+        activityTypeDisplay.mode = definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name;
+        activityTypeDisplay.className = 'raid';
+        activityTypeDisplay.icon = <Tooltips.Raid />;
       }
 
       if (modeFiltered === 'forge') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown'),
-          description: definitionActivityPlaylist?.displayProperties.description || definitionActivity.displayProperties.description || t('Unknown'),
-          mode: definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
-          activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity.activityLightLevel,
-          className: 'forge',
-          pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage,
-          icon: <Tooltips.ForgeIgnition />,
-        };
+        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown');
+        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties.description || definitionActivity.displayProperties.description || t('Unknown');
+        activityTypeDisplay.mode = definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name;
+        activityTypeDisplay.activityLightLevel = definitionActivityPlaylist?.activityLightLevel || definitionActivity.activityLightLevel;
+        activityTypeDisplay.className = 'forge';
+        activityTypeDisplay.pgcrImage = definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage;
+        activityTypeDisplay.icon = <Tooltips.ForgeIgnition />;
       }
 
       if (modeFiltered === 'menagerie') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          destination: {
-            name: activityTypeDisplay.destination.name,
-            place: false,
-          },
-          mode: false,
-          activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
-          className: 'menagerie',
-          icon: <Tooltips.Menagerie />,
-        };
+        activityTypeDisplay.destination = [definitionDestination?.displayProperties.name];
+        activityTypeDisplay.mode = false;
+        activityTypeDisplay.activityLightLevel = definitionActivityPlaylist?.activityLightLevel;
+        activityTypeDisplay.className = 'menagerie';
+        activityTypeDisplay.icon = <Tooltips.Menagerie />;
       }
 
       if (modeFiltered === 'reckoning') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          mode: definitionActivity.originalDisplayProperties?.name,
-          description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-          className: 'reckoning',
-          icon: <Tooltips.Reckoning />,
-        };
+        activityTypeDisplay.mode = definitionActivity.originalDisplayProperties?.name;
+        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties?.description || t('Unknown');
+        activityTypeDisplay.className = 'reckoning';
+        activityTypeDisplay.icon = <Tooltips.Reckoning />;
       }
 
       if (modeFiltered === 'gambit') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivityMode.displayProperties.name,
-          mode: definitionActivityModeParent.displayProperties.name,
-          description: definitionActivityMode.displayProperties.description,
-          destination: {
-            name: definitionActivity.displayProperties.name,
-            place: definitionActivity.displayProperties.description,
-          },
-          className: 'gambit',
-          activityLightLevel: false,
-          icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />,
-        };
+        activityTypeDisplay.name = definitionActivityMode.displayProperties.name;
+        activityTypeDisplay.mode = definitionActivityModeParent.displayProperties.name;
+        activityTypeDisplay.description = definitionActivityMode.displayProperties.description;
+        activityTypeDisplay.destination = [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description];
+        activityTypeDisplay.className = 'gambit';
+        activityTypeDisplay.activityLightLevel = false;
+        activityTypeDisplay.icon = definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />;
       }
 
       if (modeFiltered === 'strike') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
-          className: 'strike',
-          icon: <Tooltips.Strike />,
-        };
+        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name;
+        activityTypeDisplay.className = 'strike';
+        activityTypeDisplay.icon = <Tooltips.Strike />;
       }
 
       if (modeFiltered === 'nightfall-ordeal') {
         const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
         const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
 
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          // name: definitionActivity.displayProperties.name,
-          // mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
-          name: definitionStrke.selectionScreenDisplayProperties.name,
-          mode: definitionActivity.displayProperties.name,
-          description: definitionStrke.displayProperties.description,
-          className: 'strike',
-          icon: <Tooltips.Strike />,
-        };
+        // activityTypeDisplay.name= definitionActivity.displayProperties.name;
+        // activityTypeDisplay.mode= manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name;
+        activityTypeDisplay.name = definitionStrke.selectionScreenDisplayProperties.name;
+        activityTypeDisplay.mode = definitionActivity.displayProperties.name;
+        activityTypeDisplay.description = definitionStrke.displayProperties.description;
+        activityTypeDisplay.className = 'strike';
+        activityTypeDisplay.icon = <Tooltips.Strike />;
       }
 
       if (modeFiltered === 'adventure') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          mode: t('Adventure'),
-          className: 'adventure',
-          icon: <Tooltips.Adventure />,
-        };
+        activityTypeDisplay.mode = t('Adventure');
+        activityTypeDisplay.className = 'adventure';
+        activityTypeDisplay.icon = <Tooltips.Adventure />;
       }
 
       if (modeFiltered === 'nightmare-hunt') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivity.displayProperties.name,
-          mode: manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
-          description: definitionActivity.displayProperties.description,
-          suggestion: t('Equip Dreambane armor mods to enhance your light within this activity.'),
-          className: 'shadowkeep nightmare-hunt',
-          icon: <Tooltips.Shadowkeep />,
-        };
+        activityTypeDisplay.name = definitionActivity.displayProperties.name;
+        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name;
+        activityTypeDisplay.description = definitionActivity.displayProperties.description;
+        activityTypeDisplay.suggestion = t('Equip Dreambane armor mods to enhance your light within this activity.');
+        activityTypeDisplay.className = 'shadowkeep nightmare-hunt';
+        activityTypeDisplay.icon = <Tooltips.Shadowkeep />;
       }
 
       if (modeFiltered === 'dungeon') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name,
-          mode: manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name,
-          className: 'dungeon',
-          icon: <Tooltips.Dungeon />,
-        };
+        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name;
+        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name;
+        activityTypeDisplay.className = 'dungeon';
+        activityTypeDisplay.icon = <Tooltips.Dungeon />;
       }
 
       if (modeFiltered === 'seasonal-arena') {
-        activityTypeDisplay = {
-          ...activityTypeDisplay,
-          name: definitionActivityPlaylist?.displayProperties.name,
-          description: definitionActivityPlaylist?.displayProperties.description,
-          mode: manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name,
-          className: 'seasonal-arena',
-          icon: <Tooltips.SeasonalArena />,
-        };
+        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name;
+        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties.description;
+        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name;
+        activityTypeDisplay.className = 'seasonal-arena';
+        activityTypeDisplay.icon = <Tooltips.SeasonalArena />;
       }
 
       const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity.matchmaking;
@@ -468,19 +287,9 @@ class Activity extends React.Component {
                   <ObservedImage className='image' src={`https://www.bungie.net${activityTypeDisplay.pgcrImage}`} />
                 </div>
               ) : null}
-              {activityTypeDisplay.destination || activityTypeDisplay.description ? (
+              {activityTypeDisplay.destination.length || activityTypeDisplay.description ? (
                 <div className='description'>
-                  {activityTypeDisplay.destination && activityTypeDisplay.destination.name ? (
-                    <div className='destination'>
-                      {activityTypeDisplay.destination.name !== activityTypeDisplay.destination.place && !activityTypeDisplay.destination.name.includes(activityTypeDisplay.destination.place) && activityTypeDisplay.destination.place ? (
-                        <>
-                          {activityTypeDisplay.destination.name}, {activityTypeDisplay.destination.place}
-                        </>
-                      ) : (
-                        activityTypeDisplay.destination.name
-                      )}
-                    </div>
-                  ) : null}
+                  {activityTypeDisplay.destination.length ? <div className='destination'>{activityTypeDisplay.destination.filter((s) => s).join(', ')}</div> : null}
                   <BungieText value={activityTypeDisplay.description} />
                 </div>
               ) : null}
@@ -501,7 +310,7 @@ class Activity extends React.Component {
                     {activityTypeDisplay.isCrucible ? (
                       <>
                         <li>{t('Player versus player')}</li>
-                        {definitionActivityPlaylist && levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
+                        {definitionActivityPlaylist && enums.levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
                       </>
                     ) : (
                       <li>{t('Cooperative')}</li>
