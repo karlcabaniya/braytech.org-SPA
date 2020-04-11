@@ -14,12 +14,13 @@ import maps from '../../data/maps';
 import * as ls from '../../utils/localStorage';
 import { resolveDestination, getMapCenter } from '../../utils/maps';
 import { checklists, lookup } from '../../utils/checklists';
-import Spinner from '../../components/UI/Spinner';
 
 import { Layers, BackgroundLayer } from './Layers';
+import Loading from './Loading';
 import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
+
 import Characters from './Controls/Characters';
 import Destinations from './Controls/Destinations';
 import Inspect from './Controls/Inspect';
@@ -30,6 +31,7 @@ import './styles.css';
 class Maps extends React.Component {
   state = {
     loading: true,
+    loaded: [],
     error: false,
     viewport: undefined,
     ui: {
@@ -316,6 +318,10 @@ class Maps extends React.Component {
     this.setState({ loading: false });
   };
 
+  handler_map_layersPartial = (loaded) => {
+    this.setState({ loaded });
+  };
+
   handler_map_layerAdd = debounce((e) => {
     if (this.mounted) this.props.rebindTooltips();
   }, 200);
@@ -385,15 +391,13 @@ class Maps extends React.Component {
           <BackgroundLayer {...destination} />
         </div>
         <Map viewport={this.state.viewport} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
-          <Layers {...destination} ready={this.handler_map_layersReady} />
+          <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
           <Static {...destination} />
           <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} handler={this.handler_showInspect} />
           <Runtime {...destination} />
           {/* <CharacterActivities {...destination} /> */}
         </Map>
-        <div className='loading'>
-          <Spinner />
-        </div>
+        <Loading loaded={this.state.loaded} />
         <div className='controls left'>
           <Characters visible={this.state.ui.characters} handler={this.handler_changeCharacterId} />
           <Destinations {...destination} visible={this.state.ui.destinations} handler={this.handler_toggleDestinationsList} />

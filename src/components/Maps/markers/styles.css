@@ -158,14 +158,26 @@
   opacity: 0.6;
 }
 
-/* small hack to lighten adventure icons a bit */
+/* adventures */
 .map-omega .leaflet-container .icon-marker.checklistId-4178338182 {
   opacity: 0.8;
 }
 
-.map-omega .leaflet-container .icon-marker.completed:not(.highlight),
-.map-omega .leaflet-container .icon-marker.completed.checklistId-4178338182:not(.highlight) {
+/* sleeper nodes */
+.map-omega .leaflet-container .icon-marker.checklistId-365218222 {
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.completed:not(.highlight) {
   opacity: 0.2;
+}
+
+.map-omega .leaflet-container .icon-marker.completed.checklistId-4178338182:not(.highlight) {
+  opacity: 0.4;
+}
+
+.map-omega .leaflet-container .icon-marker.completed.checklistId-365218222:not(.highlight) {
+  opacity: 0.3;
 }
 
 .map-omega .leaflet-container .icon-marker.vendor .wrapper .icon {

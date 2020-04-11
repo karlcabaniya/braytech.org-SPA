@@ -8,6 +8,8 @@ import * as SVG from '../svg';
 
 export const isProfileRoute = (location) => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
 
+export const pathSubDir = (location) => location.pathname.split('/')?.[1];
+
 export function metricImages(metricHash) {
   const definitionMetric = manifest.DestinyMetricDefinition[metricHash];
   const definitionParent = manifest.DestinyPresentationNodeDefinition[definitionMetric.parentNodeHashes[0]];
