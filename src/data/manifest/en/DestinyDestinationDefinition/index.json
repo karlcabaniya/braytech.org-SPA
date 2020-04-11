@@ -8,5 +8,39 @@
         }
       }
     ]
+  },
+  "126924919": {
+    "bubbles": [
+      {
+        "hash": 1269249191,
+        "displayProperties": {
+          "name": "The Inverted Spire"
+        }
+      },
+      {
+        "hash": 1269249192,
+        "displayProperties": {
+          "name": "Virgo Conduit"
+        }
+      },
+      {
+        "hash": 1269249193,
+        "displayProperties": {
+          "name": "Well of Dust"
+        }
+      },
+      {
+        "hash": 1269249194,
+        "displayProperties": {
+          "name": "The Fissure"
+        }
+      },
+      {
+        "hash": 1269249195,
+        "displayProperties": {
+          "name": "Well of Stars"
+        }
+      }
+    ]
   }
 }

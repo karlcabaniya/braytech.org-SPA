@@ -2074,6 +2074,7 @@
           ]
         },
         {
+          "hash": 1269249191,
           "name": "The Inverted Spire",
           "id": "inverted-spire",
           "type": "suburb",
@@ -2086,6 +2087,7 @@
           ]
         },
         {
+          "hash": 1269249192,
           "name": "Virgo Conduit",
           "id": "virgo-conduit",
           "type": "suburb",
@@ -2098,6 +2100,7 @@
           ]
         },
         {
+          "hash": 1269249193,
           "name": "Well of Dust",
           "id": "well-of-dust",
           "type": "suburb",
@@ -2110,6 +2113,7 @@
           ]
         },
         {
+          "hash": 1269249194,
           "name": "The Fissure",
           "id": "fissure",
           "type": "suburb",
@@ -2161,6 +2165,7 @@
           ]
         },
         {
+          "hash": 1269249195,
           "name": "Well of Stars",
           "id": "well-of-stars",
           "type": "suburb",
@@ -3852,8 +3857,8 @@
             {
               "type": "vendor",
               "vendorHash": 248695599,
-              "x":-958,
-              "y":-97
+              "x": -958,
+              "y": -97
             },
             {
               "type": "vendor",

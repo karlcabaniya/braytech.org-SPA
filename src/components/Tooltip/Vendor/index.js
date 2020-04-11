@@ -62,8 +62,8 @@ class Vendor extends React.Component {
       const placeName = definitionPlace && definitionPlace.displayProperties.name && definitionPlace.displayProperties.name !== definitionDestination.displayProperties.name && definitionPlace.displayProperties.name;
       const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
     
-      const extras = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
-      const screenshot = extras && extras.screenshot;
+      const map = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
+      const screenshot = map.nodes.length && map.nodes[0].screenshot;
 
       // console.log(definitionVendor.hash, (definitionBubble && definitionBubble.hash) || 'No bubble')
 
@@ -85,9 +85,9 @@ class Vendor extends React.Component {
               </div>
             </div>
             <div className='black'>
-              {largeIcon ? (
+              {largeIcon || screenshot ? (
                 <div className={cx('screenshot', { extras: screenshot })}>
-                  <ObservedImage className='image' src={screenshot ? screenshot : `https://www.bungie.net${largeIcon}`} />
+                  <ObservedImage className='image' src={screenshot || `https://www.bungie.net${largeIcon}`} />
                 </div>
               ) : null}
               {description || definitionDestination ? (

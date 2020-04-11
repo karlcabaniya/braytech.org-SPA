@@ -34,9 +34,9 @@ class Checklist extends React.Component {
       return null;
     }
 
-    const extras = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
-    const screenshot = extras && extras.screenshot;
-    const description = extras && extras.description;
+    const map = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
+    const screenshot = map.nodes.length && map.nodes[0].screenshot;
+    const description = map.nodes.length && map.nodes[0].description;
 
     const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
@@ -91,11 +91,15 @@ class Record extends React.Component {
     const definitionRecord = manifest.DestinyRecordDefinition[checklistItem.recordHash];
     const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
 
-    const extras = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
-    const screenshot = extras && extras.screenshot;
-    const description = extras && extras.description;
+    const map = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
+    const screenshot = map.nodes.length && map.nodes[0].screenshot;
+    const description = map.nodes.length && map.nodes[0].description;
 
-    const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
+    const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
+    const definitionBubble = checklistItem.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
+
+    const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
 
     return (
       <>
@@ -145,19 +149,19 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
+    const map = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
 
-    if (!node) {
+    if (!map) {
       console.warn('Hash not found');
 
       return null;
     }
 
-    console.log(node);
+    console.log(map);
 
-    const definitionDestination = manifest.DestinyDestinationDefinition[node.location?.destinationHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[map.location?.destinationHash];
     const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === node.location.bubbleHash);
+    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === map.location.bubbleHash);
 
     const destinationName = definitionDestination?.displayProperties?.name;
     const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
@@ -165,42 +169,42 @@ class Node extends React.Component {
 
     const locationString = [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
 
-    const locatedActivityName = node.location?.within?.activityHash && manifest.DestinyActivityDefinition[node.location.within.activityHash]?.displayProperties?.name;
+    const locatedActivityName = map.location?.within?.activityHash && manifest.DestinyActivityDefinition[map.location.within.activityHash]?.displayProperties?.name;
 
-    const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
+    const completed = map.related?.objectives?.filter((o) => !o.complete).length < 1;
 
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'map', node.type.hash)}>
+        <div className={cx('frame', 'map', map.type.hash)}>
           <div className='header'>
-            <div className='icon'>{node.icon || null}</div>
+            <div className='icon'>{map.icon || null}</div>
             <div className='text'>
-              <div className='name'>{node.displayProperties.name}</div>
+              <div className='name'>{map.displayProperties.name}</div>
               <div>
-                <div className='kind'>{node.type.name}</div>
+                <div className='kind'>{map.type.name}</div>
               </div>
             </div>
           </div>
           <div className='black'>
-            {node.screenshot ? (
+            {map.screenshot ? (
               <div className='screenshot'>
-                <ObservedImage src={node.screenshot} />
+                <ObservedImage src={map.screenshot} />
               </div>
             ) : null}
-            {node.location?.within ? <div className='inside-location'>{locatedText(node.location.within.id, locatedActivityName)}</div> : null}
+            {map.location?.within ? <div className='inside-location'>{locatedText(map.location.within.id, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{locationString}</div>
-              {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
+              {map.displayProperties.description ? <BungieText className='text' source={map.displayProperties.description} /> : null}
             </div>
-            {node.availability?.type === 'cycle' ? (
+            {map.availability?.type === 'cycle' ? (
               <div className='highlight'>
-                {t('Available')}: {t('every {{numberWeeks}} weeks', { numberWeeks: node.availability.cycleLength })}
+                {t('Available')}: {t('every {{numberWeeks}} weeks', { numberWeeks: map.availability.cycleLength })}
               </div>
             ) : null}
-            {node.activityLightLevel ? (
+            {map.activityLightLevel ? (
               <div className='highlight recommended-light'>
-                {t('Recommended light')}: <span>{node.activityLightLevel}</span>
+                {t('Recommended light')}: <span>{map.activityLightLevel}</span>
               </div>
             ) : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}
