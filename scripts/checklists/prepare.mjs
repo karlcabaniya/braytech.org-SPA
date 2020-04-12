@@ -127,8 +127,8 @@ async function run() {
       }
     }
 
-    const updates = _.mergeWith(existing, changes, merger);
-    //const updates = changes;
+    // const updates = _.mergeWith(existing, changes, merger);
+    const updates = changes;
 
     return updates;
   }
@@ -243,8 +243,8 @@ async function run() {
         //   if (!changes[key]) delete changes[key];
         // });
 
-        const updates = _.mergeWith(existing, changes, merger);
-        //const updates = changes;
+        //const updates = _.mergeWith(existing, changes, merger);
+        const updates = changes;
 
         //if (changes.recordHash === 242464657) console.log(existing, changes, updates)
 
