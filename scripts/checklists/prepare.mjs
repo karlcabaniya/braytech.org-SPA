@@ -137,7 +137,7 @@ async function run() {
       if (definitionLore) name = definitionLore.displayProperties.name;
     }
 
-    const points = (mapping && mapping.points) || (existing && existing.points) || [];
+    const points = (mapping && mapping.map && mapping.map.points) || (existing && existing.map && existing.map.points) || [];
 
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
     const withinLostSector = bubbleHash && data[3142056444].find(l => l.bubbleHash === bubbleHash) && id !== 3142056444;
@@ -211,7 +211,7 @@ async function run() {
           if (definitionLore) name = definitionLore.displayProperties.name;
         }
 
-        const points = (mapping && mapping.points) || (existing && existing.points) || [];
+        const points = (mapping && mapping.map && mapping.map.points) || (existing && existing.map && existing.map.points) || [];
         
         // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
         const withinLostSector = definitionBubble && definitionBubble.hash && data[3142056444].find(l => l.bubbleHash === definitionBubble.hash) && hash !== 3142056444;
