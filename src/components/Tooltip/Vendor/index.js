@@ -48,24 +48,19 @@ class Vendor extends React.Component {
       const description = definitionVendor.displayProperties?.description;
 
       const largeIcon = definitionVendor.displayProperties?.largeIcon;
+    
+      const node = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
 
-      const destinationHash = definitionVendor.locations?.[1]?.destinationHash || definitionVendor.locations?.[0]?.destinationHash;
-      const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
+      const definitionDestination = manifest.DestinyDestinationDefinition[node.destinationHash];
 
-      const destination = definitionDestination && Object.values(maps).find(d => d.destination.hash === definitionDestination.hash);
-      const bubble = destination && destination.map.bubbles.find(b => b.nodes.find(n => n.vendorHash === definitionVendor.hash));
-
-      const definitionBubble = (bubble && bubble.hash && definitionDestination.bubbles.find(b => b.hash === bubble.hash)) || (bubble && bubble.name);
+      const definitionBubble = node.bubbleHash && definitionDestination.bubbles.find(bubble => bubble.hash === node.bubbleHash);
       const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
       const destinationName = definitionDestination && definitionDestination.displayProperties.name;
       const placeName = definitionPlace && definitionPlace.displayProperties.name && definitionPlace.displayProperties.name !== definitionDestination.displayProperties.name && definitionPlace.displayProperties.name;
       const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
-    
-      const map = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
-      const screenshot = map.nodes.length && map.nodes[0].screenshot;
-
-      // console.log(definitionVendor.hash, (definitionBubble && definitionBubble.hash) || 'No bubble')
+      
+      const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
       return (
         <>
@@ -85,14 +80,14 @@ class Vendor extends React.Component {
               </div>
             </div>
             <div className='black'>
-              {largeIcon || screenshot ? (
-                <div className={cx('screenshot', { extras: screenshot })}>
-                  <ObservedImage className='image' src={screenshot || `https://www.bungie.net${largeIcon}`} />
+              {largeIcon || node.screenshot ? (
+                <div className={cx('screenshot', { extras: node.screenshot })}>
+                  <ObservedImage className='image' src={node.screenshot || `https://www.bungie.net${largeIcon}`} />
                 </div>
               ) : null}
-              {description || definitionDestination ? (
+              {description || destination ? (
                 <div className='description'>
-                  {definitionDestination ? <div className='destination'>{[bubbleName, destinationName, placeName].filter(s => s).join(', ')}</div> : null}
+                  {destination ? <div className='destination'>{destination}</div> : null}
                   {description ? <BungieText value={description} /> : null}
                 </div>
               ) : null}

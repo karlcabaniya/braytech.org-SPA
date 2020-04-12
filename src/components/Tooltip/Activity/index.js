@@ -95,8 +95,9 @@ class Activity extends React.Component {
 
       const modeFiltered = activityType(definitionActivity.hash, definitionActivity.activityTypeHash, definitionActivity.activityModeHashes ? definitionActivity.activityModeHashes.concat([mode]) : [mode]);
 
-      const map = cartographer({ key: 'activityHash', value: definitionActivity.hash }, this.props.member);
-      const definitionBubble = map?.graph?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.graph.bubbleHash);
+      const node = cartographer({ key: 'activityHash', value: definitionActivity.hash }, this.props.member);
+
+      const definitionBubble = node.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === node.bubbleHash);
 
       const activityTypeDisplay = {
         name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),

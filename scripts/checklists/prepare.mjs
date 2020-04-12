@@ -142,13 +142,15 @@ async function run() {
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
     const withinLostSector = bubbleHash && data[3142056444].find(l => l.bubbleHash === bubbleHash) && id !== 3142056444;
 
-    let located = undefined;
+    let within = undefined;
     if (withinLostSector) {
-      located = 'lost-sector';
-    } else if (mapping && mapping.activityHash && manifest.DestinyActivityDefinition[mapping.activityHash].activityModeTypes.includes(18)) {
-      located = 'strike';
-    } else if (mapping && mapping.activityHash) {
-      located = 'activity';
+      within = 'lost-sector';
+    } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(18)) {
+      within = 'strike';
+    } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(2)) {
+      within = 'story';
+    } else if (activityHash && id !== 4178338182) { // exclude adventures from being located within themselves lol
+      within = 'activity';
     }
 
     const changes = {
@@ -158,16 +160,16 @@ async function run() {
       checklistHash: item.hash,
       itemHash: item && item.itemHash,
       recordHash,
-      points,
+      map: {
+        points,
+        in: within
+      },
       sorts: {
         destination: definitionDestination && definitionDestination.displayProperties.name,
         bubble: bubbleName,
         place: definitionPlace && definitionPlace.displayProperties.name,
         name,
         number: itemNumber && parseInt(itemNumber, 10)
-      },
-      extended: {
-        located
       }
     }
 
@@ -217,13 +219,13 @@ async function run() {
         const pursuitHash = (mapping && mapping.pursuitHash) || (existing && existing.pursuitHash) || undefined;
         const activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
 
-        let located = undefined;
+        let within = undefined;
         if (withinLostSector) {
-          located = 'lost-sector';
+          within = 'lost-sector';
         } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(18)) {
-          located = 'strike';
+          within = 'strike';
         } else if (activityHash) {
-          located = 'activity';
+          within = 'activity';
         }
 
         // if (hash === 242464657) console.log(existing, bubbleHash)
@@ -234,16 +236,16 @@ async function run() {
           recordHash,
           pursuitHash,
           activityHash,
-          points,
+          map: {
+            points,
+            in: within
+          },
           sorts: {
             destination: definitionDestination && definitionDestination.displayProperties.name,
             bubble: bubbleName,
             place: definitionPlace && definitionPlace.displayProperties.name,
             name,
             number: (itemNumber + 1)
-          },
-          extended: {
-            located
           }
         }
 

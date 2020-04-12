@@ -45,7 +45,7 @@ class Runtime extends React.Component {
         this.state.nodes[this.props.id].map((node, i) => {
           if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
 
-          return node.location.points.map(point => {
+          return node.map.points.map(point => {
             const markerOffsetX = mapXOffset + viewWidth / 2;
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 

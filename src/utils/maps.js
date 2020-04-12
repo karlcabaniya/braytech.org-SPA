@@ -4,8 +4,9 @@ import store from '../store';
 
 import manifest from '../utils/manifest';
 import director from '../data/maps';
-import nodes from '../data/maps/nodes';
+import rawNodes from '../data/maps/nodes';
 import runtime from '../data/maps/runtime';
+import checklists from '../data/checklists';
 import { Maps } from '../svg';
 
 export function resolveDestination(value) {
@@ -36,40 +37,81 @@ const iconsMap = {
 };
 
 function findGraph(search) {
-  const place = Object.values(director).find((place) => place.map.bubbles?.find(bubble => bubble.nodes.find(node => node[search.key] === +search.value)));
-  const bubble = place?.map.bubbles?.find(bubble => bubble.nodes.find(node => node[search.key] === +search.value));
-  const node = bubble?.nodes.find(node => node[search.key] === +search.value);
+  const place = Object.values(director).find((place) => place.map.bubbles?.find((bubble) => bubble.nodes.find((node) => node[search.key] === +search.value)));
+  const bubble = place?.map.bubbles?.find((bubble) => bubble.nodes.find((node) => node[search.key] === +search.value));
+  const node = bubble?.nodes.find((node) => node[search.key] === +search.value);
 
   if (place) {
     return {
       destinationHash: place.destination.hash,
       bubbleHash: bubble.hash,
-      node
+      nodeHash: node.nodeHash,
+      map: {
+        points: [
+          {
+            x: node.x,
+            y: node.y,
+          },
+        ],
+      },
+    };
+  }
+
+  return {};
+}
+
+function findChecklistItem(search) {
+  for (const checklistId in checklists) {
+    if (checklists.hasOwnProperty(checklistId)) {
+      const checklist = checklists[checklistId];
+
+      const checklistItem = checklist.find((checklistItem) => checklistItem[search.key] === +search.value);
+
+      if (checklistItem) {
+        return {
+          destinationHash: checklistItem.destinationHash,
+          bubbleHash: checklistItem.bubbleHash,
+          activityHash: checklistItem.activityHash,
+          checklistHash: checklistItem.checklistHash,
+          map: checklistItem.map
+        }
+      };
     }
   }
 
-  return undefined;
+  return {};
 }
 
 export function cartographer(search, member) {
   const definitionMaps = manifest.BraytechMapsDefinition[search.value];
   const graph = findGraph(search);
-  const filteredNodes = nodes.filter((node) => node[search.key] === +search.value);
+  const checklistItem = findChecklistItem(search);
+  const nodes = rawNodes.filter((node) => node[search.key] === +search.value);
   const dynamic = runtime(member, true).find((node) => node.availability.now && node[search.key] === search.value);
 
-  if (!definitionMaps && !filteredNodes && !dynamic) {
+  if (!definitionMaps && !graph && !nodes.length && !dynamic) {
     return false;
   }
 
-  const icon = dynamic?.icon || filteredNodes?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
+  const node = nodes.length === 1 ? nodes[0] : {};
+  const icon = dynamic?.icon || nodes?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
-  return {
+  // console.log(`definitionMaps`, definitionMaps);
+  // console.log(`graph`, graph);
+  // console.log(`checklistItem`, checklistItem);
+  // console.log(`node`, node);
+  // console.log(`dynamic`, dynamic);
+
+  const aggregate = {
+    ...graph,
     ...(definitionMaps || {}),
+    ...node,
+    ...checklistItem,
     ...(dynamic || {}),
-    graph,
-    nodes: filteredNodes,
     icon,
   };
+
+  return aggregate;
 }
 
 export function getMapCenter(id) {

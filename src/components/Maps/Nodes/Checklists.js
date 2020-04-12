@@ -14,7 +14,7 @@ class Checklists extends React.Component {
   static getDerivedStateFromProps(p, s) {
     if (!s.lists) {
       return {
-        lists: p.lists
+        lists: p.lists,
       };
     }
 
@@ -78,7 +78,7 @@ class Checklists extends React.Component {
 
     const node = dataset.hash && cartographer({ key: dataset.type === 'activity' ? 'activityHash' : dataset.type === 'record' ? 'recordHash' : 'checklistHash', value: dataset.hash });
 
-    console.log(node);
+    // console.log(node);
   };
 
   render() {
@@ -92,16 +92,16 @@ class Checklists extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
 
     return this.state.lists.map((list, l) => {
-      const visible = this.props.lists.find(l => l.checklistId === list.checklistId);
-      
+      const visible = this.props.lists.find((l) => l.checklistId === list.checklistId);
+
       if (!visible || !list.items) return null;
 
       return list.items
         .filter((node) => node.destinationHash === maps[this.props.id].destination.hash)
         .filter((node) => (node.invisible && !this.props.settings.debug ? false : true))
         .map((node, i) => {
-          if (node.points.length) {
-            return node.points.map((point) => {
+          if (node.map.points.length) {
+            return node.map.points.map((point) => {
               const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
               const markerOffsetX = mapXOffset + viewWidth / 2;
 
@@ -116,7 +116,13 @@ class Checklists extends React.Component {
 
               // const text = checklist.checklistId === 3142056444 ? node.formatted.name : false;
 
-              const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? `has-screenshot` : '', highlight === (node.checklistHash || node.recordHash) ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage });
+              const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
+                `checklistId-${list.checklistId}`,
+                node.completed ? 'completed' : '',
+                !Number.isInteger(node.bubbleHash) ? `error` : '',
+                node.screenshot ? `has-screenshot` : '',
+                highlight === (node.checklistHash || node.recordHash) ? 'highlight' : ''
+              ], { icon: list.checklistIcon, url: list.checklistImage });
               // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
 
               return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistId: list.checklistId, checklistHash: node.checklistHash, recordHash: node.recordHash })} />;

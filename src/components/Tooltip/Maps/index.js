@@ -11,13 +11,15 @@ import { cartographer } from '../../../utils/maps';
 
 import './styles.css';
 
-function locatedText(type, activityName) {
+function foundInText(type, activityName) {
   if (type === 'lost-sector') {
-    return t('Located inside Lost Sector: {{activityName}}', { activityName });
+    return t('Found within Lost Sector: {{activityName}}', { activityName });
   } else if (type === 'strike') {
-    return t('Located inside Strike: {{activityName}}', { activityName });
+    return t('Found within Strike: {{activityName}}', { activityName });
+  } else if (type === 'story') {
+    return t('Found within Story: {{activityName}}', { activityName });
   } else {
-    return t('Located inside activity');
+    return t('Found within activity');
   }
 }
 
@@ -34,11 +36,15 @@ class Checklist extends React.Component {
       return null;
     }
 
-    const map = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
-    const screenshot = map.nodes.length && map.nodes[0].screenshot;
-    const description = map.nodes.length && map.nodes[0].description;
+    const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
 
-    const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
+    const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
+    const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
+
+    console.log(node, definitionDestination, definitionBubble)
+
+    const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
 
     return (
       <>
@@ -57,15 +63,15 @@ class Checklist extends React.Component {
             </div>
           </div>
           <div className='black'>
-            {screenshot ? (
+            {node.screenshot ? (
               <div className='screenshot'>
-                <ObservedImage className='image' src={screenshot} />
+                <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
+            {checklistItem.map.in ? <div className='inside-location'>{foundInText(checklistItem.map.in, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {description ? <BungieText className='text' source={description} /> : null}
+              {node.description ? <BungieText className='text' source={node.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -79,21 +85,19 @@ class Record extends React.Component {
   render() {
     const checklistEntry = lookup({ key: 'recordHash', value: this.props.hash });
 
-    if (!checklistEntry) {
+    const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'recordHash', array: [checklistEntry.recordHash] } });
+    const checklistItem = checklist?.items?.[0];
+
+    if (!checklistEntry || !checklistItem) {
       console.warn('Hash not found');
 
       return null;
     }
 
-    const checklist = checklistEntry.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'recordHash', array: [checklistEntry.recordHash] } });
-    const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
-
     const definitionRecord = manifest.DestinyRecordDefinition[checklistItem.recordHash];
     const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
 
-    const map = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
-    const screenshot = map.nodes.length && map.nodes[0].screenshot;
-    const description = map.nodes.length && map.nodes[0].description;
+    const node = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
 
     const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
@@ -129,15 +133,15 @@ class Record extends React.Component {
                 </div>
               </div>
             ) : null}
-            {screenshot ? (
+            {node.screenshot ? (
               <div className='screenshot'>
-                <ObservedImage className='image' src={screenshot} />
+                <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
+            {checklistItem.map.in ? <div className='inside-location'>{foundInText(checklistItem.map.in, locatedActivityName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {description ? <BungieText className='text' source={description} /> : null}
+              {node.description ? <BungieText className='text' source={node.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -149,62 +153,60 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const map = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
+    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
 
-    if (!map) {
+    if (!node) {
       console.warn('Hash not found');
 
       return null;
     }
 
-    console.log(map);
-
-    const definitionDestination = manifest.DestinyDestinationDefinition[map.location?.destinationHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[node.destinationHash];
     const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === map.location.bubbleHash);
+    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === node.bubbleHash);
 
     const destinationName = definitionDestination?.displayProperties?.name;
     const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
     const bubbleName = definitionBubble?.displayProperties?.name;
 
-    const locationString = [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+    const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
-    const locatedActivityName = map.location?.within?.activityHash && manifest.DestinyActivityDefinition[map.location.within.activityHash]?.displayProperties?.name;
+    const locatedActivityName = node.map?.in && manifest.DestinyActivityDefinition[node.activityHash]?.displayProperties?.name;
 
-    const completed = map.related?.objectives?.filter((o) => !o.complete).length < 1;
+    const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'map', map.type.hash)}>
+        <div className={cx('frame', 'map', node.type.hash)}>
           <div className='header'>
-            <div className='icon'>{map.icon || null}</div>
+            <div className='icon'>{node.icon || null}</div>
             <div className='text'>
-              <div className='name'>{map.displayProperties.name}</div>
+              <div className='name'>{node.displayProperties.name}</div>
               <div>
-                <div className='kind'>{map.type.name}</div>
+                <div className='kind'>{node.type.name}</div>
               </div>
             </div>
           </div>
           <div className='black'>
-            {map.screenshot ? (
+            {node.screenshot ? (
               <div className='screenshot'>
-                <ObservedImage src={map.screenshot} />
+                <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
-            {map.location?.within ? <div className='inside-location'>{locatedText(map.location.within.id, locatedActivityName)}</div> : null}
+            {node.map?.in ? <div className='inside-location'>{foundInText(node.within.id, locatedActivityName)}</div> : null}
             <div className='description'>
-              <div className='destination'>{locationString}</div>
-              {map.displayProperties.description ? <BungieText className='text' source={map.displayProperties.description} /> : null}
+              <div className='destination'>{destination}</div>
+              {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
-            {map.availability?.type === 'cycle' ? (
+            {node.availability?.type === 'cycle' ? (
               <div className='highlight'>
-                {t('Available')}: {t('every {{numberWeeks}} weeks', { numberWeeks: map.availability.cycleLength })}
+                {t('Available')}: {t('every {{numberWeeks}} weeks', { numberWeeks: node.availability.cycleLength })}
               </div>
             ) : null}
-            {map.activityLightLevel ? (
+            {node.activityLightLevel ? (
               <div className='highlight recommended-light'>
-                {t('Recommended light')}: <span>{map.activityLightLevel}</span>
+                {t('Recommended light')}: <span>{node.activityLightLevel}</span>
               </div>
             ) : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}

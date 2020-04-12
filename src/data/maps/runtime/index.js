@@ -8,15 +8,15 @@ const cycleInfo = {
   epoch: {
     // start of cycle in UTC
     wanderingNightmares: new Date(`2019-10-01T17:00:00Z`).getTime(),
-    curse: new Date(`2018-09-11T17:00:00Z`).getTime()
+    curse: new Date(`2018-09-11T17:00:00Z`).getTime(),
   },
   cycle: {
     // how many week cycle
     wanderingNightmares: 4,
-    curse: 3
+    curse: 3,
   },
   elapsed: {}, // elapsed time since cycle started
-  week: {} // current week in cycle
+  week: {}, // current week in cycle
 };
 
 const time = new Date().getTime();
@@ -32,20 +32,20 @@ const hydrateObjectives = (member, objectives) => {
   const characterRecords = member && member.data && member.data.profile.characterRecords.data;
   const profileRecords = member && member.data && member.data.profile.profileRecords.data.records;
 
-  return objectives.map(o => {
+  return objectives.map((o) => {
     const definitionRecord = manifest.DestinyRecordDefinition[o.recordHash];
 
     const recordScope = definitionRecord.scope || 0;
     const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
-    const data = recordData && recordData.objectives.find(d => d.objectiveHash === o.objectiveHash);
+    const data = recordData && recordData.objectives.find((d) => d.objectiveHash === o.objectiveHash);
 
     return {
       ...o,
-      ...data
-    }
+      ...data,
+    };
   });
-}
+};
 
 export default (member, array) => {
   const nodes = {
@@ -56,182 +56,182 @@ export default (member, array) => {
         nodeHash: 'wanderingNightmareXortal',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409498].progressDescription,
-          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t('Defeat this Nightmare to progress record _{{recordName}}_.', { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name }),
         },
         type: {
           hash: 'patrol-boss',
           name: t('Patrol boss'),
           category: 'enemy',
-          race: 'hive'
+          race: 'hive',
         },
         icon: <Maps.MapsPatrolBossHive />,
-        location: {
-          destinationHash: 290444260,
-          bubbleHash: 417490937,
+        destinationHash: 290444260,
+        bubbleHash: 417490937,
+        map: {
           points: [
             {
               x: 430,
-              y: 347
-            }
-          ]
+              y: 347,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.wanderingNightmares,
-          now: cycleInfo.week.wanderingNightmares === 1
+          now: cycleInfo.week.wanderingNightmares === 1,
         },
         activityLightLevel: 980,
         related: {
           records: [
             {
-              recordHash: 1842542594
-            }
+              recordHash: 1842542594,
+            },
           ],
           objectives: [
             {
               recordHash: 1842542594,
-              objectiveHash: 1009409498
-            }
-          ]
+              objectiveHash: 1009409498,
+            },
+          ],
         },
-        screenshot: '/static/images/screenshots/enemies/sorrows-harbor_patrol-boss_nightmareXortal.jpg'
+        screenshot: '/static/images/screenshots/enemies/sorrows-harbor_patrol-boss_nightmareXortal.jpg',
       },
       {
         nodeHash: 'wanderingNightmareHorkis',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409496].progressDescription,
-          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t('Defeat this Nightmare to progress record _{{recordName}}_.', { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name }),
         },
         type: {
           hash: 'patrol-boss',
           name: t('Patrol boss'),
           category: 'enemy',
-          race: 'fallen'
+          race: 'fallen',
         },
         icon: <Maps.MapsPatrolBossFallenDusk />,
-        location: {
-          destinationHash: 290444260,
-          bubbleHash: 4025450777,
+        destinationHash: 290444260,
+        bubbleHash: 4025450777,
+        map: {
           points: [
             {
               x: 2,
-              y: -429
-            }
-          ]
+              y: -429,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.wanderingNightmares,
-          now: cycleInfo.week.wanderingNightmares === 2
+          now: cycleInfo.week.wanderingNightmares === 2,
         },
         activityLightLevel: 980,
         related: {
           records: [
             {
-              recordHash: 1842542594
-            }
+              recordHash: 1842542594,
+            },
           ],
           objectives: [
             {
               recordHash: 1842542594,
-              objectiveHash: 1009409496
-            }
-          ]
+              objectiveHash: 1009409496,
+            },
+          ],
         },
-        screenshot: '/static/images/screenshots/enemies/anchor-of-light_patrol-boss_nightmareHorkis.jpg'
+        screenshot: '/static/images/screenshots/enemies/anchor-of-light_patrol-boss_nightmareHorkis.jpg',
       },
       {
         nodeHash: 'wanderingNightmareJaxx',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409497].progressDescription,
-          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t('Defeat this Nightmare to progress record _{{recordName}}_.', { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name }),
         },
         type: {
           hash: 'patrol-boss',
           name: t('Patrol boss'),
           category: 'enemy',
-          race: 'hive'
+          race: 'hive',
         },
         icon: <Maps.MapsPatrolBossHive />,
-        location: {
-          destinationHash: 290444260,
-          bubbleHash: 4195493657,
+        destinationHash: 290444260,
+        bubbleHash: 4195493657,
+        map: {
           points: [
             {
               x: -192,
-              y: -116
-            }
-          ]
+              y: -116,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.wanderingNightmares,
-          now: cycleInfo.week.wanderingNightmares === 3
+          now: cycleInfo.week.wanderingNightmares === 3,
         },
         activityLightLevel: 980,
         related: {
           records: [
             {
-              recordHash: 1842542594
-            }
+              recordHash: 1842542594,
+            },
           ],
           objectives: [
             {
               recordHash: 1842542594,
-              objectiveHash: 1009409497
-            }
-          ]
+              objectiveHash: 1009409497,
+            },
+          ],
         },
-        screenshot: '/static/images/screenshots/enemies/hellmouth_patrol-boss_nightmareJaxx.jpg'
+        screenshot: '/static/images/screenshots/enemies/hellmouth_patrol-boss_nightmareJaxx.jpg',
       },
       {
         nodeHash: 'wanderingNightmareFallenCouncil',
         displayProperties: {
           name: manifest.DestinyObjectiveDefinition[1009409499].progressDescription,
-          description: t("Defeat this Nightmare to progress record _{{recordName}}_.", { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name })
+          description: t('Defeat this Nightmare to progress record _{{recordName}}_.', { recordName: manifest.DestinyRecordDefinition[1842542594].displayProperties.name }),
         },
         type: {
           hash: 'patrol-boss',
           name: t('Patrol boss'),
           category: 'enemy',
-          race: 'fallen'
+          race: 'fallen',
         },
         icon: <Maps.MapsPatrolBossFallenDusk />,
-        location: {
-          destinationHash: 290444260,
-          bubbleHash: 3326367698,
+        destinationHash: 290444260,
+        bubbleHash: 3326367698,
+        map: {
           points: [
             {
               x: -647,
-              y: -539
-            }
-          ]
+              y: -539,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.wanderingNightmares,
-          now: cycleInfo.week.wanderingNightmares === 4
+          now: cycleInfo.week.wanderingNightmares === 4,
         },
         activityLightLevel: 980,
         related: {
           records: [
             {
-              recordHash: 1842542594
-            }
+              recordHash: 1842542594,
+            },
           ],
           objectives: [
             {
               recordHash: 1842542594,
-              objectiveHash: 1009409499
-            }
-          ]
+              objectiveHash: 1009409499,
+            },
+          ],
         },
-        screenshot: '/static/images/screenshots/enemies/archers-line_patrol-boss_nightmareFallenCouncil.jpg'
-      }
+        screenshot: '/static/images/screenshots/enemies/archers-line_patrol-boss_nightmareFallenCouncil.jpg',
+      },
     ],
     'new-pacific-arcology': [],
     'arcadian-valley': [],
@@ -246,23 +246,23 @@ export default (member, array) => {
           category: 'vendor',
         },
         icon: <Maps.Vendor />,
-        location: {
-          destinationHash: 2779202173,
-          bubbleHash: 3522109173,
+        destinationHash: 2779202173,
+        bubbleHash: 3522109173,
+        map: {
           points: [
             {
               x: 503,
-              y: -310
-            }
-          ]
+              y: -310,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.curse,
-          now: cycleInfo.week.curse === 1
+          now: cycleInfo.week.curse === 1,
         },
-        screenshot: '/static/images/screenshots/vendors/vendors_petra-1-2.jpg'
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-1-2.jpg',
       },
       {
         vendorHash: 1841717884,
@@ -270,23 +270,23 @@ export default (member, array) => {
           category: 'vendor',
         },
         icon: <Maps.Vendor />,
-        location: {
-          destinationHash: 2779202173,
-          bubbleHash: 2762866308,
+        destinationHash: 2779202173,
+        bubbleHash: 2762866308,
+        map: {
           points: [
             {
               x: -430,
-              y: -138
-            }
-          ]
+              y: -138,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.curse,
-          now: cycleInfo.week.curse === 2
+          now: cycleInfo.week.curse === 2,
         },
-        screenshot: '/static/images/screenshots/vendors/vendors_petra-2-2.jpg'
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-2-2.jpg',
       },
       {
         vendorHash: 1841717884,
@@ -294,41 +294,40 @@ export default (member, array) => {
           category: 'vendor',
         },
         icon: <Maps.Vendor />,
-        location: {
-          destinationHash: 2779202173,
-          bubbleHash: 706937272,
+        destinationHash: 2779202173,
+        bubbleHash: 706937272,
+        map: {
           points: [
             {
               x: 68,
-              y: 259
-            }
-          ]
+              y: 259,
+            },
+          ],
         },
         availability: {
           type: 'cycle',
           frequency: 'week',
           cycleLength: cycleInfo.cycle.curse,
-          now: cycleInfo.week.curse === 3
+          now: cycleInfo.week.curse === 3,
         },
-        screenshot: '/static/images/screenshots/vendors/vendors_petra-3-2.jpg'
-      }
-    ]
-  }
+        screenshot: '/static/images/screenshots/vendors/vendors_petra-3-2.jpg',
+      },
+    ],
+  };
 
   if (member && member.data) {
     const hydrated = {};
 
     for (const destination in nodes) {
-      hydrated[destination] = nodes[destination].map(n => {
-        
+      hydrated[destination] = nodes[destination].map((n) => {
         return {
           ...n,
           related: n.related && {
             ...n.related,
-            objectives: n.related.objectives && hydrateObjectives(member, n.related.objectives)
-          }  
-        }
-      })
+            objectives: n.related.objectives && hydrateObjectives(member, n.related.objectives),
+          },
+        };
+      });
     }
 
     if (array) {
@@ -343,4 +342,4 @@ export default (member, array) => {
       return nodes;
     }
   }
-}
+};

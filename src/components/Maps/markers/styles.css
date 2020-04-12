@@ -138,6 +138,10 @@
   opacity: 0.4;
 }
 
+.map-omega.debug .leaflet-container .icon-marker.error:not(.native) .wrapper .icon svg {
+  --fill-color: #ffe600;
+}
+
 .map-omega.debug.highlight-no-screenshot .leaflet-container .icon-marker:not(.native):not(.checklistId-4178338182):not(.has-screenshot) svg {
   --fill-color: #a83429;
 }

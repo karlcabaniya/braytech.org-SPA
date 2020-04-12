@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import { mergeWith } from 'lodash';
 
 import Braytech_EN from '../data/manifest/en/Braytech/';
 import Braytech_ES from '../data/manifest/es/Braytech/';
@@ -96,10 +96,18 @@ const customs = {
   },
 };
 
+function mergeWithCustomizer(a, b) {
+  if (Array.isArray(a)) {
+    return a.concat(b);
+  }
+  
+  return a;
+}
+
 const customsMerge = (bungie, customs) => {
   for (const key in customs) {
     if (customs.hasOwnProperty(key) && bungie.hasOwnProperty(key)) {
-      bungie[key] = merge(bungie[key], customs[key]);
+      bungie[key] = mergeWith(bungie[key], customs[key], mergeWithCustomizer);
     }
   }
 
