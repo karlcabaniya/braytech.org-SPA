@@ -55,19 +55,65 @@ const presentationNodes = [
   4285512244, // lunasLost
 ];
 
+const destinationHashOverrides = {
+  4188263703: 1199524104 // The Farm -> EDZ
+};
+
+const bubbleHashOverrides = {
+  
+};
+
 async function run() {
   const manifest = await Manifest.getManifest();
+
+  function merger(e, c) {
+    if (Array.isArray(c)) {
+      if (!Array.isArray(e)) {
+        return c;
+      } else if (e.length < 1 && c.length >= 1) {
+        return c;
+      } else if (c.length === 1 && e.length >= 1) {
+        return c;
+      } else if (c.length > 1 && e.length > 1) {
+        // not emotionally ready to deal with this sorry
+        return e;
+      } else {
+        return e;
+      }
+    } else if (typeof c === 'object') {
+      return _.mergeWith(e, c, merger);
+    }
+    // else if (c && c !== '') {
+    //   return c;
+    // }
+    // else if (e !== c) {
+    //   return c;
+    // }
+    else {
+      // console.log(c)
+      return c;
+    }
+  }
 
   function checklistItem(id, item) {
     const existing = (data[id] && data[id].find(c => c.checklistHash === item.hash)) || {};
     const mapping = newLight.checklists[item.hash] || {};
     const lowlines = lowlidev[id] && lowlidev[id].find(n => (n.checklistHash === +item.hash) || (n.activityHash === +item.activityHash));
 
-    const destinationHash = item.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+    let destinationHash = item.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+    destinationHash = destinationHashOverrides[destinationHash] ? destinationHashOverrides[destinationHash] : destinationHash;
+
     const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-    const bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
+    let activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
+    let bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
+
+    if (bubbleHash === 'Dark Monastery') {
+      bubbleHash = undefined;
+      activityHash = 1313738982;
+    }
+
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
     const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (lowlines && lowlines.bubbleName);
@@ -95,8 +141,6 @@ async function run() {
 
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
     const withinLostSector = bubbleHash && data[3142056444].find(l => l.bubbleHash === bubbleHash) && id !== 3142056444;
-
-    const activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
 
     let located = undefined;
     if (withinLostSector) {
@@ -133,35 +177,6 @@ async function run() {
     return updates;
   }
 
-  function merger(e, c) {
-    if (Array.isArray(c)) {
-      if (!Array.isArray(e)) {
-        return c;
-      } else if (e.length < 1 && c.length >= 1) {
-        return c;
-      } else if (c.length === 1 && e.length >= 1) {
-        return c;
-      } else if (c.length > 1 && e.length > 1) {
-        // not emotionally ready to deal with this sorry
-        return e;
-      } else {
-        return e;
-      }
-    } else if (typeof c === 'object') {
-      return _.mergeWith(e, c, merger);
-    }
-    // else if (c && c !== '') {
-    //   return c;
-    // }
-    // else if (e !== c) {
-    //   return c;
-    // }
-    else {
-      // console.log(c)
-      return c;
-    }
-  }
-
   function presentationItems(presentationHash, dropFirst = true) {
     const root = manifest.DestinyPresentationNodeDefinition[presentationHash];
     let recordHashes = root.children.records.map(r => r.recordHash);
@@ -172,8 +187,10 @@ async function run() {
         const existing = (data[presentationHash] && data[presentationHash].find(c => c.recordHash === hash)) || {};
         const mapping = newLight.records[hash];
         const lowlines = lowlidev[presentationHash] && lowlidev[presentationHash].find(n => (n.recordHash === hash));
-            
-        const destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+
+        let destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+        destinationHash = destinationHashOverrides[destinationHash] ? destinationHashOverrides[destinationHash] : destinationHash;
+
         const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
         const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 

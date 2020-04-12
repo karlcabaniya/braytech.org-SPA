@@ -1,7 +1,7 @@
 const fs = require('fs');
 const fetch = require('node-fetch');
 
-const outputPath = './dump/index.json';
+const outputPath = 'scripts/dump/index.json';
 
 async function work(input) {
   let output = {};

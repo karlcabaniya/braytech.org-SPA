@@ -7271,7 +7271,7 @@
         }
       ],
       "sorts": {
-        "destination": "The Farm",
+        "destination": "European Dead Zone",
         "bubble": "The Farm",
         "place": "Earth",
         "name": "The Farm",
@@ -7290,7 +7290,7 @@
         }
       ],
       "sorts": {
-        "destination": "The Farm",
+        "destination": "European Dead Zone",
         "bubble": "The Farm",
         "place": "Earth",
         "name": "The Farm",
@@ -7309,7 +7309,7 @@
         }
       ],
       "sorts": {
-        "destination": "The Farm",
+        "destination": "European Dead Zone",
         "bubble": "The Farm",
         "place": "Earth",
         "name": "The Farm",
@@ -7328,7 +7328,7 @@
         }
       ],
       "sorts": {
-        "destination": "The Farm",
+        "destination": "European Dead Zone",
         "bubble": "The Farm",
         "place": "Earth",
         "name": "The Farm",
@@ -10798,7 +10798,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Dark Monastery",
+      "bubbleHash": 3522109173,
       "recordHash": 242464657,
       "points": [
         {
@@ -10808,7 +10808,7 @@
       ],
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "Dark Monastery",
+        "bubble": "The Strand",
         "place": "The Dreaming City",
         "name": "King's Wrath",
         "number": 22
