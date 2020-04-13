@@ -131,15 +131,21 @@ class Checklists extends React.Component {
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
             const markerOffsetX = mapXOffset + viewWidth / 2;
 
-            const offsetY = markerOffsetY + (l + 1) * 30 - 1250;
-            const offsetX = markerOffsetX + (i + 1) * 50 - 0;
+            const offsetY = markerOffsetY + (l + 1) * 30 - 0;
+            const offsetX = markerOffsetX + (i + 1) * 50 - 1200;
 
             // const text = checklist.checklistId === 3142056444 ? node.formatted.name : false;
 
-            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? `has-screenshot` : ''], { icon: list.checklistIcon, url: list.checklistImage });
+            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
+              'error',
+              node.completed ? 'completed' : '',
+              `checklistId-${list.checklistId}`,
+              node.screenshot ? `has-screenshot` : '',
+              highlight === (node.checklistHash || node.recordHash) ? 'highlight' : ''
+            ], { icon: list.checklistIcon, url: list.checklistImage });
             // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
 
-            return <Marker key={`${node.checklistHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} />;
+            return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} />;
           } else {
             return null;
           }

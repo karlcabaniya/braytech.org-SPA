@@ -866,7 +866,7 @@
     },
     {
       "destinationHash": 359854275,
-      "bubbleHash": "High Plains",
+      "bubbleHash": 1519764506,
       "recordHash": 3448739526,
       "map": {
         "points": [
@@ -886,7 +886,7 @@
     },
     {
       "destinationHash": 359854275,
-      "bubbleHash": "High Plains",
+      "bubbleHash": 1519764506,
       "recordHash": 3448739521,
       "map": {
         "points": [
@@ -906,7 +906,7 @@
     },
     {
       "destinationHash": 359854275,
-      "bubbleHash": "High Plains",
+      "bubbleHash": 1519764506,
       "recordHash": 3448739520,
       "map": {
         "points": [
@@ -1277,7 +1277,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Cimmerian Garrison",
+      "bubbleHash": 27792021737,
       "checklistHash": 1370818866,
       "recordHash": 1859033173,
       "map": {
@@ -1361,7 +1361,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Agonarch Abyss",
+      "bubbleHash": 27792021736,
       "checklistHash": 1370818878,
       "recordHash": 1859033177,
       "map": {
@@ -1382,7 +1382,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Shattered Ruins",
+      "bubbleHash": 27792021734,
       "checklistHash": 1370818879,
       "recordHash": 1859033176,
       "map": {
@@ -1403,7 +1403,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Keep of Honed Edges",
+      "bubbleHash": 27792021735,
       "checklistHash": 1387596457,
       "recordHash": 1842255614,
       "map": {
@@ -1509,7 +1509,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Forfeit Shrine",
+      "bubbleHash": 27792021733,
       "checklistHash": 1387596460,
       "recordHash": 1842255611,
       "map": {
@@ -1530,7 +1530,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Ouroborea",
+      "bubbleHash": 27792021732,
       "checklistHash": 1387596463,
       "recordHash": 1842255608,
       "map": {
@@ -1553,7 +1553,7 @@
   "1420597821": [
     {
       "destinationHash": 359854275,
-      "bubbleHash": "High Plains",
+      "bubbleHash": 1519764506,
       "recordHash": 2121305070,
       "map": {
         "points": [
@@ -1604,7 +1604,7 @@
             "y": 633
           }
         ],
-        "in": "activity"
+        "in": "story"
       },
       "sorts": {
         "destination": "The Tangled Shore",
@@ -8611,7 +8611,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Cimmerian Garrison",
+      "bubbleHash": 27792021737,
       "checklistHash": 1067696994,
       "recordHash": 3024450471,
       "map": {
@@ -8632,7 +8632,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Cimmerian Garrison",
+      "bubbleHash": 27792021737,
       "checklistHash": 1067696995,
       "recordHash": 3024450471,
       "map": {
@@ -8653,7 +8653,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Cimmerian Garrison",
+      "bubbleHash": 27792021737,
       "checklistHash": 1067697004,
       "recordHash": 3024450471,
       "map": {
@@ -8674,7 +8674,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Shattered Ruins",
+      "bubbleHash": 27792021734,
       "checklistHash": 1067697005,
       "recordHash": 3024450469,
       "map": {
@@ -8695,7 +8695,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Shattered Ruins",
+      "bubbleHash": 27792021734,
       "checklistHash": 1084474583,
       "recordHash": 3024450469,
       "map": {
@@ -8716,7 +8716,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Agonarch Abyss",
+      "bubbleHash": 27792021736,
       "checklistHash": 1084474582,
       "recordHash": 3024450465,
       "map": {
@@ -8737,7 +8737,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Agonarch Abyss",
+      "bubbleHash": 27792021736,
       "checklistHash": 1084474581,
       "recordHash": 3024450465,
       "map": {
@@ -8758,7 +8758,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Agonarch Abyss",
+      "bubbleHash": 27792021736,
       "checklistHash": 1084474580,
       "recordHash": 3024450465,
       "map": {
@@ -8779,7 +8779,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Keep of Honed Edges",
+      "bubbleHash": 27792021735,
       "checklistHash": 1084474579,
       "recordHash": 2974117605,
       "map": {
@@ -8800,7 +8800,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Keep of Honed Edges",
+      "bubbleHash": 27792021735,
       "checklistHash": 1084474578,
       "recordHash": 2974117605,
       "map": {
@@ -8821,7 +8821,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Ouroborea",
+      "bubbleHash": 27792021732,
       "checklistHash": 1084474577,
       "recordHash": 3024450470,
       "map": {
@@ -8842,7 +8842,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Ouroborea",
+      "bubbleHash": 27792021732,
       "checklistHash": 1084474576,
       "recordHash": 3024450470,
       "map": {
@@ -8863,7 +8863,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Ouroborea",
+      "bubbleHash": 27792021732,
       "checklistHash": 1084474591,
       "recordHash": 3024450470,
       "map": {
@@ -8884,7 +8884,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Forfeit Shrine",
+      "bubbleHash": 27792021733,
       "checklistHash": 1084474590,
       "recordHash": 2974117611,
       "map": {
@@ -8905,7 +8905,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "Forfeit Shrine",
+      "bubbleHash": 27792021733,
       "checklistHash": 1034141726,
       "recordHash": 2974117611,
       "map": {
@@ -11038,7 +11038,7 @@
     },
     {
       "destinationHash": 359854275,
-      "bubbleHash": "High Plains",
+      "bubbleHash": 1519764506,
       "recordHash": 276019952,
       "map": {
         "points": [

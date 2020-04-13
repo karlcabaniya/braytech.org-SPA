@@ -42,8 +42,6 @@ class Checklist extends React.Component {
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
     const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
 
-    console.log(node, definitionDestination, definitionBubble)
-
     const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
 
     return (

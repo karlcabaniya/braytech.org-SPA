@@ -1,14 +1,4 @@
 {
-  "2779202173": {
-    "bubbles": [
-      {
-        "hash": 27792021731,
-        "displayProperties": {
-          "name": "The Confluence"
-        }
-      }
-    ]
-  },
   "1199524104": {
     "bubbles": [
       {
@@ -55,6 +45,62 @@
         "hash": 1269249195,
         "displayProperties": {
           "name": "Well of Stars"
+        }
+      }
+    ]
+  },
+  "359854275": {
+    "bubbles": [
+      {
+        "hash": 1519764506,
+        "displayProperties": {
+          "name": "High Plains"
+        }
+      }
+    ]
+  },
+  "2779202173": {
+    "bubbles": [
+      {
+        "hash": 27792021731,
+        "displayProperties": {
+          "name": "The Confluence"
+        }
+      },
+      {
+        "hash": 27792021732,
+        "displayProperties": {
+          "name": "Ouroborea"
+        }
+      },
+      {
+        "hash": 27792021733,
+        "displayProperties": {
+          "name": "Forfeit Shrine"
+        }
+      },
+      {
+        "hash": 27792021734,
+        "displayProperties": {
+          "name": "Shattered Ruins"
+        }
+      },
+      {
+        "hash": 27792021735,
+        "displayProperties": {
+          "name": "Keep of Honed Edges"
+        }
+      },
+      {
+        "hash": 27792021736,
+        "displayProperties": {
+          "name": "Agonarch Abyss"
+        }
+      },
+      {
+        "hash": 27792021737,
+        "displayProperties": {
+          "name": "Cimmerian Garrison"
         }
       }
     ]
