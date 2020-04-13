@@ -419,7 +419,7 @@ class Maps extends React.Component {
             </ul>
           </div>
         ) : null} */}
-        {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
+        {/* {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null} */}
       </div>
     );
   }

@@ -119,7 +119,7 @@ class Checklists extends React.Component {
               const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
                 `checklistId-${list.checklistId}`,
                 node.completed ? 'completed' : '',
-                !Number.isInteger(node.bubbleHash) ? `error` : '',
+                node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '',
                 node.screenshot ? `has-screenshot` : '',
                 highlight === (node.checklistHash || node.recordHash) ? 'highlight' : ''
               ], { icon: list.checklistIcon, url: list.checklistImage });

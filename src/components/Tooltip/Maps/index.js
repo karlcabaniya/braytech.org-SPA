@@ -38,6 +38,8 @@ class Checklist extends React.Component {
 
     const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
 
+    console.log(node)
+
     const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
     const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);

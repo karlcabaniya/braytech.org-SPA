@@ -125,6 +125,11 @@ async function run() {
     if (bubbleHash === 'Dark Monastery') {
       bubbleHash = undefined;
       activityHash = 1313738982;
+    } else if (bubbleHash === 'The Corrupted') {
+      bubbleHash = undefined;
+      activityHash = 3374205762;
+    } else if (bubbleHash === 2241206483) {
+      bubbleHash = undefined;
     }
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });

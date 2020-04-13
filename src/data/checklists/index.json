@@ -1256,7 +1256,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Corrupted",
+      "activityHash": 3374205762,
       "checklistHash": 1370818869,
       "recordHash": 1859033170,
       "map": {
@@ -1265,7 +1265,8 @@
             "x": 141,
             "y": 527
           }
-        ]
+        ],
+        "in": "strike"
       },
       "sorts": {
         "destination": "The Dreaming City",
@@ -1298,7 +1299,7 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Corrupted",
+      "activityHash": 3374205762,
       "checklistHash": 1370818867,
       "recordHash": 1859033172,
       "map": {
@@ -1307,7 +1308,8 @@
             "x": 141,
             "y": 496
           }
-        ]
+        ],
+        "in": "strike"
       },
       "sorts": {
         "destination": "The Dreaming City",
@@ -5110,7 +5112,6 @@
     },
     {
       "destinationHash": 2218917881,
-      "bubbleHash": 2241206483,
       "activityHash": 4261351281,
       "checklistHash": 2799709240,
       "map": {
@@ -5124,15 +5125,14 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
+        "bubble": false,
         "place": "Io",
-        "name": "Pyramidion",
+        "name": false,
         "number": 33
       }
     },
     {
       "destinationHash": 2218917881,
-      "bubbleHash": 2241206483,
       "activityHash": 4261351281,
       "checklistHash": 619741013,
       "map": {
@@ -5146,15 +5146,14 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
+        "bubble": false,
         "place": "Io",
-        "name": "Pyramidion",
+        "name": false,
         "number": 34
       }
     },
     {
       "destinationHash": 2218917881,
-      "bubbleHash": 2241206483,
       "activityHash": 4261351281,
       "checklistHash": 81948082,
       "map": {
@@ -5168,9 +5167,9 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
+        "bubble": false,
         "place": "Io",
-        "name": "Pyramidion",
+        "name": false,
         "number": 35
       }
     },
@@ -8381,6 +8380,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1585801249,
+      "activityHash": 3374205762,
       "checklistHash": 1118029880,
       "recordHash": 2974117604,
       "map": {
@@ -8389,7 +8389,8 @@
             "x": 174,
             "y": 546
           }
-        ]
+        ],
+        "in": "strike"
       },
       "sorts": {
         "destination": "The Dreaming City",
@@ -8402,6 +8403,7 @@
     {
       "destinationHash": 2779202173,
       "bubbleHash": 1585801249,
+      "activityHash": 3374205762,
       "checklistHash": 1118029883,
       "recordHash": 2974117604,
       "map": {
@@ -8410,7 +8412,8 @@
             "x": 173,
             "y": 508
           }
-        ]
+        ],
+        "in": "strike"
       },
       "sorts": {
         "destination": "The Dreaming City",

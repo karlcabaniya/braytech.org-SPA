@@ -15,7 +15,7 @@ import Spinner from '../Spinner';
 import './styles.css';
 
 const perViewRouteVisibility = {
-  maps: ['/checklists', '/maps', '/quests', '/settings'],
+  // maps: ['/checklists', '/maps', '/quests', '/settings'],
 };
 
 class Header extends React.Component {
