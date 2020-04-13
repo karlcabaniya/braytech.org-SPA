@@ -1,0 +1,62 @@
+{
+  "2779202173": {
+    "bubbles": [
+      {
+        "hash": 27792021731,
+        "displayProperties": {
+          "name": "Слияние"
+        }
+      }
+    ]
+  },
+  "1199524104": {
+    "bubbles": [
+      {
+        "hash": 11995241041,
+        "displayProperties": {
+          "name": "Ферма"
+        }
+      }
+    ]
+  },
+  "126924919": {
+    "bubbles": [
+      {
+        "hash": 4205285323,
+        "displayProperties": {
+          "name": "Черный Исход"
+        }
+      },
+      {
+        "hash": 1269249191,
+        "displayProperties": {
+          "name": "Вывернутый Шпиль"
+        }
+      },
+      {
+        "hash": 1269249192,
+        "displayProperties": {
+          "name": "Проводник Вирго"
+        }
+      },
+      {
+        "hash": 1269249193,
+        "displayProperties": {
+          "name": "Колодец Праха"
+        }
+      },
+      {
+        "hash": 1269249194,
+        "displayProperties": {
+          "name": "Надлом"
+        }
+      },
+      {
+        "hash": 1269249195,
+        "displayProperties": {
+          "name": "Колодец Звезд"
+        }
+      }
+    ]
+  }
+}
