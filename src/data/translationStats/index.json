@@ -1,140 +1,179 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 303,
+    "notTranslated": 306,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "debug": {
-    "translated": 672,
+    "translated": 675,
     "notTranslated": 0,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "en": {
-    "translated": 672,
+    "translated": 675,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "es-mx": {
-    "translated": 668,
+    "translated": 671,
     "notTranslated": 4,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "es": {
-    "translated": 668,
+    "translated": 671,
     "notTranslated": 4,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "fr": {
-    "translated": 573,
-    "notTranslated": 99,
+    "translated": 666,
+    "notTranslated": 9,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "it": {
-    "translated": 652,
-    "notTranslated": 20,
+    "translated": 651,
+    "notTranslated": 24,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "ja": {
-    "translated": 603,
-    "notTranslated": 69,
+    "translated": 602,
+    "notTranslated": 73,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "ko": {
-    "translated": 553,
-    "notTranslated": 119,
+    "translated": 552,
+    "notTranslated": 123,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 670,
+    "notTranslated": 673,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "pt-br": {
-    "translated": 663,
-    "notTranslated": 9,
+    "translated": 662,
+    "notTranslated": 13,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "ru": {
-    "translated": 668,
+    "translated": 671,
     "notTranslated": 4,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "zh-chs": {
-    "translated": 460,
-    "notTranslated": 212,
+    "translated": 459,
+    "notTranslated": 216,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   },
   "zh-cht": {
-    "translated": 376,
-    "notTranslated": 296,
+    "translated": 375,
+    "notTranslated": 300,
     "added": [
-      "_Destiny Tracker_ Elo"
+      "Found within activity",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}"
     ],
     "removed": [
-      "Destiny Tracker Elo"
+      "Patrol boss"
     ]
   }
 }
