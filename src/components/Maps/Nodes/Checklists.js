@@ -131,8 +131,8 @@ class Checklists extends React.Component {
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
             const markerOffsetX = mapXOffset + viewWidth / 2;
 
-            const offsetY = markerOffsetY + (l + 1) * 30 - 0;
-            const offsetX = markerOffsetX + (i + 1) * 50 - 1200;
+            const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
+            const offsetX = markerOffsetX + (i + 1) * 50 - map.width / 2;
 
             // const text = checklist.checklistId === 3142056444 ? node.formatted.name : false;
 

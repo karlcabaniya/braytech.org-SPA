@@ -18,6 +18,8 @@ function foundInText(type, activityName) {
     return t('Found within Strike: {{activityName}}', { activityName });
   } else if (type === 'story') {
     return t('Found within Story: {{activityName}}', { activityName });
+  } else if (type === 'ascendant-challenge') {
+    return t('Found within Ascendant Challenge: {{activityName}}', { activityName });
   } else {
     return t('Found within activity');
   }
@@ -38,13 +40,16 @@ class Checklist extends React.Component {
 
     const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
 
-    console.log(node)
+    console.log(node);
 
     const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
     const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
 
-    const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
+    const bubbleName = definitionBubble?.displayProperties?.name;
+
+    const within = node.map?.in;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
 
     return (
       <>
@@ -68,7 +73,7 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {checklistItem.map.in ? <div className='inside-location'>{foundInText(checklistItem.map.in, locatedActivityName)}</div> : null}
+            {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
               {node.description ? <BungieText className='text' source={node.description} /> : null}
@@ -103,7 +108,10 @@ class Record extends React.Component {
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
     const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
 
-    const locatedActivityName = definitionActivity?.displayProperties.name || definitionBubble?.displayProperties.name;
+    const bubbleName = definitionBubble?.displayProperties?.name;
+
+    const within = node.map?.in;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
 
     return (
       <>
@@ -138,7 +146,7 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {checklistItem.map.in ? <div className='inside-location'>{foundInText(checklistItem.map.in, locatedActivityName)}</div> : null}
+            {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
               {node.description ? <BungieText className='text' source={node.description} /> : null}
@@ -161,17 +169,19 @@ class Node extends React.Component {
       return null;
     }
 
+    const definitionActivity = manifest.DestinyActivityDefinition[node.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[node.destinationHash];
     const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
     const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === node.bubbleHash);
 
     const destinationName = definitionDestination?.displayProperties?.name;
     const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
-    const bubbleName = definitionBubble?.displayProperties?.name;    
+    const bubbleName = definitionBubble?.displayProperties?.name;
 
     const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
-    const locatedActivityName = node.map?.in && manifest.DestinyActivityDefinition[node.activityHash]?.displayProperties?.name;
+    const within = node.map?.in;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
 
     const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 
@@ -194,7 +204,7 @@ class Node extends React.Component {
                 <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
-            {node.map?.in ? <div className='inside-location'>{foundInText(node.within.id, locatedActivityName)}</div> : null}
+            {within ? <div className='inside-location'>{foundInText(node.map.in, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{destination}</div>
               {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}

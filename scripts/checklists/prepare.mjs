@@ -59,6 +59,57 @@ const destinationHashOverrides = {
   4188263703: 1199524104, // The Farm -> EDZ
 };
 
+const ascendantChallenges = [
+  {
+    "hash": 27792021731,
+    "displayProperties": {
+      "name": "The Confluence"
+    }
+  },
+  {
+    "hash": 27792021732,
+    "displayProperties": {
+      "name": "Ouroborea"
+    }
+  },
+  {
+    "hash": 27792021733,
+    "displayProperties": {
+      "name": "Forfeit Shrine"
+    }
+  },
+  {
+    "hash": 27792021734,
+    "displayProperties": {
+      "name": "Shattered Ruins"
+    }
+  },
+  {
+    "hash": 27792021735,
+    "displayProperties": {
+      "name": "Keep of Honed Edges"
+    }
+  },
+  {
+    "hash": 27792021736,
+    "displayProperties": {
+      "name": "Agonarch Abyss"
+    }
+  },
+  {
+    "hash": 27792021737,
+    "displayProperties": {
+      "name": "Cimmerian Garrison"
+    }
+  },
+  {
+    "hash": 27792021738,
+    "displayProperties": {
+      "name": "Ascendant Plane"
+    }
+  }
+];
+
 const bubbleHashOverrides = {
   'High Plains': 1519764506,
   'Gardens of Esila': 278887670,
@@ -170,6 +221,8 @@ async function run() {
     } else if (activityHash && id !== 4178338182) {
       // exclude adventures from being located within themselves lol
       within = 'activity';
+    } else if (bubbleHash && ascendantChallenges.find(b => b.hash === bubbleHash)) {
+      within = 'ascendant-challenge';
     }
 
     const changes = {
@@ -247,6 +300,8 @@ async function run() {
           within = 'story';
         } else if (activityHash) {
           within = 'activity';
+        } else if (bubbleHash && ascendantChallenges.find(b => b.hash === bubbleHash)) {
+          within = 'ascendant-challenge';
         }
 
         // if (hash === 242464657) console.log(existing, bubbleHash)
