@@ -1236,5 +1236,50 @@
   "229": {
     "recordHash": 3390078226,
     "screenshot": "/static/images/screenshots/lore/hellmouth_lunas-lost_3390078226.jpg"
+  },
+  "230": {
+    "vendorHash": 1735426333,
+    "bubbleHash": 1461622515,
+    "screenshot": "/static/images/screenshots/vendors/vendors_ana-bray-2.jpg"
+  },
+  "231": {
+    "vendorHash": 2398407866,
+    "bubbleHash": 2822410613,
+    "screenshot": "/static/images/screenshots/vendors/vendors_brother-vance-2.jpg"
+  },
+  "232": {
+    "vendorHash": 396892126,
+    "bubbleHash": 3091570009,
+    "screenshot": "/static/images/screenshots/vendors/vendors_devrim-kay-2.jpg"
+  },
+  "233": {
+    "vendorHash": 1576276905,
+    "bubbleHash": 4205285323,
+    "screenshot": "/static/images/screenshots/vendors/vendors_failsafe-2.jpg"
+  },
+  "234": {
+    "vendorHash": 1062861569,
+    "bubbleHash": 4035573696,
+    "screenshot": "/static/images/screenshots/vendors/vendors_sloane-2.jpg"
+  },
+  "235": {
+    "vendorHash": 1616085565,
+    "bubbleHash": 240420607,
+    "screenshot": "/static/images/screenshots/vendors/vendors_eris-morn-2.jpg"
+  },
+  "236": {
+    "vendorHash": 3411552308,
+    "bubbleHash": 240420607,
+    "screenshot": "/static/images/screenshots/vendors/vendors_lectern-of-enchantment-2.jpg"
+  },
+  "237": {
+    "vendorHash": 3982706173,
+    "bubbleHash": 577912749,
+    "screenshot": "/static/images/screenshots/vendors/vendors_asher-mir-2.jpg"
+  },
+  "238": {
+    "vendorHash": 863940356,
+    "bubbleHash": 824533556,
+    "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
   }
 }

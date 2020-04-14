@@ -7,7 +7,6 @@ import ObservedImage from '../../../ObservedImage';
 import Button from '../../../UI/Button';
 import { bookCovers } from '../../../../utils/destinyEnums';
 import { checklists, lookup } from '../../../../utils/checklists';
-import nodes from '../../../../data/maps/nodes';
 
 function findNodeType(checklistHash, recordHash) {
   if (checklistHash) {
@@ -53,9 +52,8 @@ class Inspect extends React.Component {
     const checklist = checklistId && checklists[checklistId]({ requested: { key: type.key, array: [checklistHash || recordHash] } });
     const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
 
-    const extras = nodes && nodes.find(d => d[type.key] === checklistItem[type.key]);
-    const screenshot = extras && extras.screenshot;
-    const description = extras && extras.description;
+    // const screenshot = extras && extras.screenshot;
+    // const description = extras && extras.description;
 
     const locatedActivityName = (checklistItem.activityHash && manifest.DestinyActivityDefinition[checklistItem.activityHash]?.displayProperties?.name) || checklistItem.sorts.bubble;
 
@@ -75,11 +73,11 @@ class Inspect extends React.Component {
             </Button>
           </div>
         </div>
-        {screenshot ? (
+        {/* {screenshot ? (
           <div className='screenshot'>
             <ObservedImage src={screenshot} />
           </div>
-        ) : null}
+        ) : null} */}
         {checklistItem.extended.located ? <div className='inside-location'>{locatedText(checklistItem.extended.located, locatedActivityName)}</div> : null}
         <div className='location'>{checklistItem.formatted.locationExt}</div>
       </div>

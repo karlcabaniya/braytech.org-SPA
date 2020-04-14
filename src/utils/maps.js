@@ -96,10 +96,10 @@ export function cartographer(search, member) {
 
   const icon = dynamic?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
-  console.log(`definitionMaps`, definitionMaps);
-  console.log(`graph`, graph);
-  console.log(`checklistItem`, checklistItem);
-  console.log(`dynamic`, dynamic);
+  // console.log(`definitionMaps`, definitionMaps);
+  // console.log(`graph`, graph);
+  // console.log(`checklistItem`, checklistItem);
+  // console.log(`dynamic`, dynamic);
 
   const aggregate = {
     ...graph,
