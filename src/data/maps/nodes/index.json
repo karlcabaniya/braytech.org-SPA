@@ -670,7 +670,8 @@
       "name": "Brephos II",
       "number": 3
     },
-    "description": false
+    "description": false,
+    "activityHash": 3374205762
   },
   {
     "checklistId": 1297424116,
@@ -692,7 +693,8 @@
       "name": "Cosmogyre I",
       "number": 5
     },
-    "description": false
+    "description": false,
+    "activityHash": 3374205762
   },
   {
     "checklistId": 1297424116,
@@ -758,7 +760,8 @@
       "name": "Ecstasiate III",
       "number": 11
     },
-    "description": false
+    "description": false,
+    "activityHash": 1313738982
   },
   {
     "checklistId": 1297424116,
@@ -2425,7 +2428,7 @@
     "recordHash": null,
     "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_33.jpg",
     "debug": {
-      "name": "Pyramidion",
+      "name": false,
       "number": 33
     },
     "description": "Guarded by a Vex Harpy, this object lies in the corner of a large space before you turn left and pass through a warp gate.",
@@ -2437,7 +2440,7 @@
     "recordHash": null,
     "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_34.jpg",
     "debug": {
-      "name": "Pyramidion",
+      "name": false,
       "number": 34
     },
     "description": "In a tight corner of a large space where three plates must be captured in order to push forward and onwards through another warp gate.",
@@ -2449,7 +2452,7 @@
     "recordHash": null,
     "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_35.jpg",
     "debug": {
-      "name": "Pyramidion",
+      "name": false,
       "number": 35
     },
     "description": "After passing through the final warp gate, you find yourself on a large ramp. Before facing _The Genesis Mind_, make a hard right at the bottom of the ramp. Climb a small sand beach and head into the shadow of the construct.",
@@ -4077,7 +4080,8 @@
     "checklistHash": 1118029880,
     "recordHash": 2974117604,
     "screenshot": false,
-    "description": false
+    "description": false,
+    "activityHash": 3374205762
   },
   {
     "debug": {
@@ -5012,7 +5016,7 @@
     "checklistId": 3142056444,
     "checklistHash": 486022069,
     "recordHash": 2574072230,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-strand_lost-sectors_aphelions-rest.jpg",
     "debug": {
       "name": "Aphelion's Rest",
       "number": 37
@@ -5023,7 +5027,7 @@
     "checklistId": 3142056444,
     "checklistHash": 97924869,
     "recordHash": 1641495327,
-    "screenshot": false,
+    "screenshot": "/static/images/screenshots/lost-sectors/rheasilvia_lost-sectors_chamber-of-starlight.jpg",
     "debug": {
       "name": "Chamber of Starlight",
       "number": 38
@@ -5938,17 +5942,5 @@
     "vendorHash": 863940356,
     "bubbleHash": 824533556,
     "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
-  },
-  {
-    "nodeHash": 1,
-    "screenshot": "/static/images/screenshots/fast-travel/portal_1091325847.jpg"
-  },
-  {
-    "nodeHash": 2,
-    "screenshot": "/static/images/screenshots/fast-travel/portal_278887670.jpg"
-  },
-  {
-    "nodeHash": 3,
-    "screenshot": "/static/images/screenshots/fast-travel/portal_768261954.jpg"
   }
 ]

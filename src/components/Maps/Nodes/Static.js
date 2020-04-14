@@ -46,11 +46,13 @@ class Static extends React.Component {
 
           return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'vendor' && node.vendorHash !== 2190858386) {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'])} zIndexOffset='-1000' />;
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor' })} zIndexOffset='-1000' />;
         } else if (node.type === 'fast-travel') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'portal') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconPortal[node.nodeHash]} zIndexOffset='-1000' />;
+        } else if (node.type === 'ascendant-challenge') {
+          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'ascendant-challenge'], { icon: 'ascendant-challenge' })} zIndexOffset='-1000' />;
         } else if (node.type === 'forge') {
           return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' />;
         } else if (node.type === 'dungeon') {

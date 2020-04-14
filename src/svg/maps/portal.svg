@@ -1,11 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-  <title>portal</title>
-  <g class="Layer_2" data-name="Layer 2">
-    <g class="Layer_1-2" data-name="Layer 1">
-      <circle class="outer" cx="80" cy="80" r="75" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px;opacity:0.4"/>
-      <circle class="inner" cx="80" cy="80" r="60" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px;opacity:0.4"/>
-      <circle cx="80" cy="80" r="28.5" style="fill: #fff"/>
-      <circle cx="80.00003" cy="80.00001" r="39.59995" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px;stroke-dasharray: 0,6.909693717956543"/>
-    </g>
-  </g>
+  <circle class="outer" cx="80" cy="80" r="75" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px;opacity: 0.4"/>
+  <circle class="unstable" cx="80" cy="80" r="75" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px;opacity:0;stroke-dasharray: 6.9302592277526855,9.900370597839355"/>
+  <circle class="inner" cx="80" cy="80" r="60" style="fill: none;stroke: #fff;stroke-miterlimit: 10;stroke-width: 2px;opacity: 0.4"/>
+  <circle cx="80" cy="80" r="28.5" style="fill: #fff"/>
+  <circle cx="80.00003" cy="80.00001" r="39.59995" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-miterlimit: 10;stroke-width: 3px;stroke-dasharray: 0,6.909693717956543"/>
 </svg>

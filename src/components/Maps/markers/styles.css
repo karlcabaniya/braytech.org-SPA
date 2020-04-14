@@ -226,6 +226,16 @@
   animation-direction: reverse;
 }
 
+.map-omega .leaflet-container .icon-marker.portal.unstable .wrapper .icon .unstable {
+  opacity: 0.6 !important;
+  transform-origin: center center;
+  animation: maps-rotate-linear-scale-2 30s linear both infinite;
+}
+
+.map-omega .leaflet-container .icon-marker.ascendant-challenge .wrapper .icon {
+  width: 32px;
+}
+
 .map-omega .leaflet-container .icon-marker.forge .wrapper .icon {
   width: 160px;
 }
@@ -301,6 +311,18 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes maps-rotate-linear-scale-2 {
+  0% {
+    transform: rotate(0deg) scale(2);
+  }
+  50% {
+    transform: rotate(180deg) scale(2);
+  }
+  100% {
+    transform: rotate(360deg) scale(2);
   }
 }
 

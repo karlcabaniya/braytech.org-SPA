@@ -14,9 +14,9 @@ import Spinner from '../Spinner';
 
 import './styles.css';
 
-const perViewRouteVisibility = {
-  // maps: ['/checklists', '/maps', '/quests', '/settings'],
-};
+// const perViewRouteVisibility = {
+//   // maps: ['/checklists', '/maps', '/quests', '/settings'],
+// };
 
 class Header extends React.Component {
   state = {
@@ -280,7 +280,7 @@ class Header extends React.Component {
                   <ul>
                     {views
                       .filter((v) => v.inline)
-                      .filter((v) => (perViewRouteVisibility[utils.pathSubDir(location)] ? (!v.hidden ? perViewRouteVisibility[utils.pathSubDir(location)].indexOf(v.path) > -1 : true) : true))
+                      //.filter((v) => (perViewRouteVisibility[utils.pathSubDir(location)] ? (!v.hidden ? perViewRouteVisibility[utils.pathSubDir(location)].indexOf(v.path) > -1 : true) : true))
                       .map((view) => {
                         if (view.profile) {
                           return (

@@ -2,7 +2,7 @@
   "1": {
     "displayProperties": {
       "name": "The Confluence West",
-      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+      "description": "A portal to _The Confluence_, powered by paracasual energies."
     },
     "icon": "portal",
     "type": {
@@ -10,12 +10,13 @@
       "hash": "portal"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 1091325847
+    "bubbleHash": 1091325847,
+    "screenshot": "/static/images/screenshots/portals/portal_1091325847.jpg"
   },
   "2": {
     "displayProperties": {
       "name": "The Confluence East",
-      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+      "description": "A portal to _The Confluence_, powered by paracasual energies."
     },
     "icon": "portal",
     "type": {
@@ -23,12 +24,13 @@
       "hash": "portal"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 278887670
+    "bubbleHash": 278887670,
+    "screenshot": "/static/images/screenshots/portals/portal_278887670.jpg"
   },
   "3": {
     "displayProperties": {
       "name": "The Confluence South",
-      "description": "A portal to the _The Confluence_, powered by paracasual energies."
+      "description": "A portal to _The Confluence_, powered by paracasual energies."
     },
     "icon": "portal",
     "type": {
@@ -36,6 +38,284 @@
       "hash": "portal"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 768261954
+    "bubbleHash": 768261954,
+    "screenshot": "/static/images/screenshots/portals/portal_768261954.jpg"
+  },
+  "4": {
+    "displayProperties": {
+      "name": "Ouroborea",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "5": {
+    "displayProperties": {
+      "name": "Ouroborea",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "6": {
+    "displayProperties": {
+      "name": "Forfeit Shrine",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "7": {
+    "displayProperties": {
+      "name": "Forfeit Shrine",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "8": {
+    "displayProperties": {
+      "name": "Shattered Ruins",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "9": {
+    "displayProperties": {
+      "name": "Shattered Ruins",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "10": {
+    "displayProperties": {
+      "name": "Keep of Honed Edges",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "11": {
+    "displayProperties": {
+      "name": "Keep of Honed Edges",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "12": {
+    "displayProperties": {
+      "name": "Agonarch Abyss",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "13": {
+    "displayProperties": {
+      "name": "Agonarch Abyss",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "14": {
+    "displayProperties": {
+      "name": "Cimmerian Garrison",
+      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nThis challenge culminates in a fight between the Guardian, a Hive Knight, and three Hive Shriekers, on a spacious platform with various cover from enemy fire."
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-1.jpg"
+  },
+  "15": {
+    "displayProperties": {
+      "name": "Cimmerian Garrison",
+      "description": "A portal to the _Ascendant Plane_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 3366050756,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-2.jpg"
+  },
+  "16": {
+    "type": {
+      "name": "Patrol boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 417490937,
+    "map": {
+      "points": [
+        {
+          "x": 430,
+          "y": 347
+        }
+      ]
+    },
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409498
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/sorrows-harbor_patrol-boss_nightmareXortal.jpg"
+  },
+  "17": {
+    "type": {
+      "name": "Patrol boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 4025450777,
+    "map": {
+      "points": [
+        {
+          "x": 2,
+          "y": -429
+        }
+      ]
+    },
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409496
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/anchor-of-light_patrol-boss_nightmareHorkis.jpg"
+  },
+  "18": {
+    "type": {
+      "name": "Patrol boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 4195493657,
+    "map": {
+      "points": [
+        {
+          "x": -192,
+          "y": -116
+        }
+      ]
+    },
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409497
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/hellmouth_patrol-boss_nightmareJaxx.jpg"
+  },
+  "19": {
+    "type": {
+      "name": "Patrol boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 3326367698,
+    "map": {
+      "points": [
+        {
+          "x": -647,
+          "y": -539
+        }
+      ]
+    },
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409499
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/archers-line_patrol-boss_nightmareFallenCouncil.jpg"
   }
 }

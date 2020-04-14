@@ -1878,7 +1878,14 @@
           "name": "Chamber of Starlight",
           "id": "chamber-of-starlight",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 14,
+              "x": 1168,
+              "y": 149
+            }
+          ]
         },
         {
           "hash": 544256237,

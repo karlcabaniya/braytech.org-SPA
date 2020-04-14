@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "analyze": "node scripts/analyzeBundle.js",
     "translations": "node scripts/extractTranslations2.js --stats --delete-unused",
-    "map-nodes": "node --experimental-modules scripts/prepareNodesData.mjs",
+    "map-nodes": "node --experimental-modules --experimental-json-modules scripts/prepareNodesData.mjs",
     "checklists": "node --experimental-modules --experimental-json-modules scripts/checklists/prepare.mjs",
     "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs",
     "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",

@@ -102,6 +102,12 @@
         "displayProperties": {
           "name": "Cimmerian Garrison"
         }
+      },
+      {
+        "hash": 27792021738,
+        "displayProperties": {
+          "name": "Ascendant Plane"
+        }
       }
     ]
   }

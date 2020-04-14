@@ -9,12 +9,16 @@ import nodesRuntime from '../../../data/maps/runtime';
 import * as marker from '../markers';
 
 class Runtime extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {};
 
-    this.state = {
-      nodes: nodesRuntime(this.props.member)
-    };
+  static getDerivedStateFromProps(p, s) {
+    if (!s.nodes) {
+      return {
+        nodes: nodesRuntime(p.member),
+      };
+    }
+
+    return null;
   }
 
   componentDidMount() {
@@ -58,16 +62,20 @@ class Runtime extends React.Component {
             const offsetX = markerOffsetX + point.x;
             const offsetY = markerOffsetY + point.y;
 
-            if (node.type.hash === 'patrol-boss') {
-              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? `has-screenshot` : ''], { icon: node.icon });
+            if (node.nodeType === 'patrol-boss') {
+              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
-            } else if (node.type.category === 'vendor') {
-              const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? `has-screenshot` : '']);
+            } else if (node.nodeType === 'vendor') {
+              const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor' });
+
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+            } else if (node.nodeType === 'portal') {
+              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'portal', node.screenshot ? 'has-screenshot' : '', node.availability.type === 'cycle' ? 'unstable' : ''], { icon: 'portal' });
 
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             } else {
-              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? `has-screenshot` : ''], { icon: <Common.Info /> });
+              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? 'has-screenshot' : ''], { icon: <Common.Info /> });
               
               return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
             }

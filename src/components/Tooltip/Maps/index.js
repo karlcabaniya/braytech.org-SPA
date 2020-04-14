@@ -167,7 +167,7 @@ class Node extends React.Component {
 
     const destinationName = definitionDestination?.displayProperties?.name;
     const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
-    const bubbleName = definitionBubble?.displayProperties?.name;
+    const bubbleName = definitionBubble?.displayProperties?.name;    
 
     const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
@@ -178,7 +178,7 @@ class Node extends React.Component {
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', 'map', node.type.hash)}>
+        <div className={cx('frame', 'map', node.nodeType)}>
           <div className='header'>
             <div className='icon'>{node.icon || null}</div>
             <div className='text'>

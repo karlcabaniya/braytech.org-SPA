@@ -34,6 +34,7 @@ export function resolveDestination(value) {
 
 const iconsMap = {
   portal: <Maps.Portal />,
+  'ascendant-challenge': <Maps.AscendantChallenge />,
 };
 
 function findGraph(search) {
@@ -87,7 +88,7 @@ export function cartographer(search, member) {
   const graph = findGraph(search);
   const checklistItem = findChecklistItem(search);
   const nodes = rawNodes.filter((node) => node[search.key] === +search.value);
-  const dynamic = runtime(member, true).find((node) => node.availability.now && node[search.key] === search.value);
+  const dynamic = runtime(member, true).find((node) => node[search.key] === +search.value && node.availability.now);
 
   if (!definitionMaps && !graph && !nodes.length && !dynamic) {
     return false;

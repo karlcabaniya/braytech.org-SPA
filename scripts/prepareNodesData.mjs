@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-import Manifest from './manifest';
+import Manifest from './manifest.js';
 import _ from 'lodash';
 
-const dump = JSON.parse(fs.readFileSync('src/data/lowlines/checklists/index.json'));
-const input = JSON.parse(fs.readFileSync('src/data/lowlines/maps/nodes/index.json'));
+const dump = JSON.parse(fs.readFileSync('src/data/checklists/index.json'));
+const input = JSON.parse(fs.readFileSync('src/data/maps/nodes/index.json'));
 
 let output = input;
 
@@ -95,7 +95,7 @@ async function run() {
 
   output = _.orderBy(output, [e => e.checklistId, e => e.debug && e.debug.number, e => e.debug && e.debug.name]);
 
-  fs.writeFileSync('src/data/lowlines/maps/nodes/index.json', JSON.stringify(output, null, '  '));
+  fs.writeFileSync('src/data/maps/nodes/index.json', JSON.stringify(output, null, '  '));
 }
 
 function getScreenshot(listName, pattern) {

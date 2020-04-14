@@ -1,7 +1,5 @@
 import React from 'react';
-import cx from 'classnames';
 
-import manifest from '../../../utils/manifest';
 import Spinner from '../../../components/UI/Spinner';
 
 import './styles.css';
@@ -12,13 +10,7 @@ class Loading extends React.Component {
       <div className='loading'>
         <Spinner />
         <div className='state'>
-          <ul>
-            {this.props.loaded.map((destination, d) => (
-              <li key={d} className={cx({ loaded: !destination.loading })}>
-                {manifest.DestinyDestinationDefinition[destination.destinationHash].displayProperties.name}
-              </li>
-            ))}
-          </ul>
+          <span>{this.props.loaded.filter(d => !d.loading).length}</span>/{this.props.loaded.length}
         </div>
       </div>
     );

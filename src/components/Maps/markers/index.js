@@ -9,8 +9,12 @@ import './styles.css';
 
 export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
   let icon = marker.icon || null;
-  if (tooltip.type === 'vendor') {
+  if (typeof marker.icon === 'string' && marker.icon === 'vendor') {
     icon = <Maps.Vendor />;
+  } else if (typeof marker.icon === 'string' && marker.icon === 'portal') {
+    icon = <Maps.Portal />;
+  } else if (typeof marker.icon === 'string' && marker.icon === 'ascendant-challenge') {
+    icon = <Maps.AscendantChallenge />;
   }
 
   const html = (
@@ -88,6 +92,16 @@ export const iconPortal = {
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
         <div className='icon tooltip' data-type='maps' data-hash='3'>
+          <Maps.Portal />
+        </div>
+      </div>
+    )
+  }),
+  15: L.divIcon({
+    className: 'icon-marker native portal',
+    html: ReactDOMServer.renderToString(
+      <div className='wrapper'>
+        <div className='icon tooltip' data-type='maps' data-hash='15'>
           <Maps.Portal />
         </div>
       </div>

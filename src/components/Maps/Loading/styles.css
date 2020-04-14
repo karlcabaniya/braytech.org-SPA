@@ -2,24 +2,13 @@
   position: absolute;
   top: 60%;
   width: 100%;
-}
-
-.map-omega .loading .state ul {
-  width: max-content;
-  margin: 0 auto;
-  display: grid;
-  grid-auto-flow: row;
-  gap: 10px;
-}
-
-.map-omega .loading .state ul li {
-  font-size: 10px;
-  font-family: var(--fontText);
+  text-align: center;
   text-transform: uppercase;
-  transition: opacity 1s;
-  opacity: 0.4;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.map-omega .loading .state ul li.loaded {
-  opacity: 0.8;
+.map-omega .loading .state span {
+  color: rgba(255, 255, 255, 0.8);
 }
+
