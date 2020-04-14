@@ -70,11 +70,14 @@ function findChecklistItem(search) {
 
       if (checklistItem) {
         return {
+          checklistHash: checklistItem.checklistHash,
+          recordHash: checklistItem.recordHash,
           destinationHash: checklistItem.destinationHash,
           bubbleHash: checklistItem.bubbleHash,
           activityHash: checklistItem.activityHash,
-          checklistHash: checklistItem.checklistHash,
-          map: checklistItem.map
+          itemHash: checklistItem.itemHash,
+          map: checklistItem.map,
+          screenshot: checklistItem.screenshot
         }
       };
     }
@@ -97,11 +100,11 @@ export function cartographer(search, member) {
   const node = nodes.length === 1 ? nodes[0] : {};
   const icon = dynamic?.icon || nodes?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
-  // console.log(`definitionMaps`, definitionMaps);
-  // console.log(`graph`, graph);
-  // console.log(`checklistItem`, checklistItem);
-  // console.log(`node`, node);
-  // console.log(`dynamic`, dynamic);
+  console.log(`definitionMaps`, definitionMaps);
+  console.log(`graph`, graph);
+  console.log(`checklistItem`, checklistItem);
+  console.log(`node`, node);
+  console.log(`dynamic`, dynamic);
 
   const aggregate = {
     ...graph,

@@ -1,12 +1,12 @@
 import fs from 'fs';
+import path from 'path';
 import Manifest from '../manifest.js';
 import _ from 'lodash';
 
 import lowlidev from './lowlines.json';
 import newLight from './worthy.json';
 
-const path = 'src/data/checklists/index.json';
-const data = JSON.parse(fs.readFileSync(path));
+import data from '../../src/data/checklists/index.json';
 
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
@@ -242,8 +242,10 @@ async function run() {
         place: definitionPlace && definitionPlace.displayProperties.name,
         name,
         number: itemNumber && parseInt(itemNumber, 10),
-      },
+      }
     };
+
+    changes.screenshot = getScreenshot(id, changes);
 
     // const updates = _.mergeWith(existing, changes, merger);
     const updates = changes;
@@ -325,6 +327,8 @@ async function run() {
           },
         };
 
+        changes.screenshot = getScreenshot(presentationHash, changes);
+
         //if (changes.recordHash === 3390078236) console.log(mapping, existing)
         // console.log(changes)
         // console.log({
@@ -364,7 +368,92 @@ async function run() {
     }
   });
 
-  fs.writeFileSync(path, JSON.stringify(lists, null, '  '));
+  fs.writeFileSync('src/data/checklists/index.json', JSON.stringify(lists, null, '  '));
+}
+
+function getScreenshot(checklistId, checklistItem) {
+  let screenshot = undefined;
+
+  if (checklistId === 2360931290 && checklistItem.sorts && checklistItem.sorts.number) {
+    screenshot = searchScreenshots('ghost-scans', `ghost-scans_${checklistItem.sorts.number}.jpg`);
+  }
+
+  if (checklistId === 1697465175 && checklistItem.sorts && checklistItem.sorts.number) {
+    screenshot = searchScreenshots('region-chests', `region-chests_${checklistItem.sorts.number}.jpg`);
+  }
+
+  if (checklistId === 3142056444 && checklistItem.sorts && checklistItem.sorts.name) {
+    screenshot = searchScreenshots(
+      'lost-sectors',
+      `lost-sectors_${checklistItem.sorts.name
+        .toLowerCase()
+        .replace(/'/g, '')
+        .replace(/ /g, '-')}.jpg`
+    );
+  }
+
+  if (checklistId === 1420597821 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('lore', `ghost-stories_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 655926402 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('lore', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 3305936921 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('lore', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 4285512244 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('lore', `lunas-lost_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 2474271317 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('lore', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 1912364094 && checklistItem.checklistHash) {
+    screenshot = searchScreenshots('jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
+  }
+
+  return screenshot
+}
+
+function searchScreenshots(listName, pattern) {
+  const look = fromDir(`public/static/images/screenshots/${listName}/`, pattern);
+
+  if (look && look.length === 1) {
+    return `/static/images/screenshots/${listName}/${look[0]}`;
+  }
+
+  return undefined;
+}
+
+function fromDir(startPath, filter) {
+  if (!fs.existsSync(startPath)) {
+    console.log('no dir ', startPath);
+
+    return;
+  }
+
+  const pattern = new RegExp(filter);
+
+  const files = fs.readdirSync(startPath);
+
+  const results = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const filename = path.join(startPath, files[i]);
+    const stat = fs.lstatSync(filename);
+
+    if (stat.isDirectory()) {
+      fromDir(filename, filter);
+    } else if (pattern.test(filename)) {
+      results.push(files[i]);
+    }
+  }
+
+  return results;
 }
 
 run();
