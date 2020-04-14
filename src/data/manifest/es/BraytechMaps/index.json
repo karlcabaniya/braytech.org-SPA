@@ -1,0 +1,41 @@
+{
+  "1": {
+    "displayProperties": {
+      "name": "La confluencia, Oeste",
+      "description": "Un portal a _La Confluencia_, alimentado por energías paracasuales."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 1091325847
+  },
+  "2": {
+    "displayProperties": {
+      "name": "La confluencia, Este",
+      "description": "Un portal a _La Confluencia_, alimentado por energías paracasuales."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 278887670
+  },
+  "3": {
+    "displayProperties": {
+      "name": "La confluencia, Sur",
+      "description": "Un portal a _La Confluencia_, alimentado por energías paracasuales."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 768261954
+  }
+}

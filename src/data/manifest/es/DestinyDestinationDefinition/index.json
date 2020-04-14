@@ -1,0 +1,108 @@
+{
+  "1199524104": {
+    "bubbles": [
+      {
+        "hash": 11995241041,
+        "displayProperties": {
+          "name": "La Villa"
+        }
+      }
+    ]
+  },
+  "126924919": {
+    "bubbles": [
+      {
+        "hash": 4205285323,
+        "displayProperties": {
+          "name": "Éxodo Negro"
+        }
+      },
+      {
+        "hash": 1269249191,
+        "displayProperties": {
+          "name": "La Espira Invertida"
+        }
+      },
+      {
+        "hash": 1269249192,
+        "displayProperties": {
+          "name": "Conducto de Virgo"
+        }
+      },
+      {
+        "hash": 1269249193,
+        "displayProperties": {
+          "name": "Pozo de polvo"
+        }
+      },
+      {
+        "hash": 1269249194,
+        "displayProperties": {
+          "name": "Fisura"
+        }
+      },
+      {
+        "hash": 1269249195,
+        "displayProperties": {
+          "name": "Pozo de estrellas"
+        }
+      }
+    ]
+  },
+  "359854275": {
+    "bubbles": [
+      {
+        "hash": 1519764506,
+        "displayProperties": {
+          "name": "Altas llanuras"
+        }
+      }
+    ]
+  },
+  "2779202173": {
+    "bubbles": [
+      {
+        "hash": 27792021731,
+        "displayProperties": {
+          "name": "La Confluencia"
+        }
+      },
+      {
+        "hash": 27792021732,
+        "displayProperties": {
+          "name": "Ouroborea"
+        }
+      },
+      {
+        "hash": 27792021733,
+        "displayProperties": {
+          "name": "Altar de la Pérdida"
+        }
+      },
+      {
+        "hash": 27792021734,
+        "displayProperties": {
+          "name": "Ruinas Desvastadas"
+        }
+      },
+      {
+        "hash": 27792021735,
+        "displayProperties": {
+          "name": "Fortaleza Filos Cortantes"
+        }
+      },
+      {
+        "hash": 27792021736,
+        "displayProperties": {
+          "name": "Abismo Agonarca"
+        }
+      },
+      {
+        "hash": 27792021737,
+        "displayProperties": {
+          "name": "Guarnición Cimmeria"
+        }
+      }
+    ]
+  }
+}
