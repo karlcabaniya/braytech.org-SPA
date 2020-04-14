@@ -1004,8 +1004,7 @@
         "place": "Earth",
         "name": "Jolyon",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/lore/the-drain_the-forsaken-prince_3431961938.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -1026,8 +1025,7 @@
         "place": "Earth",
         "name": "After the Fall",
         "number": 11
-      },
-      "screenshot": "/static/images/screenshots/lore/flooded-chasm_the-forsaken-prince_3431961939.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -1048,8 +1046,7 @@
         "place": "Earth",
         "name": "Kings",
         "number": 12
-      },
-      "screenshot": "/static/images/screenshots/lore/excavation-site-xii_the-forsaken-prince_3431961936.jpg"
+      }
     },
     {
       "destinationHash": 308080871,
@@ -1644,8 +1641,7 @@
         "place": "Earth",
         "name": "Don't Call Me Ghost",
         "number": 5
-      },
-      "screenshot": "/static/images/screenshots/lore/shaft-13_ghost-stories_2121305066.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -1666,8 +1662,7 @@
         "place": "Earth",
         "name": "Compliments",
         "number": 6
-      },
-      "screenshot": "/static/images/screenshots/lore/the-drain_ghost-stories_2121305065.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -1688,8 +1683,7 @@
         "place": "Earth",
         "name": "No Rez for the Weary",
         "number": 7
-      },
-      "screenshot": "/static/images/screenshots/lore/the-quarry_ghost-stories_2121305064.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -1709,8 +1703,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Confession of Hope | Part One",
         "number": 8
-      },
-      "screenshot": "/static/images/screenshots/lore/arboretum_ghost-stories_2121305063.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -1730,8 +1723,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Watchful Eye",
         "number": 9
-      },
-      "screenshot": "/static/images/screenshots/lore/sirens-watch_ghost-stories_2121305062.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -1752,8 +1744,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Into the Fray",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/lore/ds-quarters-2_ghost-stories_2104527484.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -1814,8 +1805,7 @@
         "place": "Nessus",
         "name": "A Hero's Requiem",
         "number": 13
-      },
-      "screenshot": "/static/images/screenshots/lore/the-rift_ghost-stories_2104527487.jpg"
+      }
     },
     {
       "destinationHash": 1993421442,
@@ -2223,8 +2213,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_10.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2244,8 +2233,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 11
-      },
-      "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_11.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2265,8 +2253,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 12
-      },
-      "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_12.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2286,8 +2273,7 @@
         "place": "Earth",
         "name": "Winding Cove",
         "number": 13
-      },
-      "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_13.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2307,8 +2293,7 @@
         "place": "Earth",
         "name": "Winding Cove",
         "number": 14
-      },
-      "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_14.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2328,8 +2313,7 @@
         "place": "Earth",
         "name": "Winding Cove",
         "number": 15
-      },
-      "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_15.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2349,8 +2333,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 16
-      },
-      "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_16.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2370,8 +2353,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 17
-      },
-      "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_17.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2391,8 +2373,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 18
-      },
-      "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_18.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2412,8 +2393,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 19
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_19.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2433,8 +2413,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 20
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_20.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2454,8 +2433,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 21
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_21.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2475,8 +2453,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 22
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_22.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2496,8 +2473,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 23
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_23.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2517,8 +2493,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 24
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_24.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2538,8 +2513,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 25
-      },
-      "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_25.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2559,8 +2533,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 26
-      },
-      "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_26.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2580,8 +2553,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 27
-      },
-      "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_27.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2602,8 +2574,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 28
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_28.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2624,8 +2595,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 29
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_29.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -2646,8 +2616,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 30
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_30.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -2687,8 +2656,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 32
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_32.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -2708,8 +2676,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 33
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_33.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -2729,8 +2696,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 34
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_34.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -2750,8 +2716,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 35
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_35.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -2891,8 +2856,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 42
-      },
-      "screenshot": "/static/images/screenshots/region-chests/exodus-black_region-chests_42.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -2972,8 +2936,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 46
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-cistern_region-chests_46.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -2993,8 +2956,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 47
-      },
-      "screenshot": "/static/images/screenshots/region-chests/the-cistern_region-chests_47.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3035,8 +2997,7 @@
         "place": "Nessus",
         "name": "Artifact's Edge",
         "number": 49
-      },
-      "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_49.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3056,8 +3017,7 @@
         "place": "Nessus",
         "name": "Artifact's Edge",
         "number": 50
-      },
-      "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_50.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3077,8 +3037,7 @@
         "place": "Nessus",
         "name": "Artifact's Edge",
         "number": 51
-      },
-      "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_51.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3098,8 +3057,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 52
-      },
-      "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_52.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3119,8 +3077,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 53
-      },
-      "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_53.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -3140,8 +3097,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 54
-      },
-      "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_54.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -4092,8 +4048,7 @@
         "place": "The Moon",
         "name": "Archer's Line",
         "number": 100
-      },
-      "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_100.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4113,8 +4068,7 @@
         "place": "The Moon",
         "name": "Archer's Line",
         "number": 101
-      },
-      "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_101.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4134,8 +4088,7 @@
         "place": "The Moon",
         "name": "Archer's Line",
         "number": 102
-      },
-      "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_102.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4155,8 +4108,7 @@
         "place": "The Moon",
         "name": "Sorrow's Harbor",
         "number": 103
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_103.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4176,8 +4128,7 @@
         "place": "The Moon",
         "name": "Sorrow's Harbor",
         "number": 104
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_104.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4197,8 +4148,7 @@
         "place": "The Moon",
         "name": "Sorrow's Harbor",
         "number": 105
-      },
-      "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_105.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4218,8 +4168,7 @@
         "place": "The Moon",
         "name": "Hellmouth",
         "number": 106
-      },
-      "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_106.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4239,8 +4188,7 @@
         "place": "The Moon",
         "name": "Hellmouth",
         "number": 107
-      },
-      "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_107.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4260,8 +4208,7 @@
         "place": "The Moon",
         "name": "Hellmouth",
         "number": 108
-      },
-      "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_108.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4281,8 +4228,7 @@
         "place": "The Moon",
         "name": "Anchor of Light",
         "number": 109
-      },
-      "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_109.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4302,8 +4248,7 @@
         "place": "The Moon",
         "name": "Anchor of Light",
         "number": 110
-      },
-      "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_110.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4323,8 +4268,7 @@
         "place": "The Moon",
         "name": "Anchor of Light",
         "number": 111
-      },
-      "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_111.jpg"
+      }
     }
   ],
   "1912364094": [
@@ -4346,8 +4290,7 @@
         "place": "The Moon",
         "name": "Anchor of Light",
         "number": 1
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/anchor-of-light_jade-rabbits_4062796495.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4367,8 +4310,7 @@
         "place": "The Moon",
         "name": "Hellmouth",
         "number": 2
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/hellmouth_jade-rabbits_269847098.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4388,8 +4330,7 @@
         "place": "The Moon",
         "name": "Archer's Line",
         "number": 3
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/archers-line_jade-rabbits_957600697.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4409,8 +4350,7 @@
         "place": "The Moon",
         "name": "Sorrow's Harbor",
         "number": 4
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/sorrows-harbor_jade-rabbits_2293092716.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4431,8 +4371,7 @@
         "place": "The Moon",
         "name": "K1 Logistics",
         "number": 5
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/k1-logistics_jade-rabbits_2779900411.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4453,8 +4392,7 @@
         "place": "The Moon",
         "name": "K1 Revelation",
         "number": 6
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/k1-revelation_jade-rabbits_3728157446.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4474,8 +4412,7 @@
         "place": "The Moon",
         "name": "Circle of Bones",
         "number": 7
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/circle-of-bones_jade-rabbits_3977481189.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4495,8 +4432,7 @@
         "place": "The Moon",
         "name": "Chamber of Night",
         "number": 8
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/chamber-of-night_jade-rabbits_1568227000.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -4516,8 +4452,7 @@
         "place": "The Moon",
         "name": "Shrine of Oryx",
         "number": 9
-      },
-      "screenshot": "/static/images/screenshots/jade-rabbits/shrine-of-oryx_jade-rabbits_2115406343.jpg"
+      }
     }
   ],
   "2360931290": [
@@ -5180,8 +5115,7 @@
         "place": "Io",
         "name": false,
         "number": 33
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_33.jpg"
+      }
     },
     {
       "destinationHash": 2218917881,
@@ -5202,8 +5136,7 @@
         "place": "Io",
         "name": false,
         "number": 34
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_34.jpg"
+      }
     },
     {
       "destinationHash": 2218917881,
@@ -5224,8 +5157,7 @@
         "place": "Io",
         "name": false,
         "number": 35
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_35.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5245,8 +5177,7 @@
         "place": "Earth",
         "name": "Maevic Square",
         "number": 36
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_36.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5266,8 +5197,7 @@
         "place": "Earth",
         "name": "Maevic Square",
         "number": 37
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_37.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5287,8 +5217,7 @@
         "place": "Earth",
         "name": "Maevic Square",
         "number": 38
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_38.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5308,8 +5237,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 39
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_39.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5329,8 +5257,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 40
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_40.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5350,8 +5277,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 41
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_41.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5371,8 +5297,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 42
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_42.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5392,8 +5317,7 @@
         "place": "Earth",
         "name": "Outskirts",
         "number": 43
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_43.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5413,8 +5337,7 @@
         "place": "Earth",
         "name": "Legion's Anchor",
         "number": 44
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_44.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5434,8 +5357,7 @@
         "place": "Earth",
         "name": "Winding Cove",
         "number": 45
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/winding-cove_ghost-scans_45.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5455,8 +5377,7 @@
         "place": "Earth",
         "name": "Winding Cove",
         "number": 46
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/winding-cove_ghost-scans_46.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5476,8 +5397,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 47
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_47.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5497,8 +5417,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 48
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_48.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5518,8 +5437,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 49
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_49.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5539,8 +5457,7 @@
         "place": "Earth",
         "name": "Firebase Hades",
         "number": 50
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_50.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5560,8 +5477,7 @@
         "place": "Earth",
         "name": "Sojourner's Camp",
         "number": 51
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_51.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5581,8 +5497,7 @@
         "place": "Earth",
         "name": "Sojourner's Camp",
         "number": 52
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_52.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5602,8 +5517,7 @@
         "place": "Earth",
         "name": "Sojourner's Camp",
         "number": 53
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_53.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5623,8 +5537,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 54
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_54.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5644,8 +5557,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 55
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_55.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5665,8 +5577,7 @@
         "place": "Earth",
         "name": "The Gulch",
         "number": 56
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_56.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5686,8 +5597,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 57
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_57.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5707,8 +5617,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 58
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_58.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5728,8 +5637,7 @@
         "place": "Earth",
         "name": "Sunken Isles",
         "number": 59
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_59.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5749,8 +5657,7 @@
         "place": "Earth",
         "name": "Salt Mines",
         "number": 60
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_60.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5770,8 +5677,7 @@
         "place": "Earth",
         "name": "Salt Mines",
         "number": 61
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_61.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5791,8 +5697,7 @@
         "place": "Earth",
         "name": "Salt Mines",
         "number": 62
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_62.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5812,8 +5717,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 63
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_63.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5833,8 +5737,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 64
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_64.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5854,8 +5757,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 65
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_65.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5875,8 +5777,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 66
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_66.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5896,8 +5797,7 @@
         "place": "Earth",
         "name": "Trostland",
         "number": 67
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_67.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5917,8 +5817,7 @@
         "place": "Earth",
         "name": "Echion Hold",
         "number": 68
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/echion-hold_ghost-scans_68.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5938,8 +5837,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 69
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_69.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5959,8 +5857,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 70
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_70.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -5980,8 +5877,7 @@
         "place": "Earth",
         "name": "The Sludge",
         "number": 71
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_71.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -6001,8 +5897,7 @@
         "place": "Earth",
         "name": "The Tunnels",
         "number": 72
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-tunnels_ghost-scans_72.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -6022,8 +5917,7 @@
         "place": "Earth",
         "name": "The Tunnels",
         "number": 73
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-tunnels_ghost-scans_73.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6043,8 +5937,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Arboretum",
         "number": 77
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_77.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6064,8 +5957,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Arboretum",
         "number": 78
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_78.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6085,8 +5977,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Arboretum",
         "number": 79
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_79.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6106,8 +5997,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Festering Halls",
         "number": 80
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_80.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6127,8 +6017,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Festering Halls",
         "number": 81
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_81.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6148,8 +6037,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Festering Halls",
         "number": 82
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_82.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6169,8 +6057,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Solarium",
         "number": 83
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/solarium_ghost-scans_83.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6190,8 +6077,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 84
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_84.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6211,8 +6097,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 85
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_85.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6232,8 +6117,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 86
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_86.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6253,8 +6137,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 87
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_87.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6274,8 +6157,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "The Rig",
         "number": 88
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_88.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6295,8 +6177,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Tidal Anchor",
         "number": 89
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/tidal-anchor_ghost-scans_89.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6316,8 +6197,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Tidal Anchor",
         "number": 90
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/tidal-anchor_ghost-scans_90.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6337,8 +6217,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 91
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_91.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6358,8 +6237,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 92
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_92.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6379,8 +6257,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 93
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_93.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6400,8 +6277,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Siren's Watch",
         "number": 94
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_94.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6421,8 +6297,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Sinking Docks",
         "number": 95
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_95.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6442,8 +6317,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Sinking Docks",
         "number": 96
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_96.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -6463,8 +6337,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Sinking Docks",
         "number": 97
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_97.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6844,8 +6717,7 @@
         "place": "Nessus",
         "name": "Artifact's Edge",
         "number": 116
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/artifacts-edge_ghost-scans_116.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6865,8 +6737,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 117
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_117.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6886,8 +6757,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 118
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_118.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6907,8 +6777,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 119
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_119.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6928,8 +6797,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 120
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_120.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6949,8 +6817,7 @@
         "place": "Nessus",
         "name": "The Cistern",
         "number": 121
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_121.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6970,8 +6837,7 @@
         "place": "Nessus",
         "name": "Pools of Luminance",
         "number": 122
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/pools-of-luminance_ghost-scans_122.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -6991,8 +6857,7 @@
         "place": "Nessus",
         "name": "Pools of Luminance",
         "number": 123
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/pools-of-luminance_ghost-scans_123.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7012,8 +6877,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 124
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_124.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7033,8 +6897,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 125
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_125.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7054,8 +6917,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 126
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_126.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7075,8 +6937,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 127
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_127.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7096,8 +6957,7 @@
         "place": "Nessus",
         "name": "Glade of Echoes",
         "number": 128
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_128.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7117,8 +6977,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 129
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_129.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7138,8 +6997,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 130
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_130.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7159,8 +7017,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 131
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_131.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7180,8 +7037,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 132
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7201,8 +7057,7 @@
         "place": "Nessus",
         "name": "Exodus Black",
         "number": 133
-      },
-      "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_133.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -7830,8 +7685,7 @@
         "place": "The Moon",
         "name": "I.I: Of Tattered Blood and Broken Bone",
         "number": 1
-      },
-      "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118078.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7851,8 +7705,7 @@
         "place": "The Moon",
         "name": "I.II: Of Tattered Blood and Broken Bone",
         "number": 2
-      },
-      "screenshot": "/static/images/screenshots/lore/hellmouth_necrotic-cyphers_4212118079.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7872,8 +7725,7 @@
         "place": "The Moon",
         "name": "I.III: Of Tattered Blood and Broken Bone",
         "number": 3
-      },
-      "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118076.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7893,8 +7745,7 @@
         "place": "The Moon",
         "name": "I.IV: Of Tattered Blood and Broken Bone",
         "number": 4
-      },
-      "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118077.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7914,8 +7765,7 @@
         "place": "The Moon",
         "name": "II: An Audience with Slaughter",
         "number": 5
-      },
-      "screenshot": "/static/images/screenshots/lore/anchor-of-light_necrotic-cyphers_4212118074.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7935,8 +7785,7 @@
         "place": "The Moon",
         "name": "III: Ritualistic Circle Pit",
         "number": 6
-      },
-      "screenshot": "/static/images/screenshots/lore/anchor-of-light_necrotic-cyphers_4212118075.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7956,8 +7805,7 @@
         "place": "The Moon",
         "name": "IV: Blood Sport",
         "number": 7
-      },
-      "screenshot": "/static/images/screenshots/lore/sorrows-harbor_necrotic-cyphers_4212118072.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7977,8 +7825,7 @@
         "place": "The Moon",
         "name": "V: A Sinister Plot",
         "number": 8
-      },
-      "screenshot": "/static/images/screenshots/lore/sorrows-harbor_necrotic-cyphers_4212118073.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -7998,8 +7845,7 @@
         "place": "The Moon",
         "name": "VI: Blood Sport",
         "number": 9
-      },
-      "screenshot": "/static/images/screenshots/lore/temple-of-crota_necrotic-cyphers_4212118070.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8019,8 +7865,7 @@
         "place": "The Moon",
         "name": "VII: The Severed and the Unmade",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/lore/circle-of-bones_necrotic-cyphers_4212118071.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8040,8 +7885,7 @@
         "place": "The Moon",
         "name": "VIII: A Sacrifice of Self",
         "number": 11
-      },
-      "screenshot": "/static/images/screenshots/lore/chamber-of-night_necrotic-cyphers_2028468509.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8061,8 +7905,7 @@
         "place": "The Moon",
         "name": "IX.I: The Unmaking",
         "number": 12
-      },
-      "screenshot": "/static/images/screenshots/lore/the-worlds-grave_necrotic-cyphers_2028468508.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8082,8 +7925,7 @@
         "place": "The Moon",
         "name": "IX.II: The Unmaking",
         "number": 13
-      },
-      "screenshot": "/static/images/screenshots/lore/the-gatehouse_necrotic-cyphers_2028468511.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8103,8 +7945,7 @@
         "place": "The Moon",
         "name": "X: Faith in Bone",
         "number": 14
-      },
-      "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_necrotic-cyphers_2028468510.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8124,8 +7965,7 @@
         "place": "The Moon",
         "name": "XI: The Anti-Logic",
         "number": 15
-      },
-      "screenshot": "/static/images/screenshots/lore/sanctuary_necrotic-cyphers_2028468505.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8145,8 +7985,7 @@
         "place": "The Moon",
         "name": "VIII.X: Apocrypha",
         "number": 16
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468504.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8166,8 +8005,7 @@
         "place": "The Moon",
         "name": "IX.X: Apocrypha",
         "number": 17
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468507.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8187,8 +8025,7 @@
         "place": "The Moon",
         "name": "IX.X.I: Apocrypha",
         "number": 18
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468506.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8208,8 +8045,7 @@
         "place": "The Moon",
         "name": "IX.X.II: Apocrypha",
         "number": 19
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468501.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -8229,8 +8065,7 @@
         "place": "The Moon",
         "name": "XI.X: Apocrypha",
         "number": 20
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468500.jpg"
+      }
     }
   ],
   "2609997025": [
@@ -10203,8 +10038,7 @@
         "place": "Earth",
         "name": "Whispered Falls",
         "number": 4
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_whispered-falls.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10224,8 +10058,7 @@
         "place": "Earth",
         "name": "The Drain",
         "number": 5
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_the-drain.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10245,8 +10078,7 @@
         "place": "Earth",
         "name": "Scavenger's Den",
         "number": 6
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_scavengers-den.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10266,8 +10098,7 @@
         "place": "Earth",
         "name": "The Weep",
         "number": 7
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/winding-cove_lost-sectors_the-weep.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10287,8 +10118,7 @@
         "place": "Earth",
         "name": "The Pit",
         "number": 8
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_the-pit.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10308,8 +10138,7 @@
         "place": "Earth",
         "name": "Pathfinder's Crash",
         "number": 9
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_pathfinders-crash.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10329,8 +10158,7 @@
         "place": "Earth",
         "name": "Excavation Site XII",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_excavation-site-xii.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10350,8 +10178,7 @@
         "place": "Earth",
         "name": "Flooded Chasm",
         "number": 11
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/winding-cove_lost-sectors_flooded-chasm.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10371,8 +10198,7 @@
         "place": "Earth",
         "name": "Skydock IV",
         "number": 12
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/sunken-isles_lost-sectors_skydock-iv.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10392,8 +10218,7 @@
         "place": "Earth",
         "name": "The Quarry",
         "number": 13
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/sunken-isles_lost-sectors_the-quarry.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10413,8 +10238,7 @@
         "place": "Earth",
         "name": "Atrium",
         "number": 14
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_atrium.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10434,8 +10258,7 @@
         "place": "Earth",
         "name": "Terminus East",
         "number": 15
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_terminus-east.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10455,8 +10278,7 @@
         "place": "Earth",
         "name": "Widow's Walk",
         "number": 16
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_widows-walk.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10476,8 +10298,7 @@
         "place": "Earth",
         "name": "Cavern of Souls",
         "number": 17
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_cavern-of-souls.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10497,8 +10318,7 @@
         "place": "Earth",
         "name": "Hallowed Grove",
         "number": 18
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_hallowed-grove.jpg"
+      }
     },
     {
       "destinationHash": 1199524104,
@@ -10518,8 +10338,7 @@
         "place": "Earth",
         "name": "Shaft 13",
         "number": 19
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_shaft-13.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -10539,8 +10358,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Methane Flush",
         "number": 20
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/sirens-watch_lost-sectors_methane-flush.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -10560,8 +10378,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "DS Quarters-2",
         "number": 21
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-rig_lost-sectors_ds-quarters-2.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -10581,8 +10398,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Cargo Bay 3",
         "number": 22
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-rig_lost-sectors_cargo-bay-3.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -10602,8 +10418,7 @@
         "place": "Nessus",
         "name": "The Rift",
         "number": 23
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/exodus-black_lost-sectors_the-rift.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -10623,8 +10438,7 @@
         "place": "Nessus",
         "name": "The Conflux",
         "number": 24
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-cistern_lost-sectors_the-conflux.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -10644,8 +10458,7 @@
         "place": "Nessus",
         "name": "The Orrery",
         "number": 25
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/artifacts-edge_lost-sectors_the-orrery.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -10665,8 +10478,7 @@
         "place": "Nessus",
         "name": "The Carrion Pit",
         "number": 26
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/glade-of-echoes_lost-sectors_the-carrion-pit.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -10706,8 +10518,7 @@
         "place": "Mercury",
         "name": "Pariah's Refuge",
         "number": 28
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/fields-of-glass_lost-sectors_pariahs-refuge.jpg"
+      }
     },
     {
       "destinationHash": 308080871,
@@ -10727,8 +10538,7 @@
         "place": "Mars",
         "name": "Core Terminus",
         "number": 29
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/braytech-futurescape_lost-sectors_core-terminus.jpg"
+      }
     },
     {
       "destinationHash": 308080871,
@@ -10748,8 +10558,7 @@
         "place": "Mars",
         "name": "Ma'adim Subterrane",
         "number": 30
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/glacial-drift_lost-sectors_maadim-subterrane.jpg"
+      }
     },
     {
       "destinationHash": 359854275,
@@ -10896,8 +10705,7 @@
         "place": "The Dreaming City",
         "name": "Aphelion's Rest",
         "number": 37
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/the-strand_lost-sectors_aphelions-rest.jpg"
+      }
     },
     {
       "destinationHash": 2779202173,
@@ -10918,8 +10726,7 @@
         "place": "The Dreaming City",
         "name": "Chamber of Starlight",
         "number": 38
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/rheasilvia_lost-sectors_chamber-of-starlight.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -10939,8 +10746,7 @@
         "place": "The Moon",
         "name": "K1 Logistics",
         "number": 39
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/archers-line_lost-sectors_k1-logistics.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -10960,8 +10766,7 @@
         "place": "The Moon",
         "name": "K1 Revelation",
         "number": 40
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/sorrows-harbor_lost-sectors_k1-revelation.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -10981,8 +10786,7 @@
         "place": "The Moon",
         "name": "K1 Crew Quarters",
         "number": 41
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/hellmouth_lost-sectors_k1-crew-quarters.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -11002,8 +10806,7 @@
         "place": "The Moon",
         "name": "K1 Communion",
         "number": 42
-      },
-      "screenshot": "/static/images/screenshots/lost-sectors/anchor-of-light_lost-sectors_k1-communion.jpg"
+      }
     }
   ],
   "3305936921": [
@@ -11348,8 +11151,7 @@
         "place": "Earth",
         "name": "Of Earth and the Reef",
         "number": 17
-      },
-      "screenshot": "/static/images/screenshots/lore/scavengers-den_the-awoken-of-the-reef_259242241.jpg"
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -11369,8 +11171,7 @@
         "place": "Titan, Moon of Saturn",
         "name": "Pilgrimage",
         "number": 18
-      },
-      "screenshot": "/static/images/screenshots/lore/sinking-docks_the-awoken-of-the-reef_259242254.jpg"
+      }
     },
     {
       "destinationHash": 126924919,
@@ -11391,8 +11192,7 @@
         "place": "Nessus",
         "name": "Flayed",
         "number": 19
-      },
-      "screenshot": "/static/images/screenshots/lore/the-conflux_the-awoken-of-the-reef_259242255.jpg"
+      }
     },
     {
       "destinationHash": 2218917881,
@@ -12276,8 +12076,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Gunnvor's Ghost",
         "number": 1
-      },
-      "screenshot": "/static/images/screenshots/lore/archers-line_lunas-lost_3390078235.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12298,8 +12097,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Sai Mota's Ghost",
         "number": 2
-      },
-      "screenshot": "/static/images/screenshots/lore/the-worlds-grave_lunas-lost_3390078234.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12320,8 +12118,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Gimble-4's Ghost",
         "number": 3
-      },
-      "screenshot": "/static/images/screenshots/lore/shrine-of-oryx_lunas-lost_3390078233.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12342,8 +12139,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Eris Morn's Ghost",
         "number": 4
-      },
-      "screenshot": "/static/images/screenshots/lore/the-gatehouse_lunas-lost_3390078232.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12364,8 +12160,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Toland's Ghost",
         "number": 5
-      },
-      "screenshot": "/static/images/screenshots/lore/summoning-pits_lunas-lost_3390078239.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12386,8 +12181,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Vyhar's Ghost",
         "number": 6
-      },
-      "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_lunas-lost_3390078238.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12408,8 +12202,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Lonesome Ghost",
         "number": 7
-      },
-      "screenshot": "/static/images/screenshots/lore/anchor-of-light_lunas-lost_3390078237.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12430,8 +12223,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Omar Agah's Ghost",
         "number": 8
-      },
-      "screenshot": "/static/images/screenshots/lore/pit-of-heresy_lunas-lost_3390078236.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12452,8 +12244,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Eriana-3's Ghost",
         "number": 9
-      },
-      "screenshot": "/static/images/screenshots/lore/circle-of-bones_lunas-lost_3390078227.jpg"
+      }
     },
     {
       "destinationHash": 290444260,
@@ -12474,8 +12265,7 @@
         "place": "The Moon",
         "name": "Ghost Fragment: Vell Tarlowe's Ghost",
         "number": 10
-      },
-      "screenshot": "/static/images/screenshots/lore/hellmouth_lunas-lost_3390078226.jpg"
+      }
     }
   ]
 }

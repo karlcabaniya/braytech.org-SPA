@@ -7,6 +7,9 @@ import lowlidev from './lowlines.json';
 import newLight from './worthy.json';
 
 import data from '../../src/data/checklists/index.json';
+import old from './old.json';
+
+import BraytechMaps_EN from '../../src/data/manifest/en/BraytechMaps/index.json';
 
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
@@ -61,53 +64,53 @@ const destinationHashOverrides = {
 
 const ascendantChallenges = [
   {
-    "hash": 27792021731,
-    "displayProperties": {
-      "name": "The Confluence"
-    }
+    hash: 27792021731,
+    displayProperties: {
+      name: 'The Confluence',
+    },
   },
   {
-    "hash": 27792021732,
-    "displayProperties": {
-      "name": "Ouroborea"
-    }
+    hash: 27792021732,
+    displayProperties: {
+      name: 'Ouroborea',
+    },
   },
   {
-    "hash": 27792021733,
-    "displayProperties": {
-      "name": "Forfeit Shrine"
-    }
+    hash: 27792021733,
+    displayProperties: {
+      name: 'Forfeit Shrine',
+    },
   },
   {
-    "hash": 27792021734,
-    "displayProperties": {
-      "name": "Shattered Ruins"
-    }
+    hash: 27792021734,
+    displayProperties: {
+      name: 'Shattered Ruins',
+    },
   },
   {
-    "hash": 27792021735,
-    "displayProperties": {
-      "name": "Keep of Honed Edges"
-    }
+    hash: 27792021735,
+    displayProperties: {
+      name: 'Keep of Honed Edges',
+    },
   },
   {
-    "hash": 27792021736,
-    "displayProperties": {
-      "name": "Agonarch Abyss"
-    }
+    hash: 27792021736,
+    displayProperties: {
+      name: 'Agonarch Abyss',
+    },
   },
   {
-    "hash": 27792021737,
-    "displayProperties": {
-      "name": "Cimmerian Garrison"
-    }
+    hash: 27792021737,
+    displayProperties: {
+      name: 'Cimmerian Garrison',
+    },
   },
   {
-    "hash": 27792021738,
-    "displayProperties": {
-      "name": "Ascendant Plane"
-    }
-  }
+    hash: 27792021738,
+    displayProperties: {
+      name: 'Ascendant Plane',
+    },
+  },
 ];
 
 const bubbleHashOverrides = {
@@ -118,12 +121,12 @@ const bubbleHashOverrides = {
   "Harbinger's Seclude": 1091325847,
   'Bay of Drowned Wishes': 1091325847,
   'Chamber of Starlight': 3366050756,
-  'Ouroborea': 27792021732,
+  Ouroborea: 27792021732,
   'Forfeit Shrine': 27792021733,
   'Shattered Ruins': 27792021734,
   'Keep of Honed Edges': 27792021735,
   'Agonarch Abyss': 27792021736,
-  'Cimmerian Garrison': 27792021737
+  'Cimmerian Garrison': 27792021737,
 };
 
 async function run() {
@@ -221,7 +224,7 @@ async function run() {
     } else if (activityHash && id !== 4178338182) {
       // exclude adventures from being located within themselves lol
       within = 'activity';
-    } else if (bubbleHash && ascendantChallenges.find(b => b.hash === bubbleHash)) {
+    } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
       within = 'ascendant-challenge';
     }
 
@@ -242,10 +245,23 @@ async function run() {
         place: definitionPlace && definitionPlace.displayProperties.name,
         name,
         number: itemNumber && parseInt(itemNumber, 10),
-      }
+      },
     };
 
-    changes.screenshot = getScreenshot(id, changes);
+    const olddata = old.find((i) => i.checklistHash === item.hash);
+    const description = (olddata && olddata.description) || undefined;
+
+    const screenshot = getScreenshot(id, changes);
+
+    if (screenshot || description) {
+      doJson({
+        displayProperties: {
+          description,
+        },
+        checklistHash: item.hash,
+        screenshot,
+      });
+    }
 
     // const updates = _.mergeWith(existing, changes, merger);
     const updates = changes;
@@ -302,7 +318,7 @@ async function run() {
           within = 'story';
         } else if (activityHash) {
           within = 'activity';
-        } else if (bubbleHash && ascendantChallenges.find(b => b.hash === bubbleHash)) {
+        } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
           within = 'ascendant-challenge';
         }
 
@@ -327,7 +343,20 @@ async function run() {
           },
         };
 
-        changes.screenshot = getScreenshot(presentationHash, changes);
+        const olddata = old.find((i) => i.recordHash === recordHash);
+        const description = (olddata && olddata.description) || undefined;
+
+        const screenshot = getScreenshot(presentationHash, changes);
+
+        if (screenshot || description) {
+          doJson({
+            displayProperties: {
+              description,
+            },
+            recordHash,
+            screenshot,
+          });
+        }
 
         //if (changes.recordHash === 3390078236) console.log(mapping, existing)
         // console.log(changes)
@@ -369,6 +398,55 @@ async function run() {
   });
 
   fs.writeFileSync('src/data/checklists/index.json', JSON.stringify(lists, null, '  '));
+
+  BraytechMapsExports.forEach((load) => {
+    if (load.checklistHash || load.recordHash) {
+      const existing = Object.keys(BraytechMaps_EN).find((hash) => {
+        if (BraytechMaps_EN[hash].checklistHash && BraytechMaps_EN[hash].checklistHash === load.checklistHash) {
+          // console.log(BraytechMaps_EN[hash].checklistHash, load.checklistHash)
+          return true;
+        } else if (BraytechMaps_EN[hash].recordHash && BraytechMaps_EN[hash].recordHash === load.recordHash) {
+          // console.log(BraytechMaps_EN[hash].recordHash, load.recordHash)
+          return true;
+        } else {
+          return false;
+        }
+      });
+
+      // console.log(existing)
+
+      if (existing) {
+        const hash = existing;
+
+        BraytechMaps_EN[hash] = {
+          ...BraytechMaps_EN[hash],
+          displayProperties:
+            (load.displayProperties && load.displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && BraytechMaps_EN[hash].displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && Object.keys(BraytechMaps_EN[hash].displayProperties).length)
+              ? {
+                  ...BraytechMaps_EN[hash].displayProperties,
+                  description: load.displayProperties.description || BraytechMaps_EN[hash].displayProperties.description,
+                }
+              : undefined,
+          screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
+        };
+      } else {
+        let hash = 1;
+        while (Object.keys(BraytechMaps_EN).find((key) => +key === +hash)) {
+          // console.log(hash)
+          hash++;
+        }
+
+        BraytechMaps_EN[hash] = load;
+      }
+    }
+  });
+
+  fs.writeFileSync('src/data/manifest/en/BraytechMaps/index.json', JSON.stringify(BraytechMaps_EN, null, '  '));
+}
+
+const BraytechMapsExports = [];
+function doJson(payload) {
+  BraytechMapsExports.push(payload);
 }
 
 function getScreenshot(checklistId, checklistItem) {
@@ -383,13 +461,7 @@ function getScreenshot(checklistId, checklistItem) {
   }
 
   if (checklistId === 3142056444 && checklistItem.sorts && checklistItem.sorts.name) {
-    screenshot = searchScreenshots(
-      'lost-sectors',
-      `lost-sectors_${checklistItem.sorts.name
-        .toLowerCase()
-        .replace(/'/g, '')
-        .replace(/ /g, '-')}.jpg`
-    );
+    screenshot = searchScreenshots('lost-sectors', `lost-sectors_${checklistItem.sorts.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {
@@ -416,7 +488,7 @@ function getScreenshot(checklistId, checklistItem) {
     screenshot = searchScreenshots('jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
   }
 
-  return screenshot
+  return screenshot;
 }
 
 function searchScreenshots(listName, pattern) {

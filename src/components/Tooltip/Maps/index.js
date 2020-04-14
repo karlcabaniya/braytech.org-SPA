@@ -49,7 +49,7 @@ class Checklist extends React.Component {
     const bubbleName = definitionBubble?.displayProperties?.name;
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
 
     return (
       <>
@@ -76,7 +76,7 @@ class Checklist extends React.Component {
             {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {node.description ? <BungieText className='text' source={node.description} /> : null}
+              {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -111,7 +111,7 @@ class Record extends React.Component {
     const bubbleName = definitionBubble?.displayProperties?.name;
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
 
     return (
       <>
@@ -149,7 +149,7 @@ class Record extends React.Component {
             {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
-              {node.description ? <BungieText className='text' source={node.description} /> : null}
+              {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
@@ -181,7 +181,7 @@ class Node extends React.Component {
     const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : within && definitionActivity?.displayProperties?.name;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
 
     const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 
@@ -207,7 +207,7 @@ class Node extends React.Component {
             {within ? <div className='inside-location'>{foundInText(node.map.in, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{destination}</div>
-              {node.displayProperties.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
+              {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {node.availability?.type === 'cycle' ? (
               <div className='highlight'>

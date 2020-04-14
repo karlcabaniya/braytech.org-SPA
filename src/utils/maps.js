@@ -4,7 +4,6 @@ import store from '../store';
 
 import manifest from '../utils/manifest';
 import director from '../data/maps';
-import rawNodes from '../data/maps/nodes';
 import runtime from '../data/maps/runtime';
 import checklists from '../data/checklists';
 import { Maps } from '../svg';
@@ -76,8 +75,7 @@ function findChecklistItem(search) {
           bubbleHash: checklistItem.bubbleHash,
           activityHash: checklistItem.activityHash,
           itemHash: checklistItem.itemHash,
-          map: checklistItem.map,
-          screenshot: checklistItem.screenshot
+          map: checklistItem.map
         }
       };
     }
@@ -87,29 +85,25 @@ function findChecklistItem(search) {
 }
 
 export function cartographer(search, member) {
-  const definitionMaps = manifest.BraytechMapsDefinition[search.value];
+  const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find(definition => definition[search.key] === +search.value);
   const graph = findGraph(search);
   const checklistItem = findChecklistItem(search);
-  const nodes = rawNodes.filter((node) => node[search.key] === +search.value);
   const dynamic = runtime(member, true).find((node) => node[search.key] === +search.value && node.availability.now);
 
-  if (!definitionMaps && !graph && !nodes.length && !dynamic) {
+  if (!definitionMaps && !graph && !checklistItem && !dynamic) {
     return false;
   }
 
-  const node = nodes.length === 1 ? nodes[0] : {};
-  const icon = dynamic?.icon || nodes?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
+  const icon = dynamic?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
   console.log(`definitionMaps`, definitionMaps);
   console.log(`graph`, graph);
   console.log(`checklistItem`, checklistItem);
-  console.log(`node`, node);
   console.log(`dynamic`, dynamic);
 
   const aggregate = {
     ...graph,
     ...(definitionMaps || {}),
-    ...node,
     ...checklistItem,
     ...(dynamic || {}),
     icon,
