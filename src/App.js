@@ -27,6 +27,8 @@ import * as voluspa from './utils/voluspa';
 import * as ls from './utils/localStorage';
 import manifest from './utils/manifest';
 
+import 'intersection-observer';
+
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/UI/Header';
 import Tooltip from './components/Tooltip';

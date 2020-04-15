@@ -178,7 +178,7 @@ export default (member, array) => {
         vendorHash: 1841717884,
         icon: <Maps.Vendor />,
         destinationHash: 2779202173,
-        bubbleHash: 2762866308,
+        bubbleHash: 706937272,
         map: {
           points: [
             {
@@ -200,7 +200,7 @@ export default (member, array) => {
         vendorHash: 1841717884,
         icon: <Maps.Vendor />,
         destinationHash: 2779202173,
-        bubbleHash: 706937272,
+        bubbleHash: 2762866308,
         map: {
           points: [
             {

@@ -52,7 +52,6 @@ class Vendor extends React.Component {
       const node = cartographer({ key: 'vendorHash', value: definitionVendor.hash });
 
       const definitionDestination = manifest.DestinyDestinationDefinition[node.destinationHash];
-
       const definitionBubble = node.bubbleHash && definitionDestination.bubbles.find(bubble => bubble.hash === node.bubbleHash);
       const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
@@ -80,7 +79,7 @@ class Vendor extends React.Component {
               </div>
             </div>
             <div className='black'>
-              {largeIcon || node.screenshot ? (
+              {node.screenshot || largeIcon ? (
                 <div className={cx('screenshot', { extras: node.screenshot })}>
                   <ObservedImage className='image' src={node.screenshot || `https://www.bungie.net${largeIcon}`} />
                 </div>
