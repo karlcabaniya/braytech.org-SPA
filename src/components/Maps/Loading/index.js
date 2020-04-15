@@ -9,9 +9,11 @@ class Loading extends React.Component {
     return (
       <div className='loading'>
         <Spinner />
-        <div className='state'>
-          <span>{this.props.loaded.filter(d => !d.loading).length}</span>/{this.props.loaded.length}
-        </div>
+        {this.props.loaded.length ? (
+          <div className='state'>
+            <span>{this.props.loaded.filter((d) => !d.loading).length}</span>/{this.props.loaded.length}
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -1,10 +1,9 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import packageJSON from '../../../package.json';
+import { t } from '../../utils/i18n';
 import Spinner from '../../components/UI/Spinner';
 import { Common, Loading } from '../../svg';
 
@@ -22,61 +21,61 @@ class AppLoading extends React.Component {
   loadingStates = {
     error: {
       isError: true,
-      status: this.props.t('Fatal error'),
+      status: t('Fatal error'),
       displayProperties: {
-        name: this.props.t('Unknown error'),
-        description: this.props.t('Something very unexpected and irrecoverable occurred.')
+        name: t('Unknown error'),
+        description: t('Something very unexpected and irrecoverable occurred.')
       }
     },
     error_setUpManifest: {
       isError: true,
-      status: this.props.t('Fatal error'),
+      status: t('Fatal error'),
       displayProperties: {
-        name: this.props.t('Manifest error'),
-        description: this.props.t('Something went wrong while trying to update the item manifest.\n\nPlease refresh the app and try again.')
+        name: t('Manifest error'),
+        description: t('Something went wrong while trying to update the item manifest.\n\nPlease reload the app and try again.')
       }
     },
     error_fetchingManifest: {
       isError: true,
-      status: this.props.t('Fatal error'),
+      status: t('Fatal error'),
       displayProperties: {
-        name: this.props.t('Manifest download failed'),
-        description: this.props.t('Something went wrong while trying to download the item manifest from Bungie.\n\nPlease refresh the app and try again.')
+        name: t('Manifest download failed'),
+        description: t('Something went wrong while trying to download the item manifest from Bungie.\n\nPlease reload the app and try again.')
       }
     },
     error_maintenance: {
       shh: true,
       status: ' ',
       displayProperties: {
-        name: this.props.t('Bungie Maintenance'),
-        description: this.props.t('The Bungie API is currently down for maintenance.\n\nTune into @BungieHelp on Twitter for more information.')
+        name: t('Bungie Maintenance'),
+        description: t('The Bungie API is currently down for maintenance.\n\nTune into @BungieHelp on Twitter for more information.')
       }
     },
     navigator_offline: {
       isError: true,
-      status: this.props.t('No internet'),
+      status: t('No internet'),
       displayProperties: {
-        name: this.props.t('No internet'),
-        description: this.props.t('Are you offline? Your web browser thinks you are...')
+        name: t('No internet'),
+        description: t('Are you offline? Your web browser thinks you are...')
       }
     },
     checkManifest: {
-      status: this.props.t('Verifying manifest data')
+      status: t('Verifying manifest data')
     },
     fetchManifest: {
-      status: this.props.t('Downloading data from Bungie')
+      status: t('Downloading data from Bungie')
     },
     setManifest: {
-      status: this.props.t('Saving manifest data')
+      status: t('Saving manifest data')
     },
     loadingPreviousProfile: {
-      status: this.props.t('Loading previous member')
+      status: t('Loading previous member')
     },
     loadingProfile: {
-      status: this.props.t('Loading member')
+      status: t('Loading member')
     },
     else: {
-      status: this.props.t('Starting Windows 95')
+      status: t('Starting Windows 95')
     }
   }
 
@@ -100,7 +99,6 @@ class AppLoading extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
     const state = this.props.state;
 
     if (state.code) {
@@ -148,9 +146,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-AppLoading = compose(
-  connect(null, mapDispatchToProps),
-  withTranslation()
-)(AppLoading);
+AppLoading = connect(null, mapDispatchToProps)(AppLoading);
 
 export { AppLoading, SuspenseLoading };

@@ -1,179 +1,86 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 306,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 308,
+    "added": [],
+    "removed": []
   },
   "debug": {
-    "translated": 675,
-    "notTranslated": 0,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
-  },
-  "en": {
-    "translated": 675,
+    "translated": 677,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Patrol boss"
-    ]
+    "removed": []
+  },
+  "en": {
+    "translated": 677,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es-mx": {
     "translated": 671,
-    "notTranslated": 4,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 6,
+    "added": [],
+    "removed": []
   },
   "es": {
     "translated": 671,
-    "notTranslated": 4,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 6,
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 666,
-    "notTranslated": 9,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 11,
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 651,
-    "notTranslated": 24,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 26,
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 73,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 75,
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 552,
-    "notTranslated": 123,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 125,
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 673,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 675,
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 662,
-    "notTranslated": 13,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 15,
+    "added": [],
+    "removed": []
   },
   "ru": {
     "translated": 671,
-    "notTranslated": 4,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 6,
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
     "translated": 459,
-    "notTranslated": 216,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 218,
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 375,
-    "notTranslated": 300,
-    "added": [
-      "Found within activity",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}"
-    ],
-    "removed": [
-      "Patrol boss"
-    ]
+    "notTranslated": 302,
+    "added": [],
+    "removed": []
   }
 }

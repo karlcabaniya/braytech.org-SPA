@@ -6,9 +6,6 @@ import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { cartographer } from '../../../utils/maps';
 import ObservedImage from '../../ObservedImage';
-
-import maps from '../../../data/maps';
-
 import { Tooltips } from '../../../svg';
 
 import './styles.css';

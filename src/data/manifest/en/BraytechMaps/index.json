@@ -44,7 +44,7 @@
   "4": {
     "displayProperties": {
       "name": "Ouroborea",
-      "description": "???"
+      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nDestroy all blights then return to the foyer to shatter the previously-immune Void crystals."
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -52,7 +52,8 @@
       "hash": "ascendant-challenge"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 27792021738
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-1.jpg"
   },
   "5": {
     "displayProperties": {
@@ -64,7 +65,9 @@
       "name": "Portal",
       "hash": "portal"
     },
-    "destinationHash": 2779202173
+    "destinationHash": 2779202173,
+    "bubbleHash": 544256237,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-2.jpg"
   },
   "6": {
     "displayProperties": {

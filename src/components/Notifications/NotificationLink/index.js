@@ -20,10 +20,10 @@ class NotificationLink extends React.Component {
     this.mounted = false;
   }
 
-  deactivateOverlay = e => {
+  handler_deactivateOverlay = e => {
     e.stopPropagation();
 
-    let state = this.active && this.active.length ? this.active[0] : false;
+    const state = this.active && this.active.length ? this.active[0] : false;
 
     if (this.mounted) {
       if (state.displayProperties.timeout) {
@@ -47,6 +47,22 @@ class NotificationLink extends React.Component {
     window.clearInterval(this.notificationTimeout);
   }
 
+  handler_reload = e => {
+    if (this.mounted) {
+      const state = this.active && this.active.length ? this.active[0] : false;
+
+      if (state.displayProperties.timeout) {
+        this.clearTimeout();
+      }
+
+      this.props.popNotification(state.id);
+    }
+    
+    setTimeout(() => {
+      window.location.reload();
+    }, 50);
+  }
+
   sunsetNotifcation = () => {
     if (this.active && this.active.length ? this.active[0] : false) {
       const state = this.active[0];
@@ -57,7 +73,7 @@ class NotificationLink extends React.Component {
     }
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(p, s) {
     if (this.active && this.active.length) {
       const state = this.active[0];
 
@@ -98,9 +114,14 @@ class NotificationLink extends React.Component {
         image = '/static/images/extracts/ui/01A3-00001EE8.PNG';
         actions = [
           {
+            type: 'reload',
+            text: t('Reload'),
+            key: 'modify'
+          },
+          {
             type: 'external',
             target: 'https://twitter.com/BungieHelp',
-            text: 'Go to Twitter',
+            text: t('Go to Twitter'),
             key: 'accept',
             dismiss: false
           }
@@ -108,6 +129,13 @@ class NotificationLink extends React.Component {
       } else if (state && state.error) {
         isError = true;
         image = '/static/images/extracts/ui/010A-00000552.PNG';
+        actions = [
+          {
+            type: 'reload',
+            text: t('Reload'),
+            key: 'modify'
+          }
+        ];
       } else if (state && state.displayProperties?.image) {
         image = state.displayProperties.image;
       } else {
@@ -118,6 +146,7 @@ class NotificationLink extends React.Component {
         ...actions,
         {
           type: 'dismiss',
+          text: t('Dismiss'),
           dismiss: true
         }
       ];
@@ -151,16 +180,24 @@ class NotificationLink extends React.Component {
                       if (action.type === 'external') {
                         return (
                           <li key={i}>
-                            <a className='button' href={action.target} onClick={action.dismiss ? this.deactivateOverlay : null} target='_blank' rel='noreferrer noopener'>
+                            <a className='button' href={action.target} onClick={action.dismiss ? this.handler_deactivateOverlay : null} target='_blank' rel='noreferrer noopener'>
                               <DestinyKey type={action.key || 'dismiss'} /> {action.text}
                             </a>
+                          </li>
+                        );
+                      } else if (action.type === 'reload') {
+                        return (
+                          <li key={i}>
+                            <Button action={this.handler_reload}>
+                              <DestinyKey type={action.key || 'dismiss'} /> {action.text}
+                            </Button>
                           </li>
                         );
                       } else {
                         return (
                           <li key={i}>
-                            <Button action={this.deactivateOverlay}>
-                              <DestinyKey type='dismiss' /> {t('Dismiss')}
+                            <Button action={this.handler_deactivateOverlay}>
+                              <DestinyKey type={action.key || 'dismiss'} /> {action.text}
                             </Button>
                           </li>
                         );
@@ -174,7 +211,7 @@ class NotificationLink extends React.Component {
         );
       } else {
         return (
-          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{'--timeout': `${state.displayProperties?.timeout || 4}s`}} onClick={this.deactivateOverlay}>
+          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{'--timeout': `${state.displayProperties?.timeout || 4}s`}} onClick={this.handler_deactivateOverlay}>
             <div className='wrapper-outer'>
               <div className='background'>
                 <div className='border-top'>

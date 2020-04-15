@@ -1892,7 +1892,14 @@
           "name": "Aphelion's Rest",
           "id": "aphelions-rest",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 4,
+              "x": -402,
+              "y": 27
+            }
+          ]
         },
         {
           "hash": 1091325847,

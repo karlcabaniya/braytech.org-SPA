@@ -218,6 +218,24 @@ export default (member, array) => {
         screenshot: '/static/images/screenshots/vendors/vendors_petra-3-2.jpg',
       },
       {
+        nodeHash: 5,
+        nodeType: 'portal',
+        map: {
+          points: [
+            {
+              x: 390,
+              y: -37,
+            },
+          ],
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.ascendant,
+          now: cycleInfo.week.ascendant === 1,
+        },
+      },
+      {
         nodeHash: 15,
         nodeType: 'portal',
         map: {
