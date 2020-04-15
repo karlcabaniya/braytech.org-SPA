@@ -90,7 +90,7 @@
       "description": "Questi oggetti sono esclusivi al personaggio. Ciò significa che ogni personaggio li scoprirà unicamente."
     },
     "itemType": 1
-  }
+  },
   "coverage": {
     "displayProperties": {
       "name": "Copertura",
