@@ -244,7 +244,7 @@ class Activity extends React.Component {
       }
 
       if (modeFiltered === 'dungeon') {
-        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name;
+        activityTypeDisplay.name = definitionActivityPlaylist?.originalDisplayProperties?.name || definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name;
         activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name;
         activityTypeDisplay.className = 'dungeon';
         activityTypeDisplay.icon = <Tooltips.Dungeon />;

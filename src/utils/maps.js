@@ -60,37 +60,37 @@ function findGraph(search) {
   return {};
 }
 
-function findChecklistItem(search) {
+function findChecklistItems(search) {
   for (const checklistId in checklists) {
     if (checklists.hasOwnProperty(checklistId)) {
       const checklist = checklists[checklistId];
 
-      const checklistItem = checklist.find((checklistItem) => checklistItem[search.key] === +search.value);
+      const checklistItems = checklist.filter((checklistItem) => checklistItem[search.key] === +search.value);
 
-      if (checklistItem) {
-        return {
+      if (checklistItems.length) {
+        return checklistItems.map((checklistItem) => ({
           checklistHash: checklistItem.checklistHash,
           recordHash: checklistItem.recordHash,
           destinationHash: checklistItem.destinationHash,
           bubbleHash: checklistItem.bubbleHash,
           activityHash: checklistItem.activityHash,
           itemHash: checklistItem.itemHash,
-          map: checklistItem.map
-        }
-      };
+          map: checklistItem.map,
+        }));
+      }
     }
   }
 
-  return {};
+  return [];
 }
 
 export function cartographer(search, member) {
-  const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find(definition => definition[search.key] === +search.value);
+  const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
   const graph = findGraph(search);
-  const checklistItem = findChecklistItem(search);
+  const checklistItems = findChecklistItems(search);
   const dynamic = runtime(member, true).find((node) => node[search.key] === +search.value && node.availability.now);
 
-  if (!definitionMaps && !graph && !checklistItem && !dynamic) {
+  if (!definitionMaps && !graph && !checklistItems.length && !dynamic) {
     return false;
   }
 
@@ -98,13 +98,14 @@ export function cartographer(search, member) {
 
   // console.log(`definitionMaps`, definitionMaps);
   // console.log(`graph`, graph);
-  // console.log(`checklistItem`, checklistItem);
+  // console.log(`checklistItem`, checklistItems);
   // console.log(`dynamic`, dynamic);
 
   const aggregate = {
     ...graph,
     ...(definitionMaps || {}),
-    ...checklistItem,
+    checklistItems,
+    ...(checklistItems.length < 2 ? checklistItems[0] : {}),
     ...(dynamic || {}),
     icon,
   };

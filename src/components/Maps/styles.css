@@ -62,7 +62,8 @@
   background-color: rgba(214, 214, 214, 0.4);
 }
 
-.map-omega .control:not(.visible) li:not(.active) {
+.map-omega .control.characters:not(.visible) li:not(.active),
+.map-omega .control.destinations:not(.visible) li:not(.active) {
   display: none;
 }
 
@@ -74,7 +75,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-.map-omega .control li .text {
+.map-omega .control.destinations li .text {
   padding: 0 1rem;
   width: 100%;
   display: grid;
@@ -82,7 +83,7 @@
   justify-content: space-between;
 }
 
-.map-omega .control li:last-child {
+.map-omega .control.destinations li:last-child {
   margin: 0;
 }
 
@@ -195,71 +196,7 @@
 
 
 
-.map-omega .control.inspector {
-  position: fixed;
-  top: calc(3rem + 40px);
-  right: 3rem;
-  width: calc(100% - 310px - 9rem);
-  max-width: 640px;
-  z-index: 2;
-}
 
-.map-omega .control.inspector::before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.2);
-}
-
-.map-omega .control.inspector .header {
-  height: 38px;
-  display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.map-omega .control.inspector .header .text {
-  padding: 0 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.map-omega .control.inspector .header .text span {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.map-omega .control.inspector .header .text span::before {
-  content: ' // ';
-}
-
-.map-omega .control.inspector .header .close {
-  position: relative;
-  padding: 0;
-  justify-content: center;
-  width: 38px;
-}
-
-.map-omega .control.inspector .screenshot {
-  position: relative;
-  padding-bottom: 56%;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.map-omega .control.inspector .screenshot .image {
-  background-size: cover;
-}
 
 
 

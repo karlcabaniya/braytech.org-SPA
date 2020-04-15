@@ -65,7 +65,7 @@ class Runtime extends React.Component {
             if (node.nodeType === 'patrol-boss') {
               const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon });
 
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
             } else if (node.nodeType === 'vendor') {
               const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor' });
 
@@ -73,11 +73,11 @@ class Runtime extends React.Component {
             } else if (node.nodeType === 'portal') {
               const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'portal', node.screenshot ? 'has-screenshot' : '', node.availability.type === 'cycle' ? 'unstable' : ''], { icon: 'portal' });
 
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
             } else {
               const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? 'has-screenshot' : ''], { icon: <Common.Info /> });
               
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
             }
           });
         })) ||

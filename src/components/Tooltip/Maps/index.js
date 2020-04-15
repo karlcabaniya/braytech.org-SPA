@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { t, BungieText } from '../../../utils/i18n';
+import { t, BungieText, withinString } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
@@ -10,20 +10,6 @@ import { checklists, lookup } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 
 import './styles.css';
-
-function foundInText(type, activityName) {
-  if (type === 'lost-sector') {
-    return t('Found within Lost Sector: {{activityName}}', { activityName });
-  } else if (type === 'strike') {
-    return t('Found within Strike: {{activityName}}', { activityName });
-  } else if (type === 'story') {
-    return t('Found within Story: {{activityName}}', { activityName });
-  } else if (type === 'ascendant-challenge') {
-    return t('Found within Ascendant Challenge: {{activityName}}', { activityName });
-  } else {
-    return t('Found within activity');
-  }
-}
 
 class Checklist extends React.Component {
   render() {
@@ -40,7 +26,7 @@ class Checklist extends React.Component {
 
     const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
 
-    console.log(node);
+    // console.log(node);
 
     const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
     const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
@@ -73,7 +59,7 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
+            {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
@@ -146,7 +132,7 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {within ? <div className='inside-location'>{foundInText(within, withinName)}</div> : null}
+            {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.formatted.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
@@ -204,7 +190,7 @@ class Node extends React.Component {
                 <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
-            {within ? <div className='inside-location'>{foundInText(node.map.in, withinName)}</div> : null}
+            {within ? <div className='within'>{withinString(node.map.in, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{destination}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}

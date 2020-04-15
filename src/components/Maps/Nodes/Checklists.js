@@ -125,7 +125,7 @@ class Checklists extends React.Component {
               ], { icon: list.checklistIcon, url: list.checklistImage });
               // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
 
-              return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistId: list.checklistId, checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
+              return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
             });
           } else if (this.props.settings.debug) {
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;

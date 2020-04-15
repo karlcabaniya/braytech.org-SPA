@@ -219,9 +219,9 @@ class Records extends React.Component {
     const highlight = +this.props.highlight || false;
     const recordsRequested = hashes;
     const characterId = member.characterId;
-    const characterRecords = member.data?.profile.characterRecords.data;
-    const profileRecords = member.data?.profile.profileRecords.data.records;
-    const profileRecordsTracked = member.data?.profile.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
+    const characterRecords = member.data.profile?.characterRecords.data;
+    const profileRecords = member.data.profile?.profileRecords.data.records;
+    const profileRecordsTracked = member.data.profile?.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
     const tracked = triumphs.tracked;
 
     let recordsOutput = [];

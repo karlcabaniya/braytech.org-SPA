@@ -227,6 +227,7 @@ export default (member, array) => {
               y: -37,
             },
           ],
+          in: 'lost-sector',
         },
         availability: {
           type: 'cycle',
@@ -246,6 +247,7 @@ export default (member, array) => {
             },
           ],
         },
+        in: 'lost-sector',
         availability: {
           type: 'cycle',
           frequency: 'week',

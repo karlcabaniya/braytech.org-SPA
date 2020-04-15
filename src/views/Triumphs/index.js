@@ -51,7 +51,7 @@ class Triumphs extends React.Component {
 
   render() {
     const { t } = this.props;
-    let primaryHash = this.props.match.params.primary ? this.props.match.params.primary : false;
+    const primaryHash = this.props.match.params.primary ? this.props.match.params.primary : false;
 
     const toggleCompletedLink = (
       <Button action={this.handler_toggleCompleted}>
@@ -93,9 +93,9 @@ class Triumphs extends React.Component {
       );
     }
 
-    let toggleAlmostCompleteSortLink = <Button action={this.toggleAlmostCompleteSort}>{almostCompleteSortText}</Button>;
+    const toggleAlmostCompleteSortLink = <Button action={this.toggleAlmostCompleteSort}>{almostCompleteSortText}</Button>;
 
-    let backLinkPath = this.props.location.state && this.props.location.state.from ? this.props.location.state.from : '/triumphs';
+    const backLinkPath = this.props.location.state && this.props.location.state.from ? this.props.location.state.from : '/triumphs';
 
     if (!primaryHash) {
       return (

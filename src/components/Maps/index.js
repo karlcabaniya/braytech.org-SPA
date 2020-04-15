@@ -1,7 +1,5 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { debounce } from 'lodash';
 import cx from 'classnames';
 
@@ -101,11 +99,10 @@ class Maps extends React.Component {
           },
         ],
       },
-      // inspect: {
-      //   checklistId: 2360931290,
-      //   checklistHash: 81948082
-      // }
-      inspect: false,
+      inspect: {
+        activityHash: 1375089621
+      },
+      //inspect: false,
     },
   };
 
@@ -392,9 +389,9 @@ class Maps extends React.Component {
         </div>
         <Map viewport={this.state.viewport} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
-          <Static {...destination} />
+          <Static {...destination} handler={this.handler_showInspect} />
           <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} handler={this.handler_showInspect} />
-          <Runtime {...destination} />
+          <Runtime {...destination} handler={this.handler_showInspect} />
           {/* <CharacterActivities {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />
@@ -419,7 +416,7 @@ class Maps extends React.Component {
             </ul>
           </div>
         ) : null} */}
-        {/* {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null} */}
+        {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );
   }
@@ -445,4 +442,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Maps);
+export default connect(mapStateToProps, mapDispatchToProps)(Maps);

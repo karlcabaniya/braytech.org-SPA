@@ -248,3 +248,17 @@ export function BraytechText(props) {
 
   return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />
 }
+
+export function withinString(type, activityName) {
+  if (type === 'lost-sector') {
+    return t('Found within Lost Sector: {{activityName}}', { activityName });
+  } else if (type === 'strike') {
+    return t('Found within Strike: {{activityName}}', { activityName });
+  } else if (type === 'story') {
+    return t('Found within Story: {{activityName}}', { activityName });
+  } else if (type === 'ascendant-challenge') {
+    return t('Found within Ascendant Challenge: {{activityName}}', { activityName });
+  } else {
+    return t('Found within activity');
+  }
+}
