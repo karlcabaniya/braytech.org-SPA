@@ -1,0 +1,1288 @@
+{
+  "1": {
+    "displayProperties": {
+      "name": "La Confluenza Ovest",
+      "description": "Un portale per _La Confluenza_, alimentato da enegie paracausali."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 1091325847,
+    "screenshot": "/static/images/screenshots/portals/portal_1091325847.jpg"
+  },
+  "2": {
+    "displayProperties": {
+      "name": "La Confluenza Est",
+      "description": "Un portale per _La Confluenza_, alimentato da enegie paracausali."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 278887670,
+    "screenshot": "/static/images/screenshots/portals/portal_278887670.jpg"
+  },
+  "3": {
+    "displayProperties": {
+      "name": "La Confluenza Sud",
+      "description": "Un portale per _La Confluenza_, alimentato da enegie paracausali."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 768261954,
+    "screenshot": "/static/images/screenshots/portals/portal_768261954.jpg"
+  },
+  "4": {
+    "displayProperties": {
+      "name": "Ouroborea",
+      "description": "_Accetta questa sfida, cammina tra i mondi, e annulla ciò che è stato fatto._\n\nDistruggi tutte le piaghe e ritorna all'ingresso per frantumare i cristalli del Vuoto precedentemente immuni."
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-1.jpg"
+  },
+  "5": {
+    "displayProperties": {
+      "name": "Ouroborea",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 544256237,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-2.jpg"
+  },
+  "6": {
+    "displayProperties": {
+      "name": "Altare del Pegno",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "7": {
+    "displayProperties": {
+      "name": "Altare del Pegno",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "8": {
+    "displayProperties": {
+      "name": "Rovine Infrante",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "9": {
+    "displayProperties": {
+      "name": "Rovine Infrante",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "10": {
+    "displayProperties": {
+      "name": "Rocca dei Fili Affinati",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "11": {
+    "displayProperties": {
+      "name": "Rocca dei Fili Affinati",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "12": {
+    "displayProperties": {
+      "name": "Abisso Agonarca",
+      "description": "???"
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738
+  },
+  "13": {
+    "displayProperties": {
+      "name": "Abisso Agonarca",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173
+  },
+  "14": {
+    "displayProperties": {
+      "name": "Bastione Cimmerio",
+      "description": "_Accetta questa sfida, cammina tra i mondi, e annulla ciò che è stato fatto._\n\nQuesta sfida culmina in una lotta tra il Guardiano, un Cavaliere dell'Alveare, e tre Urlatori, su una piattaforma spaziosa con varie coperture dal fuoco nemico."
+    },
+    "icon": "ascendant-challenge",
+    "type": {
+      "name": "Ascendant Challenge",
+      "hash": "ascendant-challenge"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-1.jpg"
+  },
+  "15": {
+    "displayProperties": {
+      "name": "Bastione Cimmerio",
+      "description": "Un portale per il _Piano Ascendente_."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 3366050756,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-2.jpg"
+  },
+  "16": {
+    "type": {
+      "name": "Patrol Boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 417490937,
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409498
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/sorrows-harbor_patrol-boss_nightmareXortal.jpg"
+  },
+  "17": {
+    "type": {
+      "name": "Patrol Boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 4025450777,
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409496
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/anchor-of-light_patrol-boss_nightmareHorkis.jpg"
+  },
+  "18": {
+    "type": {
+      "name": "Patrol Boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 4195493657,
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409497
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/hellmouth_patrol-boss_nightmareJaxx.jpg"
+  },
+  "19": {
+    "type": {
+      "name": "Patrol Boss",
+      "hash": "patrol-boss"
+    },
+    "destinationHash": 290444260,
+    "bubbleHash": 3326367698,
+    "activityLightLevel": 980,
+    "related": {
+      "records": [
+        {
+          "recordHash": 1842542594
+        }
+      ],
+      "objectives": [
+        {
+          "recordHash": 1842542594,
+          "objectiveHash": 1009409499
+        }
+      ]
+    },
+    "screenshot": "/static/images/screenshots/enemies/archers-line_patrol-boss_nightmareFallenCouncil.jpg"
+  },
+  "20": {
+    "checklistHash": 3156467474,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_10.jpg"
+  },
+  "21": {
+    "checklistHash": 2473593253,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_11.jpg"
+  },
+  "22": {
+    "checklistHash": 505173108,
+    "screenshot": "/static/images/screenshots/region-chests/outskirts_region-chests_12.jpg"
+  },
+  "23": {
+    "checklistHash": 3557288846,
+    "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_13.jpg"
+  },
+  "24": {
+    "displayProperties": {
+      "description": "Sulla collina, con vista sulla Baia Tortuosa, vicino al luogo dove Xûr appare qualche volta."
+    },
+    "checklistHash": 3658842337,
+    "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_14.jpg"
+  },
+  "25": {
+    "checklistHash": 1116639056,
+    "screenshot": "/static/images/screenshots/region-chests/winding-cove_region-chests_15.jpg"
+  },
+  "26": {
+    "checklistHash": 72017611,
+    "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_16.jpg"
+  },
+  "27": {
+    "checklistHash": 3212130160,
+    "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_17.jpg"
+  },
+  "28": {
+    "checklistHash": 97796737,
+    "screenshot": "/static/images/screenshots/region-chests/firebase-hades_region-chests_18.jpg"
+  },
+  "29": {
+    "checklistHash": 113362963,
+    "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_19.jpg"
+  },
+  "30": {
+    "checklistHash": 2355206132,
+    "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_20.jpg"
+  },
+  "31": {
+    "checklistHash": 28658981,
+    "screenshot": "/static/images/screenshots/region-chests/the-gulch_region-chests_21.jpg"
+  },
+  "32": {
+    "checklistHash": 2482079866,
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_22.jpg"
+  },
+  "33": {
+    "displayProperties": {
+      "description": "Nell'angolo in alto a sinistra, sugli scogli."
+    },
+    "checklistHash": 576743835,
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_23.jpg"
+  },
+  "34": {
+    "displayProperties": {
+      "description": "A sinistra dell'entrata del settore perduto, scarsamente illuminato, dietro alcune casse."
+    },
+    "checklistHash": 3307732497,
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_24.jpg"
+  },
+  "35": {
+    "displayProperties": {
+      "description": "Dietro la zona di atterraggio del viaggio rapido."
+    },
+    "checklistHash": 823939877,
+    "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_25.jpg"
+  },
+  "36": {
+    "checklistHash": 908643859,
+    "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_26.jpg"
+  },
+  "37": {
+    "displayProperties": {
+      "description": "Nella stanza sul retro a destra al terzo piano di un edificio danneggiato."
+    },
+    "checklistHash": 1085712440,
+    "screenshot": "/static/images/screenshots/region-chests/trostland_region-chests_27.jpg"
+  },
+  "38": {
+    "displayProperties": {
+      "description": "Attraverso la cascata."
+    },
+    "checklistHash": 589814471,
+    "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_28.jpg"
+  },
+  "39": {
+    "displayProperties": {
+      "description": "All'interno del soffitto rialzato."
+    },
+    "checklistHash": 2503906440,
+    "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_29.jpg"
+  },
+  "40": {
+    "displayProperties": {
+      "description": "Attraverso il muro di mattoni in macerie."
+    },
+    "checklistHash": 3609559330,
+    "screenshot": "/static/images/screenshots/region-chests/the-sludge_region-chests_30.jpg"
+  },
+  "41": {
+    "checklistHash": 1956319555,
+    "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_32.jpg"
+  },
+  "42": {
+    "checklistHash": 1375559682,
+    "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_33.jpg"
+  },
+  "43": {
+    "checklistHash": 387879790,
+    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_34.jpg"
+  },
+  "44": {
+    "checklistHash": 92809392,
+    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_35.jpg"
+  },
+  "45": {
+    "checklistHash": 1281044779,
+    "screenshot": "/static/images/screenshots/region-chests/exodus-black_region-chests_42.jpg"
+  },
+  "46": {
+    "checklistHash": 2662231509,
+    "screenshot": "/static/images/screenshots/region-chests/the-cistern_region-chests_46.jpg"
+  },
+  "47": {
+    "checklistHash": 1881681731,
+    "screenshot": "/static/images/screenshots/region-chests/the-cistern_region-chests_47.jpg"
+  },
+  "48": {
+    "checklistHash": 1704777267,
+    "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_49.jpg"
+  },
+  "49": {
+    "checklistHash": 2779832084,
+    "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_50.jpg"
+  },
+  "50": {
+    "checklistHash": 4128910789,
+    "screenshot": "/static/images/screenshots/region-chests/artifacts-edge_region-chests_51.jpg"
+  },
+  "51": {
+    "checklistHash": 2414643433,
+    "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_52.jpg"
+  },
+  "52": {
+    "checklistHash": 4048519991,
+    "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_53.jpg"
+  },
+  "53": {
+    "checklistHash": 517025716,
+    "screenshot": "/static/images/screenshots/region-chests/glade-of-echoes_region-chests_54.jpg"
+  },
+  "54": {
+    "checklistHash": 3947020272,
+    "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_100.jpg"
+  },
+  "55": {
+    "checklistHash": 3812883599,
+    "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_101.jpg"
+  },
+  "56": {
+    "checklistHash": 731133614,
+    "screenshot": "/static/images/screenshots/region-chests/archers-line_region-chests_102.jpg"
+  },
+  "57": {
+    "checklistHash": 3147488613,
+    "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_103.jpg"
+  },
+  "58": {
+    "checklistHash": 3364328658,
+    "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_104.jpg"
+  },
+  "59": {
+    "checklistHash": 2448388435,
+    "screenshot": "/static/images/screenshots/region-chests/sorrows-harbor_region-chests_105.jpg"
+  },
+  "60": {
+    "checklistHash": 2499619401,
+    "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_106.jpg"
+  },
+  "61": {
+    "checklistHash": 340933878,
+    "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_107.jpg"
+  },
+  "62": {
+    "checklistHash": 74989591,
+    "screenshot": "/static/images/screenshots/region-chests/hellmouth_region-chests_108.jpg"
+  },
+  "63": {
+    "checklistHash": 204962005,
+    "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_109.jpg"
+  },
+  "64": {
+    "checklistHash": 3138619650,
+    "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_110.jpg"
+  },
+  "65": {
+    "checklistHash": 3719379523,
+    "screenshot": "/static/images/screenshots/region-chests/anchor-of-light_region-chests_111.jpg"
+  },
+  "66": {
+    "checklistHash": 2777193860,
+    "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_whispered-falls.jpg"
+  },
+  "67": {
+    "checklistHash": 3240560483,
+    "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_the-drain.jpg"
+  },
+  "68": {
+    "checklistHash": 3402131234,
+    "screenshot": "/static/images/screenshots/lost-sectors/outskirts_lost-sectors_scavengers-den.jpg"
+  },
+  "69": {
+    "displayProperties": {
+      "description": "L'ingresso a questo settore perduto si trova attraversando il soffitto di questo piccolo vulcano, poi tenete la sinistra e, ..."
+    },
+    "checklistHash": 815928620,
+    "screenshot": "/static/images/screenshots/lost-sectors/winding-cove_lost-sectors_the-weep.jpg"
+  },
+  "70": {
+    "checklistHash": 4091723403,
+    "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_the-pit.jpg"
+  },
+  "71": {
+    "checklistHash": 2554253964,
+    "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_pathfinders-crash.jpg"
+  },
+  "72": {
+    "checklistHash": 3850160541,
+    "screenshot": "/static/images/screenshots/lost-sectors/firebase-hades_lost-sectors_excavation-site-xii.jpg"
+  },
+  "73": {
+    "checklistHash": 1850051473,
+    "screenshot": "/static/images/screenshots/lost-sectors/winding-cove_lost-sectors_flooded-chasm.jpg"
+  },
+  "74": {
+    "checklistHash": 1505712119,
+    "screenshot": "/static/images/screenshots/lost-sectors/sunken-isles_lost-sectors_skydock-iv.jpg"
+  },
+  "75": {
+    "checklistHash": 245987256,
+    "screenshot": "/static/images/screenshots/lost-sectors/sunken-isles_lost-sectors_the-quarry.jpg"
+  },
+  "76": {
+    "checklistHash": 526088259,
+    "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_atrium.jpg"
+  },
+  "77": {
+    "checklistHash": 2954440164,
+    "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_terminus-east.jpg"
+  },
+  "78": {
+    "checklistHash": 1306638037,
+    "screenshot": "/static/images/screenshots/lost-sectors/trostland_lost-sectors_widows-walk.jpg"
+  },
+  "79": {
+    "checklistHash": 874424041,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_cavern-of-souls.jpg"
+  },
+  "80": {
+    "checklistHash": 3010602390,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_hallowed-grove.jpg"
+  },
+  "81": {
+    "checklistHash": 2508300599,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-sludge_lost-sectors_shaft-13.jpg"
+  },
+  "82": {
+    "checklistHash": 1719798656,
+    "screenshot": "/static/images/screenshots/lost-sectors/sirens-watch_lost-sectors_methane-flush.jpg"
+  },
+  "83": {
+    "checklistHash": 3267113018,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-rig_lost-sectors_ds-quarters-2.jpg"
+  },
+  "84": {
+    "checklistHash": 3359286509,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-rig_lost-sectors_cargo-bay-3.jpg"
+  },
+  "85": {
+    "checklistHash": 2485656913,
+    "screenshot": "/static/images/screenshots/lost-sectors/exodus-black_lost-sectors_the-rift.jpg"
+  },
+  "86": {
+    "checklistHash": 2248063191,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-cistern_lost-sectors_the-conflux.jpg"
+  },
+  "87": {
+    "checklistHash": 2069372641,
+    "screenshot": "/static/images/screenshots/lost-sectors/artifacts-edge_lost-sectors_the-orrery.jpg"
+  },
+  "88": {
+    "checklistHash": 2806770339,
+    "screenshot": "/static/images/screenshots/lost-sectors/glade-of-echoes_lost-sectors_the-carrion-pit.jpg"
+  },
+  "89": {
+    "checklistHash": 3107552723,
+    "screenshot": "/static/images/screenshots/lost-sectors/fields-of-glass_lost-sectors_pariahs-refuge.jpg"
+  },
+  "90": {
+    "checklistHash": 3205937151,
+    "screenshot": "/static/images/screenshots/lost-sectors/braytech-futurescape_lost-sectors_core-terminus.jpg"
+  },
+  "91": {
+    "checklistHash": 2025886454,
+    "screenshot": "/static/images/screenshots/lost-sectors/glacial-drift_lost-sectors_maadim-subterrane.jpg"
+  },
+  "92": {
+    "checklistHash": 486022069,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-strand_lost-sectors_aphelions-rest.jpg"
+  },
+  "93": {
+    "checklistHash": 97924869,
+    "screenshot": "/static/images/screenshots/lost-sectors/rheasilvia_lost-sectors_chamber-of-starlight.jpg"
+  },
+  "94": {
+    "checklistHash": 1949102307,
+    "screenshot": "/static/images/screenshots/lost-sectors/archers-line_lost-sectors_k1-logistics.jpg"
+  },
+  "95": {
+    "checklistHash": 4102839450,
+    "screenshot": "/static/images/screenshots/lost-sectors/sorrows-harbor_lost-sectors_k1-revelation.jpg"
+  },
+  "96": {
+    "checklistHash": 3978091702,
+    "screenshot": "/static/images/screenshots/lost-sectors/hellmouth_lost-sectors_k1-crew-quarters.jpg"
+  },
+  "97": {
+    "checklistHash": 2955806106,
+    "screenshot": "/static/images/screenshots/lost-sectors/anchor-of-light_lost-sectors_k1-communion.jpg"
+  },
+  "98": {
+    "displayProperties": {
+      "description": "Custodito da un'Arpia Vex, questo oggetto giace nell'angolo di un ampio spazio prima di una svolta a sinistra con teletrasporto."
+    },
+    "checklistHash": 2799709240,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_33.jpg"
+  },
+  "99": {
+    "displayProperties": {
+      "description": "In un angolo stretto di un ampio spazio in cui devono essere catturate tre piastre per accedere a un altro teletrasporto."
+    },
+    "checklistHash": 619741013,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_34.jpg"
+  },
+  "100": {
+    "displayProperties": {
+      "description": "Dopo l'ultimo teletrasporto sarai su una grande rampa. Prima di affrontare _La Mente della Genesi_, svolta a destra alla base della rampa, sali sul mucchio di sabbia ed entra nell'ombra della struttura."
+    },
+    "checklistHash": 81948082,
+    "screenshot": "/static/images/screenshots/ghost-scans/pyramidion_ghost-scans_35.jpg"
+  },
+  "101": {
+    "checklistHash": 1157589714,
+    "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_36.jpg"
+  },
+  "102": {
+    "checklistHash": 2868885819,
+    "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_37.jpg"
+  },
+  "103": {
+    "checklistHash": 967037272,
+    "screenshot": "/static/images/screenshots/ghost-scans/maevic-square_ghost-scans_38.jpg"
+  },
+  "104": {
+    "checklistHash": 2768204331,
+    "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_39.jpg"
+  },
+  "105": {
+    "checklistHash": 145185218,
+    "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_40.jpg"
+  },
+  "106": {
+    "checklistHash": 3849148005,
+    "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_41.jpg"
+  },
+  "107": {
+    "checklistHash": 1561360340,
+    "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_42.jpg"
+  },
+  "108": {
+    "checklistHash": 3578984807,
+    "screenshot": "/static/images/screenshots/ghost-scans/outskirts_ghost-scans_43.jpg"
+  },
+  "109": {
+    "displayProperties": {
+      "description": "A destra, appena fuori dal percorso dell'assalto, sotto una rampa."
+    },
+    "checklistHash": 3222380274,
+    "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_44.jpg"
+  },
+  "110": {
+    "checklistHash": 1284663771,
+    "screenshot": "/static/images/screenshots/ghost-scans/winding-cove_ghost-scans_45.jpg"
+  },
+  "111": {
+    "checklistHash": 1001598066,
+    "screenshot": "/static/images/screenshots/ghost-scans/winding-cove_ghost-scans_46.jpg"
+  },
+  "112": {
+    "displayProperties": {
+      "description": "Sul soffitto di una piattaforma che si estende sopra alcune grandi munizioni."
+    },
+    "checklistHash": 1427361604,
+    "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_47.jpg"
+  },
+  "113": {
+    "checklistHash": 3446252721,
+    "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_48.jpg"
+  },
+  "114": {
+    "checklistHash": 97567758,
+    "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_49.jpg"
+  },
+  "115": {
+    "checklistHash": 2209645019,
+    "screenshot": "/static/images/screenshots/ghost-scans/firebase-hades_ghost-scans_50.jpg"
+  },
+  "116": {
+    "checklistHash": 3448616917,
+    "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_51.jpg"
+  },
+  "117": {
+    "checklistHash": 1333617848,
+    "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_52.jpg"
+  },
+  "118": {
+    "checklistHash": 2451662235,
+    "screenshot": "/static/images/screenshots/ghost-scans/sojourners-camp_ghost-scans_53.jpg"
+  },
+  "119": {
+    "checklistHash": 1483671366,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_54.jpg"
+  },
+  "120": {
+    "checklistHash": 2911741167,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_55.jpg"
+  },
+  "121": {
+    "checklistHash": 2361862620,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-gulch_ghost-scans_56.jpg"
+  },
+  "122": {
+    "checklistHash": 1326408520,
+    "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_57.jpg"
+  },
+  "123": {
+    "checklistHash": 3976055845,
+    "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_58.jpg"
+  },
+  "124": {
+    "displayProperties": {
+      "description": "Angolo posteriore superiore di questo garage."
+    },
+    "checklistHash": 696550530,
+    "screenshot": "/static/images/screenshots/ghost-scans/sunken-isles_ghost-scans_59.jpg"
+  },
+  "125": {
+    "checklistHash": 2761367130,
+    "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_60.jpg"
+  },
+  "126": {
+    "checklistHash": 854884291,
+    "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_61.jpg"
+  },
+  "127": {
+    "checklistHash": 1141127808,
+    "screenshot": "/static/images/screenshots/ghost-scans/salt-mines_ghost-scans_62.jpg"
+  },
+  "128": {
+    "displayProperties": {
+      "description": "Un oggetto giace sul sedile anteriore di un camion arrugginito."
+    },
+    "checklistHash": 2980987172,
+    "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_63.jpg"
+  },
+  "129": {
+    "displayProperties": {
+      "description": "Uno stendardo di un casato dei Caduti è appeso tra due edifici."
+    },
+    "checklistHash": 1426068241,
+    "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_64.jpg"
+  },
+  "130": {
+    "displayProperties": {
+      "description": "Al piano più alto di un edificio danneggiato, nell'angolo più buio, c'è una piccola cassetta degli attrezzi verde."
+    },
+    "checklistHash": 2372350830,
+    "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_65.jpg"
+  },
+  "131": {
+    "checklistHash": 4187728059,
+    "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_66.jpg"
+  },
+  "132": {
+    "checklistHash": 2285879512,
+    "screenshot": "/static/images/screenshots/ghost-scans/trostland_ghost-scans_67.jpg"
+  },
+  "133": {
+    "checklistHash": 1273441503,
+    "screenshot": "/static/images/screenshots/ghost-scans/echion-hold_ghost-scans_68.jpg"
+  },
+  "134": {
+    "checklistHash": 3334635926,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_69.jpg"
+  },
+  "135": {
+    "checklistHash": 532635327,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_70.jpg"
+  },
+  "136": {
+    "checklistHash": 1901808940,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-sludge_ghost-scans_71.jpg"
+  },
+  "137": {
+    "displayProperties": {
+      "description": "Una delle stanze minori lungo i tunnel serve da accesso ad un'area ausiliaria. Cerca nell'angolo più lontano."
+    },
+    "checklistHash": 2582598949,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tunnels_ghost-scans_72.jpg"
+  },
+  "138": {
+    "checklistHash": 4227918920,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tunnels_ghost-scans_73.jpg"
+  },
+  "139": {
+    "checklistHash": 2467921825,
+    "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_77.jpg"
+  },
+  "140": {
+    "checklistHash": 2370332724,
+    "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_78.jpg"
+  },
+  "141": {
+    "checklistHash": 92886727,
+    "screenshot": "/static/images/screenshots/ghost-scans/arboretum_ghost-scans_79.jpg"
+  },
+  "142": {
+    "checklistHash": 2099860274,
+    "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_80.jpg"
+  },
+  "143": {
+    "checklistHash": 1640698523,
+    "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_81.jpg"
+  },
+  "144": {
+    "checklistHash": 522654136,
+    "screenshot": "/static/images/screenshots/ghost-scans/festering-halls_ghost-scans_82.jpg"
+  },
+  "145": {
+    "checklistHash": 3809028134,
+    "screenshot": "/static/images/screenshots/ghost-scans/solarium_ghost-scans_83.jpg"
+  },
+  "146": {
+    "checklistHash": 3286134225,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_84.jpg"
+  },
+  "147": {
+    "checklistHash": 504509156,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_85.jpg"
+  },
+  "148": {
+    "checklistHash": 2296400119,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_86.jpg"
+  },
+  "149": {
+    "checklistHash": 3594270226,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_87.jpg"
+  },
+  "150": {
+    "checklistHash": 4090383285,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rig_ghost-scans_88.jpg"
+  },
+  "151": {
+    "checklistHash": 2488492993,
+    "screenshot": "/static/images/screenshots/ghost-scans/tidal-anchor_ghost-scans_89.jpg"
+  },
+  "152": {
+    "checklistHash": 3815223124,
+    "screenshot": "/static/images/screenshots/ghost-scans/tidal-anchor_ghost-scans_90.jpg"
+  },
+  "153": {
+    "checklistHash": 369549035,
+    "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_91.jpg"
+  },
+  "154": {
+    "checklistHash": 2424480898,
+    "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_92.jpg"
+  },
+  "155": {
+    "checklistHash": 1409018917,
+    "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_93.jpg"
+  },
+  "156": {
+    "checklistHash": 3416198548,
+    "screenshot": "/static/images/screenshots/ghost-scans/sirens-watch_ghost-scans_94.jpg"
+  },
+  "157": {
+    "checklistHash": 3595366409,
+    "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_95.jpg"
+  },
+  "158": {
+    "checklistHash": 3296563836,
+    "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_96.jpg"
+  },
+  "159": {
+    "checklistHash": 2376738191,
+    "screenshot": "/static/images/screenshots/ghost-scans/sinking-docks_ghost-scans_97.jpg"
+  },
+  "160": {
+    "checklistHash": 826274860,
+    "screenshot": "/static/images/screenshots/ghost-scans/artifacts-edge_ghost-scans_116.jpg"
+  },
+  "161": {
+    "displayProperties": {
+      "description": "Usa il muro, come nella foto, per arrampicarti sopra questo raggio di particelle."
+    },
+    "checklistHash": 3959793642,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_117.jpg"
+  },
+  "162": {
+    "checklistHash": 3903162131,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_118.jpg"
+  },
+  "163": {
+    "checklistHash": 2916483792,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_119.jpg"
+  },
+  "164": {
+    "checklistHash": 850025481,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_120.jpg"
+  },
+  "165": {
+    "checklistHash": 394292070,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-cistern_ghost-scans_121.jpg"
+  },
+  "166": {
+    "checklistHash": 2241654182,
+    "screenshot": "/static/images/screenshots/ghost-scans/pools-of-luminance_ghost-scans_122.jpg"
+  },
+  "167": {
+    "displayProperties": {
+      "description": "Entra nel muro e segui il percorso per un po'. Raggiungerai un flusso di radiolaria. Andando avanti e verso l'alto, noterai raggi di luce che brillano da dietro alcuni massi alla tua destra. Indagali e troverai una piccola apertura alla fonte della luce. Segui la luce fino all'artefatto."
+    },
+    "checklistHash": 777902543,
+    "screenshot": "/static/images/screenshots/ghost-scans/pools-of-luminance_ghost-scans_123.jpg"
+  },
+  "168": {
+    "checklistHash": 186016854,
+    "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_124.jpg"
+  },
+  "169": {
+    "checklistHash": 553772159,
+    "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_125.jpg"
+  },
+  "170": {
+    "checklistHash": 2623699692,
+    "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_126.jpg"
+  },
+  "171": {
+    "checklistHash": 287051485,
+    "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_127.jpg"
+  },
+  "172": {
+    "checklistHash": 1240361690,
+    "screenshot": "/static/images/screenshots/ghost-scans/glade-of-echos_ghost-scans_128.jpg"
+  },
+  "173": {
+    "checklistHash": 1450715904,
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_129.jpg"
+  },
+  "174": {
+    "checklistHash": 2117645021,
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_130.jpg"
+  },
+  "175": {
+    "checklistHash": 3070955226,
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_131.jpg"
+  },
+  "176": {
+    "checklistHash": 2384365695,
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg"
+  },
+  "177": {
+    "checklistHash": 159325932,
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_133.jpg"
+  },
+  "178": {
+    "checklistHash": 4062796495,
+    "screenshot": "/static/images/screenshots/jade-rabbits/anchor-of-light_jade-rabbits_4062796495.jpg"
+  },
+  "179": {
+    "checklistHash": 269847098,
+    "screenshot": "/static/images/screenshots/jade-rabbits/hellmouth_jade-rabbits_269847098.jpg"
+  },
+  "180": {
+    "checklistHash": 957600697,
+    "screenshot": "/static/images/screenshots/jade-rabbits/archers-line_jade-rabbits_957600697.jpg"
+  },
+  "181": {
+    "checklistHash": 2293092716,
+    "screenshot": "/static/images/screenshots/jade-rabbits/sorrows-harbor_jade-rabbits_2293092716.jpg"
+  },
+  "182": {
+    "displayProperties": {
+      "description": "Dopo aver completato il settore perduto, troverete l'oggetto verso uscita."
+    },
+    "checklistHash": 2779900411,
+    "screenshot": "/static/images/screenshots/jade-rabbits/k1-logistics_jade-rabbits_2779900411.jpg"
+  },
+  "183": {
+    "displayProperties": {
+      "description": "Richiede un Frammento di Dati del Firewall. Ottieni i prerequisiti attraverso Eris Morn."
+    },
+    "checklistHash": 3728157446,
+    "screenshot": "/static/images/screenshots/jade-rabbits/k1-revelation_jade-rabbits_3728157446.jpg"
+  },
+  "184": {
+    "displayProperties": {
+      "description": "Entrando nel Cerchio delle Ossa tramite la Guardiola, svolta a destra e procedi seguendo il cerchio attorno alla Bocca dell'Inferno. Prima di raggiungere l'incrocio successivo, girati e guarda sotto la piattaforma per trovare due occhi di giada che penetrano nella tua luce data dal Viaggiatore."
+    },
+    "checklistHash": 3977481189,
+    "screenshot": "/static/images/screenshots/jade-rabbits/circle-of-bones_jade-rabbits_3977481189.jpg"
+  },
+  "185": {
+    "checklistHash": 1568227000,
+    "screenshot": "/static/images/screenshots/jade-rabbits/chamber-of-night_jade-rabbits_1568227000.jpg"
+  },
+  "186": {
+    "checklistHash": 2115406343,
+    "screenshot": "/static/images/screenshots/jade-rabbits/shrine-of-oryx_jade-rabbits_2115406343.jpg"
+  },
+  "187": {
+    "displayProperties": {
+      "description": "In uno degli angoli del piano più alto di questa costruzione c'è un armadio socchiuso lungo il muro. Guarda dentro."
+    },
+    "recordHash": 2121305066,
+    "screenshot": "/static/images/screenshots/lore/shaft-13_ghost-stories_2121305066.jpg"
+  },
+  "188": {
+    "displayProperties": {
+      "description": "Sul lato più lontano della stanza più grande, adiacente alla stanza del forziere del settore perduto, c'è una grande parete di roccia che ha un percorso che conduce in una piccola stanza scarsamente illuminata con una scrivania del computer. Su questa scrivania c'è un fantasma defunto."
+    },
+    "recordHash": 2121305065,
+    "screenshot": "/static/images/screenshots/lore/the-drain_ghost-stories_2121305065.jpg"
+  },
+  "189": {
+    "displayProperties": {
+      "description": "Proprio prima della parte principale del settore perduto, alla tua sinistra."
+    },
+    "recordHash": 2121305064,
+    "screenshot": "/static/images/screenshots/lore/the-quarry_ghost-stories_2121305064.jpg"
+  },
+  "190": {
+    "recordHash": 2121305063,
+    "screenshot": "/static/images/screenshots/lore/arboretum_ghost-stories_2121305063.jpg"
+  },
+  "191": {
+    "recordHash": 2121305062,
+    "screenshot": "/static/images/screenshots/lore/sirens-watch_ghost-stories_2121305062.jpg"
+  },
+  "192": {
+    "recordHash": 2104527484,
+    "screenshot": "/static/images/screenshots/lore/ds-quarters-2_ghost-stories_2104527484.jpg"
+  },
+  "193": {
+    "recordHash": 2104527487,
+    "screenshot": "/static/images/screenshots/lore/the-rift_ghost-stories_2104527487.jpg"
+  },
+  "194": {
+    "recordHash": 259242241,
+    "screenshot": "/static/images/screenshots/lore/scavengers-den_the-awoken-of-the-reef_259242241.jpg"
+  },
+  "195": {
+    "recordHash": 259242254,
+    "screenshot": "/static/images/screenshots/lore/sinking-docks_the-awoken-of-the-reef_259242254.jpg"
+  },
+  "196": {
+    "recordHash": 259242255,
+    "screenshot": "/static/images/screenshots/lore/the-conflux_the-awoken-of-the-reef_259242255.jpg"
+  },
+  "197": {
+    "displayProperties": {
+      "description": "Fuori dalla stanza del forziere del settore perduto c'è una serie di piattaforme metalliche. Sotto queste piattaforme c'è un piccolo labirinto, alla fine del quale si trova una cassa di dati."
+    },
+    "recordHash": 3431961938,
+    "screenshot": "/static/images/screenshots/lore/the-drain_the-forsaken-prince_3431961938.jpg"
+  },
+  "198": {
+    "displayProperties": {
+      "description": "Una cassa di dati difficile da trovare, questo enigma è nascosto alla fine di una grotta che ha una piccola apertura lungo il muro non lontano dal forziere del settore perduto. Se hai difficoltà a localizzare l'apertura, aumenta la luminosità nelle impostazioni."
+    },
+    "recordHash": 3431961939,
+    "screenshot": "/static/images/screenshots/lore/flooded-chasm_the-forsaken-prince_3431961939.jpg"
+  },
+  "199": {
+    "recordHash": 3431961936,
+    "screenshot": "/static/images/screenshots/lore/excavation-site-xii_the-forsaken-prince_3431961936.jpg"
+  },
+  "200": {
+    "recordHash": 4212118078,
+    "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118078.jpg"
+  },
+  "201": {
+    "recordHash": 4212118079,
+    "screenshot": "/static/images/screenshots/lore/hellmouth_necrotic-cyphers_4212118079.jpg"
+  },
+  "202": {
+    "recordHash": 4212118076,
+    "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118076.jpg"
+  },
+  "203": {
+    "recordHash": 4212118077,
+    "screenshot": "/static/images/screenshots/lore/archers-light_necrotic-cyphers_4212118077.jpg"
+  },
+  "204": {
+    "recordHash": 4212118074,
+    "screenshot": "/static/images/screenshots/lore/anchor-of-light_necrotic-cyphers_4212118074.jpg"
+  },
+  "205": {
+    "recordHash": 4212118075,
+    "screenshot": "/static/images/screenshots/lore/anchor-of-light_necrotic-cyphers_4212118075.jpg"
+  },
+  "206": {
+    "recordHash": 4212118072,
+    "screenshot": "/static/images/screenshots/lore/sorrows-harbor_necrotic-cyphers_4212118072.jpg"
+  },
+  "207": {
+    "recordHash": 4212118073,
+    "screenshot": "/static/images/screenshots/lore/sorrows-harbor_necrotic-cyphers_4212118073.jpg"
+  },
+  "208": {
+    "recordHash": 4212118070,
+    "screenshot": "/static/images/screenshots/lore/temple-of-crota_necrotic-cyphers_4212118070.jpg"
+  },
+  "209": {
+    "recordHash": 4212118071,
+    "screenshot": "/static/images/screenshots/lore/circle-of-bones_necrotic-cyphers_4212118071.jpg"
+  },
+  "210": {
+    "recordHash": 2028468509,
+    "screenshot": "/static/images/screenshots/lore/chamber-of-night_necrotic-cyphers_2028468509.jpg"
+  },
+  "211": {
+    "recordHash": 2028468508,
+    "screenshot": "/static/images/screenshots/lore/the-worlds-grave_necrotic-cyphers_2028468508.jpg"
+  },
+  "212": {
+    "recordHash": 2028468511,
+    "screenshot": "/static/images/screenshots/lore/the-gatehouse_necrotic-cyphers_2028468511.jpg"
+  },
+  "213": {
+    "recordHash": 2028468510,
+    "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_necrotic-cyphers_2028468510.jpg"
+  },
+  "214": {
+    "recordHash": 2028468505,
+    "screenshot": "/static/images/screenshots/lore/sanctuary_necrotic-cyphers_2028468505.jpg"
+  },
+  "215": {
+    "displayProperties": {
+      "description": "Entra nel sotterraneo e dirigiti verso la torre più a destra. Mantieni un po 'di altitudine, se possibile. Sul lato più lontano della torre più lontana, alla base, c'è un cifrario."
+    },
+    "recordHash": 2028468504,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468504.jpg"
+  },
+  "216": {
+    "displayProperties": {
+      "description": "Completa l'incontro della Necropoli e procedi verso La Fossa. Una volta al muro dei sentieri, arrampicati e girati. A destra della sala c'è una piccola sporgenza lungo il muro di pietra lunare. Usalo per salire al livello superiore del corridoio e procedere al lato più lontano a destra."
+    },
+    "recordHash": 2028468507,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468507.jpg"
+  },
+  "217": {
+    "displayProperties": {
+      "description": "Completa l'incontro dei Tunnel della Disperazione. Prima di proseguire attraversando le trappole verticali, sali con attenzione fino al livello più alto."
+    },
+    "recordHash": 2028468506,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468506.jpg"
+  },
+  "218": {
+    "displayProperties": {
+      "description": "Scendi nei Tunnel della Disperazione e mantieni la destra. Entra al primo buco e seguilo fino alla fine. Vedrai una porta rossa. Stando alla porta rossa gira di 70° in senso orario. Starai fissando un masso. Alla destra del masso c'è il premio che cerchi."
+    },
+    "recordHash": 2028468501,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468501.jpg"
+  },
+  "219": {
+    "displayProperties": {
+      "description": "Nel tunnel più al centro, il più vicino alla fossa di gas verde dove si trova la sfera solare. Entrando nel tunnel dal lato della fossa del gas verde, si allargherà rapidamente in una piccola stanza. Fermati, gira di 180 ° e guarda in alto."
+    },
+    "recordHash": 2028468500,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468500.jpg"
+  },
+  "220": {
+    "recordHash": 3390078235,
+    "screenshot": "/static/images/screenshots/lore/archers-line_lunas-lost_3390078235.jpg"
+  },
+  "221": {
+    "recordHash": 3390078234,
+    "screenshot": "/static/images/screenshots/lore/the-worlds-grave_lunas-lost_3390078234.jpg"
+  },
+  "222": {
+    "recordHash": 3390078233,
+    "screenshot": "/static/images/screenshots/lore/shrine-of-oryx_lunas-lost_3390078233.jpg"
+  },
+  "223": {
+    "displayProperties": {
+      "description": "Entra nella Guardiola attraverso la Bocca dell'Inferno e segui la via in una stanza circolare ben illuminata. Lungo il muro finestrato a destra c'è ciò che cerchi."
+    },
+    "recordHash": 3390078232,
+    "screenshot": "/static/images/screenshots/lore/the-gatehouse_lunas-lost_3390078232.jpg"
+  },
+  "224": {
+    "recordHash": 3390078239,
+    "screenshot": "/static/images/screenshots/lore/summoning-pits_lunas-lost_3390078239.jpg"
+  },
+  "225": {
+    "displayProperties": {
+      "description": "Dietro il lato nascosto del modulo al centro"
+    },
+    "recordHash": 3390078238,
+    "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_lunas-lost_3390078238.jpg"
+  },
+  "226": {
+    "recordHash": 3390078237,
+    "screenshot": "/static/images/screenshots/lore/anchor-of-light_lunas-lost_3390078237.jpg"
+  },
+  "227": {
+    "displayProperties": {
+      "description": "Nei Tunnel della Desperazione, su una sporgenza di scogliera adiacente alla fossa di gas verde."
+    },
+    "recordHash": 3390078236,
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_lunas-lost_3390078236.jpg"
+  },
+  "228": {
+    "recordHash": 3390078227,
+    "screenshot": "/static/images/screenshots/lore/circle-of-bones_lunas-lost_3390078227.jpg"
+  },
+  "229": {
+    "recordHash": 3390078226,
+    "screenshot": "/static/images/screenshots/lore/hellmouth_lunas-lost_3390078226.jpg"
+  },
+  "230": {
+    "vendorHash": 1735426333,
+    "bubbleHash": 1461622515,
+    "screenshot": "/static/images/screenshots/vendors/vendors_ana-bray-2.jpg"
+  },
+  "231": {
+    "vendorHash": 2398407866,
+    "bubbleHash": 2822410613,
+    "screenshot": "/static/images/screenshots/vendors/vendors_brother-vance-2.jpg"
+  },
+  "232": {
+    "vendorHash": 396892126,
+    "bubbleHash": 3091570009,
+    "screenshot": "/static/images/screenshots/vendors/vendors_devrim-kay-2.jpg"
+  },
+  "233": {
+    "vendorHash": 1576276905,
+    "bubbleHash": 4205285323,
+    "screenshot": "/static/images/screenshots/vendors/vendors_failsafe-2.jpg"
+  },
+  "234": {
+    "vendorHash": 1062861569,
+    "bubbleHash": 4035573696,
+    "screenshot": "/static/images/screenshots/vendors/vendors_sloane-2.jpg"
+  },
+  "235": {
+    "vendorHash": 1616085565,
+    "bubbleHash": 240420607,
+    "screenshot": "/static/images/screenshots/vendors/vendors_eris-morn-2.jpg"
+  },
+  "236": {
+    "vendorHash": 3411552308,
+    "bubbleHash": 240420607,
+    "screenshot": "/static/images/screenshots/vendors/vendors_lectern-of-enchantment-2.jpg"
+  },
+  "237": {
+    "vendorHash": 3982706173,
+    "bubbleHash": 577912749,
+    "screenshot": "/static/images/screenshots/vendors/vendors_asher-mir-2.jpg"
+  },
+  "238": {
+    "vendorHash": 863940356,
+    "bubbleHash": 824533556,
+    "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
+  }
+}
