@@ -15,9 +15,25 @@
     "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
-  "platform_pc": {
+  "platform_steam": {
     "displayProperties": {
-      "name": "PC",
+      "name": "Steam",
+      "description": "La piattaforma d'appartenenza di questo profilo."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Piattaforma"
+  },
+  "platform_battlenet": {
+    "displayProperties": {
+      "name": "Battle.net",
+      "description": "La piattaforma d'appartenenza di questo profilo."
+    },
+    "itemType": 1,
+    "itemTypeDisplayName": "Piattaforma"
+  },
+  "platform_stadia": {
+    "displayProperties": {
+      "name": "Stadia",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
     "itemType": 1,
@@ -61,11 +77,219 @@
     },
     "itemType": 1
   },
+  "record_intervals": {
+    "displayProperties": {
+      "name": "Intervalli trionfi",
+      "description": "Alcuni trionfi hanno intervalli. Differenti intervalli hanno vari requisiti e punteggi."
+    },
+    "itemType": 1
+  },
   "character_bound": {
     "displayProperties": {
       "name": "Esclusivo al personaggio",
       "description": "Questi oggetti sono esclusivi al personaggio. Ciò significa che ogni personaggio li scoprirà unicamente."
     },
     "itemType": 1
+  }
+  "coverage": {
+    "displayProperties": {
+      "name": "Copertura",
+      "description": "La copertura in percentuale di questa traduzione."
+    },
+    "itemType": 1
+  },
+  "total_resets": {
+    "displayProperties": {
+      "name": "Reset totali",
+      "description": "I reset di tutte le stagioni. Dalla Stagione 4 in poi."
+    },
+    "itemType": 1
+  },
+  "destiny_tracker_elo": {
+    "displayProperties": {
+      "name": "Destiny Tracker Elo",
+      "description": "Elo provenienti da un sito di terze parti, _Destiny Tracker_. _Destiny Tracker_ assegna Elo a tutti i giocatori di Destiny che hanno partecipato nelle attività di _Crogiolo_ e _Azzardo_."
+    },
+    "itemType": 1
+  },
+  "braytech_purple_rune": {
+    "displayProperties": {
+      "description": "Una runa viola. Le rune viola includono; Runa della Gioia, Runa della Bestia, e Runa del Giubilo.",
+      "name": "Runa Viola",
+      "icon": "/static/images/extracts/ui/rune_purple.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune0",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_red_rune": {
+    "displayProperties": {
+      "description": "Una runa rossa. Le rune rosse includono; Runa dell'Ambizione, Runa dell'Ingordigia, e Runa dell'Astuzia.",
+      "name": "Runa Rossa",
+      "icon": "/static/images/extracts/ui/rune_red.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune3",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_green_rune": {
+    "displayProperties": {
+      "description": "Una runa verde. Rune verdi includono; Runa della Guerra, Runa dell'Orgoglio, e Runa del Desiderio.",
+      "name": "Runa Verde",
+      "icon": "/static/images/extracts/ui/rune_green.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune6",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_blue_rune": {
+    "displayProperties": {
+      "description": "Una runa blu. Rune blu includono; Runa dell'Eccesso, Runa della Ricchezza, e Runa del Piacere.",
+      "name": "Runa Blu",
+      "icon": "/static/images/extracts/ui/rune_blue.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Material",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Legendary",
+      "tierType": 5
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune9",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_no_rune": {
+    "displayProperties": {
+      "description": "Inserisci un runa in questo slot",
+      "name": "Slot vuoto",
+      "icon": "/static/images/extracts/ui/0560-00006055.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Action",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Common",
+      "tierType": 1
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune20",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
+  },
+  "braytech_remove_rune": {
+    "displayProperties": {
+      "description": "Rimuovi rune da questo slot",
+      "name": "Slot vuoto",
+      "icon": "/static/images/extracts/ui/0560-00006055.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Action",
+    "uiItemDisplayStyle": "",
+    "itemTypeAndTierDisplayName": "Legendary Material",
+    "displaySource": "",
+    "inventory": {
+      "bucketTypeHash": 2422292810,
+      "tierTypeHash": 4008398120,
+      "tierTypeName": "Common",
+      "tierType": 1
+    },
+    "plug": {
+      "plugCategoryIdentifier": "penumbra.runes.legendary.rune21",
+      "plugCategoryHash": 415109986
+    },
+    "itemCategoryHashes": [3109687656],
+    "itemType": 20,
+    "itemSubType": 0,
+    "classType": 3,
+    "hash": 2149082452,
+    "redacted": false,
+    "blacklisted": false
   }
 }
