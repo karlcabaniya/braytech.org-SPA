@@ -70,7 +70,7 @@ export function slowImport(value, ms = 3000) {
 
 // Lazy components
 const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
-const Maps = React.lazy(() => slowImport(import('./views/Maps')));
+const Maps = React.lazy(() => import('./views/Maps'));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
@@ -413,7 +413,7 @@ class App extends React.Component {
                 continually reload itself */}
               <Route path='/character-select' children={(route) => !route.match && <RefreshService {...route} />} />
 
-              <Footer />
+              <Route component={Footer} />
             </div>
           )}
         />

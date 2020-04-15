@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -147,10 +148,6 @@ class Inspect extends React.Component {
 
     console.log(unified);
 
-    // {checklistItem.formatted.name}
-    //         {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}
-    //         <span>{checklist.checklistItemName_plural}</span>
-
     return (
       <div className='control inspector acrylic'>
         <div className='close'>
@@ -167,7 +164,7 @@ class Inspect extends React.Component {
           </div>
           {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
           {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
-          <div className='buffer'>
+          <div className={cx({ buffer: unified.related?.records.length })}>
             {unified.related?.records.length ? (
               <>
                 <h4>{t('Triumphs')}</h4>

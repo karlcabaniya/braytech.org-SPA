@@ -9,6 +9,9 @@ import data from '../../src/data/checklists/index.json';
 
 import BraytechMaps_EN from '../../src/data/manifest/en/BraytechMaps/index.json';
 
+import DestinyActivityDefinition_EN from '../../src/data/manifest/en/DestinyActivityDefinition/index.json';
+import DestinyDestinationDefinition_EN from '../../src/data/manifest/en/DestinyDestinationDefinition/index.json';
+
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
 // with https://docs.google.com/spreadsheets/d/1qgZtT1qbUFjyV8-ni73m6UCHTcuLmuLBx-zn_B7NFkY/edit#gid=1808601275
@@ -127,8 +130,29 @@ const bubbleHashOverrides = {
   'Cimmerian Garrison': 27792021737,
 };
 
+function mergeWithCustomizer(a, b) {
+  if (Array.isArray(a)) {
+    return a.concat(b);
+  }
+  
+  return a;
+}
+
+const customsMerge = (bungie, customs) => {
+  for (const key in customs) {
+    if (customs.hasOwnProperty(key) && bungie.hasOwnProperty(key)) {
+      bungie[key] = _.mergeWith(bungie[key], customs[key], mergeWithCustomizer);
+    }
+  }
+
+  return bungie;
+};
+
 async function run() {
   const manifest = await Manifest.getManifest();
+
+  customsMerge(manifest.DestinyActivityDefinition, DestinyActivityDefinition_EN);
+  customsMerge(manifest.DestinyDestinationDefinition, DestinyDestinationDefinition_EN);
 
   function merger(e, c) {
     if (Array.isArray(c)) {
@@ -185,7 +209,7 @@ async function run() {
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
-    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (lowlines && lowlines.bubbleName);
+    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
@@ -404,13 +428,13 @@ async function run() {
 
         BraytechMaps_EN[hash] = {
           ...BraytechMaps_EN[hash],
-          displayProperties:
-            (load.displayProperties && load.displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && BraytechMaps_EN[hash].displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && Object.keys(BraytechMaps_EN[hash].displayProperties).length)
-              ? {
-                  ...BraytechMaps_EN[hash].displayProperties,
-                  description: load.displayProperties.description || BraytechMaps_EN[hash].displayProperties.description,
-                }
-              : undefined,
+          // displayProperties:
+          //   (load.displayProperties && load.displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && BraytechMaps_EN[hash].displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && Object.keys(BraytechMaps_EN[hash].displayProperties).length)
+          //     ? {
+          //         ...BraytechMaps_EN[hash].displayProperties,
+          //         description: load.displayProperties.description || BraytechMaps_EN[hash].displayProperties.description,
+          //       }
+          //     : undefined,
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
         };
       } else {

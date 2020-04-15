@@ -1222,7 +1222,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Archiloquy",
         "number": 1
@@ -1238,7 +1237,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Brephos I",
         "number": 2
@@ -1260,7 +1258,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Corrupted",
         "place": "The Dreaming City",
         "name": "Brephos II",
         "number": 3
@@ -1304,7 +1301,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Corrupted",
         "place": "The Dreaming City",
         "name": "Cosmogyre I",
         "number": 5
@@ -1320,7 +1316,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Cosmogyre II",
         "number": 6
@@ -1429,7 +1424,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "Dark Monastery",
         "place": "The Dreaming City",
         "name": "Ecstasiate III",
         "number": 11
@@ -1445,7 +1439,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Fideicide I",
         "number": 12
@@ -1466,7 +1459,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Queens Court",
         "place": "The Dreaming City",
         "name": "Fideicide II",
         "number": 13
@@ -3991,7 +3983,7 @@
         "destination": "The Tangled Shore",
         "bubble": "High Plains",
         "place": "The Tangled Shore",
-        "name": "Pressure",
+        "name": "High Plains",
         "number": 99
       }
     },
@@ -5076,9 +5068,7 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": false,
         "place": "Io",
-        "name": false,
         "number": 33
       }
     },
@@ -5097,9 +5087,7 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": false,
         "place": "Io",
-        "name": false,
         "number": 34
       }
     },
@@ -5118,9 +5106,7 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": false,
         "place": "Io",
-        "name": false,
         "number": 35
       }
     },
@@ -8044,7 +8030,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 1
@@ -8060,7 +8045,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 2
@@ -8076,7 +8060,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 3
@@ -8092,7 +8075,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 4
@@ -8108,7 +8090,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 5
@@ -8124,7 +8105,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 6
@@ -8140,7 +8120,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 7
@@ -8156,7 +8135,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 8
@@ -8172,7 +8150,6 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "The Shattered Throne",
         "place": "The Dreaming City",
         "name": "Katabasis",
         "number": 9
