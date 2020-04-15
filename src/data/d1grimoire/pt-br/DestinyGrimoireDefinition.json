@@ -2,7 +2,7 @@
   "themeCollection": [
     {
       "themeId": "Guardian",
-      "themeName": "Guardi&#245;es",
+      "themeName": "Guardiões",
       "normalResolution": {
         "image": {
           "rect": {
@@ -1007,7 +1007,7 @@
     },
     {
       "themeId": "Inventory",
-      "themeName": "Invent&#225;rio",
+      "themeName": "Inventário",
       "normalResolution": {
         "image": {
           "rect": {
