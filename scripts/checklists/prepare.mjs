@@ -3,11 +3,9 @@ import path from 'path';
 import Manifest from '../manifest.js';
 import _ from 'lodash';
 
-import lowlidev from './lowlines.json';
-import newLight from './worthy.json';
+import worthy from './worthy.json';
 
 import data from '../../src/data/checklists/index.json';
-import old from './old.json';
 
 import BraytechMaps_EN from '../../src/data/manifest/en/BraytechMaps/index.json';
 
@@ -161,19 +159,18 @@ async function run() {
     }
   }
 
-  function checklistItem(id, item) {
-    const existing = (data[id] && data[id].find((c) => c.checklistHash === item.hash)) || {};
-    const mapping = newLight.checklists[item.hash] || {};
-    const lowlines = lowlidev[id] && lowlidev[id].find((n) => n.checklistHash === +item.hash || n.activityHash === +item.activityHash);
+  function checklistItem(checklistId, checklistItem) {
+    const existing = (data[checklistId] && data[checklistId].find((c) => c.checklistHash === checklistItem.hash)) || {};
+    const mapping = worthy.checklists[checklistItem.hash] || {};
 
-    let destinationHash = item.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+    let destinationHash = checklistItem.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
     destinationHash = destinationHashOverrides[destinationHash] ? destinationHashOverrides[destinationHash] : destinationHash;
 
     const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
     let activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
-    let bubbleHash = item.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
+    let bubbleHash = checklistItem.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
     bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
 
     if (bubbleHash === 'Dark Monastery') {
@@ -192,16 +189,16 @@ async function run() {
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
-    const numberMatch = item.displayProperties.name.match(/([0-9]+)/);
+    const numberMatch = checklistItem.displayProperties.name.match(/([0-9]+)/);
     const itemNumber = numberMatch && numberMatch[0];
 
     const recordHash = (mapping && mapping.recordHash) || (existing && existing.recordHash) || undefined;
 
     let name = bubbleName;
-    if (manifest.DestinyChecklistDefinition[365218222].entries.find((h) => h.hash === item.hash)) {
-      name = manifest.DestinyInventoryItemDefinition[item.itemHash].displayProperties.description.replace('CB.NAV/RUN.()', '');
-    } else if (item.activityHash) {
-      name = manifest.DestinyActivityDefinition[item.activityHash].displayProperties.name;
+    if (manifest.DestinyChecklistDefinition[365218222].entries.find((h) => h.hash === checklistItem.hash)) {
+      name = manifest.DestinyInventoryItemDefinition[checklistItem.itemHash].displayProperties.description.replace('CB.NAV/RUN.()', '');
+    } else if (checklistItem.activityHash) {
+      name = manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
     } else if (recordHash) {
       const definitionRecord = manifest.DestinyRecordDefinition[recordHash];
       const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -212,7 +209,7 @@ async function run() {
     const points = (mapping && mapping.map && mapping.map.points) || (existing && existing.map && existing.map.points) || [];
 
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
-    const withinLostSector = bubbleHash && data[3142056444].find((l) => l.bubbleHash === bubbleHash) && id !== 3142056444;
+    const withinLostSector = bubbleHash && data[3142056444].find((l) => l.bubbleHash === bubbleHash) && checklistId !== 3142056444;
 
     let within = undefined;
     if (withinLostSector) {
@@ -221,7 +218,7 @@ async function run() {
       within = 'strike';
     } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(2)) {
       within = 'story';
-    } else if (activityHash && id !== 4178338182) {
+    } else if (activityHash && checklistId !== 4178338182) {
       // exclude adventures from being located within themselves lol
       within = 'activity';
     } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
@@ -232,8 +229,8 @@ async function run() {
       destinationHash,
       bubbleHash,
       activityHash,
-      checklistHash: item.hash,
-      itemHash: item && item.itemHash,
+      checklistHash: checklistItem.hash,
+      itemHash: checklistItem && checklistItem.itemHash,
       recordHash,
       map: {
         points,
@@ -248,17 +245,11 @@ async function run() {
       },
     };
 
-    const olddata = old.find((i) => i.checklistHash === item.hash);
-    const description = (olddata && olddata.description) || undefined;
+    const screenshot = getScreenshot(checklistId, changes);
 
-    const screenshot = getScreenshot(id, changes);
-
-    if (screenshot || description) {
+    if (screenshot) {
       doJson({
-        displayProperties: {
-          description,
-        },
-        checklistHash: item.hash,
+        checklistHash: checklistItem.hash,
         screenshot,
       });
     }
@@ -277,19 +268,18 @@ async function run() {
     return recordHashes
       .map((hash, itemNumber) => {
         const existing = (data[presentationHash] && data[presentationHash].find((c) => c.recordHash === hash)) || {};
-        const mapping = newLight.records[hash];
-        const lowlines = lowlidev[presentationHash] && lowlidev[presentationHash].find((n) => n.recordHash === hash);
+        const mapping = worthy.records[hash];
 
         let destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
 
         const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
         const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-        let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || (lowlines && lowlines.bubbleName) || undefined;
+        let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
         bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
         const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
-        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name) || (lowlines && lowlines.bubbleName);
+        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
 
         const recordHash = hash;
 
@@ -343,16 +333,10 @@ async function run() {
           },
         };
 
-        const olddata = old.find((i) => i.recordHash === recordHash);
-        const description = (olddata && olddata.description) || undefined;
-
         const screenshot = getScreenshot(presentationHash, changes);
 
-        if (screenshot || description) {
+        if (screenshot) {
           doJson({
-            displayProperties: {
-              description,
-            },
             recordHash,
             screenshot,
           });
