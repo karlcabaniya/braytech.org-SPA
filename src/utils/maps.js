@@ -76,6 +76,7 @@ function findChecklistItems(search) {
           activityHash: checklistItem.activityHash,
           itemHash: checklistItem.itemHash,
           map: checklistItem.map,
+          ...checklistItem.extended
         }));
       }
     }

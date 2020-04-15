@@ -14,7 +14,7 @@ class Footer extends React.Component {
   render() {
     const { linkOnClick, minimal } = this.props;
 
-    if (hiddenOnRoutes.filter((path) => this.props.location.pathname.indexOf(path) > -1).length) return null;
+    if (hiddenOnRoutes.filter((path) => this.props.location?.pathname.indexOf(path) > -1).length) return null;
 
     return (
       <div id='footer'>

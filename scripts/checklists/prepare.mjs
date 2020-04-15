@@ -194,7 +194,7 @@ async function run() {
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
     let activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
-    let bubbleHash = checklistItem.bubbleHash || (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+    let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || checklistItem.bubbleHash || undefined;
     bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
 
     if (bubbleHash === 'Dark Monastery') {
@@ -207,9 +207,13 @@ async function run() {
       bubbleHash = undefined;
     }
 
-    const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
+    const extended = (mapping && mapping.extended) || (existing && existing.extended) || undefined;
 
+    const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
     const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
+    
+    const extendedDefinitionBubble = extended && definitionDestination && _.find(definitionDestination.bubbles, { hash: extended.bubbleHash });
+    const extendedBubbleName = (extendedDefinitionBubble && extendedDefinitionBubble.displayProperties.name);
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
@@ -262,11 +266,12 @@ async function run() {
       },
       sorts: {
         destination: definitionDestination && definitionDestination.displayProperties.name,
-        bubble: bubbleName,
+        bubble: extendedBubbleName || bubbleName,
         place: definitionPlace && definitionPlace.displayProperties.name,
         name,
         number: itemNumber && parseInt(itemNumber, 10),
       },
+      extended
     };
 
     const screenshot = getScreenshot(checklistId, changes);
