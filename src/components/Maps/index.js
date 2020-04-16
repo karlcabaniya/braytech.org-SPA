@@ -102,7 +102,9 @@ class Maps extends React.Component {
       // inspect: {
       //   activityHash: 1375089621
       // },
-      inspect: false,
+      inspect: {
+        checklistHash: 3240560483
+      },
     },
   };
 

@@ -13,6 +13,8 @@ import { bookCovers } from '../../../../utils/destinyEnums';
 import { checklists, checkup } from '../../../../utils/checklists';
 import { cartographer } from '../../../../utils/maps';
 
+import ProposeChanges from './ProposeChanges';
+
 import './styles.css';
 
 function findNodeType({ checklistHash, recordHash, nodeHash, activityHash }) {
@@ -173,6 +175,7 @@ class Inspect extends React.Component {
                 </ul>
               </>
             ) : null}
+            <ProposeChanges nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://justrealmilk> (https://thomchap.com.au)",
-  "version": "2.23.6",
+  "version": "2.23.7",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -20,13 +20,13 @@
     "classnames": "^2.2.6",
     "dexie": "^2.0.4",
     "html2canvas": "^1.0.0-rc.5",
-    "i18next": "^19.4.1",
+    "i18next": "^19.4.2",
     "i18next-xhr-backend": "^3.2.2",
     "intersection-observer": "^0.8.0",
     "leaflet": "^1.6.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "query-string": "^6.12.0",
+    "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
@@ -54,7 +54,7 @@
     "node-fetch": "^2.6.0",
     "progress-bar-webpack-plugin": "^2.1.0",
     "turndown": "^6.0.0",
-    "webpack-bundle-analyzer": "^3.6.1"
+    "webpack-bundle-analyzer": "^3.7.0"
   },
   "eslintConfig": {
     "extends": "react-app"

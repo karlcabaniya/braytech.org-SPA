@@ -103,7 +103,7 @@ class PatreonAssociation extends React.Component {
           <form onSubmit={this.handler_onSubmit}>
             <div className='form'>
               <div className='field'>
-                <input id='email' onChange={this.handler_onSearchChange} type='email' required placeholder={t('chonky_zuzuvala69@hotmail.reef')} pattern='^\S+@\S+\.\S+$' spellCheck='false' value={value} />
+                <input onChange={this.handler_onSearchChange} type='email' required placeholder={t('chonky_zuzuvala69@hotmail.reef')} pattern='^\S+@\S+\.\S+$' spellCheck='false' value={value} />
               </div>
             </div>
             <div className='actions'>
