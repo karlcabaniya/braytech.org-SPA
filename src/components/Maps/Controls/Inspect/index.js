@@ -39,11 +39,11 @@ function findNodeType({ checklistHash, recordHash, nodeHash, activityHash }) {
   }
 }
 
-function locationStrings({ activityHash, destinationHash, bubbleHash, map }) {
+function locationStrings({ activityHash, destinationHash, bubbleHash, map, extended }) {
   const definitionActivity = manifest.DestinyActivityDefinition[activityHash];
   const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
   const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-  const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === bubbleHash);
+  const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (extended?.bubbleHash || bubbleHash));
 
   const destinationName = definitionDestination?.displayProperties?.name;
   const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;

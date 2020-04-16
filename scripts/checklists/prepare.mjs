@@ -197,16 +197,6 @@ async function run() {
     let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || checklistItem.bubbleHash || undefined;
     bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
 
-    if (bubbleHash === 'Dark Monastery') {
-      bubbleHash = undefined;
-      activityHash = 1313738982;
-    } else if (bubbleHash === 'The Corrupted') {
-      bubbleHash = undefined;
-      activityHash = 3374205762;
-    } else if (bubbleHash === 2241206483) {
-      bubbleHash = undefined;
-    }
-
     const extended = (mapping && mapping.extended) || (existing && existing.extended) || undefined;
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });

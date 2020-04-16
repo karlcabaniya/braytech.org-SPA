@@ -9914,10 +9914,13 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Aphix Conduit",
+        "bubble": "The Rupture",
         "place": "Io",
         "name": "Aphix Conduit",
         "number": 1
+      },
+      "extended": {
+        "bubbleHash": 577912749
       }
     },
     {
@@ -9935,10 +9938,13 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Sanctum of Bones",
+        "bubble": "The Rupture",
         "place": "Io",
         "name": "Sanctum of Bones",
         "number": 2
+      },
+      "extended": {
+        "bubbleHash": 577912749
       }
     },
     {
@@ -9956,10 +9962,13 @@
       },
       "sorts": {
         "destination": "Echo Mesa",
-        "bubble": "Grove of Ulan-Tan",
+        "bubble": "Lost Oasis",
         "place": "Io",
         "name": "Grove of Ulan-Tan",
         "number": 3
+      },
+      "extended": {
+        "bubbleHash": 697305512
       }
     },
     {
@@ -9976,10 +9985,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Whispered Falls",
+        "bubble": "Outskirts",
         "place": "Earth",
         "name": "Whispered Falls",
         "number": 4
+      },
+      "extended": {
+        "bubbleHash": 3340296448
       }
     },
     {
@@ -9996,10 +10008,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "The Drain",
+        "bubble": "Outskirts",
         "place": "Earth",
         "name": "The Drain",
         "number": 5
+      },
+      "extended": {
+        "bubbleHash": 3340296448
       }
     },
     {
@@ -10016,10 +10031,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Scavenger's Den",
+        "bubble": "Outskirts",
         "place": "Earth",
         "name": "Scavenger's Den",
         "number": 6
+      },
+      "extended": {
+        "bubbleHash": 3340296448
       }
     },
     {
@@ -10036,10 +10054,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "The Weep",
+        "bubble": "Winding Cove",
         "place": "Earth",
         "name": "The Weep",
         "number": 7
+      },
+      "extended": {
+        "bubbleHash": 3854937584
       }
     },
     {
@@ -10056,10 +10077,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "The Pit",
+        "bubble": "Firebase Hades",
         "place": "Earth",
         "name": "The Pit",
         "number": 8
+      },
+      "extended": {
+        "bubbleHash": 2212414297
       }
     },
     {
@@ -10076,10 +10100,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Pathfinder's Crash",
+        "bubble": "Firebase Hades",
         "place": "Earth",
         "name": "Pathfinder's Crash",
         "number": 9
+      },
+      "extended": {
+        "bubbleHash": 2212414297
       }
     },
     {
@@ -10096,10 +10123,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Excavation Site XII",
+        "bubble": "Firebase Hades",
         "place": "Earth",
         "name": "Excavation Site XII",
         "number": 10
+      },
+      "extended": {
+        "bubbleHash": 2212414297
       }
     },
     {
@@ -10116,10 +10146,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Flooded Chasm",
+        "bubble": "The Gulch",
         "place": "Earth",
         "name": "Flooded Chasm",
         "number": 11
+      },
+      "extended": {
+        "bubbleHash": 3861059923
       }
     },
     {
@@ -10136,10 +10169,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Skydock IV",
+        "bubble": "Sunken Isles",
         "place": "Earth",
         "name": "Skydock IV",
         "number": 12
+      },
+      "extended": {
+        "bubbleHash": 1094980045
       }
     },
     {
@@ -10156,10 +10192,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "The Quarry",
+        "bubble": "Sunken Isles",
         "place": "Earth",
         "name": "The Quarry",
         "number": 13
+      },
+      "extended": {
+        "bubbleHash": 1094980045
       }
     },
     {
@@ -10176,10 +10215,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Atrium",
+        "bubble": "Trostland",
         "place": "Earth",
         "name": "Atrium",
         "number": 14
+      },
+      "extended": {
+        "bubbleHash": 3091570009
       }
     },
     {
@@ -10196,10 +10238,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Terminus East",
+        "bubble": "Trostland",
         "place": "Earth",
         "name": "Terminus East",
         "number": 15
+      },
+      "extended": {
+        "bubbleHash": 3091570009
       }
     },
     {
@@ -10216,10 +10261,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Widow's Walk",
+        "bubble": "Trostland",
         "place": "Earth",
         "name": "Widow's Walk",
         "number": 16
+      },
+      "extended": {
+        "bubbleHash": 3091570009
       }
     },
     {
@@ -10236,10 +10284,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Cavern of Souls",
+        "bubble": "The Sludge",
         "place": "Earth",
         "name": "Cavern of Souls",
         "number": 17
+      },
+      "extended": {
+        "bubbleHash": 4200309587
       }
     },
     {
@@ -10256,10 +10307,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Hallowed Grove",
+        "bubble": "The Sludge",
         "place": "Earth",
         "name": "Hallowed Grove",
         "number": 18
+      },
+      "extended": {
+        "bubbleHash": 4200309587
       }
     },
     {
@@ -10276,10 +10330,13 @@
       },
       "sorts": {
         "destination": "European Dead Zone",
-        "bubble": "Shaft 13",
+        "bubble": "The Sludge",
         "place": "Earth",
         "name": "Shaft 13",
         "number": 19
+      },
+      "extended": {
+        "bubbleHash": 4200309587
       }
     },
     {
@@ -10296,10 +10353,13 @@
       },
       "sorts": {
         "destination": "New Pacific Arcology",
-        "bubble": "Methane Flush",
+        "bubble": "Siren's Watch",
         "place": "Titan, Moon of Saturn",
         "name": "Methane Flush",
         "number": 20
+      },
+      "extended": {
+        "bubbleHash": 1291433366
       }
     },
     {
@@ -10316,10 +10376,13 @@
       },
       "sorts": {
         "destination": "New Pacific Arcology",
-        "bubble": "DS Quarters-2",
+        "bubble": "The Rig",
         "place": "Titan, Moon of Saturn",
         "name": "DS Quarters-2",
         "number": 21
+      },
+      "extended": {
+        "bubbleHash": 4035573696
       }
     },
     {
@@ -10336,10 +10399,13 @@
       },
       "sorts": {
         "destination": "New Pacific Arcology",
-        "bubble": "Cargo Bay 3",
+        "bubble": "The Rig",
         "place": "Titan, Moon of Saturn",
         "name": "Cargo Bay 3",
         "number": 22
+      },
+      "extended": {
+        "bubbleHash": 4035573696
       }
     },
     {
@@ -10356,10 +10422,13 @@
       },
       "sorts": {
         "destination": "Arcadian Valley",
-        "bubble": "The Rift",
+        "bubble": "Exodus Black",
         "place": "Nessus",
         "name": "The Rift",
         "number": 23
+      },
+      "extended": {
+        "bubbleHash": 4205285323
       }
     },
     {
@@ -10376,10 +10445,13 @@
       },
       "sorts": {
         "destination": "Arcadian Valley",
-        "bubble": "The Conflux",
+        "bubble": "The Cistern",
         "place": "Nessus",
         "name": "The Conflux",
         "number": 24
+      },
+      "extended": {
+        "bubbleHash": 2132187573
       }
     },
     {
@@ -10396,10 +10468,13 @@
       },
       "sorts": {
         "destination": "Arcadian Valley",
-        "bubble": "The Orrery",
+        "bubble": "Artifact's Edge",
         "place": "Nessus",
         "name": "The Orrery",
         "number": 25
+      },
+      "extended": {
+        "bubbleHash": 1702304883
       }
     },
     {
@@ -10416,10 +10491,13 @@
       },
       "sorts": {
         "destination": "Arcadian Valley",
-        "bubble": "The Carrion Pit",
+        "bubble": "Glade of Echoes",
         "place": "Nessus",
         "name": "The Carrion Pit",
         "number": 26
+      },
+      "extended": {
+        "bubbleHash": 3311195705
       }
     },
     {
@@ -10436,10 +10514,13 @@
       },
       "sorts": {
         "destination": "Arcadian Valley",
-        "bubble": "Ancient's Haunt",
+        "bubble": "The Tangle",
         "place": "Nessus",
         "name": "Ancient's Haunt",
         "number": 27
+      },
+      "extended": {
+        "bubbleHash": 933267223
       }
     },
     {
@@ -10456,10 +10537,13 @@
       },
       "sorts": {
         "destination": "Mercury",
-        "bubble": "Pariah's Refuge",
+        "bubble": "The Lighthouse",
         "place": "Mercury",
         "name": "Pariah's Refuge",
         "number": 28
+      },
+      "extended": {
+        "bubbleHash": 2822410613
       }
     },
     {
@@ -10476,10 +10560,13 @@
       },
       "sorts": {
         "destination": "Hellas Basin",
-        "bubble": "Core Terminus",
+        "bubble": "BrayTech Futurescape",
         "place": "Mars",
         "name": "Core Terminus",
         "number": 29
+      },
+      "extended": {
+        "bubbleHash": 1461622515
       }
     },
     {
@@ -10496,10 +10583,13 @@
       },
       "sorts": {
         "destination": "Hellas Basin",
-        "bubble": "Ma'adim Subterrane",
+        "bubble": "Glacial Drift",
         "place": "Mars",
         "name": "Ma'adim Subterrane",
         "number": 30
+      },
+      "extended": {
+        "bubbleHash": 3899539020
       }
     },
     {
@@ -10517,10 +10607,13 @@
       },
       "sorts": {
         "destination": "The Tangled Shore",
-        "bubble": "Shipyard AWO-43",
+        "bubble": "Jetsam of Saturn",
         "place": "The Tangled Shore",
         "name": "Shipyard AWO-43",
         "number": 31
+      },
+      "extended": {
+        "bubbleHash": 1635947699
       }
     },
     {
@@ -10538,10 +10631,13 @@
       },
       "sorts": {
         "destination": "The Tangled Shore",
-        "bubble": "Kingship Dock",
+        "bubble": "Thieves' Landing",
         "place": "The Tangled Shore",
         "name": "Kingship Dock",
         "number": 32
+      },
+      "extended": {
+        "bubbleHash": 1608679832
       }
     },
     {
@@ -10559,10 +10655,13 @@
       },
       "sorts": {
         "destination": "The Tangled Shore",
-        "bubble": "The Empty Tank",
+        "bubble": "Thieves' Landing",
         "place": "The Tangled Shore",
         "name": "The Empty Tank",
         "number": 33
+      },
+      "extended": {
+        "bubbleHash": 1608679832
       }
     },
     {
@@ -10580,10 +10679,13 @@
       },
       "sorts": {
         "destination": "The Tangled Shore",
-        "bubble": "Wolfship Turbine",
+        "bubble": "Soriks's Cut",
         "place": "The Tangled Shore",
         "name": "Wolfship Turbine",
         "number": 34
+      },
+      "extended": {
+        "bubbleHash": 3520035140
       }
     },
     {
@@ -10601,10 +10703,13 @@
       },
       "sorts": {
         "destination": "The Tangled Shore",
-        "bubble": "Trapper's Cave",
+        "bubble": "Four-Horn Gulch",
         "place": "The Tangled Shore",
         "name": "Trapper's Cave",
         "number": 35
+      },
+      "extended": {
+        "bubbleHash": 1026950430
       }
     },
     {
@@ -10622,10 +10727,13 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "Bay of Drowned Wishes",
+        "bubble": "Divalian Mists",
         "place": "The Dreaming City",
         "name": "Bay of Drowned Wishes",
         "number": 36
+      },
+      "extended": {
+        "bubbleHash": 706937272
       }
     },
     {
@@ -10643,10 +10751,13 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "Aphelion's Rest",
+        "bubble": "The Strand",
         "place": "The Dreaming City",
         "name": "Aphelion's Rest",
         "number": 37
+      },
+      "extended": {
+        "bubbleHash": 3522109173
       }
     },
     {
@@ -10664,10 +10775,13 @@
       },
       "sorts": {
         "destination": "The Dreaming City",
-        "bubble": "Chamber of Starlight",
+        "bubble": "Rheasilvia",
         "place": "The Dreaming City",
         "name": "Chamber of Starlight",
         "number": 38
+      },
+      "extended": {
+        "bubbleHash": 2762866308
       }
     },
     {
@@ -10684,10 +10798,13 @@
       },
       "sorts": {
         "destination": "The Moon",
-        "bubble": "K1 Logistics",
+        "bubble": "Archer's Line",
         "place": "The Moon",
         "name": "K1 Logistics",
         "number": 39
+      },
+      "extended": {
+        "bubbleHash": 3326367698
       }
     },
     {
@@ -10704,10 +10821,13 @@
       },
       "sorts": {
         "destination": "The Moon",
-        "bubble": "K1 Revelation",
+        "bubble": "Sorrow's Harbor",
         "place": "The Moon",
         "name": "K1 Revelation",
         "number": 40
+      },
+      "extended": {
+        "bubbleHash": 417490937
       }
     },
     {
@@ -10747,10 +10867,13 @@
       },
       "sorts": {
         "destination": "The Moon",
-        "bubble": "K1 Communion",
+        "bubble": "Anchor of Light",
         "place": "The Moon",
         "name": "K1 Communion",
         "number": 42
+      },
+      "extended": {
+        "bubbleHash": 4025450777
       }
     }
   ],
