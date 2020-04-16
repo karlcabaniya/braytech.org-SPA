@@ -9,7 +9,6 @@ import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import * as utils from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
-import { checklists, lookup } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 
 import { Tooltips } from '../../../svg';
@@ -95,7 +94,7 @@ class Activity extends React.Component {
 
       const modeFiltered = activityType(definitionActivity.hash, definitionActivity.activityTypeHash, definitionActivity.activityModeHashes ? definitionActivity.activityModeHashes.concat([mode]) : [mode]);
 
-      const node = cartographer({ key: 'activityHash', value: definitionActivity.hash }, this.props.member);
+      const node = cartographer({ key: 'activityHash', value: definitionActivity.hash });
 
       const definitionBubble = node.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === node.bubbleHash);
 
@@ -130,6 +129,7 @@ class Activity extends React.Component {
         activityTypeDisplay.description = manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description;
         activityTypeDisplay.activityLightLevel = false;
         activityTypeDisplay.mode = definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name;
+        activityTypeDisplay.pgcrImage = false;
       }
 
       if (modeFiltered === 'story') {
@@ -232,6 +232,7 @@ class Activity extends React.Component {
         activityTypeDisplay.mode = t('Adventure');
         activityTypeDisplay.className = 'adventure';
         activityTypeDisplay.icon = <Tooltips.Adventure />;
+        activityTypeDisplay.pgcrImage = false;
       }
 
       if (modeFiltered === 'nightmare-hunt') {
@@ -259,12 +260,6 @@ class Activity extends React.Component {
       }
 
       const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity.matchmaking;
-
-      const checklistEntry = lookup({ key: 'activityHash', value: hash });
-
-      const checklist = checklistEntry.checklistId && checklists[checklistEntry.checklistId]({ requested: [checklistEntry.checklistHash] });
-      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
-      // if (checklist) console.log('// do something with me plz', checklist);
 
       const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
 
@@ -330,7 +325,7 @@ class Activity extends React.Component {
                   {t('Recommended light')}: <span>{activityTypeDisplay.activityLightLevel}</span>
                 </div>
               ) : null}
-              {/* {context === 'maps' && checklistItem && checklistItem.completed ? <div className='completed'>{t('Completed')}</div> : null} */}
+              {context === 'maps' && node?.completed ? <div className='completed'>{t('Completed')}</div> : null}
             </div>
           </div>
         </>

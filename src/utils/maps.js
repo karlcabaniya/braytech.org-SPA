@@ -5,7 +5,8 @@ import store from '../store';
 import manifest from '../utils/manifest';
 import director from '../data/maps';
 import runtime from '../data/maps/runtime';
-import checklists from '../data/checklists';
+// import checklists from '../data/checklists';
+import { checklists, lookup } from './checklists';
 import { Maps } from '../svg';
 
 export function resolveDestination(value) {
@@ -61,35 +62,26 @@ function findGraph(search) {
 }
 
 function findChecklistItems(search) {
-  for (const checklistId in checklists) {
-    if (checklists.hasOwnProperty(checklistId)) {
-      const checklist = checklists[checklistId];
+  const checklistEntry = lookup(search);
 
-      const checklistItems = checklist.filter((checklistItem) => checklistItem[search.key] === +search.value);
+  const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: search.key, array: [search.value] } });
 
-      if (checklistItems.length) {
-        return checklistItems.map((checklistItem) => ({
-          checklistHash: checklistItem.checklistHash,
-          recordHash: checklistItem.recordHash,
-          destinationHash: checklistItem.destinationHash,
-          bubbleHash: checklistItem.bubbleHash,
-          activityHash: checklistItem.activityHash,
-          itemHash: checklistItem.itemHash,
-          map: checklistItem.map,
-          ...checklistItem.extended
-        }));
-      }
-    }
+  if (checklist.items.length) {
+    return checklist.items.map(({ formatted, sorts, ...rest }) => ({
+      ...rest
+    }));
   }
 
   return [];
 }
 
-export function cartographer(search, member) {
+export function cartographer(search) {
+  const state = store.getState();
+
   const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
   const graph = findGraph(search);
   const checklistItems = findChecklistItems(search);
-  const dynamic = runtime(member, true).find((node) => node[search.key] === +search.value && node.availability.now);
+  const dynamic = runtime(state.member, true).find((node) => node[search.key] === +search.value && node.availability.now);
 
   if (!definitionMaps && !graph && !checklistItems.length && !dynamic) {
     return false;

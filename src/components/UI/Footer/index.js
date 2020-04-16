@@ -8,13 +8,13 @@ import { Common } from '../../../svg';
 
 import './styles.css';
 
-export const hiddenOnRoutes = ['/maps'];
+export const hiddenFooterRoutes = ['/maps'];
 
 class Footer extends React.Component {
   render() {
     const { linkOnClick, minimal } = this.props;
 
-    if (hiddenOnRoutes.filter((path) => this.props.location?.pathname.indexOf(path) > -1).length) return null;
+    if (hiddenFooterRoutes.filter((path) => this.props.location?.pathname.indexOf(path) > -1).length) return null;
 
     return (
       <div id='footer'>

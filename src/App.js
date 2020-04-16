@@ -58,6 +58,7 @@ import Commonality from './views/Commonality';
 
 import Test from './views/Test';
 
+// Slow down lazy imports for testing purposes
 export function slowImport(value, ms = 3000) {
   if (process.env.NODE_ENV === 'development') {
     return new Promise((resolve) => {
@@ -82,7 +83,7 @@ export const SuspenseRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={(route) => (
       <ErrorBoundary>
-        <React.Suspense fallback={<SuspenseLoading />}>
+        <React.Suspense fallback={<SuspenseLoading {...route} />}>
           <Component {...route} />
         </React.Suspense>
       </ErrorBoundary>

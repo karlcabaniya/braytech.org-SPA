@@ -6,12 +6,16 @@ import packageJSON from '../../../package.json';
 import { t } from '../../utils/i18n';
 import Spinner from '../../components/UI/Spinner';
 import { Common, Loading } from '../../svg';
+import { hiddenFooterRoutes } from '../../components/UI/Footer';
 
 import './styles.css';
 
-function SuspenseLoading({ full }) {
+function SuspenseLoading(props) {
+  const hiddenFooter = hiddenFooterRoutes.filter((path) => props.location?.pathname.indexOf(path) > -1).length;
+  const full = hiddenFooter || props.full;
+
   return (
-    <div className={cx('view', { full })} id='route-loading'>
+    <div className={cx('view', { full, 'with-nav': hiddenFooter })} id='route-loading'>
       <Spinner />
     </div>
   );

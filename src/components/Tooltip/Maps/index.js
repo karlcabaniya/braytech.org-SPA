@@ -147,7 +147,7 @@ class Record extends React.Component {
 
 class Node extends React.Component {
   render() {
-    const node = cartographer({ key: 'nodeHash', value: this.props.hash }, this.props.member);
+    const node = cartographer({ key: 'nodeHash', value: this.props.hash });
 
     if (!node) {
       console.warn('Hash not found');

@@ -597,7 +597,7 @@ function checklist(options = {}) {
       ])
     : options.items;
 
-  const response = options.requested && options.requested.key ? items.filter((i) => options.requested.array.indexOf(i[options.requested.key]) > -1) : items;
+  const response = options.requested?.key ? items.filter((i) => options.requested.array.indexOf(i[options.requested.key]) > -1) : items;
 
   return {
     checklistId: options.checklistId,

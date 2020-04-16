@@ -11461,7 +11461,12 @@
       "activityHash": 1254990192,
       "checklistHash": 1857289065,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -693,
+            "y": 732
+          }
+        ]
       },
       "sorts": {
         "destination": "European Dead Zone",
