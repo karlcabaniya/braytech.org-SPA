@@ -6,14 +6,14 @@ import { t, BungieText, withinString } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
-import { checklists, lookup } from '../../../utils/checklists';
+import { checklists, checkup } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 
 import './styles.css';
 
 class Checklist extends React.Component {
   render() {
-    const checklistEntry = lookup({ key: 'checklistHash', value: this.props.hash });
+    const checklistEntry = checkup({ key: 'checklistHash', value: this.props.hash });
 
     const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'checklistHash', array: [checklistEntry.checklistHash] } });
     const checklistItem = checklist?.items?.[0];
@@ -74,7 +74,7 @@ class Checklist extends React.Component {
 
 class Record extends React.Component {
   render() {
-    const checklistEntry = lookup({ key: 'recordHash', value: this.props.hash });
+    const checklistEntry = checkup({ key: 'recordHash', value: this.props.hash });
 
     const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: 'recordHash', array: [checklistEntry.recordHash] } });
     const checklistItem = checklist?.items?.[0];

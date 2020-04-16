@@ -10,7 +10,7 @@ import ObservedImage from '../../../ObservedImage';
 import Records from '../../../Records';
 import Button from '../../../UI/Button';
 import { bookCovers } from '../../../../utils/destinyEnums';
-import { checklists, lookup } from '../../../../utils/checklists';
+import { checklists, checkup } from '../../../../utils/checklists';
 import { cartographer } from '../../../../utils/maps';
 
 import './styles.css';
@@ -70,14 +70,10 @@ function unify(props) {
   console.log(node);
 
   if (type.key === 'checklistHash' || type.key === 'recordHash') {
-    const checklistEntry = lookup(type);
-
-    const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: type.key, array: [checklistEntry[type.key]] } });
-    const checklistItem = checklist?.items?.[0];
-
-    console.log(checklist, checklistItem);
-
     const { destinationString, withinString } = locationStrings(node);
+    const definitionActivity = manifest.DestinyActivityDefinition[node.activityHash];
+
+    const checklistItem = node.checklist?.items?.[0];
 
     return {
       ...node,
@@ -86,11 +82,15 @@ function unify(props) {
         records: [...(node.related?.records || []), { recordHash: checklistItem.recordHash }].filter((record) => record.recordHash),
       },
       displayProperties: {
+        // from the cartographer
         ...node.displayProperties,
-        name: `${checklistItem.formatted.name}${checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : ``}`,
+        // pre-prepared checklist name/suffix
+        name: `${checklistItem?.formatted.name}${checklistItem?.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : ``}`,
+        // adventure name/description overrude from activity definition
+        ...(node.checklist?.checklistId === 4178338182 ? definitionActivity?.originalDisplayProperties || definitionActivity?.displayProperties : {}),
       },
       type: {
-        name: checklist?.checklistItemName,
+        name: node?.checklist?.checklistItemName,
       },
       destinationString,
       withinString,
@@ -111,7 +111,7 @@ function unify(props) {
       ...node,
       related: {
         ...node.related,
-        records: [...(node.related?.records || []), ...node.checklistItems?.filter((checklistItem) => checklistItem.recordHash).map((checklistItem) => ({ recordHash: checklistItem.recordHash }))],
+        records: [...(node.related?.records || []), ...(node.checklist?.items?.filter((checklistItem) => checklistItem.recordHash).map((checklistItem) => ({ recordHash: checklistItem.recordHash })) || [])],
       },
       displayProperties: definitionActivity.originalDisplayProperties || definitionActivity.displayProperties,
       type: {

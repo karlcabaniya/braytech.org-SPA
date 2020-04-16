@@ -11,7 +11,7 @@ import maps from '../../data/maps';
 
 import * as ls from '../../utils/localStorage';
 import { resolveDestination, getMapCenter } from '../../utils/maps';
-import { checklists, lookup } from '../../utils/checklists';
+import { checklists, checkup } from '../../utils/checklists';
 
 import { Layers, BackgroundLayer } from './Layers';
 import Loading from './Loading';
@@ -120,15 +120,15 @@ class Maps extends React.Component {
 
     if (p.params.highlight) {
       const map = maps[resolved].map;
-      const hash = parseInt(p.params.highlight, 10);
+      const hash = +p.params.highlight;
 
-      const checklistLookup = lookup({ key: 'checklistHash', value: hash });
-      const recordLookup = lookup({ key: 'recordHash', value: hash });
+      const checklistLookup = checkup({ key: 'checklistHash', value: hash });
+      const recordLookup = checkup({ key: 'recordHash', value: hash });
 
-      const entry = (checklistLookup && checklistLookup.checklistId && checklistLookup) || (recordLookup && recordLookup.checklistId && recordLookup);
+      const entry = (checklistLookup?.checklistId && checklistLookup) || (recordLookup?.checklistId && recordLookup);
 
-      const checklist = entry && entry.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
-      const checklistItem = checklist && checklist.items && checklist.items.length && checklist.items[0];
+      const checklist = entry?.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
+      const checklistItem = checklist?.items?.length && checklist.items[0];
 
       if (checklistItem && checklistItem.points && checklistItem.points.length && checklistItem.points[0]) {
         const markerY = checklistItem.points[0].y || 0;
@@ -369,7 +369,7 @@ class Maps extends React.Component {
   handler_map_viewportChange = (e) => {
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
-    console.log(e);
+    // console.log(e);
   };
 
   render() {

@@ -5,8 +5,7 @@ import store from '../store';
 import manifest from '../utils/manifest';
 import director from '../data/maps';
 import runtime from '../data/maps/runtime';
-// import checklists from '../data/checklists';
-import { checklists, lookup } from './checklists';
+import { checklists, checkup } from './checklists';
 import { Maps } from '../svg';
 
 export function resolveDestination(value) {
@@ -62,17 +61,25 @@ function findGraph(search) {
 }
 
 function findChecklistItems(search) {
-  const checklistEntry = lookup(search);
+  const lookup = checkup(search);
+  const checklist = lookup?.checklistId && checklists[lookup.checklistId]({ requested: { key: search.key, array: [search.value] } });
 
-  const checklist = checklistEntry?.checklistId && checklists[checklistEntry.checklistId]({ requested: { key: search.key, array: [search.value] } });
-
-  if (checklist.items.length) {
-    return checklist.items.map(({ formatted, sorts, ...rest }) => ({
-      ...rest
-    }));
+  if (checklist?.items.length) {
+    return {
+      checklist,
+      checklistItem:
+        checklist?.items?.length < 2
+          ? checklist.items.map(({ formatted, sorts, ...rest }) => ({
+              ...rest,
+            }))[0]
+          : {},
+    };
   }
 
-  return [];
+  return {
+    checklist: undefined,
+    checklistItem: {},
+  };
 }
 
 export function cartographer(search) {
@@ -80,10 +87,10 @@ export function cartographer(search) {
 
   const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
   const graph = findGraph(search);
-  const checklistItems = findChecklistItems(search);
+  const { checklist, checklistItem } = findChecklistItems(search);
   const dynamic = runtime(state.member, true).find((node) => node[search.key] === +search.value && node.availability.now);
 
-  if (!definitionMaps && !graph && !checklistItems.length && !dynamic) {
+  if (!definitionMaps && !graph && !checklist?.items.length && !dynamic) {
     return false;
   }
 
@@ -91,14 +98,14 @@ export function cartographer(search) {
 
   // console.log(`definitionMaps`, definitionMaps);
   // console.log(`graph`, graph);
-  // console.log(`checklistItem`, checklistItems);
+  // console.log(`checklist`, checklist);
   // console.log(`dynamic`, dynamic);
 
   const aggregate = {
     ...graph,
     ...(definitionMaps || {}),
-    checklistItems,
-    ...(checklistItems.length < 2 ? checklistItems[0] : {}),
+    checklist,
+    ...checklistItem,
     ...(dynamic || {}),
     icon,
   };
@@ -127,6 +134,7 @@ export const destinations = [
   {
     id: 'edz',
     destinationHash: 1199524104,
+    default: true,
   },
   {
     id: 'the-moon',
@@ -159,6 +167,5 @@ export const destinations = [
   {
     id: 'dreaming-city',
     destinationHash: 2779202173,
-    default: true,
   },
 ];
