@@ -1,86 +1,177 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 308,
-    "added": [],
-    "removed": []
+    "notTranslated": 313,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "debug": {
-    "translated": 677,
+    "translated": 682,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "en": {
-    "translated": 677,
+    "translated": 682,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 671,
-    "notTranslated": 6,
-    "added": [],
-    "removed": []
+    "translated": 667,
+    "notTranslated": 15,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "es": {
-    "translated": 671,
-    "notTranslated": 6,
-    "added": [],
-    "removed": []
+    "translated": 667,
+    "notTranslated": 15,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "fr": {
-    "translated": 666,
-    "notTranslated": 11,
-    "added": [],
-    "removed": []
+    "translated": 662,
+    "notTranslated": 20,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "it": {
-    "translated": 651,
-    "notTranslated": 26,
-    "added": [],
-    "removed": []
+    "translated": 673,
+    "notTranslated": 9,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "ja": {
-    "translated": 602,
-    "notTranslated": 75,
-    "added": [],
-    "removed": []
+    "translated": 598,
+    "notTranslated": 84,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "ko": {
-    "translated": 552,
-    "notTranslated": 125,
-    "added": [],
-    "removed": []
+    "translated": 551,
+    "notTranslated": 131,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 675,
-    "added": [],
-    "removed": []
+    "notTranslated": 680,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "pt-br": {
-    "translated": 662,
-    "notTranslated": 15,
-    "added": [],
-    "removed": []
+    "translated": 658,
+    "notTranslated": 24,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "ru": {
-    "translated": 671,
-    "notTranslated": 6,
-    "added": [],
-    "removed": []
+    "translated": 667,
+    "notTranslated": 15,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "zh-chs": {
-    "translated": 459,
-    "notTranslated": 218,
-    "added": [],
-    "removed": []
+    "translated": 458,
+    "notTranslated": 224,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   },
   "zh-cht": {
     "translated": 375,
-    "notTranslated": 302,
-    "added": [],
-    "removed": []
+    "notTranslated": 307,
+    "added": [
+      "Maps.ProposeChanges.Description",
+      "Maps.ProposeChanges.Form.Comments.Placeholder",
+      "Maps.ProposeChanges.Form.Screenshots"
+    ],
+    "removed": [
+      "Maps.ProposeChanges.Comments.Placeholder",
+      "Maps.ProposeChanges.Screenshots"
+    ]
   }
 }

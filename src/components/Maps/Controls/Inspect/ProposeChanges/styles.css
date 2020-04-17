@@ -44,12 +44,39 @@
 
 .propose-changes form .selected-screenshots {
   display: grid;
-  grid-template-columns: max-content auto;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin: 0 0 2rem;
+  margin: 1rem 0 2rem;
+}
+
+.propose-changes form .selected-screenshots .button {
+  width: max-content;
+  margin: 0 0 1rem;
 }
 
 .propose-changes form .selected-screenshots .value ul {
   display: grid;
-  row-gap: 5px;
+}
+
+.propose-changes form .selected-screenshots .value ul li {
+  line-height: 1.6;
+}
+
+.propose-changes .text p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.propose-changes .text ul {
+  list-style-type: disc;
+  padding: 0 0 0 2rem;
+}
+
+.propose-changes .text ul ul {
+  padding: 0 0 0 1rem;
+}
+
+.propose-changes .text ul li {
+  line-height: 1.6;
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.8);
 }

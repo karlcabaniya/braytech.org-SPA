@@ -194,25 +194,28 @@ class ProposeChanges extends React.Component {
     return (
       <div className='propose-changes expanded'>
         <h4>{t('Propose changes')}</h4>
-        <BraytechText className='text' source={`Submit a proposal for changes to this node's data.`} />
+        <BraytechText className='text' source={t('Maps.ProposeChanges.Description')} />
         <form onSubmit={this.handler_onSubmit}>
           <div className='form'>
             <h5>{t('Metadata')}</h5>
             <div className='field'>
-              <textarea name='comments' placeholder={`example:\n\nname: Don't Call Me Ghost\ndescription: merr\nbubbleName: Shaft 13 (lost sector)\netc.`} value={values.comments} onChange={this.handler_onChange} rows='4' />
+              <textarea name='comments' placeholder={t('Maps.ProposeChanges.Form.Comments.Placeholder')} value={values.comments} onChange={this.handler_onChange} rows='4' />
             </div>
             <h5>{t('Screenshots')}</h5>
             <div className='selected-screenshots'>
-              <input type='file' name='screenshots' accept='image/png' multiple onChange={this.handler_onChange} id='selected-screenshots' />
-              <label className='button' htmlFor='selected-screenshots'>
-                <div className='text'>{t('Select screenshots')}</div>
-              </label>
-              <div className='value'>
-                <ul>
-                  {screenshots.map((file) => (
-                    <li key={file.name}>{file.name}</li>
-                  ))}
-                </ul>
+              <BraytechText className='text' source={t('Maps.ProposeChanges.Form.Screenshots')} />
+              <div className='input'>
+                <input type='file' name='screenshots' accept='image/png' multiple onChange={this.handler_onChange} id='selected-screenshots' />
+                <label className='button' htmlFor='selected-screenshots'>
+                  <div className='text'>{t('Select screenshots')}</div>
+                </label>
+                <div className='value'>
+                  <ul>
+                    {screenshots.map((file) => (
+                      <li key={file.name}>{file.name}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
