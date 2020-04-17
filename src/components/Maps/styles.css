@@ -40,7 +40,8 @@
   pointer-events: none;
 }
 
-.map-omega .control li,
+.map-omega .control.characters li,
+.map-omega .control.destinations li,
 .map-omega .acrylic {
   background-color: transparent;
   backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);

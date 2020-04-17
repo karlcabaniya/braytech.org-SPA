@@ -1,0 +1,55 @@
+.propose-changes {
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.propose-changes:not(.expanded):not(.success) {
+  display: grid;
+  justify-content: center;
+}
+
+.propose-changes.success > .text {
+  margin: 0 0 1rem;
+}
+
+.propose-changes.success .button {
+  width: max-content;
+}
+
+.propose-changes .actions,
+.propose-changes .actions div {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 3px;
+  justify-content: space-between;
+}
+
+.propose-changes form {
+  margin: 1rem 0 0;
+}
+
+.propose-changes form h5 {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.propose-changes form textarea::placeholder {
+  white-space: pre-wrap;
+}
+
+.propose-changes form input[type="file" i] {
+  display: none;
+}
+
+.propose-changes form .selected-screenshots {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+.propose-changes form .selected-screenshots .value ul {
+  display: grid;
+  row-gap: 5px;
+}

@@ -1,12 +1,6 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { Redirect, Link, withRouter } from 'react-router-dom';
-import { debounce } from 'lodash';
-import cx from 'classnames';
 
 import { t, BraytechText } from '../../../../../utils/i18n';
-import * as voluspa from '../../../../../utils/voluspa';
 import Button from '../../../../UI/Button';
 import Spinner from '../../../../UI/Spinner';
 
@@ -18,6 +12,7 @@ class ProposeChanges extends React.Component {
   static getDerivedStateFromProps(p, s) {
     if (!s.values) {
       return {
+        expanded: false,
         loading: false,
         error: false,
         values: {
@@ -25,6 +20,7 @@ class ProposeChanges extends React.Component {
           comments: '',
           screenshots: [],
         },
+        success: false,
       };
     }
 
@@ -38,6 +34,30 @@ class ProposeChanges extends React.Component {
   componentWillUnmount() {
     this.mounted = false;
   }
+
+  handler_expand = (e) => {
+    if (this.mounted) {
+      this.setState((p) => ({
+        expanded: p.expanded ? false : true,
+      }));
+    }
+  };
+
+  handler_reset = (e) => {
+    if (this.mounted) {
+      this.setState({
+        expanded: false,
+        loading: false,
+        error: false,
+        values: {
+          ...this.props,
+          comments: '',
+          screenshots: [],
+        },
+        success: false,
+      });
+    }
+  };
 
   handler_onChange = (e) => {
     const { name, value, files } = e.target;
@@ -70,42 +90,35 @@ class ProposeChanges extends React.Component {
     const { screenshots, ...rest } = this.state.values;
 
     try {
+      const uploaded = await this.post_screenshots();
+
+      if (screenshots.length && !uploaded?.length) {
+        throw new Error();
+      }
+
       const request = await fetch('https://directus.upliftnaturereserve.com/bt03/items/maps_changes', {
         method: 'POST',
         headers: {
           Authorization: 'Bearer braytech',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...rest }),
+        body: JSON.stringify({
+          ...rest,
+          screenshots: uploaded.map((post) => ({
+            directus_files_id: { id: post.data.id },
+          })),
+        }),
       });
 
       const parent = await request.json();
 
-      console.log(screenshots, parent?.data?.id);
-
-      if (parent.data.id && screenshots) {
-        const uploaded = await this.post_screenshots();
-
-        const request = await fetch(`https://directus.upliftnaturereserve.com/bt03/items/maps_changes/${parent.data.id}`, {
-          method: 'PATCH',
-          headers: {
-            Authorization: 'Bearer braytech',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            screenshots: uploaded.map((post) => ({
-              directus_files_id: { id: post.data.id },
-            })),
-          }),
-        });
-
-        const response = await request.json();
-      }
+      // console.log(screenshots, parent?.data?.id);
 
       if (this.mounted) {
         this.setState({
           loading: false,
           error: false,
+          success: true,
         });
       }
     } catch (e) {
@@ -119,6 +132,8 @@ class ProposeChanges extends React.Component {
   };
 
   post_screenshots = async () => {
+    if (this.state.values.screenshots?.length < 1) return [];
+
     const screenshots = Array.from(this.state.values.screenshots);
 
     try {
@@ -146,42 +161,69 @@ class ProposeChanges extends React.Component {
       const responses = await Promise.all(screenshots.map((file) => postScreenshot(file)));
 
       if (responses) return responses;
+
+      return false;
     } catch (e) {
-      if (this.mounted) {
-        this.setState({
-          loading: false,
-          error: true,
-        });
-      }
+      return false;
     }
   };
 
   render() {
-    const { loading, error, values } = this.state;
+    const { expanded, loading, error, values, success } = this.state;
 
-    console.log(values);
+    if (!expanded) {
+      return (
+        <div className='propose-changes'>
+          <Button text={t('Propose changes')} action={this.handler_expand} />
+        </div>
+      );
+    }
+
+    if (success) {
+      return (
+        <div className='propose-changes success'>
+          <h4>{t('Propose changes')}</h4>
+          <BraytechText className='text' source={`Data received`} />
+          <Button text='🤙🏼' action={this.handler_reset} />
+        </div>
+      );
+    }
+
+    const screenshots = Array.from(this.state.values.screenshots);
 
     return (
-      <div className='bungie-auth'>
-        <h4>{t('Patreon association')}</h4>
-        <div className='patreon'>
-          <BraytechText className='text' source={`Some Patreon tiers include rewards in the form of _flair_ which is displayed at the side of your player name.\nEnable display of relevant flair by entering the email associated with your Patreon account.`} />
-          <form onSubmit={this.handler_onSubmit}>
-            <div className='form'>
-              <div className='field'>
-                <textarea name='comments' value={values.comments} onChange={this.handler_onChange} />
-              </div>
-              <input type='file' name='screenshots' accept='image/png' multiple onChange={this.handler_onChange} />
+      <div className='propose-changes expanded'>
+        <h4>{t('Propose changes')}</h4>
+        <BraytechText className='text' source={`Submit a proposal for changes to this node's data.`} />
+        <form onSubmit={this.handler_onSubmit}>
+          <div className='form'>
+            <h5>{t('Metadata')}</h5>
+            <div className='field'>
+              <textarea name='comments' placeholder={`example:\n\nname: Don't Call Me Ghost\ndescription: merr\nbubbleName: Shaft 13 (lost sector)\netc.`} value={values.comments} onChange={this.handler_onChange} rows='4' />
             </div>
-            <div className='actions'>
-              <div>
-                <Button text={t('Cancel')} action={this.props.handler} />
-                <Button text={t('Set')} action={this.handler_onSubmit} type='submit' disabled={loading} />
+            <h5>{t('Screenshots')}</h5>
+            <div className='selected-screenshots'>
+              <input type='file' name='screenshots' accept='image/png' multiple onChange={this.handler_onChange} id='selected-screenshots' />
+              <label className='button' htmlFor='selected-screenshots'>
+                <div className='text'>{t('Select screenshots')}</div>
+              </label>
+              <div className='value'>
+                <ul>
+                  {screenshots.map((file) => (
+                    <li key={file.name}>{file.name}</li>
+                  ))}
+                </ul>
               </div>
-              <div>{loading ? <Spinner mini /> : null}</div>
             </div>
-          </form>
-        </div>
+          </div>
+          <div className='actions'>
+            <div>
+              <Button text={t('Cancel')} action={this.handler_reset} />
+              <Button text={t('Submit')} action={this.handler_onSubmit} type='submit' disabled={loading || (!screenshots.length && values.comments === '')} />
+            </div>
+            <div>{loading ? <Spinner mini /> : null}</div>
+          </div>
+        </form>
       </div>
     );
   }

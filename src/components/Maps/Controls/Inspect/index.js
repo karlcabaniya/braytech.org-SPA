@@ -175,8 +175,8 @@ class Inspect extends React.Component {
                 </ul>
               </>
             ) : null}
-            <ProposeChanges nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} />
           </div>
+          <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} />
         </div>
       </div>
     );
