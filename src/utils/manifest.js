@@ -9,6 +9,7 @@ import Braytech_RU from '../data/manifest/ru/Braytech/';
 import BraytechMaps_EN from '../data/manifest/en/BraytechMaps/';
 import BraytechMaps_ES from '../data/manifest/es/BraytechMaps/';
 import BraytechMaps_ESMX from '../data/manifest/es-mx/BraytechMaps/';
+import BraytechMaps_IT from '../data/manifest/it/BraytechMaps/';
 
 import DestinyActivityDefinition_EN from '../data/manifest/en/DestinyActivityDefinition/';
 
@@ -37,13 +38,13 @@ const customs = {
   },
   en: {
     Braytech: Braytech_EN,
+    BraytechMaps: BraytechMaps_EN,
     DestinyActivityDefinition: DestinyActivityDefinition_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
     DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
     DestinyClanBannerDefinition: DestinyClanBannerDefinition_EN,
     DestinyHistoricalStatsDefinition: DestinyHistoricalStatsDefinition_EN,
     DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_EN,
-    BraytechMaps: BraytechMaps_EN,
   },
   es: {
     Braytech: Braytech_ES,
@@ -65,7 +66,7 @@ const customs = {
   },
   it: {
     Braytech: Braytech_IT,
-    BraytechMaps: BraytechMaps_EN,
+    BraytechMaps: BraytechMaps_IT,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
     DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
   },
@@ -134,8 +135,8 @@ const customsMerge = (bungie, customs) => {
 const manifest = {
   set: (newManifest, lang) => {
     newManifest.BraytechDefinition = customs[lang].Braytech;
+    newManifest.BraytechMapsDefinition = customsMerge(customs.en.BraytechMaps, customs[lang].BraytechMaps);
     newManifest.DestinyClanBannerDefinition = customs.en.DestinyClanBannerDefinition;
-    newManifest.BraytechMapsDefinition = customs[lang].BraytechMaps;
 
     customsMerge(newManifest.DestinyActivityDefinition, customs.en.DestinyActivityDefinition);
     customsMerge(newManifest.DestinyDestinationDefinition, customs[lang].DestinyDestinationDefinition);

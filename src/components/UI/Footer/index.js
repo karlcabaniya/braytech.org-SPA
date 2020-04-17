@@ -40,7 +40,7 @@ class Footer extends React.Component {
               </>
             ) : null}
             <li>
-              <a className='hyperlink' href='https://twitter.com/justrealmilk' target='_blank' rel='noopener noreferrer'>
+              <a className='hyperlink' href='https://twitter.com/BraytechHelp' target='_blank' rel='noopener noreferrer'>
                 Twitter
               </a>
             </li>

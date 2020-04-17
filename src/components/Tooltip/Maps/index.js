@@ -178,9 +178,9 @@ class Node extends React.Component {
           <div className='header'>
             <div className='icon'>{node.icon || null}</div>
             <div className='text'>
-              <div className='name'>{node.displayProperties.name}</div>
+              <div className='name'>{node.displayProperties?.name}</div>
               <div>
-                <div className='kind'>{node.type.name}</div>
+                <div className='kind'>{node.type?.name}</div>
               </div>
             </div>
           </div>

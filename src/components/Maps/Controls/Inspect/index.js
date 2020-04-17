@@ -160,9 +160,9 @@ class Inspect extends React.Component {
         <div className='wrapper'>
           <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{t('Screenshot unavailable')}</div>}</div>
           <div className='header'>
-            <div className='type'>{unified.type.name}</div>
-            <div className='name'>{unified.displayProperties.name}</div>
-            {unified.displayProperties.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
+            <div className='type'>{unified.type?.name}</div>
+            <div className='name'>{unified.displayProperties?.name}</div>
+            {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
           </div>
           {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
           {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
