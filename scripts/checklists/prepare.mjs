@@ -331,8 +331,6 @@ async function run() {
           within = 'ascendant-challenge';
         }
 
-        // if (hash === 242464657) console.log(existing, bubbleHash)
-
         const changes = {
           destinationHash,
           bubbleHash,
@@ -361,23 +359,8 @@ async function run() {
           });
         }
 
-        //if (changes.recordHash === 3390078236) console.log(mapping, existing)
-        // console.log(changes)
-        // console.log({
-        //   ...existing,
-        //   ...changes,
-        //   ...itemOverrides[item.hash]
-        // }
-        // )
-
-        // Object.keys(changes).forEach(key => {
-        //   if (!changes[key]) delete changes[key];
-        // });
-
         //const updates = _.mergeWith(existing, changes, merger);
         const updates = changes;
-
-        //if (changes.recordHash === 242464657) console.log(existing, changes, updates)
 
         return updates;
       })
