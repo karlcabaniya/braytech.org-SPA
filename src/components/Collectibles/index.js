@@ -89,8 +89,8 @@ class Collectibles extends React.Component {
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
-    const characterCollectibles = member.data?.profile.characterCollectibles.data;
-    const profileCollectibles = member.data?.profile.profileCollectibles.data;
+    const characterCollectibles = member.data.profile?.characterCollectibles.data;
+    const profileCollectibles = member.data.profile?.profileCollectibles.data;
 
     let collectiblesOutput = [];
 

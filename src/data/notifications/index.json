@@ -244,5 +244,26 @@
         "dismiss": true
       }
     ]
+  },
+  {
+    "id": "fdhknrg9kunkhy43tgsvo",
+    "date": "2020-04-17T17:11:19.855Z",
+    "expiry": 2592000000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "New Twitter, who dis",
+      "image": "/static/images/notifications/braytech-worthy.png",
+      "description": "1.  Follow Braytech on Twitter\n2.  Braytech has moved from @justrealmilk (me) to @BraytechHelp. It's like @BungieHelp, but more emotionally unstable\n3.  Don't make me beg—please follow me",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "type": "external",
+        "target": "https://twitter.com/BraytechHelp",
+        "text": "View on Twitter",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
   }
 ]

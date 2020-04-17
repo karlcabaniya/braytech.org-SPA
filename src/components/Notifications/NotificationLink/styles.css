@@ -87,15 +87,37 @@
   max-width: calc(600px + 4rem);
 }
 
-#notification-overlay .wrapper-inner .text .description ul {
+#notification-overlay .wrapper-inner .text .description ul,
+#notification-overlay .wrapper-inner .text .description ol {
   list-style-type: disc;
   padding: 0 0 0 2rem;  
   margin: 0 0 1rem;
 }
 
-#notification-overlay .wrapper-inner .text .description ul li {
+#notification-overlay .wrapper-inner .text .description ol {
+  list-style-type: none;
+}
+
+#notification-overlay .wrapper-inner .text .description ul li,
+#notification-overlay .wrapper-inner .text .description ol li {
   line-height: 1.6;
   margin: 0 0 6px;
+}
+
+#notification-overlay .wrapper-inner .text .description ol {
+  counter-reset: list;
+}
+
+#notification-overlay .wrapper-inner .text .description ol li {
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+
+#notification-overlay .wrapper-inner .text .description ol li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: -18px;
 }
 
 #notification-overlay .wrapper-inner .text .description h2 {
@@ -371,13 +393,19 @@
   font-size: 18px;
 }
 
-#notification-bar .wrapper-inner .text .description ul {
+#notification-bar .wrapper-inner .text .description ul,
+#notification-bar .wrapper-inner .text .description ol {
   list-style-type: disc;
   padding: 0 0 0 2rem;  
   margin: 0 0 1rem;
 }
 
-#notification-bar .wrapper-inner .text .description ul li {
+#notification-bar .wrapper-inner .text .description ol {
+  list-style-type: decimal;
+}
+
+#notification-bar .wrapper-inner .text .description ul li,
+#notification-bar .wrapper-inner .text .description ol li {
   line-height: 1.6;
   margin: 0 0 6px;
 }

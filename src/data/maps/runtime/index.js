@@ -262,14 +262,18 @@ export default (member, array) => {
     const hydrated = {};
 
     for (const destination in nodes) {
-      hydrated[destination] = nodes[destination].map((n) => {
-        return {
-          ...n,
-          related: n.related && {
-            ...n.related,
-            objectives: n.related.objectives && hydrateObjectives(member, n.related.objectives),
-          },
-        };
+      hydrated[destination] = nodes[destination].map((node) => {
+        if (node.related) {
+          return {
+            ...node,
+            related: {
+              ...node.related,
+              objectives: node.related.objectives && hydrateObjectives(member, node.related.objectives),
+            },
+          };
+        } else {
+          return node;
+        }
       });
     }
 
