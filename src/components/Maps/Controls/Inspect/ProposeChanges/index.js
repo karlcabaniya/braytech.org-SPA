@@ -82,7 +82,7 @@ class ProposeChanges extends React.Component {
 
     const { description, issues, video, screenshots, ...rest } = this.state.values;
 
-    if (description === '' || issues === '' || video === '' || !screenshots.length) {
+    if (description === '' && issues === '' && video === '' && !screenshots.length) {
       return;
     }
 
