@@ -115,21 +115,19 @@ const customs = {
 };
 
 function mergeWithCustomizer(a, b) {
-  if (Array.isArray(a)) {
+  if (Array.isArray(a) && b && Array.isArray(b)) {
     return a.concat(b);
+  } else if (typeof a === 'string' && b && typeof b === 'string') {
+    return b;
+  } else if (typeof a === 'object') {
+    return mergeWith(a, b, mergeWithCustomizer);
   }
   
   return a;
 }
 
-const customsMerge = (bungie, customs) => {
-  for (const key in customs) {
-    if (customs.hasOwnProperty(key) && bungie.hasOwnProperty(key)) {
-      bungie[key] = mergeWith(bungie[key], customs[key], mergeWithCustomizer);
-    }
-  }
-
-  return bungie;
+const customsMerge = (a, b) => {
+  return mergeWith(a, b, mergeWithCustomizer);
 };
 
 const manifest = {
@@ -149,11 +147,10 @@ const manifest = {
     if (newManifest.DestinyInventoryItemDefinition[2412366792]) {
       newManifest.DestinyInventoryItemDefinition['2412366792_enigmatic_blueprint'] = {
         displayProperties: {
-          description: newManifest.DestinyInventoryItemDefinition[2412366792].displayProperties && newManifest.DestinyInventoryItemDefinition[2412366792].displayProperties.description,
-          name: newManifest.DestinyInventoryItemDefinition[2412366792].displayProperties && newManifest.DestinyInventoryItemDefinition[2412366792].displayProperties.name,
+          ...(newManifest.DestinyInventoryItemDefinition[2412366792].displayProperties || {}),
         },
         objectives: {
-          objectiveHashes: newManifest.DestinyInventoryItemDefinition[2412366792].objectives && newManifest.DestinyInventoryItemDefinition[2412366792].objectives.objectiveHashes,
+          objectiveHashes: newManifest.DestinyInventoryItemDefinition[2412366792].objectives?.objectiveHashes,
         },
         hash: '2412366792_enigmatic_blueprint',
       };
