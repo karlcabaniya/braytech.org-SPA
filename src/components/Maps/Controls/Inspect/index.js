@@ -90,7 +90,7 @@ function unify(props) {
       },
       type: {
         ...type,
-        name: node?.checklist?.checklistItemName,
+        name: node.checklist?.presentationNodeHash ? t('Record') : node.checklist?.checklistItemName,
       },
       destinationString,
       withinString,
@@ -186,7 +186,7 @@ class Inspect extends React.Component {
               </>
             ) : null}
           </div>
-          <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} />
+          <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
         </div>
       </div>
     );

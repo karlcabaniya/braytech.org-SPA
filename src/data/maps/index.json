@@ -908,18 +908,43 @@
           "nodes": []
         },
         {
+          "hash": 3598542751,
+          "name": "Sjursrest",
+          "id": "sjursrest",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 881,
+              "y": 121
+            }
+          ]
+        },
+        {
           "hash": 1690293884,
           "name": "Hall of the Exalted",
           "id": "hall-of-the-exalted",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": -140,
+              "y": -89
+            }
+          ]
         },
         {
           "hash": 2067748134,
           "name": "The Cobble",
           "id": "cobble",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": 262,
+              "y": 436
+            }
+          ]
         },
         {
           "hash": 2126142572,
@@ -1017,7 +1042,13 @@
           "name": "The Boil",
           "id": "boil",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "title",
+              "x": -615,
+              "y": 398
+            }
+          ]
         },
         {
           "hash": 974268702,

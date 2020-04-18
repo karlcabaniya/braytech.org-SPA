@@ -96,12 +96,22 @@
 .map-omega .leaflet-container .icon-marker .selected {
   content: ' ';
   position: absolute;
-  left: -34px;
-  top: -37px;
+  left: 50%;
+  top: 50%;
   width: 80px;
   height: 80px;
+  transform-origin: center center;
+  transform: translateX(-50%) translateY(-54%);
   pointer-events: none;
   opacity: 0.6;
+}
+
+.map-omega.zoom--1 .leaflet-container .icon-marker .selected {
+  transform: scale(0.6) translateX(-83%) translateY(-86%);
+}
+
+.map-omega.zoom--2 .leaflet-container .icon-marker .selected {
+  transform: scale(0.3) translateX(-165%) translateY(-170%);
 }
 
 .map-omega .leaflet-container .icon-marker .selected circle {

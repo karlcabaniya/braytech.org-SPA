@@ -382,6 +382,7 @@ export const checklists = {
       checklistIcon: <Maps.Record />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004869.png',
       checklistProgressDescription: t('Stories read'),
+      presentationNodeHash: 1420597821,
       ...options,
     }),
   // lore: awoken of the reef
@@ -421,6 +422,7 @@ export const checklists = {
       checklistIcon: <Maps.Record />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004874.png',
       checklistProgressDescription: t('Crystals resolved'),
+      presentationNodeHash: 3305936921,
       ...options,
     }),
   // lore: forsaken prince
@@ -465,6 +467,7 @@ export const checklists = {
       checklistIcon: <Maps.Record />,
       checklistImage: '/static/images/extracts/ui/checklists/037e-00004886.png',
       checklistProgressDescription: t('Data caches decrypted'),
+      presentationNodeHash: 655926402,
       ...options,
     }),
   // lore: lunas lost
@@ -511,6 +514,7 @@ export const checklists = {
       checklistIcon: <Maps.Record />,
       checklistImage: '/static/images/extracts/ui/checklists/0597_02D2_00.png',
       checklistProgressDescription: t('Ghost fragments recovered'),
+      presentationNodeHash: 4285512244,
       ...options,
     }),
   // lore: inquisition of the damned
@@ -557,6 +561,7 @@ export const checklists = {
       checklistIcon: <Maps.Record />,
       checklistImage: '/static/images/extracts/ui/checklists/0597_02CC_00.png',
       checklistProgressDescription: t('Necrotic cyphers collected'),
+      presentationNodeHash: 2474271317,
       ...options,
     }),
 };
@@ -607,6 +612,7 @@ function checklist(options = {}) {
     checklistImage: options.checklistImage,
     checklistProgressDescription: options.checklistProgressDescription,
     checklistCharacterBound: options.characterBound,
+    presentationNodeHash: options.presentationNodeHash,
     totalItems: items.length,
     completedItems: items.filter((i) => i.completed).length,
     items: response.map((i) => ({

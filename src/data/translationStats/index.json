@@ -1,177 +1,205 @@
 {
   "de": {
     "translated": 369,
-    "notTranslated": 313,
+    "notTranslated": 318,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "debug": {
-    "translated": 682,
+    "translated": 687,
     "notTranslated": 0,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "en": {
-    "translated": 682,
+    "translated": 687,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Metadata"
+    ]
   },
   "es-mx": {
     "translated": 667,
-    "notTranslated": 15,
+    "notTranslated": 20,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "es": {
     "translated": 667,
-    "notTranslated": 15,
+    "notTranslated": 20,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "fr": {
     "translated": 662,
-    "notTranslated": 20,
+    "notTranslated": 25,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "it": {
     "translated": 673,
-    "notTranslated": 9,
+    "notTranslated": 14,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "ja": {
     "translated": 598,
-    "notTranslated": 84,
+    "notTranslated": 89,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "ko": {
     "translated": 551,
-    "notTranslated": 131,
+    "notTranslated": 136,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 680,
+    "notTranslated": 685,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "pt-br": {
     "translated": 658,
-    "notTranslated": 24,
+    "notTranslated": 29,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "ru": {
-    "translated": 667,
-    "notTranslated": 15,
+    "translated": 681,
+    "notTranslated": 6,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "zh-chs": {
     "translated": 458,
-    "notTranslated": 224,
+    "notTranslated": 229,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   },
   "zh-cht": {
     "translated": 375,
-    "notTranslated": 307,
+    "notTranslated": 312,
     "added": [
-      "Maps.ProposeChanges.Description",
-      "Maps.ProposeChanges.Form.Comments.Placeholder",
-      "Maps.ProposeChanges.Form.Screenshots"
+      "Description",
+      "Issues",
+      "Maps.ProposeChanges.Form.Description.Placeholder",
+      "This node has an associated video",
+      "Video",
+      "View video"
     ],
     "removed": [
-      "Maps.ProposeChanges.Comments.Placeholder",
-      "Maps.ProposeChanges.Screenshots"
+      "Metadata"
     ]
   }
 }

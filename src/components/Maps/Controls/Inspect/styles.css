@@ -70,18 +70,12 @@
 
 .map-omega .control.inspector .header .icon {
   position: absolute;
-  top: 1rem;
+  top: 2rem;
   right: 2rem;
-  width: auto;
-  height: calc(100% - 2rem);
+  width: 20%;
   z-index: -1;
   --fill-color: white;
   opacity: 0.1;
-}
-
-.map-omega .control.inspector .header .icon svg {
-  height: 100%;
-  width: auto;
 }
 
 .map-omega .control.inspector .header .name {

@@ -46,7 +46,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  margin: 1rem 0 2rem;
+  margin: 0 0 2rem;
 }
 
 .propose-changes form .selected-screenshots .button {

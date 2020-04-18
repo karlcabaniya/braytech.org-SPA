@@ -17,7 +17,9 @@ class ProposeChanges extends React.Component {
         error: false,
         values: {
           ...p,
-          comments: '',
+          description: '',
+          issues: '',
+          video: '',
           screenshots: [],
         },
         success: false,
@@ -51,7 +53,9 @@ class ProposeChanges extends React.Component {
         error: false,
         values: {
           ...this.props,
-          comments: '',
+          description: '',
+          issues: '',
+          video: '',
           screenshots: [],
         },
         success: false,
@@ -75,6 +79,12 @@ class ProposeChanges extends React.Component {
 
   handler_onSubmit = (e) => {
     e.preventDefault();
+
+    const { description, issues, video, screenshots, ...rest } = this.state.values;
+
+    if (description === '' || issues === '' || video === '' || !screenshots.length) {
+      return;
+    }
 
     this.post_proposal();
   };
@@ -197,9 +207,17 @@ class ProposeChanges extends React.Component {
         <BraytechText className='text' source={t('Maps.ProposeChanges.Description')} />
         <form onSubmit={this.handler_onSubmit}>
           <div className='form'>
-            <h5>{t('Metadata')}</h5>
+            <h5>{t('Description')}</h5>
             <div className='field'>
-              <textarea name='comments' placeholder={t('Maps.ProposeChanges.Form.Comments.Placeholder')} value={values.comments} onChange={this.handler_onChange} rows='4' />
+              <textarea name='description' placeholder={this.props.description || t('Maps.ProposeChanges.Form.Description.Placeholder')} value={values.description} onChange={this.handler_onChange} rows='3' />
+            </div>
+            <h5>{t('Issues')}</h5>
+            <div className='field'>
+              <textarea name='issues' placeholder={t('Maps.ProposeChanges.Form.Issues.Placeholder')} value={values.issues} onChange={this.handler_onChange} rows='3' />
+            </div>
+            <h5>{t('Video')}</h5>
+            <div className='field'>
+              <input type='text' name='issues' placeholder='https://www.youtube.com/watch?v=dQw4w9WgXcQ' value={values.video} onChange={this.handler_onChange} />
             </div>
             <h5>{t('Screenshots')}</h5>
             <div className='selected-screenshots'>
@@ -222,7 +240,7 @@ class ProposeChanges extends React.Component {
           <div className='actions'>
             <div>
               <Button text={t('Cancel')} action={this.handler_reset} />
-              <Button text={t('Submit')} action={this.handler_onSubmit} type='submit' disabled={loading || (!screenshots.length && values.comments === '')} />
+              <Button text={t('Submit')} action={this.handler_onSubmit} type='submit' disabled={loading || (values.description === '' && values.issues === '' && values.video === '' && !screenshots.length)} />
             </div>
             <div>{loading ? <Spinner mini /> : null}</div>
           </div>
