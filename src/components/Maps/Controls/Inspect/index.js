@@ -64,10 +64,7 @@ function locationStrings({ activityHash, destinationHash, bubbleHash, map, exten
 
 function unify(props) {
   const type = findNodeType(props);
-
-  console.log(type);
-
-  const node = cartographer({ key: type.key, value: type.value });
+  const node = cartographer(type);
 
   console.log(node);
 
@@ -92,6 +89,7 @@ function unify(props) {
         ...(node.checklist?.checklistId === 4178338182 ? definitionActivity?.originalDisplayProperties || definitionActivity?.displayProperties : {}),
       },
       type: {
+        ...type,
         name: node?.checklist?.checklistItemName,
       },
       destinationString,
@@ -117,6 +115,7 @@ function unify(props) {
       },
       displayProperties: definitionActivity.originalDisplayProperties || definitionActivity.displayProperties,
       type: {
+        ...type,
         name: manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash]?.displayProperties.name,
       },
       screenshot: `https://www.bungie.net${definitionActivity.pgcrImage}`,
@@ -127,7 +126,9 @@ function unify(props) {
   } else {
     return {
       displayProperties: {},
-      type: {},
+      type: {
+        ...type,
+      },
     };
   }
 }
@@ -160,12 +161,21 @@ class Inspect extends React.Component {
         <div className='wrapper'>
           <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{t('Screenshot unavailable')}</div>}</div>
           <div className='header'>
+            {(unified.type.key === 'checklistHash' || unified.type.key === 'recordHash') && unified.checklist?.checklistIcon ? <div className='icon'>{unified.checklist.checklistIcon}</div> : null}
             <div className='type'>{unified.type?.name}</div>
             <div className='name'>{unified.displayProperties?.name}</div>
             {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
           </div>
           {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
           {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
+          {unified.extended?.video ? (
+            <div className='video'>
+              <div className='text'>{t('This node has an associated video')}</div>
+              <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
+                <div className='text'>{t('View video')}</div>
+              </a>
+            </div>
+          ) : null}
           <div className={cx({ buffer: unified.related?.records.length })}>
             {unified.related?.records.length ? (
               <>

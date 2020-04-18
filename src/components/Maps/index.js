@@ -100,7 +100,7 @@ class Maps extends React.Component {
         ],
       },
       // inspect: {
-      //   checklistHash: 3240560483
+      //   recordHash: 3431961939
       // },
       inspect: false,
     },
@@ -389,9 +389,9 @@ class Maps extends React.Component {
         </div>
         <Map viewport={this.state.viewport} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
-          <Static {...destination} handler={this.handler_showInspect} />
-          <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} handler={this.handler_showInspect} />
-          <Runtime {...destination} handler={this.handler_showInspect} />
+          <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Runtime {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
           {/* <CharacterActivities {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />

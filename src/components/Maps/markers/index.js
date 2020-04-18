@@ -22,20 +22,25 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
       <div className={cx({ tooltip: tooltip.hash })} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type} data-table={tooltip.table}>
         <div className='icon'>{icon}</div>
       </div>
-      {text ? <div className='text'>${text}</div> : null}
+      {marker.selected ? (
+        <div className='selected'>
+          <Maps.Selected />
+        </div>
+      ) : null}
+      {text ? <div className='text'>{text}</div> : null}
     </div>
   );
 
   return L.divIcon({
     className: ['icon-marker'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html)
+    html: ReactDOMServer.renderToString(html),
   });
 };
 
 export const text = (classNames = [], name) =>
   L.divIcon({
     className: ['text-marker'].concat(classNames).join(' '),
-    html: `<div class='wrapper'><div class='name'>${name}</div></div>`
+    html: `<div class='wrapper'><div class='name'>${name}</div></div>`,
   });
 
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
@@ -51,7 +56,7 @@ export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
 
   return L.divIcon({
     className: ['icon-marker', 'native'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html)
+    html: ReactDOMServer.renderToString(html),
   });
 };
 
@@ -63,7 +68,7 @@ export const iconFastTravel = L.divIcon({
         <Maps.FastTravel />
       </div>
     </div>
-  )
+  ),
 });
 
 export const iconPortal = {
@@ -75,7 +80,7 @@ export const iconPortal = {
           <Maps.Portal />
         </div>
       </div>
-    )
+    ),
   }),
   2: L.divIcon({
     className: 'icon-marker native portal',
@@ -85,7 +90,7 @@ export const iconPortal = {
           <Maps.Portal />
         </div>
       </div>
-    )
+    ),
   }),
   3: L.divIcon({
     className: 'icon-marker native portal',
@@ -95,7 +100,7 @@ export const iconPortal = {
           <Maps.Portal />
         </div>
       </div>
-    )
+    ),
   }),
   15: L.divIcon({
     className: 'icon-marker native portal',
@@ -105,8 +110,8 @@ export const iconPortal = {
           <Maps.Portal />
         </div>
       </div>
-    )
-  })
+    ),
+  }),
 };
 
 export const iconForgeIgnition = {
@@ -118,7 +123,7 @@ export const iconForgeIgnition = {
           <Maps.ForgeIgnition />
         </div>
       </div>
-    )
+    ),
   }),
   957727787: L.divIcon({
     className: 'icon-marker native forge',
@@ -128,7 +133,7 @@ export const iconForgeIgnition = {
           <Maps.ForgeIgnition />
         </div>
       </div>
-    )
+    ),
   }),
   2656947700: L.divIcon({
     className: 'icon-marker native forge',
@@ -138,7 +143,7 @@ export const iconForgeIgnition = {
           <Maps.ForgeIgnition />
         </div>
       </div>
-    )
+    ),
   }),
   1434072700: L.divIcon({
     className: 'icon-marker native forge',
@@ -148,9 +153,9 @@ export const iconForgeIgnition = {
           <Maps.ForgeIgnition />
         </div>
       </div>
-    )
-  })
-}
+    ),
+  }),
+};
 
 export const iconDungeon = {
   2032534090: L.divIcon({
@@ -161,7 +166,7 @@ export const iconDungeon = {
           <Maps.Dungeon />
         </div>
       </div>
-    )
+    ),
   }),
   1375089621: L.divIcon({
     className: 'icon-marker native dungeon',
@@ -171,6 +176,6 @@ export const iconDungeon = {
           <Maps.Dungeon />
         </div>
       </div>
-    )
-  })
-}
+    ),
+  }),
+};

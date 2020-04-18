@@ -12,6 +12,19 @@ import BraytechMaps_EN from '../../src/data/manifest/en/BraytechMaps/index.json'
 import DestinyActivityDefinition_EN from '../../src/data/manifest/en/DestinyActivityDefinition/index.json';
 import DestinyDestinationDefinition_EN from '../../src/data/manifest/en/DestinyDestinationDefinition/index.json';
 
+import lowlinesDump from './dump.json';
+
+const lowlinesNodes = [];
+Object.keys(lowlinesDump).forEach(key => {
+  if (!lowlinesDump[key].map.bubbles) return;
+
+  lowlinesDump[key].map.bubbles.forEach(bubble => {
+    bubble.nodes.forEach(node => {
+      lowlinesNodes.push(node);
+    });
+  })
+});
+
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
 // with https://docs.google.com/spreadsheets/d/1qgZtT1qbUFjyV8-ni73m6UCHTcuLmuLBx-zn_B7NFkY/edit#gid=1808601275
@@ -243,6 +256,9 @@ async function run() {
       within = 'ascendant-challenge';
     }
 
+    const lowlinesNode = lowlinesNodes.find(l => l.checklistHash === checklistItem.hash);
+    const video = lowlinesNode && lowlinesNode.videoLink !== '' ? lowlinesNode.videoLink : undefined;
+
     const changes = {
       destinationHash,
       bubbleHash,
@@ -261,7 +277,10 @@ async function run() {
         name,
         number: itemNumber && parseInt(itemNumber, 10),
       },
-      extended
+      extended: {
+        ...extended,
+        video
+      }
     };
 
     const screenshot = getScreenshot(checklistId, changes);
@@ -298,6 +317,8 @@ async function run() {
         bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
         const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
+        const extended = (mapping && mapping.extended) || (existing && existing.extended) || undefined;
+
         const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
 
         const recordHash = hash;
@@ -331,6 +352,9 @@ async function run() {
           within = 'ascendant-challenge';
         }
 
+        const lowlinesNode = lowlinesNodes.find(l => +l.recordHash === recordHash);
+        const video = lowlinesNode && lowlinesNode.videoLink !== '' ? lowlinesNode.videoLink : undefined;
+
         const changes = {
           destinationHash,
           bubbleHash,
@@ -348,6 +372,10 @@ async function run() {
             name,
             number: itemNumber + 1,
           },
+          extended: {
+            ...extended,
+            video
+          }
         };
 
         const screenshot = getScreenshot(presentationHash, changes);
