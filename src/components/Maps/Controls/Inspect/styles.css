@@ -65,17 +65,23 @@
 .map-omega .control.inspector .header {
   position: relative;
   padding: 1rem 2rem;
+  
   background-color: rgba(255, 255, 255, 0.05);
 }
 
 .map-omega .control.inspector .header .icon {
   position: absolute;
-  top: 2rem;
+  top: -20%;
   right: 2rem;
-  width: 20%;
+  height: 140%;
   z-index: -1;
   --fill-color: white;
   opacity: 0.1;
+}
+
+.map-omega .control.inspector .header .icon svg {
+  height: 100%;
+  width: auto;
 }
 
 .map-omega .control.inspector .header .name {

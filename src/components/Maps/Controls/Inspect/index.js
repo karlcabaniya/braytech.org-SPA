@@ -161,7 +161,7 @@ class Inspect extends React.Component {
         <div className='wrapper'>
           <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{t('Screenshot unavailable')}</div>}</div>
           <div className='header'>
-            {(unified.type.key === 'checklistHash' || unified.type.key === 'recordHash') && unified.checklist?.checklistIcon ? <div className='icon'>{unified.checklist.checklistIcon}</div> : null}
+            {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
             <div className='type'>{unified.type?.name}</div>
             <div className='name'>{unified.displayProperties?.name}</div>
             {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
