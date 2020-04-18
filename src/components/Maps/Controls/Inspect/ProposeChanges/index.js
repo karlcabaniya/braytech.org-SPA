@@ -217,7 +217,7 @@ class ProposeChanges extends React.Component {
             </div>
             <h5>{t('Video')}</h5>
             <div className='field'>
-              <input type='text' name='issues' placeholder='https://www.youtube.com/watch?v=dQw4w9WgXcQ' value={values.video} onChange={this.handler_onChange} />
+              <input type='text' name='video' placeholder='https://www.youtube.com/watch?v=dQw4w9WgXcQ' value={values.video} onChange={this.handler_onChange} />
             </div>
             <h5>{t('Screenshots')}</h5>
             <div className='selected-screenshots'>
