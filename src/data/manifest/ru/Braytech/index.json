@@ -73,14 +73,14 @@
   "score": {
     "displayProperties": {
       "name": "Награда за триумф",
-      "description": "Получение триумфа принесет данное количество очков."
+      "description": "Выполнение триумфа принесет данное количество очков."
     },
     "itemType": 1
   },
   "record_intervals": {
     "displayProperties": {
-      "name": "Интервалы триумфов",
-      "description": "Некоторые записи имеют интервалы. Различные интервалы имеют различные требования и значения баллов."
+      "name": "Этапы триумфов",
+      "description": "Некоторые триумфы имеют этапы. Каждый последующий этап имеет увеличенное требование и значение для выполнения."
     },
     "itemType": 1
   },
@@ -100,14 +100,14 @@
   },
   "total_resets": {
     "displayProperties": {
-      "name": "Total resets",
-      "description": "All seasons' resets. Tracks from Season 4 onward."
+      "name": "Всего обнулений",
+      "description": "Все сезонные обнуления. Отслеживаются начиная с 4 сезона."
     },
     "itemType": 1
   },
   "braytech_purple_rune": {
     "displayProperties": {
-      "description": "A purple rune. Purple runes include; Rune of Joy, Rune of the Beast, and Rune of Jubilation.",
+      "description": "Фиолетовая руна. Фиолетовые руны включают; Руну Радости, Руну Зверя, и Руну Ликования.",
       "name": "Purple Rune",
       "icon": "/static/images/extracts/ui/rune_purple.png",
       "localIcon": true,
@@ -137,7 +137,7 @@
   },
   "braytech_red_rune": {
     "displayProperties": {
-      "description": "A red rune. Red runes include; Rune of Ambition, Rune of Gluttony, and Rune of Cunning.",
+      "description": "Красная руна. Красные руны включают; Руну Амбиций, Руну Чревоугодий, и Руну Хитрости.",
       "name": "Red Rune",
       "icon": "/static/images/extracts/ui/rune_red.png",
       "localIcon": true,
@@ -167,7 +167,7 @@
   },
   "braytech_green_rune": {
     "displayProperties": {
-      "description": "A green rune. Green runes include; Rune of War, Rune of Pride, and Rune of Desire.",
+      "description": "Зеленая руна. Зеленые руны включают; Руну Войны, Руну Гордости, и Руну Желания.",
       "name": "Green Rune",
       "icon": "/static/images/extracts/ui/rune_green.png",
       "localIcon": true,
@@ -197,7 +197,7 @@
   },
   "braytech_blue_rune": {
     "displayProperties": {
-      "description": "A blue rune. Blue runes include; Rune of Excess, Rune of Wealth, and Rune of Pleasure.",
+      "description": "Синяя руна. Синие руны включают; Руну Избытка, Руну Богатства, и Руну Удовольствия.",
       "name": "Blue Rune",
       "icon": "/static/images/extracts/ui/rune_blue.png",
       "localIcon": true,
