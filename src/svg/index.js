@@ -25,7 +25,7 @@ import { ReactComponent as MapsRegionChest } from './maps/region-chest.svg';
 import { ReactComponent as MapsLostSector } from './maps/lost-sector.svg';
 import { ReactComponent as MapsGhostScan } from './maps/ghost-scan.svg';
 import { ReactComponent as MapsSleperNode } from './maps/sleeper-node.svg';
-import { ReactComponent as MapsLostMemoryFragment } from './maps/lost-memory-fragment.svg';
+import { ReactComponent as MapsLatentMemoryFragment } from './maps/lost-memory-fragment.svg';
 import { ReactComponent as MapsCorruptedEgg } from './maps/corrupted-egg.svg';
 import { ReactComponent as MapsAhamkaraBones } from './maps/ahamkara-bones.svg';
 import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
@@ -207,7 +207,7 @@ const Maps = {
   Adventure: TooltipAdventure,
   GhostScan: MapsGhostScan,
   SleperNode: MapsSleperNode,
-  LostMemoryFragment: MapsLostMemoryFragment,
+  LatentMemoryFragment: MapsLatentMemoryFragment,
   CorruptedEgg: MapsCorruptedEgg,
   AhamkaraBones: MapsAhamkaraBones,
   FelineFriend: MapsFelineFriend,

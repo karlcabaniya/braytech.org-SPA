@@ -52,6 +52,11 @@
           "type": "region",
           "nodes": [
             {
+              "type": "place",
+              "x": 615,
+              "y": 59
+            },
+            {
               "type": "fast-travel",
               "x": 57.58,
               "y": 63.36,
@@ -242,6 +247,11 @@
           "id": "glacial-drift",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": 507,
+              "y": -213
+            },
             {
               "type": "title",
               "x": 74,
@@ -434,6 +444,11 @@
           "id": "rupture",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": 109,
+              "y": -485
+            },
             {
               "type": "title",
               "x": -277,
@@ -662,6 +677,11 @@
           "type": "region",
           "nodes": [
             {
+              "type": "place",
+              "x": -716,
+              "y": -403
+            },
+            {
               "type": "title",
               "x": -282,
               "y": 91
@@ -888,6 +908,11 @@
           "id": "thieves-landing",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": 33,
+              "y": -685
+            },
             {
               "type": "title",
               "x": 183,
@@ -1187,6 +1212,11 @@
           "id": "cistern",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": -488,
+              "y": 45
+            },
             {
               "type": "title",
               "x": 11,
@@ -1860,6 +1890,11 @@
           "type": "region",
           "nodes": [
             {
+              "type": "place",
+              "x": 595,
+              "y": -556
+            },
+            {
               "type": "title",
               "x": 378,
               "y": -232
@@ -2217,6 +2252,11 @@
           "id": "trostland",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": 527,
+              "y": 61
+            },
             {
               "type": "title",
               "x": 381,
@@ -2767,6 +2807,11 @@
           "id": "sanctuary",
           "type": "region",
           "nodes": [
+            {
+              "type": "place",
+              "x": 472,
+              "y": -388
+            },
             {
               "type": "title",
               "x": -185,

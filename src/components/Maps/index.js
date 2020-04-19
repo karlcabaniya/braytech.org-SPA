@@ -18,6 +18,7 @@ import Loading from './Loading';
 import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
+import Speciality from './Nodes/Speciality';
 
 import Characters from './Controls/Characters';
 import Destinations from './Controls/Destinations';
@@ -392,6 +393,7 @@ class Maps extends React.Component {
           <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
           <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
           <Runtime {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Speciality {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
           {/* <CharacterActivities {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />

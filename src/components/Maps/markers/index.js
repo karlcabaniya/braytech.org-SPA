@@ -17,7 +17,7 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
     icon = <Maps.AscendantChallenge />;
   }
 
-  const html = (
+  const jsx = (
     <div className='wrapper'>
       <div className={cx({ tooltip: tooltip.hash })} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type} data-table={tooltip.table}>
         <div className='icon'>{icon}</div>
@@ -33,9 +33,15 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
 
   return L.divIcon({
     className: ['icon-marker'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html),
+    html: ReactDOMServer.renderToString(jsx),
   });
 };
+
+export const converter = (jsx, classNames = []) =>
+  L.divIcon({
+    className: classNames.join(' '),
+    html: ReactDOMServer.renderToString(jsx),
+  });
 
 export const text = (classNames = [], name) =>
   L.divIcon({
@@ -44,7 +50,7 @@ export const text = (classNames = [], name) =>
   });
 
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
-  const html = (
+  const jsx = (
     <div className='wrapper'>
       <div className='icon tooltip' data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
         <div className='patrol-boss'>
@@ -56,7 +62,7 @@ export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
 
   return L.divIcon({
     className: ['icon-marker', 'native'].concat(classNames).join(' '),
-    html: ReactDOMServer.renderToString(html),
+    html: ReactDOMServer.renderToString(jsx),
   });
 };
 

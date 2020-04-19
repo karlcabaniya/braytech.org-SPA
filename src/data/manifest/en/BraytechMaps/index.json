@@ -1331,5 +1331,53 @@
   "249": {
     "checklistHash": 1034154197,
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.gatehouse.catwalk.jpg"
+  },
+  "250": {
+    "checklistHash": 156484287,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.catwalk.jpg"
+  },
+  "251": {
+    "checklistHash": 1628739428,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.deck.dampener.jpg"
+  },
+  "252": {
+    "checklistHash": 2662731326,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.coolant.ventilation.jpg"
+  },
+  "253": {
+    "checklistHash": 980824599,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.stairwell.jpg"
+  },
+  "254": {
+    "checklistHash": 2516672582,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.door.jpg"
+  },
+  "255": {
+    "checklistHash": 2870761015,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.cavern.jpg"
+  },
+  "256": {
+    "checklistHash": 883696636,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.heatshield.jpg"
+  },
+  "257": {
+    "checklistHash": 1556894012,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.valkyrie.jpg"
+  },
+  "258": {
+    "checklistHash": 2373259383,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.brace.jpg"
+  },
+  "259": {
+    "checklistHash": 3790287757,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.control.door.jpg"
+  },
+  "260": {
+    "checklistHash": 2096130528,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.core.jpg"
+  },
+  "261": {
+    "checklistHash": 3523064621,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.tree.jpg"
   }
 }

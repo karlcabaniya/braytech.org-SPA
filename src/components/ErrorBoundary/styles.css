@@ -3,6 +3,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: 1fr;
+  min-height: calc(100vh - 40px);
 }
 
 #error-boundary .properties {

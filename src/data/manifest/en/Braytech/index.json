@@ -291,5 +291,11 @@
     "hash": 2149082452,
     "redacted": false,
     "blacklisted": false
+  },
+  "latent-memories": {
+    "displayProperties": {
+      "name": "Latent Memories",
+      "description": "Mysterious test nodes are scattered across Mars. What is their purpose?"
+    }
   }
 }

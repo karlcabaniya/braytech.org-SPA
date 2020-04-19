@@ -49,7 +49,14 @@ class Static extends React.Component {
 
         const selected = node.nodeHash && this.props.selected.nodeHash === node.nodeHash;
 
-        if (node.type === 'title') {
+        if (node.type === 'place') {
+          const definitionDestintion = manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
+          const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestintion?.placeHash];
+
+          const icon = marker.text(['interaction-none', node.type], definitionPlace?.displayProperties?.name);
+
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+        } else if (node.type === 'title') {
           const definitionDestination = maps[this.props.id].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
           const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find((b) => b.hash === bubble.hash);
           const definitionName = definitionBubble && definitionBubble.displayProperties?.name !== '' && definitionBubble.displayProperties.name;

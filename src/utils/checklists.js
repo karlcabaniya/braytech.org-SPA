@@ -339,9 +339,9 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
       },
-      checklistItemName: t('Lost Memory Fragment'),
-      checklistItemName_plural: t('Lost Memory Fragments'),
-      checklistIcon: <Maps.LostMemoryFragment />,
+      checklistItemName: t('Latent Memory Fragment'),
+      checklistItemName_plural: t('Latent Memory Fragments'),
+      checklistIcon: <Maps.LatentMemoryFragment />,
       checklistProgressDescription: t('Memories resolved'),
       ...options,
     }),

@@ -88,7 +88,7 @@ export function cartographer(search) {
   const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
   const graph = findGraph(search);
   const { checklist, checklistItem } = findChecklistItems(search);
-  const dynamic = runtime(state.member, true).find((node) => node[search.key] === +search.value && node.availability.now);
+  const dynamic = runtime(state.member, true).find((node) => node[search.key] === +search.value && node.availability?.now);
 
   if (!definitionMaps && !graph && !checklist?.items.length && !dynamic) {
     return false;

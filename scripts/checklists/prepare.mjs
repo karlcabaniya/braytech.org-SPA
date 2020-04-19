@@ -259,6 +259,8 @@ async function run() {
       within = 'ascendant-challenge';
     }
 
+    extended.video = extended.video || (addins && addins.extended && addins.extended.video) || undefined;
+
     const changes = {
       destinationHash,
       bubbleHash,
@@ -352,6 +354,8 @@ async function run() {
         } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
           within = 'ascendant-challenge';
         }
+
+        extended.video = extended.video || (addins && addins.extended && addins.extended.video) || undefined;
 
         const changes = {
           destinationHash,
@@ -475,7 +479,7 @@ function getScreenshot(checklistId, checklistItem) {
   }
 
   if (checklistId === 365218222 && checklistItem.sorts && checklistItem.sorts.name) {
-    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${checklistItem.sorts.name.toLowerCase()}.jpg`);
+    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${checklistItem.sorts.name.toLowerCase().replace(' ','')}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {
