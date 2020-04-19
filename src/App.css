@@ -692,10 +692,6 @@ button.square.active {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 
-.wrapper.dark .sticky-nav.ultra-black {
-  background-color: hsla(0, 0%, 0%, 0.8);
-}
-
 @keyframes animation-background-highlight {
   0% {
     background-color: rgba(255, 255, 255, 0.1);

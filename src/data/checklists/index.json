@@ -1530,7 +1530,9 @@
         "name": "Ecstasiate III",
         "number": 11
       },
-      "extended": {}
+      "extended": {
+        "video": "https://www.youtube.com/watch?v=5VEcwGEo6mI"
+      }
     },
     {
       "destinationHash": 2779202173,

@@ -4,7 +4,7 @@ import { Marker } from 'react-leaflet';
 
 import { Common } from '../../../svg';
 import maps from '../../../data/maps';
-import nodesRuntime from '../../../data/maps/runtime';
+import runtime from '../../../data/maps/runtime';
 
 import * as marker from '../markers';
 
@@ -14,7 +14,7 @@ class Runtime extends React.Component {
   static getDerivedStateFromProps(p, s) {
     if (!s.nodes) {
       return {
-        nodes: nodesRuntime(p.member),
+        nodes: runtime(p.member),
       };
     }
 
@@ -29,9 +29,9 @@ class Runtime extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(p, s) {   
+  componentDidUpdate(p, s) {
     if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
-      this.setState({ nodes: nodesRuntime(this.props.member) })
+      this.setState({ nodes: runtime(this.props.member) });
     }
   }
 
@@ -44,51 +44,49 @@ class Runtime extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
-    return (
-      (this.state.nodes &&
-        this.state.nodes[this.props.id].map((node, i) => {
-          if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
+    return this.state.nodes?.[this.props.id].map((node, i) => {
+      if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
 
-          return node.map.points.map(point => {
-            const markerOffsetX = mapXOffset + viewWidth / 2;
-            const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
+      const selected = node.nodeHash && this.props.selected.nodeHash === node.nodeHash;
 
-            if (!point.x || !point.y) {
-              console.warn(node);
+      return node.map.points.map((point) => {
+        const markerOffsetX = mapXOffset + viewWidth / 2;
+        const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 
-              return null;
-            }
+        if (!point.x || !point.y) {
+          console.warn(node);
 
-            const offsetX = markerOffsetX + point.x;
-            const offsetY = markerOffsetY + point.y;
+          return null;
+        }
 
-            if (node.nodeType === 'patrol-boss') {
-              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon });
+        const offsetX = markerOffsetX + point.x;
+        const offsetY = markerOffsetY + point.y;
 
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
-            } else if (node.nodeType === 'vendor') {
-              const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor' });
+        if (node.nodeType === 'patrol-boss') {
+          const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon });
 
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
-            } else if (node.nodeType === 'portal') {
-              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'portal', node.screenshot ? 'has-screenshot' : '', node.availability.type === 'cycle' ? 'unstable' : ''], { icon: 'portal' });
+          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
+        } else if (node.nodeType === 'vendor') {
+          const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor' });
 
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
-            } else {
-              const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? 'has-screenshot' : ''], { icon: <Common.Info /> });
-              
-              return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
-            }
-          });
-        })) ||
-      null
-    );
+          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+        } else if (node.nodeType === 'portal') {
+          const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'portal', node.screenshot ? 'has-screenshot' : '', node.availability.type === 'cycle' && !selected ? 'unstable' : ''], { icon: 'portal', selected });
+
+          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
+        } else {
+          const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, [node.screenshot ? 'has-screenshot' : ''], { icon: <Common.Info /> });
+
+          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
+        }
+      });
+    });
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
-    member: state.member
+    member: state.member,
   };
 }
 

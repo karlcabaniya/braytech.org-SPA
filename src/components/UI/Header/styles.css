@@ -235,8 +235,14 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 
 }
 
-#header.profile-header .background .image.very-light {
-  filter: brightness(0.75);
+#header.profile-header .background .image.very-light::before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 #header.profile-header .background .image.missing.dl {

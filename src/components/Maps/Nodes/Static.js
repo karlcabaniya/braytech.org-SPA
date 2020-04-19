@@ -18,6 +18,18 @@ class Static extends React.Component {
     this.mounted = false;
   }
 
+  shouldComponentUpdate(p, s) {
+    if (p.id !== this.props.id) {
+      return true;
+    }
+
+    if (p.selected.nodeHash !== this.props.selected.nodeHash) {
+      return true;
+    }
+
+    return false;
+  }
+
   render() {
     const map = maps[this.props.id].map;
 
@@ -27,13 +39,15 @@ class Static extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
-    return maps[this.props.id].map.bubbles.map((bubble) =>
-      bubble.nodes.map((node, i) => {
+    return maps[this.props.id].map.bubbles.map((bubble, b) =>
+      bubble.nodes.map((node, n) => {
         const markerOffsetX = mapXOffset + viewWidth / 2;
         const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 
-        const offsetX = markerOffsetX + (node.x ? node.x : 0);
-        const offsetY = markerOffsetY + (node.y ? node.y : 0);
+        const offsetX = markerOffsetX + (node.x || 0);
+        const offsetY = markerOffsetY + (node.y || 0);
+
+        const selected = node.nodeHash && this.props.selected.nodeHash === node.nodeHash;
 
         if (node.type === 'title') {
           const definitionDestination = maps[this.props.id].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
@@ -44,19 +58,19 @@ class Static extends React.Component {
 
           const icon = marker.text(['interaction-none', bubble.type], name);
 
-          return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'vendor' && node.vendorHash !== 2190858386) {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor' })} zIndexOffset='-1000' />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor' })} zIndexOffset='-1000' />;
         } else if (node.type === 'fast-travel') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'portal') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconPortal[node.nodeHash]} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'portal', node.screenshot ? 'has-screenshot' : ''], { icon: 'portal', selected })} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
         } else if (node.type === 'ascendant-challenge') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'ascendant-challenge'], { icon: 'ascendant-challenge' })} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'ascendant-challenge'], { icon: 'ascendant-challenge', selected })} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
         } else if (node.type === 'forge') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
         } else if (node.type === 'dungeon') {
-          return <Marker key={i} position={[offsetY, offsetX]} icon={marker.iconDungeon[node.activityHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconDungeon[node.activityHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
         } else {
           return null;
         }

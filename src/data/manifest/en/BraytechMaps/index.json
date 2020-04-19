@@ -1284,5 +1284,52 @@
     "vendorHash": 863940356,
     "bubbleHash": 824533556,
     "screenshot": "/static/images/screenshots/vendors/vendors_spider-2.jpg"
+  },
+  "239": {
+    "checklistHash": 1031266598,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.cavern.warsat.jpg",
+    "displayProperties": {
+      "description": "On the lowest of ice shelves, beneath a fallen Warsat."
+    }
+  },
+  "240": {
+    "checklistHash": 381956243,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.cave.runes.jpg"
+  },
+  "241": {
+    "checklistHash": 3541081426,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.cliffside.jpg"
+  },
+  "242": {
+    "checklistHash": 3240044932,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.flammable.storage.jpg"
+  },
+  "243": {
+    "checklistHash": 2268035590,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.checkpoint.elevator.jpg"
+  },
+  "244": {
+    "checklistHash": 3786878451,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.freight.jpg"
+  },
+  "245": {
+    "checklistHash": 738006194,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.foundation.jpg"
+  },
+  "246": {
+    "checklistHash": 3742434372,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.service.backend.jpg"
+  },
+  "247": {
+    "checklistHash": 2720923690,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.chasm.jpg"
+  },
+  "248": {
+    "checklistHash": 4055612072,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.chasm.ledge.jpg"
+  },
+  "249": {
+    "checklistHash": 1034154197,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.gatehouse.catwalk.jpg"
   }
 }

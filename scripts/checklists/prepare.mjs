@@ -15,14 +15,14 @@ import DestinyDestinationDefinition_EN from '../../src/data/manifest/en/DestinyD
 import lowlinesDump from './dump.json';
 
 const lowlinesNodes = [];
-Object.keys(lowlinesDump).forEach(key => {
+Object.keys(lowlinesDump).forEach((key) => {
   if (!lowlinesDump[key].map.bubbles) return;
 
-  lowlinesDump[key].map.bubbles.forEach(bubble => {
-    bubble.nodes.forEach(node => {
+  lowlinesDump[key].map.bubbles.forEach((bubble) => {
+    bubble.nodes.forEach((node) => {
       lowlinesNodes.push(node);
     });
-  })
+  });
 });
 
 // For when the mappings generated from lowlines' data don't have a
@@ -147,7 +147,7 @@ function mergeWithCustomizer(a, b) {
   if (Array.isArray(a)) {
     return a.concat(b);
   }
-  
+
   return a;
 }
 
@@ -198,32 +198,35 @@ async function run() {
 
   function checklistItem(checklistId, checklistItem) {
     const existing = (data[checklistId] && data[checklistId].find((c) => c.checklistHash === checklistItem.hash)) || {};
-    const mapping = worthy.checklists[checklistItem.hash] || {};
+    const addins = worthy.checklists[checklistItem.hash] || {};
 
-    let destinationHash = checklistItem.destinationHash || (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+    let destinationHash = checklistItem.destinationHash || (addins && addins.destinationHash) || (existing && existing.destinationHash);
     destinationHash = destinationHashOverrides[destinationHash] ? destinationHashOverrides[destinationHash] : destinationHash;
 
     const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-    let activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
-    let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || checklistItem.bubbleHash || undefined;
+    let activityHash = (addins && addins.activityHash) || (existing && existing.activityHash) || undefined;
+    let bubbleHash = (addins && addins.bubbleHash) || (existing && existing.bubbleHash) || checklistItem.bubbleHash || undefined;
     bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
 
-    const extended = (mapping && mapping.extended) || (existing && existing.extended) || undefined;
+    let extended = {
+      ...((existing && existing.extended) || {}),
+      ...((addins && addins.extended) || {}),
+    };
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
-    const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
-    
+    const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
+
     const extendedDefinitionBubble = extended && definitionDestination && _.find(definitionDestination.bubbles, { hash: extended.bubbleHash });
-    const extendedBubbleName = (extendedDefinitionBubble && extendedDefinitionBubble.displayProperties.name);
+    const extendedBubbleName = extendedDefinitionBubble && extendedDefinitionBubble.displayProperties.name;
 
     // If the item has a name with a number in it, extract it so we can use it later
     // for sorting & display
     const numberMatch = checklistItem.displayProperties.name.match(/([0-9]+)/);
     const itemNumber = numberMatch && numberMatch[0];
 
-    const recordHash = (mapping && mapping.recordHash) || (existing && existing.recordHash) || undefined;
+    const recordHash = (addins && addins.recordHash) || (existing && existing.recordHash) || undefined;
 
     let name = bubbleName;
     if (manifest.DestinyChecklistDefinition[365218222].entries.find((h) => h.hash === checklistItem.hash)) {
@@ -237,7 +240,7 @@ async function run() {
       if (definitionLore) name = definitionLore.displayProperties.name;
     }
 
-    const points = (mapping && mapping.map && mapping.map.points) || (existing && existing.map && existing.map.points) || [];
+    const points = (addins && addins.map && addins.map.points) || (existing && existing.map && existing.map.points) || [];
 
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
     const withinLostSector = bubbleHash && data[3142056444].find((l) => l.bubbleHash === bubbleHash) && checklistId !== 3142056444;
@@ -255,9 +258,6 @@ async function run() {
     } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
       within = 'ascendant-challenge';
     }
-
-    const lowlinesNode = lowlinesNodes.find(l => l.checklistHash === checklistItem.hash);
-    const video = lowlinesNode && lowlinesNode.videoLink !== '' ? lowlinesNode.videoLink : undefined;
 
     const changes = {
       destinationHash,
@@ -277,10 +277,7 @@ async function run() {
         name,
         number: itemNumber && parseInt(itemNumber, 10),
       },
-      extended: {
-        ...extended,
-        video
-      }
+      extended,
     };
 
     const screenshot = getScreenshot(checklistId, changes);
@@ -288,6 +285,7 @@ async function run() {
     if (screenshot) {
       doJson({
         checklistHash: checklistItem.hash,
+        displayProperties: addins && addins.displayProperties,
         screenshot,
       });
     }
@@ -306,20 +304,23 @@ async function run() {
     return recordHashes
       .map((hash, itemNumber) => {
         const existing = (data[presentationHash] && data[presentationHash].find((c) => c.recordHash === hash)) || {};
-        const mapping = worthy.records[hash];
+        const addins = worthy.records[hash];
 
-        let destinationHash = (mapping && mapping.destinationHash) || (existing && existing.destinationHash);
+        let destinationHash = (addins && addins.destinationHash) || (existing && existing.destinationHash);
 
         const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
         const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
-        let bubbleHash = (mapping && mapping.bubbleHash) || (existing && existing.bubbleHash) || undefined;
+        let bubbleHash = (addins && addins.bubbleHash) || (existing && existing.bubbleHash) || undefined;
         bubbleHash = bubbleHashOverrides[bubbleHash] ? bubbleHashOverrides[bubbleHash] : bubbleHash;
         const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
 
-        const extended = (mapping && mapping.extended) || (existing && existing.extended) || undefined;
+        let extended = {
+          ...((existing && existing.extended) || {}),
+          ...((addins && addins.extended) || {}),
+        };
 
-        const bubbleName = (definitionBubble && definitionBubble.displayProperties.name);
+        const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
 
         const recordHash = hash;
 
@@ -331,13 +332,13 @@ async function run() {
           if (definitionLore) name = definitionLore.displayProperties.name;
         }
 
-        const points = (mapping && mapping.map && mapping.map.points) || (existing && existing.map && existing.map.points) || [];
+        const points = (addins && addins.map && addins.map.points) || (existing && existing.map && existing.map.points) || [];
 
         // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
         const withinLostSector = definitionBubble && definitionBubble.hash && data[3142056444].find((l) => l.bubbleHash === definitionBubble.hash) && hash !== 3142056444;
 
-        const pursuitHash = (mapping && mapping.pursuitHash) || (existing && existing.pursuitHash) || undefined;
-        const activityHash = (mapping && mapping.activityHash) || (existing && existing.activityHash) || undefined;
+        const pursuitHash = (addins && addins.pursuitHash) || (existing && existing.pursuitHash) || undefined;
+        const activityHash = (addins && addins.activityHash) || (existing && existing.activityHash) || undefined;
 
         let within = undefined;
         if (withinLostSector) {
@@ -351,9 +352,6 @@ async function run() {
         } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
           within = 'ascendant-challenge';
         }
-
-        const lowlinesNode = lowlinesNodes.find(l => +l.recordHash === recordHash);
-        const video = lowlinesNode && lowlinesNode.videoLink !== '' ? lowlinesNode.videoLink : undefined;
 
         const changes = {
           destinationHash,
@@ -372,10 +370,7 @@ async function run() {
             name,
             number: itemNumber + 1,
           },
-          extended: {
-            ...extended,
-            video
-          }
+          extended,
         };
 
         const screenshot = getScreenshot(presentationHash, changes);
@@ -383,6 +378,7 @@ async function run() {
         if (screenshot) {
           doJson({
             recordHash,
+            displayProperties: addins && addins.displayProperties,
             screenshot,
           });
         }
@@ -434,15 +430,15 @@ async function run() {
 
         BraytechMaps_EN[hash] = {
           ...BraytechMaps_EN[hash],
-          // displayProperties:
-          //   (load.displayProperties && load.displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && BraytechMaps_EN[hash].displayProperties.description) || (BraytechMaps_EN[hash].displayProperties && Object.keys(BraytechMaps_EN[hash].displayProperties).length)
-          //     ? {
-          //         ...BraytechMaps_EN[hash].displayProperties,
-          //         description: load.displayProperties.description || BraytechMaps_EN[hash].displayProperties.description,
-          //       }
-          //     : undefined,
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
         };
+
+        if (load.displayProperties) {
+          BraytechMaps_EN[hash].displayProperties = {
+            ...(BraytechMaps_EN[hash].displayProperties || {}),
+            ...load.displayProperties
+          }
+        }
       } else {
         let hash = 1;
         while (Object.keys(BraytechMaps_EN).find((key) => +key === +hash)) {
@@ -476,6 +472,10 @@ function getScreenshot(checklistId, checklistItem) {
 
   if (checklistId === 3142056444 && checklistItem.sorts && checklistItem.sorts.name) {
     screenshot = searchScreenshots('lost-sectors', `lost-sectors_${checklistItem.sorts.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
+  }
+
+  if (checklistId === 365218222 && checklistItem.sorts && checklistItem.sorts.name) {
+    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${checklistItem.sorts.name.toLowerCase()}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {
