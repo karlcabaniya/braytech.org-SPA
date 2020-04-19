@@ -1,205 +1,180 @@
 {
   "de": {
-    "translated": 369,
-    "notTranslated": 318,
+    "translated": 367,
+    "notTranslated": 321,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "debug": {
-    "translated": 687,
+    "translated": 688,
     "notTranslated": 0,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "en": {
-    "translated": 687,
+    "translated": 688,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "es-mx": {
-    "translated": 667,
-    "notTranslated": 20,
+    "translated": 685,
+    "notTranslated": 3,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "es": {
-    "translated": 667,
-    "notTranslated": 20,
+    "translated": 685,
+    "notTranslated": 3,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "fr": {
-    "translated": 662,
-    "notTranslated": 25,
+    "translated": 660,
+    "notTranslated": 28,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "it": {
-    "translated": 673,
-    "notTranslated": 14,
+    "translated": 671,
+    "notTranslated": 17,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "ja": {
-    "translated": 598,
-    "notTranslated": 89,
+    "translated": 596,
+    "notTranslated": 92,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "ko": {
-    "translated": 551,
-    "notTranslated": 136,
+    "translated": 549,
+    "notTranslated": 139,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 685,
+    "notTranslated": 686,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "pt-br": {
-    "translated": 658,
-    "notTranslated": 29,
+    "translated": 656,
+    "notTranslated": 32,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "ru": {
-    "translated": 681,
-    "notTranslated": 6,
+    "translated": 679,
+    "notTranslated": 9,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "zh-chs": {
-    "translated": 458,
-    "notTranslated": 229,
+    "translated": 456,
+    "notTranslated": 232,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   },
   "zh-cht": {
-    "translated": 375,
-    "notTranslated": 312,
+    "translated": 373,
+    "notTranslated": 315,
     "added": [
-      "Description",
-      "Issues",
-      "Maps.ProposeChanges.Form.Description.Placeholder",
-      "This node has an associated video",
-      "Video",
-      "View video"
+      "Data Recovered",
+      "Latent Memory Fragment",
+      "Latent Memory Fragments"
     ],
     "removed": [
-      "Metadata"
+      "Lost Memory Fragment",
+      "Lost Memory Fragments"
     ]
   }
 }
