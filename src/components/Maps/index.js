@@ -121,6 +121,7 @@ class Maps extends React.Component {
 
     if (p.params.highlight) {
       const map = maps[resolved].map;
+      const destination = maps[resolved].destination;
       const hash = +p.params.highlight;
 
       const checklistLookup = checkup({ key: 'checklistHash', value: hash });
@@ -131,9 +132,9 @@ class Maps extends React.Component {
       const checklist = entry?.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
       const checklistItem = checklist?.items?.length && checklist.items[0];
 
-      if (checklistItem && checklistItem.points && checklistItem.points.length && checklistItem.points[0]) {
-        const markerY = checklistItem.points[0].y || 0;
-        const markerX = checklistItem.points[0].x || 0;
+      if (checklistItem?.map?.points?.[0] && checklistItem?.destinationHash === destination.hash) {
+        const markerY = checklistItem.map.points[0].y || 0;
+        const markerX = checklistItem.map.points[0].x || 0;
 
         center = [map.height / 2 + markerY, map.width / 2 + markerX];
       }

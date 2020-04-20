@@ -141,7 +141,7 @@ class Layers extends React.Component {
         // this.props.ready();
       }
 
-      console.log('done');
+      // console.log('done');
     } catch (e) {
       console.log(e);
 
@@ -333,7 +333,7 @@ class BackgroundLayer extends React.Component {
         }));
       }
 
-      console.log('background layers composited');
+      // console.log('background layers composited');
     } catch (e) {
       console.log(e);
 

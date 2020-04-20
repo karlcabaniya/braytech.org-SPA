@@ -1,7 +1,5 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
 import manifest from '../../utils/manifest';
 
@@ -29,8 +27,6 @@ class Test extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
     return (
       <div className='view' id='test'>
         <div id='tooltip' className='visible'>
@@ -81,4 +77,4 @@ function mapStateToProps(state, ownProps) {
   return {};
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Test);
+export default connect(mapStateToProps)(Test);
