@@ -32,6 +32,7 @@ class Static extends React.Component {
 
   render() {
     const map = maps[this.props.id].map;
+    const destination = maps[this.props.id].destination;
 
     const viewWidth = 1920;
     const viewHeight = 1080;
@@ -50,10 +51,13 @@ class Static extends React.Component {
         const selected = node.nodeHash && this.props.selected.nodeHash === node.nodeHash;
 
         if (node.type === 'place') {
-          const definitionDestintion = manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
+          const definitionDestintion = manifest.DestinyDestinationDefinition[destination.hash];
           const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestintion?.placeHash];
+          const definitionActivity = manifest.DestinyActivityDefinition[destination.activityHash];
 
-          const icon = marker.text(['interaction-none', node.type], definitionPlace?.displayProperties?.name);
+          const text = definitionActivity?.displayProperties.name || definitionPlace?.displayProperties.name;
+
+          const icon = marker.text(['interaction-none', node.type], text);
 
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'title') {

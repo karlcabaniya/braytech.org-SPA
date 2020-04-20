@@ -1379,5 +1379,78 @@
   "261": {
     "checklistHash": 3523064621,
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.tree.jpg"
+  },
+  "262": {
+    "checklistHash": 1698656021,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.terminus.console.jpg"
+  },
+  "263": {
+    "checklistHash": 1046632799,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.silo.jpg"
+  },
+  "264": {
+    "checklistHash": 2444409480,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.infestation.jpg"
+  },
+  "265": {
+    "checklistHash": 3957860341,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.garage.jpg"
+  },
+  "266": {
+    "checklistHash": 3901710881,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.console.jpg"
+  },
+  "267": {
+    "checklistHash": 135585929,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.outpost.jpg"
+  },
+  "268": {
+    "checklistHash": 3214839526,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.transit.service.jpg"
+  },
+  "269": {
+    "checklistHash": 1040754817,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.ridgeline.waterfall.jpg"
+  },
+  "270": {
+    "checklistHash": 677148329,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.reception.overlook.jpg"
+  },
+  "271": {
+    "checklistHash": 2892815744,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.elevator.service.jpg"
+  },
+  "272": {
+    "checklistHash": 1708307467,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.overhang.node.jpg"
+  },
+  "273": {
+    "checklistHash": 3732386537,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.elevator.right.jpg",
+    "displayProperties": {
+      "description": "To the right of the elevator."
+    }
+  },
+  "274": {
+    "checklistHash": 2172120594,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.conveyor.junction.jpg",
+    "displayProperties": {
+      "description": "Immediately after entering the conveyer junction room, before proceeding up the lift to the Mindlab, turn on your foot."
+    }
+  },
+  "275": {
+    "checklistHash": 142015059,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.conveyor.bridge.jpg"
+  },
+  "276": {
+    "checklistHash": 2544178564,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.supplies.jpg"
+  },
+  "277": {
+    "checklistHash": 350766431,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.observation.jpg",
+    "displayProperties": {
+      "description": "Transiting from Futurescape to Aurora Reach is an upturned ground plate—jump down."
+    }
   }
 }

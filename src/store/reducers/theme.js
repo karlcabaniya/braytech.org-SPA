@@ -27,11 +27,11 @@ function updateScrollbars(theme) {
 
 export default function reducer(state = initial, action) {
   const prefersDark = getSystemPreference();
+  const user = action.payload === 'system' ? false : action.payload;
+  const active = !user ? prefersDark ? 'dark' : 'light' : user;
 
   switch (action.type) {
     case 'SET_THEME':
-      const user = action.payload === 'system' ? false : action.payload;
-      const active = !user ? prefersDark ? 'dark' : 'light' : user;
 
       ls.set('setting.theme', user);
 
@@ -42,10 +42,12 @@ export default function reducer(state = initial, action) {
         user,
         active
       };
+    case 'SET_SCROLLBARS':
+      updateScrollbars(action.payload);
+
+      return state;
     default:
 
-      updateScrollbars(state.active);
-      
       return state;
   }
 }

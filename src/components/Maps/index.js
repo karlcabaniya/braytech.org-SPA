@@ -156,10 +156,12 @@ class Maps extends React.Component {
     this.mounted = true;
 
     window.scrollTo(0, 0);
+    this.props.setScrollbars('dark');
   }
 
   componentWillUnmount() {
     this.mounted = false;
+    this.props.setScrollbars();
   }
 
   componentDidUpdate(p, s) {
@@ -440,6 +442,9 @@ function mapDispatchToProps(dispatch) {
     },
     changeCharacterId: (value) => {
       dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload: value });
+    },
+    setScrollbars: (value) => {
+      dispatch({ type: 'SET_SCROLLBARS', payload: value });
     },
   };
 }
