@@ -30,6 +30,7 @@ class ErrorBoundary extends React.Component {
     this.mounted = false;
   }
 
+  isBeta = process.env.REACT_APP_BETA === 'true';
   swAvailable = process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator;
 
   swInstalled = async () => {
@@ -64,7 +65,7 @@ class ErrorBoundary extends React.Component {
           <div className='view' id='error-boundary'>
             <div className='properties'>
               <div className='name'>{t('Error')}</div>
-              <div className='agent'>{packageJSON.version} / {navigator.userAgent}</div>
+              <div className='agent'>{packageJSON.version} / {this.isBeta === 'true' ? 'Beta' : 'Production'} / {navigator.userAgent}</div>
               <div className='description'>{this.state.error.message}</div>
               {this.state.error.stack ? (
                 <div className='stack'>

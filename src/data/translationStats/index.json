@@ -2,179 +2,85 @@
   "de": {
     "translated": 367,
     "notTranslated": 321,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "debug": {
     "translated": 688,
     "notTranslated": 0,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "en": {
     "translated": 688,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 685,
     "notTranslated": 3,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "es": {
     "translated": 685,
     "notTranslated": 3,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 660,
     "notTranslated": 28,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 671,
     "notTranslated": 17,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 596,
     "notTranslated": 92,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 549,
     "notTranslated": 139,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 686,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 656,
     "notTranslated": 32,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
     "translated": 679,
     "notTranslated": 9,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
     "translated": 456,
     "notTranslated": 232,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 373,
     "notTranslated": 315,
-    "added": [
-      "Data Recovered",
-      "Latent Memory Fragment",
-      "Latent Memory Fragments"
-    ],
-    "removed": [
-      "Lost Memory Fragment",
-      "Lost Memory Fragments"
-    ]
+    "added": [],
+    "removed": []
   }
 }
