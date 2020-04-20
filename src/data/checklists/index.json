@@ -1654,19 +1654,20 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Queens Court",
+      "bubbleHash": 27792021739,
       "checklistHash": 1387596458,
       "recordHash": 1842255613,
       "map": {
         "points": [
           {
-            "x": -1161,
-            "y": -584
+            "x": -1434,
+            "y": -656
           }
         ]
       },
       "sorts": {
         "destination": "The Dreaming City",
+        "bubble": "Queen's Court",
         "place": "The Dreaming City",
         "name": "Fideicide II",
         "number": 13

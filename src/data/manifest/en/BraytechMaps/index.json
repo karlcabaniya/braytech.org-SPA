@@ -11,7 +11,7 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 1091325847,
-    "screenshot": "/static/images/screenshots/portals/portal_1091325847.jpg"
+    "screenshot": "/static/images/screenshots/portals/portal_1.jpg"
   },
   "2": {
     "displayProperties": {
@@ -25,7 +25,7 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 278887670,
-    "screenshot": "/static/images/screenshots/portals/portal_278887670.jpg"
+    "screenshot": "/static/images/screenshots/portals/portal_2.jpg"
   },
   "3": {
     "displayProperties": {
@@ -39,7 +39,7 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 768261954,
-    "screenshot": "/static/images/screenshots/portals/portal_768261954.jpg"
+    "screenshot": "/static/images/screenshots/portals/portal_3.jpg"
   },
   "4": {
     "displayProperties": {
@@ -53,7 +53,10 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 27792021738,
-    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-1.jpg"
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-1.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=CxzxJlvZz8k"
+    }
   },
   "5": {
     "displayProperties": {
@@ -1451,6 +1454,27 @@
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.observation.jpg",
     "displayProperties": {
       "description": "Transiting from Futurescape to Aurora Reach is an upturned ground plate—jump down."
+    }
+  },
+  "278": {
+    "displayProperties": {
+      "name": "Queen's Court",
+      "description": "A portal to _Queen's Court_, Mara Sov's throne world."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 2779202173,
+    "bubbleHash": 768261954,
+    "screenshot": "/static/images/screenshots/portals/portal_278.jpg"
+  },
+  "279": {
+    "checklistHash": 1387596458,
+    "screenshot": "/static/images/screenshots/ahamkara-bones/ahamkara-bones_1387596458.jpg",
+    "displayProperties": {
+      "description": "Upon reaching _Queen's Court_, scale the wall to the left of the throne."
     }
   }
 }

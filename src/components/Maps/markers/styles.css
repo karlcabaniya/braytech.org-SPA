@@ -121,11 +121,11 @@
 }
 
 .map-omega.zoom--1 .leaflet-container .icon-marker .selected {
-  transform: scale(0.6) translateX(-83%) translateY(-86%);
+  transform: scale(0.5) translateX(-100%) translateY(-105%);
 }
 
 .map-omega.zoom--2 .leaflet-container .icon-marker .selected {
-  transform: scale(0.3) translateX(-165%) translateY(-170%);
+  transform: scale(0.3) translateX(-165%) translateY(-172%);
 }
 
 .map-omega .leaflet-container .icon-marker .selected circle {
@@ -334,6 +334,10 @@
 
 .map-omega .leaflet-container .icon-marker.dungeon .wrapper .icon .inner g {
   animation-direction: reverse;
+}
+
+.map-omega .leaflet-container .widgets {
+  cursor: default;
 }
 
 .map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper {  

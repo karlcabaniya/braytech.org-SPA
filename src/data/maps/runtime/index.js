@@ -255,6 +255,24 @@ export default (member, array) => {
           now: cycleInfo.week.ascendant === 6,
         },
       },
+      {
+        nodeHash: 278,
+        nodeType: 'portal',
+        map: {
+          points: [
+            {
+              x: -682,
+              y: 80,
+            },
+          ]
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.curse,
+          now: cycleInfo.week.curse === 3,
+        },
+      },
     ],
   };
 
