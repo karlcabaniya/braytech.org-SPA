@@ -2756,6 +2756,60 @@
       ]
     }
   },
+  "the-farm": {
+    "destination": {
+      "hash": 4188263703,
+      "name": "The Farm",
+      "id": "the-farm"
+    },
+    "map": {
+      "width": 3200,
+      "height": 3200,
+      "center": {
+        "x": -180,
+        "y": 260
+      },
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#6aaf80"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#6283bf"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": 0,
+          "y": 0,
+          "width": 1600,
+          "height": 1600,
+          "image": "/static/images/extracts/maps/map_the-farm.png"
+        }
+      ],
+      "bubbles": [
+        {
+          "name": "The Farm",
+          "id": "default",
+          "type": "region",
+          "nodes": []
+        }
+      ]
+    }
+  },
   "the-moon": {
     "destination": {
       "hash": 290444260,
@@ -3007,100 +3061,6 @@
               "type": "title",
               "x": -185,
               "y": -81
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "farm": {
-    "destination": {
-      "hash": 4188263703,
-      "name": "The Farm",
-      "id": "farm"
-    },
-    "map": {
-      "width": 3200,
-      "height": 2400,
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#61b8a8"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#6283bf"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": -395,
-          "y": -648,
-          "width": 2710,
-          "height": 2377,
-          "image": "web/01a3-000003A0_1.png",
-          "visible": false
-        }
-      ],
-      "bubbles": [
-        {
-          "name": "The Farm",
-          "id": "default",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "vendor",
-              "vendorHash": 3347378076,
-              "x": 3,
-              "y": 168
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1976548992,
-              "x": 156,
-              "y": 114
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 69482069,
-              "x": 192,
-              "y": 105
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3466008634,
-              "x": 66,
-              "y": 249
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3361454721,
-              "x": -78,
-              "y": -228
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1846565192,
-              "x": 237,
-              "y": -111
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1748437699,
-              "x": -159,
-              "y": -192
             }
           ]
         }

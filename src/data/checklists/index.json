@@ -8133,65 +8133,73 @@
       "extended": {}
     },
     {
-      "destinationHash": 1199524104,
-      "bubbleHash": 11995241041,
+      "destinationHash": 4188263703,
       "checklistHash": 2127236170,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -2,
+            "y": -252
+          }
+        ]
       },
       "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Farm",
+        "destination": "The Farm",
         "place": "Earth",
-        "name": "The Farm",
         "number": 161
       },
       "extended": {}
     },
     {
-      "destinationHash": 1199524104,
-      "bubbleHash": 11995241041,
+      "destinationHash": 4188263703,
       "checklistHash": 1711258227,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -327,
+            "y": -225
+          }
+        ]
       },
       "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Farm",
+        "destination": "The Farm",
         "place": "Earth",
-        "name": "The Farm",
         "number": 162
       },
       "extended": {}
     },
     {
-      "destinationHash": 1199524104,
-      "bubbleHash": 11995241041,
+      "destinationHash": 4188263703,
       "checklistHash": 1763506864,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -233,
+            "y": -462
+          }
+        ]
       },
       "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Farm",
+        "destination": "The Farm",
         "place": "Earth",
-        "name": "The Farm",
         "number": 163
       },
       "extended": {}
     },
     {
-      "destinationHash": 1199524104,
-      "bubbleHash": 11995241041,
+      "destinationHash": 4188263703,
       "checklistHash": 3249685481,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -431,
+            "y": -346
+          }
+        ]
       },
       "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Farm",
+        "destination": "The Farm",
         "place": "Earth",
-        "name": "The Farm",
         "number": 164
       },
       "extended": {}

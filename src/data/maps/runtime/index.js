@@ -51,6 +51,7 @@ export default (member, array) => {
   const nodes = {
     tower: [],
     edz: [],
+    'the-farm': [],
     'the-moon': [
       {
         nodeHash: 16,

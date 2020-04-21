@@ -1,8 +1,14 @@
 {
   "checklists": {
-    "3732386537": {
-      "displayProperties": {
-        "description": "To the right of the elevator."
+    "2127236170": {
+      "destinationHash": 4188263703,
+      "map": {
+        "points": [
+          {
+            "x": -2,
+            "y": -252
+          }
+        ]
       }
     }
   },

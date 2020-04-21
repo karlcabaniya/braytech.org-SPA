@@ -1476,5 +1476,21 @@
     "displayProperties": {
       "description": "Upon reaching _Queen's Court_, scale the wall to the left of the throne."
     }
+  },
+  "280": {
+    "checklistHash": 2127236170,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_161.jpg"
+  },
+  "281": {
+    "checklistHash": 1711258227,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_162.jpg"
+  },
+  "282": {
+    "checklistHash": 1763506864,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_163.jpg"
+  },
+  "283": {
+    "checklistHash": 3249685481,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_164.jpg"
   }
 }

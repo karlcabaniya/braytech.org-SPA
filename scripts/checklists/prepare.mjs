@@ -73,7 +73,7 @@ const presentationNodes = [
 ];
 
 const destinationHashOverrides = {
-  4188263703: 1199524104, // The Farm -> EDZ
+  //4188263703: 1199524104, // The Farm -> EDZ
 };
 
 const ascendantChallenges = [

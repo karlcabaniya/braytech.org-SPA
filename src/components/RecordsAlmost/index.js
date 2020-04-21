@@ -51,7 +51,7 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      if (manifest.DestinyRecordDefinition[hash].redacted) {
+      if (!manifest.DestinyRecordDefinition[hash] || manifest.DestinyRecordDefinition[hash].redacted) {
         return;
       }
 

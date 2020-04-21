@@ -137,6 +137,10 @@ export const destinations = [
     default: true,
   },
   {
+    id: 'the-farm',
+    destinationHash: 4188263703,
+  },
+  {
     id: 'the-moon',
     destinationHash: 290444260,
   },
