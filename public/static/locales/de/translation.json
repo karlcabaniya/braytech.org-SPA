@@ -685,6 +685,6 @@
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} läuft noch {{timeRemaining}}.",
   "{{seconds}} Seconds": "{{seconds}} Sekunden",
   "{{seconds}} Secs": "{{seconds}} Sek.",
-  "{{timePlayed}} days played": "{{time played}} Tage gespielt.",
+  "{{timePlayed}} days played": "{{timePlayed}} Tage gespielt.",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} wartet hier auf dich: {{destinationName}}"
 }
