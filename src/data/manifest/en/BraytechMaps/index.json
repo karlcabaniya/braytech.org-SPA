@@ -1492,5 +1492,26 @@
   "283": {
     "checklistHash": 3249685481,
     "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_164.jpg"
+  },
+  "284": {
+    "checklistHash": 4135304289,
+    "screenshot": "/static/images/screenshots/ghost-scans/ex-077-command_ghost-scans_135.jpg",
+    "displayProperties": {
+      "description": "At the rear of a room of platforms, prior to facing _Thaviks, the Depraved_ in his arena."
+    }
+  },
+  "285": {
+    "checklistHash": 332249208,
+    "screenshot": "/static/images/screenshots/ghost-scans/prodromus-down_ghost-scans_136.jpg",
+    "displayProperties": {
+      "description": "Before leaving the rear of the ship's crash site, find this object cliff-side, looking towards transmat."
+    }
+  },
+  "286": {
+    "checklistHash": 2871705493,
+    "screenshot": "/static/images/screenshots/ghost-scans/prodromus-down_ghost-scans_137.jpg",
+    "displayProperties": {
+      "description": "Find the data recorder in the cockpit of this ship."
+    }
   }
 }

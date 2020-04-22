@@ -363,7 +363,7 @@
   "Maps.ProposeChanges.Description": "Submit a proposal for changes to this node's data and improve _Maps_ for other Guardians.",
   "Maps.ProposeChanges.Form.Description.Placeholder": "Example: by a rock on the far side of the last room",
   "Maps.ProposeChanges.Form.Issues.Placeholder": "Example: the node is no longer accessible",
-  "Maps.ProposeChanges.Form.Screenshots": "Proposed screenshots must meet a strict quality criteria:\n- no visible HUD\n- no visible Guardians or equipment\n- no visible enemies\n- maximum video settings\n  - including a render resolution of 200%",
+  "Maps.ProposeChanges.Form.Screenshots": "Proposed screenshots must meet a strict quality criteria:\n- display resolution of 1920x1080\n- no visible HUD\n- no visible Guardians or equipment\n- no visible enemies\n- maximum video settings\n  - including a render resolution of 200%",
   "Match system": "Match system",
   "Matches": "Matches",
   "Matchmaking": "Matchmaking",

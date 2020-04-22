@@ -23,26 +23,32 @@ class RecordsAlmost extends React.Component {
     const ignores = [];
 
     // ignore collections badges
-    manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.badgesRootNode].children.presentationNodes.forEach(child => {
+    manifest.DestinyPresentationNodeDefinition[manifest.settings.destiny2CoreSettings.badgesRootNode].children.presentationNodes.forEach((child) => {
       ignores.push(manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].completionRecordHash);
-      manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].children.presentationNodes.forEach(subchild => {
+      manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].children.presentationNodes.forEach((subchild) => {
         ignores.push(manifest.DestinyPresentationNodeDefinition[subchild.presentationNodeHash].completionRecordHash);
       });
     });
 
     // ignore MMXIX bullshit
-    manifest.DestinyPresentationNodeDefinition[1002334440].children.records.forEach(record => {
-      ignores.push(record.recordHash)
+    manifest.DestinyPresentationNodeDefinition[1002334440].children.records.forEach((record) => {
+      ignores.push(record.recordHash);
+    });
+
+    // ignore seal completion records
+    manifest.DestinyPresentationNodeDefinition[1652422747].children.presentationNodes.forEach((node) => {
+      const definitionSeal = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
+      ignores.push(definitionSeal.completionRecordHash);
     });
 
     const records = {
       ...profileRecords,
-      ...characterRecords[member.characterId].records
+      ...characterRecords[member.characterId].records,
     };
 
     Object.entries(records).forEach(([key, recordData]) => {
       const hash = +key;
-      
+
       if (collectibles.hideUnobtainableRecords && unobtainable.indexOf(hash) > -1) {
         return;
       }
@@ -68,7 +74,7 @@ class RecordsAlmost extends React.Component {
       let progressValueDecimal = 0;
 
       if (recordData.intervalObjectives) {
-        const nextIndex = recordData.intervalObjectives.findIndex(o => !o.complete);
+        const nextIndex = recordData.intervalObjectives.findIndex((o) => !o.complete);
         const lastIndex = nextIndex - 1 || 0;
 
         if (!recordData.intervalObjectives[nextIndex]) return;
@@ -83,7 +89,7 @@ class RecordsAlmost extends React.Component {
         completionValueDiviser += 1;
         progressValueDecimal += Math.min(progress / completionValue, 1);
       } else if (recordData.objectives) {
-        recordData.objectives.forEach(objective => {
+        recordData.objectives.forEach((objective) => {
           completionValueDiviser += 1;
           progressValueDecimal += Math.min(objective.progress / objective.completionValue, 1);
         });
@@ -108,16 +114,16 @@ class RecordsAlmost extends React.Component {
         distance,
         score,
         commonality: manifest.statistics.triumphs?.[definitionRecord.hash] || 0,
-        recordHash: definitionRecord.hash
+        recordHash: definitionRecord.hash,
       });
     });
 
     if (sort === 1) {
-      almost = orderBy(almost, [record => record.score, record => record.distance], ['desc', 'desc']);
+      almost = orderBy(almost, [(record) => record.score, (record) => record.distance], ['desc', 'desc']);
     } else if (sort === 2) {
-      almost = orderBy(almost, [record => record.commonality, record => record.distance], ['desc', 'desc']);
+      almost = orderBy(almost, [(record) => record.commonality, (record) => record.distance], ['desc', 'desc']);
     } else {
-      almost = orderBy(almost, [record => record.distance, record => record.score], ['desc', 'desc']);
+      almost = orderBy(almost, [(record) => record.distance, (record) => record.score], ['desc', 'desc']);
     }
 
     almost = limit ? almost.slice(0, limit) : almost;
@@ -125,7 +131,7 @@ class RecordsAlmost extends React.Component {
     return (
       <>
         <ul className={cx('list record-items')}>
-          <Records selfLinkFrom={selfLinkFrom} hashes={almost.map(record => record.recordHash)} />
+          <Records selfLinkFrom={selfLinkFrom} hashes={almost.map((record) => record.recordHash)} />
         </ul>
         {this.props.pageLink ? (
           <ProfileLink className='button' to={{ pathname: '/triumphs/almost-complete', state: { from: '/triumphs' } }}>
@@ -140,7 +146,7 @@ class RecordsAlmost extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 

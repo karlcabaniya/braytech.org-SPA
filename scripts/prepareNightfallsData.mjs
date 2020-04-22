@@ -1,4 +1,4 @@
-import Manifest from './manifest';
+import Manifest from './manifest.js';
 import _ from 'lodash';
 
 async function run() {

@@ -7601,7 +7601,9 @@
         "name": "EX-077 Command",
         "number": 135
       },
-      "extended": {}
+      "extended": {
+        "video": "https://www.youtube.com/watch?v=KkJMJFnMQsw"
+      }
     },
     {
       "destinationHash": 126924919,
