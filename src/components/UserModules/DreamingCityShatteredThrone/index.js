@@ -46,7 +46,7 @@ class DreamingCityShatteredThrone extends React.Component {
           <h3>{t('The Shattered Throne')}</h3>
           <h4>{t('Triumphs')}</h4>
           <ul className='list record-items'>
-            <Records selfLinkFrom='/this-week' hashes={data.triumphs} ordered />
+            <Records selfLinkFrom='/this-week' hashes={data.triumphs} ordered showInvisible />
           </ul>
         </div>
       </>

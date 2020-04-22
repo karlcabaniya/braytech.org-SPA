@@ -215,7 +215,7 @@ class Records extends React.Component {
   };
 
   render() {
-    const { hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, forceDisplay = false } = this.props;
+    const { hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
     const recordsRequested = hashes;
     const characterId = member.characterId;
@@ -379,11 +379,11 @@ class Records extends React.Component {
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
       const enumeratedState = enumerateRecordState(enumerableState);
 
-      if (!forceDisplay && collectibles.hideInvisibleRecords && (enumeratedState.invisible || enumeratedState.obscured)) {
+      if (!showInvisible && collectibles.hideInvisibleRecords && (enumeratedState.invisible || enumeratedState.obscured)) {
         return;
       }
 
-      if (!forceDisplay && collectibles.hideCompletedRecords && enumeratedState.recordRedeemed) {
+      if (!showCompleted && collectibles.hideCompletedRecords && enumeratedState.recordRedeemed) {
         return;
       }
 
@@ -488,7 +488,7 @@ class Records extends React.Component {
               <div className='objectives'>{recordState.intervals.length ? recordState.intervalEl : recordState.objectives.map((e) => e.el)}</div>
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
-                  <Collectibles forceDisplay selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} />
+                  <Collectibles selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden  />
                 </ul>
               ) : null}
               {link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
@@ -498,7 +498,7 @@ class Records extends React.Component {
       }
     });
 
-    if (recordsRequested.length > 0 && recordsOutput.length === 0 && collectibles && collectibles.hideCompletedRecords && !forceDisplay) {
+    if (recordsRequested.length > 0 && recordsOutput.length === 0 && collectibles?.hideCompletedRecords && !showCompleted) {
       recordsOutput.push({
         element: (
           <li key='lol' className='all-completed'>

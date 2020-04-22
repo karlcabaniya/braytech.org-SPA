@@ -176,7 +176,7 @@ class Root extends React.Component {
               </div>
               <div className='recently-discovered'>
                 <ul className='list collection-items'>
-                  <Collectibles selfLinkFrom='/collections' forceDisplay hashes={profileCollectibles.recentCollectibleHashes.slice().reverse()} />
+                  <Collectibles selfLinkFrom='/collections' showCompleted hashes={profileCollectibles.recentCollectibleHashes.slice().reverse()} />
                 </ul>
               </div>
             </>

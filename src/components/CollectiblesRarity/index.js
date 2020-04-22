@@ -58,7 +58,7 @@ class CollectiblesRarity extends React.Component {
   }
 
   render() {
-    const { t, forceDisplay, collectibles } = this.props;
+    const { t, showCompleted, showInvisible, collectibles } = this.props;
     const inspect = this.props.inspect ? true : false;
 
     let output = [];
@@ -82,11 +82,11 @@ class CollectiblesRarity extends React.Component {
           state = scope.state;
         }
 
-        if (collectibles && collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !forceDisplay) {
+        if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
           return;
         }
 
-        if (collectibles && collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !forceDisplay) {
+        if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
           return;
         }
       }
@@ -118,7 +118,7 @@ class CollectiblesRarity extends React.Component {
 
     output = orderBy(output, [c => c.rarity], ['desc']);
 
-    if (output.length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+    if (output.length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
       output.push({
         el: (
           <li key='lol' className='all-completed'>

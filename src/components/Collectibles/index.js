@@ -85,7 +85,7 @@ class Collectibles extends React.Component {
   }
 
   render() {
-    const { member, collectibles, viewport, selfLinkFrom, forceDisplay, forceTooltip, inspect } = this.props;
+    const { member, collectibles, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
@@ -112,11 +112,11 @@ class Collectibles extends React.Component {
 
             rowState.push(state);
 
-            if (collectibles && collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !forceDisplay) {
+            if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
               return;
             }
 
-            if (collectibles && collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !forceDisplay) {
+            if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
               return;
             }
 
@@ -171,7 +171,7 @@ class Collectibles extends React.Component {
 
           row = row.filter((c) => c).map((obj) => obj.element);
 
-          if (row.filter((c) => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+          if (row.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
             row.push(
               <li key='lol' className='all-completed'>
                 <div className='properties'>
@@ -207,11 +207,11 @@ class Collectibles extends React.Component {
           const scope = profileCollectibles?.collectibles[child.collectibleHash] ? profileCollectibles.collectibles[child.collectibleHash] : characterCollectibles?.[characterId].collectibles[child.collectibleHash];
           const state = scope?.state || 0;
 
-          if (collectibles && collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !forceDisplay) {
+          if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
             return;
           }
 
-          if (collectibles && collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !forceDisplay) {
+          if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
             return;
           }
 
@@ -271,7 +271,7 @@ class Collectibles extends React.Component {
           }
         });
 
-        if (collectiblesOutput.filter((c) => c).length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+        if (collectiblesOutput.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
           collectiblesOutput.push({
             element: (
               <li key='lol' className='all-completed'>
@@ -294,11 +294,11 @@ class Collectibles extends React.Component {
         const scope = profileCollectibles?.collectibles[hash] ? profileCollectibles.collectibles[hash] : characterCollectibles?.[characterId].collectibles[hash];
         const state = scope?.state || 0;
 
-        if (collectibles && collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !forceDisplay) {
+        if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
           return;
         }
 
-        if (collectibles && collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !forceDisplay) {
+        if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
           return;
         }
 
@@ -334,7 +334,7 @@ class Collectibles extends React.Component {
         });
       });
 
-      if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+      if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
         collectiblesOutput.push({
           element: (
             <li key='lol' className='all-completed'>

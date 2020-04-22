@@ -98,6 +98,7 @@
 
 .map-omega .control.characters {
   margin: 0 0 1rem;
+  user-select: none;
 }
 
 .map-omega .control.characters li {
@@ -151,6 +152,7 @@
 
 .map-omega .control.destinations {
   position: relative;
+  user-select: none;
 }
 
 .map-omega .control.destinations li .text {

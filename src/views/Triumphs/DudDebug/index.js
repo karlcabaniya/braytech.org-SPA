@@ -9,7 +9,7 @@ class DudDebug extends React.Component {
       <>
         <div className='dud-debug'>
           <ul className='list record-items'>
-            <Records hashes={duds} forceDisplay />
+            <Records hashes={duds} showCompleted showInvisible />
           </ul>
         </div>
       </>
