@@ -10,7 +10,7 @@
       {
         "hash": 11995241042,
         "displayProperties": {
-          "name": "Echion Battledeck"
+          "name": "Cubierta de asalto Echion"
         }
       }
     ]
@@ -20,7 +20,7 @@
       {
         "hash": 1269249191,
         "displayProperties": {
-          "name": "The Inverted Spire"
+          "name": "La Espira Invertida"
         }
       },
       {
@@ -32,7 +32,7 @@
       {
         "hash": 1269249193,
         "displayProperties": {
-          "name": "Pozo de Polvo"
+          "name": "Pozo de polvo"
         }
       },
       {
@@ -44,7 +44,7 @@
       {
         "hash": 1269249195,
         "displayProperties": {
-          "name": "Well of Stars"
+          "name": "Pozo de estrellas"
         }
       }
     ]
@@ -60,7 +60,7 @@
       {
         "hash": 3598542751,
         "displayProperties": {
-          "name": "Sjursrest"
+          "name": "Descanso de Sjur"
         }
       }
     ]
@@ -76,7 +76,7 @@
       {
         "hash": 27792021732,
         "displayProperties": {
-          "name": "Ouroborea"
+          "name": "Ouróborea"
         }
       },
       {
@@ -107,6 +107,18 @@
         "hash": 27792021737,
         "displayProperties": {
           "name": "Guarnición Cimeria"
+        }
+      },
+      {
+        "hash": 27792021738,
+        "displayProperties": {
+          "name": "Plano ascendente"
+        }
+      },
+      {
+        "hash": 27792021739,
+        "displayProperties": {
+          "name": "Corte de la Reina"
         }
       }
     ]
