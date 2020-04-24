@@ -1,86 +1,128 @@
 {
   "de": {
-    "translated": 414,
+    "translated": 412,
     "notTranslated": 274,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "debug": {
-    "translated": 688,
+    "translated": 686,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "en": {
-    "translated": 688,
+    "translated": 686,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "es-mx": {
-    "translated": 685,
-    "notTranslated": 3,
+    "translated": 686,
+    "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "es": {
-    "translated": 685,
-    "notTranslated": 3,
+    "translated": 686,
+    "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "fr": {
-    "translated": 660,
+    "translated": 658,
     "notTranslated": 28,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "it": {
-    "translated": 671,
+    "translated": 669,
     "notTranslated": 17,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "ja": {
-    "translated": 596,
+    "translated": 594,
     "notTranslated": 92,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "ko": {
-    "translated": 549,
+    "translated": 547,
     "notTranslated": 139,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 686,
+    "notTranslated": 684,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "pt-br": {
-    "translated": 656,
+    "translated": 654,
     "notTranslated": 32,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "ru": {
-    "translated": 679,
-    "notTranslated": 9,
+    "translated": 686,
+    "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "zh-chs": {
-    "translated": 456,
+    "translated": 454,
     "notTranslated": 232,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   },
   "zh-cht": {
-    "translated": 373,
+    "translated": 371,
     "notTranslated": 315,
     "added": [],
-    "removed": []
+    "removed": [
+      "Patreon supporters",
+      "Special thanks"
+    ]
   }
 }
