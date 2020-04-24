@@ -70,12 +70,17 @@ class PresentationNode extends React.Component {
           const scopeRecord = definitionRecord.scope || 0;
           const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
+          // skip hardcoded duds
           if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+
+          // skip hardcoded unobtainables
           if (recordData.intervalObjectives?.length) {
-            if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+            if (collectibles.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return false;
           } else {
-            if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+            if (collectibles.hideUnobtainableRecords && !enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
           }
+
+          // skip those with the state of...
           if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
 
           return recordData;

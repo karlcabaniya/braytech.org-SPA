@@ -238,6 +238,24 @@ export default (member, array) => {
         },
       },
       {
+        nodeHash: 7,
+        nodeType: 'portal',
+        map: {
+          points: [
+            {
+              x: 57,
+              y: -789,
+            },
+          ]
+        },
+        availability: {
+          type: 'cycle',
+          frequency: 'week',
+          cycleLength: cycleInfo.cycle.ascendant,
+          now: cycleInfo.week.ascendant === 2,
+        },
+      },
+      {
         nodeHash: 15,
         nodeType: 'portal',
         map: {

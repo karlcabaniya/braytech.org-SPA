@@ -31,7 +31,7 @@ i18next
     fallbackLng: _defaultLanguage,
 
     backend: {
-      loadPath: '/static/locales/{{lng}}/{{ns}}.json'
+      loadPath: '/static/locales/{{lng}}/{{ns}}.json',
     },
 
     // allow keys to be phrases having `:`, `.`
@@ -40,14 +40,14 @@ i18next
 
     interpolation: {
       escapeValue: false,
-      format: function(value, format, lng) {
+      format: function (value, format, lng) {
         // if (format === 'bold') return <strong>{value}</strong>;
-      }
+      },
     },
     react: {
       wait: true,
-      useSuspense: true
-    }
+      useSuspense: true,
+    },
   });
 
 i18next.getCurrentLanguage = getCurrentLanguage;
@@ -60,39 +60,39 @@ export const t = (key, options) => i18next.t(key, options || { skipInterpolation
 const durationKeys = {
   days: {
     single: t('1 Day'),
-    plural: days => t('{{days}} Days', { days })
+    plural: (days) => t('{{days}} Days', { days }),
   },
   hours: {
     single: t('1 Hour'),
-    plural: hours => t('{{hours}} Hours', { hours })
+    plural: (hours) => t('{{hours}} Hours', { hours }),
   },
   minutes: {
     single: t('1 Minute'),
-    plural: minutes => t('{{minutes}} Minutes', { minutes })
+    plural: (minutes) => t('{{minutes}} Minutes', { minutes }),
   },
   seconds: {
     single: t('1 Second'),
-    plural: seconds => t('{{seconds}} Seconds', { seconds })
-  }
+    plural: (seconds) => t('{{seconds}} Seconds', { seconds }),
+  },
 };
 
 const durationKeysAbr = {
   days: {
     single: t('1 Day'),
-    plural: days => t('{{days}} Days', { days })
+    plural: (days) => t('{{days}} Days', { days }),
   },
   hours: {
     single: t('1 Hr'),
-    plural: hours => t('{{hours}} Hrs', { hours })
+    plural: (hours) => t('{{hours}} Hrs', { hours }),
   },
   minutes: {
     single: t('1 Min'),
-    plural: minutes => t('{{minutes}} Mins', { minutes })
+    plural: (minutes) => t('{{minutes}} Mins', { minutes }),
   },
   seconds: {
     single: t('1 Sec'),
-    plural: seconds => t('{{seconds}} Secs', { seconds })
-  }
+    plural: (seconds) => t('{{seconds}} Secs', { seconds }),
+  },
 };
 
 function finalString(value) {
@@ -175,7 +175,7 @@ export const timestampToDuration = (timestamp, start = moment()) => {
     hours: duration.get('hours'),
     minutes: duration.get('minutes'),
     seconds: duration.get('seconds'),
-    milliseconds: duration.get('milliseconds')
+    milliseconds: duration.get('milliseconds'),
   };
 };
 
@@ -190,14 +190,14 @@ export const timestampToDuration = (timestamp, start = moment()) => {
 //         momentAfter.hour(3);
 //         momentAfter.minute(0);
 //         momentAfter.second(0);
-  
+
 //   const isAfter = moment().tz('Australia/Brisbane').isAfter(momentAfter, 'second');
 //   const isBefore = moment().tz('Australia/Brisbane').isBefore(momentBefore, 'second');
 
 //   return isAfter && isBefore;
 // };
 
-export const unixTimestampToDuration = seconds => {
+export const unixTimestampToDuration = (seconds) => {
   const duration = moment.duration(seconds);
 
   return {
@@ -207,15 +207,13 @@ export const unixTimestampToDuration = seconds => {
     hours: duration.get('hours'),
     minutes: duration.get('minutes'),
     seconds: duration.get('seconds'),
-    milliseconds: duration.get('milliseconds')
+    milliseconds: duration.get('milliseconds'),
   };
 };
 
 export const fromNow = (timestamp, abbreviated = false) => {
   if (abbreviated) {
-    return moment(timestamp)
-      .locale('rel-abr')
-      .fromNow();
+    return moment(timestamp).locale('rel-abr').fromNow();
   } else {
     return moment(timestamp)
       .locale(['zh-chs', 'zh-cht'].indexOf(i18next.language) > -1 ? 'zh-cn' : i18next.language)
@@ -223,14 +221,21 @@ export const fromNow = (timestamp, abbreviated = false) => {
   }
 };
 
-function escapeString(value) {
-  const characters = ['#', '##', '###', '####', '#####', '######', '#', '**', '__', '*', '_', '***', '___', '__*', '**_', '>', '>>', '(', ')', '[', ']', '`', '``', '```', '---', '-', '+'];
+function escapeRegExp(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&');
+}
 
-  characters.forEach(character => {
-    const test = new RegExp(`(?<![\\\\])[\\${character}]`, 'g');
-    
+function escapeString(value, severe) {
+  const full = ['#', '##', '###', '####', '#####', '######', '#', '**', '__', '*', '_', '***', '___', '__*', '**_', '>', '>>', '(', ')', '[', ']', '`', '``', '```', '---', '-', '+/', '/*', '*/'];
+  const lite = ['#', '##', '###', '####', '#####', '######', '#', '**', '*', '__', '___', '__*', '**_', '`', '``', '```', '---'];
+
+  const patterns = severe ? full : lite;
+
+  patterns.forEach((text) => {
+    const test = new RegExp(`(?<![\\\\])${escapeRegExp(text)}`, 'g');
+
     value = value.replace(test, '\\$&');
-  })
+  });
 
   return value;
 }
@@ -238,15 +243,17 @@ function escapeString(value) {
 export function BungieText(props) {
   const { className, value = '', ...rest } = props;
 
-  return <ReactMarkdown className={className} source={stringToIcons(value, true)} {...rest} />
+  return <ReactMarkdown className={className} source={stringToIcons(value, true)} {...rest} />;
 }
 
 export function BraytechText(props) {
-  const { className, value = '', textOnly, ...rest } = props;
+  const { className, value = '', textOnly, escapeValue, ...rest } = props;
 
   const disallowedTypes = textOnly && noParagraphs;
 
-  return <ReactMarkdown className={className} source={stringToIcons(value, true)} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />
+  const source = escapeValue ? stringToIcons(escapeString(value), true) : stringToIcons(value, true);
+
+  return <ReactMarkdown className={className} source={source} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />;
 }
 
 export function withinString(type, activityName) {

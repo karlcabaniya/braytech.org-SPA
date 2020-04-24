@@ -2002,6 +2002,12 @@
               "nodeHash": 2,
               "x": 45,
               "y": -572
+            },
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 6,
+              "x": -99,
+              "y": -767
             }
           ]
         },

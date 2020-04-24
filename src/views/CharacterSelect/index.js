@@ -20,7 +20,7 @@ class CharacterSelect extends React.Component {
     window.scrollTo(0, 0);
   }
 
-  handler_clickCharacter = characterId => e => {
+  handler_clickCharacter = (characterId) => (e) => {
     const { membershipType, membershipId } = this.props.member;
 
     this.props.setMemberCharacterId({ membershipType, membershipId, characterId });
@@ -28,7 +28,7 @@ class CharacterSelect extends React.Component {
     ls.set('setting.profile', { membershipType, membershipId, characterId });
   };
 
-  handler_clickProfile = (membershipType, membershipId, displayName) => async e => {
+  handler_clickProfile = (membershipType, membershipId, displayName) => async (e) => {
     window.scrollTo(0, 0);
 
     this.props.setMember({ membershipType, membershipId });
@@ -38,12 +38,13 @@ class CharacterSelect extends React.Component {
     }
   };
 
-  resultsListItems = profiles => profiles.map((p, i) => (
-    <li key={i} className='linked' onClick={this.handler_clickProfile(p.membershipType, p.membershipId, p.displayName)}>
-      <div className={cx('icon', `destiny-platform_${enums.platforms[p.membershipType]}`)} />
-      <div className='displayName'>{p.displayName}</div>
-    </li>
-  ));
+  resultsListItems = (profiles) =>
+    profiles.map((profile, p) => (
+      <li key={p} className='linked' onClick={this.handler_clickProfile(profile.membershipType, profile.membershipId, profile.displayName)}>
+        <div className={cx('icon', `destiny-platform_${enums.platforms[profile.membershipType]}`)} />
+        <div className='displayName'>{profile.displayName}</div>
+      </li>
+    ));
 
   render() {
     const { member, viewport, location } = this.props;
@@ -53,19 +54,17 @@ class CharacterSelect extends React.Component {
 
     const savedProfile = ls.get('setting.profile') || {};
 
-    const profileCharacterSelect = (
+    const profileCharacterSelect = loading ? (
+      <Spinner />
+    ) : member.data && member.characterId ? (
       <>
-        {loading ? (
-          <Spinner />
-        ) : member.data && member.characterId ? (
-          <>
-            <div className='sub-header'>
-              <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
-            </div>
-            {member.data && <Profile member={member} onClickCharacter={this.handler_clickCharacter} location={location} />}
-          </>
-        ) : null}
+        <div className='sub-header'>
+          <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
+        </div>
+        {member.data && <Profile member={member} onClickCharacter={this.handler_clickCharacter} location={location} />}
       </>
+    ) : (
+      false
     );
 
     return (
@@ -79,11 +78,7 @@ class CharacterSelect extends React.Component {
           <div className='device'>
             <Common.Braytech />
           </div>
-          {reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? (
-            <div className='module profile'>
-              {profileCharacterSelect}
-            </div>
-          ) : null}
+          {reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? <div className='module profile'>{profileCharacterSelect}</div> : null}
           <div className='module search'>
             {error && <ProfileError error={error} />}
             <div className='sub-header'>
@@ -92,11 +87,7 @@ class CharacterSelect extends React.Component {
             <BungieAuthMini />
             <ProfileSearch resultsListItems={this.resultsListItems} />
           </div>
-          {!reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? (
-            <div className='module profile'>
-              {profileCharacterSelect}
-            </div>
-          ) : null}
+          {!reverseUI && profileCharacterSelect && !(error && !error.recoverable) ? <div className='module profile'>{profileCharacterSelect}</div> : null}
         </div>
       </div>
     );
@@ -106,18 +97,18 @@ class CharacterSelect extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMember: value => {
+    setMember: (value) => {
       dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: value });
     },
-    setMemberCharacterId: value => {
+    setMemberCharacterId: (value) => {
       dispatch({ type: 'MEMBER_SET_CHARACTERID', payload: value });
-    }
+    },
   };
 }
 
