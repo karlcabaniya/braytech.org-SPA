@@ -47,7 +47,6 @@ import Index from './views/Index';
 import CharacterSelect from './views/CharacterSelect';
 import Settings from './views/Settings';
 import FAQ from './views/FAQ';
-import Credits from './views/Credits';
 import OOB from './views/OOB';
 
 import Read from './views/Read';
@@ -59,7 +58,7 @@ import Commonality from './views/Commonality';
 import Test from './views/Test';
 
 // Slow down lazy imports for testing purposes
-export function slowImport(value, ms = 3000) {
+export function slowImport(value, ms = 1) {
   if (process.env.NODE_ENV === 'development') {
     return new Promise((resolve) => {
       setTimeout(() => resolve(value), ms);
@@ -71,7 +70,7 @@ export function slowImport(value, ms = 3000) {
 
 // Lazy components
 const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
-const Maps = React.lazy(() => import('./views/Maps'));
+const Maps = React.lazy(() => slowImport(import('./views/Maps')));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
 // Redirects /triumphs to /0/0000000000/0000000000/triumphs
@@ -399,7 +398,6 @@ class App extends React.Component {
                   <Route path='/commonality' exact component={Commonality} />
                   <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                   <Route path='/faq' exact component={FAQ} />
-                  <Route path='/credits' exact component={Credits} />
 
                   <Route path='/oob' component={OOB} />
                   <Route path='/test' component={Test} />

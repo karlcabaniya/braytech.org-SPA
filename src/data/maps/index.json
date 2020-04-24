@@ -822,8 +822,8 @@
       "width": 2800,
       "height": 2800,
       "center": {
-        "x": 300,
-        "y": 150
+        "x": 140,
+        "y": 120
       },
       "layers": [
         {
@@ -2002,6 +2002,12 @@
               "nodeHash": 2,
               "x": 45,
               "y": -572
+            },
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 6,
+              "x": -99,
+              "y": -767
             }
           ]
         },

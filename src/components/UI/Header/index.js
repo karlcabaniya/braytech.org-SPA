@@ -439,7 +439,7 @@ class Header extends React.Component {
                   Ishtar Collective
                 </div> */}
               </div>
-              <Footer minimal linkOnClick={this.handler_closeNav} />
+              <Footer handler={this.handler_closeNav} />
             </div>
           </div>
         ) : null}

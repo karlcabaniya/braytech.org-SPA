@@ -265,5 +265,45 @@
         "dismiss": true
       }
     ]
+  },
+  {
+    "id": "towdv7vfuogc3ua3hbmasu",
+    "date": "2020-04-22T18:22:27.603Z",
+    "expiry": 432000000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Important changes to Triumphs",
+      "description": "In specific areas of Braytech, such as the _This Week_ view, I've chosen to explicitly forcibly display records even when they're complete. People didn't like that it didn't honour their preference for hiding redeemed (completed) triumphs.\n\nNow, Braytech can honour your preference while also forcibly displaying triumphs that would otherwise be invisible, such as those for _Dreaming City_ activities.\n\nAdditionally, completion records for seals will no longer appear as apart of the _Almost Complete Triumphs_ features. Not all of us are going to become _Unbroken_.\n\nDon't forget, various visibility options can be found under the _Settings_ view.\n\nIf you notice anything odd or out of place, please shout out either on Twitter or Discord.",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "type": "external",
+        "target": "https://twitter.com/BraytechHelp",
+        "text": "Go to Twitter",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
+  },
+  {
+    "id": "eq96oionp5sq2moye0igmp",
+    "date": "2020-04-22T18:22:36.157Z",
+    "expiry": 432000000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Warlock Superiority",
+      "image": "/static/images/notifications/guardian-games-1.png",
+      "description": "Warlocks are the superior class. Hunters are bad. Bad and overpowered.",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "text": "I agree",
+        "type": "agreement",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
   }
 ]

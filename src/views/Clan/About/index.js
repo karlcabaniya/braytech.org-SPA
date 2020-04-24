@@ -103,7 +103,7 @@ class AboutView extends React.Component {
           <div className='members'>
             {t('Founded')} {moment(group.creationDate).format('MMMM YYYY')} / {group.memberCount} {t('Members')}
           </div>
-          <BraytechText className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} />
+          <BraytechText className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} escapeValue />
         </div>
         <div className='module progression'>
           <div className='sub-header'>

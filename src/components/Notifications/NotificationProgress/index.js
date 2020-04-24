@@ -37,14 +37,14 @@ class NotificationProgress extends React.Component {
     //   className: ['record redeemed'],
     //   hash: 945314810,
     //   number: 0,
-    //   timedOut: false
+    //   hasTimedOut: false
     // }
     progress: {
       type: undefined,
       hash: undefined,
       className: [],
       number: 0,
-      timedOut: true
+      hasTimedOut: true
     }
   };
 
@@ -53,7 +53,7 @@ class NotificationProgress extends React.Component {
   // this method hides the toast after 10 seconds and unloads the setTimeout
   // if there are any changes to component props, it may also be called by componentDidUpdate
   timeOut = () => {
-    if (!this.timer && !this.state.progress.timedOut && this.state.progress.hash) {
+    if (!this.timer && !this.state.progress.hasTimedOut && this.state.progress.hash) {
       this.timer = setTimeout((prevState = this.state) => {
         this.timer = false;
 
@@ -62,7 +62,7 @@ class NotificationProgress extends React.Component {
         this.setState(p => ({
           progress: {
             ...p.progress,
-            timedOut: true
+            hasTimedOut: true
           }
         }));
       }, 10000);
@@ -86,7 +86,7 @@ class NotificationProgress extends React.Component {
       return;
     }
 
-    if (!this.state.progress.timedOut) {
+    if (!this.state.progress.hasTimedOut) {
       // console.log('not timed out yet');
       return;
     }
@@ -102,7 +102,7 @@ class NotificationProgress extends React.Component {
       type: false,
       hash: false,
       number: 0,
-      timedOut: false
+      hasTimedOut: false
     };
 
     if (Object.keys(records).length > 0) {
@@ -128,7 +128,7 @@ class NotificationProgress extends React.Component {
       });
     }
 
-    if (this.state.progress.timedOut && progress.type && this.state.progress.hash !== progress.hash) {
+    if (this.state.progress.hasTimedOut && progress.type && this.state.progress.hash !== progress.hash) {
       this.setState({
         progress
       });
@@ -136,7 +136,7 @@ class NotificationProgress extends React.Component {
   }
 
   render() {
-    const { type, className, hash, number, timedOut } = this.state.progress;
+    const { type, className, hash, number, hasTimedOut } = this.state.progress;
 
     if (type === 'record') {
       const definitionRecord = manifest.DestinyRecordDefinition[hash];
@@ -144,7 +144,7 @@ class NotificationProgress extends React.Component {
       const link = selfLinkRecord(definitionRecord.hash);     
 
       return (
-        <div id='notification-progress' className={cx(className, { lore: definitionRecord.loreHash, timedOut: timedOut })}>
+        <div id='notification-progress' className={cx(className, { lore: definitionRecord.loreHash, 'timed-out': hasTimedOut })}>
           <div className='item'>
             <div className='properties'>
               <div className='name'>{definitionRecord?.displayProperties.name}</div>

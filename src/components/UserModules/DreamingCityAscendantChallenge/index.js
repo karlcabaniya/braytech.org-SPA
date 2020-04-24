@@ -150,7 +150,7 @@ class DreamingCityAscendantChallenge extends React.Component {
         </h3>
         <h4>{t('Triumphs')}</h4>
         <ul className='list record-items'>
-          <Records selfLinkFrom='/this-week' hashes={rotation[cycleInfo.week.ascendant].triumphs} ordered />
+          <Records selfLinkFrom='/this-week' hashes={rotation[cycleInfo.week.ascendant].triumphs} ordered showInvisible />
         </ul>
       </>
     );

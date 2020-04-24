@@ -75,7 +75,7 @@
   "6": {
     "displayProperties": {
       "name": "Forfeit Shrine",
-      "description": "???"
+      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nSubdue the major blight by depositing all three charges beneath. Eliminate the knights."
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -83,7 +83,11 @@
       "hash": "ascendant-challenge"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 27792021738
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_forfeit-shrine-1.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=0MRCoHQE0OE"
+    }
   },
   "7": {
     "displayProperties": {
@@ -95,7 +99,9 @@
       "name": "Portal",
       "hash": "portal"
     },
-    "destinationHash": 2779202173
+    "destinationHash": 2779202173,
+    "bubbleHash": 278887670,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_forfeit-shrine-2.jpg"
   },
   "8": {
     "displayProperties": {
@@ -349,14 +355,14 @@
   },
   "33": {
     "displayProperties": {
-      "description": "Up in the very top left corner, on the rocks."
+      "description": "Left of the lost sector's entrance, poorly lit, behind some crates."
     },
     "checklistHash": 576743835,
     "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_23.jpg"
   },
   "34": {
     "displayProperties": {
-      "description": "Left of the lost sector's entrance, poorly lit, behind some crates."
+      "description": "Up in the very top left corner, on the rocks."
     },
     "checklistHash": 3307732497,
     "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_24.jpg"
@@ -1492,5 +1498,37 @@
   "283": {
     "checklistHash": 3249685481,
     "screenshot": "/static/images/screenshots/ghost-scans/the-farm_ghost-scans_164.jpg"
+  },
+  "284": {
+    "checklistHash": 4135304289,
+    "screenshot": "/static/images/screenshots/ghost-scans/ex-077-command_ghost-scans_135.jpg",
+    "displayProperties": {
+      "description": "At the rear of a room of platforms, prior to facing _Thaviks, the Depraved_ in his arena."
+    }
+  },
+  "285": {
+    "checklistHash": 332249208,
+    "screenshot": "/static/images/screenshots/ghost-scans/prodromus-down_ghost-scans_136.jpg",
+    "displayProperties": {
+      "description": "Before leaving the rear of the ship's crash site, find this object cliff-side, looking towards transmat."
+    }
+  },
+  "286": {
+    "checklistHash": 2871705493,
+    "screenshot": "/static/images/screenshots/ghost-scans/prodromus-down_ghost-scans_137.jpg",
+    "displayProperties": {
+      "description": "Find the data recorder in the cockpit of this ship."
+    }
+  },
+  "287": {
+    "checklistHash": 89704164,
+    "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_31.jpg"
+  },
+  "288": {
+    "checklistHash": 463653643,
+    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_36.jpg",    
+    "displayProperties": {
+      "description": "Push past the lost sector entry junction and continue along the gangway."
+    }
   }
 }

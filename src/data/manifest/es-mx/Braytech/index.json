@@ -15,14 +15,6 @@
     "itemType": 1,
     "itemTypeDisplayName": "Plataforma"
   },
-  "platform_pc": {
-    "displayProperties": {
-      "name": "PC",
-      "description": "La plataforma a la que pertenece este perfil."
-    },
-    "itemType": 1,
-    "itemTypeDisplayName": "Plataforma"
-  },
   "platform_steam": {
     "displayProperties": {
       "name": "Steam",
@@ -110,6 +102,13 @@
     "displayProperties": {
       "name": "Reinicios totales",
       "description": "Los reinicios de todas las temporadas. Se cuenta a partir de la Temporada 4."
+    },
+    "itemType": 1
+  },
+  "destiny_tracker_elo": {
+    "displayProperties": {
+      "name": "Elo de Destiny Tracker",
+      "description": "Las puntuaciones Elo de una página web externa, _Destiny Tracker_. _Destiny Tracker_ proporciona puntuaciones Elo para todos los jugadores de Destiny que participan en las actividades de _Crisol_ y _Gambito_."
     },
     "itemType": 1
   },
@@ -292,5 +291,11 @@
     "hash": 2149082452,
     "redacted": false,
     "blacklisted": false
+  },
+  "latent-memories": {
+    "displayProperties": {
+      "name": "Recuerdos latentes",
+      "description": "Misteriosos nodos de prueba están dispersos por todo Marte. ¿Cuál es su propósito?"
+    }
   }
 }

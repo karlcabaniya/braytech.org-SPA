@@ -31,7 +31,7 @@ class PlugSet extends React.Component {
   }
 
   render() {
-    const { t, member, set, plugs, forceDisplay, collectibles } = this.props;
+    const { t, member, set, plugs, showCompleted, collectibles } = this.props;
 
     let hashSet = set;
     if (/^emotes_/.test(set)) hashSet = '3224618006';
@@ -47,7 +47,7 @@ class PlugSet extends React.Component {
 
       const completed = data.find(p => p.plugItemHash === definitionItem.hash && p.enabled);
 
-      if (collectibles && collectibles.hideCompletedCollectibles && completed && !forceDisplay) {
+      if (collectibles && collectibles.hideCompletedCollectibles && completed && !showCompleted) {
         return;
       }
 
@@ -71,7 +71,7 @@ class PlugSet extends React.Component {
     });
     
 
-    if (output.length === 0 && collectibles && collectibles.hideCompletedCollectibles && !forceDisplay) {
+    if (output.length === 0 && collectibles && collectibles.hideCompletedCollectibles && !showCompleted) {
       output.push(
         <li key='lol' className='all-completed'>
           <div className='properties'>

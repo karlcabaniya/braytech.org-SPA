@@ -96,7 +96,7 @@ class Commonality extends React.Component {
                   <div>{t('Records')}</div>
                 </div>
                 <ul className='list record-items'>
-                  <Records hashes={this.records.slice(0, 30).map(([hash, rarity]) => hash)} forceDisplay />
+                  <Records hashes={this.records.slice(0, 30).map(([hash, rarity]) => hash)} showCompleted showInvisible />
                 </ul>
               </div>
               <div className='module'>
@@ -104,7 +104,7 @@ class Commonality extends React.Component {
                   <div>{t('Collectibles')}</div>
                 </div>
                 <ul className='list collection-items'>
-                  <Collectibles hashes={this.collectibles.slice(0, 135).map(([hash, rarity]) => hash)} forceDisplay />
+                  <Collectibles hashes={this.collectibles.slice(0, 135).map(([hash, rarity]) => hash)} showCompleted showInvisible />
                 </ul>
               </div>
             </div>

@@ -367,7 +367,8 @@ class Maps extends React.Component {
   };
 
   handler_map_viewportChanged = (viewport) => {
-    if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
+    // if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
+    if (typeof viewport.zoom === 'number') this.setState(p => ({ viewport: { ...p.viewport, zoom: viewport.zoom } }));
   };
 
   handler_map_viewportChange = (e) => {
@@ -391,7 +392,7 @@ class Maps extends React.Component {
         <div className='leaflet-pane leaflet-background-pane tinted'>
           <BackgroundLayer {...destination} />
         </div>
-        <Map viewport={this.state.viewport} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
+        <Map center={this.state.viewport.center} zoom={this.state.viewport.zoom} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
           <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
           <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />

@@ -29,6 +29,7 @@ export default function reducer(state = initial, action) {
   const prefersDark = getSystemPreference();
   const user = action.payload === 'system' ? false : action.payload;
   const active = !user ? prefersDark ? 'dark' : 'light' : user;
+  const root = document.documentElement;
 
   switch (action.type) {
     case 'SET_THEME':
@@ -47,6 +48,8 @@ export default function reducer(state = initial, action) {
 
       return state;
     default:
+      // set initial
+      if (!root.style.getPropertyValue('--scrollbar-track')) updateScrollbars(state.active);
 
       return state;
   }

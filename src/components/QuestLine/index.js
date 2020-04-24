@@ -194,7 +194,7 @@ class QuestLine extends React.Component {
                               <ProgressBar objectiveHash={definitionObjective.hash} {...progress} />
                               {relatedRecords && relatedRecords.length ? (
                                 <ul className='list record-items'>
-                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} forceDisplay hashes={relatedRecords} />
+                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} showCompleted hashes={relatedRecords} />
                                 </ul>
                               ) : null}
                             </React.Fragment>
@@ -268,7 +268,7 @@ class QuestLine extends React.Component {
                               <ProgressBar {...progress} />
                               {relatedRecords && relatedRecords.length ? (
                                 <ul className='list record-items'>
-                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} forceDisplay hashes={relatedRecords} />
+                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} showCompleted hashes={relatedRecords} />
                                 </ul>
                               ) : null}
                             </React.Fragment>

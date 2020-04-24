@@ -1123,5 +1123,10 @@
     "date": "2020-04-17T08:29:52.813Z",
     "version": "2.23.8",
     "content": "- more _Maps_ work"
+  },
+  {
+    "date": "2020-04-22T18:22:27.603Z",
+    "version": "2.23.30",
+    "content": "I mean, there's been many changes since the last time I update this change log.\n\n- records can now be hidden if completed but will otherwise be displayed even if they're invisible"
   }
 ]

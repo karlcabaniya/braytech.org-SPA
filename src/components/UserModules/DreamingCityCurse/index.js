@@ -68,7 +68,7 @@ class DreamingCityCurse extends React.Component {
         <h3>{t('Stage')} {cycleInfo.week.curse}: {rotation[cycleInfo.week.curse].strength}</h3>
         <h4>{t('Triumphs')}</h4>
         <ul className='list record-items'>
-          <Records selfLinkFrom='/this-week' hashes={rotation[cycleInfo.week.curse].triumphs} ordered />
+          <Records selfLinkFrom='/this-week' hashes={rotation[cycleInfo.week.curse].triumphs} ordered showInvisible />
         </ul>
       </>
     );

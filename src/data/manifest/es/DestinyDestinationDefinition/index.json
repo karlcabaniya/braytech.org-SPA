@@ -4,13 +4,13 @@
       {
         "hash": 11995241041,
         "displayProperties": {
-          "name": "La Villa"
+          "name": "La villa"
         }
       },
       {
         "hash": 11995241042,
         "displayProperties": {
-          "name": "Echion Battledeck"
+          "name": "Cubierta de asalto Echion"
         }
       }
     ]
@@ -60,7 +60,7 @@
       {
         "hash": 3598542751,
         "displayProperties": {
-          "name": "Sjursrest"
+          "name": "Descanso de Sjur"
         }
       }
     ]
@@ -70,7 +70,7 @@
       {
         "hash": 27792021731,
         "displayProperties": {
-          "name": "La Confluencia"
+          "name": "La confluencia"
         }
       },
       {
@@ -107,6 +107,18 @@
         "hash": 27792021737,
         "displayProperties": {
           "name": "Guarnición Cimmeria"
+        }
+      },
+      {
+        "hash": 27792021738,
+        "displayProperties": {
+          "name": "Plano ascendente"
+        }
+      },
+      {
+        "hash": 27792021739,
+        "displayProperties": {
+          "name": "Corte de la Reina"
         }
       }
     ]

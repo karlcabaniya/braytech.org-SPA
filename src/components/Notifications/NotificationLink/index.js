@@ -1,13 +1,13 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 import ReactGA from 'react-ga';
 
+import { t } from '../../../utils/i18n';
 import ObservedImage from '../../ObservedImage';
 import { Button, DestinyKey } from '../../UI/Button';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -20,12 +20,12 @@ class NotificationLink extends React.Component {
     this.mounted = false;
   }
 
-  handler_deactivateOverlay = e => {
+  handler_deactivateOverlay = (e) => {
     e.stopPropagation();
 
-    const state = this.active && this.active.length ? this.active[0] : false;
+    const state = this.active?.[0];
 
-    if (this.mounted) {
+    if (this.mounted && state) {
       if (state.displayProperties.timeout) {
         this.clearTimeout();
       }
@@ -33,13 +33,13 @@ class NotificationLink extends React.Component {
       this.props.popNotification(state.id);
 
       ReactGA.event({
-        category: state.displayProperties && state.displayProperties.name ? state.displayProperties.name : 'unknown',
-        action: 'dismiss'
+        category: state.displayProperties.name || 'unknown',
+        action: 'dismiss',
       });
     }
   };
 
-  setTimeout = timeout => {
+  setTimeout = (timeout) => {
     this.notificationTimeout = window.setTimeout(this.sunsetNotifcation, timeout * 1000);
   };
 
@@ -47,21 +47,21 @@ class NotificationLink extends React.Component {
     window.clearInterval(this.notificationTimeout);
   }
 
-  handler_reload = e => {
-    if (this.mounted) {
-      const state = this.active && this.active.length ? this.active[0] : false;
+  handler_reload = (e) => {
+    const state = this.active?.[0];
 
+    if (this.mounted && state) {
       if (state.displayProperties.timeout) {
         this.clearTimeout();
       }
 
       this.props.popNotification(state.id);
     }
-    
+
     setTimeout(() => {
       window.location.reload();
     }, 50);
-  }
+  };
 
   sunsetNotifcation = () => {
     if (this.active && this.active.length ? this.active[0] : false) {
@@ -85,12 +85,10 @@ class NotificationLink extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-
     const timeNow = new Date().getTime();
 
     this.active = this.props.notifications?.objects.length
-      ? this.props.notifications.objects.filter(o => {
+      ? this.props.notifications.objects.filter((o) => {
           const objDate = new Date(o.date).getTime();
 
           if (objDate + o.expiry > timeNow) {
@@ -101,30 +99,31 @@ class NotificationLink extends React.Component {
         })
       : [];
 
-    const remainingInline = this.active.filter(a => !a.displayProperties.prompt).length - 1;
+    const remainingInline = this.active.filter((a) => !a.displayProperties.prompt).length - 1;
 
     if (this.active.length ? this.active[0] : false) {
       const state = this.active[0];
 
       let isError,
         image,
+        icon,
         actions = state.actions || [];
-      
+
       if (state && state.error && state.javascript?.message === 'maintenance') {
         image = '/static/images/extracts/ui/01A3-00001EE8.PNG';
         actions = [
           {
             type: 'reload',
             text: t('Reload'),
-            key: 'modify'
+            key: 'modify',
           },
           {
             type: 'external',
             target: 'https://twitter.com/BungieHelp',
             text: t('Go to Twitter'),
             key: 'accept',
-            dismiss: false
-          }
+            dismiss: false,
+          },
         ];
       } else if (state && state.error) {
         isError = true;
@@ -133,23 +132,27 @@ class NotificationLink extends React.Component {
           {
             type: 'reload',
             text: t('Reload'),
-            key: 'modify'
-          }
+            key: 'modify',
+          },
         ];
       } else if (state && state.displayProperties?.image) {
         image = state.displayProperties.image;
       } else {
-        image = '/static/images/extracts/ui/010A-00000554.PNG';
+        icon = <Common.Info />;
       }
 
       actions = [
         ...actions,
-        {
-          type: 'dismiss',
-          text: t('Dismiss'),
-          dismiss: true
-        }
-      ];
+        ...(actions.filter((a) => a.type === 'agreement').length < 1
+          ? [
+              {
+                type: 'dismiss',
+                text: t('Dismiss'),
+                dismiss: true,
+              },
+            ]
+          : []),
+      ].filter((a) => a);
 
       if (state && state.displayProperties?.prompt) {
         return (
@@ -161,9 +164,7 @@ class NotificationLink extends React.Component {
               </div>
               <div className={cx('wrapper-inner', { 'has-image': state.displayProperties && state.displayProperties.image })}>
                 <div>
-                  <div className='icon'>
-                    <ObservedImage className='image' src={image} />
-                  </div>
+                  <div className='icon'>{image ? <ObservedImage className='image' src={image} /> : icon ? icon : null}</div>
                 </div>
                 <div>
                   <div className='text'>
@@ -189,7 +190,15 @@ class NotificationLink extends React.Component {
                         return (
                           <li key={i}>
                             <Button action={this.handler_reload}>
-                              <DestinyKey type={action.key || 'dismiss'} /> {action.text}
+                              <DestinyKey type={action.key || 'modify'} /> {action.text}
+                            </Button>
+                          </li>
+                        );
+                      } else if (action.type === 'agreement') {
+                        return (
+                          <li key={i}>
+                            <Button action={action.dismiss ? this.handler_deactivateOverlay : null}>
+                              <DestinyKey type={action.key || 'accept'} /> {action.text}
                             </Button>
                           </li>
                         );
@@ -211,7 +220,7 @@ class NotificationLink extends React.Component {
         );
       } else {
         return (
-          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{'--timeout': `${state.displayProperties?.timeout || 4}s`}} onClick={this.handler_deactivateOverlay}>
+          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{ '--timeout': `${state.displayProperties?.timeout || 4}s` }} onClick={this.handler_deactivateOverlay}>
             <div className='wrapper-outer'>
               <div className='background'>
                 <div className='border-top'>
@@ -251,16 +260,16 @@ class NotificationLink extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    notifications: state.notifications
+    notifications: state.notifications,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    popNotification: value => {
+    popNotification: (value) => {
       dispatch({ type: 'POP_NOTIFICATION', payload: value });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(NotificationLink);
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationLink);

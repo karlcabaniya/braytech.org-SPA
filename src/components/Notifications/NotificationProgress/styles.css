@@ -46,7 +46,7 @@
   }
 }
 
-#notification-progress.timedOut {
+#notification-progress.timed-out {
   animation: animation-notification-progress-out 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   pointer-events: none;
 }
@@ -92,8 +92,9 @@
 #notification-progress .item .more {
   margin: 1rem 0 0;
   padding: 7px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
   font-size: 16px;
   flex-basis: 7rem;
   text-align: center;
