@@ -225,14 +225,14 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&');
 }
 
-function escapeString(value, severe) {
+function escapeString(value, severe) {console.log(JSON.stringify(value))
   const full = ['#', '##', '###', '####', '#####', '######', '#', '**', '__', '*', '_', '***', '___', '__*', '**_', '>', '>>', '(', ')', '[', ']', '`', '``', '```', '---', '-', '+/', '/*', '*/'];
   const lite = ['#', '##', '###', '####', '#####', '######', '#', '**', '*', '__', '___', '__*', '**_', '`', '``', '```', '---'];
 
   const patterns = severe ? full : lite;
 
   patterns.forEach((text) => {
-    const test = new RegExp(`(?<![\\\\])${escapeRegExp(text)}`, 'g');
+    const test = new RegExp(`${escapeRegExp(text)}`, 'g');
 
     value = value.replace(test, '\\$&');
   });

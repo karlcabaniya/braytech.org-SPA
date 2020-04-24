@@ -1,128 +1,132 @@
 {
   "de": {
-    "translated": 412,
-    "notTranslated": 274,
-    "added": [],
+    "translated": 684,
+    "notTranslated": 1,
+    "added": [
+      "Compare Nightmare Hunt activity durations between players for bragging rights and to track progress towards their respective time trial triumph records."
+    ],
     "removed": [
+      "Credits",
       "Patreon supporters",
-      "Special thanks"
+      "Special thanks",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "debug": {
-    "translated": 686,
+    "translated": 684,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "en": {
-    "translated": 686,
+    "translated": 684,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "es-mx": {
-    "translated": 686,
+    "translated": 684,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "es": {
-    "translated": 686,
+    "translated": 684,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "fr": {
-    "translated": 658,
+    "translated": 656,
     "notTranslated": 28,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "it": {
-    "translated": 669,
+    "translated": 667,
     "notTranslated": 17,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "ja": {
-    "translated": 594,
+    "translated": 592,
     "notTranslated": 92,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "ko": {
-    "translated": 547,
+    "translated": 545,
     "notTranslated": 139,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 684,
+    "notTranslated": 682,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "pt-br": {
-    "translated": 654,
+    "translated": 652,
     "notTranslated": 32,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "ru": {
-    "translated": 686,
+    "translated": 684,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "zh-chs": {
-    "translated": 454,
+    "translated": 452,
     "notTranslated": 232,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   },
   "zh-cht": {
-    "translated": 371,
+    "translated": 369,
     "notTranslated": 315,
     "added": [],
     "removed": [
-      "Patreon supporters",
-      "Special thanks"
+      "Credits",
+      "The Architects and Guardians that make Braytech possible"
     ]
   }
 }

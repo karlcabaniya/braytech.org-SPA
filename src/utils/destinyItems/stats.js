@@ -28,7 +28,7 @@ export const armorStats = [
   1943323491, // Recovery
   1735777505, // Discipline
   144602215, // Intellect
-  4244567218 // Strength
+  4244567218, // Strength
 ];
 
 /**
@@ -37,11 +37,14 @@ export const armorStats = [
 export const statWhiteList = [
   3614673599, // Blast Radius
   2523465841, // Velocity
-  2837207746, // Swing Speed (sword)
   4043523819, // Impact
   1240592695, // Range
-  2762071195, // Efficiency (sword)
-  209426660, // Defense (sword)
+  // 2837207746, // Swing Speed (swords)
+  // 2762071195, // Efficiency (swords)
+  // 209426660, // Defense (swords)
+  209426660, // Guard Resistance (swords)
+  2762071195, // Guard Efficiency (swords)
+  3736848092, // Guard Endurance (swords)
   1591432999, // Accuracy
   943549884, // Handling
   155624089, // Stability
@@ -52,7 +55,17 @@ export const statWhiteList = [
   3871231066, // Magazine
   925767036, // Ammo Capacity
   ...armorStats,
-  -1000 // Total
+  -1000, // Total
+];
+
+export const statWhiteListSwords = [
+  4043523819, // Impact
+  2837207746, // Swing Speed (swords)
+  3022301683, // Charge Rate (swords)
+  209426660, // Guard Resistance (swords)
+  2762071195, // Guard Efficiency (swords)
+  3736848092, // Guard Endurance (swords)
+  925767036, // Ammo Capacity
 ];
 
 /**
@@ -61,7 +74,7 @@ export const statWhiteList = [
 // export const statAdvWhiteList = [
 //   1345609583, // Aim Assistance
 //   3555269338, // Zoom
-//   2715839340, // Recoil Direction  
+//   2715839340, // Recoil Direction
 //   1931675084, // Inventory Size
 // ];
 
@@ -72,30 +85,34 @@ const statsNoBar = [
   2961396640, // Charge Time
   447667954, // Draw Time
   1931675084, // Recovery
-  2715839340 // Recoil Direction
+  2715839340, // Recoil Direction
 ];
 
 /** Stats that are measured in milliseconds. */
 export const statsMs = [
   447667954, // Draw Time
-  2961396640 // Charge Time
+  2961396640, // Charge Time
 ];
 
 /** Show these stats in addition to any "natural" stats */
 const hiddenStatsWhitelist = [
   1345609583, // Aim Assistance
   3555269338, // Zoom
-  2715839340 // Recoil Direction
+  2715839340, // Recoil Direction
 ];
 
 const statListOrder = [
   3614673599, // Blast Radius
   2523465841, // Velocity
-  2837207746, // Swing Speed (sword)
   4043523819, // Impact
   1240592695, // Range
-  2762071195, // Efficiency (sword)
-  209426660, // Defense (sword)
+  2837207746, // Swing Speed (swords)
+  3022301683, // Charge Rate (swords)
+  // 2762071195, // Efficiency (swords)
+  // 209426660, // Defense (swords)
+  209426660, // Guard Resistance (swords)
+  2762071195, // Guard Efficiency (swords)
+  3736848092, // Guard Endurance (swords)
   1591432999, // Accuracy
   943549884, // Handling
   155624089, // Stability
@@ -109,27 +126,29 @@ const statListOrder = [
   925767036, // Ammo Capacity
   2715839340, // Recoil Direction
   ...armorStats,
-  -1000 // Total
+  -1000, // Total
 ];
 
 function shouldShowStat(item, statHash, statDisplays) {
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
   // Bows have a charge time stat that nobody asked for
-  if (
-    statHash === 2961396640 &&
-    item.itemCategoryHashes &&
-    item.itemCategoryHashes.includes(3317538576)
-  ) {
+  if (statHash === 2961396640 && definitionItem?.itemCategoryHashes?.indexOf(3317538576) > -1) {
     return false;
   }
 
-  // Swords shouldn't show any hidden stats
-  const includeHiddenStats = item.showHiddenStats && !(item.itemCategoryHashes && item.itemCategoryHashes.includes(54));
+  // Swords stats
+  if (definitionItem?.itemCategoryHashes?.indexOf(54) > -1 && statWhiteListSwords.indexOf(statHash) < 0) {
+    return false;
+  }
+  
 
   return (
     // Must be on the whitelist
     statWhiteList.includes(statHash) ||
     // Must be on the list of interpolated stats, or included in the hardcoded hidden stats list
-    (statDisplays[statHash] || (includeHiddenStats && hiddenStatsWhitelist.includes(statHash)))
+    statDisplays[statHash] ||
+    (item.showHiddenStats && hiddenStatsWhitelist.indexOf(statHash) > -1)
   );
 }
 
@@ -167,9 +186,7 @@ function buildStat(itemStat, statGroup, statDisplays) {
     smallerIsBetter,
     // Only set additive for defense stats, because for some reason Zoom is
     // set to use DestinyStatAggregationType.Character
-    additive:
-      definitionStat.statCategory === enums.DestinyStatCategory.Defense &&
-      definitionStat.aggregationType === enums.DestinyStatAggregationType.Character
+    additive: definitionStat.statCategory === enums.DestinyStatCategory.Defense && definitionStat.aggregationType === enums.DestinyStatAggregationType.Character,
   };
 }
 
@@ -185,8 +202,7 @@ function buildInvestmentStats(item, statGroupHash, statDisplays) {
   const itemStats = definitionItem.investmentStats || [];
 
   return compact(
-    Object.values(itemStats).map(itemStat => {
-
+    Object.values(itemStats).map((itemStat) => {
       const statHash = itemStat.statTypeHash;
 
       if (!itemStat || !shouldShowStat(item, statHash, statDisplays)) {
@@ -228,7 +244,7 @@ function buildPlugStats(plug, statsByHash, statDisplays) {
     }
     stats[perkStat.statTypeHash] = value;
   }
-  
+
   return stats;
 }
 
@@ -251,13 +267,9 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
 
         if (itemStat) {
           itemStat.investmentValue += value;
-
         } else if (shouldShowStat(item, statHash, statDisplays)) {
-
           // This stat didn't exist before we modified it, so add it here.
-          const stat = socket.plug.plugItem.investmentStats.find(
-            (s) => s.statTypeHash === statHash
-          );
+          const stat = socket.plug.plugItem.investmentStats.find((s) => s.statTypeHash === statHash);
 
           if (stat && stat.value) {
             const definitionStat = manifest.DestinyStatDefinition[statHash];
@@ -277,11 +289,9 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
     if (modifiedStats.has(stat.statHash)) {
       const statDisplay = statDisplays[stat.statHash];
 
-      stat.value = statDisplay
-        ? interpolateStatValue(stat.investmentValue, statDisplays[stat.statHash])
-        : Math.min(stat.investmentValue, stat.maximumValue);
+      stat.value = statDisplay ? interpolateStatValue(stat.investmentValue, statDisplays[stat.statHash]) : Math.min(stat.investmentValue, stat.maximumValue);
 
-      if (stat.statHash === 2715839340) console.log(stat)
+      if (stat.statHash === 2715839340) console.log(stat);
     }
   }
 
@@ -325,8 +335,7 @@ function buildLiveStats(item, statsData, statGroup, statDisplays) {
       const statDisplay = statDisplays[statHash];
       if (statDisplay) {
         const firstInterp = statDisplay.displayInterpolation[0];
-        const lastInterp =
-          statDisplay.displayInterpolation[statDisplay.displayInterpolation.length - 1];
+        const lastInterp = statDisplay.displayInterpolation[statDisplay.displayInterpolation.length - 1];
         smallerIsBetter = firstInterp.weight > lastInterp.weight;
         maximumValue = Math.max(statDisplay.maximumValue, firstInterp.weight, lastInterp.weight);
         bar = !statDisplay.displayAsNumeric;
@@ -342,7 +351,7 @@ function buildLiveStats(item, statsData, statGroup, statDisplays) {
         maximumValue,
         bar,
         smallerIsBetter,
-        additive: statDef.aggregationType === enums.DestinyStatAggregationType.Character
+        additive: statDef.aggregationType === enums.DestinyStatAggregationType.Character,
       };
     })
   );
@@ -382,7 +391,7 @@ function buildStatsFromMods(sockets, statGroupHash, statDisplays) {
 
     const hashAndValue = {
       statTypeHash: statHash,
-      value: statTracker[statHash]
+      value: statTracker[statHash],
     };
 
     const builtStat = buildStat(hashAndValue, definitionStatGroup, definitionStat, statDisplays);
@@ -397,9 +406,9 @@ function buildStatsFromMods(sockets, statGroupHash, statDisplays) {
 }
 
 /** Build the full list of stats for an item. If the item has no stats, this returns null. */
-export const stats = item => {
+export const stats = (item) => {
   const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
-  const definitionStatGroup = definitionItem && definitionItem.stats && manifest.DestinyStatGroupDefinition[definitionItem.stats.statGroupHash];
+  const definitionStatGroup = manifest.DestinyStatGroupDefinition[definitionItem?.stats?.statGroupHash];
 
   if (!item || !definitionStatGroup) {
     return false;
@@ -411,18 +420,11 @@ export const stats = item => {
   let investmentStats = buildInvestmentStats(item, definitionItem.stats.statGroupHash, statDisplays) || [];
 
   // Include the contributions from perks and mods
-  if (item.sockets && item.sockets.sockets && item.sockets.sockets.length) {
-    investmentStats = enhanceStatsWithPlugs(
-      item,
-      investmentStats,
-      statDisplays
-    );
+  if (item.sockets?.sockets && item.sockets.sockets.length) {
+    investmentStats = enhanceStatsWithPlugs(item, investmentStats, statDisplays);
   }
 
-  const statsData =
-    (item.itemInstanceId &&
-      item.itemComponents && item.itemComponents.stats) ||
-    undefined;
+  const statsData = (item.itemInstanceId && item.itemComponents?.stats) || undefined;
 
   // For Armor, we always replace the previous stats with live stats, even if they were already created
   if ((!investmentStats.length || definitionItem.itemType === 2) && statsData) {
@@ -437,10 +439,7 @@ export const stats = item => {
       // Add the "Total" stat for armor
       //investmentStats.push(totalStat(investmentStats));
     }
-  } else if (
-    definitionItem.inventory.bucketTypeHash === 1585787867 &&
-    item.sockets
-  ) {
+  } else if (definitionItem.inventory.bucketTypeHash === 1585787867 && item.sockets) {
     investmentStats = buildStatsFromMods(item.sockets, definitionItem.stats.statGroupHash, statDisplays);
   }
 
@@ -450,24 +449,7 @@ export const stats = item => {
   }
 
   return investmentStats && investmentStats.length ? investmentStats.sort(compareBy((s) => s.sort)) : null;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 function totalStat(stats = []) {
   const total = sumBy(stats, (s) => s.value);
@@ -476,7 +458,7 @@ function totalStat(stats = []) {
   return {
     investmentValue: total,
     displayProperties: {
-      name: 'Total'
+      name: 'Total',
     },
     statHash: -1000,
     sort: statListOrder.indexOf(-1000),
@@ -485,7 +467,7 @@ function totalStat(stats = []) {
     maximumValue: 100,
     bar: false,
     smallerIsBetter: false,
-    additive: false
+    additive: false,
   };
 }
 

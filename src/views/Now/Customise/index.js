@@ -494,7 +494,7 @@ class Customise extends React.Component {
     },
     SeasonArtifact: {
       name: this.props.t('Seasonal artifact'),
-      description: this.props.t("Display your seaonal artifact's configuration and its progression")
+      description: this.props.t("Display your seasonal artifact's configuration and its progression")
     },
     SeasonPass: {
       name: this.props.t('Season pass'),

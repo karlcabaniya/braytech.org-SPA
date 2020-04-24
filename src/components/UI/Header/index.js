@@ -233,14 +233,6 @@ class Header extends React.Component {
         profile: false,
         group: 1,
       },
-      {
-        name: t('Credits'),
-        desc: t('The Architects and Guardians that make Braytech possible'),
-        path: '/credits',
-        exact: false,
-        profile: false,
-        group: 1,
-      },
     ];
 
     const viewsInline = viewport.width >= 1280;
