@@ -128,13 +128,17 @@ export function getMapCenter(id) {
 
 export const destinations = [
   {
-    id: 'tower',
-    destinationHash: 333456177,
+    id: 'fields-of-glass',
+    destinationHash: 1993421442,
   },
   {
     id: 'edz',
     destinationHash: 1199524104,
     default: true,
+  },
+  {
+    id: 'tower',
+    destinationHash: 333456177,
   },
   {
     id: 'the-farm',
@@ -145,24 +149,20 @@ export const destinations = [
     destinationHash: 290444260,
   },
   {
-    id: 'new-pacific-arcology',
-    destinationHash: 2388758973,
-  },
-  {
-    id: 'arcadian-valley',
-    destinationHash: 126924919,
+    id: 'hellas-basin',
+    destinationHash: 308080871,
   },
   {
     id: 'echo-mesa',
     destinationHash: 2218917881,
   },
   {
-    id: 'fields-of-glass',
-    destinationHash: 1993421442,
+    id: 'new-pacific-arcology',
+    destinationHash: 2388758973,
   },
   {
-    id: 'hellas-basin',
-    destinationHash: 308080871,
+    id: 'arcadian-valley',
+    destinationHash: 126924919,
   },
   {
     id: 'tangled-shore',

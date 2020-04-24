@@ -358,14 +358,14 @@
       "description": "Left of the lost sector's entrance, poorly lit, behind some crates."
     },
     "checklistHash": 576743835,
-    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_24.jpg"
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_23.jpg"
   },
   "34": {
     "displayProperties": {
       "description": "Up in the very top left corner, on the rocks."
     },
     "checklistHash": 3307732497,
-    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_23.jpg"
+    "screenshot": "/static/images/screenshots/region-chests/sunken-isles_region-chests_24.jpg"
   },
   "35": {
     "displayProperties": {
@@ -1518,6 +1518,17 @@
     "screenshot": "/static/images/screenshots/ghost-scans/prodromus-down_ghost-scans_137.jpg",
     "displayProperties": {
       "description": "Find the data recorder in the cockpit of this ship."
+    }
+  },
+  "287": {
+    "checklistHash": 89704164,
+    "screenshot": "/static/images/screenshots/region-chests/sirens-watch_region-chests_31.jpg"
+  },
+  "288": {
+    "checklistHash": 463653643,
+    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_36.jpg",    
+    "displayProperties": {
+      "description": "Push past the lost sector entry junction and continue along the gangway."
     }
   }
 }
