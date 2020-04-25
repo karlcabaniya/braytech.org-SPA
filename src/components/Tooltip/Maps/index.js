@@ -45,8 +45,8 @@ class Checklist extends React.Component {
             <div className='icon'>{checklist.checklistIcon}</div>
             <div className='text'>
               <div className='name'>
-                {checklistItem.formatted.name}
-                {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}
+                {checklistItem.displayProperties.name}
+                {checklistItem.displayProperties.suffix ? ` ${checklistItem.displayProperties.suffix}` : null}
               </div>
               <div>
                 <div className='kind'>{checklist.checklistItemName}</div>
@@ -61,7 +61,7 @@ class Checklist extends React.Component {
             ) : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.formatted.location}</div>
+              <div className='destination'>{checklistItem.displayProperties.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
@@ -107,8 +107,8 @@ class Record extends React.Component {
             <div className='icon'>{checklist.checklistIcon}</div>
             <div className='text'>
               <div className='name'>
-                {checklistItem.formatted.name}
-                {checklistItem.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : null}
+                {checklistItem.displayProperties.name}
+                {checklistItem.displayProperties.suffix ? ` ${checklistItem.displayProperties.suffix}` : null}
               </div>
               <div>
                 <div className='kind'>{t('Record')}</div>
@@ -134,7 +134,7 @@ class Record extends React.Component {
             ) : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.formatted.location}</div>
+              <div className='destination'>{checklistItem.displayProperties.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}

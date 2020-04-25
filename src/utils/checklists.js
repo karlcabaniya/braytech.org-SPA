@@ -37,7 +37,7 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
       },
-      sortBy: ['completed', 'destination', 'bubble', 'name'],
+      sortBy: ['completed', 'destinationName', 'bubbleName', 'name'],
       checklistItemName: t('Adventure'),
       checklistItemName_plural: t('Adventures'),
       checklistIcon: <Maps.Adventure />,
@@ -83,7 +83,7 @@ export const checklists = {
       checklistId: 3142056444,
       characterBound: true,
       items: checklistItems(3142056444, true),
-      sortBy: ['completed', 'destination', 'name'],
+      sortBy: ['completed', 'destinationName', 'name'],
       itemName: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionBubble = definitionDestination.bubbles.find((b) => b.hash === i.bubbleHash);
@@ -123,7 +123,6 @@ export const checklists = {
     checklist({
       checklistId: 1297424116,
       items: checklistItems(1297424116),
-      // sortBy: ['number'],
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -255,7 +254,7 @@ export const checklists = {
     checklist({
       checklistId: 365218222,
       items: checklistItems(365218222),
-      sortBy: ['name', 'destination', 'bubble'],
+      sortBy: ['name', 'destinationName', 'bubbleName'],
       itemName: (i) => ['CB.NAV/RUN.()', 'CB.NAV/EXÉC.()', 'CB.NAV/EJECUTAR.()', 'CB.NAV/ESEGUI.()', 'КБ.НАВ/ЗАПУСК().'].reduce((a, v) => a.replace(v, ''), manifest.DestinyInventoryItemDefinition[i.itemHash].displayProperties.description),
       itemLocation: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -351,6 +350,9 @@ export const checklists = {
       checklistId: 1420597821,
       items: presentationItems(1420597821),
       sortBy: ['completed', 'number'],
+      itemNumber: (i, o) => {
+        return o + 1;
+      },
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -391,6 +393,9 @@ export const checklists = {
       checklistId: 3305936921,
       items: presentationItems(3305936921),
       sortBy: ['completed', 'number'],
+      itemNumber: (i, o) => {
+        return o + 1;
+      },
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -431,6 +436,9 @@ export const checklists = {
       checklistId: 655926402,
       items: presentationItems(655926402),
       sortBy: ['completed', 'number'],
+      itemNumber: (i, o) => {
+        return o + 1;
+      },
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -476,6 +484,9 @@ export const checklists = {
       checklistId: 4285512244,
       items: presentationItems(4285512244),
       sortBy: ['completed', 'number'],
+      itemNumber: (i, o) => {
+        return o + 1;
+      },
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -523,6 +534,9 @@ export const checklists = {
       checklistId: 2474271317,
       items: presentationItems(2474271317),
       sortBy: ['completed', 'number'],
+      itemNumber: (i, o) => {
+        return o + 1;
+      },
       itemName: (i) => {
         const definitionRecord = manifest.DestinyRecordDefinition[i.recordHash];
         const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
@@ -582,27 +596,49 @@ export function checkup(item) {
   }
 }
 
+function hydrateItems(options) {
+  return options.items.map((i, o) => ({
+    ...i,
+    displayProperties: {
+      suffix: options.numbered ? options.itemNumber(i, o) : '',
+      number: options.itemNumber(i, o),
+      name: options.itemName(i),
+      location: options.itemLocation(i),
+      locationExt: options.itemLocationExt(i),
+      destinationName: manifest.DestinyDestinationDefinition[i.destinationHash]?.displayProperties.name,
+      bubbleName: manifest.DestinyDestinationDefinition[i.destinationHash]?.bubbles.find((b) => b.hash === i.bubbleHash)?.displayProperties.name,
+    },
+    completed: i.completed,
+  }));
+}
+
 function checklist(options = {}) {
   const defaultOptions = {
     characterBound: false,
+    itemNumber: (i) => {
+      const definitionChecklist = manifest.DestinyChecklistDefinition[options.checklistId];
+      const definitionChecklistEntry = definitionChecklist?.entries.find((entry) => entry.hash === i.checklistHash);
+
+      return definitionChecklistEntry?.displayProperties.name.match(/([0-9]+)/)?.[0];
+    },
   };
 
   options = { ...defaultOptions, ...options };
 
   const items = options.sortBy
-    ? orderBy(options.items, [
+    ? orderBy(hydrateItems(options), [
         (i) =>
           options.sortBy.map((key) => {
             if (key === 'number') {
               return { number: Number };
+            } else if (key === 'completed') {
+              return i.completed;
             } else {
-              return i.sorts[key];
+              return i.displayProperties[key];
             }
           }),
       ])
-    : options.items;
-
-  const response = options.requested?.key ? items.filter((i) => options.requested.array.indexOf(i[options.requested.key]) > -1) : items;
+    : hydrateItems(options);
 
   return {
     checklistId: options.checklistId,
@@ -615,17 +651,7 @@ function checklist(options = {}) {
     presentationNodeHash: options.presentationNodeHash,
     totalItems: items.length,
     completedItems: items.filter((i) => i.completed).length,
-    items: response.map((i) => ({
-      ...i,
-      formatted: {
-        suffix: options.numbered ? i.sorts.number : '',
-        number: i.sorts.number,
-        name: options.itemName(i),
-        location: options.itemLocation(i),
-        locationExt: options.itemLocationExt(i),
-      },
-      completed: i.completed,
-    })),
+    items: options.requested?.key ? items.filter((i) => options.requested.array.indexOf(i[options.requested.key]) > -1) : items,
   };
 }
 
@@ -648,8 +674,6 @@ function checklistItems(checklistId, isCharacterBound) {
 
   return data[checklistId].map((entry) => {
     const completed = progression?.[entry.checklistHash];
-
-    entry.sorts.completed = completed;
 
     return {
       ...entry,

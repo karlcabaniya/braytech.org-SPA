@@ -13,13 +13,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Descent.Cavern.Warsat",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -34,13 +27,6 @@
             "y": -530
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Descent.Chasm.Ledge",
-        "number": 2
       },
       "extended": {}
     },
@@ -57,13 +43,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Descent.Cave.Runes",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -78,13 +57,6 @@
             "y": -301
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Subterrane.Cliffside",
-        "number": 4
       },
       "extended": {}
     },
@@ -102,13 +74,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Core Terminus",
-        "place": "Mars",
-        "name": "Futurescape.Terminus.Console",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -123,13 +88,6 @@
             "y": -347
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Flammable.Storage",
-        "number": 6
       },
       "extended": {}
     },
@@ -146,13 +104,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Dock.Silo",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -167,13 +118,6 @@
             "y": 174
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Reception.Overlook",
-        "number": 8
       },
       "extended": {}
     },
@@ -190,13 +134,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Checkpoint.Elevator",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -211,13 +148,6 @@
             "y": -303
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Transit.Freight",
-        "number": 10
       },
       "extended": {}
     },
@@ -234,13 +164,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Plaza.Infestation",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -255,13 +178,6 @@
             "y": 129
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Dock.Garage",
-        "number": 12
       },
       "extended": {}
     },
@@ -278,13 +194,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Transit.Foundation",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -299,13 +208,6 @@
             "y": 217
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Core.Catwalk",
-        "number": 14
       },
       "extended": {}
     },
@@ -322,13 +224,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Deck.Dampener",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -343,13 +238,6 @@
             "y": 129
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Coolant.Ventilation",
-        "number": 16
       },
       "extended": {}
     },
@@ -366,13 +254,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Plaza.Console",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -387,13 +268,6 @@
             "y": 385
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab.Elevator.Service",
-        "number": 18
       },
       "extended": {}
     },
@@ -410,13 +284,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab.Overhang.Node",
-        "number": 19
-      },
       "extended": {}
     },
     {
@@ -431,13 +298,6 @@
             "y": -164
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Dynamo Approach",
-        "place": "Mars",
-        "name": "Dynamo.Approach.Arch",
-        "number": 20
       },
       "extended": {}
     },
@@ -454,13 +314,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Dynamo Approach",
-        "place": "Mars",
-        "name": "Dynamo. Approach.Tree",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -475,13 +328,6 @@
             "y": 116
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Server.Stairwell",
-        "number": 22
       },
       "extended": {}
     },
@@ -498,13 +344,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Observation.Door",
-        "number": 23
-      },
       "extended": {}
     },
     {
@@ -519,13 +358,6 @@
             "y": 357
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab.Elevator.Right",
-        "number": 24
       },
       "extended": {}
     },
@@ -542,13 +374,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Service.BackEnd",
-        "number": 25
-      },
       "extended": {}
     },
     {
@@ -563,13 +388,6 @@
             "y": -220
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Drift.Gatehouse.Catwalk",
-        "number": 26
       },
       "extended": {}
     },
@@ -586,13 +404,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab.Conveyor.Junction",
-        "number": 27
-      },
       "extended": {}
     },
     {
@@ -607,13 +418,6 @@
             "y": 320
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab.Conveyor.Bridge",
-        "number": 28
       },
       "extended": {}
     },
@@ -630,13 +434,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Dock.Outpost",
-        "number": 29
-      },
       "extended": {}
     },
     {
@@ -651,13 +448,6 @@
             "y": -54
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Transit.Service",
-        "number": 30
       },
       "extended": {}
     },
@@ -674,13 +464,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Dynamo Approach",
-        "place": "Mars",
-        "name": "Dynamo.Approach.Cavern",
-        "number": 31
-      },
       "extended": {}
     },
     {
@@ -695,13 +478,6 @@
             "y": 49
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Server.Heatshield",
-        "number": 32
       },
       "extended": {}
     },
@@ -718,13 +494,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Observation.Valkyrie",
-        "number": 33
-      },
       "extended": {}
     },
     {
@@ -739,13 +508,6 @@
             "y": 214
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Core.Brace",
-        "number": 34
       },
       "extended": {}
     },
@@ -763,13 +525,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Ma'adim Subterrane",
-        "place": "Mars",
-        "name": "Drift.Subterrane.Chasm",
-        "number": 35
-      },
       "extended": {}
     },
     {
@@ -784,13 +539,6 @@
             "y": 185
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Control.Door",
-        "number": 36
       },
       "extended": {}
     },
@@ -807,13 +555,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Dynamo.Observation.Core",
-        "number": 37
-      },
       "extended": {}
     },
     {
@@ -828,13 +569,6 @@
             "y": -18
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Futurescape.Ridgeline.Waterfall",
-        "number": 38
       },
       "extended": {}
     },
@@ -851,13 +585,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Aurora Reach",
-        "place": "Mars",
-        "name": "Aurora.Mindlab.Supplies",
-        "number": 39
-      },
       "extended": {}
     },
     {
@@ -873,13 +600,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Aurora Reach",
-        "place": "Mars",
-        "name": "Aurora.Mindlab.Observation",
-        "number": 40
-      },
       "extended": {}
     }
   ],
@@ -889,20 +609,12 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "name": "The Length of a Chain | Part I",
-        "number": 1
-      },
       "extended": {}
     },
     {
       "recordHash": 3448739527,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "name": "The Length of a Chain | Part II",
-        "number": 2
       },
       "extended": {}
     },
@@ -918,13 +630,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "At the Gate | Part I",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -938,13 +643,6 @@
             "y": -667
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "At the Gate | Part II",
-        "number": 4
       },
       "extended": {}
     },
@@ -960,23 +658,12 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "Through the Gate",
-        "number": 5
-      },
       "extended": {}
     },
     {
       "recordHash": 3448739523,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "name": "In the Garden",
-        "number": 6
       },
       "extended": {}
     },
@@ -993,23 +680,12 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Shipyard AWO-43",
-        "place": "The Tangled Shore",
-        "name": "On the Hunt",
-        "number": 7
-      },
       "extended": {}
     },
     {
       "recordHash": 3448739533,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "name": "After the Heart | Part I",
-        "number": 8
       },
       "extended": {}
     },
@@ -1024,13 +700,6 @@
             "y": -60
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Hall of the Exalted",
-        "place": "The Tangled Shore",
-        "name": "After the Heart | Part II",
-        "number": 9
       },
       "extended": {}
     },
@@ -1047,13 +716,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Drain",
-        "place": "Earth",
-        "name": "Jolyon",
-        "number": 10
-      },
       "extended": {}
     },
     {
@@ -1068,13 +730,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Flooded Chasm",
-        "place": "Earth",
-        "name": "After the Fall",
-        "number": 11
       },
       "extended": {}
     },
@@ -1091,13 +746,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Excavation Site XII",
-        "place": "Earth",
-        "name": "Kings",
-        "number": 12
-      },
       "extended": {}
     },
     {
@@ -1111,13 +759,6 @@
             "y": 286
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Fanatic | Part I",
-        "number": 13
       },
       "extended": {}
     },
@@ -1133,13 +774,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Fanatic | Part II",
-        "number": 14
-      },
       "extended": {}
     },
     {
@@ -1154,13 +788,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "The Severance",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -1174,13 +801,6 @@
             "y": 441
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Fikrul",
-        "number": 16
       },
       "extended": {}
     },
@@ -1197,13 +817,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Kingship Dock",
-        "place": "The Tangled Shore",
-        "name": "Docking",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -1219,13 +832,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Trapper's Cave",
-        "place": "The Tangled Shore",
-        "name": "Petra",
-        "number": 18
-      },
       "extended": {}
     },
     {
@@ -1239,13 +845,6 @@
             "y": 398
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "Free | Part I",
-        "number": 19
       },
       "extended": {}
     },
@@ -1261,13 +860,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "Free | Part II",
-        "number": 20
-      },
       "extended": {}
     }
   ],
@@ -1280,12 +872,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Archiloquy",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -1295,12 +881,6 @@
       "recordHash": 1859033171,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Brephos I",
-        "number": 2
       },
       "extended": {}
     },
@@ -1318,12 +898,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Brephos II",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -1339,13 +913,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Cimmerian Garrison",
-        "place": "The Dreaming City",
-        "name": "Brephos III",
-        "number": 4
       },
       "extended": {}
     },
@@ -1363,12 +930,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Cosmogyre I",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -1378,12 +939,6 @@
       "recordHash": 1859033175,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Cosmogyre II",
-        "number": 6
       },
       "extended": {}
     },
@@ -1399,13 +954,6 @@
             "y": 332
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Cosmogyre III",
-        "number": 7
       },
       "extended": {}
     },
@@ -1423,13 +971,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Agonarch Abyss",
-        "place": "The Dreaming City",
-        "name": "Cosmogyre IV",
-        "number": 8
-      },
       "extended": {}
     },
     {
@@ -1445,13 +986,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Shattered Ruins",
-        "place": "The Dreaming City",
-        "name": "Ecstasiate I",
-        "number": 9
       },
       "extended": {}
     },
@@ -1469,13 +1003,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Keep of Honed Edges",
-        "place": "The Dreaming City",
-        "name": "Ecstasiate II",
-        "number": 10
-      },
       "extended": {}
     },
     {
@@ -1492,12 +1019,6 @@
         ],
         "in": "story"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Ecstasiate III",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -1507,12 +1028,6 @@
       "recordHash": 1842255612,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Fideicide I",
-        "number": 12
       },
       "extended": {}
     },
@@ -1529,13 +1044,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Queen's Court",
-        "place": "The Dreaming City",
-        "name": "Fideicide II",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -1550,13 +1058,6 @@
             "y": 83
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Fideicide III",
-        "number": 14
       },
       "extended": {}
     },
@@ -1574,13 +1075,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Forfeit Shrine",
-        "place": "The Dreaming City",
-        "name": "Heresiology",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -1596,13 +1090,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Ouroborea",
-        "place": "The Dreaming City",
-        "name": "Imponent I",
-        "number": 16
       },
       "extended": {}
     }
@@ -1620,13 +1107,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "Pressure",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -1641,13 +1121,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Shipyard AWO-43",
-        "place": "The Tangled Shore",
-        "name": "Ghost Hunter",
-        "number": 2
       },
       "extended": {}
     },
@@ -1665,13 +1138,6 @@
         ],
         "in": "story"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Boil",
-        "place": "The Tangled Shore",
-        "name": "The Chosen's Choice",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -1685,13 +1151,6 @@
             "y": 14
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Hall of the Exalted",
-        "place": "The Tangled Shore",
-        "name": "The We Before Us",
-        "number": 4
       },
       "extended": {}
     },
@@ -1708,13 +1167,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Shaft 13",
-        "place": "Earth",
-        "name": "Don't Call Me Ghost",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -1729,13 +1181,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Drain",
-        "place": "Earth",
-        "name": "Compliments",
-        "number": 6
       },
       "extended": {}
     },
@@ -1752,13 +1197,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Quarry",
-        "place": "Earth",
-        "name": "No Rez for the Weary",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -1773,13 +1211,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Arboretum",
-        "place": "Titan, Moon of Saturn",
-        "name": "Confession of Hope | Part One",
-        "number": 8
-      },
       "extended": {}
     },
     {
@@ -1793,13 +1224,6 @@
             "y": 81
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Watchful Eye",
-        "number": 9
       },
       "extended": {}
     },
@@ -1816,13 +1240,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "DS Quarters-2",
-        "place": "Titan, Moon of Saturn",
-        "name": "Into the Fray",
-        "number": 10
-      },
       "extended": {}
     },
     {
@@ -1837,13 +1254,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Struck by Wonder",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -1857,13 +1267,6 @@
             "y": 188
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "Confession of Hope | Part Two",
-        "number": 12
       },
       "extended": {}
     },
@@ -1880,13 +1283,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Rift",
-        "place": "Nessus",
-        "name": "A Hero's Requiem",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -1901,13 +1297,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "Pariah's Refuge",
-        "place": "Mercury",
-        "name": "From Fallen Ground",
-        "number": 14
       },
       "extended": {}
     },
@@ -1924,13 +1313,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Aphix Conduit",
-        "place": "Io",
-        "name": "Ghost Community Theater Presents",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -1946,13 +1328,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Sanctum of Bones",
-        "place": "Io",
-        "name": "Difference of Opinion",
-        "number": 16
-      },
       "extended": {}
     },
     {
@@ -1966,13 +1341,6 @@
             "y": 377
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Protector of Ghosts",
-        "number": 17
       },
       "extended": {}
     },
@@ -1989,13 +1357,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Core Terminus",
-        "place": "Mars",
-        "name": "Savin",
-        "number": 18
-      },
       "extended": {}
     },
     {
@@ -2009,13 +1370,6 @@
             "y": 318
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Pulled Pork",
-        "number": 19
       },
       "extended": {}
     },
@@ -2032,13 +1386,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Wolfship Turbine",
-        "place": "The Tangled Shore",
-        "name": "Who Guards the Guardians?",
-        "number": 20
-      },
       "extended": {}
     },
     {
@@ -2054,13 +1401,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Kingship Dock",
-        "place": "The Tangled Shore",
-        "name": "Whether Windmills or Cranes",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -2075,13 +1415,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "Batteries Not Included",
-        "number": 22
-      },
       "extended": {}
     },
     {
@@ -2095,13 +1428,6 @@
             "y": -216
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Spider's Safehouse",
-        "place": "The Tangled Shore",
-        "name": "To Map the Unknown",
-        "number": 23
       },
       "extended": {}
     }
@@ -2119,13 +1445,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -2139,13 +1458,6 @@
             "y": -375
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 2
       },
       "extended": {}
     },
@@ -2161,13 +1473,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -2181,13 +1486,6 @@
             "y": 71
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 4
       },
       "extended": {}
     },
@@ -2203,13 +1501,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -2223,13 +1514,6 @@
             "y": 107
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 6
       },
       "extended": {}
     },
@@ -2245,13 +1529,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -2265,13 +1542,6 @@
             "y": 152
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 8
       },
       "extended": {}
     },
@@ -2287,13 +1557,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -2307,13 +1570,6 @@
             "y": -445.05
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 10
       },
       "extended": {}
     },
@@ -2329,13 +1585,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -2349,13 +1598,6 @@
             "y": -566.04
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 12
       },
       "extended": {}
     },
@@ -2371,13 +1613,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "Winding Cove",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -2391,13 +1626,6 @@
             "y": -294.63
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "Winding Cove",
-        "number": 14
       },
       "extended": {}
     },
@@ -2413,13 +1641,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "Winding Cove",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -2433,13 +1654,6 @@
             "y": -36.3
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 16
       },
       "extended": {}
     },
@@ -2455,13 +1669,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -2475,13 +1682,6 @@
             "y": -85.35
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 18
       },
       "extended": {}
     },
@@ -2497,13 +1697,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 19
-      },
       "extended": {}
     },
     {
@@ -2517,13 +1710,6 @@
             "y": -92.98
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 20
       },
       "extended": {}
     },
@@ -2539,13 +1725,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -2559,13 +1738,6 @@
             "y": 804.09
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 22
       },
       "extended": {}
     },
@@ -2581,13 +1753,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 23
-      },
       "extended": {}
     },
     {
@@ -2601,13 +1766,6 @@
             "y": 516.33
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 24
       },
       "extended": {}
     },
@@ -2623,13 +1781,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 25
-      },
       "extended": {}
     },
     {
@@ -2643,13 +1794,6 @@
             "y": -366.57
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 26
       },
       "extended": {}
     },
@@ -2665,13 +1809,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 27
-      },
       "extended": {}
     },
     {
@@ -2685,13 +1822,6 @@
             "y": 104.31
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 28
       },
       "extended": {}
     },
@@ -2707,13 +1837,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 29
-      },
       "extended": {}
     },
     {
@@ -2727,13 +1850,6 @@
             "y": -58.1
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 30
       },
       "extended": {}
     },
@@ -2749,13 +1865,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 31
-      },
       "extended": {}
     },
     {
@@ -2769,13 +1878,6 @@
             "y": 124.84
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 32
       },
       "extended": {}
     },
@@ -2791,13 +1893,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 33
-      },
       "extended": {}
     },
     {
@@ -2811,13 +1906,6 @@
             "y": -79.76
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 34
       },
       "extended": {}
     },
@@ -2833,13 +1921,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 35
-      },
       "extended": {}
     },
     {
@@ -2853,13 +1934,6 @@
             "y": 116.92
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 36
       },
       "extended": {}
     },
@@ -2875,13 +1949,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 37
-      },
       "extended": {}
     },
     {
@@ -2895,13 +1962,6 @@
             "y": 352
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 38
       },
       "extended": {}
     },
@@ -2917,13 +1977,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 39
-      },
       "extended": {}
     },
     {
@@ -2937,13 +1990,6 @@
             "y": -143
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 40
       },
       "extended": {}
     },
@@ -2959,13 +2005,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 41
-      },
       "extended": {}
     },
     {
@@ -2979,13 +2018,6 @@
             "y": -194
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 42
       },
       "extended": {}
     },
@@ -3001,13 +2033,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 43
-      },
       "extended": {}
     },
     {
@@ -3021,13 +2046,6 @@
             "y": 55
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 44
       },
       "extended": {}
     },
@@ -3043,13 +2061,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 45
-      },
       "extended": {}
     },
     {
@@ -3063,13 +2074,6 @@
             "y": -136
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 46
       },
       "extended": {}
     },
@@ -3085,13 +2089,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 47
-      },
       "extended": {}
     },
     {
@@ -3105,13 +2102,6 @@
             "y": -37
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 48
       },
       "extended": {}
     },
@@ -3127,13 +2117,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Artifact's Edge",
-        "number": 49
-      },
       "extended": {}
     },
     {
@@ -3147,13 +2130,6 @@
             "y": 114
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Artifact's Edge",
-        "number": 50
       },
       "extended": {}
     },
@@ -3169,13 +2145,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Artifact's Edge",
-        "number": 51
-      },
       "extended": {}
     },
     {
@@ -3189,13 +2158,6 @@
             "y": -579
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 52
       },
       "extended": {}
     },
@@ -3211,13 +2173,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 53
-      },
       "extended": {}
     },
     {
@@ -3231,13 +2186,6 @@
             "y": -519
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 54
       },
       "extended": {}
     },
@@ -3253,13 +2201,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 55
-      },
       "extended": {}
     },
     {
@@ -3273,13 +2214,6 @@
             "y": 384
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 56
       },
       "extended": {}
     },
@@ -3295,13 +2229,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 57
-      },
       "extended": {}
     },
     {
@@ -3315,13 +2242,6 @@
             "y": -365.44
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Lighthouse",
-        "number": 58
       },
       "extended": {}
     },
@@ -3337,13 +2257,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Lighthouse",
-        "number": 59
-      },
       "extended": {}
     },
     {
@@ -3357,13 +2270,6 @@
             "y": -132.28
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Lighthouse",
-        "number": 60
       },
       "extended": {}
     },
@@ -3379,13 +2285,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Lighthouse",
-        "number": 61
-      },
       "extended": {}
     },
     {
@@ -3399,13 +2298,6 @@
             "y": 143.76
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Lighthouse",
-        "number": 62
       },
       "extended": {}
     },
@@ -3421,13 +2313,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 63
-      },
       "extended": {}
     },
     {
@@ -3441,13 +2326,6 @@
             "y": 251
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 64
       },
       "extended": {}
     },
@@ -3463,13 +2341,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 65
-      },
       "extended": {}
     },
     {
@@ -3483,13 +2354,6 @@
             "y": -323
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 66
       },
       "extended": {}
     },
@@ -3505,13 +2369,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 67
-      },
       "extended": {}
     },
     {
@@ -3525,13 +2382,6 @@
             "y": -347
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 68
       },
       "extended": {}
     },
@@ -3547,13 +2397,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Divalian Mists",
-        "number": 69
-      },
       "extended": {}
     },
     {
@@ -3567,13 +2410,6 @@
             "y": 12.2
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Divalian Mists",
-        "number": 70
       },
       "extended": {}
     },
@@ -3589,13 +2425,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Divalian Mists",
-        "number": 71
-      },
       "extended": {}
     },
     {
@@ -3609,13 +2438,6 @@
             "y": 95.28
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Divalian Mists",
-        "number": 72
       },
       "extended": {}
     },
@@ -3631,13 +2453,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 73
-      },
       "extended": {}
     },
     {
@@ -3651,13 +2466,6 @@
             "y": 247.8
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 74
       },
       "extended": {}
     },
@@ -3673,13 +2481,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 75
-      },
       "extended": {}
     },
     {
@@ -3693,13 +2494,6 @@
             "y": 142.4
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 76
       },
       "extended": {}
     },
@@ -3715,13 +2509,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "The Strand",
-        "number": 77
-      },
       "extended": {}
     },
     {
@@ -3735,13 +2522,6 @@
             "y": -163.88
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "The Strand",
-        "number": 78
       },
       "extended": {}
     },
@@ -3757,13 +2537,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "The Strand",
-        "number": 79
-      },
       "extended": {}
     },
     {
@@ -3777,13 +2550,6 @@
             "y": -349.88
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "The Strand",
-        "number": 80
       },
       "extended": {}
     },
@@ -3799,13 +2565,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "Thieves' Landing",
-        "number": 81
-      },
       "extended": {}
     },
     {
@@ -3819,13 +2578,6 @@
             "y": -76.5
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "Thieves' Landing",
-        "number": 82
       },
       "extended": {}
     },
@@ -3841,13 +2593,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "Thieves' Landing",
-        "number": 83
-      },
       "extended": {}
     },
     {
@@ -3861,13 +2606,6 @@
             "y": -168
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "Thieves' Landing",
-        "number": 84
       },
       "extended": {}
     },
@@ -3883,13 +2621,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "The Cobble",
-        "number": 85
-      },
       "extended": {}
     },
     {
@@ -3903,13 +2634,6 @@
             "y": 438
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "The Cobble",
-        "number": 86
       },
       "extended": {}
     },
@@ -3925,13 +2649,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Jetsam of Saturn",
-        "place": "The Tangled Shore",
-        "name": "Jetsam of Saturn",
-        "number": 87
-      },
       "extended": {}
     },
     {
@@ -3945,13 +2662,6 @@
             "y": -345
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Jetsam of Saturn",
-        "place": "The Tangled Shore",
-        "name": "Jetsam of Saturn",
-        "number": 88
       },
       "extended": {}
     },
@@ -3967,13 +2677,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Jetsam of Saturn",
-        "place": "The Tangled Shore",
-        "name": "Jetsam of Saturn",
-        "number": 89
-      },
       "extended": {}
     },
     {
@@ -3987,13 +2690,6 @@
             "y": -232.5
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Jetsam of Saturn",
-        "place": "The Tangled Shore",
-        "name": "Jetsam of Saturn",
-        "number": 90
       },
       "extended": {}
     },
@@ -4009,13 +2705,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Soriks's Cut",
-        "number": 91
-      },
       "extended": {}
     },
     {
@@ -4029,13 +2718,6 @@
             "y": 420
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Soriks's Cut",
-        "number": 92
       },
       "extended": {}
     },
@@ -4051,13 +2733,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Soriks's Cut",
-        "number": 93
-      },
       "extended": {}
     },
     {
@@ -4071,13 +2746,6 @@
             "y": 306
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Soriks's Cut",
-        "number": 94
       },
       "extended": {}
     },
@@ -4093,13 +2761,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Four-Horn Gulch",
-        "place": "The Tangled Shore",
-        "name": "Four-Horn Gulch",
-        "number": 95
-      },
       "extended": {}
     },
     {
@@ -4113,13 +2774,6 @@
             "y": -148.5
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Four-Horn Gulch",
-        "place": "The Tangled Shore",
-        "name": "Four-Horn Gulch",
-        "number": 96
       },
       "extended": {}
     },
@@ -4135,13 +2789,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Four-Horn Gulch",
-        "place": "The Tangled Shore",
-        "name": "Four-Horn Gulch",
-        "number": 97
-      },
       "extended": {}
     },
     {
@@ -4155,13 +2802,6 @@
             "y": -264
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Four-Horn Gulch",
-        "place": "The Tangled Shore",
-        "name": "Four-Horn Gulch",
-        "number": 98
       },
       "extended": {}
     },
@@ -4177,13 +2817,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "High Plains",
-        "number": 99
-      },
       "extended": {}
     },
     {
@@ -4197,13 +2830,6 @@
             "y": -551
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Archer's Line",
-        "number": 100
       },
       "extended": {}
     },
@@ -4219,13 +2845,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Archer's Line",
-        "number": 101
-      },
       "extended": {}
     },
     {
@@ -4239,13 +2858,6 @@
             "y": -408
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Archer's Line",
-        "number": 102
       },
       "extended": {}
     },
@@ -4261,13 +2873,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "Sorrow's Harbor",
-        "number": 103
-      },
       "extended": {}
     },
     {
@@ -4281,13 +2886,6 @@
             "y": 82
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "Sorrow's Harbor",
-        "number": 104
       },
       "extended": {}
     },
@@ -4303,13 +2901,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "Sorrow's Harbor",
-        "number": 105
-      },
       "extended": {}
     },
     {
@@ -4323,13 +2914,6 @@
             "y": -95
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Hellmouth",
-        "number": 106
       },
       "extended": {}
     },
@@ -4345,13 +2929,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Hellmouth",
-        "number": 107
-      },
       "extended": {}
     },
     {
@@ -4365,13 +2942,6 @@
             "y": -44
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Hellmouth",
-        "number": 108
       },
       "extended": {}
     },
@@ -4387,13 +2957,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Anchor of Light",
-        "number": 109
-      },
       "extended": {}
     },
     {
@@ -4408,13 +2971,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Anchor of Light",
-        "number": 110
-      },
       "extended": {}
     },
     {
@@ -4428,13 +2984,6 @@
             "y": -370
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Anchor of Light",
-        "number": 111
       },
       "extended": {}
     }
@@ -4452,13 +3001,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Anchor of Light",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -4472,13 +3014,6 @@
             "y": -184
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Hellmouth",
-        "number": 2
       },
       "extended": {}
     },
@@ -4494,13 +3029,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Archer's Line",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -4514,13 +3042,6 @@
             "y": 319
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "Sorrow's Harbor",
-        "number": 4
       },
       "extended": {}
     },
@@ -4537,13 +3058,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "K1 Logistics",
-        "place": "The Moon",
-        "name": "K1 Logistics",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -4559,13 +3073,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "K1 Revelation",
-        "place": "The Moon",
-        "name": "K1 Revelation",
-        "number": 6
-      },
       "extended": {}
     },
     {
@@ -4579,13 +3086,6 @@
             "y": -185
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Circle of Bones",
-        "place": "The Moon",
-        "name": "Circle of Bones",
-        "number": 7
       },
       "extended": {}
     },
@@ -4601,13 +3101,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Chamber of Night",
-        "place": "The Moon",
-        "name": "Chamber of Night",
-        "number": 8
-      },
       "extended": {}
     },
     {
@@ -4621,13 +3114,6 @@
             "y": 75
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Shrine of Oryx",
-        "place": "The Moon",
-        "name": "Shrine of Oryx",
-        "number": 9
       },
       "extended": {}
     }
@@ -4645,13 +3131,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -4665,13 +3144,6 @@
             "y": -8
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 2
       },
       "extended": {}
     },
@@ -4687,13 +3159,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -4707,13 +3172,6 @@
             "y": 178
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 4
       },
       "extended": {}
     },
@@ -4729,13 +3187,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Giant's Scar",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -4749,13 +3200,6 @@
             "y": 69
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Excavation Site II",
-        "place": "Io",
-        "name": "Excavation Site II",
-        "number": 6
       },
       "extended": {}
     },
@@ -4771,13 +3215,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Excavation Site II",
-        "place": "Io",
-        "name": "Excavation Site II",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -4791,13 +3228,6 @@
             "y": 90
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Excavation Site II",
-        "place": "Io",
-        "name": "Excavation Site II",
-        "number": 8
       },
       "extended": {}
     },
@@ -4813,13 +3243,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Terrabase Charon",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -4833,13 +3256,6 @@
             "y": 380
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Terrabase Charon",
-        "number": 10
       },
       "extended": {}
     },
@@ -4855,13 +3271,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Terrabase Charon",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -4875,13 +3284,6 @@
             "y": 326
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Terrabase Charon",
-        "number": 12
       },
       "extended": {}
     },
@@ -4897,13 +3299,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Terrabase Charon",
-        "place": "Io",
-        "name": "Terrabase Charon",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -4917,13 +3312,6 @@
             "y": 522
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Wraith Mines",
-        "place": "Io",
-        "name": "The Wraith Mines",
-        "number": 14
       },
       "extended": {}
     },
@@ -4939,13 +3327,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Wraith Mines",
-        "place": "Io",
-        "name": "The Wraith Mines",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -4959,13 +3340,6 @@
             "y": 626
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Wraith Mines",
-        "place": "Io",
-        "name": "The Wraith Mines",
-        "number": 16
       },
       "extended": {}
     },
@@ -4981,13 +3355,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -5001,13 +3368,6 @@
             "y": 205
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 18
       },
       "extended": {}
     },
@@ -5023,13 +3383,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 19
-      },
       "extended": {}
     },
     {
@@ -5043,13 +3396,6 @@
             "y": 342
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 20
       },
       "extended": {}
     },
@@ -5065,13 +3411,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Lost Oasis",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -5085,13 +3424,6 @@
             "y": -303
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 22
       },
       "extended": {}
     },
@@ -5107,13 +3439,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 23
-      },
       "extended": {}
     },
     {
@@ -5127,13 +3452,6 @@
             "y": -466
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 24
       },
       "extended": {}
     },
@@ -5149,13 +3467,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 25
-      },
       "extended": {}
     },
     {
@@ -5169,13 +3480,6 @@
             "y": -337
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "The Rupture",
-        "number": 26
       },
       "extended": {}
     },
@@ -5191,13 +3495,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Spine Burrows",
-        "place": "Io",
-        "name": "Spine Burrows",
-        "number": 27
-      },
       "extended": {}
     },
     {
@@ -5211,13 +3508,6 @@
             "y": 87
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Spine Burrows",
-        "place": "Io",
-        "name": "Spine Burrows",
-        "number": 28
       },
       "extended": {}
     },
@@ -5233,13 +3523,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Endless Gate",
-        "place": "Io",
-        "name": "The Endless Gate",
-        "number": 29
-      },
       "extended": {}
     },
     {
@@ -5253,13 +3536,6 @@
             "y": 123
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Warmind Vault JYS-2",
-        "place": "Io",
-        "name": "Warmind Vault JYS-2",
-        "number": 30
       },
       "extended": {}
     },
@@ -5275,13 +3551,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Warmind Vault JYS-2",
-        "place": "Io",
-        "name": "Warmind Vault JYS-2",
-        "number": 31
-      },
       "extended": {}
     },
     {
@@ -5295,13 +3564,6 @@
             "y": 203
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Warmind Vault JYS-2",
-        "place": "Io",
-        "name": "Warmind Vault JYS-2",
-        "number": 32
       },
       "extended": {}
     },
@@ -5319,13 +3581,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
-        "place": "Io",
-        "name": "Pyramidion",
-        "number": 33
-      },
       "extended": {}
     },
     {
@@ -5341,13 +3596,6 @@
           }
         ],
         "in": "strike"
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
-        "place": "Io",
-        "name": "Pyramidion",
-        "number": 34
       },
       "extended": {}
     },
@@ -5365,13 +3613,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Pyramidion",
-        "place": "Io",
-        "name": "Pyramidion",
-        "number": 35
-      },
       "extended": {}
     },
     {
@@ -5385,13 +3626,6 @@
             "y": -224
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Maevic Square",
-        "place": "Earth",
-        "name": "Maevic Square",
-        "number": 36
       },
       "extended": {}
     },
@@ -5407,13 +3641,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Maevic Square",
-        "place": "Earth",
-        "name": "Maevic Square",
-        "number": 37
-      },
       "extended": {}
     },
     {
@@ -5427,13 +3654,6 @@
             "y": -285
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Maevic Square",
-        "place": "Earth",
-        "name": "Maevic Square",
-        "number": 38
       },
       "extended": {}
     },
@@ -5449,13 +3669,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 39
-      },
       "extended": {}
     },
     {
@@ -5469,13 +3682,6 @@
             "y": -558
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 40
       },
       "extended": {}
     },
@@ -5491,13 +3697,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 41
-      },
       "extended": {}
     },
     {
@@ -5511,13 +3710,6 @@
             "y": -433
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 42
       },
       "extended": {}
     },
@@ -5533,13 +3725,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Outskirts",
-        "number": 43
-      },
       "extended": {}
     },
     {
@@ -5553,13 +3738,6 @@
             "y": 106
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Legion's Anchor",
-        "place": "Earth",
-        "name": "Legion's Anchor",
-        "number": 44
       },
       "extended": {}
     },
@@ -5575,13 +3753,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "Winding Cove",
-        "number": 45
-      },
       "extended": {}
     },
     {
@@ -5595,13 +3766,6 @@
             "y": -502
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "Winding Cove",
-        "number": 46
       },
       "extended": {}
     },
@@ -5617,13 +3781,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 47
-      },
       "extended": {}
     },
     {
@@ -5637,13 +3794,6 @@
             "y": -267
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 48
       },
       "extended": {}
     },
@@ -5659,13 +3809,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 49
-      },
       "extended": {}
     },
     {
@@ -5679,13 +3822,6 @@
             "y": 74
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Firebase Hades",
-        "number": 50
       },
       "extended": {}
     },
@@ -5701,13 +3837,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sojourner's Camp",
-        "place": "Earth",
-        "name": "Sojourner's Camp",
-        "number": 51
-      },
       "extended": {}
     },
     {
@@ -5721,13 +3850,6 @@
             "y": -911
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sojourner's Camp",
-        "place": "Earth",
-        "name": "Sojourner's Camp",
-        "number": 52
       },
       "extended": {}
     },
@@ -5743,13 +3865,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sojourner's Camp",
-        "place": "Earth",
-        "name": "Sojourner's Camp",
-        "number": 53
-      },
       "extended": {}
     },
     {
@@ -5763,13 +3878,6 @@
             "y": 258
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 54
       },
       "extended": {}
     },
@@ -5785,13 +3893,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 55
-      },
       "extended": {}
     },
     {
@@ -5805,13 +3906,6 @@
             "y": 91
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "The Gulch",
-        "number": 56
       },
       "extended": {}
     },
@@ -5827,13 +3921,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 57
-      },
       "extended": {}
     },
     {
@@ -5847,13 +3934,6 @@
             "y": 802
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 58
       },
       "extended": {}
     },
@@ -5869,13 +3949,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Sunken Isles",
-        "number": 59
-      },
       "extended": {}
     },
     {
@@ -5889,13 +3962,6 @@
             "y": -121
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Salt Mines",
-        "place": "Earth",
-        "name": "Salt Mines",
-        "number": 60
       },
       "extended": {}
     },
@@ -5911,13 +3977,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Salt Mines",
-        "place": "Earth",
-        "name": "Salt Mines",
-        "number": 61
-      },
       "extended": {}
     },
     {
@@ -5931,13 +3990,6 @@
             "y": -156
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Salt Mines",
-        "place": "Earth",
-        "name": "Salt Mines",
-        "number": 62
       },
       "extended": {}
     },
@@ -5953,13 +4005,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 63
-      },
       "extended": {}
     },
     {
@@ -5973,13 +4018,6 @@
             "y": -436
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 64
       },
       "extended": {}
     },
@@ -5995,13 +4033,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 65
-      },
       "extended": {}
     },
     {
@@ -6015,13 +4046,6 @@
             "y": -396
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 66
       },
       "extended": {}
     },
@@ -6037,13 +4061,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Trostland",
-        "number": 67
-      },
       "extended": {}
     },
     {
@@ -6057,13 +4074,6 @@
             "y": 616
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Echion Hold",
-        "place": "Earth",
-        "name": "Echion Hold",
-        "number": 68
       },
       "extended": {}
     },
@@ -6079,13 +4089,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 69
-      },
       "extended": {}
     },
     {
@@ -6099,13 +4102,6 @@
             "y": -45
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 70
       },
       "extended": {}
     },
@@ -6121,13 +4117,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "The Sludge",
-        "number": 71
-      },
       "extended": {}
     },
     {
@@ -6141,13 +4130,6 @@
             "y": 520
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Tunnels",
-        "place": "Earth",
-        "name": "The Tunnels",
-        "number": 72
       },
       "extended": {}
     },
@@ -6163,13 +4145,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Tunnels",
-        "place": "Earth",
-        "name": "The Tunnels",
-        "number": 73
-      },
       "extended": {}
     },
     {
@@ -6183,13 +4158,6 @@
             "y": 126
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Arboretum",
-        "place": "Titan, Moon of Saturn",
-        "name": "Arboretum",
-        "number": 77
       },
       "extended": {}
     },
@@ -6205,13 +4173,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Arboretum",
-        "place": "Titan, Moon of Saturn",
-        "name": "Arboretum",
-        "number": 78
-      },
       "extended": {}
     },
     {
@@ -6225,13 +4186,6 @@
             "y": 260
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Arboretum",
-        "place": "Titan, Moon of Saturn",
-        "name": "Arboretum",
-        "number": 79
       },
       "extended": {}
     },
@@ -6247,13 +4201,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Festering Halls",
-        "place": "Titan, Moon of Saturn",
-        "name": "Festering Halls",
-        "number": 80
-      },
       "extended": {}
     },
     {
@@ -6267,13 +4214,6 @@
             "y": -179
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Festering Halls",
-        "place": "Titan, Moon of Saturn",
-        "name": "Festering Halls",
-        "number": 81
       },
       "extended": {}
     },
@@ -6289,13 +4229,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Festering Halls",
-        "place": "Titan, Moon of Saturn",
-        "name": "Festering Halls",
-        "number": 82
-      },
       "extended": {}
     },
     {
@@ -6309,13 +4242,6 @@
             "y": 227
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Solarium",
-        "place": "Titan, Moon of Saturn",
-        "name": "Solarium",
-        "number": 83
       },
       "extended": {}
     },
@@ -6331,13 +4257,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 84
-      },
       "extended": {}
     },
     {
@@ -6351,13 +4270,6 @@
             "y": -34
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 85
       },
       "extended": {}
     },
@@ -6373,13 +4285,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 86
-      },
       "extended": {}
     },
     {
@@ -6393,13 +4298,6 @@
             "y": -19
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 87
       },
       "extended": {}
     },
@@ -6415,13 +4313,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "The Rig",
-        "number": 88
-      },
       "extended": {}
     },
     {
@@ -6435,13 +4326,6 @@
             "y": -266
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Tidal Anchor",
-        "place": "Titan, Moon of Saturn",
-        "name": "Tidal Anchor",
-        "number": 89
       },
       "extended": {}
     },
@@ -6457,13 +4341,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Tidal Anchor",
-        "place": "Titan, Moon of Saturn",
-        "name": "Tidal Anchor",
-        "number": 90
-      },
       "extended": {}
     },
     {
@@ -6477,13 +4354,6 @@
             "y": 67
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 91
       },
       "extended": {}
     },
@@ -6499,13 +4369,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 92
-      },
       "extended": {}
     },
     {
@@ -6519,13 +4382,6 @@
             "y": 230
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 93
       },
       "extended": {}
     },
@@ -6541,13 +4397,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren's Watch",
-        "number": 94
-      },
       "extended": {}
     },
     {
@@ -6561,13 +4410,6 @@
             "y": 135
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Sinking Docks",
-        "place": "Titan, Moon of Saturn",
-        "name": "Sinking Docks",
-        "number": 95
       },
       "extended": {}
     },
@@ -6583,13 +4425,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Sinking Docks",
-        "place": "Titan, Moon of Saturn",
-        "name": "Sinking Docks",
-        "number": 96
-      },
       "extended": {}
     },
     {
@@ -6603,13 +4438,6 @@
             "y": 268
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Sinking Docks",
-        "place": "Titan, Moon of Saturn",
-        "name": "Sinking Docks",
-        "number": 97
       },
       "extended": {}
     },
@@ -6625,13 +4453,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 98
-      },
       "extended": {}
     },
     {
@@ -6645,13 +4466,6 @@
             "y": 176
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 99
       },
       "extended": {}
     },
@@ -6667,13 +4481,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 100
-      },
       "extended": {}
     },
     {
@@ -6687,13 +4494,6 @@
             "y": 147
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 101
       },
       "extended": {}
     },
@@ -6709,13 +4509,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "The Tangle",
-        "number": 102
-      },
       "extended": {}
     },
     {
@@ -6729,13 +4522,6 @@
             "y": 403
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Chamber of Stone",
-        "place": "Nessus",
-        "name": "Chamber of Stone",
-        "number": 103
       },
       "extended": {}
     },
@@ -6751,13 +4537,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Mists",
-        "place": "Nessus",
-        "name": "The Mists",
-        "number": 104
-      },
       "extended": {}
     },
     {
@@ -6771,13 +4550,6 @@
             "y": 427
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Mists",
-        "place": "Nessus",
-        "name": "The Mists",
-        "number": 105
       },
       "extended": {}
     },
@@ -6793,13 +4565,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Mists",
-        "place": "Nessus",
-        "name": "The Mists",
-        "number": 106
-      },
       "extended": {}
     },
     {
@@ -6813,13 +4578,6 @@
             "y": 333
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 107
       },
       "extended": {}
     },
@@ -6835,13 +4593,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 108
-      },
       "extended": {}
     },
     {
@@ -6855,13 +4606,6 @@
             "y": 479
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Watcher's Grave",
-        "place": "Nessus",
-        "name": "Watcher's Grave",
-        "number": 109
       },
       "extended": {}
     },
@@ -6877,13 +4621,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Chamber of Water",
-        "place": "Nessus",
-        "name": "Chamber of Water",
-        "number": 110
-      },
       "extended": {}
     },
     {
@@ -6897,13 +4634,6 @@
             "y": -9
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 111
       },
       "extended": {}
     },
@@ -6919,13 +4649,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 112
-      },
       "extended": {}
     },
     {
@@ -6939,13 +4662,6 @@
             "y": 104
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hallows",
-        "number": 113
       },
       "extended": {}
     },
@@ -6961,13 +4677,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Sunken Cavern",
-        "place": "Nessus",
-        "name": "Sunken Cavern",
-        "number": 114
-      },
       "extended": {}
     },
     {
@@ -6981,13 +4690,6 @@
             "y": 81
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Sunken Cavern",
-        "place": "Nessus",
-        "name": "Sunken Cavern",
-        "number": 115
       },
       "extended": {}
     },
@@ -7003,13 +4705,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Artifact's Edge",
-        "number": 116
-      },
       "extended": {}
     },
     {
@@ -7023,13 +4718,6 @@
             "y": -379
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 117
       },
       "extended": {}
     },
@@ -7045,13 +4733,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 118
-      },
       "extended": {}
     },
     {
@@ -7065,13 +4746,6 @@
             "y": -392
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 119
       },
       "extended": {}
     },
@@ -7087,13 +4761,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 120
-      },
       "extended": {}
     },
     {
@@ -7107,13 +4774,6 @@
             "y": -164
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Cistern",
-        "number": 121
       },
       "extended": {}
     },
@@ -7129,13 +4789,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Pools of Luminance",
-        "place": "Nessus",
-        "name": "Pools of Luminance",
-        "number": 122
-      },
       "extended": {}
     },
     {
@@ -7149,13 +4802,6 @@
             "y": -383
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Pools of Luminance",
-        "place": "Nessus",
-        "name": "Pools of Luminance",
-        "number": 123
       },
       "extended": {}
     },
@@ -7171,13 +4817,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 124
-      },
       "extended": {}
     },
     {
@@ -7191,13 +4830,6 @@
             "y": -381
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 125
       },
       "extended": {}
     },
@@ -7213,13 +4845,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 126
-      },
       "extended": {}
     },
     {
@@ -7233,13 +4858,6 @@
             "y": -570
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 127
       },
       "extended": {}
     },
@@ -7255,13 +4873,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "Glade of Echoes",
-        "number": 128
-      },
       "extended": {}
     },
     {
@@ -7275,13 +4886,6 @@
             "y": -145
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 129
       },
       "extended": {}
     },
@@ -7297,13 +4901,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 130
-      },
       "extended": {}
     },
     {
@@ -7317,13 +4914,6 @@
             "y": -126
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 131
       },
       "extended": {}
     },
@@ -7339,13 +4929,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 132
-      },
       "extended": {}
     },
     {
@@ -7360,13 +4943,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Black",
-        "number": 133
-      },
       "extended": {}
     },
     {
@@ -7380,13 +4956,6 @@
             "y": -358
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Chamber of Sky",
-        "place": "Nessus",
-        "name": "Chamber of Sky",
-        "number": 134
       },
       "extended": {}
     },
@@ -7404,13 +4973,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "EX-077 Command",
-        "place": "Nessus",
-        "name": "EX-077 Command",
-        "number": 135
-      },
       "extended": {}
     },
     {
@@ -7426,13 +4988,6 @@
           }
         ],
         "in": "strike"
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Prodromus Down",
-        "place": "Nessus",
-        "name": "Prodromus Down",
-        "number": 136
       },
       "extended": {}
     },
@@ -7450,13 +5005,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Prodromus Down",
-        "place": "Nessus",
-        "name": "Prodromus Down",
-        "number": 137
-      },
       "extended": {}
     },
     {
@@ -7470,13 +5018,6 @@
             "y": 11
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 138
       },
       "extended": {}
     },
@@ -7492,13 +5033,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 139
-      },
       "extended": {}
     },
     {
@@ -7512,13 +5046,6 @@
             "y": -200
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 140
       },
       "extended": {}
     },
@@ -7534,13 +5061,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 141
-      },
       "extended": {}
     },
     {
@@ -7554,13 +5074,6 @@
             "y": -207
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 142
       },
       "extended": {}
     },
@@ -7576,13 +5089,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 143
-      },
       "extended": {}
     },
     {
@@ -7596,13 +5102,6 @@
             "y": 96
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 144
       },
       "extended": {}
     },
@@ -7618,13 +5117,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Courtyard",
-        "place": "Earth",
-        "name": "Courtyard",
-        "number": 145
-      },
       "extended": {}
     },
     {
@@ -7638,13 +5130,6 @@
             "y": 283
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 146
       },
       "extended": {}
     },
@@ -7660,13 +5145,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 147
-      },
       "extended": {}
     },
     {
@@ -7680,13 +5158,6 @@
             "y": 401
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 148
       },
       "extended": {}
     },
@@ -7702,13 +5173,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 149
-      },
       "extended": {}
     },
     {
@@ -7722,13 +5186,6 @@
             "y": -231
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 150
       },
       "extended": {}
     },
@@ -7744,13 +5201,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 151
-      },
       "extended": {}
     },
     {
@@ -7764,13 +5214,6 @@
             "y": 102
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 152
       },
       "extended": {}
     },
@@ -7786,13 +5229,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Hangar",
-        "place": "Earth",
-        "name": "Hangar",
-        "number": 153
-      },
       "extended": {}
     },
     {
@@ -7806,13 +5242,6 @@
             "y": -62
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 154
       },
       "extended": {}
     },
@@ -7828,13 +5257,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 155
-      },
       "extended": {}
     },
     {
@@ -7848,13 +5270,6 @@
             "y": 233
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 156
       },
       "extended": {}
     },
@@ -7870,13 +5285,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 157
-      },
       "extended": {}
     },
     {
@@ -7890,13 +5298,6 @@
             "y": 155
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 158
       },
       "extended": {}
     },
@@ -7912,13 +5313,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 159
-      },
       "extended": {}
     },
     {
@@ -7933,13 +5327,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Last City",
-        "bubble": "Bazaar",
-        "place": "Earth",
-        "name": "Bazaar",
-        "number": 160
-      },
       "extended": {}
     },
     {
@@ -7952,11 +5339,6 @@
             "y": -252
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Farm",
-        "place": "Earth",
-        "number": 161
       },
       "extended": {}
     },
@@ -7971,11 +5353,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Farm",
-        "place": "Earth",
-        "number": 162
-      },
       "extended": {}
     },
     {
@@ -7989,11 +5366,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Farm",
-        "place": "Earth",
-        "number": 163
-      },
       "extended": {}
     },
     {
@@ -8006,11 +5378,6 @@
             "y": -346
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Farm",
-        "place": "Earth",
-        "number": 164
       },
       "extended": {}
     }
@@ -8028,13 +5395,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "I.I: Of Tattered Blood and Broken Bone",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -8048,13 +5408,6 @@
             "y": -14
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "I.II: Of Tattered Blood and Broken Bone",
-        "number": 2
       },
       "extended": {}
     },
@@ -8070,13 +5423,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "I.III: Of Tattered Blood and Broken Bone",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -8090,13 +5436,6 @@
             "y": -364
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "I.IV: Of Tattered Blood and Broken Bone",
-        "number": 4
       },
       "extended": {}
     },
@@ -8112,13 +5451,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "II: An Audience with Slaughter",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -8132,13 +5464,6 @@
             "y": -384
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "III: Ritualistic Circle Pit",
-        "number": 6
       },
       "extended": {}
     },
@@ -8154,13 +5479,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "IV: Blood Sport",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -8174,13 +5492,6 @@
             "y": 358
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "V: A Sinister Plot",
-        "number": 8
       },
       "extended": {}
     },
@@ -8196,13 +5507,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Temple of Crota",
-        "place": "The Moon",
-        "name": "VI: Blood Sport",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -8216,13 +5520,6 @@
             "y": -116
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Circle of Bones",
-        "place": "The Moon",
-        "name": "VII: The Severed and the Unmade",
-        "number": 10
       },
       "extended": {}
     },
@@ -8238,13 +5535,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Chamber of Night",
-        "place": "The Moon",
-        "name": "VIII: A Sacrifice of Self",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -8258,13 +5548,6 @@
             "y": -90
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The World's Grave",
-        "place": "The Moon",
-        "name": "IX.I: The Unmaking",
-        "number": 12
       },
       "extended": {}
     },
@@ -8280,13 +5563,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Gatehouse",
-        "place": "The Moon",
-        "name": "IX.II: The Unmaking",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -8301,13 +5577,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Lunar Battlegrounds",
-        "place": "The Moon",
-        "name": "X: Faith in Bone",
-        "number": 14
-      },
       "extended": {}
     },
     {
@@ -8321,13 +5590,6 @@
             "y": -780
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sanctuary",
-        "place": "The Moon",
-        "name": "XI: The Anti-Logic",
-        "number": 15
       },
       "extended": {}
     },
@@ -8344,12 +5606,6 @@
         ],
         "in": "activity"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "VIII.X: Apocrypha",
-        "number": 16
-      },
       "extended": {}
     },
     {
@@ -8364,12 +5620,6 @@
           }
         ],
         "in": "activity"
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X: Apocrypha",
-        "number": 17
       },
       "extended": {}
     },
@@ -8386,12 +5636,6 @@
         ],
         "in": "activity"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X.I: Apocrypha",
-        "number": 18
-      },
       "extended": {}
     },
     {
@@ -8406,12 +5650,6 @@
           }
         ],
         "in": "activity"
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "IX.X.II: Apocrypha",
-        "number": 19
       },
       "extended": {}
     },
@@ -8428,12 +5666,6 @@
         ],
         "in": "activity"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "XI.X: Apocrypha",
-        "number": 20
-      },
       "extended": {}
     }
   ],
@@ -8446,12 +5678,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -8461,12 +5687,6 @@
       "recordHash": 3024450468,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 2
       },
       "extended": {}
     },
@@ -8478,12 +5698,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -8493,12 +5707,6 @@
       "recordHash": 3024450468,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 4
       },
       "extended": {}
     },
@@ -8510,12 +5718,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -8525,12 +5727,6 @@
       "recordHash": 3024450468,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 6
       },
       "extended": {}
     },
@@ -8542,12 +5738,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -8557,12 +5747,6 @@
       "recordHash": 3024450468,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 8
       },
       "extended": {}
     },
@@ -8574,12 +5758,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "place": "The Dreaming City",
-        "name": "Katabasis",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -8589,13 +5767,6 @@
       "recordHash": 3024450464,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Tower of Opened Eyes",
-        "place": "The Dreaming City",
-        "name": "Palingenesis II",
-        "number": 10
       },
       "extended": {}
     },
@@ -8607,13 +5778,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The First Spire",
-        "place": "The Dreaming City",
-        "name": "Palingenesis II",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -8623,13 +5787,6 @@
       "recordHash": 3024450464,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Keep of Voices",
-        "place": "The Dreaming City",
-        "name": "Palingenesis II",
-        "number": 12
       },
       "extended": {}
     },
@@ -8641,13 +5798,6 @@
       "map": {
         "points": []
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Keep of Voices",
-        "place": "The Dreaming City",
-        "name": "Palingenesis II",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -8657,13 +5807,6 @@
       "recordHash": 3024450464,
       "map": {
         "points": []
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Hall of Two Souls",
-        "place": "The Dreaming City",
-        "name": "Palingenesis II",
-        "number": 14
       },
       "extended": {}
     },
@@ -8682,13 +5825,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Temple of Illyn",
-        "place": "The Dreaming City",
-        "name": "Imponent III",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -8706,13 +5842,6 @@
         ],
         "in": "strike"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Temple of Illyn",
-        "place": "The Dreaming City",
-        "name": "Imponent III",
-        "number": 16
-      },
       "extended": {}
     },
     {
@@ -8727,13 +5856,6 @@
             "y": 787
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Imponent IV",
-        "number": 17
       },
       "extended": {}
     },
@@ -8750,13 +5872,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Imponent IV",
-        "number": 18
-      },
       "extended": {}
     },
     {
@@ -8771,13 +5886,6 @@
             "y": 959
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Imponent IV",
-        "number": 19
       },
       "extended": {}
     },
@@ -8794,13 +5902,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Gardens of Esila",
-        "place": "The Dreaming City",
-        "name": "Imponent II",
-        "number": 20
-      },
       "extended": {}
     },
     {
@@ -8815,13 +5916,6 @@
             "y": -623
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Gardens of Esila",
-        "place": "The Dreaming City",
-        "name": "Imponent II",
-        "number": 21
       },
       "extended": {}
     },
@@ -8838,13 +5932,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Imponent II",
-        "number": 22
-      },
       "extended": {}
     },
     {
@@ -8859,13 +5946,6 @@
             "y": 105
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Imponent V",
-        "number": 23
       },
       "extended": {}
     },
@@ -8882,13 +5962,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Imponent V",
-        "number": 24
-      },
       "extended": {}
     },
     {
@@ -8903,13 +5976,6 @@
             "y": -84
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Imponent V",
-        "number": 25
       },
       "extended": {}
     },
@@ -8927,13 +5993,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Cimmerian Garrison",
-        "place": "The Dreaming City",
-        "name": "Nigh I",
-        "number": 26
-      },
       "extended": {}
     },
     {
@@ -8949,13 +6008,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Cimmerian Garrison",
-        "place": "The Dreaming City",
-        "name": "Nigh I",
-        "number": 27
       },
       "extended": {}
     },
@@ -8973,13 +6025,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Cimmerian Garrison",
-        "place": "The Dreaming City",
-        "name": "Nigh I",
-        "number": 28
-      },
       "extended": {}
     },
     {
@@ -8995,13 +6040,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Shattered Ruins",
-        "place": "The Dreaming City",
-        "name": "Imponent V",
-        "number": 29
       },
       "extended": {}
     },
@@ -9019,13 +6057,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Shattered Ruins",
-        "place": "The Dreaming City",
-        "name": "Imponent V",
-        "number": 30
-      },
       "extended": {}
     },
     {
@@ -9041,13 +6072,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Agonarch Abyss",
-        "place": "The Dreaming City",
-        "name": "Palingenesis I",
-        "number": 31
       },
       "extended": {}
     },
@@ -9065,13 +6089,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Agonarch Abyss",
-        "place": "The Dreaming City",
-        "name": "Palingenesis I",
-        "number": 32
-      },
       "extended": {}
     },
     {
@@ -9087,13 +6104,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Agonarch Abyss",
-        "place": "The Dreaming City",
-        "name": "Palingenesis I",
-        "number": 33
       },
       "extended": {}
     },
@@ -9111,13 +6121,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Keep of Honed Edges",
-        "place": "The Dreaming City",
-        "name": "Imponent IV",
-        "number": 34
-      },
       "extended": {}
     },
     {
@@ -9133,13 +6136,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Keep of Honed Edges",
-        "place": "The Dreaming City",
-        "name": "Imponent IV",
-        "number": 35
       },
       "extended": {}
     },
@@ -9157,13 +6153,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Ouroborea",
-        "place": "The Dreaming City",
-        "name": "Nigh II",
-        "number": 36
-      },
       "extended": {}
     },
     {
@@ -9179,13 +6168,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Ouroborea",
-        "place": "The Dreaming City",
-        "name": "Nigh II",
-        "number": 37
       },
       "extended": {}
     },
@@ -9203,13 +6185,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Ouroborea",
-        "place": "The Dreaming City",
-        "name": "Nigh II",
-        "number": 38
-      },
       "extended": {}
     },
     {
@@ -9226,13 +6201,6 @@
         ],
         "in": "ascendant-challenge"
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Forfeit Shrine",
-        "place": "The Dreaming City",
-        "name": "Imponent II",
-        "number": 39
-      },
       "extended": {}
     },
     {
@@ -9248,13 +6216,6 @@
           }
         ],
         "in": "ascendant-challenge"
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Forfeit Shrine",
-        "place": "The Dreaming City",
-        "name": "Imponent II",
-        "number": 40
       },
       "extended": {}
     }
@@ -9273,13 +6234,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "The Strand",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -9294,13 +6248,6 @@
             "y": -791
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Gardens of Esila",
-        "place": "The Dreaming City",
-        "name": "Gardens of Esila",
-        "number": 2
       },
       "extended": {}
     },
@@ -9317,13 +6264,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Spine of Keres",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -9338,13 +6278,6 @@
             "y": 108
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Spine of Keres",
-        "number": 4
       },
       "extended": {}
     },
@@ -9361,13 +6294,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -9382,13 +6308,6 @@
             "y": 565
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Harbinger's Seclude",
-        "number": 6
       },
       "extended": {}
     },
@@ -9405,13 +6324,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Harbinger's Seclude",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -9427,13 +6339,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Divalian Mists",
-        "number": 8
-      },
       "extended": {}
     },
     {
@@ -9448,13 +6353,6 @@
             "y": 348
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Rheasilvia",
-        "number": 9
       },
       "extended": {}
     }
@@ -9472,13 +6370,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -9492,13 +6383,6 @@
             "y": 138
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 2
       },
       "extended": {}
     },
@@ -9514,13 +6398,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -9534,13 +6411,6 @@
             "y": 89
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 4
       },
       "extended": {}
     },
@@ -9556,13 +6426,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -9576,13 +6439,6 @@
             "y": 172
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 6
       },
       "extended": {}
     },
@@ -9598,13 +6454,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -9618,13 +6467,6 @@
             "y": 87
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 8
       },
       "extended": {}
     },
@@ -9641,13 +6483,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Core Terminus",
-        "place": "Mars",
-        "name": "Core Terminus",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -9663,13 +6498,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Core Terminus",
-        "place": "Mars",
-        "name": "Core Terminus",
-        "number": 10
-      },
       "extended": {}
     },
     {
@@ -9683,13 +6511,6 @@
             "y": -348
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 11
       },
       "extended": {}
     },
@@ -9705,13 +6526,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 12
-      },
       "extended": {}
     },
     {
@@ -9725,13 +6539,6 @@
             "y": -250
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 13
       },
       "extended": {}
     },
@@ -9747,13 +6554,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 14
-      },
       "extended": {}
     },
     {
@@ -9767,13 +6567,6 @@
             "y": -358
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 15
       },
       "extended": {}
     },
@@ -9789,13 +6582,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 16
-      },
       "extended": {}
     },
     {
@@ -9809,13 +6595,6 @@
             "y": -276
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 17
       },
       "extended": {}
     },
@@ -9831,13 +6610,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 18
-      },
       "extended": {}
     },
     {
@@ -9851,13 +6623,6 @@
             "y": 202
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 19
       },
       "extended": {}
     },
@@ -9873,13 +6638,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 20
-      },
       "extended": {}
     },
     {
@@ -9893,13 +6651,6 @@
             "y": 253
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Aurora Reach",
-        "place": "Mars",
-        "name": "Aurora Reach",
-        "number": 21
       },
       "extended": {}
     },
@@ -9915,13 +6666,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab: Rasputin",
-        "number": 22
-      },
       "extended": {}
     },
     {
@@ -9935,13 +6679,6 @@
             "y": 284
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab: Rasputin",
-        "number": 23
       },
       "extended": {}
     },
@@ -9957,13 +6694,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Aurora Reach",
-        "place": "Mars",
-        "name": "Aurora Reach",
-        "number": 24
-      },
       "extended": {}
     },
     {
@@ -9977,13 +6707,6 @@
             "y": -382
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 25
       },
       "extended": {}
     },
@@ -9999,13 +6722,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Olympus Descent",
-        "number": 26
-      },
       "extended": {}
     },
     {
@@ -10020,13 +6736,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 27
-      },
       "extended": {}
     },
     {
@@ -10040,13 +6749,6 @@
             "y": -627
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Olympus Descent",
-        "number": 28
       },
       "extended": {}
     },
@@ -10063,13 +6765,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Ma'adim Subterrane",
-        "place": "Mars",
-        "name": "Ma'adim Subterrane",
-        "number": 29
-      },
       "extended": {}
     },
     {
@@ -10083,13 +6778,6 @@
             "y": 38
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 30
       },
       "extended": {}
     },
@@ -10105,13 +6793,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 31
-      },
       "extended": {}
     },
     {
@@ -10125,13 +6806,6 @@
             "y": 180
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 32
       },
       "extended": {}
     },
@@ -10147,13 +6821,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 33
-      },
       "extended": {}
     },
     {
@@ -10167,13 +6834,6 @@
             "y": -38
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 34
       },
       "extended": {}
     },
@@ -10189,13 +6849,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 35
-      },
       "extended": {}
     },
     {
@@ -10209,13 +6862,6 @@
             "y": 256
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 36
       },
       "extended": {}
     },
@@ -10231,13 +6877,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 37
-      },
       "extended": {}
     },
     {
@@ -10251,13 +6890,6 @@
             "y": -222
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Dynamo Approach",
-        "place": "Mars",
-        "name": "Dynamo Approach",
-        "number": 38
       },
       "extended": {}
     },
@@ -10273,13 +6905,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Alton Dynamo",
-        "place": "Mars",
-        "name": "Alton Dynamo",
-        "number": 39
-      },
       "extended": {}
     },
     {
@@ -10293,13 +6918,6 @@
             "y": -142
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Glacial Drift",
-        "number": 40
       },
       "extended": {}
     },
@@ -10315,13 +6933,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Olympus Descent",
-        "place": "Mars",
-        "name": "Olympus Descent",
-        "number": 41
-      },
       "extended": {}
     },
     {
@@ -10335,13 +6946,6 @@
             "y": 411
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab: Rasputin",
-        "number": 42
       },
       "extended": {}
     },
@@ -10357,13 +6961,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Mindlab: Rasputin",
-        "place": "Mars",
-        "name": "Mindlab: Rasputin",
-        "number": 43
-      },
       "extended": {}
     },
     {
@@ -10377,13 +6974,6 @@
             "y": 219
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "BrayTech Futurescape",
-        "number": 44
       },
       "extended": {}
     },
@@ -10399,13 +6989,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Ma'adim Subterrane",
-        "place": "Mars",
-        "name": "Ma'adim Subterrane",
-        "number": 45
       },
       "extended": {}
     }
@@ -10424,13 +7007,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "Aphix Conduit",
-        "number": 1
-      },
       "extended": {
         "bubbleHash": 577912749
       }
@@ -10447,13 +7023,6 @@
             "y": -107
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "Sanctum of Bones",
-        "number": 2
       },
       "extended": {
         "bubbleHash": 577912749
@@ -10472,13 +7041,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Grove of Ulan-Tan",
-        "number": 3
-      },
       "extended": {
         "bubbleHash": 697305512
       }
@@ -10494,13 +7056,6 @@
             "y": -465.76
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Whispered Falls",
-        "number": 4
       },
       "extended": {
         "bubbleHash": 3340296448
@@ -10518,13 +7073,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "The Drain",
-        "number": 5
-      },
       "extended": {
         "bubbleHash": 3340296448
       }
@@ -10540,13 +7088,6 @@
             "y": -500.64
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Scavenger's Den",
-        "number": 6
       },
       "extended": {
         "bubbleHash": 3340296448
@@ -10564,13 +7105,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Winding Cove",
-        "place": "Earth",
-        "name": "The Weep",
-        "number": 7
-      },
       "extended": {
         "bubbleHash": 3854937584
       }
@@ -10586,13 +7120,6 @@
             "y": -18.86
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "The Pit",
-        "number": 8
       },
       "extended": {
         "bubbleHash": 2212414297
@@ -10610,13 +7137,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Pathfinder's Crash",
-        "number": 9
-      },
       "extended": {
         "bubbleHash": 2212414297
       }
@@ -10632,13 +7152,6 @@
             "y": -66.82
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Excavation Site XII",
-        "number": 10
       },
       "extended": {
         "bubbleHash": 2212414297
@@ -10656,13 +7169,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "Flooded Chasm",
-        "number": 11
-      },
       "extended": {
         "bubbleHash": 3861059923
       }
@@ -10678,13 +7184,6 @@
             "y": 564.29
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Skydock IV",
-        "number": 12
       },
       "extended": {
         "bubbleHash": 1094980045
@@ -10702,13 +7201,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "The Quarry",
-        "number": 13
-      },
       "extended": {
         "bubbleHash": 1094980045
       }
@@ -10724,13 +7216,6 @@
             "y": -343.68
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Atrium",
-        "number": 14
       },
       "extended": {
         "bubbleHash": 3091570009
@@ -10748,13 +7233,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Terminus East",
-        "number": 15
-      },
       "extended": {
         "bubbleHash": 3091570009
       }
@@ -10770,13 +7248,6 @@
             "y": -345.86
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Widow's Walk",
-        "number": 16
       },
       "extended": {
         "bubbleHash": 3091570009
@@ -10794,13 +7265,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "Cavern of Souls",
-        "number": 17
-      },
       "extended": {
         "bubbleHash": 4200309587
       }
@@ -10816,13 +7280,6 @@
             "y": 117.39
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "Hallowed Grove",
-        "number": 18
       },
       "extended": {
         "bubbleHash": 4200309587
@@ -10840,13 +7297,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "Shaft 13",
-        "number": 19
-      },
       "extended": {
         "bubbleHash": 4200309587
       }
@@ -10862,13 +7312,6 @@
             "y": 227.8
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Methane Flush",
-        "number": 20
       },
       "extended": {
         "bubbleHash": 1291433366
@@ -10886,13 +7329,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "DS Quarters-2",
-        "number": 21
-      },
       "extended": {
         "bubbleHash": 4035573696
       }
@@ -10908,13 +7344,6 @@
             "y": 95.8
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "Cargo Bay 3",
-        "number": 22
       },
       "extended": {
         "bubbleHash": 4035573696
@@ -10932,13 +7361,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "The Rift",
-        "number": 23
-      },
       "extended": {
         "bubbleHash": 4205285323
       }
@@ -10954,13 +7376,6 @@
             "y": -179
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "The Conflux",
-        "number": 24
       },
       "extended": {
         "bubbleHash": 2132187573
@@ -10978,13 +7393,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "The Orrery",
-        "number": 25
-      },
       "extended": {
         "bubbleHash": 1702304883
       }
@@ -11000,13 +7408,6 @@
             "y": -491
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Glade of Echoes",
-        "place": "Nessus",
-        "name": "The Carrion Pit",
-        "number": 26
       },
       "extended": {
         "bubbleHash": 3311195705
@@ -11024,13 +7425,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "Ancient's Haunt",
-        "number": 27
-      },
       "extended": {
         "bubbleHash": 933267223
       }
@@ -11046,13 +7440,6 @@
             "y": -330.6
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "Pariah's Refuge",
-        "number": 28
       },
       "extended": {
         "bubbleHash": 2822410613
@@ -11070,13 +7457,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Core Terminus",
-        "number": 29
-      },
       "extended": {
         "bubbleHash": 1461622515
       }
@@ -11092,13 +7472,6 @@
             "y": -296
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Ma'adim Subterrane",
-        "number": 30
       },
       "extended": {
         "bubbleHash": 3899539020
@@ -11117,13 +7490,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Jetsam of Saturn",
-        "place": "The Tangled Shore",
-        "name": "Shipyard AWO-43",
-        "number": 31
-      },
       "extended": {
         "bubbleHash": 1635947699
       }
@@ -11140,13 +7506,6 @@
             "y": -48
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "Kingship Dock",
-        "number": 32
       },
       "extended": {
         "bubbleHash": 1608679832
@@ -11165,13 +7524,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Thieves' Landing",
-        "place": "The Tangled Shore",
-        "name": "The Empty Tank",
-        "number": 33
-      },
       "extended": {
         "bubbleHash": 1608679832
       }
@@ -11188,13 +7540,6 @@
             "y": 394.5
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Soriks's Cut",
-        "place": "The Tangled Shore",
-        "name": "Wolfship Turbine",
-        "number": 34
       },
       "extended": {
         "bubbleHash": 3520035140
@@ -11213,13 +7558,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Four-Horn Gulch",
-        "place": "The Tangled Shore",
-        "name": "Trapper's Cave",
-        "number": 35
-      },
       "extended": {
         "bubbleHash": 1026950430
       }
@@ -11236,13 +7574,6 @@
             "y": -162.64
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Bay of Drowned Wishes",
-        "number": 36
       },
       "extended": {
         "bubbleHash": 706937272
@@ -11261,13 +7592,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "Aphelion's Rest",
-        "number": 37
-      },
       "extended": {
         "bubbleHash": 3522109173
       }
@@ -11285,13 +7609,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Chamber of Starlight",
-        "number": 38
-      },
       "extended": {
         "bubbleHash": 2762866308
       }
@@ -11307,13 +7624,6 @@
             "y": -233
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "K1 Logistics",
-        "number": 39
       },
       "extended": {
         "bubbleHash": 3326367698
@@ -11331,13 +7641,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Sorrow's Harbor",
-        "place": "The Moon",
-        "name": "K1 Revelation",
-        "number": 40
-      },
       "extended": {
         "bubbleHash": 417490937
       }
@@ -11354,13 +7657,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "K1 Crew Quarters",
-        "number": 41
-      },
       "extended": {
         "bubbleHash": 4195493657
       }
@@ -11376,13 +7672,6 @@
             "y": -376
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "K1 Communion",
-        "number": 42
       },
       "extended": {
         "bubbleHash": 4025450777
@@ -11402,13 +7691,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Gardens of Esila",
-        "place": "The Dreaming City",
-        "name": "Revanche II",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -11422,13 +7704,6 @@
             "y": -432
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "Revanche III",
-        "number": 2
       },
       "extended": {}
     },
@@ -11444,13 +7719,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Revanche IV",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -11464,13 +7732,6 @@
             "y": 360
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Rheasilvia",
-        "place": "The Dreaming City",
-        "name": "Revanche V",
-        "number": 4
       },
       "extended": {}
     },
@@ -11486,13 +7747,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Font of Starlight",
-        "place": "The Dreaming City",
-        "name": "Telic I",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -11506,13 +7760,6 @@
             "y": -323
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Telic II",
-        "number": 6
       },
       "extended": {}
     },
@@ -11528,13 +7775,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Harbinger's Seclude",
-        "place": "The Dreaming City",
-        "name": "Tyrannocide I",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -11548,13 +7788,6 @@
             "y": 35
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Divalian Mists",
-        "place": "The Dreaming City",
-        "name": "Tyrannocide II",
-        "number": 8
       },
       "extended": {}
     },
@@ -11570,13 +7803,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "High Plains",
-        "place": "The Tangled Shore",
-        "name": "Tyrannocide III",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -11590,13 +7816,6 @@
             "y": 275
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "Spine of Keres",
-        "place": "The Dreaming City",
-        "name": "Tyrannocide IV",
-        "number": 10
       },
       "extended": {}
     },
@@ -11613,13 +7832,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Trapper's Cave",
-        "place": "The Tangled Shore",
-        "name": "Tyrannocide V",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -11633,13 +7845,6 @@
             "y": 442
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Boil",
-        "place": "The Tangled Shore",
-        "name": "Regent",
-        "number": 12
       },
       "extended": {}
     },
@@ -11656,13 +7861,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Shipyard AWO-43",
-        "place": "The Tangled Shore",
-        "name": "Illyn",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -11676,13 +7874,6 @@
             "y": -922
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Hellrise Canyon",
-        "place": "The Tangled Shore",
-        "name": "Nitrogen",
-        "number": 14
       },
       "extended": {}
     },
@@ -11698,13 +7889,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "Hall of the Exalted",
-        "place": "The Tangled Shore",
-        "name": "Refusal",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -11718,13 +7902,6 @@
             "y": 505
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Tangled Shore",
-        "bubble": "The Cobble",
-        "place": "The Tangled Shore",
-        "name": "Fleet",
-        "number": 16
       },
       "extended": {}
     },
@@ -11741,13 +7918,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Scavenger's Den",
-        "place": "Earth",
-        "name": "Of Earth and the Reef",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -11761,13 +7931,6 @@
             "y": 127
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Sinking Docks",
-        "place": "Titan, Moon of Saturn",
-        "name": "Pilgrimage",
-        "number": 18
       },
       "extended": {}
     },
@@ -11784,13 +7947,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Conflux",
-        "place": "Nessus",
-        "name": "Flayed",
-        "number": 19
-      },
       "extended": {}
     },
     {
@@ -11805,13 +7961,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Grove of Ulan-Tan",
-        "place": "Io",
-        "name": "Gensym Scribe",
-        "number": 20
       },
       "extended": {}
     },
@@ -11828,13 +7977,6 @@
         ],
         "in": "lost-sector"
       },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "Pariah's Refuge",
-        "place": "Mercury",
-        "name": "Exegesis",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -11848,13 +7990,6 @@
             "y": -330
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Dreaming City",
-        "bubble": "The Strand",
-        "place": "The Dreaming City",
-        "name": "King's Wrath",
-        "number": 22
       },
       "extended": {}
     },
@@ -11870,13 +8005,6 @@
           }
         ],
         "in": "lost-sector"
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Ma'adim Subterrane",
-        "place": "Mars",
-        "name": "Emissary",
-        "number": 23
       },
       "extended": {}
     }
@@ -11895,13 +8023,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "Red Legion, Black Oil",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -11916,13 +8037,6 @@
             "y": -242
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Anti-Anti-Air",
-        "number": 2
       },
       "extended": {}
     },
@@ -11939,13 +8053,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "Dark Alliance",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -11960,13 +8067,6 @@
             "y": 16.02
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "Stop and Go",
-        "number": 4
       },
       "extended": {}
     },
@@ -11983,13 +8083,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Sludge",
-        "place": "Earth",
-        "name": "Getting Your Hands Dirty",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -12004,13 +8097,6 @@
             "y": 8.39
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Firebase Hades",
-        "place": "Earth",
-        "name": "Unsafe at Any Speed",
-        "number": 6
       },
       "extended": {}
     },
@@ -12027,13 +8113,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "A Frame Job",
-        "number": 7
-      },
       "extended": {}
     },
     {
@@ -12048,13 +8127,6 @@
             "y": -417
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Calling Them Home",
-        "number": 8
       },
       "extended": {}
     },
@@ -12071,13 +8143,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "The Gulch",
-        "place": "Earth",
-        "name": "Reversing the Polarity",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -12092,13 +8157,6 @@
             "y": -664.14
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Outskirts",
-        "place": "Earth",
-        "name": "Poor Reception",
-        "number": 10
       },
       "extended": {}
     },
@@ -12115,13 +8173,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Trostland",
-        "place": "Earth",
-        "name": "Supply and Demand",
-        "number": 11
-      },
       "extended": {}
     },
     {
@@ -12136,13 +8187,6 @@
             "y": 732
           }
         ]
-      },
-      "sorts": {
-        "destination": "European Dead Zone",
-        "bubble": "Sunken Isles",
-        "place": "Earth",
-        "name": "No Safe Distance",
-        "number": 12
       },
       "extended": {}
     },
@@ -12159,13 +8203,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Cliffhanger",
-        "number": 13
-      },
       "extended": {}
     },
     {
@@ -12180,13 +8217,6 @@
             "y": 322
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Unexpected Guests",
-        "number": 14
       },
       "extended": {}
     },
@@ -12203,13 +8233,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "The Rupture",
-        "place": "Io",
-        "name": "Arecibo",
-        "number": 15
-      },
       "extended": {}
     },
     {
@@ -12224,13 +8247,6 @@
             "y": 175
           }
         ]
-      },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Giant's Scar",
-        "place": "Io",
-        "name": "Road Rage",
-        "number": 16
       },
       "extended": {}
     },
@@ -12247,13 +8263,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Echo Mesa",
-        "bubble": "Lost Oasis",
-        "place": "Io",
-        "name": "Postmodern Prometheus",
-        "number": 17
-      },
       "extended": {}
     },
     {
@@ -12268,13 +8277,6 @@
             "y": 57
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Unbreakable",
-        "number": 18
       },
       "extended": {}
     },
@@ -12291,13 +8293,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "Release",
-        "number": 19
-      },
       "extended": {}
     },
     {
@@ -12312,13 +8307,6 @@
             "y": -298
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Exodus Black",
-        "place": "Nessus",
-        "name": "Exodus Siege",
-        "number": 20
       },
       "extended": {}
     },
@@ -12335,13 +8323,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Cistern",
-        "place": "Nessus",
-        "name": "Invitation from the Emperor",
-        "number": 21
-      },
       "extended": {}
     },
     {
@@ -12356,13 +8337,6 @@
             "y": -28
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Hallows",
-        "place": "Nessus",
-        "name": "Hack the Planet",
-        "number": 22
       },
       "extended": {}
     },
@@ -12379,13 +8353,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "Artifact's Edge",
-        "place": "Nessus",
-        "name": "Deep Conversation",
-        "number": 23
-      },
       "extended": {}
     },
     {
@@ -12400,13 +8367,6 @@
             "y": 194
           }
         ]
-      },
-      "sorts": {
-        "destination": "Arcadian Valley",
-        "bubble": "The Tangle",
-        "place": "Nessus",
-        "name": "Lost Crew",
-        "number": 24
       },
       "extended": {}
     },
@@ -12423,13 +8383,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "Deathless",
-        "number": 25
-      },
       "extended": {}
     },
     {
@@ -12444,13 +8397,6 @@
             "y": 177.64
           }
         ]
-      },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "Siren's Watch",
-        "place": "Titan, Moon of Saturn",
-        "name": "Thief of Thieves",
-        "number": 26
       },
       "extended": {}
     },
@@ -12467,13 +8413,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "Siren Song",
-        "number": 27
-      },
       "extended": {}
     },
     {
@@ -12489,13 +8428,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "New Pacific Arcology",
-        "bubble": "The Rig",
-        "place": "Titan, Moon of Saturn",
-        "name": "Bad Neighbors",
-        "number": 28
-      },
       "extended": {}
     },
     {
@@ -12504,7 +8436,6 @@
       "activityHash": 2307090074,
       "checklistHash": 844419501,
       "itemHash": 1060902857,
-      "recordHash": 1144140061,
       "map": {
         "points": [
           {
@@ -12512,13 +8443,6 @@
             "y": 23.16
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "Signal Light",
-        "number": 29
       },
       "extended": {}
     },
@@ -12528,7 +8452,6 @@
       "activityHash": 2067233851,
       "checklistHash": 1942564430,
       "itemHash": 3951064360,
-      "recordHash": 1522954160,
       "map": {
         "points": [
           {
@@ -12536,13 +8459,6 @@
             "y": 23.16
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "Not Even the Darkness",
-        "number": 30
       },
       "extended": {}
     },
@@ -12559,13 +8475,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Up and Up",
-        "number": 31
-      },
       "extended": {}
     },
     {
@@ -12580,13 +8489,6 @@
             "y": -302.46
           }
         ]
-      },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "Bug in the System",
-        "number": 32
       },
       "extended": {}
     },
@@ -12603,13 +8505,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Mercury",
-        "bubble": "The Lighthouse",
-        "place": "Mercury",
-        "name": "The Runner",
-        "number": 33
-      },
       "extended": {}
     },
     {
@@ -12624,13 +8519,6 @@
             "y": -323
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Deathly Tremors",
-        "number": 34
       },
       "extended": {}
     },
@@ -12647,13 +8535,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Hephaestus",
-        "number": 35
-      },
       "extended": {}
     },
     {
@@ -12669,13 +8550,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "BrayTech Futurescape",
-        "place": "Mars",
-        "name": "Psionic Potential",
-        "number": 36
-      },
       "extended": {}
     },
     {
@@ -12690,13 +8564,6 @@
             "y": -275
           }
         ]
-      },
-      "sorts": {
-        "destination": "Hellas Basin",
-        "bubble": "Glacial Drift",
-        "place": "Mars",
-        "name": "Incursion",
-        "number": 37
       },
       "extended": {}
     }
@@ -12715,13 +8582,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Archer's Line",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Gunnvor's Ghost",
-        "number": 1
-      },
       "extended": {}
     },
     {
@@ -12736,13 +8596,6 @@
             "y": -176
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The World's Grave",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Sai Mota's Ghost",
-        "number": 2
       },
       "extended": {}
     },
@@ -12759,13 +8612,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Shrine of Oryx",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Gimble-4's Ghost",
-        "number": 3
-      },
       "extended": {}
     },
     {
@@ -12780,13 +8626,6 @@
             "y": -118
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Gatehouse",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Eris Morn's Ghost",
-        "number": 4
       },
       "extended": {}
     },
@@ -12803,13 +8642,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "The Summoning Pits",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Toland's Ghost",
-        "number": 5
-      },
       "extended": {}
     },
     {
@@ -12825,13 +8657,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Lunar Battlegrounds",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Vyhar's Ghost",
-        "number": 6
-      },
       "extended": {}
     },
     {
@@ -12846,13 +8671,6 @@
             "y": -492
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Anchor of Light",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Lonesome Ghost",
-        "number": 7
       },
       "extended": {}
     },
@@ -12870,12 +8688,6 @@
         ],
         "in": "activity"
       },
-      "sorts": {
-        "destination": "The Moon",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Omar Agah's Ghost",
-        "number": 8
-      },
       "extended": {}
     },
     {
@@ -12891,13 +8703,6 @@
           }
         ]
       },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Circle of Bones",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Eriana-3's Ghost",
-        "number": 9
-      },
       "extended": {}
     },
     {
@@ -12912,13 +8717,6 @@
             "y": 40
           }
         ]
-      },
-      "sorts": {
-        "destination": "The Moon",
-        "bubble": "Hellmouth",
-        "place": "The Moon",
-        "name": "Ghost Fragment: Vell Tarlowe's Ghost",
-        "number": 10
       },
       "extended": {}
     }

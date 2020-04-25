@@ -84,7 +84,7 @@ function unify(props) {
         // from the cartographer
         ...node.displayProperties,
         // pre-prepared checklist name/suffix
-        name: `${checklistItem?.formatted.name}${checklistItem?.formatted.suffix ? ` ${checklistItem.formatted.suffix}` : ``}`,
+        name: `${checklistItem?.displayProperties.name}${checklistItem?.displayProperties.suffix ? ` ${checklistItem.displayProperties.suffix}` : ``}`,
         // adventure name/description overrude from activity definition
         ...(node.checklist?.checklistId === 4178338182 ? definitionActivity?.originalDisplayProperties || definitionActivity?.displayProperties : {}),
       },
@@ -176,7 +176,13 @@ class Inspect extends React.Component {
               </a>
             </div>
           ) : null}
-          <div className={cx({ buffer: unified.related?.records.length })}>
+          <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
+            {unified.extended?.instructions ? (
+              <>
+                <h4>{t('Instructions')}</h4>
+                <BungieText className='description instructions' source={unified.extended.instructions} />
+              </>
+            ) : null}
             {unified.related?.records.length ? (
               <>
                 <h4>{t('Triumphs')}</h4>

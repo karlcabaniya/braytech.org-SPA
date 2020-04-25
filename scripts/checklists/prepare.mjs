@@ -270,17 +270,10 @@ async function run() {
         points,
         in: within,
       },
-      sorts: {
-        destination: definitionDestination && definitionDestination.displayProperties.name,
-        bubble: extendedBubbleName || bubbleName,
-        place: definitionPlace && definitionPlace.displayProperties.name,
-        name,
-        number: itemNumber && parseInt(itemNumber, 10),
-      },
       extended
     };
 
-    const screenshot = getScreenshot(checklistId, changes);
+    const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
 
     if (screenshot || extended.video) {
       doJson({
@@ -365,13 +358,6 @@ async function run() {
           map: {
             points,
             in: within,
-          },
-          sorts: {
-            destination: definitionDestination && definitionDestination.displayProperties.name,
-            bubble: bubbleName,
-            place: definitionPlace && definitionPlace.displayProperties.name,
-            name,
-            number: itemNumber + 1,
           },
           extended
         };
@@ -474,23 +460,23 @@ function doJson(payload) {
   BraytechMapsExports.push(payload);
 }
 
-function getScreenshot(checklistId, checklistItem) {
+function getScreenshot(checklistId, checklistItem, number, name) {
   let screenshot = undefined;
 
-  if (checklistId === 2360931290 && checklistItem.sorts && checklistItem.sorts.number) {
-    screenshot = searchScreenshots('ghost-scans', `ghost-scans_${checklistItem.sorts.number}.jpg`);
+  if (checklistId === 2360931290 && number) {
+    screenshot = searchScreenshots('ghost-scans', `ghost-scans_${number}.jpg`);
   }
 
-  if (checklistId === 1697465175 && checklistItem.sorts && checklistItem.sorts.number) {
-    screenshot = searchScreenshots('region-chests', `region-chests_${checklistItem.sorts.number}.jpg`);
+  if (checklistId === 1697465175 && number) {
+    screenshot = searchScreenshots('region-chests', `region-chests_${number}.jpg`);
   }
 
-  if (checklistId === 3142056444 && checklistItem.sorts && checklistItem.sorts.name) {
-    screenshot = searchScreenshots('lost-sectors', `lost-sectors_${checklistItem.sorts.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
+  if (checklistId === 3142056444 && name) {
+    screenshot = searchScreenshots('lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
   }
 
-  if (checklistId === 365218222 && checklistItem.sorts && checklistItem.sorts.name) {
-    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${checklistItem.sorts.name.toLowerCase().replace(' ','')}.jpg`);
+  if (checklistId === 365218222 && name) {
+    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ','')}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {

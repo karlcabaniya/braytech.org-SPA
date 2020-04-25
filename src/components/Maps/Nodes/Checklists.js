@@ -118,7 +118,7 @@ class Checklists extends React.Component {
               const offsetY = markerOffsetY + point.y;
               const offsetX = markerOffsetX + point.x;
 
-              // const text = checklist.checklistId === 3142056444 ? node.formatted.name : false;
+              // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
               const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
                 `checklistId-${list.checklistId}`,
@@ -138,7 +138,7 @@ class Checklists extends React.Component {
             const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
             const offsetX = markerOffsetX + (i + 1) * 50 - map.width / 2;
 
-            // const text = checklist.checklistId === 3142056444 ? node.formatted.name : false;
+            // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
             const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
               'error',

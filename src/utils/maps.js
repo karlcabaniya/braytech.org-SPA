@@ -69,7 +69,7 @@ function findChecklistItems(search) {
       checklist,
       checklistItem:
         checklist?.items?.length < 2
-          ? checklist.items.map(({ formatted, sorts, ...rest }) => ({
+          ? checklist.items.map(({ displayProperties, ...rest }) => ({
               ...rest,
             }))[0]
           : {},

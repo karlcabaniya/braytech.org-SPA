@@ -40,7 +40,7 @@ const Checklist = props => {
         {items.length > 0 ? (
           <ul className='list checklist-items'>
             {items.map((entry, i) => (
-              <ChecklistItem key={i} completed={entry.completed} {...entry.formatted} destinationHash={entry.destinationHash} mapHash={entry.checklistHash || entry.recordHash} />
+              <ChecklistItem key={i} completed={entry.completed} {...entry.displayProperties} destinationHash={entry.destinationHash} mapHash={entry.checklistHash || entry.recordHash} />
             ))}
           </ul>
         ) : (
@@ -71,7 +71,7 @@ const Checklist = props => {
         {items.length > 0 ? (
           <ul className='list checklist-items'>
             {items.map((entry, i) => (
-              <ChecklistItem key={i} completed={entry.completed} {...entry.formatted} destinationHash={entry.destinationHash} mapHash={entry.checklistHash || entry.recordHash} />
+              <ChecklistItem key={i} completed={entry.completed} {...entry.displayProperties} destinationHash={entry.destinationHash} mapHash={entry.checklistHash || entry.recordHash} />
             ))}
           </ul>
         ) : (
