@@ -20,9 +20,7 @@
         "name": "Descent.Cavern.Warsat",
         "number": 1
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=mrwa2T1enbM"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -44,9 +42,7 @@
         "name": "Descent.Chasm.Ledge",
         "number": 2
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=vOFaVn09nro"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -68,9 +64,7 @@
         "name": "Descent.Cave.Runes",
         "number": 3
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=J9BRlpuj2jA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -92,9 +86,7 @@
         "name": "Drift.Subterrane.Cliffside",
         "number": 4
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=LL3jCdPgxtA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -117,9 +109,7 @@
         "name": "Futurescape.Terminus.Console",
         "number": 5
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=nSDwCix8ED8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -141,9 +131,7 @@
         "name": "Drift.Flammable.Storage",
         "number": 6
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Ufl9EUOpZuA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -165,9 +153,7 @@
         "name": "Futurescape.Dock.Silo",
         "number": 7
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=-MffWeG_4Fk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -189,9 +175,7 @@
         "name": "Futurescape.Reception.Overlook",
         "number": 8
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=bpjQDKgH44s"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -213,9 +197,7 @@
         "name": "Drift.Checkpoint.Elevator",
         "number": 9
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=6ZPSDzu0gMs"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -237,9 +219,7 @@
         "name": "Drift.Transit.Freight",
         "number": 10
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=_P3-Y0fOvok"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -261,9 +241,7 @@
         "name": "Futurescape.Plaza.Infestation",
         "number": 11
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=0cY_3Py0-VY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -285,9 +263,7 @@
         "name": "Futurescape.Dock.Garage",
         "number": 12
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=5OFLVx5tgRQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -309,9 +285,7 @@
         "name": "Drift.Transit.Foundation",
         "number": 13
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=gPT0lzgZybk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -333,9 +307,7 @@
         "name": "Dynamo.Core.Catwalk",
         "number": 14
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=2UnwMuwc1iE"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -357,9 +329,7 @@
         "name": "Dynamo.Deck.Dampener",
         "number": 15
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=KmLjgB4MWI0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -381,9 +351,7 @@
         "name": "Dynamo.Coolant.Ventilation",
         "number": 16
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=L8K6NExbQyE"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -405,9 +373,7 @@
         "name": "Futurescape.Plaza.Console",
         "number": 17
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=baxQ-MsnXJI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -429,9 +395,7 @@
         "name": "Mindlab.Elevator.Service",
         "number": 18
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=WIBRLGp6JNQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -453,9 +417,7 @@
         "name": "Mindlab.Overhang.Node",
         "number": 19
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=0VtB9TFA1Q8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -477,9 +439,7 @@
         "name": "Dynamo.Approach.Arch",
         "number": 20
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=6MNIXHI-TMs"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -501,9 +461,7 @@
         "name": "Dynamo. Approach.Tree",
         "number": 21
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=tHtgIW56q_k"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -525,9 +483,7 @@
         "name": "Dynamo.Server.Stairwell",
         "number": 22
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=aYq3sfp1TUo"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -549,9 +505,7 @@
         "name": "Dynamo.Observation.Door",
         "number": 23
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=CH1R8k_c5ps"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -573,9 +527,7 @@
         "name": "Mindlab.Elevator.Right",
         "number": 24
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Fgzt9FX-WzM"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -597,9 +549,7 @@
         "name": "Drift.Service.BackEnd",
         "number": 25
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=cmXVolBz2gk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -621,9 +571,7 @@
         "name": "Drift.Gatehouse.Catwalk",
         "number": 26
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=eEb7vkNN5xg"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -645,9 +593,7 @@
         "name": "Mindlab.Conveyor.Junction",
         "number": 27
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=NdLhW3sqiJw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -669,9 +615,7 @@
         "name": "Mindlab.Conveyor.Bridge",
         "number": 28
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=acFgPN4VLuQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -693,9 +637,7 @@
         "name": "Futurescape.Dock.Outpost",
         "number": 29
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=fye0u21k8sc"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -717,9 +659,7 @@
         "name": "Futurescape.Transit.Service",
         "number": 30
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=DuFSUajHTOw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -741,9 +681,7 @@
         "name": "Dynamo.Approach.Cavern",
         "number": 31
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=aNnmsqwRZH0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -765,9 +703,7 @@
         "name": "Dynamo.Server.Heatshield",
         "number": 32
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=z63ReEQ3OGY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -789,9 +725,7 @@
         "name": "Dynamo.Observation.Valkyrie",
         "number": 33
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=TByPEHtIROE"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -813,9 +747,7 @@
         "name": "Dynamo.Core.Brace",
         "number": 34
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=aWAB5axCGvQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -838,9 +770,7 @@
         "name": "Drift.Subterrane.Chasm",
         "number": 35
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=1xKui_FAVf8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -862,9 +792,7 @@
         "name": "Dynamo.Control.Door",
         "number": 36
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=cDERL8pdwSQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -886,9 +814,7 @@
         "name": "Dynamo.Observation.Core",
         "number": 37
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=A1HyYkzfhAw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -910,9 +836,7 @@
         "name": "Futurescape.Ridgeline.Waterfall",
         "number": 38
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=tZnbjWWPWz4"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -934,9 +858,7 @@
         "name": "Aurora.Mindlab.Supplies",
         "number": 39
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=XP6GIoINIOE"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -958,9 +880,7 @@
         "name": "Aurora.Mindlab.Observation",
         "number": 40
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=QegheP_fj1k"
-      }
+      "extended": {}
     }
   ],
   "655926402": [
@@ -1005,9 +925,7 @@
         "name": "At the Gate | Part I",
         "number": 3
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=_KI0xerg2AY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1028,9 +946,7 @@
         "name": "At the Gate | Part II",
         "number": 4
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=kkoJUJuXGkI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1051,9 +967,7 @@
         "name": "Through the Gate",
         "number": 5
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=uDy4OjD0pNk"
-      }
+      "extended": {}
     },
     {
       "recordHash": 3448739523,
@@ -1086,9 +1000,7 @@
         "name": "On the Hunt",
         "number": 7
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=8-LW3qUjzGg"
-      }
+      "extended": {}
     },
     {
       "recordHash": 3448739533,
@@ -1120,9 +1032,7 @@
         "name": "After the Heart | Part II",
         "number": 9
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=T9NNr8N79tg"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1144,9 +1054,7 @@
         "name": "Jolyon",
         "number": 10
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=407BDWlIsUU"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1168,9 +1076,7 @@
         "name": "After the Fall",
         "number": 11
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=2YKFA_iBExU"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1192,9 +1098,7 @@
         "name": "Kings",
         "number": 12
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=GERRwip7C8w"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -1215,9 +1119,7 @@
         "name": "Fanatic | Part I",
         "number": 13
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=gXb_bEcF5ZY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -1238,9 +1140,7 @@
         "name": "Fanatic | Part II",
         "number": 14
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=9I13IRniDmI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1261,9 +1161,7 @@
         "name": "The Severance",
         "number": 15
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=2xIHd-XZlUk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1284,9 +1182,7 @@
         "name": "Fikrul",
         "number": 16
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=tbEMqye3pK0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1308,9 +1204,7 @@
         "name": "Docking",
         "number": 17
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=GvHzK_lxpl8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1332,9 +1226,7 @@
         "name": "Petra",
         "number": 18
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=OHpHJpX5El8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1355,9 +1247,7 @@
         "name": "Free | Part I",
         "number": 19
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=XCz-a6pnW2U"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1378,9 +1268,7 @@
         "name": "Free | Part II",
         "number": 20
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o"
-      }
+      "extended": {}
     }
   ],
   "1297424116": [
@@ -1398,9 +1286,7 @@
         "name": "Archiloquy",
         "number": 1
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=YpKny_Yrav8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1416,9 +1302,7 @@
         "name": "Brephos I",
         "number": 2
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Dk_fnc9GkDA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1440,9 +1324,7 @@
         "name": "Brephos II",
         "number": 3
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=-C9vmn7c-I8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1465,9 +1347,7 @@
         "name": "Brephos III",
         "number": 4
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=mpU4GjM43OY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1489,9 +1369,7 @@
         "name": "Cosmogyre I",
         "number": 5
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=7ZCnPSSUlVw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1507,9 +1385,7 @@
         "name": "Cosmogyre II",
         "number": 6
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=X1_poqtAoNk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1531,9 +1407,7 @@
         "name": "Cosmogyre III",
         "number": 7
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=-3KkqGbjNko"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1556,9 +1430,7 @@
         "name": "Cosmogyre IV",
         "number": 8
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=SZ8aUXk89Kg"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1581,9 +1453,7 @@
         "name": "Ecstasiate I",
         "number": 9
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=TzwxeqO0dpU"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1606,9 +1476,7 @@
         "name": "Ecstasiate II",
         "number": 10
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=h-aNQy6mTME"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1630,9 +1498,7 @@
         "name": "Ecstasiate III",
         "number": 11
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=5VEcwGEo6mI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1648,9 +1514,7 @@
         "name": "Fideicide I",
         "number": 12
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=VzAFKmZ-EEc"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1672,9 +1536,7 @@
         "name": "Fideicide II",
         "number": 13
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=s9T3rIb3HYo"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1696,9 +1558,7 @@
         "name": "Fideicide III",
         "number": 14
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=EwLi345-9uY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1721,9 +1581,7 @@
         "name": "Heresiology",
         "number": 15
       },
-      "extended": {
-        "video": "https://youtu.be/f8BtT6lW9nw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -1746,9 +1604,7 @@
         "name": "Imponent I",
         "number": 16
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=OMQhSsXXdh8"
-      }
+      "extended": {}
     }
   ],
   "1420597821": [
@@ -1771,9 +1627,7 @@
         "name": "Pressure",
         "number": 1
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=MSXtYGx3gnk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1795,9 +1649,7 @@
         "name": "Ghost Hunter",
         "number": 2
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=FBkQiqJ_Z9I"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1820,9 +1672,7 @@
         "name": "The Chosen's Choice",
         "number": 3
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=GLYIUxgy3U8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -1843,9 +1693,7 @@
         "name": "The We Before Us",
         "number": 4
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=hFPrgIbq_aE"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1867,9 +1715,7 @@
         "name": "Don't Call Me Ghost",
         "number": 5
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=5Aj3GJaEfJI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1891,9 +1737,7 @@
         "name": "Compliments",
         "number": 6
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=275duPGN5ag"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -1915,9 +1759,7 @@
         "name": "No Rez for the Weary",
         "number": 7
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=LTECAXIInM8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2388758973,
@@ -1938,9 +1780,7 @@
         "name": "Confession of Hope | Part One",
         "number": 8
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=6n30Z8Zt5H0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2388758973,
@@ -1961,9 +1801,7 @@
         "name": "The Watchful Eye",
         "number": 9
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=0uiUHgPn2gA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2388758973,
@@ -1985,9 +1823,7 @@
         "name": "Into the Fray",
         "number": 10
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=BFv5uTpOVQs"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 126924919,
@@ -2008,9 +1844,7 @@
         "name": "Struck by Wonder",
         "number": 11
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=DdDTBmTD4wA"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 126924919,
@@ -2031,9 +1865,7 @@
         "name": "Confession of Hope | Part Two",
         "number": 12
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=xsFC0kP-zZI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 126924919,
@@ -2055,9 +1887,7 @@
         "name": "A Hero's Requiem",
         "number": 13
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=UMUE_oODjTg"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1993421442,
@@ -2079,9 +1909,7 @@
         "name": "From Fallen Ground",
         "number": 14
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2218917881,
@@ -2103,9 +1931,7 @@
         "name": "Ghost Community Theater Presents",
         "number": 15
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=ZY6WMSKsOA8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2218917881,
@@ -2127,9 +1953,7 @@
         "name": "Difference of Opinion",
         "number": 16
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=mPYaqgpzbkg"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2218917881,
@@ -2150,9 +1974,7 @@
         "name": "Protector of Ghosts",
         "number": 17
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=tmC6YmCpL0o"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -2174,9 +1996,7 @@
         "name": "Savin",
         "number": 18
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=liFNi9RUCj0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -2197,9 +2017,7 @@
         "name": "Pulled Pork",
         "number": 19
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=5idUq1J-wuk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -2221,9 +2039,7 @@
         "name": "Who Guards the Guardians?",
         "number": 20
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=PsX6OvtS4QI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -2245,9 +2061,7 @@
         "name": "Whether Windmills or Cranes",
         "number": 21
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=RmR5yuJx9RI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -2268,9 +2082,7 @@
         "name": "Batteries Not Included",
         "number": 22
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=QbnplKKe8ds"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -2291,9 +2103,7 @@
         "name": "To Map the Unknown",
         "number": 23
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=XAtGKq61HSo&t=0s&index=48&list=PLuGZAFj5iqHdbkxy71FaEvHkP1s0XfBEe"
-      }
+      "extended": {}
     }
   ],
   "1697465175": [
@@ -7601,9 +7411,7 @@
         "name": "EX-077 Command",
         "number": 135
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=KkJMJFnMQsw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 126924919,
@@ -8644,9 +8452,7 @@
         "name": "Katabasis",
         "number": 1
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=50"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8662,9 +8468,7 @@
         "name": "Katabasis",
         "number": 2
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8680,9 +8484,7 @@
         "name": "Katabasis",
         "number": 3
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=144"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8698,9 +8500,7 @@
         "name": "Katabasis",
         "number": 4
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=64"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8716,9 +8516,7 @@
         "name": "Katabasis",
         "number": 5
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=80"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8734,9 +8532,7 @@
         "name": "Katabasis",
         "number": 6
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=116"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8752,9 +8548,7 @@
         "name": "Katabasis",
         "number": 7
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=160"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8770,9 +8564,7 @@
         "name": "Katabasis",
         "number": 8
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=203"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8788,9 +8580,7 @@
         "name": "Katabasis",
         "number": 9
       },
-      "extended": {
-        "video": "https://youtu.be/eihqad70SuY?t=183"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8807,9 +8597,7 @@
         "name": "Palingenesis II",
         "number": 10
       },
-      "extended": {
-        "video": "https://youtu.be/81XxH2E-RsE?t=9"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8826,9 +8614,7 @@
         "name": "Palingenesis II",
         "number": 11
       },
-      "extended": {
-        "video": "https://youtu.be/81XxH2E-RsE?t=32"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8845,9 +8631,7 @@
         "name": "Palingenesis II",
         "number": 12
       },
-      "extended": {
-        "video": "https://youtu.be/81XxH2E-RsE?t=54"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8864,9 +8648,7 @@
         "name": "Palingenesis II",
         "number": 13
       },
-      "extended": {
-        "video": "https://youtu.be/81XxH2E-RsE?t=87"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -8883,9 +8665,7 @@
         "name": "Palingenesis II",
         "number": 14
       },
-      "extended": {
-        "video": "https://youtu.be/81XxH2E-RsE?t=130"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9154,9 +8934,7 @@
         "name": "Nigh I",
         "number": 26
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=vBriG5vH1SE&t=49"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9179,9 +8957,7 @@
         "name": "Nigh I",
         "number": 27
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=vBriG5vH1SE&t=176"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9227,9 +9003,7 @@
         "name": "Imponent V",
         "number": 29
       },
-      "extended": {
-        "video": "https://youtu.be/W8g0lsmYttk?t=62"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9252,9 +9026,7 @@
         "name": "Imponent V",
         "number": 30
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=W8g0lsmYttk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9277,9 +9049,7 @@
         "name": "Palingenesis I",
         "number": 31
       },
-      "extended": {
-        "video": "https://youtu.be/7kLnq__sKPA?t=1m4s"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9302,9 +9072,7 @@
         "name": "Palingenesis I",
         "number": 32
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=7kLnq__sKPA&feature=youtu.be&t=2m34s"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9327,9 +9095,7 @@
         "name": "Palingenesis I",
         "number": 33
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=7kLnq__sKPA&t=43"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9352,9 +9118,7 @@
         "name": "Imponent IV",
         "number": 34
       },
-      "extended": {
-        "video": "https://youtu.be/UDaLEilK9Xk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9377,9 +9141,7 @@
         "name": "Imponent IV",
         "number": 35
       },
-      "extended": {
-        "video": "https://youtu.be/UDaLEilK9Xk?t=2m33s"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9402,9 +9164,7 @@
         "name": "Nigh II",
         "number": 36
       },
-      "extended": {
-        "video": "https://youtu.be/vrMWYYy0FGI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9427,9 +9187,7 @@
         "name": "Nigh II",
         "number": 37
       },
-      "extended": {
-        "video": "https://youtu.be/8rK9zkO2Bw0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9452,9 +9210,7 @@
         "name": "Nigh II",
         "number": 38
       },
-      "extended": {
-        "video": "https://youtu.be/HIKuJ8CtnS4"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9634,9 +9390,7 @@
         "name": "Harbinger's Seclude",
         "number": 6
       },
-      "extended": {
-        "video": "https://youtu.be/fhKIfCiFPt8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -9680,9 +9434,7 @@
         "name": "Divalian Mists",
         "number": 8
       },
-      "extended": {
-        "video": "https://youtu.be/NtCxIwocxik"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11657,9 +11409,7 @@
         "name": "Revanche II",
         "number": 1
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=9Kf2mNxHwYY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11680,9 +11430,7 @@
         "name": "Revanche III",
         "number": 2
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=29HSzHoAktI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11703,9 +11451,7 @@
         "name": "Revanche IV",
         "number": 3
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=RAQQwphZxbk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11726,9 +11472,7 @@
         "name": "Revanche V",
         "number": 4
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=jc0Kd61xi98"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11749,9 +11493,7 @@
         "name": "Telic I",
         "number": 5
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=_5vqa97Uk5k"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11772,9 +11514,7 @@
         "name": "Telic II",
         "number": 6
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=ksFBEFuUOOk"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11795,9 +11535,7 @@
         "name": "Tyrannocide I",
         "number": 7
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=zAJZrJ2WEss"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11818,9 +11556,7 @@
         "name": "Tyrannocide II",
         "number": 8
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=3fq7u2bCQsQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11841,9 +11577,7 @@
         "name": "Tyrannocide III",
         "number": 9
       },
-      "extended": {
-        "video": "https://youtu.be/kbIcfJn97NI"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -11864,9 +11598,7 @@
         "name": "Tyrannocide IV",
         "number": 10
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Rf4CpiRT-iw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11888,9 +11620,7 @@
         "name": "Tyrannocide V",
         "number": 11
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=ccFHY15fh-Q"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11911,9 +11641,7 @@
         "name": "Regent",
         "number": 12
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=uPRb-GUm-zw"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11935,9 +11663,7 @@
         "name": "Illyn",
         "number": 13
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=aixHi_0o110"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11958,9 +11684,7 @@
         "name": "Nitrogen",
         "number": 14
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=hE3pNCCza3w"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -11981,9 +11705,7 @@
         "name": "Refusal",
         "number": 15
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=XbbnMuSkvg4"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 359854275,
@@ -12004,9 +11726,7 @@
         "name": "Fleet",
         "number": 16
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=Qyo93M16-00"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 1199524104,
@@ -12028,9 +11748,7 @@
         "name": "Of Earth and the Reef",
         "number": 17
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=rXtWr3S9stQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2388758973,
@@ -12051,9 +11769,7 @@
         "name": "Pilgrimage",
         "number": 18
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=cHig600fDtY"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 126924919,
@@ -12075,9 +11791,7 @@
         "name": "Flayed",
         "number": 19
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=7FKXuvDSWxQ"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2218917881,
@@ -12121,9 +11835,7 @@
         "name": "Exegesis",
         "number": 21
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 2779202173,
@@ -12144,9 +11856,7 @@
         "name": "King's Wrath",
         "number": 22
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=J2RbbxmI4T0"
-      }
+      "extended": {}
     },
     {
       "destinationHash": 308080871,
@@ -12168,9 +11878,7 @@
         "name": "Emissary",
         "number": 23
       },
-      "extended": {
-        "video": "https://www.youtube.com/watch?v=MX07QD7eTC0"
-      }
+      "extended": {}
     }
   ],
   "4178338182": [

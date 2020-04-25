@@ -259,8 +259,6 @@ async function run() {
       within = 'ascendant-challenge';
     }
 
-    extended.video = extended.video || (addins && addins.extended && addins.extended.video) || undefined;
-
     const changes = {
       destinationHash,
       bubbleHash,
@@ -279,16 +277,19 @@ async function run() {
         name,
         number: itemNumber && parseInt(itemNumber, 10),
       },
-      extended,
+      extended
     };
 
     const screenshot = getScreenshot(checklistId, changes);
 
-    if (screenshot) {
+    if (screenshot || extended.video) {
       doJson({
         checklistHash: checklistItem.hash,
         displayProperties: addins && addins.displayProperties,
         screenshot,
+        extended: {
+          video: extended.video
+        },
       });
     }
 
@@ -355,8 +356,6 @@ async function run() {
           within = 'ascendant-challenge';
         }
 
-        extended.video = extended.video || (addins && addins.extended && addins.extended.video) || undefined;
-
         const changes = {
           destinationHash,
           bubbleHash,
@@ -374,16 +373,19 @@ async function run() {
             name,
             number: itemNumber + 1,
           },
-          extended,
+          extended
         };
 
         const screenshot = getScreenshot(presentationHash, changes);
 
-        if (screenshot) {
+        if (screenshot || extended.video) {
           doJson({
             recordHash,
             displayProperties: addins && addins.displayProperties,
             screenshot,
+            extended: {
+              video: extended.video
+            },
           });
         }
 
@@ -432,10 +434,19 @@ async function run() {
       if (existing) {
         const hash = existing;
 
+        const extended = {
+          video: load.extended && load.extended.video,
+          ...BraytechMaps_EN[hash].extended,
+        };
+
         BraytechMaps_EN[hash] = {
           ...BraytechMaps_EN[hash],
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
         };
+
+        if (Object.keys(extended).filter(key => extended[key] !== undefined).length) {
+          BraytechMaps_EN[hash].extended = extended;
+        }
 
         if (load.displayProperties) {
           BraytechMaps_EN[hash].displayProperties = {

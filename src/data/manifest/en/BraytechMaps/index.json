@@ -1043,67 +1043,106 @@
       "description": "In one of the corners of the uppermost floor of this construction is a barely open cupboard along the wall. Look inside."
     },
     "recordHash": 2121305066,
-    "screenshot": "/static/images/screenshots/lore/shaft-13_ghost-stories_2121305066.jpg"
+    "screenshot": "/static/images/screenshots/lore/shaft-13_ghost-stories_2121305066.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=5Aj3GJaEfJI"
+    }
   },
   "188": {
     "displayProperties": {
       "description": "On the farthest side of the largest room, adjacent to the lost sector's chest room, is a large rock wall which has a path leading around into a small poorly lit room with a computer desk. On this desk is a defunct ghost."
     },
     "recordHash": 2121305065,
-    "screenshot": "/static/images/screenshots/lore/the-drain_ghost-stories_2121305065.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-drain_ghost-stories_2121305065.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=275duPGN5ag"
+    }
   },
   "189": {
     "displayProperties": {
       "description": "Right before the lost sector's primary space, on your left."
     },
     "recordHash": 2121305064,
-    "screenshot": "/static/images/screenshots/lore/the-quarry_ghost-stories_2121305064.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-quarry_ghost-stories_2121305064.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=LTECAXIInM8"
+    }
   },
   "190": {
     "recordHash": 2121305063,
-    "screenshot": "/static/images/screenshots/lore/arboretum_ghost-stories_2121305063.jpg"
+    "screenshot": "/static/images/screenshots/lore/arboretum_ghost-stories_2121305063.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=6n30Z8Zt5H0"
+    }
   },
   "191": {
     "recordHash": 2121305062,
-    "screenshot": "/static/images/screenshots/lore/sirens-watch_ghost-stories_2121305062.jpg"
+    "screenshot": "/static/images/screenshots/lore/sirens-watch_ghost-stories_2121305062.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=0uiUHgPn2gA"
+    }
   },
   "192": {
     "recordHash": 2104527484,
-    "screenshot": "/static/images/screenshots/lore/ds-quarters-2_ghost-stories_2104527484.jpg"
+    "screenshot": "/static/images/screenshots/lore/ds-quarters-2_ghost-stories_2104527484.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=BFv5uTpOVQs"
+    }
   },
   "193": {
     "recordHash": 2104527487,
-    "screenshot": "/static/images/screenshots/lore/the-rift_ghost-stories_2104527487.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-rift_ghost-stories_2104527487.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=UMUE_oODjTg"
+    }
   },
   "194": {
     "recordHash": 259242241,
-    "screenshot": "/static/images/screenshots/lore/scavengers-den_the-awoken-of-the-reef_259242241.jpg"
+    "screenshot": "/static/images/screenshots/lore/scavengers-den_the-awoken-of-the-reef_259242241.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=rXtWr3S9stQ"
+    }
   },
   "195": {
     "recordHash": 259242254,
-    "screenshot": "/static/images/screenshots/lore/sinking-docks_the-awoken-of-the-reef_259242254.jpg"
+    "screenshot": "/static/images/screenshots/lore/sinking-docks_the-awoken-of-the-reef_259242254.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=cHig600fDtY"
+    }
   },
   "196": {
     "recordHash": 259242255,
-    "screenshot": "/static/images/screenshots/lore/the-conflux_the-awoken-of-the-reef_259242255.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-conflux_the-awoken-of-the-reef_259242255.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=7FKXuvDSWxQ"
+    }
   },
   "197": {
     "displayProperties": {
       "description": "Outside the lost sector's chest room is a series of metal walking platforms. Beneath these platforms lay a small maze, at the end of which is a data cache."
     },
     "recordHash": 3431961938,
-    "screenshot": "/static/images/screenshots/lore/the-drain_the-forsaken-prince_3431961938.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-drain_the-forsaken-prince_3431961938.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=407BDWlIsUU"
+    }
   },
   "198": {
     "displayProperties": {
       "description": "A hard cache to find, this enigma is hidden at the end of a cave which has a small opening along the wall not far from the lost sector's chest. If you're having difficulty locating its orifice, increase your brightness in settings."
     },
     "recordHash": 3431961939,
-    "screenshot": "/static/images/screenshots/lore/flooded-chasm_the-forsaken-prince_3431961939.jpg"
+    "screenshot": "/static/images/screenshots/lore/flooded-chasm_the-forsaken-prince_3431961939.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=2YKFA_iBExU"
+    }
   },
   "199": {
     "recordHash": 3431961936,
-    "screenshot": "/static/images/screenshots/lore/excavation-site-xii_the-forsaken-prince_3431961936.jpg"
+    "screenshot": "/static/images/screenshots/lore/excavation-site-xii_the-forsaken-prince_3431961936.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=GERRwip7C8w"
+    }
   },
   "200": {
     "recordHash": 4212118078,
@@ -1299,145 +1338,250 @@
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.cavern.warsat.jpg",
     "displayProperties": {
       "description": "On the lowest of ice shelves, beneath a fallen Warsat."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=mrwa2T1enbM"
     }
   },
   "240": {
     "checklistHash": 381956243,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.cave.runes.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.cave.runes.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=J9BRlpuj2jA"
+    }
   },
   "241": {
     "checklistHash": 3541081426,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.cliffside.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.cliffside.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=LL3jCdPgxtA"
+    }
   },
   "242": {
     "checklistHash": 3240044932,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.flammable.storage.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.flammable.storage.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Ufl9EUOpZuA"
+    }
   },
   "243": {
     "checklistHash": 2268035590,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.checkpoint.elevator.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.checkpoint.elevator.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=6ZPSDzu0gMs"
+    }
   },
   "244": {
     "checklistHash": 3786878451,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.freight.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.freight.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=_P3-Y0fOvok"
+    }
   },
   "245": {
     "checklistHash": 738006194,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.foundation.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.transit.foundation.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=gPT0lzgZybk"
+    }
   },
   "246": {
     "checklistHash": 3742434372,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.service.backend.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.service.backend.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=cmXVolBz2gk"
+    }
   },
   "247": {
     "checklistHash": 2720923690,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.chasm.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.subterrane.chasm.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=1xKui_FAVf8"
+    }
   },
   "248": {
     "checklistHash": 4055612072,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.chasm.ledge.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_descent.chasm.ledge.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=vOFaVn09nro"
+    }
   },
   "249": {
     "checklistHash": 1034154197,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.gatehouse.catwalk.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_drift.gatehouse.catwalk.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=eEb7vkNN5xg"
+    }
   },
   "250": {
     "checklistHash": 156484287,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.catwalk.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.catwalk.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=2UnwMuwc1iE"
+    }
   },
   "251": {
     "checklistHash": 1628739428,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.deck.dampener.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.deck.dampener.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=KmLjgB4MWI0"
+    }
   },
   "252": {
     "checklistHash": 2662731326,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.coolant.ventilation.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.coolant.ventilation.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=L8K6NExbQyE"
+    }
   },
   "253": {
     "checklistHash": 980824599,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.stairwell.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.stairwell.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=aYq3sfp1TUo"
+    }
   },
   "254": {
     "checklistHash": 2516672582,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.door.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.door.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=CH1R8k_c5ps"
+    }
   },
   "255": {
     "checklistHash": 2870761015,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.cavern.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.cavern.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=aNnmsqwRZH0"
+    }
   },
   "256": {
     "checklistHash": 883696636,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.heatshield.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.server.heatshield.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=z63ReEQ3OGY"
+    }
   },
   "257": {
     "checklistHash": 1556894012,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.valkyrie.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.valkyrie.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=TByPEHtIROE"
+    }
   },
   "258": {
     "checklistHash": 2373259383,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.brace.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.core.brace.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=aWAB5axCGvQ"
+    }
   },
   "259": {
     "checklistHash": 3790287757,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.control.door.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.control.door.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=cDERL8pdwSQ"
+    }
   },
   "260": {
     "checklistHash": 2096130528,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.core.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.observation.core.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=A1HyYkzfhAw"
+    }
   },
   "261": {
     "checklistHash": 3523064621,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.tree.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.tree.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=tHtgIW56q_k"
+    }
   },
   "262": {
     "checklistHash": 1698656021,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.terminus.console.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.terminus.console.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=nSDwCix8ED8"
+    }
   },
   "263": {
     "checklistHash": 1046632799,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.silo.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.silo.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=-MffWeG_4Fk"
+    }
   },
   "264": {
     "checklistHash": 2444409480,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.infestation.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.infestation.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=0cY_3Py0-VY"
+    }
   },
   "265": {
     "checklistHash": 3957860341,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.garage.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.garage.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=5OFLVx5tgRQ"
+    }
   },
   "266": {
     "checklistHash": 3901710881,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.console.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.plaza.console.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=baxQ-MsnXJI"
+    }
   },
   "267": {
     "checklistHash": 135585929,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.outpost.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.dock.outpost.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=fye0u21k8sc"
+    }
   },
   "268": {
     "checklistHash": 3214839526,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.transit.service.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.transit.service.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=DuFSUajHTOw"
+    }
   },
   "269": {
     "checklistHash": 1040754817,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.ridgeline.waterfall.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.ridgeline.waterfall.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=tZnbjWWPWz4"
+    }
   },
   "270": {
     "checklistHash": 677148329,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.reception.overlook.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_futurescape.reception.overlook.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=bpjQDKgH44s"
+    }
   },
   "271": {
     "checklistHash": 2892815744,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.elevator.service.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.elevator.service.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=WIBRLGp6JNQ"
+    }
   },
   "272": {
     "checklistHash": 1708307467,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.overhang.node.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.overhang.node.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=0VtB9TFA1Q8"
+    }
   },
   "273": {
     "checklistHash": 3732386537,
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.elevator.right.jpg",
     "displayProperties": {
       "description": "To the right of the elevator."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Fgzt9FX-WzM"
     }
   },
   "274": {
@@ -1445,21 +1589,33 @@
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.conveyor.junction.jpg",
     "displayProperties": {
       "description": "Immediately after entering the conveyer junction room, before proceeding up the lift to the Mindlab, turn on your foot."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=NdLhW3sqiJw"
     }
   },
   "275": {
     "checklistHash": 142015059,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.conveyor.bridge.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_mindlab.conveyor.bridge.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=acFgPN4VLuQ"
+    }
   },
   "276": {
     "checklistHash": 2544178564,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.supplies.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.supplies.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=XP6GIoINIOE"
+    }
   },
   "277": {
     "checklistHash": 350766431,
     "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_aurora.mindlab.observation.jpg",
     "displayProperties": {
       "description": "Transiting from Futurescape to Aurora Reach is an upturned ground plate—jump down."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=QegheP_fj1k"
     }
   },
   "278": {
@@ -1481,6 +1637,9 @@
     "screenshot": "/static/images/screenshots/ahamkara-bones/ahamkara-bones_1387596458.jpg",
     "displayProperties": {
       "description": "Upon reaching _Queen's Court_, scale the wall to the left of the throne."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=s9T3rIb3HYo"
     }
   },
   "280": {
@@ -1504,6 +1663,9 @@
     "screenshot": "/static/images/screenshots/ghost-scans/ex-077-command_ghost-scans_135.jpg",
     "displayProperties": {
       "description": "At the rear of a room of platforms, prior to facing _Thaviks, the Depraved_ in his arena."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=KkJMJFnMQsw"
     }
   },
   "285": {
@@ -1563,13 +1725,19 @@
   },
   "295": {
     "checklistHash": 1349662538,
-    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.arch.jpg"
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.arch.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=6MNIXHI-TMs"
+    }
   },
   "296": {
     "recordHash": 2104527476,
     "screenshot": "/static/images/screenshots/lore/core-terminus_ghost-stories_2104527476.jpg",
     "displayProperties": {
       "description": "Behind the lost sector's cache, on a wall amongst hardware."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=liFNi9RUCj0"
     }
   },
   "297": {
@@ -1577,19 +1745,31 @@
     "screenshot": "/static/images/screenshots/lore/hellas-view_ghost-stories_2104527477.jpg",
     "displayProperties": {
       "description": "Behind the cooling vent of one of Rasputin's neural network inhibitors."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=5idUq1J-wuk"
     }
   },
   "298": {
     "recordHash": 242464656,
-    "screenshot": "/static/images/screenshots/lore/maadim-subterrane_the-awoken-of-the-reef_242464656.jpg"
+    "screenshot": "/static/images/screenshots/lore/maadim-subterrane_the-awoken-of-the-reef_242464656.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=MX07QD7eTC0"
+    }
   },
   "299": {
     "recordHash": 3431961937,
-    "screenshot": "/static/images/screenshots/lore/hellas-view_the-forsaken-prince_3431961937.jpg"
+    "screenshot": "/static/images/screenshots/lore/hellas-view_the-forsaken-prince_3431961937.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=gXb_bEcF5ZY"
+    }
   },
   "300": {
     "recordHash": 3431961942,
-    "screenshot": "/static/images/screenshots/lore/olympus-descent_the-forsaken-prince_3431961942.jpg"
+    "screenshot": "/static/images/screenshots/lore/olympus-descent_the-forsaken-prince_3431961942.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=9I13IRniDmI"
+    }
   },
   "301": {
     "checklistHash": 2809244994,
@@ -1614,13 +1794,523 @@
   },
   "304": {
     "recordHash": 242464658,
-    "screenshot": "/static/images/screenshots/lore/pariahs-refuge_the-awoken-of-the-reef_242464658.jpg"
+    "screenshot": "/static/images/screenshots/lore/pariahs-refuge_the-awoken-of-the-reef_242464658.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8"
+    }
   },
   "305": {
     "recordHash": 2104527480,
     "screenshot": "/static/images/screenshots/lore/pariahs-refuge_ghost-stories_2104527480.jpg",
     "displayProperties": {
       "description": "Atop the bookcases."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M"
+    }
+  },
+  "306": {
+    "checklistHash": 1370818871,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=YpKny_Yrav8"
+    }
+  },
+  "307": {
+    "checklistHash": 1370818868,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Dk_fnc9GkDA"
+    }
+  },
+  "308": {
+    "checklistHash": 1370818869,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=-C9vmn7c-I8"
+    }
+  },
+  "309": {
+    "checklistHash": 1370818866,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=mpU4GjM43OY"
+    }
+  },
+  "310": {
+    "checklistHash": 1370818867,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=7ZCnPSSUlVw"
+    }
+  },
+  "311": {
+    "checklistHash": 1370818864,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=X1_poqtAoNk"
+    }
+  },
+  "312": {
+    "checklistHash": 1370818865,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=-3KkqGbjNko"
+    }
+  },
+  "313": {
+    "checklistHash": 1370818878,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=SZ8aUXk89Kg"
+    }
+  },
+  "314": {
+    "checklistHash": 1370818879,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=TzwxeqO0dpU"
+    }
+  },
+  "315": {
+    "checklistHash": 1387596457,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=h-aNQy6mTME"
+    }
+  },
+  "316": {
+    "checklistHash": 1387596456,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=5VEcwGEo6mI"
+    }
+  },
+  "317": {
+    "checklistHash": 1387596459,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=VzAFKmZ-EEc"
+    }
+  },
+  "318": {
+    "checklistHash": 1387596461,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=EwLi345-9uY"
+    }
+  },
+  "319": {
+    "checklistHash": 1387596460,
+    "extended": {
+      "video": "https://youtu.be/f8BtT6lW9nw"
+    }
+  },
+  "320": {
+    "checklistHash": 1387596463,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=OMQhSsXXdh8"
+    }
+  },
+  "321": {
+    "checklistHash": 1101252171,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=50"
+    }
+  },
+  "322": {
+    "checklistHash": 1101252168,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY"
+    }
+  },
+  "323": {
+    "checklistHash": 1101252169,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=144"
+    }
+  },
+  "324": {
+    "checklistHash": 1101252174,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=64"
+    }
+  },
+  "325": {
+    "checklistHash": 1101252175,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=80"
+    }
+  },
+  "326": {
+    "checklistHash": 1101252172,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=116"
+    }
+  },
+  "327": {
+    "checklistHash": 1101252173,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=160"
+    }
+  },
+  "328": {
+    "checklistHash": 1101252162,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=203"
+    }
+  },
+  "329": {
+    "checklistHash": 1101252163,
+    "extended": {
+      "video": "https://youtu.be/eihqad70SuY?t=183"
+    }
+  },
+  "330": {
+    "checklistHash": 1118029885,
+    "extended": {
+      "video": "https://youtu.be/81XxH2E-RsE?t=9"
+    }
+  },
+  "331": {
+    "checklistHash": 1118029884,
+    "extended": {
+      "video": "https://youtu.be/81XxH2E-RsE?t=32"
+    }
+  },
+  "332": {
+    "checklistHash": 1118029887,
+    "extended": {
+      "video": "https://youtu.be/81XxH2E-RsE?t=54"
+    }
+  },
+  "333": {
+    "checklistHash": 1118029886,
+    "extended": {
+      "video": "https://youtu.be/81XxH2E-RsE?t=87"
+    }
+  },
+  "334": {
+    "checklistHash": 1118029881,
+    "extended": {
+      "video": "https://youtu.be/81XxH2E-RsE?t=130"
+    }
+  },
+  "335": {
+    "checklistHash": 1067696994,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=vBriG5vH1SE&t=49"
+    }
+  },
+  "336": {
+    "checklistHash": 1067696995,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=vBriG5vH1SE&t=176"
+    }
+  },
+  "337": {
+    "checklistHash": 1067697005,
+    "extended": {
+      "video": "https://youtu.be/W8g0lsmYttk?t=62"
+    }
+  },
+  "338": {
+    "checklistHash": 1084474583,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=W8g0lsmYttk"
+    }
+  },
+  "339": {
+    "checklistHash": 1084474582,
+    "extended": {
+      "video": "https://youtu.be/7kLnq__sKPA?t=1m4s"
+    }
+  },
+  "340": {
+    "checklistHash": 1084474581,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=7kLnq__sKPA&feature=youtu.be&t=2m34s"
+    }
+  },
+  "341": {
+    "checklistHash": 1084474580,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=7kLnq__sKPA&t=43"
+    }
+  },
+  "342": {
+    "checklistHash": 1084474579,
+    "extended": {
+      "video": "https://youtu.be/UDaLEilK9Xk"
+    }
+  },
+  "343": {
+    "checklistHash": 1084474578,
+    "extended": {
+      "video": "https://youtu.be/UDaLEilK9Xk?t=2m33s"
+    }
+  },
+  "344": {
+    "checklistHash": 1084474577,
+    "extended": {
+      "video": "https://youtu.be/vrMWYYy0FGI"
+    }
+  },
+  "345": {
+    "checklistHash": 1084474576,
+    "extended": {
+      "video": "https://youtu.be/8rK9zkO2Bw0"
+    }
+  },
+  "346": {
+    "checklistHash": 1084474591,
+    "extended": {
+      "video": "https://youtu.be/HIKuJ8CtnS4"
+    }
+  },
+  "347": {
+    "checklistHash": 56362725,
+    "extended": {
+      "video": "https://youtu.be/fhKIfCiFPt8"
+    }
+  },
+  "348": {
+    "checklistHash": 3629051903,
+    "extended": {
+      "video": "https://youtu.be/NtCxIwocxik"
+    }
+  },
+  "349": {
+    "recordHash": 2121305070,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=MSXtYGx3gnk"
+    }
+  },
+  "350": {
+    "recordHash": 2121305069,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=FBkQiqJ_Z9I"
+    }
+  },
+  "351": {
+    "recordHash": 2121305068,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=GLYIUxgy3U8"
+    }
+  },
+  "352": {
+    "recordHash": 2121305067,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=hFPrgIbq_aE"
+    }
+  },
+  "353": {
+    "recordHash": 2104527485,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=DdDTBmTD4wA"
+    }
+  },
+  "354": {
+    "recordHash": 2104527486,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=xsFC0kP-zZI"
+    }
+  },
+  "355": {
+    "recordHash": 2104527481,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=ZY6WMSKsOA8"
+    }
+  },
+  "356": {
+    "recordHash": 2104527482,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=mPYaqgpzbkg"
+    }
+  },
+  "357": {
+    "recordHash": 2104527483,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=tmC6YmCpL0o"
+    }
+  },
+  "358": {
+    "recordHash": 2154860341,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=PsX6OvtS4QI"
+    }
+  },
+  "359": {
+    "recordHash": 2154860340,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=RmR5yuJx9RI"
+    }
+  },
+  "360": {
+    "recordHash": 2154860343,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=QbnplKKe8ds"
+    }
+  },
+  "361": {
+    "recordHash": 2154860342,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=XAtGKq61HSo&t=0s&index=48&list=PLuGZAFj5iqHdbkxy71FaEvHkP1s0XfBEe"
+    }
+  },
+  "362": {
+    "recordHash": 276019960,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=9Kf2mNxHwYY"
+    }
+  },
+  "363": {
+    "recordHash": 276019963,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=29HSzHoAktI"
+    }
+  },
+  "364": {
+    "recordHash": 276019962,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=RAQQwphZxbk"
+    }
+  },
+  "365": {
+    "recordHash": 276019965,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=jc0Kd61xi98"
+    }
+  },
+  "366": {
+    "recordHash": 276019964,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=_5vqa97Uk5k"
+    }
+  },
+  "367": {
+    "recordHash": 276019967,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=ksFBEFuUOOk"
+    }
+  },
+  "368": {
+    "recordHash": 276019966,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=zAJZrJ2WEss"
+    }
+  },
+  "369": {
+    "recordHash": 276019953,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=3fq7u2bCQsQ"
+    }
+  },
+  "370": {
+    "recordHash": 276019952,
+    "extended": {
+      "video": "https://youtu.be/kbIcfJn97NI"
+    }
+  },
+  "371": {
+    "recordHash": 259242246,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Rf4CpiRT-iw"
+    }
+  },
+  "372": {
+    "recordHash": 259242247,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=ccFHY15fh-Q"
+    }
+  },
+  "373": {
+    "recordHash": 259242244,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=uPRb-GUm-zw"
+    }
+  },
+  "374": {
+    "recordHash": 259242245,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=aixHi_0o110"
+    }
+  },
+  "375": {
+    "recordHash": 259242242,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=hE3pNCCza3w"
+    }
+  },
+  "376": {
+    "recordHash": 259242243,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=XbbnMuSkvg4"
+    }
+  },
+  "377": {
+    "recordHash": 259242240,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Qyo93M16-00"
+    }
+  },
+  "378": {
+    "recordHash": 242464657,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=J2RbbxmI4T0"
+    }
+  },
+  "379": {
+    "recordHash": 3448739526,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=_KI0xerg2AY"
+    }
+  },
+  "380": {
+    "recordHash": 3448739521,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=kkoJUJuXGkI"
+    }
+  },
+  "381": {
+    "recordHash": 3448739520,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=uDy4OjD0pNk"
+    }
+  },
+  "382": {
+    "recordHash": 3448739522,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=8-LW3qUjzGg"
+    }
+  },
+  "383": {
+    "recordHash": 3448739532,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=T9NNr8N79tg"
+    }
+  },
+  "384": {
+    "recordHash": 3431961943,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=2xIHd-XZlUk"
+    }
+  },
+  "385": {
+    "recordHash": 3431961940,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=tbEMqye3pK0"
+    }
+  },
+  "386": {
+    "recordHash": 3431961941,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=GvHzK_lxpl8"
+    }
+  },
+  "387": {
+    "recordHash": 3431961946,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=OHpHJpX5El8"
+    }
+  },
+  "388": {
+    "recordHash": 3431961947,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=XCz-a6pnW2U"
+    }
+  },
+  "389": {
+    "recordHash": 3415184383,
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o"
     }
   }
 }

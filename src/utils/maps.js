@@ -107,6 +107,10 @@ export function cartographer(search) {
     checklist,
     ...checklistItem,
     ...(dynamic || {}),
+    extended: {
+      ...checklistItem,
+      ...(definitionMaps?.extended || {}),
+    },
     icon,
   };
 
