@@ -103,6 +103,39 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.map-omega .control.inspector .header .description ul,
+.map-omega .control.inspector .header .description ol {
+  list-style-type: disc;
+  padding: 0 0 0 2rem;  
+  margin: 0 0 1rem;
+}
+
+.map-omega .control.inspector .header .description ol {
+  list-style-type: none;
+}
+
+.map-omega .control.inspector .header .description ul li,
+.map-omega .control.inspector .header .description ol li {
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.map-omega .control.inspector .header .description ol {
+  counter-reset: list;
+}
+
+.map-omega .control.inspector .header .description ol li {
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+
+.map-omega .control.inspector .header .description ol li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: -18px;
+}
+
 .map-omega .control.inspector .within {
   padding: 12px 2rem;
   line-height: 1.4;

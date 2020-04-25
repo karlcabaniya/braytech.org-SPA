@@ -55,6 +55,39 @@
   letter-spacing: unset;
 }
 
+#tooltip .frame.map .description ul,
+#tooltip .frame.map .description ol {
+  list-style-type: disc;
+  padding: 0 0 0 2rem;  
+  margin: 0 0 1rem;
+}
+
+#tooltip .frame.map .description ol {
+  list-style-type: none;
+}
+
+#tooltip .frame.map .description ul li,
+#tooltip .frame.map .description ol li {
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+#tooltip .frame.map .description ol {
+  counter-reset: list;
+}
+
+#tooltip .frame.map .description ol li {
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+
+#tooltip .frame.map .description ol li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: -18px;
+}
+
 #tooltip .frame.map.record.lore .book {
   display: grid;
   grid-template-columns: 96px auto;

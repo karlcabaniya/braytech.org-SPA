@@ -1526,9 +1526,101 @@
   },
   "288": {
     "checklistHash": 463653643,
-    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_36.jpg",    
+    "screenshot": "/static/images/screenshots/region-chests/the-rig_region-chests_36.jpg",
     "displayProperties": {
       "description": "Push past the lost sector entry junction and continue along the gangway."
+    }
+  },
+  "289": {
+    "checklistHash": 4157158378,
+    "screenshot": "/static/images/screenshots/region-chests/braytech-futurescape_region-chests_63.jpg"
+  },
+  "290": {
+    "checklistHash": 2270250077,
+    "screenshot": "/static/images/screenshots/region-chests/braytech-futurescape_region-chests_64.jpg"
+  },
+  "291": {
+    "checklistHash": 1250639948,
+    "screenshot": "/static/images/screenshots/region-chests/braytech-futurescape_region-chests_65.jpg"
+  },
+  "292": {
+    "checklistHash": 2495538001,
+    "screenshot": "/static/images/screenshots/region-chests/glacial-drift_region-chests_66.jpg",
+    "displayProperties": {
+      "description": "Cliff-side, beneath the path which leads to a lost sector."
+    }
+  },
+  "293": {
+    "checklistHash": 3644688446,
+    "screenshot": "/static/images/screenshots/region-chests/glacial-drift_region-chests_67.jpg",
+    "displayProperties": {
+      "description": "On the catwalk."
+    }
+  },
+  "294": {
+    "checklistHash": 3739130591,
+    "screenshot": "/static/images/screenshots/region-chests/glacial-drift_region-chests_68.jpg"
+  },
+  "295": {
+    "checklistHash": 1349662538,
+    "screenshot": "/static/images/screenshots/sleeper-nodes/sleeper-nodes_dynamo.approach.arch.jpg"
+  },
+  "296": {
+    "recordHash": 2104527476,
+    "screenshot": "/static/images/screenshots/lore/core-terminus_ghost-stories_2104527476.jpg",
+    "displayProperties": {
+      "description": "Behind the lost sector's cache, on a wall amongst hardware."
+    }
+  },
+  "297": {
+    "recordHash": 2104527477,
+    "screenshot": "/static/images/screenshots/lore/hellas-view_ghost-stories_2104527477.jpg",
+    "displayProperties": {
+      "description": "Behind the cooling vent of one of Rasputin's neural network inhibitors."
+    }
+  },
+  "298": {
+    "recordHash": 242464656,
+    "screenshot": "/static/images/screenshots/lore/maadim-subterrane_the-awoken-of-the-reef_242464656.jpg"
+  },
+  "299": {
+    "recordHash": 3431961937,
+    "screenshot": "/static/images/screenshots/lore/hellas-view_the-forsaken-prince_3431961937.jpg"
+  },
+  "300": {
+    "recordHash": 3431961942,
+    "screenshot": "/static/images/screenshots/lore/olympus-descent_the-forsaken-prince_3431961942.jpg"
+  },
+  "301": {
+    "checklistHash": 2809244994,
+    "screenshot": "/static/images/screenshots/region-chests/the-light-house_region-chests_58.jpg",
+    "displayProperties": {
+      "description": "Perched upon the midwall of the _Infinite Forest_."
+    }
+  },
+  "302": {
+    "checklistHash": 4084570599,
+    "screenshot": "/static/images/screenshots/region-chests/the-light-house_region-chests_61.jpg",
+    "displayProperties": {
+      "description": "To access:\n\n1. Near Brother Vance, find a compelling book. Examine it.\n2. Turn 180°. Head to the farthest wall and find the next edition on the bookshelf. Examine it.\n3. Move around to the bookcase right of the gateway and find the next edition beside the firepit at the bottom of the bookcase. Examine it.\n4. Return to the first bookcase and find the next edition on the desk beside the disciple. Examine it.\n5. The final book is hidden high on a bookshelf across the the room, by the forge. Examine it.\n6. A _Vex conflux_ will appear. Examine it."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=WJ2E4I44BmU"
+    }
+  },
+  "303": {
+    "checklistHash": 1353530822,
+    "screenshot": "/static/images/screenshots/region-chests/the-light-house_region-chests_62.jpg"
+  },
+  "304": {
+    "recordHash": 242464658,
+    "screenshot": "/static/images/screenshots/lore/pariahs-refuge_the-awoken-of-the-reef_242464658.jpg"
+  },
+  "305": {
+    "recordHash": 2104527480,
+    "screenshot": "/static/images/screenshots/lore/pariahs-refuge_ghost-stories_2104527480.jpg",
+    "displayProperties": {
+      "description": "Atop the bookcases."
     }
   }
 }
