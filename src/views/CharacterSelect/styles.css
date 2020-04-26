@@ -88,7 +88,7 @@
 
 #character-select .profile .summary .displayName {
   font-size: 48px;
-  line-height: 1;
+  line-height: 56px;
   font-weight: 500;
   margin: 0 0 6px;
   white-space: nowrap;
@@ -216,6 +216,7 @@
 
   #character-select .profile .summary .displayName {
     font-size: 32px;
+    line-height: 40px;
   }
 
   #character-select .profile .summary .clan {

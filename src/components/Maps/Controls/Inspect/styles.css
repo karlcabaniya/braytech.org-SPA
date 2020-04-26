@@ -98,7 +98,6 @@
 .map-omega .control.inspector .header {
   position: relative;
   padding: 1rem 2rem;
-  
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -175,4 +174,11 @@
 
 .map-omega .control.inspector .list.record-items {
   grid-template-columns: 1fr;
+}
+
+.map-omega .control.inspector .state {
+  padding: 7px 2rem 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: rgba(90, 163, 102, 0.8);
 }

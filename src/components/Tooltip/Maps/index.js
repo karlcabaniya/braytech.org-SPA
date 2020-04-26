@@ -59,12 +59,12 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
+            {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.displayProperties.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
-            {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
         </div>
       </>
@@ -132,12 +132,12 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
+            {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{checklistItem.displayProperties.location}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
-            {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
           </div>
         </div>
       </>
@@ -190,6 +190,7 @@ class Node extends React.Component {
                 <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
+            {completed ? <div className='completed'>{t('Completed')}</div> : null}
             {within ? <div className='within'>{withinString(node.map.in, withinName)}</div> : null}
             <div className='description'>
               <div className='destination'>{destination}</div>
@@ -205,7 +206,6 @@ class Node extends React.Component {
                 {t('Recommended light')}: <span>{node.activityLightLevel}</span>
               </div>
             ) : null}
-            {completed ? <div className='completed'>{t('Completed')}</div> : null}
           </div>
         </div>
       </>

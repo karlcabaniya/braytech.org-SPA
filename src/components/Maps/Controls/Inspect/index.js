@@ -160,6 +160,7 @@ class Inspect extends React.Component {
         </div>
         <div className='wrapper'>
           <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{t('Screenshot unavailable')}</div>}</div>
+          {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
           <div className='header'>
             {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
             <div className='type'>{unified.type?.name}</div>
