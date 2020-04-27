@@ -12,7 +12,6 @@ import Checklists from '../views/Checklists';
 import ThisWeek from '../views/ThisWeek';
 import Now from '../views/Now';
 import Quests from '../views/Quests';
-import BountyTracker from '../views/BountyTracker';
 
 import { SuspenseLoading } from '../components/Loading';
 import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';

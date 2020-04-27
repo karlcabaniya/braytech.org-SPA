@@ -1,112 +1,196 @@
 {
   "de": {
-    "translated": 682,
-    "notTranslated": 19,
+    "translated": 695,
+    "notTranslated": 1,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "debug": {
-    "translated": 700,
+    "translated": 696,
     "notTranslated": 0,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "en": {
-    "translated": 700,
+    "translated": 696,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "es-mx": {
-    "translated": 682,
-    "notTranslated": 18,
+    "translated": 677,
+    "notTranslated": 19,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "es": {
-    "translated": 682,
-    "notTranslated": 18,
+    "translated": 677,
+    "notTranslated": 19,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "fr": {
-    "translated": 654,
-    "notTranslated": 46,
+    "translated": 649,
+    "notTranslated": 47,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "it": {
-    "translated": 665,
-    "notTranslated": 35,
+    "translated": 660,
+    "notTranslated": 36,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "ja": {
-    "translated": 590,
-    "notTranslated": 110,
+    "translated": 585,
+    "notTranslated": 111,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "ko": {
-    "translated": 543,
-    "notTranslated": 157,
+    "translated": 538,
+    "notTranslated": 158,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 698,
+    "notTranslated": 694,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "pt-br": {
-    "translated": 650,
-    "notTranslated": 50,
+    "translated": 645,
+    "notTranslated": 51,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "ru": {
-    "translated": 682,
-    "notTranslated": 18,
+    "translated": 677,
+    "notTranslated": 19,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "zh-chs": {
-    "translated": 450,
+    "translated": 446,
     "notTranslated": 250,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   },
   "zh-cht": {
-    "translated": 367,
-    "notTranslated": 333,
+    "translated": 366,
+    "notTranslated": 330,
     "added": [
-      "Total Quest and Bounty Capacity"
+      "Name"
     ],
-    "removed": []
+    "removed": [
+      "Bounty",
+      "Bounty Tracker",
+      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
+      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
+      "You've got no bounties to track, boss!"
+    ]
   }
 }

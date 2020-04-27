@@ -40,7 +40,7 @@
   opacity: 0.7;
 }
 
-.wrapper.dark-mode #quests .filter.background {
+.wrapper.dark #quests .filter.background {
   opacity: 0.3;
 }
 
@@ -492,6 +492,11 @@
 
   #quests .filter.background {
     background: radial-gradient(ellipse at 100% 0, var(--color-accent), transparent 45%);
+    opacity: 0.5;
+  }
+  
+  .wrapper.dark #quests .filter.background {
+    opacity: 0.3;
   }
 
   #quests .list.inventory-items {

@@ -162,7 +162,16 @@
   }
 
   .quest-line .summary > .icon {
-    right: 2rem;
+    right: -4.25rem;    
+    width: unset;
+    height: 100%;
+    min-height: 12rem;
+    max-height: 17rem;
+  }
+
+  .quest-line .summary > .icon svg {
+    width: auto;
+    height: 80%;
   }
 
   .quest-line .summary > .text .name {

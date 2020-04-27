@@ -53,7 +53,7 @@ class Quests extends React.Component {
   }
 
   componentDidUpdate(p, s) {
-    if (p.match.params.variable !== this.props.match.params.variable) {
+    if (p.match.params.filter !== this.props.match.params.filter || p.match.params.variable !== this.props.match.params.variable) {
       window.scrollTo(0, 0);
     }
   }
@@ -159,7 +159,7 @@ class Quests extends React.Component {
                   </ul>
                 </li>
                 <li className='col expires'>
-                  <div>{item.itemComponents?.objectives?.length && item.itemComponents.objectives.filter((o) => !o.complete).length > 0 && expirationDate ? timestampExpiry > timestamp ? <>{t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate), { relative: true }) })}</> : <>{t('Expired.')}</> : null}</div>
+                  <div>{item.itemComponents?.objectives?.length && item.itemComponents.objectives.filter((o) => !o.complete).length > 0 && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired.')}</> : null}</div>
                 </li>
               </ul>
             </li>
@@ -255,7 +255,7 @@ class Quests extends React.Component {
 
   render() {
     const { member, auth, viewport } = this.props;
-    const filter = this.props.match.params.filter || 'bounties';
+    const filter = (this.props.match.params.filter && questFilterMap[this.props.match.params.filter] && this.props.match.params.filter) || 'bounties';
     const variable = this.props.match.params.variable || 'rarity';
 
     if (!member.data.profile.profileInventory?.data && !auth) {
@@ -415,7 +415,7 @@ class Quests extends React.Component {
                           <ul>
                             <li className={cx('col', 'bounty-item', 'no-sort')} />
                             <li className={cx('col', 'bounty-text', { sort: variable === 'name' })}>
-                              <div className='full'>{t('Bounty')}</div>
+                              <div className='full'>{t('Name')}</div>
                               <ProfileLink to={`/quests/bounties/name/${order === 'asc' ? 'desc' : 'asc'}`} />
                             </li>
                             <li className={cx('col', 'objectives', { sort: variable === 'objectives' })}>
