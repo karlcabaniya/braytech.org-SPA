@@ -275,6 +275,20 @@ class Quests extends React.Component {
     }
 
     const inventory = [...member.data.profile.profileInventory.data.items, ...member.data.profile.characterInventories.data[member.characterId].items];
+    const total = inventory.filter((item) => {
+      const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+      if (!definitionItem) return false;
+
+      // milestone-lookin' quest steps
+      if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
+
+      if (definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1) {
+        return true;
+      }
+
+      return false;
+    });
     const context = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
@@ -424,8 +438,12 @@ class Quests extends React.Component {
                         <p>{t('Bounties you acquire will appear here.')}</p>
                       </div>
                     )
-                  ) : (
+                  ) : items.length ? (
                     <ul className='list inventory-items'>{items.map((item) => item.element)}</ul>
+                  ) : (
+                    <div className='info'>
+                      <p>{t('Bounties you acquire will appear here.')}</p>
+                    </div>
                   )
                 ) : items.length ? (
                   <ul className='list quests'>{items.map((item) => item.element)}</ul>
@@ -449,6 +467,12 @@ class Quests extends React.Component {
               </div>
             ) : null}
           </div>
+          {!inspect ? (
+            <div className='inventory-capacity'>
+              <span>{total.length} / 63</span>
+              {t('Total Quest and Bounty Capacity')}
+            </div>
+          ) : null}
         </div>
         {inspect ? (
           <div className='sticky-nav'>

@@ -51,6 +51,7 @@
 #quests .content {
   display: grid;
   gap: 3rem;
+  position: relative;
 }
 
 #quests.has-preview .content {
@@ -130,10 +131,6 @@
 #quests .filter.description .text .description {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
-}
-
-#quests .module {
-  position: relative;
 }
 
 #quests .module.views .list {
@@ -303,6 +300,7 @@
 }
 
 #quests .module.items {
+  position: relative;
   display: grid;
   gap: 1rem;
   align-content: start;
@@ -390,6 +388,19 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+#quests .inventory-capacity {
+  grid-column: 2/3;
+  align-self: end;
+  font-size: 16px;
+  font-family: var(--fontText);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#quests .inventory-capacity span {
+  margin: 0 2rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 @media screen and (max-width: 1600px) {
   #quests .list.quests {
     grid-template-columns: repeat(3, 1fr);
@@ -419,6 +430,10 @@
   #quests.has-preview .content {
     grid-template-columns: auto;
     align-content: start;
+  }
+
+  #quests .module.items {
+    position: unset;
   }
 
   #quests .list.quests,
@@ -475,11 +490,28 @@
     height: 30px;
   }
 
+  #quests .filter.background {
+    background: radial-gradient(ellipse at 100% 0, var(--color-accent), transparent 45%);
+  }
+
   #quests .list.inventory-items {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  #quests .module.items .info {
+  #quests .module.items .info,
+  #quests .filter.inline-description .text,
+  #quests .inventory-capacity {
     font-size: 14px;
+  }
+
+  #quests .inventory-capacity {
+    grid-column: 1/3;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+
+  #quests .inventory-capacity span {
+    margin: 0;
   }
 }

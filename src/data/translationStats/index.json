@@ -1,362 +1,112 @@
 {
   "de": {
     "translated": 682,
-    "notTranslated": 18,
+    "notTranslated": 19,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 699,
+    "translated": 700,
     "notTranslated": 0,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 699,
+    "translated": 700,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 682,
-    "notTranslated": 17,
+    "notTranslated": 18,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 682,
-    "notTranslated": 17,
+    "notTranslated": 18,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 654,
-    "notTranslated": 45,
+    "notTranslated": 46,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 665,
-    "notTranslated": 34,
+    "notTranslated": 35,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 590,
-    "notTranslated": 109,
+    "notTranslated": 110,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 543,
-    "notTranslated": 156,
+    "notTranslated": 157,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 697,
+    "notTranslated": 698,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 650,
-    "notTranslated": 49,
+    "notTranslated": 50,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 682,
-    "notTranslated": 17,
+    "notTranslated": 18,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 450,
-    "notTranslated": 249,
+    "notTranslated": 250,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 367,
-    "notTranslated": 332,
+    "notTranslated": 333,
     "added": [
-      "All quests",
-      "All quests and related items in your inventory",
-      "Bounties you acquire will appear here.",
-      "Exotic Gear and Catalyst quests",
-      "Exotics",
-      "Instructions",
-      "New Light",
-      "Playlists",
-      "Quests from past expansions",
-      "Quests from the current season",
-      "Quests from the latest expansion",
-      "Quests related to New Light, tutorials, and introductions",
-      "Quests you acquire will appear here.",
-      "Seasonal",
-      "Shadowkeep",
-      "The Past",
-      "Vanguard, Crucible, and Gambit quests"
+      "Total Quest and Bounty Capacity"
     ],
-    "removed": [
-      "Current step",
-      "No quests. Speak to Zavala, maybe?"
-    ]
+    "removed": []
   }
 }
