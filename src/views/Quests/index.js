@@ -7,67 +7,20 @@ import { t, duration, timestampToDuration, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
 import { itemComponents } from '../../utils/destinyItems/itemComponents';
-import { ProfileLink, ProfileNavLink } from '../../components/ProfileLink';
-import Items from '../../components/Items';
-import ObservedImage from '../../components/ObservedImage';
+import { removeMemberIds } from '../../utils/paths';
+
 import { NoAuth, DiffProfile } from '../../components/BungieAuth';
-import QuestLine from '../../components/QuestLine';
+import ObservedImage from '../../components/ObservedImage';
+import Items from '../../components/Items';
+import { ProfileLink, ProfileNavLink } from '../../components/ProfileLink';
+import { QuestLine, questFilterMap } from '../../components/QuestLine';
+
 import Spinner from '../../components/UI/Spinner';
 import ProgressBar from '../../components/UI/ProgressBar';
 import { DestinyKey } from '../../components/UI/Button';
-import { Common, Views } from '../../svg';
+import { Common } from '../../svg';
 
 import './styles.css';
-
-const filterMap = {
-  bounties: {
-    displayProperties: {
-      name: t('Bounties'),
-      description: t('BOunties are boring omg bounty simulator'),
-    },
-  },
-  all: {
-    displayProperties: {
-      name: t('Quests'),
-      description: t('All quests'),
-    },
-  },
-  seasonal: {
-    displayProperties: {
-      name: t('Seasonal'),
-      description: t('Quests from the current season'),
-      icon: '/static/images/extracts/ui/quests/01E3-06C0.png',
-    },
-  },
-  expansion: {
-    displayProperties: {
-      name: t('Shadowkeep'),
-      description: t('Quests from the latest expansion'),
-      icon: '/static/images/extracts/ui/quests/01E3-06CA.png',
-    },
-  },
-  playlists: {
-    displayProperties: {
-      name: t('Playlists'),
-      description: t('Vanguard, Crucible, and Gambit quests'),
-      icon: '/static/images/extracts/ui/quests/01E3-06D3.png',
-    },
-  },
-  exotics: {
-    displayProperties: {
-      name: t('Exotics'),
-      description: t('Exotic Gear and Catalyst quests'),
-      icon: '/static/images/extracts/ui/quests/01E3-06C5.png',
-    },
-  },
-  past: {
-    displayProperties: {
-      name: t('The Past'),
-      description: t('Quests from past expansions'),
-      icon: '/static/images/extracts/ui/quests/01E3-06BB.png',
-    },
-  },
-};
 
 function determineOrder({ filter = 'bounties', variable = 'rarity', order = 'asc' }) {
   if (filter === 'bounties') {
@@ -83,6 +36,15 @@ function determineOrder({ filter = 'bounties', variable = 'rarity', order = 'asc
   }
 }
 
+function navLinkIsActive(match, location) {
+  const pathname = removeMemberIds(location.pathname);
+  if (pathname === '/quests' || pathname.indexOf('/quests/bounties') > -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 class Quests extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -91,10 +53,8 @@ class Quests extends React.Component {
   }
 
   componentDidUpdate(p, s) {
-    if (p.hash !== this.props.hash) {
+    if (p.match.params.variable !== this.props.match.params.variable) {
       window.scrollTo(0, 0);
-
-      this.props.rebindTooltips();
     }
   }
 
@@ -164,6 +124,7 @@ class Quests extends React.Component {
                           linked: true,
                           masterworked,
                           tracked,
+                          completed,
                           tooltip: true,
                           exotic: definitionItem.inventory?.tierType === 6,
                         },
@@ -176,10 +137,14 @@ class Quests extends React.Component {
                       <div className='icon'>
                         <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
                       </div>
+                      {tracked ? (
+                        <div className='track'>
+                          <Common.Tracking />
+                        </div>
+                      ) : null}
                       {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
                       {completed ? <div className='completed' /> : null}
                       {expired || expiresSoon ? <div className='expired' /> : null}
-                      {!completed ? <ProgressBar objectiveHash={item.itemComponents.objectives[0].objectiveHash} progress={objectivesProgress} completionValue={objectivesCompletionValue} hideCheck /> : null}
                     </li>
                   </ul>
                 </li>
@@ -205,6 +170,7 @@ class Quests extends React.Component {
                   linked: true,
                   masterworked,
                   tracked,
+                  completed,
                   tooltip: true,
                   exotic: definitionItem.inventory?.tierType === 6,
                 },
@@ -308,24 +274,44 @@ class Quests extends React.Component {
       );
     }
 
-    const inventory = [...member.data.profile.profileInventory.data.items, ...member.data.profile.characterInventories.data[member.characterId].items].filter((item) => {
+    const inventory = [...member.data.profile.profileInventory.data.items, ...member.data.profile.characterInventories.data[member.characterId].items];
+    const context = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
 
+      // milestone-lookin' quest steps
+      if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
+
+      if (definitionItem.traitIds?.indexOf(filter !== 'bounties' ? 'inventory_filtering.quest' : 'inventory_filtering.bounty') > -1) {
+        return true;
+      }
+
+      return false;
+    });
+    const filtered = inventory.filter((item) => {
+      const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+      if (!definitionItem) return false;
+
+      // milestone-lookin' quest steps
+      if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
+
       if (filter === 'bounties' && definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1) {
         return true;
-      } else if (filter === 'expansion' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('quest.current_release') > -1) {
+      } else if (filter === 'new-light' && definitionItem.traitIds?.indexOf('quest.new_light') > -1) {
         return true;
-      } else if (filter === 'seasonal' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('quest.seasonal') > -1) {
+      } else if (filter === 'expansion' && definitionItem.traitIds?.indexOf('quest.current_release') > -1) {
         return true;
-      } else if (filter === 'playlists' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('quest.playlists') > -1) {
+      } else if (filter === 'seasonal' && definitionItem.traitIds?.indexOf('quest.seasonal') > -1) {
         return true;
-      } else if (filter === 'exotics' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('quest.exotic') > -1) {
+      } else if (filter === 'playlists' && definitionItem.traitIds?.indexOf('quest.playlists') > -1) {
         return true;
-      } else if (filter === 'past' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('quest.past') > -1) {
+      } else if (filter === 'exotics' && definitionItem.traitIds?.indexOf('quest.exotic') > -1) {
         return true;
-      } else if (filter === 'all' && definitionItem.inventory?.tierType && definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1) {
+      } else if (filter === 'past' && definitionItem.traitIds?.indexOf('quest.past') > -1) {
+        return true;
+      } else if (filter === 'all' && definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1) {
         return true;
       }
 
@@ -334,118 +320,135 @@ class Quests extends React.Component {
 
     const order = determineOrder(this.props.match.params);
 
-    const items = orderBy(this.getItems(inventory), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
+    const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
+    const newLight = inventory.filter((item) => {
+      const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+      if (!definitionItem) return false;
+
+      // milestone-lookin' quest steps
+      if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
+
+      if (definitionItem.traitIds?.indexOf('quest.new_light') > -1) {
+        return true;
+      }
+
+      return false;
+    }).length;
 
     const inspect = variable && filter !== 'bounties' && items.find((item) => item.itemHash === +variable);
 
     return (
       <>
-        <div className={cx('view', filter, { inspect: inspect })} id='quests'>
+        <div className={cx('view', filter, { inspect: inspect, 'has-preview': questFilterMap[filter].preview && !inspect })} id='quests'>
           <div className='filter background' />
           <div className='module views'>
             <ul className='list'>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Bounties />
-                </div>
-                <ProfileNavLink to='/quests' exact />
+                <div className='icon'>{questFilterMap['bounties'].displayProperties.icon}</div>
+                <ProfileNavLink to='/quests/bounties' isActive={navLinkIsActive} />
               </li>
+              {newLight > 0 ? (
+                <li className='linked'>
+                  <div className='icon'>{questFilterMap['new-light'].displayProperties.icon}</div>
+                  <ProfileNavLink to='/quests/new-light' />
+                </li>
+              ) : null}
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.All />
-                </div>
+                <div className='icon quest'>{questFilterMap['all'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/all' />
               </li>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Seasonal />
-                </div>
+                <div className='icon'>{questFilterMap['seasonal'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/seasonal' />
               </li>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Expansion />
-                </div>
+                <div className='icon'>{questFilterMap['expansion'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/expansion' />
               </li>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Playlists />
-                </div>
+                <div className='icon'>{questFilterMap['playlists'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/playlists' />
               </li>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Exotics />
-                </div>
+                <div className='icon'>{questFilterMap['exotics'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/exotics' />
               </li>
               <li className='linked'>
-                <div className='icon'>
-                  <Views.Quests.Past />
-                </div>
+                <div className='icon'>{questFilterMap['past'].displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/past' />
               </li>
             </ul>
           </div>
-          {inspect ? <QuestLine item={inspect} /> : null}
-          {!inspect ? (
-            filter === 'bounties' ? (
-              viewport.width > 1023 ? (
-                <div className='module'>
-                  <ul className='list bounties'>
-                    <li className='header'>
-                      <ul>
-                        <li className={cx('col', 'bounty-item', 'no-sort')} />
-                        <li className={cx('col', 'bounty-text', { sort: variable === 'name' })}>
-                          <div className='full'>{t('Bounty')}</div>
-                          <ProfileLink to={`/quests/bounties/name/${order === 'asc' ? 'desc' : 'asc'}`} />
-                        </li>
-                        <li className={cx('col', 'objectives', { sort: variable === 'objectives' })}>
-                          <div className='full'>{t('Objectives')}</div>
-                          <ProfileLink to={`/quests/bounties/objectives/${order === 'asc' ? 'desc' : 'asc'}`} />
-                        </li>
-                        <li className={cx('col', 'reward-items', 'no-sort')}>
-                          <div className='full'>{t('Rewards')}</div>
-                        </li>
-                        <li className={cx('col', 'expires', { sort: variable === 'timestampExpiry' })}>
-                          <div className='full'>{t('Expiry')}</div>
-                          <ProfileLink to={`/quests/bounties/timestampExpiry/${order === 'asc' ? 'desc' : 'asc'}`} />
-                        </li>
-                      </ul>
-                    </li>
-                    {items.map((item) => item.element)}
-                  </ul>
-                </div>
-              ) : (
-                <div className='module'>
-                  <ul className='list inventory-items'>{items.map((item) => item.element)}</ul>
-                </div>
-              )
+          <div className='content'>
+            {inspect ? (
+              <QuestLine item={inspect} />
             ) : (
-              <div className='module quests'>
-                {items.length ? (
+              <div className={cx('module', 'items', { quests: filter !== 'bounties' })}>
+                <div className='module filter inline-description'>
+                  <div className='text'>
+                    <div className='name'>{questFilterMap[filter].displayProperties.name}</div>
+                    <div className='quantity'>
+                      <span>{filtered.length > 0 ? <>1-{filtered.length}</> : <>0</>}</span> / {context.length}
+                    </div>
+                  </div>
+                </div>
+                {filter === 'bounties' ? (
+                  viewport.width > 1023 ? (
+                    items.length ? (
+                      <ul className='list bounties'>
+                        <li className='header'>
+                          <ul>
+                            <li className={cx('col', 'bounty-item', 'no-sort')} />
+                            <li className={cx('col', 'bounty-text', { sort: variable === 'name' })}>
+                              <div className='full'>{t('Bounty')}</div>
+                              <ProfileLink to={`/quests/bounties/name/${order === 'asc' ? 'desc' : 'asc'}`} />
+                            </li>
+                            <li className={cx('col', 'objectives', { sort: variable === 'objectives' })}>
+                              <div className='full'>{t('Objectives')}</div>
+                              <ProfileLink to={`/quests/bounties/objectives/${order === 'asc' ? 'desc' : 'asc'}`} />
+                            </li>
+                            <li className={cx('col', 'reward-items', 'no-sort')}>
+                              <div className='full'>{t('Rewards')}</div>
+                            </li>
+                            <li className={cx('col', 'expires', { sort: variable === 'timestampExpiry' })}>
+                              <div className='full'>{t('Expiry')}</div>
+                              <ProfileLink to={`/quests/bounties/timestampExpiry/${order === 'asc' ? 'desc' : 'asc'}`} />
+                            </li>
+                          </ul>
+                        </li>
+                        {items.map((item) => item.element)}
+                      </ul>
+                    ) : (
+                      <div className='info'>
+                        <p>{t('Bounties you acquire will appear here.')}</p>
+                      </div>
+                    )
+                  ) : (
+                    <ul className='list inventory-items'>{items.map((item) => item.element)}</ul>
+                  )
+                ) : items.length ? (
                   <ul className='list quests'>{items.map((item) => item.element)}</ul>
                 ) : (
                   <div className='info'>
-                    <p>{t("No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...")}</p>
+                    <p>{t('Quests you acquire will appear here.')}</p>
                   </div>
                 )}
               </div>
-            )
-          ) : null}
-          {!inspect && filter !== 'bounties' ? (
-            <div className='module filter description'>
-              <div className='icon'>
-                <ObservedImage src={filterMap[filter].displayProperties.icon} />
+            )}
+            {!inspect && filter !== 'bounties' && viewport.width > 1024 && questFilterMap[filter].preview ? (
+              <div className='module filter description'>
+                <div className='preview'>
+                  <ObservedImage src={questFilterMap[filter].preview} />
+                </div>
+                <div className='text'>
+                  <div className='name'>{questFilterMap[filter].displayProperties.name}</div>
+                  <div className='description'>{questFilterMap[filter].displayProperties.description}</div>
+                </div>
+                <div className='corners large b' />
               </div>
-              <div className='text'>
-                <div className='name'>{filterMap[filter].displayProperties.name}</div>
-                <div className='description'>{filterMap[filter].displayProperties.description}</div>
-              </div>
-              <div className='corners large b' />
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
         {inspect ? (
           <div className='sticky-nav'>

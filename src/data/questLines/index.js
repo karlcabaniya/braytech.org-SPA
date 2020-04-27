@@ -230,35 +230,27 @@ export const rewardsQuestLineOverrides = {
       quantity: 1
     }
   ],
-  // Joy in Suffering
-  2039588176: [
-    {
-      itemHash: 3089417789,
-      quantity: 1
-    },
-    {
-      itemHash: 1196526889,
-      quantity: 6
-    }
-  ],
-  // Risk/Reward
-  1296357874: [
-    {
-      itemHash: 3089417789,
-      quantity: 1
-    },
-    {
-      itemHash: 484491717,
-      quantity: 1
-    },
-    {
-      itemHash: 1196526889,
-      quantity: 6
-    }
-  ]
 };
 
 export const rewardsQuestLineOverridesShadowkeep = [
+  // Risk/Reward
+  {
+    itemHash: 1296357874,
+    rewards: [
+      {
+        itemHash: 3089417789,
+        quantity: 1
+      },
+      {
+        itemHash: 484491717,
+        quantity: 1
+      },
+      {
+        itemHash: 1196526889,
+        quantity: 6
+      }
+    ]
+  },
   // Faculties of the Skull
   {
     itemHash: 613601972,
@@ -295,6 +287,50 @@ export const rewardsQuestLineOverridesShadowkeep = [
     rewards: [
       {
         itemHash: 3393519051, // Perfect Paradox
+        quantity: 1
+      }
+    ]
+  },
+  // Enter the Vault
+  {
+    itemHash: 3572380754,
+    rewards: [
+      {
+        itemHash: 1665952087, // The Fourth Horseman
+        quantity: 1
+      }
+    ]
+  },
+  // A Strong Arm
+  {
+    itemHash: 1134691,
+    rewards: [
+      {
+        itemHash: 2415517654, // Bastion
+        quantity: 1
+      },
+      {
+        itemHash: 4273298922, // Bastion Catalyst 
+        quantity: 1
+      }
+    ]
+  },
+  // A Fateful Gift
+  {
+    itemHash: 1474701982,
+    rewards: [
+      {
+        itemHash: 3512014804, // Lumina
+        quantity: 1
+      }
+    ]
+  },
+  // Emergence
+  {
+    itemHash: 3715926175,
+    rewards: [
+      {
+        itemHash: 1395261499, // Xenophage 
         quantity: 1
       }
     ]

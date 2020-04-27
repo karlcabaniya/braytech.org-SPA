@@ -295,6 +295,7 @@ const Views = {
   },
   Quests: {
     Bounties: HighlightThisWeek,
+    NewLight: Tricorn,
     All: Story,
     Expansion: ExpansionShadowkeep,
     Seasonal: SeasonWorthy,

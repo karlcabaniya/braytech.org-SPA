@@ -4,6 +4,14 @@ import { removeMemberIds } from '../../utils/paths';
 import { ProfileNavLink } from '../../components/ProfileLink';
 import { Views } from '../../svg';
 
+function navLinkIsActive(match, location) {
+  if (['/reports', '/reports/all'].includes(removeMemberIds(location.pathname)) || removeMemberIds(location.pathname).includes('/reports/all')) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 class ParentModeLinks extends React.Component {
   render() {
     return (
@@ -13,13 +21,7 @@ class ParentModeLinks extends React.Component {
             <div className='icon'>
               <Views.Reports.Explore />
             </div>
-            <ProfileNavLink to='/reports' isActive={(match, location) => {
-                if (['/reports', '/reports/all'].includes(removeMemberIds(location.pathname)) || removeMemberIds(location.pathname).includes('/reports/all')) {
-                  return true;
-                } else {
-                  return false;
-                }
-              }} />
+            <ProfileNavLink to='/reports' isActive={navLinkIsActive} />
           </li>
           <li className='linked'>
             <div className='icon'>

@@ -3,10 +3,9 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { cloneDeep } from 'lodash';
-import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 
-import { t } from '../../utils/i18n';
+import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { stepsWithRecords, rewardsQuestLineOverrides, rewardsQuestLineOverridesShadowkeep, setDataQuestLineOverrides } from '../../data/questLines';
 import { removeMemberIds } from '../../utils/paths';
@@ -14,37 +13,110 @@ import ObservedImage from '../ObservedImage';
 import Records from '../Records/';
 import Items from '../Items';
 import ProgressBar from '../UI/ProgressBar';
+import { Views } from '../../svg';
 
 import './styles.css';
 
+function questTrait(hash) {
+  const definitionItem = manifest.DestinyInventoryItemDefinition[hash];
+
+  if (!definitionItem) return 'all';
+
+  if (definitionItem.traitIds?.indexOf('quest.new_light') > -1) {
+    return 'new-light';
+  } else if (definitionItem.traitIds?.indexOf('quest.current_release') > -1) {
+    return 'expansion';
+  } else if (definitionItem.traitIds?.indexOf('quest.seasonal') > -1) {
+    return 'seasonal';
+  } else if (definitionItem.traitIds?.indexOf('quest.playlists') > -1) {
+    return 'playlists';
+  } else if (definitionItem.traitIds?.indexOf('quest.exotic') > -1) {
+    return 'exotics';
+  } else if (definitionItem.traitIds?.indexOf('quest.past') > -1) {
+    return 'past';
+  } else {
+    return 'all';
+  }
+}
+
+const questFilterMap = {
+  bounties: {
+    displayProperties: {
+      name: t('Bounties'),
+      icon: <Views.Quests.Bounties />,
+    },
+  },
+  all: {
+    displayProperties: {
+      name: t('All quests'),
+      description: t('All quests and related items in your inventory'),
+      icon: <Views.Quests.All />,
+    },
+  },
+  'new-light': {
+    displayProperties: {
+      name: t('New Light'),
+      description: t('Quests related to New Light, tutorials, and introductions'),
+      icon: <Views.Quests.NewLight />,
+    },
+  },
+  seasonal: {
+    displayProperties: {
+      name: t('Seasonal'),
+      description: t('Quests from the current season'),
+      icon: <Views.Quests.Seasonal />,
+    },
+    preview: '/static/images/extracts/ui/quests/01E3-06C0.png',
+  },
+  expansion: {
+    displayProperties: {
+      name: t('Shadowkeep'),
+      description: t('Quests from the latest expansion'),
+      icon: <Views.Quests.Expansion />,
+    },
+    preview: '/static/images/extracts/ui/quests/01E3-06CA.png',
+  },
+  playlists: {
+    displayProperties: {
+      name: t('Playlists'),
+      description: t('Vanguard, Crucible, and Gambit quests'),
+      icon: <Views.Quests.Playlists />,
+    },
+    preview: '/static/images/extracts/ui/quests/01E3-06D3.png',
+  },
+  exotics: {
+    displayProperties: {
+      name: t('Exotics'),
+      description: t('Exotic Gear and Catalyst quests'),
+      icon: <Views.Quests.Exotics />,
+    },
+    preview: '/static/images/extracts/ui/quests/01E3-06C5.png',
+  },
+  past: {
+    displayProperties: {
+      name: t('The Past'),
+      description: t('Quests from past expansions'),
+      icon: <Views.Quests.Past />,
+    },
+    preview: '/static/images/extracts/ui/quests/01E3-06BB.png',
+  },
+};
+
 class QuestLine extends React.Component {
   getRewardsQuestLine = (questLine, classType) => {
-    let rewards = (
-      questLine.value?.itemValue?.length &&
-      questLine.value.itemValue.filter(v =>
-        v.itemHash !== 0 &&
-        (
-          (
-            manifest.DestinyInventoryItemDefinition[v.itemHash].classType < 3 &&
-            manifest.DestinyInventoryItemDefinition[v.itemHash].classType === classType
-          ) ||
-          manifest.DestinyInventoryItemDefinition[v.itemHash].classType > 2 ||
-          manifest.DestinyInventoryItemDefinition[v.itemHash].classType === undefined
-        )
-      )
-    ) || [];
+    let rewards = (questLine.value?.itemValue?.length && questLine.value.itemValue.filter((v) => v.itemHash !== 0 && ((manifest.DestinyInventoryItemDefinition[v.itemHash].classType < 3 && manifest.DestinyInventoryItemDefinition[v.itemHash].classType === classType) || manifest.DestinyInventoryItemDefinition[v.itemHash].classType > 2 || manifest.DestinyInventoryItemDefinition[v.itemHash].classType === undefined))) || [];
 
     if (rewardsQuestLineOverrides[questLine.hash]) rewards = rewardsQuestLineOverrides[questLine.hash];
 
     const setData = this.getSetDataQuestLine(questLine);
-    const rewardsShadowkeep = setData && rewardsQuestLineOverridesShadowkeep.find(s => setData.find(d => d.itemHash === s.itemHash));
+    const rewardsShadowkeep = setData && rewardsQuestLineOverridesShadowkeep.find((s) => setData.find((d) => d.itemHash === s.itemHash));
 
     if (rewardsShadowkeep) rewards = rewardsShadowkeep.rewards;
 
     return rewards;
   };
 
-  getSetDataQuestLine = questLine => {
+  getSetDataQuestLine = (questLine) => {
     let setData = (questLine.setData?.itemList?.length && questLine.setData.itemList) || [];
 
     if (setDataQuestLineOverrides[questLine.hash]) setData = setDataQuestLineOverrides[questLine.hash];
@@ -53,9 +125,9 @@ class QuestLine extends React.Component {
   };
 
   render() {
-    const { member, item } = this.props;    
+    const { member, item } = this.props;
     const characters = member.data.profile.characters.data;
-    const character = characters.find(c => c.characterId === member.characterId);
+    const character = characters.find((c) => c.characterId === member.characterId);
     const itemComponents = member.data.profile.itemComponents;
     const characterUninstancedItemComponents = member.data.profile.characterUninstancedItemComponents[member.characterId].objectives.data;
 
@@ -90,7 +162,7 @@ class QuestLine extends React.Component {
 
           let stepMatch = false;
           if (progressData && s.definitionStep.objectives && s.definitionStep.objectives.objectiveHashes.length === progressData.length) {
-            progressData.forEach(o => {
+            progressData.forEach((o) => {
               if (s.definitionStep.objectives.objectiveHashes.includes(o.objectiveHash)) {
                 stepMatch = true;
               } else {
@@ -102,14 +174,14 @@ class QuestLine extends React.Component {
           if (stepMatch) {
             s.progress = progressData;
           } else if (assumeCompleted && s.definitionStep.objectives && s.definitionStep.objectives.objectiveHashes.length) {
-            s.progress = s.definitionStep.objectives.objectiveHashes.map(o => {
+            s.progress = s.definitionStep.objectives.objectiveHashes.map((o) => {
               let definitionObjective = manifest.DestinyObjectiveDefinition[o];
 
               return {
                 complete: true,
                 progress: definitionObjective.completionValue,
                 completionValue: definitionObjective.completionValue,
-                objectiveHash: definitionObjective.hash
+                objectiveHash: definitionObjective.hash,
               };
             });
           } else {
@@ -124,117 +196,48 @@ class QuestLine extends React.Component {
       const descriptionQuestLine = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
 
       const rewardsQuestLine = this.getRewardsQuestLine(questLine, character.classType);
-      const rewardsQuestStep = (steps && steps.length && steps.filter(s => s.active) && steps.filter(s => s.active).length && steps.filter(s => s.active)[0].definitionStep && steps.filter(s => s.active)[0].definitionStep.value && steps.filter(s => s.active)[0].definitionStep.value.itemValue && steps.filter(s => s.active)[0].definitionStep.value.itemValue.length && steps.filter(s => s.active)[0].definitionStep.value.itemValue.filter(v => v.itemHash !== 0)) || [];
+      const rewardsQuestStep = (steps && steps.length && steps.filter((s) => s.active) && steps.filter((s) => s.active).length && steps.filter((s) => s.active)[0].definitionStep && steps.filter((s) => s.active)[0].definitionStep.value && steps.filter((s) => s.active)[0].definitionStep.value.itemValue && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.length && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.filter((v) => v.itemHash !== 0)) || [];
 
       return (
         <div className='quest-line'>
-          <div className='module header'>
-            <div className='name'>{questLine.displayProperties.name}</div>
-          </div>
           <div className='module'>
-            <ReactMarkdown className='displaySource' source={descriptionQuestLine} />
-            {rewardsQuestLine.length ? (
-              <>
-                <h4>{t('Rewards')}</h4>
-                <ul className='list inventory-items'>
-                  <Items items={rewardsQuestLine} />
-                </ul>
-              </>
-            ) : null}
-            {questLineSource ? (
-              <>
-                <h4>{t('Source')}</h4>
-                <div className='sources'>
-                  {questLineSource.map(s => {
-                    if (s.vendorHash) {
-                      let definitionVendor = manifest.DestinyVendorDefinition[s.vendorHash];
-                      let definitionFaction = definitionVendor && definitionVendor.factionHash ? manifest.DestinyFactionDefinition[definitionVendor.factionHash] : false;
-
-                      return (
-                        <div key={s.vendorHash} className='vendor tooltip' data-hash={s.vendorHash} data-type='vendor'>
-                          <div className='name'>{definitionVendor.displayProperties.name}</div>
-                          {definitionFaction ? <div className='faction'>{definitionFaction.displayProperties.name}</div> : null}
-                        </div>
-                      );
-                    } else {
-                      return null;
-                    }
-                  })}
-                </div>
-              </>
-            ) : null}
-            {steps && steps.length > 3 ? (
-              <div className='current-step'>
-                <h4>{t('Current step')}</h4>
-                <div className='steps'>
-                  {steps
-                    .filter(s => s.active)
-                    .map(s => {
-                      let objectives = [];
-                      s.definitionStep &&
-                        s.definitionStep.objectives &&
-                        s.definitionStep.objectives.objectiveHashes.forEach(element => {
-                          let definitionObjective = manifest.DestinyObjectiveDefinition[element];
-
-                          let progress = {
-                            complete: false,
-                            progress: 0,
-                            completionValue: definitionObjective.completionValue,
-                            objectiveHash: definitionObjective.hash,
-                            ...s.progress.find(o => o.objectiveHash === definitionObjective.hash)
-                          };
-
-                          let relatedRecords = stepsWithRecords.filter(r => r.objectiveHash === definitionObjective.hash).map(r => r.recordHash);
-
-                          objectives.push(
-                            <React.Fragment key={definitionObjective.hash}>
-                              <ProgressBar objectiveHash={definitionObjective.hash} {...progress} />
-                              {relatedRecords && relatedRecords.length ? (
-                                <ul className='list record-items'>
-                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} showCompleted hashes={relatedRecords} />
-                                </ul>
-                              ) : null}
-                            </React.Fragment>
-                          );
-                        });
-
-                      const descriptionStep = s.definitionStep.displayProperties.description && s.definitionStep.displayProperties.description !== '' ? s.definitionStep.displayProperties.description : false;
-
-                      return (
-                        <div key={s.itemHash} className='step'>
-                          <div className='header'>
-                            <div className='number'>{s.i}</div>
-                            <div className='name'>{s.definitionStep.displayProperties.name}</div>
-                          </div>
-                          {descriptionStep ? <ReactMarkdown className='description' source={descriptionStep} /> : null}
-                          {objectives.length ? <div className='objectives'>{objectives}</div> : null}
-                        </div>
-                      );
-                    })}
-                </div>
-                {rewardsQuestStep.length ? (
+            <div className='summary'>
+              <div className='icon'>{questFilterMap[questTrait(definitionItem.hash)].displayProperties.icon}</div>
+              <div className='text'>
+                <div className='name'>{questLine.displayProperties.name}</div>
+                <BungieText className='displaySource' value={descriptionQuestLine} />
+                {rewardsQuestLine.length ? (
                   <>
                     <h4>{t('Rewards')}</h4>
-                    <div className='rewards'>
-                      <ul>
-                        {rewardsQuestStep.map(r => {
-                          const definitionItem = manifest.DestinyInventoryItemDefinition[r.itemHash];
+                    <ul className='list inventory-items'>
+                      <Items items={rewardsQuestLine} />
+                    </ul>
+                  </>
+                ) : null}
+                {questLineSource ? (
+                  <>
+                    <h4>{t('Source')}</h4>
+                    <div className='sources'>
+                      {questLineSource.map((s) => {
+                        if (s.vendorHash) {
+                          let definitionVendor = manifest.DestinyVendorDefinition[s.vendorHash];
+                          let definitionFaction = definitionVendor && definitionVendor.factionHash ? manifest.DestinyFactionDefinition[definitionVendor.factionHash] : false;
+
                           return (
-                            <li key={definitionItem.hash} className={cx({ tooltip: definitionItem.hash !== 2127149322 })} data-hash={definitionItem.hash}>
-                              <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} />
-                              <div className='text'>
-                                {definitionItem.displayProperties.name}
-                                {r.quantity > 1 ? <> +{r.quantity}</> : null}
-                              </div>
-                            </li>
+                            <div key={s.vendorHash} className='vendor tooltip' data-hash={s.vendorHash} data-type='vendor'>
+                              <div className='name'>{definitionVendor.displayProperties.name}</div>
+                              {definitionFaction ? <div className='faction'>{definitionFaction.displayProperties.name}</div> : null}
+                            </div>
                           );
-                        })}
-                      </ul>
+                        } else {
+                          return null;
+                        }
+                      })}
                     </div>
                   </>
                 ) : null}
               </div>
-            ) : null}
+            </div>
           </div>
           <div className='module'>
             {steps ? (
@@ -243,11 +246,11 @@ class QuestLine extends React.Component {
                 <div className='steps'>
                   {steps &&
                     steps.length &&
-                    steps.map(s => {
+                    steps.map((s) => {
                       let objectives = [];
                       s.definitionStep &&
                         s.definitionStep.objectives &&
-                        s.definitionStep.objectives.objectiveHashes.forEach(element => {
+                        s.definitionStep.objectives.objectiveHashes.forEach((element) => {
                           let definitionObjective = manifest.DestinyObjectiveDefinition[element];
 
                           let progress = {
@@ -255,10 +258,10 @@ class QuestLine extends React.Component {
                             progress: 0,
                             completionValue: definitionObjective.completionValue,
                             objectiveHash: definitionObjective.hash,
-                            ...s.progress.find(o => o.objectiveHash === definitionObjective.hash)
+                            ...s.progress.find((o) => o.objectiveHash === definitionObjective.hash),
                           };
 
-                          let relatedRecords = stepsWithRecords.filter(r => r.objectiveHash === definitionObjective.hash).map(r => r.recordHash);
+                          let relatedRecords = stepsWithRecords.filter((r) => r.objectiveHash === definitionObjective.hash).map((r) => r.recordHash);
 
                           objectives.push(
                             <React.Fragment key={definitionObjective.hash}>
@@ -280,7 +283,7 @@ class QuestLine extends React.Component {
                             <div className='number'>{s.i}</div>
                             <div className='name'>{s.definitionStep.displayProperties.name}</div>
                           </div>
-                          {descriptionStep ? <ReactMarkdown className='description' source={descriptionStep} /> : null}
+                          {descriptionStep ? <BungieText className='description' value={descriptionStep} /> : null}
                           {objectives.length ? <div className='objectives'>{objectives}</div> : null}
                         </div>
                       );
@@ -297,13 +300,14 @@ class QuestLine extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    member: state.member
+    member: state.member,
   };
 }
 
-export default compose(
-  connect(mapStateToProps),
-  withRouter
-)(QuestLine);
+QuestLine = compose(connect(mapStateToProps), withRouter)(QuestLine);
+
+export { QuestLine, questFilterMap };
+
+export default QuestLine;

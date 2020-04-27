@@ -1,15 +1,9 @@
 #quests {
   padding: 4rem 3rem 3rem;
   display: grid;
-  grid-template-columns: 60px auto minmax(max-content, 452px);
+  grid-template-columns: 60px auto;
   gap: 3rem;
   min-height: calc(100vh - 212px);
-  align-content: start;
-}
-
-#quests.bounties,
-#quests.inspect {
-  grid-template-columns: 60px auto;
 }
 
 #quests .filter.background {
@@ -21,51 +15,103 @@
 }
 
 #quests.seasonal {
-  --color-accent: hsl(173, 100%, 50%);
+  --color-accent: hsl(170, 70%, 50%);
 }
 
 #quests.expansion {
-  --color-accent: hsl(0, 100%, 30%);
+  --color-accent: hsl(356, 100%, 50%);
 }
 
 #quests.playlists {
-  --color-accent: hsl(107, 100%, 50%);
+  --color-accent: hsl(127, 60%, 60%);
 }
 
 #quests.exotics {
-  --color-accent: hsl(48, 100%, 50%);
+  --color-accent: hsl(48, 100%, 60%);
 }
 
 #quests.past {
-  --color-accent: hsl(242, 100%, 50%);
+  --color-accent: hsl(242, 100%, 65%);
 }
 
 #quests .filter.background {
   transition: opacity 0.5s;
-  background: radial-gradient(circle at 100% 0, var(--color-accent), transparent);
+  background: radial-gradient(ellipse at 100% 0, var(--color-accent), transparent 60%);
+  opacity: 0.7;
+}
+
+.wrapper.dark-mode #quests .filter.background {
+  opacity: 0.3;
+}
+
+#quests:not(.has-preview) .filter.background {
+  opacity: 0;
+}
+
+#quests .content {
+  display: grid;
+  gap: 3rem;
+}
+
+#quests.has-preview .content {
+  grid-template-columns: auto minmax(max-content, 452px);
+}
+
+#quests .filter.inline-description {
+  position: relative;
+  padding: 12px 0 0;
+}
+
+#quests .filter.inline-description::before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 3px;
+  background-color: white;
   opacity: 0.2;
 }
 
-#quests.bounties .filter.background,
-#quests.inspect .filter.background,
-#quests.all .filter.background {
-  opacity: 0;
+#quests .filter.inline-description .text {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  font-size: 16px;
+  font-family: var(--fontText);
+  text-transform: uppercase;
+}
+
+#quests .filter.inline-description .text .quantity {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#quests .filter.inline-description .text .quantity span {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 #quests .filter.description {
   position: relative;
+  padding: 1.5rem 0 0;
 }
 
-#quests .filter.description .icon {
+#quests .filter.description::before {
+  content: ' ';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1rem;
+  height: 3px;
+  background-color: white;
+  opacity: 0.2;
+}
+
+#quests .filter.description .preview {
   position: relative;
   height: unset;
-  padding-bottom: 62%;
+  padding-bottom: 61.72566%;
   background-color: rgba(255, 255, 255, 0.05);
   margin: 0 0 16px;
-}
-
-#quests .filter.description .icon .image {
-  background-size: cover;
 }
 
 #quests .filter.description .corners {
@@ -123,7 +169,7 @@
   pointer-events: none;
 }
 
-#quests .module.views .list li:nth-child(2) .icon svg {
+#quests .module.views .list li .icon.quest svg {
   width: 42px;
   height: 42px;
 }
@@ -145,14 +191,6 @@
 
 #quests .module.views .list li a:hover {
   color: #fff;
-}
-
-#quests .module .sub-header ~ .sub-header {
-  margin-top: calc(3rem - 7px);
-}
-
-#quests .module:nth-child(2) .sub-header ~ div p {
-  max-width: 300px;
 }
 
 #quests .list.inventory-items {
@@ -264,10 +302,28 @@
   justify-content: right;
 }
 
+#quests .module.items {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+#quests .module.items .info {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+
 #quests .list.quests {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
+}
+
+#quests.has-preview .list.quests {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #quests .list.quests li {
@@ -282,7 +338,7 @@
 }
 
 #quests .list.quests li.exotic {
-  background: linear-gradient(45deg, transparent, rgba(205, 174, 50, 0.4));
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(205, 174, 50, 0.4));
 }
 
 #quests .list.quests > li::before {
@@ -335,55 +391,38 @@
 }
 
 @media screen and (max-width: 1600px) {
-  #quests {
-    
+  #quests .list.quests {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  #quests .list.quests {
+  #quests.has-preview .list.quests {
     grid-template-columns: repeat(2, 1fr);
   }
 
   #quests .list.quests li {
     grid-template-columns: 64px auto;
   }
-
-  #quests .list.inventory-items {
-    grid-template-columns: repeat(auto-fill, 48px);
-  }
 }
 
 @media screen and (max-width: 1280px) {
-  #quests {
-    
-  }
-
   #quests .list.quests {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #quests.has-preview .list.quests {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  #quests .list.quests li {
-    grid-template-columns: 64px auto;
-  }
-
-  #quests .list.inventory-items {
-    grid-template-columns: repeat(auto-fill, 48px);
   }
 }
 
 @media screen and (max-width: 1024px) {
-  #quests {
-    grid-template-columns: 60px auto;
+  #quests .content,
+  #quests.has-preview .content {
+    grid-template-columns: auto;
+    align-content: start;
   }
 
-  #quests .module.views {
-    grid-row: 1/4;
-  }
-
-  #quests .module.quests {
-    grid-column: 2/4;
-  }
-
-  #quests .list.quests {
+  #quests .list.quests,
+  #quests.has-preview .list.quests {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -391,12 +430,7 @@
     grid-template-columns: 48px auto;
   }
 
-  #quests .filter.description {
-    grid-row: 1/2;
-    grid-column: 2/4;
-  }
-
-  #quests .filter.description .icon {
+  #quests .filter.description .preview {
     display: none;
   }
 
@@ -404,17 +438,15 @@
     font-size: 20px;
     margin: 0 0 10px;
   }
+
   #quests .filter.description .text .description {
     font-size: 16px;
-  }
-
-  #quests .filter.description .corners {
-    opacity: 0;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #quests .list.quests {
+  #quests .list.quests,
+  #quests.has-preview .list.quests {
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -425,11 +457,6 @@
     grid-template-columns: 40px 1fr;
     gap: 2rem;
     min-height: calc(100vh - 172px);
-  }
-
-  #quests.bounties,
-  #quests.inspect {
-    grid-template-columns: 40px 1fr;
   }
 
   #quests .module.views .list {
@@ -443,16 +470,16 @@
     height: 24px;
   }
 
-  #quests .module.views .list li:nth-child(2) .icon svg {
+  #quests .module.views .list li .icon.quest svg {
     width: 30px;
     height: 30px;
   }
 
-  #quests .module .sub-header ~ .sub-header {
-    margin-top: calc(2rem - 7px);
+  #quests .list.inventory-items {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  #quests .list.inventory-items {
-    grid-template-columns: repeat(6, 1fr);
+  #quests .module.items .info {
+    font-size: 14px;
   }
 }
