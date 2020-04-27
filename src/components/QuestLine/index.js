@@ -1,14 +1,15 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
+import { withRouter } from 'react-router-dom';
 import { cloneDeep } from 'lodash';
 import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { stepsWithRecords, rewardsQuestLineOverrides, rewardsQuestLineOverridesShadowkeep, setDataQuestLineOverrides } from '../../data/questLines';
-import { checklists, checkup } from '../../utils/checklists';
+import { removeMemberIds } from '../../utils/paths';
 import ObservedImage from '../ObservedImage';
 import Records from '../Records/';
 import Items from '../Items';
@@ -52,7 +53,7 @@ class QuestLine extends React.Component {
   };
 
   render() {
-    const { t, member, item } = this.props;    
+    const { member, item } = this.props;    
     const characters = member.data.profile.characters.data;
     const character = characters.find(c => c.characterId === member.characterId);
     const itemComponents = member.data.profile.itemComponents;
@@ -124,10 +125,6 @@ class QuestLine extends React.Component {
 
       const rewardsQuestLine = this.getRewardsQuestLine(questLine, character.classType);
       const rewardsQuestStep = (steps && steps.length && steps.filter(s => s.active) && steps.filter(s => s.active).length && steps.filter(s => s.active)[0].definitionStep && steps.filter(s => s.active)[0].definitionStep.value && steps.filter(s => s.active)[0].definitionStep.value.itemValue && steps.filter(s => s.active)[0].definitionStep.value.itemValue.length && steps.filter(s => s.active)[0].definitionStep.value.itemValue.filter(v => v.itemHash !== 0)) || [];
-
-      // const checklistEntry = checkup({ key: 'pursuitHash', value: definitionItem.hash });
-
-      // console.log(checklistEntry)
 
       return (
         <div className='quest-line'>
@@ -268,7 +265,7 @@ class QuestLine extends React.Component {
                               <ProgressBar {...progress} />
                               {relatedRecords && relatedRecords.length ? (
                                 <ul className='list record-items'>
-                                  <Records selfLinkFrom={`/inventory/pursuits/${item.itemHash}`} showCompleted hashes={relatedRecords} />
+                                  <Records selfLinkFrom={removeMemberIds(this.props.location.pathname)} showCompleted hashes={relatedRecords} />
                                 </ul>
                               ) : null}
                             </React.Fragment>
@@ -308,5 +305,5 @@ function mapStateToProps(state, ownProps) {
 
 export default compose(
   connect(mapStateToProps),
-  withTranslation()
+  withRouter
 )(QuestLine);

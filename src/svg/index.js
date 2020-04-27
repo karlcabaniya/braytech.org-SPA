@@ -124,9 +124,16 @@ import { ReactComponent as CampaignWarmind } from './common/campaign_warmind.svg
 import { ReactComponent as CampaignForsaken } from './common/campaign_forsaken.svg';
 import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowkeep.svg';
 
+import { ReactComponent as ExpansionShadowkeep } from './seasonal/shadowkeep.svg';
+import { ReactComponent as SeasonWorthy } from './seasonal/worthy.svg';
+
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
 import { ReactComponent as CurseCycle } from './miscellaneous/curse-cycle.svg';
+import { ReactComponent as Engram } from './miscellaneous/engram.svg';
+import { ReactComponent as Playlists } from './miscellaneous/playlists.svg';
+import { ReactComponent as Past } from './miscellaneous/past.svg';
+import { ReactComponent as Story } from './miscellaneous/story.svg';
 
 import { ReactComponent as GrimoireIcon } from './grimoire/grimoire.svg';
 import { ReactComponent as GrimoireActivities } from './grimoire/activities.svg';
@@ -285,6 +292,15 @@ const Views = {
     TraitWeekly,
     TraitSeasonal,
     TraitCareer,
+  },
+  Quests: {
+    Bounties: HighlightThisWeek,
+    All: Story,
+    Expansion: ExpansionShadowkeep,
+    Seasonal: SeasonWorthy,
+    Playlists,
+    Exotics: Engram,
+    Past
   },
 };
 

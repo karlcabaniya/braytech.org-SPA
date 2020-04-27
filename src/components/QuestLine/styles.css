@@ -1,6 +1,7 @@
 .quest-line {
   display: grid;
   grid-template-columns: 1.2fr 1.8fr;
+  align-content: start;
 }
 
 .quest-line .module:last-child {
@@ -15,8 +16,8 @@
 .quest-line > .header .name {
   position: relative;
   padding: 10px 0;
-  font-size: 32px;
-  line-height: 1;
+  font-size: 38px;
+  line-height: 46px;
   font-weight: 500;
 }
 
@@ -199,8 +200,8 @@
   }
 
   .quest-line .current-step::before {
-    left: -2rem;
-    width: calc(100% + 4rem);
+    left: calc(-4rem + -40px);
+    width: calc(100% + 4rem + 40px + 2rem);
   }
 
 }

@@ -225,7 +225,8 @@ function escapeRegExp(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&');
 }
 
-function escapeString(value, severe) {console.log(JSON.stringify(value))
+function escapeString(value, severe) {
+  console.log(JSON.stringify(value));
   const full = ['#', '##', '###', '####', '#####', '######', '#', '**', '__', '*', '_', '***', '___', '__*', '**_', '>', '>>', '(', ')', '[', ']', '`', '``', '```', '---', '-', '+/', '/*', '*/'];
   const lite = ['#', '##', '###', '####', '#####', '######', '#', '**', '*', '__', '___', '__*', '**_', '`', '``', '```', '---'];
 
@@ -241,9 +242,12 @@ function escapeString(value, severe) {console.log(JSON.stringify(value))
 }
 
 export function BungieText(props) {
-  const { className, value = '', ...rest } = props;
+  const { className, value = '', trim, singleSentence, ...rest } = props;
 
-  return <ReactMarkdown className={className} source={stringToIcons(value, true)} {...rest} />;
+  let source = singleSentence ? value.split('\n')[0] : value;
+  source = trim && source.length > +trim + 10 ? source.slice(0, +trim + 10).trim() + '...' : source;
+
+  return <ReactMarkdown className={className} source={stringToIcons(source, true)} {...rest} />;
 }
 
 export function BraytechText(props) {

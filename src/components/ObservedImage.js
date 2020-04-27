@@ -10,6 +10,8 @@ class ObservedImageInner extends React.Component {
   observe = () => {
     const { className = 'image', src, ratio = false, noConstraints } = this.props;
 
+    if (!src) return;
+
     if (this.state.downloaded) {
       return;
     }
