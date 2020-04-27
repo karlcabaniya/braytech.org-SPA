@@ -1,132 +1,362 @@
 {
   "de": {
-    "translated": 684,
-    "notTranslated": 1,
+    "translated": 682,
+    "notTranslated": 18,
     "added": [
-      "Compare Nightmare Hunt activity durations between players for bragging rights and to track progress towards their respective time trial triumph records."
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
     ],
     "removed": [
-      "Credits",
-      "Patreon supporters",
-      "Special thanks",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "debug": {
-    "translated": 684,
+    "translated": 699,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "en": {
-    "translated": 684,
+    "translated": 699,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "es-mx": {
-    "translated": 684,
-    "notTranslated": 0,
-    "added": [],
+    "translated": 682,
+    "notTranslated": 17,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "es": {
-    "translated": 684,
-    "notTranslated": 0,
-    "added": [],
+    "translated": 682,
+    "notTranslated": 17,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "fr": {
-    "translated": 656,
-    "notTranslated": 28,
-    "added": [],
+    "translated": 654,
+    "notTranslated": 45,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "it": {
-    "translated": 667,
-    "notTranslated": 17,
-    "added": [],
+    "translated": 665,
+    "notTranslated": 34,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "ja": {
-    "translated": 592,
-    "notTranslated": 92,
-    "added": [],
+    "translated": 590,
+    "notTranslated": 109,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "ko": {
-    "translated": 545,
-    "notTranslated": 139,
-    "added": [],
+    "translated": 543,
+    "notTranslated": 156,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 682,
-    "added": [],
+    "notTranslated": 697,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "pt-br": {
-    "translated": 652,
-    "notTranslated": 32,
-    "added": [],
+    "translated": 650,
+    "notTranslated": 49,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "ru": {
-    "translated": 684,
-    "notTranslated": 0,
-    "added": [],
+    "translated": 682,
+    "notTranslated": 17,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "zh-chs": {
-    "translated": 452,
-    "notTranslated": 232,
-    "added": [],
+    "translated": 450,
+    "notTranslated": 249,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   },
   "zh-cht": {
-    "translated": 369,
-    "notTranslated": 315,
-    "added": [],
+    "translated": 367,
+    "notTranslated": 332,
+    "added": [
+      "All quests",
+      "All quests and related items in your inventory",
+      "Bounties you acquire will appear here.",
+      "Exotic Gear and Catalyst quests",
+      "Exotics",
+      "Instructions",
+      "New Light",
+      "Playlists",
+      "Quests from past expansions",
+      "Quests from the current season",
+      "Quests from the latest expansion",
+      "Quests related to New Light, tutorials, and introductions",
+      "Quests you acquire will appear here.",
+      "Seasonal",
+      "Shadowkeep",
+      "The Past",
+      "Vanguard, Crucible, and Gambit quests"
+    ],
     "removed": [
-      "Credits",
-      "The Architects and Guardians that make Braytech possible"
+      "Current step",
+      "No quests. Speak to Zavala, maybe?"
     ]
   }
 }
