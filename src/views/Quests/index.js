@@ -257,8 +257,8 @@ class Quests extends React.Component {
   render() {
     const { member, auth, viewport } = this.props;
     const filter = (this.props.match.params.filter && questFilterMap[this.props.match.params.filter] && this.props.match.params.filter) || 'bounties';
-    const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'name');
-    const order = this.props.match.params.order || (variable === 'objectives' ? 'desc' : 'asc');
+    const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'rarity');
+    const order = this.props.match.params.order || (variable === 'objectives' || variable === 'rarity' ? 'desc' : 'asc');
 
     if (!member.data.profile.profileInventory?.data && !auth) {
       return <NoAuth />;
@@ -334,14 +334,7 @@ class Quests extends React.Component {
       return false;
     });
 
-    const items = orderBy(this.getItems(filtered), [(item) => {
-      if (variable === 'objectives') {
-        console.log(item.sorts[variable]);
-        return item.sorts[variable];
-      } else {
-        return item.sorts[variable];
-      }
-    }, (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
+    const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
     const newLight = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
