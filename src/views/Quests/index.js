@@ -22,20 +22,6 @@ import { Common } from '../../svg';
 
 import './styles.css';
 
-function determineOrder({ filter, variable, order = 'asc' }) {
-  if (filter === 'bounties') {
-    if (variable === 'objectives') {
-      return 'desc';
-    } else {
-      return order;
-    }
-  } else if (variable === 'rarity') {
-    return 'desc';
-  } else {
-    return order;
-  }
-}
-
 function navLinkIsActive(match, location) {
   const pathname = removeMemberIds(location.pathname);
   if (pathname === '/quests' || pathname.indexOf('/quests/bounties') > -1) {
@@ -120,10 +106,11 @@ class Quests extends React.Component {
                       className={cx(
                         {
                           linked: true,
-                          masterworked,
-                          tracked,
-                          completed,
                           tooltip: true,
+                          completed,
+                          expired,
+                          tracked,
+                          masterworked,
                           exotic: definitionItem.inventory?.tierType === 6,
                         },
                         bucketName
@@ -174,10 +161,11 @@ class Quests extends React.Component {
               className={cx(
                 {
                   linked: true,
-                  masterworked,
-                  tracked,
-                  completed,
                   tooltip: true,
+                  completed,
+                  expired,
+                  tracked,
+                  masterworked,
                   exotic: definitionItem.inventory?.tierType === 6,
                 },
                 bucketName
@@ -215,10 +203,10 @@ class Quests extends React.Component {
                 key={item.itemHash}
                 className={cx(
                   {
-                    masterworked,
-                    tracked,
                     completed,
-                    expired: expired || expiresSoon,
+                    expired,
+                    tracked,
+                    masterworked,
                   },
                   bucketName
                 )}
@@ -258,8 +246,8 @@ class Quests extends React.Component {
         sorts: {
           name: definitionItem.displayProperties?.name,
           rarity: definitionItem.inventory?.tierType,
-          objectives: objectivesProgress / objectivesCompletionValue,
-          timestampExpiry: timestampExpiry || 10000 * 10000 * 10000 * 10000,
+          objectives: objectivesCompletionValue === 0 ? -1 : objectivesProgress / objectivesCompletionValue,
+          timestampExpiry: (objectivesCompletionValue !== 0 && timestampExpiry) || 10000 * 10000 * 10000 * 10000,
         },
         element,
       };
@@ -269,7 +257,8 @@ class Quests extends React.Component {
   render() {
     const { member, auth, viewport } = this.props;
     const filter = (this.props.match.params.filter && questFilterMap[this.props.match.params.filter] && this.props.match.params.filter) || 'bounties';
-    const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'rarity');
+    const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'name');
+    const order = this.props.match.params.order || (variable === 'objectives' ? 'desc' : 'asc');
 
     if (!member.data.profile.profileInventory?.data && !auth) {
       return <NoAuth />;
@@ -345,9 +334,14 @@ class Quests extends React.Component {
       return false;
     });
 
-    const order = determineOrder({ filter, variable, order: this.props.match.params.order });
-
-    const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
+    const items = orderBy(this.getItems(filtered), [(item) => {
+      if (variable === 'objectives') {
+        console.log(item.sorts[variable]);
+        return item.sorts[variable];
+      } else {
+        return item.sorts[variable];
+      }
+    }, (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
     const newLight = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 

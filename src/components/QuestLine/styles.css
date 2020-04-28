@@ -161,6 +161,11 @@
     grid-gap: 2rem;
   }
 
+  .quest-line .summary {
+    position: relative;
+    top: unset;
+  }
+
   .quest-line .summary > .icon {
     right: -4.25rem;    
     width: unset;

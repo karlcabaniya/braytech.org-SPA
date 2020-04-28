@@ -73,6 +73,10 @@
   box-shadow: inset 0 0 0 2px #bcad71;
 }
 
+.list.inventory-items li.expired::before {
+  box-shadow: inset 0 0 0 2px #b34949;
+}
+
 .list.inventory-items li.tracked::before {
   box-shadow: inset 0 0 0 3px #b5fc73;
 }

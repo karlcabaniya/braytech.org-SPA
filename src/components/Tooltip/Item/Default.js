@@ -5,7 +5,7 @@ import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
 
-const Default = props => {
+const Default = (props) => {
   const { itemHash, itemComponents, quantity, vendorHash, vendorItemIndex } = props;
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
@@ -19,39 +19,36 @@ const Default = props => {
   // flair string
   const flair = definitionItem.displaySource && definitionItem.displaySource !== '' && definitionItem.displaySource;
 
-  const objectives = [];
-  const rewards = [];
-
   const expirationDate = itemComponents && itemComponents.item && itemComponents.item.expirationDate;
   const timestamp = expirationDate && new Date().getTime();
   const timestampExpiry = expirationDate && new Date(expirationDate).getTime();
 
   // item objectives
-  definitionItem.objectives &&
-    definitionItem.objectives.objectiveHashes.forEach(hash => {
+  const objectives =
+    definitionItem.objectives?.objectiveHashes.map((hash, h) => {
       const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
-      const instanceProgressObjective = itemComponents?.objectives?.length && itemComponents.objectives.find(o => o.objectiveHash === hash);
+      const instanceProgressObjective = itemComponents?.objectives?.length && itemComponents.objectives.find((o) => o.objectiveHash === hash);
 
-      let playerProgress = {
+      const playerProgress = {
         complete: false,
         progress: 0,
-        objectiveHash: definitionObjective.hash
+        objectiveHash: definitionObjective.hash,
+        ...instanceProgressObjective,
       };
 
-      playerProgress = { ...playerProgress, ...instanceProgressObjective };
-
-      objectives.push(<ProgressBar key={definitionObjective.hash} objectiveHash={definitionObjective.hash} {...playerProgress} />);
-    });
+      return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
+    }) || [];
 
   // potential rewards
-  definitionItem.value &&
-    definitionItem.value.itemValue.forEach(value => {
-      if (value.itemHash !== 0) {
+  const rewards =
+    definitionItem.value?.itemValue
+      .filter((value) => value.itemHash !== 0)
+      .map((value, v) => {
         const definitionReward = manifest.DestinyInventoryItemDefinition[value.itemHash];
 
-        rewards.push(
-          <li key={value.itemHash}>
+        return (
+          <li key={v}>
             <div className='icon'>{definitionReward.displayProperties.icon && <ObservedImage className='image' src={`https://www.bungie.net${definitionReward.displayProperties.icon}`} />}</div>
             <div className='text'>
               {definitionReward.displayProperties.name}
@@ -59,11 +56,10 @@ const Default = props => {
             </div>
           </li>
         );
-      }
-    });
+      }) || [];
 
   // vendor costs
-  const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
 
   const blocks = [];
 
@@ -99,18 +95,8 @@ const Default = props => {
   }
 
   // instance expiry
-  if (itemComponents?.objectives?.length && itemComponents.objectives.filter(o => !o.complete).length > 0 && expirationDate) {
-    blocks.push(
-      <div className='expiry'>
-        {timestampExpiry > timestamp ? (
-          <>
-            {t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate)) })}
-          </>
-        ) : (
-          <>{t('Expired.')}</>
-        )}
-      </div>
-    );
+  if (itemComponents?.objectives?.length && itemComponents.objectives.filter((o) => !o.complete).length > 0 && expirationDate) {
+    blocks.push(<div className='expiry'>{timestampExpiry > timestamp ? <p>{t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate)) })}</p> : <p>{definitionItem.inventory?.expiredInActivityMessage || t('Expired.')}</p>}</div>);
   }
 
   // quantity
@@ -156,7 +142,7 @@ const Default = props => {
     );
   }
 
-  return blocks.map((b, i) => <React.Fragment key={i}>{b}</React.Fragment>);
+  return blocks.map((block, i) => <React.Fragment key={i}>{block}</React.Fragment>);
 };
 
 export default Default;

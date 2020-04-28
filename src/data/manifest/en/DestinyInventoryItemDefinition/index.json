@@ -23,5 +23,10 @@
     "displayProperties": {
       "description": "One of five artifacts required for Worldline Zero's catalyst."
     }
+  },
+  "2211488305": {
+    "displayProperties": {
+      "description": "Increases your Guardian's experience"
+    }
   }
 }

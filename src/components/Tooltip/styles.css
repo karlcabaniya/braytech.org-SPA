@@ -221,6 +221,10 @@
   margin: 0;
 }
 
+#tooltip .frame .objectives .progress-bar .bar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 #tooltip .frame .objectives .progress-bar.complete {
   opacity: 0.8;
 }
