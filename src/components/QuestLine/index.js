@@ -9,7 +9,6 @@ import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { stepsWithRecords, rewardsQuestLineOverrides, rewardsQuestLineOverridesShadowkeep, setDataQuestLineOverrides } from '../../data/questLines';
 import { removeMemberIds } from '../../utils/paths';
-import ObservedImage from '../ObservedImage';
 import Records from '../Records/';
 import Items from '../Items';
 import ProgressBar from '../UI/ProgressBar';
@@ -102,28 +101,28 @@ const questFilterMap = {
   },
 };
 
+function getSetDataQuestLine(questLine) {
+  let setData = (questLine.setData?.itemList?.length && questLine.setData.itemList) || [];
+
+  if (setDataQuestLineOverrides[questLine.hash]) setData = setDataQuestLineOverrides[questLine.hash];
+
+  return setData;
+}
+
+export function getRewardsQuestLine(questLine, classType) {
+  let rewards = (questLine.value?.itemValue?.length && questLine.value.itemValue.filter((v) => v.itemHash !== 0 && ((manifest.DestinyInventoryItemDefinition[v.itemHash].classType < 3 && manifest.DestinyInventoryItemDefinition[v.itemHash].classType === classType) || manifest.DestinyInventoryItemDefinition[v.itemHash].classType > 2 || manifest.DestinyInventoryItemDefinition[v.itemHash].classType === undefined))) || [];
+
+  if (rewardsQuestLineOverrides[questLine.hash]) rewards = rewardsQuestLineOverrides[questLine.hash];
+
+  const setData = getSetDataQuestLine(questLine);
+  const rewardsShadowkeep = setData && rewardsQuestLineOverridesShadowkeep.find((s) => setData.find((d) => d.itemHash === s.itemHash));
+
+  if (rewardsShadowkeep) rewards = rewardsShadowkeep.rewards;
+
+  return rewards;
+}
+
 class QuestLine extends React.Component {
-  getRewardsQuestLine = (questLine, classType) => {
-    let rewards = (questLine.value?.itemValue?.length && questLine.value.itemValue.filter((v) => v.itemHash !== 0 && ((manifest.DestinyInventoryItemDefinition[v.itemHash].classType < 3 && manifest.DestinyInventoryItemDefinition[v.itemHash].classType === classType) || manifest.DestinyInventoryItemDefinition[v.itemHash].classType > 2 || manifest.DestinyInventoryItemDefinition[v.itemHash].classType === undefined))) || [];
-
-    if (rewardsQuestLineOverrides[questLine.hash]) rewards = rewardsQuestLineOverrides[questLine.hash];
-
-    const setData = this.getSetDataQuestLine(questLine);
-    const rewardsShadowkeep = setData && rewardsQuestLineOverridesShadowkeep.find((s) => setData.find((d) => d.itemHash === s.itemHash));
-
-    if (rewardsShadowkeep) rewards = rewardsShadowkeep.rewards;
-
-    return rewards;
-  };
-
-  getSetDataQuestLine = (questLine) => {
-    let setData = (questLine.setData?.itemList?.length && questLine.setData.itemList) || [];
-
-    if (setDataQuestLineOverrides[questLine.hash]) setData = setDataQuestLineOverrides[questLine.hash];
-
-    return setData;
-  };
-
   render() {
     const { member, item } = this.props;
     const characters = member.data.profile.characters.data;
@@ -140,7 +139,7 @@ class QuestLine extends React.Component {
     if (definitionItem) {
       const questLine = cloneDeep(definitionItem);
 
-      const setData = this.getSetDataQuestLine(questLine);
+      const setData = getSetDataQuestLine(questLine);
 
       let assumeCompleted = true;
       const steps =
@@ -195,7 +194,7 @@ class QuestLine extends React.Component {
 
       const descriptionQuestLine = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
 
-      const rewardsQuestLine = this.getRewardsQuestLine(questLine, character.classType);
+      const rewardsQuestLine = getRewardsQuestLine(questLine, character.classType);
       const rewardsQuestStep = (steps && steps.length && steps.filter((s) => s.active) && steps.filter((s) => s.active).length && steps.filter((s) => s.active)[0].definitionStep && steps.filter((s) => s.active)[0].definitionStep.value && steps.filter((s) => s.active)[0].definitionStep.value.itemValue && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.length && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.filter((v) => v.itemHash !== 0)) || [];
 
       return (

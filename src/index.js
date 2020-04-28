@@ -19,9 +19,9 @@ class AppEntry extends React.Component {
       updateAvailable: false
     };
 
-    runOnceTasks();
-
     console.log(`%c Braytech ${packageJSON.version}`, 'font-family: sans-serif; font-size: 24px;');
+
+    runOnceTasks();
   }
 
   config = {

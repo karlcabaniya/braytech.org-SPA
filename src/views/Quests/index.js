@@ -22,9 +22,20 @@ import { Common } from '../../svg';
 
 import './styles.css';
 
-function navLinkIsActive(match, location) {
+function navLinkBountiesIsActive(match, location) {
   const pathname = removeMemberIds(location.pathname);
+
   if (pathname === '/quests' || pathname.indexOf('/quests/bounties') > -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function navLinkQuestsAllIsActive(match, location) {
+  const pathname = removeMemberIds(location.pathname);
+
+  if (pathname.indexOf('/quests/all') > -1) {
     return true;
   } else {
     return false;
@@ -360,7 +371,7 @@ class Quests extends React.Component {
             <ul className='list'>
               <li className='linked'>
                 <div className='icon'>{questFilterMap['bounties'].displayProperties.icon}</div>
-                <ProfileNavLink to='/quests/bounties' isActive={navLinkIsActive} />
+                <ProfileNavLink to='/quests/bounties' isActive={navLinkBountiesIsActive} />
               </li>
               {newLight > 0 ? (
                 <li className='linked'>
@@ -370,7 +381,7 @@ class Quests extends React.Component {
               ) : null}
               <li className='linked'>
                 <div className='icon quest'>{questFilterMap['all'].displayProperties.icon}</div>
-                <ProfileNavLink to='/quests/all' />
+                <ProfileNavLink to={`/quests/all${filter === 'all' && !this.props.match.params.order && !inspect ? '/objectives/desc' : ''}`} isActive={navLinkQuestsAllIsActive} />
               </li>
               <li className='linked'>
                 <div className='icon'>{questFilterMap['seasonal'].displayProperties.icon}</div>

@@ -247,7 +247,7 @@ export const rewardsQuestLineOverridesShadowkeep = [
       },
       {
         itemHash: 1196526889,
-        quantity: 6
+        quantity: 7
       }
     ]
   },

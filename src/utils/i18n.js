@@ -40,9 +40,9 @@ i18next
 
     interpolation: {
       escapeValue: false,
-      format: function (value, format, lng) {
-        // if (format === 'bold') return <strong>{value}</strong>;
-      },
+      // format: function (value, format, lng) {
+      //   // if (format === 'bold') return <strong>{value}</strong>;
+      // },
     },
     react: {
       wait: true,

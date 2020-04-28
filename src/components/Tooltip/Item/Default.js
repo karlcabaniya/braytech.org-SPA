@@ -4,6 +4,7 @@ import { t, duration, timestampToDuration, BungieText } from '../../../utils/i18
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
+import { getRewardsQuestLine } from '../../QuestLine';
 
 const Default = (props) => {
   const { itemHash, itemComponents, quantity, vendorHash, vendorItemIndex } = props;
@@ -42,7 +43,7 @@ const Default = (props) => {
 
   // potential rewards
   const rewards =
-    definitionItem.value?.itemValue
+    (getRewardsQuestLine(manifest.DestinyInventoryItemDefinition[definitionItem.objectives?.questlineItemHash] || definitionItem) || definitionItem.value?.itemValue)
       .filter((value) => value.itemHash !== 0)
       .map((value, v) => {
         const definitionReward = manifest.DestinyInventoryItemDefinition[value.itemHash];
