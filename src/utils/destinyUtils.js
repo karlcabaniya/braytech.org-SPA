@@ -564,6 +564,15 @@ const baseConversionTable = [
   { sandboxPerk: 3068403538, unicode: '', substring: null },
   { sandboxPerk: 2678922819, unicode: '', substring: null },
   { sandboxPerk: 3879088617, unicode: '', substring: null },
+  // Supers
+  { objectiveHash: 269520342, unicode: '', substring: null },
+  { objectiveHash: 1043633269, unicode: '', substring: null },
+  { objectiveHash: 1363382181, unicode: '', substring: null },
+  { objectiveHash: 1633845729, unicode: '', substring: null },
+  { objectiveHash: 1733112051, unicode: '', substring: null },
+  { objectiveHash: 2904388000, unicode: '', substring: null },
+  { objectiveHash: 2905697046, unicode: '', substring: null },
+  { objectiveHash: 2975056954, unicode: '', substring: null },
 ];
 
 /**

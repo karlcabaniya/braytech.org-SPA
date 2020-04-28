@@ -48,6 +48,8 @@ import { ReactComponent as Titan } from './common/titan.svg';
 import { ReactComponent as Hunter } from './common/hunter.svg';
 import { ReactComponent as Warlock } from './common/warlock.svg';
 import { ReactComponent as Info } from './common/info.svg';
+import { ReactComponent as Completed } from './common/completed.svg';
+import { ReactComponent as Expired } from './common/expired.svg';
 import { ReactComponent as Tricorn } from './common/tricorn.svg';
 import { ReactComponent as Seasons } from './common/seasons.svg';
 import { ReactComponent as SealTitle } from './common/seal-title.svg';
@@ -151,6 +153,8 @@ const Common = {
   Hunter,
   Warlock,
   Info,
+  Completed,
+  Expired,
   Tricorn,
   Seasons,
   Patreon,

@@ -220,7 +220,7 @@
 #quests .list.bounties > li > ul {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 36px minmax(280px, 800px) minmax(200px, auto) minmax(100px, 180px) minmax(100px, 140px);
+  grid-template-columns: 48px minmax(280px, auto) minmax(300px, 400px) minmax(100px, 130px) minmax(80px, 110px);
   align-items: center;
 }
 
@@ -291,12 +291,28 @@
   max-width: 360px;
 }
 
+#quests .list.bounties > li > ul > .objectives .progress-bar.complete .check.ed::before {
+  background-color: #bcad71;
+}
+
+#quests .list.bounties > li > ul > .objectives .progress-bar.complete .bar {
+  background-color: #bcad71;
+}
+
+#quests .list.bounties > li > ul > .objectives .progress-bar.complete > .bar > .fill {
+  background-color: #bcad71;
+}
+
 #quests .list.bounties > li > ul > .reward-items .list.inventory-items {
   grid-template-columns: repeat(auto-fill, 24px);
 }
 
 #quests .list.bounties > li > ul > .expires {
   justify-content: right;
+}
+
+#quests .list.bounties > li.completed > ul > .expires {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 #quests .module.items {

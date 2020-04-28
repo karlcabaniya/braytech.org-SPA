@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import manifest from '../../utils/manifest';
 
+import { stringToIcons } from '../../utils/destinyUtils';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
 
@@ -19,7 +20,21 @@ class Test extends React.Component {
 
   componentDidMount() {
     this.mounted = true;
+
     window.scrollTo(0, 0);
+
+    const oof = [];
+
+    Object.values(manifest.DestinyObjectiveDefinition).forEach(definition => {
+      if (definition.progressDescription.indexOf('[') > -1) {
+        const lol = stringToIcons(definition.progressDescription);
+        
+        if (lol[0].indexOf('[') > -1) console.log(definition.hash, lol)
+        if (lol[0].indexOf('[') > -1) oof.push({ objectiveHash: definition.hash, unicode: 'lol', substring: definition.progressDescription })
+      }
+    });
+
+    console.log(JSON.stringify(oof))
   }
 
   componentWillUnmount() {

@@ -22,9 +22,9 @@ import { Common } from '../../svg';
 
 import './styles.css';
 
-function determineOrder({ filter = 'bounties', variable = 'rarity', order = 'asc' }) {
+function determineOrder({ filter, variable, order = 'asc' }) {
   if (filter === 'bounties') {
-    if (variable === 'rarity') {
+    if (variable === 'objectives') {
       return 'desc';
     } else {
       return order;
@@ -75,13 +75,11 @@ class Quests extends React.Component {
 
       const bucketName = definitionBucket?.displayProperties?.name?.replace(' ', '-').toLowerCase();
 
-      const vendorHash = definitionItem.sourceData?.vendorSources?.length && definitionItem.sourceData.vendorSources[0] && definitionItem.sourceData.vendorSources[0].vendorHash;
-
-      const masterworked = enums.enumerateItemState(item.state).masterworked;
-      const tracked = enums.enumerateItemState(item.state).tracked;
       const completed = item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length === 0;
       const expired = !completed && timestamp > timestampExpiry;
       const expiresSoon = !completed && timestamp + 7200 * 1000 > timestampExpiry;
+      const masterworked = enums.enumerateItemState(item.state).masterworked;
+      const tracked = enums.enumerateItemState(item.state).tracked && !(expired || expiresSoon);
 
       const objectives = definitionItem.objectives?.objectiveHashes?.map((hash, h) => {
         const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
@@ -114,7 +112,7 @@ class Quests extends React.Component {
       const element =
         definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 ? (
           viewport.width > 1023 ? (
-            <li key={item.itemHash}>
+            <li key={item.itemHash} className={cx({ completed })}>
               <ul>
                 <li className='col bounty-item'>
                   <ul className='list inventory-items'>
@@ -143,8 +141,16 @@ class Quests extends React.Component {
                         </div>
                       ) : null}
                       {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-                      {completed ? <div className='completed' /> : null}
-                      {expired || expiresSoon ? <div className='expired' /> : null}
+                      {completed ? (
+                        <div className='completed'>
+                          <Common.Completed />
+                        </div>
+                      ) : null}
+                      {expired || expiresSoon ? (
+                        <div className='expired'>
+                          <Common.Expired />
+                        </div>
+                      ) : null}
                     </li>
                   </ul>
                 </li>
@@ -155,11 +161,11 @@ class Quests extends React.Component {
                 <li className='col objectives'>{objectives}</li>
                 <li className='col reward-items'>
                   <ul className='list inventory-items'>
-                    <Items items={definitionItem.value?.itemValue?.filter((i) => i.itemHash !== 0)} noBorder hideQuantity />
+                    <Items items={definitionItem.value?.itemValue?.filter((item) => item.itemHash !== 0)} noBorder hideQuantity />
                   </ul>
                 </li>
                 <li className='col expires'>
-                  <div>{item.itemComponents?.objectives?.length && item.itemComponents.objectives.filter((o) => !o.complete).length > 0 && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired.')}</> : null}</div>
+                  <div>{!completed && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired.')}</> : '–'}</div>
                 </li>
               </ul>
             </li>
@@ -189,8 +195,16 @@ class Quests extends React.Component {
                 </div>
               ) : null}
               {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-              {completed ? <div className='completed' /> : null}
-              {expired || expiresSoon ? <div className='expired' /> : null}
+              {completed ? (
+                <div className='completed'>
+                  <Common.Completed />
+                </div>
+              ) : null}
+              {expired || expiresSoon ? (
+                <div className='expired'>
+                  <Common.Expired />
+                </div>
+              ) : null}
               {!completed ? <ProgressBar objectiveHash={item.itemComponents.objectives[0].objectiveHash} progress={objectivesProgress} completionValue={objectivesCompletionValue} hideCheck /> : null}
             </li>
           )
@@ -244,7 +258,6 @@ class Quests extends React.Component {
         sorts: {
           name: definitionItem.displayProperties?.name,
           rarity: definitionItem.inventory?.tierType,
-          vendorHash,
           objectives: objectivesProgress / objectivesCompletionValue,
           timestampExpiry: timestampExpiry || 10000 * 10000 * 10000 * 10000,
         },
@@ -256,7 +269,7 @@ class Quests extends React.Component {
   render() {
     const { member, auth, viewport } = this.props;
     const filter = (this.props.match.params.filter && questFilterMap[this.props.match.params.filter] && this.props.match.params.filter) || 'bounties';
-    const variable = this.props.match.params.variable || 'rarity';
+    const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'rarity');
 
     if (!member.data.profile.profileInventory?.data && !auth) {
       return <NoAuth />;
@@ -332,7 +345,7 @@ class Quests extends React.Component {
       return false;
     });
 
-    const order = determineOrder(this.props.match.params);
+    const order = determineOrder({ filter, variable, order: this.props.match.params.order });
 
     const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
     const newLight = inventory.filter((item) => {
@@ -420,7 +433,7 @@ class Quests extends React.Component {
                             </li>
                             <li className={cx('col', 'objectives', { sort: variable === 'objectives' })}>
                               <div className='full'>{t('Objectives')}</div>
-                              <ProfileLink to={`/quests/bounties/objectives/${order === 'asc' ? 'desc' : 'asc'}`} />
+                              <ProfileLink to={`/quests/bounties/objectives/${variable !== 'objectives' ? 'desc' : order === 'asc' ? 'desc' : 'asc'}`} />
                             </li>
                             <li className={cx('col', 'reward-items', 'no-sort')}>
                               <div className='full'>{t('Rewards')}</div>

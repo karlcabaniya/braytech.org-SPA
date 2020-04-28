@@ -2,195 +2,87 @@
   "de": {
     "translated": 695,
     "notTranslated": 1,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "debug": {
     "translated": 696,
     "notTranslated": 0,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "en": {
     "translated": 696,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 677,
     "notTranslated": 19,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "es": {
     "translated": 677,
     "notTranslated": 19,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 649,
     "notTranslated": 47,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 660,
     "notTranslated": 36,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 585,
     "notTranslated": 111,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 538,
     "notTranslated": 158,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 694,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 645,
     "notTranslated": 51,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
-    "translated": 677,
-    "notTranslated": 19,
+    "translated": 676,
+    "notTranslated": 20,
     "added": [
-      "Name"
+      "1 Hour"
     ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 446,
     "notTranslated": 250,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 366,
     "notTranslated": 330,
-    "added": [
-      "Name"
-    ],
-    "removed": [
-      "Bounty",
-      "Bounty Tracker",
-      "Bounty Tracker is intended for use on larger displays. Please use a display with a viewport of atleast 960px.",
-      "No bounties. Go and see if there's anything you can do for Failsafe. If nothing else, keep her company...",
-      "You've got no bounties to track, boss!"
-    ]
+    "added": [],
+    "removed": []
   }
 }
