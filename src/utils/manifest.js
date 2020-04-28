@@ -2,40 +2,38 @@ import { mergeWith } from 'lodash';
 
 import Braytech_EN from '../data/manifest/en/Braytech/';
 import Braytech_ES from '../data/manifest/es/Braytech/';
-import Braytech_ESMX from '../data/manifest/es-mx/Braytech/';
+import Braytech_ESMX from '../data/manifest/es-MX/Braytech/';
 import Braytech_IT from '../data/manifest/it/Braytech/';
 import Braytech_RU from '../data/manifest/ru/Braytech/';
 
 import BraytechMaps_EN from '../data/manifest/en/BraytechMaps/';
 import BraytechMaps_ES from '../data/manifest/es/BraytechMaps/';
-import BraytechMaps_ESMX from '../data/manifest/es-mx/BraytechMaps/';
+import BraytechMaps_ESMX from '../data/manifest/es-MX/BraytechMaps/';
 import BraytechMaps_IT from '../data/manifest/it/BraytechMaps/';
 
 import DestinyActivityDefinition_EN from '../data/manifest/en/DestinyActivityDefinition/';
 
 import DestinyActivityModifierDefinition_EN from '../data/manifest/en/DestinyActivityModifierDefinition/';
 import DestinyActivityModifierDefinition_ES from '../data/manifest/es/DestinyActivityModifierDefinition/';
-import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-mx/DestinyActivityModifierDefinition/';
+import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-MX/DestinyActivityModifierDefinition/';
+import DestinyActivityModifierDefinition_IT from '../data/manifest/it/DestinyActivityModifierDefinition/';
 import DestinyActivityModifierDefinition_RU from '../data/manifest/ru/DestinyActivityModifierDefinition/';
 
 import DestinyClanBannerDefinition_EN from '../data/manifest/en/DestinyClanBannerDefinition/';
 
 import DestinyDestinationDefinition_EN from '../data/manifest/en/DestinyDestinationDefinition/';
 import DestinyDestinationDefinition_ES from '../data/manifest/es/DestinyDestinationDefinition/';
-import DestinyDestinationDefinition_ESMX from '../data/manifest/es-mx/DestinyDestinationDefinition/';
+import DestinyDestinationDefinition_ESMX from '../data/manifest/es-MX/DestinyDestinationDefinition/';
+import DestinyDestinationDefinition_IT from '../data/manifest/it/DestinyDestinationDefinition/';
 import DestinyDestinationDefinition_RU from '../data/manifest/ru/DestinyDestinationDefinition/';
 
 import DestinyHistoricalStatsDefinition_EN from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
 
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
+import DestinyInventoryItemDefinition_IT from '../data/manifest/it/DestinyInventoryItemDefinition/';
 
 const customs = {
-  de: {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
+  de: {},
   en: {
     Braytech: Braytech_EN,
     BraytechMaps: BraytechMaps_EN,
@@ -58,60 +56,25 @@ const customs = {
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_ESMX,
     DestinyDestinationDefinition: DestinyDestinationDefinition_ESMX,
   },
-  fr: {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
+  fr: {},
   it: {
     Braytech: Braytech_IT,
     BraytechMaps: BraytechMaps_IT,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
+    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_IT,
+    DestinyDestinationDefinition: DestinyDestinationDefinition_IT,
+    DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_IT,
   },
-  ja: {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
-  ko: {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
-  pl: {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
-  'pt-br': {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
+  ja: {},
+  ko: {},
+  pl: {},
+  'pt-br': {},
   ru: {
     Braytech: Braytech_RU,
-    BraytechMaps: BraytechMaps_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU,
     DestinyDestinationDefinition: DestinyDestinationDefinition_RU,
   },
-  'zh-chs': {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
-  'zh-cht': {
-    Braytech: Braytech_EN,
-    BraytechMaps: BraytechMaps_EN,
-    DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
-  },
+  'zh-chs': {},
+  'zh-cht': {},
 };
 
 function mergeWithCustomizer(a, b) {
@@ -122,7 +85,7 @@ function mergeWithCustomizer(a, b) {
   } else if (typeof a === 'object') {
     return mergeWith(a, b, mergeWithCustomizer);
   }
-  
+
   return a;
 }
 
@@ -132,14 +95,14 @@ const customsMerge = (a, b) => {
 
 const manifest = {
   set: (newManifest, lang) => {
-    newManifest.BraytechDefinition = customs[lang].Braytech;
+    newManifest.BraytechDefinition = customsMerge(customs.en.Braytech, customs[lang].Braytech);
     newManifest.BraytechMapsDefinition = customsMerge(customs.en.BraytechMaps, customs[lang].BraytechMaps);
     newManifest.DestinyClanBannerDefinition = customs.en.DestinyClanBannerDefinition;
 
-    customsMerge(newManifest.DestinyActivityDefinition, customs.en.DestinyActivityDefinition);
-    customsMerge(newManifest.DestinyDestinationDefinition, customs[lang].DestinyDestinationDefinition);
-    customsMerge(newManifest.DestinyHistoricalStatsDefinition, customs.en.DestinyHistoricalStatsDefinition);
-    customsMerge(newManifest.DestinyInventoryItemDefinition, customs[lang].DestinyInventoryItemDefinition);
+    customsMerge(newManifest.DestinyActivityDefinition, customsMerge(customs.en.DestinyActivityDefinition, customs[lang].DestinyActivityDefinition));
+    customsMerge(newManifest.DestinyDestinationDefinition, customsMerge(customs.en.DestinyDestinationDefinition, customs[lang].DestinyDestinationDefinition));
+    customsMerge(newManifest.DestinyHistoricalStatsDefinition, customsMerge(customs.en.DestinyHistoricalStatsDefinition, customs[lang].DestinyHistoricalStatsDefinition));
+    customsMerge(newManifest.DestinyInventoryItemDefinition, customsMerge(customs.en.DestinyInventoryItemDefinition, customs[lang].DestinyInventoryItemDefinition));
 
     Object.assign(newManifest.DestinyActivityModifierDefinition, customs[lang].DestinyActivityModifierDefinition);
 
