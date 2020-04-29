@@ -270,7 +270,7 @@ async function run() {
         points,
         in: within,
       },
-      extended
+      extended: (Object.keys(extended).length && extended) || undefined,
     };
 
     const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
@@ -281,7 +281,7 @@ async function run() {
         displayProperties: addins && addins.displayProperties,
         screenshot,
         extended: {
-          video: extended.video
+          video: extended.video,
         },
       });
     }
@@ -359,7 +359,7 @@ async function run() {
             points,
             in: within,
           },
-          extended
+          extended: (Object.keys(extended).length && extended) || undefined,
         };
 
         const screenshot = getScreenshot(presentationHash, changes);
@@ -370,7 +370,7 @@ async function run() {
             displayProperties: addins && addins.displayProperties,
             screenshot,
             extended: {
-              video: extended.video
+              video: extended.video,
             },
           });
         }
@@ -430,15 +430,15 @@ async function run() {
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
         };
 
-        if (Object.keys(extended).filter(key => extended[key] !== undefined).length) {
+        if (Object.keys(extended).filter((key) => extended[key] !== undefined).length) {
           BraytechMaps_EN[hash].extended = extended;
         }
 
         if (load.displayProperties) {
           BraytechMaps_EN[hash].displayProperties = {
             ...(BraytechMaps_EN[hash].displayProperties || {}),
-            ...load.displayProperties
-          }
+            ...load.displayProperties,
+          };
         }
       } else {
         let hash = 1;
@@ -476,7 +476,7 @@ function getScreenshot(checklistId, checklistItem, number, name) {
   }
 
   if (checklistId === 365218222 && name) {
-    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ','')}.jpg`);
+    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {

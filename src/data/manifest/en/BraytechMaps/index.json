@@ -988,7 +988,10 @@
   },
   "176": {
     "checklistHash": 2384365695,
-    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg"
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg",
+    "extended": {
+      "unavailable": "removed"
+    }
   },
   "177": {
     "checklistHash": 159325932,
@@ -2106,19 +2109,22 @@
     "recordHash": 2104527481,
     "extended": {
       "video": "https://www.youtube.com/watch?v=ZY6WMSKsOA8"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/aphix-conduit_ghost-stories_2104527481.jpg"
   },
   "356": {
     "recordHash": 2104527482,
     "extended": {
       "video": "https://www.youtube.com/watch?v=mPYaqgpzbkg"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/sanctum-of-bones_ghost-stories_2104527482.jpg"
   },
   "357": {
     "recordHash": 2104527483,
     "extended": {
       "video": "https://www.youtube.com/watch?v=tmC6YmCpL0o"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/terrabase-charon_ghost-stories_2104527483.jpg"
   },
   "358": {
     "recordHash": 2154860341,
@@ -2310,6 +2316,212 @@
     "recordHash": 3415184383,
     "extended": {
       "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o"
+    }
+  },
+  "390": {
+    "checklistHash": 2754290383,
+    "screenshot": "/static/images/screenshots/region-chests/the-rupture_region-chests_1.jpg",
+    "extended": {}
+  },
+  "391": {
+    "checklistHash": 4069164097,
+    "screenshot": "/static/images/screenshots/region-chests/the-rupture_region-chests_2.jpg",
+    "extended": {}
+  },
+  "392": {
+    "checklistHash": 3577247371,
+    "screenshot": "/static/images/screenshots/region-chests/the-rupture_region-chests_3.jpg",
+    "extended": {}
+  },
+  "393": {
+    "checklistHash": 2313471548,
+    "screenshot": "/static/images/screenshots/region-chests/lost-oasis_region-chests_4.jpg",
+    "extended": {}
+  },
+  "394": {
+    "checklistHash": 2693527578,
+    "screenshot": "/static/images/screenshots/region-chests/lost-oasis_region-chests_5.jpg",
+    "extended": {}
+  },
+  "395": {
+    "checklistHash": 2890414560,
+    "screenshot": "/static/images/screenshots/region-chests/lost-oasis_region-chests_6.jpg",
+    "extended": {}
+  },
+  "396": {
+    "checklistHash": 2317648357,
+    "screenshot": "/static/images/screenshots/region-chests/giants-scar_region-chests_7.jpg",
+    "extended": {}
+  },
+  "397": {
+    "checklistHash": 3860391092,
+    "screenshot": "/static/images/screenshots/region-chests/giants-scar_region-chests_8.jpg",
+    "extended": {}
+  },
+  "398": {
+    "checklistHash": 3096918071,
+    "screenshot": "/static/images/screenshots/region-chests/giants-scar_region-chests_9.jpg",
+    "extended": {}
+  },
+  "399": {
+    "checklistHash": 4137615299,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-rupture_lost-sectors_aphix-conduit.jpg",
+    "extended": {}
+  },
+  "400": {
+    "checklistHash": 2270999908,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-rupture_lost-sectors_sanctum-of-bones.jpg",
+    "extended": {}
+  },
+  "401": {
+    "checklistHash": 3883378312,
+    "screenshot": "/static/images/screenshots/lost-sectors/lost-oasis_lost-sectors_grove-of-ulan-tan.jpg",
+    "extended": {}
+  },
+  "402": {
+    "checklistHash": 2920200623,
+    "screenshot": "/static/images/screenshots/ghost-scans/giants-scar_ghost-scans_1.jpg",
+    "extended": {}
+  },
+  "403": {
+    "checklistHash": 1533707526,
+    "screenshot": "/static/images/screenshots/ghost-scans/giants-scar_ghost-scans_2.jpg",
+    "extended": {}
+  },
+  "404": {
+    "checklistHash": 2286037801,
+    "screenshot": "/static/images/screenshots/ghost-scans/giants-scar_ghost-scans_3.jpg",
+    "extended": {}
+  },
+  "405": {
+    "checklistHash": 15952112,
+    "screenshot": "/static/images/screenshots/ghost-scans/giants-scar_ghost-scans_4.jpg",
+    "extended": {}
+  },
+  "406": {
+    "checklistHash": 706033843,
+    "screenshot": "/static/images/screenshots/ghost-scans/giants-scar_ghost-scans_5.jpg",
+    "extended": {}
+  },
+  "407": {
+    "checklistHash": 2191600255,
+    "screenshot": "/static/images/screenshots/ghost-scans/excavation-site-ii_ghost-scans_6.jpg",
+    "extended": {}
+  },
+  "408": {
+    "checklistHash": 1823844950,
+    "screenshot": "/static/images/screenshots/ghost-scans/excavation-site-ii_ghost-scans_7.jpg",
+    "extended": {}
+  },
+  "409": {
+    "checklistHash": 2738322873,
+    "screenshot": "/static/images/screenshots/ghost-scans/excavation-site-ii_ghost-scans_8.jpg",
+    "extended": {}
+  },
+  "410": {
+    "checklistHash": 2612420553,
+    "screenshot": "/static/images/screenshots/ghost-scans/terrabase-charon_ghost-scans_9.jpg",
+    "extended": {}
+  },
+  "411": {
+    "checklistHash": 2738178364,
+    "screenshot": "/static/images/screenshots/ghost-scans/terrabase-charon_ghost-scans_10.jpg",
+    "extended": {}
+  },
+  "412": {
+    "checklistHash": 1117495887,
+    "screenshot": "/static/images/screenshots/ghost-scans/terrabase-charon_ghost-scans_11.jpg",
+    "extended": {}
+  },
+  "413": {
+    "checklistHash": 1468797866,
+    "screenshot": "/static/images/screenshots/ghost-scans/terrabase-charon_ghost-scans_12.jpg",
+    "extended": {}
+  },
+  "414": {
+    "checklistHash": 1852491429,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-wraith-mines_ghost-scans_14.jpg",
+    "extended": {}
+  },
+  "415": {
+    "checklistHash": 3497811400,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-wraith-mines_ghost-scans_15.jpg",
+    "extended": {}
+  },
+  "416": {
+    "checklistHash": 813021547,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-wraith-mines_ghost-scans_16.jpg",
+    "extended": {}
+  },
+  "417": {
+    "checklistHash": 2507692969,
+    "screenshot": "/static/images/screenshots/ghost-scans/lost-oasis_ghost-scans_17.jpg",
+    "extended": {}
+  },
+  "418": {
+    "checklistHash": 2208993308,
+    "screenshot": "/static/images/screenshots/ghost-scans/lost-oasis_ghost-scans_18.jpg",
+    "extended": {}
+  },
+  "419": {
+    "checklistHash": 3141855791,
+    "screenshot": "/static/images/screenshots/ghost-scans/lost-oasis_ghost-scans_19.jpg",
+    "extended": {}
+  },
+  "420": {
+    "checklistHash": 601336330,
+    "screenshot": "/static/images/screenshots/ghost-scans/lost-oasis_ghost-scans_20.jpg",
+    "extended": {}
+  },
+  "421": {
+    "checklistHash": 1495525517,
+    "screenshot": "/static/images/screenshots/ghost-scans/lost-oasis_ghost-scans_21.jpg",
+    "extended": {}
+  },
+  "422": {
+    "checklistHash": 2926351942,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rupture_ghost-scans_22.jpg",
+    "extended": {}
+  },
+  "423": {
+    "checklistHash": 59454447,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rupture_ghost-scans_23.jpg",
+    "extended": {}
+  },
+  "424": {
+    "checklistHash": 3804543196,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rupture_ghost-scans_24.jpg",
+    "extended": {}
+  },
+  "425": {
+    "checklistHash": 2390321485,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rupture_ghost-scans_25.jpg",
+    "extended": {}
+  },
+  "426": {
+    "checklistHash": 1814005450,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-rupture_ghost-scans_26.jpg",
+    "extended": {}
+  },
+  "427": {
+    "checklistHash": 635128104,
+    "screenshot": "/static/images/screenshots/ghost-scans/spine-burrows_ghost-scans_28.jpg",
+    "extended": {}
+  },
+  "428": {
+    "recordHash": 242464659,
+    "screenshot": "/static/images/screenshots/lore/grove-of-ulan-tan_the-awoken-of-the-reef_242464659.jpg",
+    "extended": {}
+  },
+  "429": {
+    "checklistHash": 2787444525,
+    "screenshot": "/static/images/screenshots/ghost-scans/terrabase-charon_ghost-scans_13.jpg",
+    "extended": {}
+  },
+  "430": {
+    "checklistHash": 1427733666,
+    "extended": {
+      "unavailable": "removed"
     }
   }
 }

@@ -176,6 +176,14 @@
   grid-template-columns: 1fr;
 }
 
+.map-omega .control.inspector .highlight.major {
+  padding: 7px 2rem 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  background-color: hsla(5, 61%, 41%, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
 .map-omega .control.inspector .state {
   padding: 7px 2rem 6px;
   font-size: 14px;

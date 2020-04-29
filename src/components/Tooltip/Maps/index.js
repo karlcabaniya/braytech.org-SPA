@@ -59,6 +59,7 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
@@ -132,6 +133,7 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
             <div className='description'>
@@ -190,6 +192,7 @@ class Node extends React.Component {
                 <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}
             {within ? <div className='within'>{withinString(node.map.in, withinName)}</div> : null}
             <div className='description'>

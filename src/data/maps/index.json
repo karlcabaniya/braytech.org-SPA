@@ -41,7 +41,7 @@
           "width": 3331,
           "height": 2605,
           "image": "/static/images/extracts/maps/map_fields-of-glass.png",
-          "opacity": 0.8
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -237,7 +237,7 @@
           "width": 2523,
           "height": 2959,
           "image": "/static/images/extracts/maps/map_hellas-basin.png",
-          "opacity": 0.8
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -434,7 +434,7 @@
           "width": 1845,
           "height": 1535,
           "image": "/static/images/extracts/maps/map_echo-mesa.png",
-          "opacity": 0.8
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -666,7 +666,7 @@
           "width": 2482,
           "height": 1756,
           "image": "/static/images/extracts/maps/map_new-pacific-arcology.png",
-          "opacity": 0.8
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -854,7 +854,7 @@
           "width": 2357,
           "height": 2288,
           "image": "/static/images/extracts/maps/map_tangled-shore.png",
-          "opacity": 0.7
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -1182,7 +1182,7 @@
               "width": 2499,
               "height": 1791,
               "image": "/static/images/extracts/maps/map_arcadian-valley.png",
-              "opacity": 0.4
+              "opacity": 0.8
             },
             {
               "id": "lost-fuselage",
@@ -1191,7 +1191,7 @@
               "width": 223,
               "height": 323,
               "image": "/static/images/extracts/maps/map_arcadian-valley-lost-fuselage.png",
-              "opacity": 0.4
+              "opacity": 0.8
             },
             {
               "id": "spire",
@@ -1200,7 +1200,7 @@
               "width": 1468,
               "height": 907,
               "image": "/static/images/extracts/maps/map_arcadian-valley-spire.png",
-              "opacity": 0.4
+              "opacity": 0.8
             }
           ]
         }
@@ -1879,7 +1879,7 @@
           "width": 2829,
           "height": 2421,
           "image": "/static/images/extracts/maps/map_dreaming-city.png",
-          "opacity": 0.9
+          "opacity": 1
         }
       ],
       "bubbles": [
@@ -2235,7 +2235,7 @@
               "width": 2710,
               "height": 2377,
               "image": "/static/images/extracts/maps/map_edz.png",
-              "opacity": 0.8
+              "opacity": 1
             },
             {
               "id": "volundr",
@@ -2244,7 +2244,7 @@
               "width": 243,
               "height": 403,
               "image": "/static/images/extracts/maps/map_edz-volundr.png",
-              "opacity": 0.8
+              "opacity": 1
             },
             {
               "id": "bergusia",
@@ -2253,7 +2253,7 @@
               "width": 581,
               "height": 410,
               "image": "/static/images/extracts/maps/map_edz-bergusia.png",
-              "opacity": 0.8
+              "opacity": 1
             }
           ]
         }
@@ -2809,7 +2809,8 @@
           "y": 0,
           "width": 1600,
           "height": 1600,
-          "image": "/static/images/extracts/maps/map_the-farm.png"
+          "image": "/static/images/extracts/maps/map_the-farm.png",
+          "opacity": 0.8
         }
       ],
       "bubbles": [
@@ -2864,7 +2865,7 @@
           "width": 2594,
           "height": 2779,
           "image": "/static/images/extracts/maps/map_the-moon.png",
-          "opacity": 0.4
+          "opacity": 0.6
         }
       ],
       "bubbles": [
