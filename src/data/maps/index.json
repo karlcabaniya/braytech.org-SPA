@@ -2027,6 +2027,12 @@
               "nodeHash": 3,
               "x": -563,
               "y": 175
+            },
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 8,
+              "x": 318,
+              "y": -20
             }
           ]
         },

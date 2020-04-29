@@ -75,7 +75,7 @@
   "6": {
     "displayProperties": {
       "name": "Forfeit Shrine",
-      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nSubdue the major blight by depositing all three charges beneath. Eliminate the knights."
+      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nSubdue the major blight by depositing all three charges beneath. Eliminate the Hive Knights."
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -106,7 +106,7 @@
   "8": {
     "displayProperties": {
       "name": "Shattered Ruins",
-      "description": "???"
+      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nClimb the ruins and eliminate the Taken Phalanx."
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -114,7 +114,8 @@
       "hash": "ascendant-challenge"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 27792021738
+    "bubbleHash": 27792021738,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_shattered-ruins-1.jpg"
   },
   "9": {
     "displayProperties": {
@@ -126,12 +127,13 @@
       "name": "Portal",
       "hash": "portal"
     },
-    "destinationHash": 2779202173
+    "destinationHash": 2779202173,
+    "bubbleHash": 768261954,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_shattered-ruins-2.jpg"
   },
   "10": {
     "displayProperties": {
-      "name": "Keep of Honed Edges",
-      "description": "???"
+      "name": "Keep of Honed Edges"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -155,8 +157,7 @@
   },
   "12": {
     "displayProperties": {
-      "name": "Agonarch Abyss",
-      "description": "???"
+      "name": "Agonarch Abyss"
     },
     "icon": "ascendant-challenge",
     "type": {

@@ -62,6 +62,39 @@ function locationStrings({ activityHash, destinationHash, bubbleHash, map, exten
   };
 }
 
+function screenshotFilename(node) {
+  const checklistItem = node.checklist?.items?.[0];
+
+  const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem?.destinationHash];
+  const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (checklistItem?.extended?.bubbleHash || checklistItem?.bubbleHash));
+
+  if (node.checklist?.checklistId === 2360931290 && checklistItem?.displayProperties.number) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-scans_${checklistItem.displayProperties.number}.png`;
+  } else if (node.checklist?.checklistId === 1697465175 && checklistItem?.displayProperties.number) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_region-chests_${checklistItem.displayProperties.number}.png`;
+  } else if (node.checklist?.checklistId === 3142056444 && checklistItem?.displayProperties.name) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lost-sectors_${checklistItem.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.png`;
+  } else if (node.checklist?.checklistId === 365218222 && checklistItem?.displayProperties.name) {
+    return `sleeper-nodes_${checklistItem.displayProperties.name.toLowerCase().replace(' ', '')}.png`;
+  } else if (node.checklist?.checklistId === 1420597821 && checklistItem.recordHash) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-stories_${checklistItem.recordHash}.png`;
+  } else if (node.checklist?.checklistId === 655926402 && checklistItem.recordHash) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-forsaken-prince_${checklistItem.recordHash}.png`;
+  } else if (node.checklist?.checklistId === 3305936921 && checklistItem.recordHash) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-awoken-of-the-reef_${checklistItem.recordHash}.png`;
+  } else if (node.checklist?.checklistId === 4285512244 && checklistItem.recordHash) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lunas-lost_${checklistItem.recordHash}.png`;
+  } else if (node.checklist?.checklistId === 2474271317 && checklistItem.recordHash) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_necrotic-cyphers_${checklistItem.recordHash}.png`;
+  } else if (node.checklist?.checklistId === 1912364094 && checklistItem.checklistHash) {
+    return `jade-rabbits_${checklistItem.checklistHash}.png`;
+  } else if (node.checklist?.checklistId === 1297424116 && checklistItem.checklistHash) {
+    return `ahamkara-bones_${checklistItem.checklistHash}.png`;
+  }
+
+  return undefined;
+}
+
 function unify(props) {
   const type = findNodeType(props);
   const node = cartographer(type);
@@ -94,6 +127,7 @@ function unify(props) {
       },
       destinationString,
       withinString,
+      screenshotFilename: screenshotFilename(node),
     };
   } else if (type.key === 'nodeHash') {
     const { destinationString, withinString } = locationStrings(node);
@@ -159,7 +193,7 @@ class Inspect extends React.Component {
           </Button>
         </div>
         <div className='wrapper'>
-          <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{t('Screenshot unavailable')}</div>}</div>
+          <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>}</div>
           {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
           <div className='header'>
             {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
