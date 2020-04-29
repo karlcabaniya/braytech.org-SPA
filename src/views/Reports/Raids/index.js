@@ -95,7 +95,7 @@ class Raids extends React.Component {
             <div className='content head'>
               <div className='page-header'>
                 <div className='sub-name'>{t('Post Game Carnage Reports')}</div>
-                <div className='name'>{t('Raids')}</div>
+                <div className='name'>{t('Raid_plural')}</div>
               </div>
             </div>
           </div>

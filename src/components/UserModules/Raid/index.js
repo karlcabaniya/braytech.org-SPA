@@ -202,7 +202,7 @@ class Raid extends React.Component {
       return (
         <div className='user-module raid'>
           <div className='sub-header'>
-            <div>{t('Raid')}</div>
+            <div>{t('Raid_singular')}</div>
           </div>
           <h3>{data[key].name}</h3>
           <h4>{t('Challenge')}</h4>
@@ -259,7 +259,7 @@ class Raid extends React.Component {
       return (
         <div className='user-module raid'>
           <div className='sub-header'>
-            <div>{t('Raid')}</div>
+            <div>{t('Raid_singular')}</div>
           </div>
           <h3>{data[key].name}</h3>
           <h4>{t('Challenge')}</h4>
