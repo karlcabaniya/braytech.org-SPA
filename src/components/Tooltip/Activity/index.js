@@ -64,7 +64,8 @@ class Activity extends React.Component {
         } else if (activityTypeHash === 400075666) {
           // The Menagerie
           return 'menagerie';
-        } else if (activityModeHashes.includes(608898761)) {
+        } else if (activityModeHashes.includes(608898761) || definitionActivityPlaylist?.hash === 2032534090) {
+          // catches dungeon types and Story: The Shattered Throne
           return 'dungeon';
         } else if (activityModeHashes.includes(1686739444)) {
           return 'story';
