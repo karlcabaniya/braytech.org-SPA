@@ -82,6 +82,8 @@ function mergeWithCustomizer(a, b) {
     return a.concat(b);
   } else if (typeof a === 'string' && b && typeof b === 'string') {
     return b;
+  } else if (typeof a === 'number' && b && typeof b === 'number') {
+    return b;
   } else if (typeof a === 'object') {
     return mergeWith(a, b, mergeWithCustomizer);
   }

@@ -63,6 +63,7 @@ class Quests extends React.Component {
 
     return items.map((item, i) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+      const definitionQuestLine = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash];
       const definitionBucket = manifest.DestinyInventoryBucketDefinition[item.bucketHash];
 
       item.itemComponents = itemComponents(item, member);
@@ -105,6 +106,8 @@ class Quests extends React.Component {
             return acc + curr.completionValue;
           }, 0)) ||
         0;
+
+      const questLineName = (definitionQuestLine?.setData?.questLineName && definitionQuestLine.setData.questLineName !== '' && definitionQuestLine.setData.questLineName) || definitionQuestLine?.displayProperties.name;
 
       const element =
         definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 ? (
@@ -231,7 +234,7 @@ class Quests extends React.Component {
               </li>
             </ul>
             <div className='text'>
-              <div className='name'>{definitionItem.displayProperties.name}</div>
+              <div className='name'>{questLineName || definitionItem.displayProperties.name}</div>
               <BungieText className='description' value={definitionItem.displayProperties.description} singleSentence trim='70' />
             </div>
             {!expired && item.itemComponents?.objectives?.length ? (

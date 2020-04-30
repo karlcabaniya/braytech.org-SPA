@@ -130,11 +130,7 @@ class QuestLine extends React.Component {
     const itemComponents = member.data.profile.itemComponents;
     const characterUninstancedItemComponents = member.data.profile.characterUninstancedItemComponents[member.characterId].objectives.data;
 
-    let definitionItem = item && item.itemHash && manifest.DestinyInventoryItemDefinition[item.itemHash];
-
-    if (definitionItem && definitionItem.objectives && definitionItem.objectives.questlineItemHash && definitionItem.objectives.questlineItemHash) {
-      definitionItem = manifest.DestinyInventoryItemDefinition[definitionItem.objectives.questlineItemHash];
-    }
+    const definitionItem = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash] || manifest.DestinyInventoryItemDefinition[item.itemHash];
 
     if (definitionItem) {
       const questLine = cloneDeep(definitionItem);
@@ -190,9 +186,11 @@ class QuestLine extends React.Component {
           return s;
         });
 
-      const questLineSource = questLine.sourceData && questLine.sourceData.vendorSources && questLine.sourceData.vendorSources.length ? questLine.sourceData.vendorSources : steps && steps.length && steps[0].definitionStep.sourceData && steps[0].definitionStep.sourceData.vendorSources && steps[0].definitionStep.sourceData.vendorSources.length ? steps[0].definitionStep.sourceData.vendorSources : false;
+      const questLineName = (questLine.setData?.questLineName && questLine.setData.questLineName !== '' && questLine.setData.questLineName) || questLine.displayProperties.name;
 
-      const descriptionQuestLine = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
+      const questLineDescription = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
+      
+      const questLineSource = questLine.sourceData && questLine.sourceData.vendorSources && questLine.sourceData.vendorSources.length ? questLine.sourceData.vendorSources : steps && steps.length && steps[0].definitionStep.sourceData && steps[0].definitionStep.sourceData.vendorSources && steps[0].definitionStep.sourceData.vendorSources.length ? steps[0].definitionStep.sourceData.vendorSources : false;
 
       const rewardsQuestLine = getRewardsQuestLine(questLine, character.classType);
       const rewardsQuestStep = (steps && steps.length && steps.filter((s) => s.active) && steps.filter((s) => s.active).length && steps.filter((s) => s.active)[0].definitionStep && steps.filter((s) => s.active)[0].definitionStep.value && steps.filter((s) => s.active)[0].definitionStep.value.itemValue && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.length && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.filter((v) => v.itemHash !== 0)) || [];
@@ -203,8 +201,8 @@ class QuestLine extends React.Component {
             <div className='summary'>
               <div className='icon'>{questFilterMap[questTrait(definitionItem.hash)].displayProperties.icon}</div>
               <div className='text'>
-                <div className='name'>{questLine.displayProperties.name}</div>
-                <BungieText className='displaySource' value={descriptionQuestLine} />
+                <div className='name'>{questLineName}</div>
+                <BungieText className='displaySource' value={questLineDescription} />
                 {rewardsQuestLine.length ? (
                   <>
                     <h4>{t('Rewards')}</h4>
