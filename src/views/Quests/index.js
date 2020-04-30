@@ -13,7 +13,7 @@ import { NoAuth, DiffProfile } from '../../components/BungieAuth';
 import ObservedImage from '../../components/ObservedImage';
 import Items from '../../components/Items';
 import { ProfileLink, ProfileNavLink } from '../../components/ProfileLink';
-import { QuestLine, questFilterMap } from '../../components/QuestLine';
+import { QuestLine, questFilters } from '../../components/QuestLine';
 
 import Spinner from '../../components/UI/Spinner';
 import ProgressBar from '../../components/UI/ProgressBar';
@@ -41,6 +41,8 @@ function navLinkQuestsAllIsActive(match, location) {
     return false;
   }
 }
+
+const filters = ['bounties', 'all', 'new-light', 'expansion', 'seasonal', 'playlists', 'exotics', 'past'];
 
 class Quests extends React.Component {
   componentDidMount() {
@@ -270,7 +272,7 @@ class Quests extends React.Component {
 
   render() {
     const { member, auth, viewport } = this.props;
-    const filter = (this.props.match.params.filter && questFilterMap[this.props.match.params.filter] && this.props.match.params.filter) || 'bounties';
+    const filter = (this.props.match.params.filter && filters.indexOf(this.props.match.params.filter) > -1 && this.props.match.params.filter) || 'bounties';
     const variable = this.props.match.params.variable || (filter === 'bounties' ? 'objectives' : 'rarity');
     const order = this.props.match.params.order || (variable === 'objectives' || variable === 'rarity' ? 'desc' : 'asc');
 
@@ -368,42 +370,42 @@ class Quests extends React.Component {
 
     return (
       <>
-        <div className={cx('view', filter, { inspect: inspect, 'has-preview': questFilterMap[filter].preview && !inspect })} id='quests'>
+        <div className={cx('view', filter, { inspect: inspect, 'has-preview': questFilters(filter).preview && !inspect })} id='quests'>
           <div className='filter background' />
           <div className='module views'>
             <ul className='list'>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['bounties'].displayProperties.icon}</div>
-                <ProfileNavLink to='/quests/bounties' isActive={navLinkBountiesIsActive} />
+                <div className='icon'>{questFilters('bounties').displayProperties.icon}</div>
+                <ProfileNavLink to='/quests' isActive={navLinkBountiesIsActive} />
               </li>
               {newLight > 0 ? (
                 <li className='linked'>
-                  <div className='icon'>{questFilterMap['new-light'].displayProperties.icon}</div>
+                  <div className='icon'>{questFilters('new-light').displayProperties.icon}</div>
                   <ProfileNavLink to='/quests/new-light' />
                 </li>
               ) : null}
               <li className='linked'>
-                <div className='icon quest'>{questFilterMap['all'].displayProperties.icon}</div>
+                <div className='icon quest'>{questFilters('all').displayProperties.icon}</div>
                 <ProfileNavLink to={`/quests/all${filter === 'all' && !this.props.match.params.order && !inspect ? '/objectives/desc' : ''}`} isActive={navLinkQuestsAllIsActive} />
               </li>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['seasonal'].displayProperties.icon}</div>
+                <div className='icon'>{questFilters('seasonal').displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/seasonal' />
               </li>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['expansion'].displayProperties.icon}</div>
+                <div className='icon'>{questFilters('expansion').displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/expansion' />
               </li>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['playlists'].displayProperties.icon}</div>
+                <div className='icon'>{questFilters('playlists').displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/playlists' />
               </li>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['exotics'].displayProperties.icon}</div>
+                <div className='icon'>{questFilters('exotics').displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/exotics' />
               </li>
               <li className='linked'>
-                <div className='icon'>{questFilterMap['past'].displayProperties.icon}</div>
+                <div className='icon'>{questFilters('past').displayProperties.icon}</div>
                 <ProfileNavLink to='/quests/past' />
               </li>
             </ul>
@@ -415,7 +417,7 @@ class Quests extends React.Component {
               <div className={cx('module', 'items', { quests: filter !== 'bounties' })}>
                 <div className='module filter inline-description'>
                   <div className='text'>
-                    <div className='name'>{questFilterMap[filter].displayProperties.name}</div>
+                    <div className='name'>{questFilters(filter).displayProperties.name}</div>
                     <div className='quantity'>
                       <span>{filtered.length > 0 ? <>1-{filtered.length}</> : <>0</>}</span> / {context.length}
                     </div>
@@ -468,14 +470,14 @@ class Quests extends React.Component {
                 )}
               </div>
             )}
-            {!inspect && filter !== 'bounties' && viewport.width > 1024 && questFilterMap[filter].preview ? (
+            {!inspect && filter !== 'bounties' && viewport.width > 1024 && questFilters(filter).preview ? (
               <div className='module filter description'>
                 <div className='preview'>
-                  <ObservedImage src={questFilterMap[filter].preview} />
+                  <ObservedImage src={questFilters(filter).preview} />
                 </div>
                 <div className='text'>
-                  <div className='name'>{questFilterMap[filter].displayProperties.name}</div>
-                  <div className='description'>{questFilterMap[filter].displayProperties.description}</div>
+                  <div className='name'>{questFilters(filter).displayProperties.name}</div>
+                  <div className='description'>{questFilters(filter).displayProperties.description}</div>
                 </div>
                 <div className='corners large b' />
               </div>

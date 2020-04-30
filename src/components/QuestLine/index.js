@@ -38,68 +38,77 @@ function questTrait(hash) {
   }
 }
 
-const questFilterMap = {
-  bounties: {
-    displayProperties: {
-      name: t('Bounties'),
-      icon: <Views.Quests.Bounties />,
-    },
-  },
-  all: {
-    displayProperties: {
-      name: t('All quests'),
-      description: t('All quests and related items in your inventory'),
-      icon: <Views.Quests.All />,
-    },
-  },
-  'new-light': {
-    displayProperties: {
-      name: t('New Light'),
-      description: t('Quests related to New Light, tutorials, and introductions'),
-      icon: <Views.Quests.NewLight />,
-    },
-  },
-  seasonal: {
-    displayProperties: {
-      name: t('Seasonal'),
-      description: t('Quests from the current season'),
-      icon: <Views.Quests.Seasonal />,
-    },
-    preview: '/static/images/extracts/ui/quests/01E3-06C0.png',
-  },
-  expansion: {
-    displayProperties: {
-      name: t('Shadowkeep'),
-      description: t('Quests from the latest expansion'),
-      icon: <Views.Quests.Expansion />,
-    },
-    preview: '/static/images/extracts/ui/quests/01E3-06CA.png',
-  },
-  playlists: {
-    displayProperties: {
-      name: t('Playlists'),
-      description: t('Vanguard, Crucible, and Gambit quests'),
-      icon: <Views.Quests.Playlists />,
-    },
-    preview: '/static/images/extracts/ui/quests/01E3-06D3.png',
-  },
-  exotics: {
-    displayProperties: {
-      name: t('Exotics'),
-      description: t('Exotic Gear and Catalyst quests'),
-      icon: <Views.Quests.Exotics />,
-    },
-    preview: '/static/images/extracts/ui/quests/01E3-06C5.png',
-  },
-  past: {
-    displayProperties: {
-      name: t('The Past'),
-      description: t('Quests from past expansions'),
-      icon: <Views.Quests.Past />,
-    },
-    preview: '/static/images/extracts/ui/quests/01E3-06BB.png',
-  },
-};
+function questFilters(key) {
+  if (key === 'bounties') {
+    return {
+      displayProperties: {
+        name: t('Bounties'),
+        icon: <Views.Quests.Bounties />,
+      },
+    }
+  } else if (key === 'new-light') {
+    return {
+      displayProperties: {
+        name: t('New Light'),
+        description: t('Quests related to New Light, tutorials, and introductions'),
+        icon: <Views.Quests.NewLight />,
+      },
+    }
+  } else if (key === 'seasonal') {
+    return {
+      displayProperties: {
+        name: t('Seasonal'),
+        description: t('Quests from the current season'),
+        icon: <Views.Quests.Seasonal />,
+      },
+      preview: '/static/images/extracts/ui/quests/01E3-06C0.png',
+    }
+  } else if (key === 'expansion') {
+    return {
+      displayProperties: {
+        name: t('Shadowkeep'),
+        description: t('Quests from the latest expansion'),
+        icon: <Views.Quests.Expansion />,
+      },
+      preview: '/static/images/extracts/ui/quests/01E3-06CA.png',
+    }
+  } else if (key === 'playlists') {
+    return {
+      displayProperties: {
+        name: t('Playlists'),
+        description: t('Vanguard, Crucible, and Gambit quests'),
+        icon: <Views.Quests.Playlists />,
+      },
+      preview: '/static/images/extracts/ui/quests/01E3-06D3.png',
+    }
+  } else if (key === 'exotics') {
+    return {
+      displayProperties: {
+        name: t('Exotics'),
+        description: t('Exotic Gear and Catalyst quests'),
+        icon: <Views.Quests.Exotics />,
+      },
+      preview: '/static/images/extracts/ui/quests/01E3-06C5.png',
+    }
+  } else if (key === 'past') {
+    return {
+      displayProperties: {
+        name: t('The Past'),
+        description: t('Quests from past expansions'),
+        icon: <Views.Quests.Past />,
+      },
+      preview: '/static/images/extracts/ui/quests/01E3-06BB.png',
+    }
+  } else {
+    return {
+      displayProperties: {
+        name: t('All quests'),
+        description: t('All quests and related items in your inventory'),
+        icon: <Views.Quests.All />,
+      },
+    }
+  }
+}
 
 function getSetDataQuestLine(questLine) {
   let setData = (questLine.setData?.itemList?.length && questLine.setData.itemList) || [];
@@ -193,13 +202,13 @@ class QuestLine extends React.Component {
       const questLineSource = questLine.sourceData && questLine.sourceData.vendorSources && questLine.sourceData.vendorSources.length ? questLine.sourceData.vendorSources : steps && steps.length && steps[0].definitionStep.sourceData && steps[0].definitionStep.sourceData.vendorSources && steps[0].definitionStep.sourceData.vendorSources.length ? steps[0].definitionStep.sourceData.vendorSources : false;
 
       const rewardsQuestLine = getRewardsQuestLine(questLine, character.classType);
-      const rewardsQuestStep = (steps && steps.length && steps.filter((s) => s.active) && steps.filter((s) => s.active).length && steps.filter((s) => s.active)[0].definitionStep && steps.filter((s) => s.active)[0].definitionStep.value && steps.filter((s) => s.active)[0].definitionStep.value.itemValue && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.length && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.filter((v) => v.itemHash !== 0)) || [];
+      // const rewardsQuestStep = (steps && steps.length && steps.filter((s) => s.active) && steps.filter((s) => s.active).length && steps.filter((s) => s.active)[0].definitionStep && steps.filter((s) => s.active)[0].definitionStep.value && steps.filter((s) => s.active)[0].definitionStep.value.itemValue && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.length && steps.filter((s) => s.active)[0].definitionStep.value.itemValue.filter((v) => v.itemHash !== 0)) || [];
 
       return (
         <div className='quest-line'>
           <div className='module'>
             <div className='summary'>
-              <div className='icon'>{questFilterMap[questTrait(definitionItem.hash)].displayProperties.icon}</div>
+              <div className='icon'>{questFilters(questTrait(definitionItem.hash)).displayProperties.icon}</div>
               <div className='text'>
                 <div className='name'>{questLineName}</div>
                 <BungieText className='displaySource' value={questLineDescription} />
@@ -305,6 +314,6 @@ function mapStateToProps(state) {
 
 QuestLine = compose(connect(mapStateToProps), withRouter)(QuestLine);
 
-export { QuestLine, questFilterMap };
+export { QuestLine, questFilters };
 
 export default QuestLine;
