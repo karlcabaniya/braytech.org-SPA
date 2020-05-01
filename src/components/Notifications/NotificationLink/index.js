@@ -110,7 +110,7 @@ class NotificationLink extends React.Component {
         actions = state.actions || [];
 
       if (state && state.error && state.javascript?.message === 'maintenance') {
-        image = '/static/images/extracts/ui/01A3-00001EE8.PNG';
+        icon = <Common.DOC />;
         actions = [
           {
             type: 'reload',
@@ -127,7 +127,7 @@ class NotificationLink extends React.Component {
         ];
       } else if (state && state.error) {
         isError = true;
-        image = '/static/images/extracts/ui/010A-00000552.PNG';
+        icon = <Common.Error />;
         actions = [
           {
             type: 'reload',

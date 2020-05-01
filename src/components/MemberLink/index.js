@@ -13,6 +13,7 @@ import Spinner from '../UI/Spinner';
 import { Button, DestinyKey } from '../UI/Button';
 import Characters from '../UI/Characters';
 import { Flair, FlairPrimary } from '../UI/Flair';
+import { Common } from '../../svg';
 
 import './styles.css';
 
@@ -407,7 +408,7 @@ class MemberLink extends React.Component {
                   <>
                     <div>
                       <div className='icon'>
-                        <ObservedImage className='image' src='/static/images/extracts/ui/010A-00000552.PNG' />
+                        <Common.Error />
                       </div>
                     </div>
                     <div>
@@ -452,7 +453,7 @@ class MemberLink extends React.Component {
                   <>
                     <div>
                       <div className='icon'>
-                        <ObservedImage className='image' src='/static/images/extracts/ui/010A-00000552.PNG' />
+                        <Common.Error />
                       </div>
                     </div>
                     <div>
