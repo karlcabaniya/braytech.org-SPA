@@ -60,7 +60,7 @@
       {
         "hash": 3598542751,
         "displayProperties": {
-          "name": "Sjursrest"
+          "name": "Гробница Сйор"
         }
       }
     ]
@@ -113,6 +113,12 @@
         "hash": 27792021738,
         "displayProperties": {
           "name": "Высшее измерение"
+        }
+      },
+      {
+        "hash": 27792021739,
+        "displayProperties": {
+          "name": "Двор Королевы"
         }
       }
     ]
