@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import cx from 'classnames';
 
+import i18n from './utils/i18n';
+import dexie from './utils/dexie';
+import * as bungie from './utils/bungie';
+import * as voluspa from './utils/voluspa';
+import * as ls from './utils/localStorage';
+import manifest from './utils/manifest';
+
+import 'intersection-observer';
+
 import moment from 'moment';
 import 'moment/locale/de';
 import 'moment/locale/es';
@@ -19,15 +28,6 @@ import 'moment/locale/zh-tw';
 import './Core.css';
 import './App.css';
 import './components/PresentationNode.css';
-
-import i18n from './utils/i18n';
-import dexie from './utils/dexie';
-import * as bungie from './utils/bungie';
-import * as voluspa from './utils/voluspa';
-import * as ls from './utils/localStorage';
-import manifest from './utils/manifest';
-
-import 'intersection-observer';
 
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/UI/Header';

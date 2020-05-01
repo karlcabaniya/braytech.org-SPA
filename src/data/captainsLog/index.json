@@ -1128,5 +1128,10 @@
     "date": "2020-04-22T18:22:27.603Z",
     "version": "2.23.30",
     "content": "I mean, there's been many changes since the last time I update this change log.\n\n- records can now be hidden if completed but will otherwise be displayed even if they're invisible"
+  },
+  {
+    "date": "2020-04-28T07:45:22.764Z",
+    "version": "2.24.0",
+    "content": "- a whole new _Quests_ view"
   }
 ]
