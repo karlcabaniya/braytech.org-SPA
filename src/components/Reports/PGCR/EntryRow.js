@@ -640,7 +640,7 @@ export function CrucibleDetail(props) {
 export function GambitDetail(props) {
   const { playerCache, activityDetails, entry } = props;
 
-  const cache = playerCache.find((p) => p.membershipId === entry.player.destinyUserInfo.membershipId);
+  const cache = playerCache.find((p) => p.membershipId === entry.player.destinyUserInfo.membershipId) || {};
 
   const medals = Object.keys(entry.extended.values)
     .filter((key) => !medalExclusions.includes(key))
@@ -775,13 +775,13 @@ export function GambitDetail(props) {
           <li>
             <ul>
               <li>{t('Infamy points')}</li>
-              <li className={cx({ na: !cache.points?.infamy })}>{cache.points?.infamy || '–'}</li>
+              <li className={cx({ na: !cache.points?.infamy })}>{cache.points?.infamy?.toLocaleString() || '–'}</li>
             </ul>
           </li>
           <li>
             <ul>
               <li>{t('Infamy resets')}</li>
-              <li className={cx({ na: !cache.resets?.infamy })}>{cache.resets?.infamy || '–'}</li>
+              <li className={cx({ na: !cache.resets?.infamy })}>{cache.resets?.infamy?.toLocaleString() || '–'}</li>
             </ul>
           </li>
         </ul>
