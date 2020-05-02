@@ -21,9 +21,9 @@ export function NavLinks() {
         </li>
         <li className='linked'>
           <div className='icon'>
-            <Views.Archives.Eververse />
+            <Views.Archives.Grimoire />
           </div>
-          <NavLink to='/archives/eververse' exact />
+          <NavLink to='/archives/grimoire' />
         </li>
         <li className='linked'>
           <div className='icon'>
@@ -36,12 +36,6 @@ export function NavLinks() {
             <Views.Archives.ChaliceOfOpulence />
           </div>
           <NavLink to='/archives/chalice-of-opulence' />
-        </li>
-        <li className='linked'>
-          <div className='icon'>
-            <Views.Archives.Grimoire />
-          </div>
-          <NavLink to='/archives/grimoire' />
         </li>
       </ul>
     </div>
@@ -56,12 +50,12 @@ function Archives() {
       deployed: "2020-04-03T04:19:34.356Z",
       link: '/archives/grimoire'
     },
-    {
-      name: t('Eververse Season Overview'),
-      description: t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny."),
-      deployed: "2020-01-10T00:00:00.000Z",
-      link: '/archives/eververse'
-    },
+    // {
+    //   name: t('Eververse Season Overview'),
+    //   description: t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny."),
+    //   deployed: "2020-01-10T00:00:00.000Z",
+    //   link: '/archives/eververse'
+    // },
     {
       name: t('Legend'),
       description: t("Generate an infographic that details your Destiny legend. Customise colours and export to PNG format for sharing purposes."),

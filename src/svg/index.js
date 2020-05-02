@@ -289,7 +289,7 @@ const Views = {
     Raids: TooltipRaid,
   },
   Archives: {
-    Overview: Stats,
+    Overview: MapsRecord,
     Eververse,
     ChaliceOfOpulence,
     Tricorn,

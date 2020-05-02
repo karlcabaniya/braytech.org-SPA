@@ -158,8 +158,10 @@ class Quests extends React.Component {
                   </ul>
                 </li>
                 <li className='col bounty-text'>
-                  <div className='name'>{definitionItem.displayProperties?.name}</div>
-                  <BungieText className='description' value={definitionItem.displayProperties?.description} />
+                  <div className='name'>
+                    <BungieText value={definitionItem.displayProperties?.name} textOnly energy />
+                  </div>
+                  <BungieText className='description' value={definitionItem.displayProperties?.description} energy />
                 </li>
                 <li className='col objectives'>{objectives}</li>
                 <li className='col reward-items'>
@@ -168,7 +170,7 @@ class Quests extends React.Component {
                   </ul>
                 </li>
                 <li className='col expires'>
-                  <div>{!completed && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired.')}</> : '–'}</div>
+                  <div>{!completed && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired')}</> : '–'}</div>
                 </li>
               </ul>
             </li>
@@ -237,7 +239,7 @@ class Quests extends React.Component {
             </ul>
             <div className='text'>
               <div className='name'>{questLineName || definitionItem.displayProperties.name}</div>
-              <BungieText className='description' value={definitionItem.displayProperties.description} singleSentence trim='70' />
+              <BungieText className='description' value={definitionItem.displayProperties.description} single trim='70' />
             </div>
             {!expired && item.itemComponents?.objectives?.length ? (
               <ProgressBar

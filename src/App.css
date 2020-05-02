@@ -200,30 +200,6 @@ p:last-child {
   z-index: 2;
 }
 
-/* .list li.item {
-  box-shadow: 0 0 0 2px #d6d6d6;
-} */
-
-/* .list li.item::before {
-  box-shadow: inset 0 0 0 2px #d6d6d6;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.list li.item::after {
-  box-shadow: 0 0 0 2px rgba(214, 214, 214, 0);
-}
-
-.list li.linked.item:hover::before,
-.list li.linked.tooltip:hover::before {
-  box-shadow: inset 0 0 0 2px #fff;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.list li.linked.item:hover::after,
-.list li.linked.tooltip:hover::after {
-  box-shadow: 0 0 0 2px #d6d6d6;
-} */
-
 .list.settings li {
   height: unset;
   display: block;
@@ -738,4 +714,21 @@ button.square.active {
     transform: scale(1.2);
     opacity: 0;
   }
+}
+
+span.highlight {
+  color: white;
+  padding: 0 3px;
+}
+
+span.highlight.energy-solar {
+  background-color: var(--energy-solar);
+}
+
+span.highlight.energy-arc {
+  background-color: var(--energy-arc);
+}
+
+span.highlight.energy-void {
+  background-color: var(--energy-void);
 }

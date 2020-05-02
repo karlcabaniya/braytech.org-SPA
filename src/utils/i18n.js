@@ -7,7 +7,7 @@ import moment from 'moment';
 
 import * as ls from './localStorage';
 import { stringToIcons } from './destinyUtils';
-import { linkHelper, noParagraphs } from './markdown';
+import { linkHelper, wrapEnergy, noParagraphs } from './markdown';
 
 let _defaultLanguage = 'en';
 let _currentLanguage;
@@ -241,12 +241,35 @@ function escapeString(value, severe) {
 }
 
 export function BungieText(props) {
-  const { className, value = '', trim, singleSentence, ...rest } = props;
+  const { className, value = '', textOnly, trim, single, energy, ...rest } = props;
 
-  let source = singleSentence ? value.split('\n')[0] : value;
+  // get first sentence
+  let source = single ? value.split('\n')[0] : value;
+
+  // chop any trailing colons off
+  source =
+    source.substr(source.length - 1) === ':'
+      ? trim && source.slice(0, -1).length < +trim + 10 // if is less than trim length
+        ? source.slice(0, -1) + '...' // append ellipsis
+        : source.slice(0, -1)
+      : source;
+
+  // trim and append ellipsis
   source = trim && source.length > +trim + 10 ? source.slice(0, +trim + 10).trim() + '...' : source;
 
-  return <ReactMarkdown className={className} source={stringToIcons(source, true)} {...rest} />;
+  // add icons
+  source = stringToIcons(source, true);
+
+  const disallowedTypes = textOnly && noParagraphs;
+
+  const renderers = {};
+
+  // wrap energy words
+  if (energy) {
+    renderers.text = wrapEnergy;
+  }
+
+  return <ReactMarkdown className={className} source={source} {...rest} renderers={renderers} disallowedTypes={disallowedTypes} unwrapDisallowed />;
 }
 
 export function BraytechText(props) {
@@ -256,7 +279,7 @@ export function BraytechText(props) {
 
   const source = escapeValue ? stringToIcons(escapeString(value), true) : stringToIcons(value, true);
 
-  return <ReactMarkdown className={className} source={source} renderers={{ link: linkHelper }} {...rest} disallowedTypes={disallowedTypes} unwrapDisallowed />;
+  return <ReactMarkdown className={className} source={source} {...rest} renderers={{ link: linkHelper }} disallowedTypes={disallowedTypes} unwrapDisallowed />;
 }
 
 export function withinString(type, activityName) {

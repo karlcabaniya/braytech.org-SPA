@@ -97,7 +97,7 @@ const Default = (props) => {
 
   // instance expiry
   if (itemComponents?.objectives?.length && itemComponents.objectives.filter((o) => !o.complete).length > 0 && expirationDate) {
-    blocks.push(<div className='expiry'>{timestampExpiry > timestamp ? <p>{t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate)) })}</p> : <p>{definitionItem.inventory?.expiredInActivityMessage || t('Expired.')}</p>}</div>);
+    blocks.push(<div className='expiry'>{timestampExpiry > timestamp ? <p>{t('Expires in {{duration}}.', { duration: duration(timestampToDuration(expirationDate)) })}</p> : <p>{definitionItem.inventory?.expiredInActivityMessage || t('Expired')}</p>}</div>);
   }
 
   // quantity
