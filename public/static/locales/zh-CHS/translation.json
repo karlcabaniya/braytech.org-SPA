@@ -178,7 +178,6 @@
   "#####Destiny 1 colours": "🌐",
   "#####Destiny 2 colours": "🌐",
   "Destiny1.Grimoire.IronBanner": "The Lords of Iron, ancient warriors from the City's founding, have no time for mollycoddling. The City remembers Felwinter and Jolder, Skorri and Timur, Radegast and Gheleon and the others, for their invincible patrols during Six Fronts and the Wall-building. The Iron Banner asks Guardians to live up to that legend.",
-  "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.": "当前赛季每周永恒之诗商店库存数据，以帮助玩家最大化银币效率。",
   "Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny.\n\nThis data comes directly from the API manifest's definition of _Tess Everis_ and is displayed by merely iterating over it. If data appears incomplete, it is likely due to manifest content being incomplete i.e. new content that has not yet been added.": "当前赛季每周永恒之诗商店库存数据，以帮助玩家最大化银币效率。\n\n数据直接来自 API 清单中 _Tess Everis_ 的定义，仅对数据处理后直接显示。如果数据不完整，可能是因为 API 清单数据的内容不完整，即尚未添加新内容。",
   "Developer": "开发者",
   "Did you know? You can customise the displayed modules by tapping _Customise_ in the bottom right.": "你知道吗？ 你可以通过点击右下角的 _自定义_ 来自定义显示的模块。",

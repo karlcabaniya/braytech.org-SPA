@@ -1,140 +1,86 @@
 {
   "de": {
-    "translated": 695,
-    "notTranslated": 2,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
-  },
-  "debug": {
-    "translated": 697,
-    "notTranslated": 0,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
-  },
-  "en": {
-    "translated": 697,
+    "translated": 696,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Raids_plural"
-    ]
+    "removed": []
+  },
+  "debug": {
+    "translated": 696,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
+  },
+  "en": {
+    "translated": 696,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es-mx": {
-    "translated": 676,
+    "translated": 675,
     "notTranslated": 21,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "es": {
-    "translated": 676,
+    "translated": 675,
     "notTranslated": 21,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "fr": {
-    "translated": 648,
+    "translated": 647,
     "notTranslated": 49,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
-    "translated": 659,
+    "translated": 658,
     "notTranslated": 38,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 584,
-    "notTranslated": 113,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "notTranslated": 112,
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 537,
-    "notTranslated": 160,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "notTranslated": 159,
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 695,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "notTranslated": 694,
+    "added": [],
+    "removed": []
   },
   "pt-br": {
-    "translated": 644,
+    "translated": 643,
     "notTranslated": 53,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
-    "translated": 676,
-    "notTranslated": 21,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "translated": 696,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
-    "translated": 510,
+    "translated": 509,
     "notTranslated": 187,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 365,
-    "notTranslated": 332,
-    "added": [
-      "Raid_plural"
-    ],
-    "removed": [
-      "Raids_plural"
-    ]
+    "notTranslated": 331,
+    "added": [],
+    "removed": []
   }
 }
