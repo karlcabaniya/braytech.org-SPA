@@ -36,7 +36,7 @@ export function wrapEnergy(props) {
     const damage = ['daño', 'dano'];
     const weapon = ['arma'];
     const supers = ['súper'];
-    const grenade = ['granada'];
+    const grenade = ['granada', 'granadas'];
     const melee = ['cuerpo'];
     const damageCheck = affinity === 'arc' && arco.indexOf(i18n.language) > -1 ?
       damage.indexOf(fragments[f - 4]) > -1 // daño de arco

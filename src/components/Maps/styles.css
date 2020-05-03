@@ -136,6 +136,7 @@
   top: 10%;
   right: 3.5%;
   font-size: 26px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .map-omega .control.characters .character-emblem .wrapper .light::before {
@@ -274,6 +275,7 @@
   .map-omega .control.characters .character-emblem .wrapper .light {
     padding: 0 1rem 0 0;
     font-size: 16px;
+    text-shadow: unset;
   }
 
   .map-omega .control.characters .character-emblem .wrapper .light::before {

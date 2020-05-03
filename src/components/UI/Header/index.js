@@ -315,9 +315,9 @@ class Header extends React.Component {
                     </div>
                     <div className='displayName'>{profile.userInfo.displayName}</div>
                     <div className='basics'>
-                      <span>
+                      <>
                         {progressSeasonalRank.level} / {classHashToString(character.classHash, character.genderHash)} /
-                      </span>
+                      </>
                       <span className='light'>{character.light}</span>
                     </div>
                     <ProgressBar hideCheck {...progressSeasonalRank} />

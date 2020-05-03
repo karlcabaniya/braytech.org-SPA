@@ -539,7 +539,7 @@ const baseConversionTable = [
   { objectiveHash: 3527067345, unicode: '', substring: null },
   { objectiveHash: 3296270292, unicode: '', substring: null },
   { objectiveHash: 3080184954, unicode: '', substring: null },
-  { objectiveHash: 3373536132, unicode: '', substring: null },
+  { objectiveHash: 3296270293, unicode: '', substring: null },
   // Remaining weapons, that are not heavy
   { objectiveHash: 53304862, unicode: '', substring: null },
   { objectiveHash: 635284441, unicode: '', substring: null },
