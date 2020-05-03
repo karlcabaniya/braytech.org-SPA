@@ -295,3 +295,9 @@ export function withinString(type, activityName) {
     return t('Found within activity');
   }
 }
+
+export const Energy = {
+  Solar: ['solar', 'solare', 'solares', 'огня'],
+  Arc: ['arc', 'arco', 'молнии'],
+  Void: ['void', 'vacío', 'vuoto', 'vácuo', 'пустоты'],
+}

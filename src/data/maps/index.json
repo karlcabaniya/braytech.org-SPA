@@ -414,7 +414,7 @@
           "width": 2160,
           "height": 1080,
           "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#538e9f"
+          "color": "#62838d"
         },
         {
           "id": "background-lower",
@@ -424,7 +424,7 @@
           "width": 2160,
           "height": 1080,
           "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#71c44e"
+          "color": "#79b361"
         },
         {
           "id": "map",

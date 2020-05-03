@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import i18n, { Energy } from './i18n';
+
 function goToTop() {
   window.scrollTo(0, 0);
 }
@@ -24,19 +26,15 @@ export function linkHelper(props) {
 }
 
 function energyAffinity(string) {
-  const Solar = ['solar'];
-  const Arc = ['arc'];
-  const Void = ['void'];
-
-  if (Solar.indexOf(string.toLowerCase()) > -1) {
+  if (Energy.Solar.indexOf(string.toLowerCase()) > -1) {
     return 'solar';
   }
 
-  if (Arc.indexOf(string.toLowerCase()) > -1) {
+  if (Energy.Arc.indexOf(string.toLowerCase()) > -1) {
     return 'arc';
   }
 
-  if (Void.indexOf(string.toLowerCase()) > -1) {
+  if (Energy.Void.indexOf(string.toLowerCase()) > -1) {
     return 'void';
   }
 
@@ -44,10 +42,17 @@ function energyAffinity(string) {
 }
 
 export function wrapEnergy(props) {
-  return props.children.split(/\b(\s)/).map((fragment, f) => {
+  const fragments = props.children.split(/\b(\s)/);
+
+  return fragments.map((fragment, f) => {
     const affinity = energyAffinity(fragment);
 
-    if (affinity) {
+    const arco = ['it', 'es', 'es-mx', 'pt-br'];
+    const damage = ['daño', 'dano'];
+    const weapon = ['arma'];
+    const damageCheck = affinity === 'arc' && arco.indexOf(i18n.language) > -1 ? damage.indexOf(fragments[f - 4]) > -1 || weapon.indexOf(fragments[f - 1]) > -1 : true;
+
+    if (affinity && damageCheck) {
       return (
         <React.Fragment key={f}>
           <span className={`highlight energy-${affinity}`}>{fragment}</span>

@@ -37,10 +37,6 @@
   background-color: hsla(47, 90%, 83%, 0.4);
 }
 
-#tooltip .frame.map .highlight ~ .completed {
-  margin: 16px 0 0;
-}
-
 #tooltip .frame.map .completed {
   padding: 7px 16px 6px;
   font-size: 14px;
