@@ -301,3 +301,23 @@ export const Energy = {
   Arc: ['arc', 'arco', 'молнии'],
   Void: ['void', 'vacío', 'vuoto', 'vácuo', 'пустоты'],
 }
+
+export function basic(string) {
+  return string.toLowerCase().replace(/[^\s0-9_A-Za-zÀ-ÖØ-öø-ÿ]+/g, '');
+}
+
+export function energyAffinity(string) {
+  if (Energy.Solar.indexOf(string) > -1) {
+    return 'solar';
+  }
+
+  if (Energy.Arc.indexOf(string) > -1) {
+    return 'arc';
+  }
+
+  if (Energy.Void.indexOf(string) > -1) {
+    return 'void';
+  }
+
+  return false;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import i18n, { Energy } from './i18n';
+import i18n, { basic, energyAffinity } from './i18n';
 
 function goToTop() {
   window.scrollTo(0, 0);
@@ -25,27 +25,12 @@ export function linkHelper(props) {
   }
 }
 
-function energyAffinity(string) {
-  if (Energy.Solar.indexOf(string.toLowerCase()) > -1) {
-    return 'solar';
-  }
-
-  if (Energy.Arc.indexOf(string.toLowerCase()) > -1) {
-    return 'arc';
-  }
-
-  if (Energy.Void.indexOf(string.toLowerCase()) > -1) {
-    return 'void';
-  }
-
-  return false;
-}
-
 export function wrapEnergy(props) {
-  const fragments = props.children.split(/\b(\s)/);
+  const fragments = props.children.split(/(\s)/);
 
   return fragments.map((fragment, f) => {
-    const affinity = energyAffinity(fragment);
+    // if (props.children === 'Derrota objetivos con súper de vacío. Derrotar guardianes acelera el progreso.') console.log(fragments, fragment, energyAffinity(fragment), basic(fragment))
+    const affinity = energyAffinity(basic(fragment));
 
     const arco = ['it', 'es', 'es-mx', 'pt-br'];
     const damage = ['daño', 'dano'];
@@ -53,7 +38,13 @@ export function wrapEnergy(props) {
     const supers = ['súper'];
     const grenade = ['granada'];
     const melee = ['cuerpo'];
-    const damageCheck = affinity === 'arc' && arco.indexOf(i18n.language) > -1 ? damage.indexOf(fragments[f - 4]) > -1 || weapon.indexOf(fragments[f - 1]) > -1 || supers.indexOf(fragments[f - 4]) > -1 || grenade.indexOf(fragments[f - 4]) > -1 || melee.indexOf(fragments[f - 4]) > -1 : true;
+    const damageCheck = affinity === 'arc' && arco.indexOf(i18n.language) > -1 ?
+      damage.indexOf(fragments[f - 4]) > -1 // daño de arco
+      || weapon.indexOf(fragments[f - 1]) > -1 // arma arco
+      || supers.indexOf(fragments[f - 4]) > -1 // súper de arco
+      || grenade.indexOf(fragments[f - 4]) > -1 // granada de arco
+      || melee.indexOf(fragments[f - 4]) > -1 // cuerpo de arco
+      : true;
 
     if (affinity && damageCheck) {
       return (
