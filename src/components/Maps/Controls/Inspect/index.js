@@ -208,7 +208,7 @@ class Inspect extends React.Component {
             <div className='video'>
               <div className='text'>{t('This node has an associated video')}</div>
               <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
-                <div className='text'>{t('View video')}</div>
+                <div className='text'>{t('View Video')}</div>
               </a>
             </div>
           ) : null}
