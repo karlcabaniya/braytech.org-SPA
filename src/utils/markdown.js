@@ -33,18 +33,19 @@ export function wrapEnergy(props) {
     const affinity = energyAffinity(basic(fragment));
 
     const arco = ['it', 'es', 'es-mx', 'pt-br'];
-    const damage = ['daño', 'dano'];
+    const damage = ['daño', 'dano', 'danno'];
     const weapon = ['arma'];
     const supers = ['súper'];
     const grenade = ['granada', 'granadas'];
     const melee = ['cuerpo'];
-    const damageCheck = affinity === 'arc' && arco.indexOf(i18n.language) > -1 ?
-      damage.indexOf(fragments[f - 4]) > -1 // daño de arco
-      || weapon.indexOf(fragments[f - 1]) > -1 // arma arco
-      || supers.indexOf(fragments[f - 4]) > -1 // súper de arco
-      || grenade.indexOf(fragments[f - 4]) > -1 // granada de arco
-      || melee.indexOf(fragments[f - 4]) > -1 // cuerpo de arco
-      : true;
+    const damageCheck =
+      affinity === 'arc' && arco.indexOf(i18n.language) > -1
+        ? damage.indexOf(fragments[f - 4]) > -1 || // daño de arco
+          weapon.indexOf(fragments[f - 1]) > -1 || // arma arco
+          supers.indexOf(fragments[f - 4]) > -1 || // súper de arco
+          grenade.indexOf(fragments[f - 4]) > -1 || // granada de arco
+          melee.indexOf(fragments[f - 4]) > -1 // cuerpo de arco
+        : true;
 
     if (affinity && damageCheck) {
       return (
