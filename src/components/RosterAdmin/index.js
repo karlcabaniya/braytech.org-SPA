@@ -375,13 +375,11 @@ class RosterAdmin extends React.Component {
     });
   };
 
-  handler_changeSortTo = (to) => (e) => {
+  handler_changeSortTo = ({ sort, dir }) => (e) => {
     this.setState((p) => ({
-      ...p,
       order: {
-        ...p.order,
-        dir: p.order.sort === to && p.order.dir === 'desc' ? 'asc' : 'desc',
-        sort: to,
+        dir: (dir && dir !== p.order.dir && dir) || (p.order.sort === sort && p.order.dir === 'desc' ? 'asc' : 'desc'),
+        sort,
       },
     }));
   };
@@ -443,6 +441,7 @@ class RosterAdmin extends React.Component {
         sorts: {
           private: isPrivate,
           isOnline: m.isOnline,
+          displayName: m.destinyUserInfo?.LastSeenDisplayName,
           joinDate: m.joinDate,
           lastPlayed,
           lastActivity,
@@ -518,11 +517,13 @@ class RosterAdmin extends React.Component {
 
     let order = this.state.order;
 
-    if (order.sort === 'lastCharacter') {
+    if (order.sort === 'display-name') {
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.displayName, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+    } else if (order.sort === 'last') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
-    } else if (order.sort === 'joinDate') {
+    } else if (order.sort === 'join-date') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.joinDate, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
-    } else if (order.sort === 'weeklyXp') {
+    } else if (order.sort === 'weekly-xp') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.weeklyXp, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'rank') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.rank, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
@@ -537,24 +538,27 @@ class RosterAdmin extends React.Component {
           full: (
             <li key='header-row' className='row header'>
               <ul>
-                <li className='col member no-sort' />
-                <li className={cx('col', 'last', { sort: this.state.order.sort === 'lastCharacter', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('lastCharacter')}>
+                <li className={cx('col', 'display-name', { sort: this.state.order.sort === 'display-name', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'display-name', dir: 'asc' })}>
+                  <div className='full'>{t('Display name')}</div>
+                  <div className='abbr'>{t('Name')}</div>
+                </li>
+                <li className={cx('col', 'last', { sort: this.state.order.sort === 'last', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last' })}>
                   <div className='full'>{t('Last character')}</div>
                   <div className='abbr'>{t('Char')}</div>
                 </li>
-                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo(false)}>
+                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo({})}>
                   <div className='full'>{t('Last activity')}</div>
                   <div className='abbr'>{t('Activity')}</div>
                 </li>
-                <li className={cx('col', 'joinDate', { sort: this.state.order.sort === 'joinDate', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('joinDate')}>
+                <li className={cx('col', 'joinDate', { sort: this.state.order.sort === 'joinDate', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'join-date' })}>
                   <div className='full'>{t('Joined')}</div>
                   <div className='abbr'>{t('Jind')}</div>
                 </li>
-                <li className={cx('col', 'weeklyXp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('weeklyXp')}>
+                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'weekly-xp' })}>
                   <div className='full'>{t('Weekly Clan XP')}</div>
                   <div className='abbr'>{t('Clan XP')}</div>
                 </li>
-                <li className={cx('col', 'rank', { sort: this.state.order.sort === 'rank', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('rank')}>
+                <li className={cx('col', 'rank', { sort: this.state.order.sort === 'rank', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'rank' })}>
                   <div className='full'>{t('Rank')}</div>
                   <div className='abbr'>{t('Rank')}</div>
                 </li>

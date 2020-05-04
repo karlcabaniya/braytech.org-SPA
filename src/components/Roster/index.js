@@ -67,13 +67,11 @@ class Roster extends React.Component {
     window.clearInterval(this.refreshClanDataInterval);
   }
 
-  handler_changeSortTo = (to) => (e) => {
+  handler_changeSortTo = ({ sort, dir }) => (e) => {
     this.setState((p) => ({
-      ...p,
       order: {
-        ...p.order,
-        dir: p.order.sort === to && p.order.dir === 'desc' ? 'asc' : 'desc',
-        sort: to,
+        dir: (dir && dir !== p.order.dir && dir) || (p.order.sort === sort && p.order.dir === 'desc' ? 'asc' : 'desc'),
+        sort,
       },
     }));
   };
@@ -116,8 +114,8 @@ class Roster extends React.Component {
     valorPoints = valorResets * totalValor + valorPoints;
     infamyPoints = infamyResets * totalInfamy + infamyPoints;
 
-    if (m.isOnline) {
-      // console.log(m)
+    if (m.isOnline || m.destinyUserInfo?.membershipId === '4611686018449662397') {
+      // console.log(m);
       // console.log(lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode);
     }
 
@@ -126,6 +124,7 @@ class Roster extends React.Component {
         private: isPrivate,
         isOnline: m.isOnline,
         fireteamId: m.fireteamId,
+        displayName: m.destinyUserInfo?.LastSeenDisplayName,
         lastPlayed,
         lastCharacter,
         triumphScore,
@@ -293,9 +292,11 @@ class Roster extends React.Component {
       });
     }
 
-    if (order.sort === 'lastCharacter') {
+    if (order.sort === 'display-name') {
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.displayName, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+    } else if (order.sort === 'last') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
-    } else if (order.sort === 'triumphScore') {
+    } else if (order.sort === 'triumph-score') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.triumphScore, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'valor') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.valorPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
@@ -303,7 +304,7 @@ class Roster extends React.Component {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.gloryPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else if (order.sort === 'infamy') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.infamyPoints, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
-    } else if (order.sort === 'weeklyXp') {
+    } else if (order.sort === 'weekly-xp') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.weeklyXp, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
     } else {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.isOnline, (m) => m.sorts.lastPlayed, (m) => m.sorts.seasonRank], ['asc', 'desc', 'desc', 'desc']);
@@ -316,32 +317,35 @@ class Roster extends React.Component {
           full: (
             <li key='header-row' className='row header'>
               <ul>
-                <li className='col member no-sort' />
-                <li className={cx('col', 'last', { sort: this.state.order.sort === 'lastCharacter', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('lastCharacter')}>
+                <li className={cx('col', 'display-name', { sort: this.state.order.sort === 'display-name', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'display-name', dir: 'asc' })}>
+                  <div className='full'>{t('Display name')}</div>
+                  <div className='abbr'>{t('Name')}</div>
+                </li>
+                <li className={cx('col', 'last', { sort: this.state.order.sort === 'last', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last' })}>
                   <div className='full'>{t('Last character')}</div>
                   <div className='abbr'>{t('Char')}</div>
                 </li>
-                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo(false)}>
+                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo({})}>
                   <div className='full'>{t('Last activity')}</div>
                   <div className='abbr'>{t('Activity')}</div>
                 </li>
-                <li className={cx('col', 'triumph-score', { sort: this.state.order.sort === 'triumphScore', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('triumphScore')}>
+                <li className={cx('col', 'triumph-score', { sort: this.state.order.sort === 'triumph-score', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'triumph-score' })}>
                   <div className='full'>{t('Triumph score')}</div>
                   <div className='abbr'>{t('T. Scr')}</div>
                 </li>
-                <li className={cx('col', 'glory', { sort: this.state.order.sort === 'glory', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('glory')}>
+                <li className={cx('col', 'glory', { sort: this.state.order.sort === 'glory', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'glory' })}>
                   <div className='full'>{t('Glory')}</div>
                   <div className='abbr'>{t('Gly')}</div>
                 </li>
-                <li className={cx('col', 'valor', { sort: this.state.order.sort === 'valor', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('valor')}>
+                <li className={cx('col', 'valor', { sort: this.state.order.sort === 'valor', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'valor' })}>
                   <div className='full'>{t('Valor (Resets)')}</div>
                   <div className='abbr'>{t('Vlr (R)')}</div>
                 </li>
-                <li className={cx('col', 'infamy', { sort: this.state.order.sort === 'infamy', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('infamy')}>
+                <li className={cx('col', 'infamy', { sort: this.state.order.sort === 'infamy', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'infamy' })}>
                   <div className='full'>{t('Infamy (Resets)')}</div>
                   <div className='abbr'>{t('Inf (R)')}</div>
                 </li>
-                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo('weeklyXp')}>
+                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weekly-xp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'weekly-xp' })}>
                   <div className='full'>{t('Weekly Clan XP')}</div>
                   <div className='abbr'>{t('Clan XP')}</div>
                 </li>

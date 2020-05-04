@@ -316,7 +316,7 @@ class MemberLink extends React.Component {
                   <>
                     <div className='module'>
                       <div className='names'>
-                        <div className='displayName'>{this.state.all.data.profile.data && this.state.all.data.profile.data.userInfo.displayName}</div>
+                        <div className='displayName'>{this.state.all.data.profile.data?.userInfo.displayName}</div>
                         {this.state.all.data.group ? (
                           <div className='groupName'>{entities.decodeHTML(this.state.all.data.group.name)}</div>
                         ) : null}
