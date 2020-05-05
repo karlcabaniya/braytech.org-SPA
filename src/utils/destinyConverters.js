@@ -23,7 +23,7 @@ export function ammoTypeToAsset(type) {
 
   return {
     string,
-    icon
+    icon,
   };
 }
 
@@ -67,7 +67,7 @@ export function classHashToString(classHash, genderHash) {
 }
 
 export function classTypeToString(type, gender) {
-  const classHash = Object.keys(manifest.DestinyClassDefinition).find(key => manifest.DestinyClassDefinition[key].classType === type);
+  const classHash = Object.keys(manifest.DestinyClassDefinition).find((key) => manifest.DestinyClassDefinition[key].classType === type);
 
   return classHashToString(classHash, gender);
 }
@@ -100,7 +100,7 @@ export function damageTypeToAsset(type) {
 
   return {
     string,
-    char
+    char,
   };
 }
 
@@ -129,13 +129,13 @@ export function displayValue(value = '', objectiveHash, styleOverride = 0) {
 
 export function energyStatToType(statHash) {
   if (enums.energyStats.solar.indexOf(statHash) > -1) {
-    return 591714140;   // solar
+    return 591714140; // solar
   } else if (enums.energyStats.arc.indexOf(statHash) > -1) {
-    return 728351493;   // void
+    return 728351493; // void
   } else if (enums.energyStats.void.indexOf(statHash) > -1) {
-    return 4069572561;  // void
+    return 4069572561; // void
   } else {
-    return 1198124803;  // any
+    return 1198124803; // any
   }
 }
 
@@ -167,7 +167,7 @@ export function energyTypeToAsset(type) {
 
   return {
     string,
-    char
+    char,
   };
 }
 
@@ -177,72 +177,48 @@ export function energyTypeToAsset(type) {
  * @return english string representation of type
  */
 export function genderTypeToString(type) {
-  let string;
-
   switch (type) {
     case 0:
-      string = 'Male';
-      break;
+      return 'Male';
     case 1:
-      string = 'Female';
-      break;
+      return 'Female';
     default:
-      string = 'uh oh';
+      return 'uh oh';
   }
-
-  return string;
 }
 
 export function groupMemberTypeToString(str) {
-  let string;
-
   switch (str) {
     case 1:
-      string = 'Beginner';
-      break;
+      return 'Beginner';
     case 2:
-      string = 'Member';
-      break;
+      return 'Member';
     case 3:
-      string = 'Admin';
-      break;
+      return 'Admin';
     case 4:
-      string = 'Acting Founder';
-      break;
+      return 'Acting Founder';
     case 5:
-      string = 'Founder';
-      break;
+      return 'Founder';
     default:
-      string = 'None';
+      return 'None';
   }
-
-  return string;
 }
 
 export function itemRarityToString(tierType) {
-  let string;
-
   switch (tierType) {
     case 6:
-      string = 'exotic';
-      break;
+      return 'exotic';
     case 5:
-      string = 'legendary';
-      break;
+      return 'legendary';
     case 4:
-      string = 'rare';
-      break;
+      return 'rare';
     case 3:
-      string = 'uncommon';
-      break;
+      return 'uncommon';
     case 2:
-      string = 'common';
-      break;
+      return 'common';
     default:
-      string = 'common';
+      return 'common';
   }
-
-  return string;
 }
 
 export function raceHashToString(raceHash, genderHash, nonGendered = false) {
@@ -258,21 +234,14 @@ export function raceHashToString(raceHash, genderHash, nonGendered = false) {
 }
 
 export function raceTypeToString(str) {
-  let string;
-
   switch (str) {
     case 0:
-      string = 'Human';
-      break;
+      return 'Human';
     case 1:
-      string = 'Awoken';
-      break;
+      return 'Awoken';
     case 2:
-      string = 'Exo';
-      break;
+      return 'Exo';
     default:
-      string = 'uh oh';
+      return 'uh oh';
   }
-
-  return string;
 }

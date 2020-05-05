@@ -51,11 +51,11 @@
 #tooltip .header {
   padding: 12px 16px 10px;
   margin: 0;
+  display: flex;
+  flex-flow: row wrap;
   background-color: hsla(var(--common), 0.8);
   color: #fff;
   font-family: var(--fontText);
-  display: flex;
-  flex-flow: row wrap;
 }
 
 #tooltip .header > div {
@@ -115,7 +115,7 @@
 }
 
 #tooltip .black {
-  background-color: rgba(5, 5, 5, 0.75);
+  background-color: rgba(5, 5, 5, 0.85);
 }
 
 #tooltip .black .screenshot {
@@ -194,11 +194,11 @@
 }
 
 #tooltip .expiry {
-  padding: 12px 16px 16px;
+  padding: 8px 16px 16px;
   font-style: italic;
   font-size: 14px;
-  letter-spacing: 0.5px;
-  color: #e12a1d;
+  letter-spacing: 0.8px;
+  color: #f2110d;
 }
 
 #tooltip .frame.no-name .header {

@@ -330,12 +330,15 @@
 #tooltip .plug > .text {
   display: grid;
   align-items: center;
+  gap: 5px;
+}
+
+#tooltip .plug > .text > .description {
+  padding: 0;
 }
 
 #tooltip .plug .text .type,
 #tooltip .plug > .text > .description {
-  margin: 7px 0 0;
-  padding: 0;
   color: rgba(255, 255, 255, 0.6);
   font-size: 14px;
   line-height: 1.4;
@@ -343,16 +346,6 @@
 
 #tooltip .plug > .text > .description p {
   line-height: 1.4;
-}
-
-#tooltip .plug .text .type {
-  margin: 3px 0 0;
-}
-
-#tooltip .plug .text .objectives {
-  flex-basis: 100%;
-  padding: 4px 0 0;
-  border: unset;
 }
 
 #tooltip .frame.exotic .sockets .category .socket .plug.intrinsic .text .name {
@@ -560,4 +553,28 @@
 /* Golden Gun */
 #tooltip .super .ability .icon.sbp_3205500087 {
   font-size: 32px;
+}
+
+#tooltip .trials-passage .description {
+  padding-bottom: 0;
+}
+
+#tooltip .trials-passage .black > .description p:last-child {
+  color: #f2110d;
+}
+
+#tooltip .trials-passage h5 {
+  padding: 0 0 4px;
+  margin: 16px 16px 10px;
+  font-size: 14px;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+#tooltip .trials-passage .trials-nodes {
+  padding: 0 16px;
+}
+
+#tooltip .trials-passage .sockets {
+  padding: 0 0 16px;
 }

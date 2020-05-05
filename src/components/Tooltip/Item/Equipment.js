@@ -11,7 +11,7 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../
 import { statsMs } from '../../../utils/destinyItems/stats';
 import ObservedImage from '../../ObservedImage';
 
-const Equipment = props => {
+const Equipment = (props) => {
   const { itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex } = props;
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
@@ -29,8 +29,8 @@ const Equipment = props => {
   let damageTypeHash = definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes[0];
   damageTypeHash = itemComponents && itemComponents.instance ? itemComponents.instance.damageTypeHash : damageTypeHash;
 
-  const displayStats = (stats && stats.length && !stats.find(s => s.statHash === -1000)) || (stats && stats.length && stats.find(s => s.statHash === -1000 && s.value !== 0));
-  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter(s => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem).length;
+  const displayStats = (stats && stats.length && !stats.find((s) => s.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
+  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem).length;
 
   const armor2MasterworkSockets = sockets && sockets.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
 
@@ -40,7 +40,7 @@ const Equipment = props => {
       (masterwork &&
         armor2MasterworkSockets.length && {
           energyTypeHash: energyStatToType(masterwork.stats[0].hash),
-          energyCapacity: masterwork.stats[0].value
+          energyCapacity: masterwork.stats[0].value,
         }));
   const definitionEnergy = energy && energyTypeToAsset(energy.energyTypeHash);
 
@@ -112,13 +112,13 @@ const Equipment = props => {
   if (displayStats) {
     blocks.push(
       <div className='stats'>
-        {stats.map(s => {
+        {stats.map((s) => {
           // map through stats
 
           const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [s.statHash]);
 
           const moddedValue = sockets && sockets.sockets && getModdedStatValue(sockets, s);
-          const masterworkValue = (masterwork && masterwork.stats?.find(m => m.hash === s.statHash) && masterwork.stats?.find(m => m.hash === s.statHash).value) || armor2MasterworkValue || 0;
+          const masterworkValue = (masterwork && masterwork.stats?.find((m) => m.hash === s.statHash) && masterwork.stats?.find((m) => m.hash === s.statHash).value) || armor2MasterworkValue || 0;
 
           let baseBar = s.value;
 
@@ -173,9 +173,9 @@ const Equipment = props => {
           // styling for single plug sockets
           one:
             sockets.sockets
-              .filter(s => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem)
-              .map(s => s.plugOptions && s.plugOptions.filter(p => p.isEnabled))
-              .filter(s => s.length).length === 1
+              .filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem)
+              .map((s) => s.plugOptions && s.plugOptions.filter((p) => p.isEnabled))
+              .filter((s) => s.length).length === 1,
         })}
       >
         {sockets.socketCategories
@@ -183,27 +183,29 @@ const Equipment = props => {
             // map through socketCategories
 
             if (c.sockets.length) {
-              const plugs = c.sockets.filter(s => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem);
+              const plugs = c.sockets.filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem);
 
               if (plugs.length) {
                 return (
                   <div key={c.category.hash} className='category'>
-                    {plugs.map(s => {
+                    {plugs.map((s) => {
                       // filter for perks and map through sockets
 
                       return (
                         <div key={s.socketIndex} className='socket'>
                           {s.plugOptions
-                            .filter(p => p.isEnabled && p.plugItem?.hash === s.plug.plugItem?.hash)
-                            .map(p => {
+                            .filter((p) => p.isEnabled && p.plugItem?.hash === s.plug.plugItem?.hash)
+                            .map((p) => {
                               // filter for enabled plugs and map through
+
+                              const type = s.isIntrinsic ? p.plugItem.displayProperties.description : p.plugItem.itemTypeDisplayName;
 
                               return (
                                 <div key={p.plugItem.hash} className={cx('plug', { intrinsic: s.isIntrinsic, enabled: true })}>
                                   <ObservedImage className='image icon' src={`https://www.bungie.net${p.plugItem.displayProperties.icon ? p.plugItem.displayProperties.icon : `/img/misc/missing_icon_d2.png`}`} />
                                   <div className='text'>
                                     <div className='name'>{p.plugItem.displayProperties.name}</div>
-                                    <div className='type'>{stringToIcons(s.isIntrinsic ? p.plugItem.displayProperties.description : p.plugItem.itemTypeDisplayName)}</div>
+                                    {type ? <div className='type'>{stringToIcons(type)}</div> : null}
                                   </div>
                                 </div>
                               );
@@ -220,7 +222,7 @@ const Equipment = props => {
               return false;
             }
           })
-          .filter(c => c)}
+          .filter((c) => c)}
       </div>
     );
   }

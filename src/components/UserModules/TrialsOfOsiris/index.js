@@ -3,27 +3,12 @@ import { connect } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
+import * as enums from '../../../utils/destinyEnums';
 import TrialsNodes from '../../../components/UI/TrialsNodes';
 import ObservedImage from '../../../components/ObservedImage';
 import { Miscellaneous } from '../../../svg';
 
 import './styles.css';
-
-const passages = [
-  1600065451, // Passage of Mercy
-  7665310, // Passage of Ferocity
-  1181381245, // Passage of Confidence
-  2001563200, // Passage of Wisdom
-  2879309661 // Passage of Wealth
-];
-
-const perkIcons = {
-  989028955: '0912-0DF0.png',
-  1909797390: '0912-0DE1.png',
-  713209933: '0912-0DF7.png',
-  628076592: '0912-0DFE.png',
-  1551708877: '0912-0DE8.png'
-};
 
 class TrialsOfOsiris extends React.Component {
   render() {
@@ -36,7 +21,7 @@ class TrialsOfOsiris extends React.Component {
     const wins = progressions[1062449239].level;
     const losses = progressions[2093709363].level;
 
-    const passage = characterInventory?.find(item => passages.indexOf(item.itemHash) > -1);
+    const passage = characterInventory?.find((item) => enums.trialsPassages.indexOf(item.itemHash) > -1);
 
     const definitionPassage = passage && manifest.DestinyInventoryItemDefinition[passage.itemHash];
 
@@ -63,7 +48,7 @@ class TrialsOfOsiris extends React.Component {
               definitionPassage.perks.map((perk, p) => (
                 <div key={p} className='passage'>
                   <div className='icon'>
-                    <ObservedImage src={`/static/images/extracts/ui/overrides/${perkIcons[perk.perkHash]}`} />
+                    <ObservedImage src={`/static/images/extracts/ui/overrides/${enums.trialsPerkIcons[perk.perkHash]}`} />
                   </div>
                   <div className='text'>
                     <div className='name'>{manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties.name}</div>
@@ -83,7 +68,7 @@ class TrialsOfOsiris extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    member: state.member
+    member: state.member,
   };
 }
 

@@ -297,5 +297,11 @@
       "name": "Latent Memories",
       "description": "Mysterious test nodes are scattered across Mars. What is their purpose?"
     }
+  },
+  "tooltip-error": {
+    "displayProperties": {
+      "name": "Unknown Error",
+      "description": "An error occurred while rendering this tooltip.\n\nThis is probably a temporary error. Apologies."
+    }
   }
 }

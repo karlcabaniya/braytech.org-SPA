@@ -85,7 +85,7 @@ const Default = (props) => {
     blocks.push(<div className='objectives'>{objectives}</div>);
   }
 
-  // objectives?
+  // rewards?
   if (rewards.length) {
     blocks.push(
       <div className='rewards'>

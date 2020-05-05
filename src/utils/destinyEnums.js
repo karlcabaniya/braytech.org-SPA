@@ -1097,6 +1097,22 @@ export const seasonalMods = {
   },
 };
 
+export const trialsPassages = [
+  1600065451, // Passage of Mercy
+  7665310, // Passage of Ferocity
+  1181381245, // Passage of Confidence
+  2001563200, // Passage of Wisdom
+  2879309661, // Passage of Wealth
+];
+
+export const trialsPerkIcons = {
+  989028955: '0912-0DF0.png',
+  1909797390: '0912-0DE1.png',
+  713209933: '0912-0DF7.png',
+  628076592: '0912-0DFE.png',
+  1551708877: '0912-0DE8.png',
+};
+
 export const chaliceRunes = {
   slot1: ['braytech_remove_rune', 2149082453, 2149082452, 2149082455, 2149082454, 2149082449, 2149082448, 2149082451, 2149082450, 2149082461, 2149082460, 4201087756, 4201087757],
   slot2: ['braytech_remove_rune', 3216785208, 3216785209, 3216785210, 3216785211, 3216785212, 3216785213, 3216785214, 3216785215, 3216785200, 3216785201, 240617099, 240617098],

@@ -15,19 +15,19 @@ class Tooltip extends React.Component {
   state = {
     hash: false,
     table: false,
-    data: {}
+    data: {},
   };
 
   ref_tooltip = React.createRef();
 
   touchPosition = {
     x: 0,
-    y: 0
+    y: 0,
   };
 
   mousePosition = {
     x: 0,
-    y: 0
+    y: 0,
   };
 
   rAF = null;
@@ -40,7 +40,7 @@ class Tooltip extends React.Component {
     window.requestAnimationFrame(this.helper_tooltipPositionUpdate);
   };
 
-  helper_windowMouseMove = e => {
+  helper_windowMouseMove = (e) => {
     let x = 0;
     let y = 0;
     let offset = 0;
@@ -65,41 +65,41 @@ class Tooltip extends React.Component {
     if (this.state.hash) {
       this.mousePosition = {
         x,
-        y
+        y,
       };
     }
   };
 
-  helper_targetMouseEnter = e => {
+  helper_targetMouseEnter = (e) => {
     if (e.currentTarget.dataset.hash) {
       this.setState({
         hash: e.currentTarget.dataset.hash,
         table: e.currentTarget.dataset.table,
         type: e.currentTarget.dataset.type,
         data: {
-          ...e.currentTarget.dataset
-        }
+          ...e.currentTarget.dataset,
+        },
       });
       this.helper_windowMouseMove(e);
     }
   };
 
-  helper_targetMouseLeave = e => {
+  helper_targetMouseLeave = (e) => {
     window.cancelAnimationFrame(this.rAF);
 
     this.resetState();
   };
 
-  helper_targetTouchStart = e => {
+  helper_targetTouchStart = (e) => {
     this.touchPosition = {
       x: e.changedTouches[0].clientX,
-      y: e.changedTouches[0].clientY
+      y: e.changedTouches[0].clientY,
     };
   };
 
-  helper_targetTouchMove = e => {};
+  helper_targetTouchMove = (e) => {};
 
-  helper_targetTouchEnd = e => {
+  helper_targetTouchEnd = (e) => {
     const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
 
     if (!drag) {
@@ -109,23 +109,23 @@ class Tooltip extends React.Component {
           table: e.currentTarget.dataset.table,
           type: e.currentTarget.dataset.type,
           data: {
-            ...e.currentTarget.dataset
-          }
+            ...e.currentTarget.dataset,
+          },
         });
       }
     }
   };
 
-  helper_tooltipTouchStart = e => {
+  helper_tooltipTouchStart = (e) => {
     this.touchPosition = {
       x: e.changedTouches[0].clientX,
-      y: e.changedTouches[0].clientY
+      y: e.changedTouches[0].clientY,
     };
   };
 
-  helper_tooltipTouchMove = e => {};
+  helper_tooltipTouchMove = (e) => {};
 
-  helper_tooltipTouchEnd = e => {
+  helper_tooltipTouchEnd = (e) => {
     e.preventDefault();
 
     const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
@@ -139,25 +139,25 @@ class Tooltip extends React.Component {
     this.setState({
       hash: false,
       table: false,
-      data: {}
+      data: {},
     });
     this.touchPosition = {
       x: 0,
-      y: 0
+      y: 0,
     };
     this.mousePosition = {
       x: 0,
-      y: 0
+      y: 0,
     };
   };
 
-  bind_TooltipItem = reset => {
+  bind_TooltipItem = (reset) => {
     if (reset) {
       this.resetState();
     }
 
     const targets = document.querySelectorAll('.tooltip');
-    targets.forEach(target => {
+    targets.forEach((target) => {
       target.addEventListener('touchstart', this.helper_targetTouchStart);
       target.addEventListener('touchmove', this.helper_targetTouchMove);
       target.addEventListener('touchend', this.helper_targetTouchEnd);
@@ -210,7 +210,7 @@ class Tooltip extends React.Component {
       if (this.state.table === 'DestinyChecklistDefinition') Tooltip = Checklist;
       if (this.state.table === 'DestinyRecordDefinition') Tooltip = Record;
       if (this.state.type === 'maps') Tooltip = Node;
-      if (this.state.type === 'activity') Tooltip = Activity;      
+      if (this.state.type === 'activity') Tooltip = Activity;
       if (this.state.type === 'checklist') Tooltip = Checklist;
       if (this.state.type === 'record') Tooltip = Record;
       if (this.state.type === 'vendor') Tooltip = Vendor;
@@ -220,16 +220,36 @@ class Tooltip extends React.Component {
 
     return (
       <div ref={this.ref_tooltip} id='tooltip' className={cx({ visible: this.state.hash })}>
-        {this.state.hash ? <Tooltip {...this.state.data} /> : null}
+        {this.state.hash ? (
+          <TooltipErrorBoundary>
+            <Tooltip {...this.state.data} />
+          </TooltipErrorBoundary>
+        ) : null}
       </div>
     );
+  }
+}
+
+class TooltipErrorBoundary extends React.Component {
+  state = { error: false };
+
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+
+  render() {
+    if (this.state.error) {
+      return <UI hash='tooltip-error' type='braytech' />;
+    }
+
+    return this.props.children;
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    tooltips: state.tooltips
+    tooltips: state.tooltips,
   };
 }
 
