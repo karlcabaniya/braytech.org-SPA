@@ -9,8 +9,6 @@ import manifest from '../../../../utils/manifest';
 import ObservedImage from '../../../ObservedImage';
 import Records from '../../../Records';
 import Button from '../../../UI/Button';
-import { bookCovers } from '../../../../utils/destinyEnums';
-import { checklists, checkup } from '../../../../utils/checklists';
 import { cartographer } from '../../../../utils/maps';
 
 import ProposeChanges from './ProposeChanges';

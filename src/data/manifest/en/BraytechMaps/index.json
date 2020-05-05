@@ -54,6 +54,29 @@
     "destinationHash": 2779202173,
     "bubbleHash": 27792021738,
     "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_ouroborea-1.jpg",
+    "related": {
+      "records": [
+        {
+          "recordHash": 3024450470
+        },
+        {
+          "recordHash": 1842255608
+        },
+        {
+          "recordHash": 2856474352
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1084474576, 1084474577, 1084474591]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1387596463]
+        }
+      ]
+    },
     "extended": {
       "video": "https://www.youtube.com/watch?v=CxzxJlvZz8k"
     }
@@ -85,6 +108,29 @@
     "destinationHash": 2779202173,
     "bubbleHash": 27792021738,
     "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_forfeit-shrine-1.jpg",
+    "related": {
+      "records": [
+        {
+          "recordHash": 2974117611
+        },
+        {
+          "recordHash": 1842255611
+        },
+        {
+          "recordHash": 3422458392
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1034141726, 1067696996, 1067696997, 1067696998, 1084474590]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1387596460]
+        }
+      ]
+    },
     "extended": {
       "video": "https://www.youtube.com/watch?v=0MRCoHQE0OE"
     }
@@ -115,7 +161,30 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 27792021738,
-    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_shattered-ruins-1.jpg"
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_shattered-ruins-1.jpg",
+    "related": {
+      "records": [
+        {
+          "recordHash": 3024450469
+        },
+        {
+          "recordHash": 1859033176
+        },
+        {
+          "recordHash": 2858561750
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1067696992, 1067696993, 1067696999, 1067697005, 1084474583]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1370818879]
+        }
+      ]
+    }
   },
   "9": {
     "displayProperties": {
@@ -141,7 +210,30 @@
       "hash": "ascendant-challenge"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 27792021738
+    "bubbleHash": 27792021738,
+    "related": {
+      "records": [
+        {
+          "recordHash": 2974117605
+        },
+        {
+          "recordHash": 1842255614
+        },
+        {
+          "recordHash": 3578247132
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1084474578, 1084474579, 1118029876, 1118029877, 1118029882]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1387596457]
+        }
+      ]
+    }
   },
   "11": {
     "displayProperties": {
@@ -165,7 +257,30 @@
       "hash": "ascendant-challenge"
     },
     "destinationHash": 2779202173,
-    "bubbleHash": 27792021738
+    "bubbleHash": 27792021738,
+    "related": {
+      "records": [
+        {
+          "recordHash": 3024450465
+        },
+        {
+          "recordHash": 1859033177
+        },
+        {
+          "recordHash": 990661957
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1084474580, 1084474581, 1084474582]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1370818878]
+        }
+      ]
+    }
   },
   "13": {
     "displayProperties": {
@@ -191,7 +306,30 @@
     },
     "destinationHash": 2779202173,
     "bubbleHash": 27792021738,
-    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-1.jpg"
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_cimmerian-garrison-1.jpg",
+    "related": {
+      "records": [
+        {
+          "recordHash": 3024450471
+        },
+        {
+          "recordHash": 1859033173
+        },
+        {
+          "recordHash": 147323772
+        }
+      ],
+      "checklists": [
+        {
+          "checklistId": 2609997025,
+          "checklistItems": [1067696994, 1067696995, 1067697004]
+        },
+        {
+          "checklistId": 1297424116,
+          "checklistItems": [1370818866]
+        }
+      ]
+    }
   },
   "15": {
     "displayProperties": {

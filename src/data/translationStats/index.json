@@ -1,86 +1,334 @@
 {
   "de": {
-    "translated": 696,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 683,
+    "notTranslated": 3,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "debug": {
-    "translated": 696,
+    "translated": 686,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "en": {
-    "translated": 696,
+    "translated": 686,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "es-mx": {
-    "translated": 675,
-    "notTranslated": 21,
-    "added": [],
-    "removed": []
+    "translated": 683,
+    "notTranslated": 3,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "es": {
-    "translated": 675,
-    "notTranslated": 21,
-    "added": [],
-    "removed": []
+    "translated": 683,
+    "notTranslated": 3,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "fr": {
-    "translated": 647,
-    "notTranslated": 49,
-    "added": [],
-    "removed": []
+    "translated": 634,
+    "notTranslated": 52,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "it": {
-    "translated": 658,
-    "notTranslated": 38,
-    "added": [],
-    "removed": []
+    "translated": 645,
+    "notTranslated": 41,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "ja": {
-    "translated": 584,
-    "notTranslated": 112,
-    "added": [],
-    "removed": []
+    "translated": 571,
+    "notTranslated": 115,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "ko": {
-    "translated": 537,
-    "notTranslated": 159,
-    "added": [],
-    "removed": []
+    "translated": 524,
+    "notTranslated": 162,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 694,
-    "added": [],
-    "removed": []
+    "notTranslated": 684,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "pt-br": {
-    "translated": 643,
-    "notTranslated": 53,
-    "added": [],
-    "removed": []
+    "translated": 630,
+    "notTranslated": 56,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "ru": {
-    "translated": 696,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 683,
+    "notTranslated": 3,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "zh-chs": {
-    "translated": 509,
-    "notTranslated": 187,
-    "added": [],
-    "removed": []
+    "translated": 496,
+    "notTranslated": 190,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   },
   "zh-cht": {
-    "translated": 365,
-    "notTranslated": 331,
-    "added": [],
-    "removed": []
+    "translated": 352,
+    "notTranslated": 334,
+    "added": [
+      "Display name",
+      "This item has an associated map node",
+      "View Map"
+    ],
+    "removed": [
+      "Agonarch Abyss",
+      "Aphelion's Rest",
+      "Bay of Drowned Wishes",
+      "Chamber of Starlight",
+      "Cimmerian Garrison",
+      "Forfeit Shrine",
+      "Gardens of Esila",
+      "Harbinger's Seclude",
+      "Keep of Honed Edges",
+      "Ouroborea",
+      "Shattered Ruins",
+      "Source",
+      "Spine of Keres"
+    ]
   }
 }
