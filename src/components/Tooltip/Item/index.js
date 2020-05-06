@@ -42,7 +42,7 @@ class Item extends React.Component {
     const definitionItem = manifest.DestinyInventoryItemDefinition[this.props.hash];
 
     const item = {
-      itemHash: definitionItem?.hash || this.props.hash,
+      itemHash: definitionItem?.hash || +this.props.hash,
       itemInstanceId: this.props.instanceid,
       itemComponents: null,
       quantity: +this.props.quantity || 1,

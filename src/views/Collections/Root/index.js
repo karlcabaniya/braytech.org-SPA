@@ -75,7 +75,7 @@ class Root extends React.Component {
       nodes.push(
         <div key={definitionNode.hash} className={cx('node', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
           <div className='images'>
-            <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionNode.originalIcon}`} />
+            <ObservedImage className='image icon' src={`https://www.bungie.net${definitionNode.originalIcon}`} />
           </div>
           <div className='text'>
             <div>{definitionNode.displayProperties.name}</div>

@@ -98,42 +98,43 @@ class Collectibles extends React.Component {
       const tertiaryDefinition = manifest.DestinyPresentationNodeDefinition[this.props.node];
 
       if (tertiaryDefinition.children.presentationNodes.length > 0) {
-        tertiaryDefinition.children.presentationNodes.forEach((node) => {
+        tertiaryDefinition.children.presentationNodes.forEach((node, n) => {
           const definitionNode = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
 
-          let row = [];
-          let rowState = [];
+          const set = [];
 
-          definitionNode.children.collectibles.forEach((child) => {
-            const definitionCollectible = manifest.DestinyCollectibleDefinition[child.collectibleHash];
+          definitionNode.children.collectibles.forEach((collectible, c) => {
+            const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-            const scope = profileCollectibles.collectibles[child.collectibleHash] ? profileCollectibles.collectibles[child.collectibleHash] : characterCollectibles[characterId].collectibles[child.collectibleHash];
+            const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[characterId].collectibles[collectible.collectibleHash];
             const state = scope?.state || 0;
 
-            rowState.push(state);
+            if (
+              (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
+              (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+            ) {
+              set.push({
+                hash: definitionCollectible.hash,
+                state,
+              });
 
-            if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
-              return;
-            }
-
-            if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
               return;
             }
 
             if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
-              row.push({
-                discovered: !enumerateCollectibleState(state).notAcquired,
+              set.push({
                 hash: definitionCollectible.hash,
+                state,
                 element: (
                   <li
                     key={definitionCollectible.hash}
                     className={cx('redacted', 'tooltip', {
-                      highlight: highlight  === definitionCollectible.hash,
+                      highlight: highlight === definitionCollectible.hash,
                     })}
                     data-hash='343'
                   >
                     <div className='icon'>
-                      <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                      <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                     </div>
                     <div className='text'>
                       <div className='name'>{t('Classified')}</div>
@@ -143,20 +144,20 @@ class Collectibles extends React.Component {
                 ),
               });
             } else {
-              row.push({
-                discovered: !enumerateCollectibleState(state).notAcquired,
+              set.push({
                 hash: definitionCollectible.hash,
+                state,
                 element: (
                   <li
-                    key={definitionCollectible.hash}
+                    key={c}
                     className={cx('item', 'tooltip', {
                       completed: !enumerateCollectibleState(state).notAcquired && !enumerateCollectibleState(state).invisible,
-                      highlight: highlight  === definitionCollectible.hash,
+                      highlight: highlight === definitionCollectible.hash,
                     })}
                     data-hash={definitionCollectible.itemHash}
                   >
                     <div className='icon'>
-                      <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                      <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                     </div>
                     <div className='text'>
                       <div className='name'>{definitionCollectible.displayProperties.name}</div>
@@ -169,49 +170,44 @@ class Collectibles extends React.Component {
             }
           });
 
-          row = row.filter((c) => c).map((obj) => obj.element);
-
-          if (row.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
-            row.push(
-              <li key='lol' className='all-completed'>
-                <div className='properties'>
-                  <div className='text'>{t('All discovered')}</div>
-                </div>
-              </li>
-            );
-          }
-
           const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.ref_scrollTo : null;
+
+          if (collectibles.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).invisible).length === set.length) {
+            return;
+          }
 
           collectiblesOutput.push(
             <li
-              key={definitionNode.hash}
+              key={n}
               ref={ref}
               className={cx('is-set', {
-                completed: rowState.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length === rowState.length,
+                completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).notAcquired).length === set.length,
               })}
             >
               <div className='text'>
                 <div className='name'>{definitionNode.displayProperties.name}</div>
               </div>
               <div className='set'>
-                <ul className='list collection-items'>{row}</ul>
+                {set.filter((collectible) => collectible.element).length ? ( // collectibles avaiable to display
+                  <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
+                ) : collectibles.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).notAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
+                  <div className='info'>{t('All acquired')}</div>
+                ) : <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).invisible).length })}</div>}
               </div>
             </li>
           );
         });
       } else {
-        tertiaryDefinition.children.collectibles.forEach((child) => {
-          const definitionCollectible = manifest.DestinyCollectibleDefinition[child.collectibleHash];
+        tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
+          const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const scope = profileCollectibles?.collectibles[child.collectibleHash] ? profileCollectibles.collectibles[child.collectibleHash] : characterCollectibles?.[characterId].collectibles[child.collectibleHash];
+          const scope = profileCollectibles?.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles?.[characterId].collectibles[collectible.collectibleHash];
           const state = scope?.state || 0;
 
-          if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
-            return;
-          }
-
-          if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
+          if (
+            (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
+            (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+          ) {
             return;
           }
 
@@ -219,19 +215,18 @@ class Collectibles extends React.Component {
 
           if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
             collectiblesOutput.push({
-              discovered: !enumerateCollectibleState(state).notAcquired,
               hash: definitionCollectible.hash,
               element: (
                 <li
-                  key={definitionCollectible.hash}
+                  key={c}
                   ref={ref}
                   className={cx('redacted', 'tooltip', {
-                    highlight: highlight  === definitionCollectible.hash,
+                    highlight: highlight === definitionCollectible.hash,
                   })}
                   data-hash='343'
                 >
                   <div className='icon'>
-                    <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                   </div>
                   <div className='text'>
                     <div className='name'>{t('Classified')}</div>
@@ -245,20 +240,19 @@ class Collectibles extends React.Component {
             const energyAsset = definitionItem?.investmentStats?.[0]?.statTypeHash && energyTypeToAsset(energyStatToType(definitionItem.investmentStats[0].statTypeHash));
 
             collectiblesOutput.push({
-              discovered: !enumerateCollectibleState(state).notAcquired,
               hash: definitionCollectible.hash,
               element: (
                 <li
-                  key={definitionCollectible.hash}
+                  key={c}
                   ref={ref}
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).notAcquired,
-                    highlight: highlight  === definitionCollectible.hash,
+                    highlight: highlight === definitionCollectible.hash,
                   })}
                   data-hash={definitionCollectible.itemHash}
                 >
                   <div className='icon'>
-                    <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                   </div>
                   <div className='text'>
                     <div className='name'>{definitionCollectible.displayProperties.name}</div>
@@ -274,9 +268,9 @@ class Collectibles extends React.Component {
         if (collectiblesOutput.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
           collectiblesOutput.push({
             element: (
-              <li key='lol' className='all-completed'>
+              <li key='0' className='all-completed'>
                 <div className='properties'>
-                  <div className='text'>{t('All discovered')}</div>
+                  <div className='text'>{t('All acquired')}</div>
                 </div>
               </li>
             ),
@@ -294,11 +288,10 @@ class Collectibles extends React.Component {
         const scope = profileCollectibles?.collectibles[hash] ? profileCollectibles.collectibles[hash] : characterCollectibles?.[characterId].collectibles[hash];
         const state = scope?.state || 0;
 
-        if (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) {
-          return;
-        }
-
-        if (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) {
+        if (
+          (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
+          (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+        ) {
           return;
         }
 
@@ -308,7 +301,6 @@ class Collectibles extends React.Component {
         const link = selfLinkCollectible(definitionCollectible.hash);
 
         collectiblesOutput.push({
-          discovered: !enumerateCollectibleState(state).notAcquired,
           hash: definitionCollectible.hash,
           element: (
             <li
@@ -321,7 +313,7 @@ class Collectibles extends React.Component {
               data-hash={definitionCollectible.itemHash}
             >
               <div className='icon'>
-                <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
+                <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
               </div>
               <div className='text'>
                 <div className='name'>{definitionCollectible.displayProperties.name}</div>
@@ -337,9 +329,9 @@ class Collectibles extends React.Component {
       if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
         collectiblesOutput.push({
           element: (
-            <li key='lol' className='all-completed'>
+            <li key='0' className='all-completed'>
               <div className='properties'>
-                <div className='text'>{t('All discovered')}</div>
+                <div className='text'>{t('All acquired')}</div>
               </div>
             </li>
           ),

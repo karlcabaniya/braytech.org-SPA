@@ -10,7 +10,6 @@ import ObservedImage from '../../../components/ObservedImage';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 
 import Collectibles from '../../../components/Collectibles';
-import PlugSet from '../../../components/PlugSet';
 
 class PresentationNode extends React.Component {
   render() {
@@ -18,29 +17,31 @@ class PresentationNode extends React.Component {
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
     const characters = member.data.profile.characters.data;
-    const character = characters.find(c => c.characterId === member.characterId);
+    const character = characters.find((c) => c.characterId === member.characterId);
 
     const classNodes = {
       0: [811225638, 2598675734],
       1: [3745240322, 2765771634],
-      2: [1269917845, 1573256543]
+      2: [1269917845, 1573256543],
     };
 
-    let primaryHash = this.props.primaryHash;
-    let definitionPrimary = manifest.DestinyPresentationNodeDefinition[primaryHash];
+    const primaryHash = this.props.primaryHash;
+    const definitionPrimary = manifest.DestinyPresentationNodeDefinition[primaryHash];
 
-    let secondaryHash = this.props.match.params.secondary || false;
-    let secondaryChildNodeFind = definitionPrimary.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
+    let secondaryHash = this.props.match.params.secondary;
+    const secondaryChildNodeFind = definitionPrimary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash));
+
     if (!secondaryHash && secondaryChildNodeFind) {
       secondaryHash = secondaryChildNodeFind.presentationNodeHash;
     } else if (!secondaryHash) {
       secondaryHash = definitionPrimary.children.presentationNodes[0].presentationNodeHash;
     }
 
-    let definitionSecondary = manifest.DestinyPresentationNodeDefinition[secondaryHash];
+    const definitionSecondary = manifest.DestinyPresentationNodeDefinition[secondaryHash];
 
-    let tertiaryHash = this.props.match.params.tertiary || false;
-    const tertiaryChildNodeFind = definitionSecondary.children.presentationNodes.find(child => classNodes[character.classType].includes(child.presentationNodeHash));
+    let tertiaryHash = this.props.match.params.tertiary;
+    const tertiaryChildNodeFind = definitionSecondary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash));
+
     if (!tertiaryHash && tertiaryChildNodeFind) {
       tertiaryHash = tertiaryChildNodeFind.presentationNodeHash;
     } else if (!tertiaryHash) {
@@ -51,11 +52,11 @@ class PresentationNode extends React.Component {
 
     const quaternaryHash = this.props.match.params.quaternary ? this.props.match.params.quaternary : false;
 
-    const primaryChildren = definitionPrimary.children.presentationNodes.map(child => {
-      const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
+    const primaryChildren = definitionPrimary.children.presentationNodes.map((node, n) => {
+      const definitionNode = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
 
       const isActive = (match, location) => {
-        if (definitionSecondary.hash === child.presentationNodeHash) {
+        if (definitionSecondary.hash === node.presentationNodeHash) {
           return true;
         } else {
           return false;
@@ -63,7 +64,7 @@ class PresentationNode extends React.Component {
       };
 
       return (
-        <li key={definitionNode.hash} className='linked'>
+        <li key={n} className='linked'>
           <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${definitionNode.hash}`}>
             <ObservedImage className={cx('image', 'icon')} src={`${!definitionNode.displayProperties.localIcon ? 'https://www.bungie.net' : ''}${definitionNode.displayProperties.icon}`} />
           </ProfileNavLink>
@@ -71,85 +72,80 @@ class PresentationNode extends React.Component {
       );
     });
 
-    const secondaryChildren = definitionSecondary.children.presentationNodes.filter(child => !manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].redacted).map(child => {
-      const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
+    const secondaryChildren = definitionSecondary.children.presentationNodes
+      .filter((child) => !manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash].redacted)
+      .map((child) => {
+        const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
-      const states = [];
+        const states = [];
 
-      // armour sets
-      if (definitionNode.children.collectibles.length === 0 && definitionNode.children.presentationNodes.length) {
-        definitionNode.children.presentationNodes.forEach(n => {
-          const definitionArmourNode = manifest.DestinyPresentationNodeDefinition[n.presentationNodeHash];
-  
+        // armour sets
+        if (definitionNode.children.collectibles.length === 0 && definitionNode.children.presentationNodes.length) {
+          definitionNode.children.presentationNodes.forEach((n) => {
+            const definitionArmourNode = manifest.DestinyPresentationNodeDefinition[n.presentationNodeHash];
+
+            let state = 0;
+            definitionArmourNode.children.collectibles.forEach((c) => {
+              const definitionCollectible = manifest.DestinyCollectibleDefinition[c.collectibleHash];
+
+              let scope = profileCollectibles.collectibles[definitionCollectible.hash] ? profileCollectibles.collectibles[definitionCollectible.hash] : characterCollectibles[member.characterId].collectibles[definitionCollectible.hash];
+              if (scope) {
+                state = scope.state;
+              }
+
+              states.push(state);
+            });
+          });
+        } else {
           let state = 0;
-          definitionArmourNode.children.collectibles.forEach(c => {
+          definitionNode.children.collectibles.forEach((c) => {
             const definitionCollectible = manifest.DestinyCollectibleDefinition[c.collectibleHash];
-    
+
             let scope = profileCollectibles.collectibles[definitionCollectible.hash] ? profileCollectibles.collectibles[definitionCollectible.hash] : characterCollectibles[member.characterId].collectibles[definitionCollectible.hash];
             if (scope) {
               state = scope.state;
             }
-    
+
             states.push(state);
           });
-        });
-      } else {
-        let state = 0;
-        definitionNode.children.collectibles.forEach(c => {
-          const definitionCollectible = manifest.DestinyCollectibleDefinition[c.collectibleHash];
-  
-          let scope = profileCollectibles.collectibles[definitionCollectible.hash] ? profileCollectibles.collectibles[definitionCollectible.hash] : characterCollectibles[member.characterId].collectibles[definitionCollectible.hash];
-          if (scope) {
-            state = scope.state;
-          }
-  
-          states.push(state);
-        });
-      }
-
-      const isActive = (match, location) => {
-        if (definitionTertiary.hash === child.presentationNodeHash) {
-          return true;
-        } else {
-          return false;
         }
-      };
 
-      let secondaryProgress = states.filter(state => !enums.enumerateCollectibleState(state).notAcquired).length;
-      let secondaryTotal = collectibles && collectibles.hideInvisibleCollectibles ? states.filter(state => !enums.enumerateCollectibleState(state).invisible).length : states.length;
+        const isActive = (match, location) => {
+          if (definitionTertiary.hash === child.presentationNodeHash) {
+            return true;
+          } else {
+            return false;
+          }
+        };
 
-      let hashSet = definitionNode.hash;
-      if (/^emotes_/.test(hashSet)) hashSet = '3224618006';
+        const secondaryProgress = states.filter((state) => !enums.enumerateCollectibleState(state).notAcquired).length;
+        const secondaryTotal = collectibles && collectibles.hideInvisibleCollectibles ? states.filter((state) => !enums.enumerateCollectibleState(state).invisible).length : states.length;
 
-      if (definitionNode.children.plugs && definitionNode.children.plugs.length && member.data.profile.profilePlugSets && member.data.profile.profilePlugSets.data && member.data.profile.profilePlugSets.data.plugs[hashSet]) {
-        secondaryProgress = definitionNode.children.plugs.filter(h => member.data.profile.profilePlugSets.data.plugs[hashSet].find(p => p.plugItemHash === h)).length;
-        secondaryTotal = definitionNode.children.plugs.length;
-      }
-
-      return (
-        <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>
-          <div className='text'>
-            <div className='name'>{definitionNode.displayProperties.name}</div>
-            <div className='progress'>
-              <span>{secondaryProgress}</span> / {secondaryTotal}
+        return (
+          <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>
+            <div className='text'>
+              <div className='name'>{definitionNode.displayProperties.name}</div>
+              <div className='progress'>
+                <span>{secondaryProgress}</span> / {secondaryTotal}
+              </div>
             </div>
-          </div>
-          <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${secondaryHash}/${definitionNode.hash}`} />
-        </li>
-      );
-    });
+            <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${secondaryHash}/${definitionNode.hash}`} />
+          </li>
+        );
+      });
 
     return (
       <div className='node'>
         <div className='header'>
           <div className='name'>
-            {definitionPrimary.displayProperties.name}{definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
+            {definitionPrimary.displayProperties.name}
+            {definitionPrimary.children.presentationNodes.length > 1 ? <span>{definitionSecondary.displayProperties.name}</span> : null}
           </div>
         </div>
         <div className='children'>
           <ul
             className={cx('list', 'primary', {
-              'single-primary': definitionPrimary.children.presentationNodes.length === 1
+              'single-primary': definitionPrimary.children.presentationNodes.length === 1,
             })}
           >
             {primaryChildren}
@@ -157,15 +153,9 @@ class PresentationNode extends React.Component {
           <ul className='list secondary'>{secondaryChildren}</ul>
         </div>
         <div className='collectibles'>
-          {definitionTertiary.children.plugs && definitionTertiary.children.plugs.length ? (
-            <ul className={cx('list', 'tertiary', 'collection-items')}>
-              <PlugSet set={definitionTertiary.hash} plugs={definitionTertiary.children.plugs} />
-            </ul>
-          ) : (
-            <ul className={cx('list', 'tertiary', 'collection-items', { sets: primaryHash === '1605042242' })}>
-              <Collectibles node={definitionTertiary.hash} highlight={quaternaryHash} inspect selfLinkFrom={this.props.location.pathname} />
-            </ul>
-          )}
+          <ul className={cx('list', 'tertiary', 'collection-items', { sets: primaryHash === '1605042242' })}>
+            <Collectibles node={definitionTertiary.hash} highlight={quaternaryHash} inspect selfLinkFrom={this.props.location.pathname} />
+          </ul>
         </div>
       </div>
     );
@@ -175,13 +165,8 @@ class PresentationNode extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
-export default compose(
-  withRouter,
-  connect(
-    mapStateToProps
-  )
-)(PresentationNode);
+export default compose(withRouter, connect(mapStateToProps))(PresentationNode);
