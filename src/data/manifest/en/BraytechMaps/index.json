@@ -44,7 +44,7 @@
   "4": {
     "displayProperties": {
       "name": "Ouroborea",
-      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nDestroy all blights then return to the foyer to shatter the previously-immune Void crystals."
+      "description": "Destroy all blights then return to the foyer to shatter the previously-immune Void crystals.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -98,7 +98,7 @@
   "6": {
     "displayProperties": {
       "name": "Forfeit Shrine",
-      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nSubdue the major blight by depositing all three charges beneath. Eliminate the Hive Knights."
+      "description": "Subdue the major blight by depositing all three charges beneath. Eliminate the Hive Knights.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -152,7 +152,7 @@
   "8": {
     "displayProperties": {
       "name": "Shattered Ruins",
-      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nClimb the ruins and eliminate the Taken Phalanx."
+      "description": "Climb the ruins and eliminate the Taken Phalanx.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -202,7 +202,8 @@
   },
   "10": {
     "displayProperties": {
-      "name": "Keep of Honed Edges"
+      "name": "Keep of Honed Edges",
+      "description": "Eliminate the Hive Wizards, raise a sword, and defeat the Hive Knights.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -233,6 +234,10 @@
           "checklistItems": [1387596457]
         }
       ]
+    },
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_keep-of-honed-edges-1.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=vV6oWIgSsgU"
     }
   },
   "11": {
@@ -245,7 +250,9 @@
       "name": "Portal",
       "hash": "portal"
     },
-    "destinationHash": 2779202173
+    "destinationHash": 2779202173,
+    "bubbleHash": 1091325847,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_keep-of-honed-edges-2.jpg"
   },
   "12": {
     "displayProperties": {
@@ -297,7 +304,7 @@
   "14": {
     "displayProperties": {
       "name": "Cimmerian Garrison",
-      "description": "_Accept this challenge, walk between worlds, and undo what has been done._\n\nThis challenge culminates in a fight between the Guardian, a Hive Knight, and three Hive Shriekers, on a spacious platform with various cover from enemy fire."
+      "description": "This challenge culminates in a fight between the Guardian, a Hive Knight, and three Hive Shriekers, on a spacious platform with various cover from enemy fire.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {

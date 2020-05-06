@@ -15,7 +15,7 @@ class DreamingCityAscendantChallenge extends React.Component {
           <div>{t('Ascendant Challenge')}</div>
         </div>
         <h3>{definitionNode.displayProperties.name}</h3>
-        <BungieText className='text consistent' source={definitionNode.displayProperties.description} />
+        <BungieText className='text' source={definitionNode.displayProperties.description} />
         <h4>{t('Triumphs')}</h4>
         <ul className='list record-items'>
           <Records selfLinkFrom='/this-week' hashes={definitionNode.related.records.map((record) => record.recordHash)} ordered showInvisible />

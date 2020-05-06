@@ -11,8 +11,8 @@ const TrialsPassage = (props) => {
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
-  const wins = itemComponents.objectives?.find((o) => o.completionValue === 7)?.progress;
-  const losses = itemComponents.objectives?.find((o) => o.completionValue === 3)?.progress;
+  const wins = itemComponents?.objectives?.find((o) => o.completionValue === 7)?.progress;
+  const losses = itemComponents?.objectives?.find((o) => o.completionValue === 3)?.progress;
 
   return (
     <>
@@ -22,22 +22,20 @@ const TrialsPassage = (props) => {
       <h5>{t('Losses')}</h5>
       <TrialsNodes value={losses} losses />
       <div className='sockets perks one'>
-        {definitionItem.perks
-          .map((perk, p) => {
-            const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];
+        {definitionItem.perks.map((perk, p) => {
+          const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];
 
-            return (
-              <div key={p} className='socket'>
-                <div className='plug enabled'>
-                  <ObservedImage className='image icon' src={`/static/images/extracts/ui/overrides/${enums.trialsPerkIcons[perk.perkHash]}`} />
-                  <div className='text'>
-                    <BungieText className='description' value={definitionPerk.displayProperties?.description} />
-                  </div>
+          return (
+            <div key={p} className='socket'>
+              <div className='plug enabled'>
+                <ObservedImage className='image icon' src={`/static/images/extracts/ui/overrides/${enums.trialsPerkIcons[perk.perkHash]}`} />
+                <div className='text'>
+                  <BungieText className='description' value={definitionPerk.displayProperties?.description} />
                 </div>
               </div>
-            );
-          })
-          .filter((c) => c)}
+            </div>
+          );
+        })}
       </div>
     </>
   );

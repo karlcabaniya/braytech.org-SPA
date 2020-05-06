@@ -1983,6 +1983,12 @@
               "nodeHash": 1,
               "x": 505,
               "y": 829
+            },
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 10,
+              "x": -809,
+              "y": -136
             }
           ]
         },
