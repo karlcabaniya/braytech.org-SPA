@@ -13,14 +13,14 @@ export const stamps = [
     primary: true,
     icon: 'veteran',
     classNames: 'opacity-60 patron veteran',
-    condition: membershipId => manifest.statistics.patrons.alpha.indexOf(membershipId) > -1
+    condition: membershipId => manifest.statistics.patrons?.alpha.indexOf(membershipId) > -1
   },
   {
     hash: 'patron',
     primary: true,
     icon: 'braytech',
     classNames: 'opacity-60 patron',
-    condition: membershipId => manifest.statistics.patrons.beta.indexOf(membershipId) > -1
+    condition: membershipId => manifest.statistics.patrons?.beta.indexOf(membershipId) > -1
   }
 ];
 

@@ -13,17 +13,17 @@ import './styles.css';
 
 class Index extends React.Component {
   state = {
-    log: 0
-  }
+    log: 0,
+  };
 
   logs = [...captainsLog].reverse();
 
-  supporters = manifest.statistics?.patrons && this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter(m => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
+  supporters = manifest.statistics?.patrons && this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter((m) => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
 
   componentDidMount() {
     this.mounted = true;
-    
-    window.scrollTo(0, 0);    
+
+    window.scrollTo(0, 0);
   }
 
   componentWillUnmount() {
@@ -35,13 +35,13 @@ class Index extends React.Component {
       temporaryValue,
       randomIndex;
 
-    // While there remain elements to shuffle...
+    // while there remain elements to shuffle...
     while (0 !== currentIndex) {
-      // Pick a remaining element...
+      // pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
 
-      // And swap it with the current element.
+      // and swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -50,23 +50,23 @@ class Index extends React.Component {
     return array;
   }
 
-  handler_onClickPrevious = e => {
+  handler_onClickPrevious = (e) => {
     if (this.state.log + 1 === this.logs.length) {
       return;
     }
 
-    this.setState(p => ({
-      log: p.log + 1
+    this.setState((p) => ({
+      log: p.log + 1,
     }));
   };
 
-  handler_onClickNext = e => {
+  handler_onClickNext = (e) => {
     if (this.state.log === 0) {
       return;
     }
-    
-    this.setState(p => ({
-      log: p.log - 1
+
+    this.setState((p) => ({
+      log: p.log - 1,
     }));
   };
 
@@ -76,61 +76,59 @@ class Index extends React.Component {
         name: t('Clan'),
         desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
         slug: '/clan',
-        icon: Views.Index.Clan
+        icon: Views.Index.Clan,
       },
       {
         name: t('Collections'),
         desc: t('Items your Guardian has acquired over their lifetime'),
         slug: '/collections',
-        icon: Views.Index.Collections
+        icon: Views.Index.Collections,
       },
       {
         name: t('Triumphs'),
         desc: t('Records your Guardian has achieved through their trials'),
         slug: '/triumphs',
-        icon: Views.Index.Triumphs
+        icon: Views.Index.Triumphs,
       },
       {
         name: t('Checklists'),
         desc: t('Ghost scans and item checklists spanning the Sol system'),
         slug: '/checklists',
-        icon: Views.Index.Checklists
+        icon: Views.Index.Checklists,
       },
       {
         name: t('Maps'),
         desc: t('Interactive maps charting checklists and other notable destinations'),
         slug: '/maps',
-        icon: Views.Index.Maps
+        icon: Views.Index.Maps,
       },
       {
         name: t('This Week'),
         desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
         slug: '/this-week',
-        icon: Views.Index.ThisWeek
+        icon: Views.Index.ThisWeek,
       },
       {
         name: t('Quests'),
         desc: t('Track your pursuits, including quests and bounties'),
         slug: '/quests',
-        icon: Views.Index.Quests
+        icon: Views.Index.Quests,
       },
       {
         name: t('Reports'),
         desc: t('Explore and filter your Post Game Carnage Reports in detail'),
         slug: '/reports',
-        icon: Views.Index.Reports
-      }
+        icon: Views.Index.Reports,
+      },
     ];
-    
+
     return (
       <div className='view' id='index'>
         <div className='row header'>
           <div className='wrapper'>
             <div className='large-text'>
               <div className='name'>Braytech</div>
-              <div className='description'>
-                {t("Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud.")}
-              </div>
+              <div className='description'>{t("Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud.")}</div>
               <Link className='button cta' to='/now'>
                 <div className='text'>{t('Select your character')}</div>
                 <i className='segoe-uniE0AB' />
@@ -209,7 +207,9 @@ class Index extends React.Component {
               </a>
             </div>
             <div className='module tags'>
-              {this.supporters?.map((membershipId, m) => <MemberLink key={m} id={membershipId} hideFlair />)}
+              {this.supporters?.map((membershipId, m) => (
+                <MemberLink key={m} id={membershipId} hideFlair />
+              ))}
             </div>
           </div>
         </div>
