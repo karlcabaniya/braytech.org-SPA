@@ -11,42 +11,42 @@ import { ProfileNavLink } from '../../../components/ProfileLink';
 
 import Collectibles from '../../../components/Collectibles';
 
+const classNodes = {
+  0: [811225638, 2598675734],
+  1: [3745240322, 2765771634],
+  2: [1269917845, 1573256543],
+};
+
 class PresentationNode extends React.Component {
   render() {
     const { member, collectibles } = this.props;
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
     const characters = member.data.profile.characters.data;
-    const character = characters.find((c) => c.characterId === member.characterId);
+    const character = characters.find((character) => character.characterId === member.characterId);
 
-    const classNodes = {
-      0: [811225638, 2598675734],
-      1: [3745240322, 2765771634],
-      2: [1269917845, 1573256543],
-    };
+    const primaryHash = this.props.match.params.primary;
+    const definitionPrimary = manifest.DestinyPresentationNodeDefinition[primaryHash] || manifest.DestinyPresentationNodeDefinition[1068557105]; // defaults to exotics
 
-    const primaryHash = this.props.primaryHash;
-    const definitionPrimary = manifest.DestinyPresentationNodeDefinition[primaryHash];
-
-    let secondaryHash = this.props.match.params.secondary;
-    const secondaryChildNodeFind = definitionPrimary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash));
-
-    if (!secondaryHash && secondaryChildNodeFind) {
-      secondaryHash = secondaryChildNodeFind.presentationNodeHash;
-    } else if (!secondaryHash) {
-      secondaryHash = definitionPrimary.children.presentationNodes[0].presentationNodeHash;
-    }
+    const secondaryHash =
+      !this.props.match.params.secondary && definitionPrimary?.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash))
+        ? // no node specified but found a class-specific node to default to
+          definitionPrimary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash)).presentationNodeHash
+        : !this.props.match.params.secondary || !manifest.DestinyPresentationNodeDefinition[this.props.match.params.secondary]
+        ? // default to first node is no hash or can't find hash
+          definitionPrimary?.children.presentationNodes[0].presentationNodeHash
+        : this.props.match.params.secondary;
 
     const definitionSecondary = manifest.DestinyPresentationNodeDefinition[secondaryHash];
 
-    let tertiaryHash = this.props.match.params.tertiary;
-    const tertiaryChildNodeFind = definitionSecondary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash));
-
-    if (!tertiaryHash && tertiaryChildNodeFind) {
-      tertiaryHash = tertiaryChildNodeFind.presentationNodeHash;
-    } else if (!tertiaryHash) {
-      tertiaryHash = definitionSecondary.children.presentationNodes[0].presentationNodeHash;
-    }
+    const tertiaryHash =
+      !this.props.match.params.tertiary && definitionSecondary?.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash))
+        ? // no node specified but found a class-specific node to default to
+          definitionSecondary.children.presentationNodes.find((child) => classNodes[character.classType].includes(child.presentationNodeHash)).presentationNodeHash
+        : !this.props.match.params.tertiary || !manifest.DestinyPresentationNodeDefinition[this.props.match.params.tertiary]
+        ? // default to first node is no hash or can't find hash
+          definitionSecondary?.children.presentationNodes[0].presentationNodeHash
+        : this.props.match.params.tertiary;
 
     const definitionTertiary = manifest.DestinyPresentationNodeDefinition[tertiaryHash];
 
@@ -66,7 +66,7 @@ class PresentationNode extends React.Component {
       return (
         <li key={n} className='linked'>
           <ProfileNavLink isActive={isActive} to={`/collections/${primaryHash}/${definitionNode.hash}`}>
-            <ObservedImage className={cx('image', 'icon')} src={`${!definitionNode.displayProperties.localIcon ? 'https://www.bungie.net' : ''}${definitionNode.displayProperties.icon}`} />
+            <ObservedImage className='image icon' src={`${!definitionNode.displayProperties.localIcon ? 'https://www.bungie.net' : ''}${definitionNode.displayProperties.icon}`} />
           </ProfileNavLink>
         </li>
       );
