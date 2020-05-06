@@ -124,12 +124,14 @@ export function getRewardsQuestLine(definition, classType) {
     definition.value?.itemValue.filter(
       (value) =>
         value.itemHash !== 0 && // ...
-        // try and filter for class items
-        ((manifest.DestinyInventoryItemDefinition[value.itemHash].classType < 3 && manifest.DestinyInventoryItemDefinition[value.itemHash].classType === classType) ||
-          // send class items
-          manifest.DestinyInventoryItemDefinition[value.itemHash].classType > 2 ||
-          // and everything else
-          manifest.DestinyInventoryItemDefinition[value.itemHash].classType === undefined)
+        // try and filter for class items if class type is provided
+        (classType
+          ? (manifest.DestinyInventoryItemDefinition[value.itemHash].classType < 3 && manifest.DestinyInventoryItemDefinition[value.itemHash].classType === classType) ||
+            // send class items
+            manifest.DestinyInventoryItemDefinition[value.itemHash].classType > 2 ||
+            // and everything else
+            manifest.DestinyInventoryItemDefinition[value.itemHash].classType === undefined
+          : true)
     ) || [];
 
   if (rewardsQuestLineOverrides[definition.hash]) rewards = rewardsQuestLineOverrides[definition.hash];
@@ -258,7 +260,9 @@ class QuestLine extends React.Component {
                             <div className='name'>{step.definitionStep.displayProperties.name}</div>
                           </div>
                           {descriptionStep ? <BungieText className='description' value={descriptionStep} /> : null}
-                          {step.definitionStep.objectives?.objectiveHashes && !(step.definitionStep.objectives.objectiveHashes.length === 1 && step.definitionStep.objectives.objectiveHashes.filter((hash) => manifest.DestinyObjectiveDefinition[hash].progressDescription !== '').length < 1) ? (
+                          {step.definitionStep.objectives?.objectiveHashes &&
+                          // no need to show objectives if there's only 1, it has no progressDescription, and a completionValue of 1
+                          !(step.definitionStep.objectives.objectiveHashes.length === 1 && step.definitionStep.objectives.objectiveHashes.filter((hash) => manifest.DestinyObjectiveDefinition[hash].progressDescription === '' && manifest.DestinyObjectiveDefinition[hash].completionValue === 1).length) ? (
                             <div className='objectives'>
                               {step.definitionStep.objectives.objectiveHashes.map((hash, h) => {
                                 const definitionObjective = manifest.DestinyObjectiveDefinition[hash];

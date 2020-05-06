@@ -8,8 +8,8 @@ import { getRewardsQuestLine } from '../../QuestLine';
 
 const Default = (props) => {
   const { itemHash, itemComponents, quantity, vendorHash, vendorItemIndex } = props;
-  const characters = props.data.profile.characters.data;
-  const character = characters.find((character) => character.characterId === props.characterId);
+  const characters = props.data.profile?.characters.data;
+  const character = characters?.find((character) => character.characterId === props.characterId);
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
@@ -45,7 +45,7 @@ const Default = (props) => {
 
   // potential rewards
   const rewards =
-    getRewardsQuestLine(manifest.DestinyInventoryItemDefinition[definitionItem.objectives?.questlineItemHash] || definitionItem, character.classType).map((value, v) => {
+    getRewardsQuestLine(manifest.DestinyInventoryItemDefinition[definitionItem.objectives?.questlineItemHash] || definitionItem, character?.classType).map((value, v) => {
       const definitionReward = manifest.DestinyInventoryItemDefinition[value.itemHash];
 
       return (
