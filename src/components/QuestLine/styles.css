@@ -148,6 +148,18 @@
   margin-bottom: 0;
 }
 
+.quest-line .steps .step .objectives .progress-bar.complete {
+  opacity: 0.8;
+}
+
+.quest-line .steps .step .objectives .progress-bar.complete .bar {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.quest-line .steps .step .objectives .progress-bar.complete .bar .fill {
+  background-color: rgba(90, 163, 102, 0);
+}
+
 @media screen and (max-width: 1500px) {
   .quest-line .sources {
     grid-template-columns: 1fr;

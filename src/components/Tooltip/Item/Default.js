@@ -8,6 +8,8 @@ import { getRewardsQuestLine } from '../../QuestLine';
 
 const Default = (props) => {
   const { itemHash, itemComponents, quantity, vendorHash, vendorItemIndex } = props;
+  const characters = props.data.profile.characters.data;
+  const character = characters.find((character) => character.characterId === props.characterId);
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
@@ -43,21 +45,19 @@ const Default = (props) => {
 
   // potential rewards
   const rewards =
-    (getRewardsQuestLine(manifest.DestinyInventoryItemDefinition[definitionItem.objectives?.questlineItemHash] || definitionItem) || definitionItem.value?.itemValue)
-      .filter((value) => value.itemHash !== 0)
-      .map((value, v) => {
-        const definitionReward = manifest.DestinyInventoryItemDefinition[value.itemHash];
+    getRewardsQuestLine(manifest.DestinyInventoryItemDefinition[definitionItem.objectives?.questlineItemHash] || definitionItem, character.classType).map((value, v) => {
+      const definitionReward = manifest.DestinyInventoryItemDefinition[value.itemHash];
 
-        return (
-          <li key={v}>
-            <div className='icon'>{definitionReward.displayProperties.icon && <ObservedImage className='image' src={`https://www.bungie.net${definitionReward.displayProperties.icon}`} />}</div>
-            <div className='text'>
-              {definitionReward.displayProperties.name}
-              {value.quantity > 1 ? <> +{value.quantity}</> : null}
-            </div>
-          </li>
-        );
-      }) || [];
+      return (
+        <li key={v}>
+          <div className='icon'>{definitionReward.displayProperties.icon && <ObservedImage className='image' src={`https://www.bungie.net${definitionReward.displayProperties.icon}`} />}</div>
+          <div className='text'>
+            {definitionReward.displayProperties.name}
+            {value.quantity > 1 ? <> +{value.quantity}</> : null}
+          </div>
+        </li>
+      );
+    }) || [];
 
   // vendor costs
   const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
