@@ -534,4 +534,8 @@
   #quests .inventory-capacity span {
     margin: 0;
   }
+
+  #quests .list.quests li .progress-bar {
+    height: 5px;
+  }
 }
