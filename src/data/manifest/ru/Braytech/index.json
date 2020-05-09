@@ -105,6 +105,13 @@
     },
     "itemType": 1
   },
+  "destiny_tracker_elo": {
+    "displayProperties": {
+      "name": "Destiny Tracker Elo",
+      "description": "Elo рейтинг с стороннего веб сайта _Destiny Tracker_. _Destiny Tracker_ начисляет Elo рейтинг всем игрокам Destiny, которые играли в _Горнило_ и _Гамбит_."
+    },
+    "itemType": 1
+  },
   "braytech_purple_rune": {
     "displayProperties": {
       "description": "Фиолетовая руна. Фиолетовые руны включают; Руну Радости, Руну Зверя, и Руну Ликования.",
@@ -284,5 +291,17 @@
     "hash": 2149082452,
     "redacted": false,
     "blacklisted": false
+  },
+  "latent-memories": {
+    "displayProperties": {
+      "name": "Скрытые воспоминания",
+      "description": "По всему Марсу разбросаны загадочные тестировочные узлы. Каково их предназначение?"
+    }
+  },
+  "tooltip-error": {
+    "displayProperties": {
+      "name": "Неизвестная ошибка",
+      "description": "Произошла ошибка при обработке этой подсказки.\n\nВероятно, это временная ошибка. Просим прощения."
+    }
   }
 }
