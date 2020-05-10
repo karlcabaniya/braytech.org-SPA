@@ -22,7 +22,7 @@ import DreamingCityShatteredThrone from '../../../components/UserModules/Dreamin
 import Menagerie from '../../../components/UserModules/Menagerie';
 import EscalationProtocol from '../../../components/UserModules/EscalationProtocol';
 import Reckoning from '../../../components/UserModules/Reckoning';
-import Luna from '../../../components/UserModules/Luna';
+import LunasRecall from '../../../components/UserModules/LunasRecall';
 import NightmareHunts from '../../../components/UserModules/NightmareHunts';
 
 import { moduleRules, headOverride, getCols } from '../Customise';
@@ -80,7 +80,7 @@ class ThisWeek extends React.Component {
       reference: Reckoning
     },
     Luna: {
-      reference: Luna
+      reference: LunasRecall
     },
     NightmareHunts: {
       reference: NightmareHunts

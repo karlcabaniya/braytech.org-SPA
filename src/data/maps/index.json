@@ -1374,6 +1374,7 @@
           "name": "Pools of Luminance",
           "id": "pools-of-luminance",
           "type": "suburb",
+          "sub": true,
           "nodes": [
             {
               "type": "title",
@@ -1491,6 +1492,7 @@
           "name": "Sunken Cavern",
           "id": "sunken-cavern",
           "type": "suburb",
+          "sub": true,
           "nodes": [
             {
               "type": "title",

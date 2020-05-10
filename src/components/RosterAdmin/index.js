@@ -441,7 +441,7 @@ class RosterAdmin extends React.Component {
         sorts: {
           private: isPrivate,
           isOnline: m.isOnline,
-          displayName: m.destinyUserInfo?.LastSeenDisplayName,
+          displayName: m.destinyUserInfo?.LastSeenDisplayName?.toLowerCase(),
           joinDate: m.joinDate,
           lastPlayed,
           lastActivity,

@@ -69,11 +69,17 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1084474576, 1084474577, 1084474591]
+          "checklistItems": [
+            1084474576,
+            1084474577,
+            1084474591
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1387596463]
+          "checklistItems": [
+            1387596463
+          ]
         }
       ]
     },
@@ -123,11 +129,19 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1034141726, 1067696996, 1067696997, 1067696998, 1084474590]
+          "checklistItems": [
+            1034141726,
+            1067696996,
+            1067696997,
+            1067696998,
+            1084474590
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1387596460]
+          "checklistItems": [
+            1387596460
+          ]
         }
       ]
     },
@@ -177,11 +191,19 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1067696992, 1067696993, 1067696999, 1067697005, 1084474583]
+          "checklistItems": [
+            1067696992,
+            1067696993,
+            1067696999,
+            1067697005,
+            1084474583
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1370818879]
+          "checklistItems": [
+            1370818879
+          ]
         }
       ]
     }
@@ -227,11 +249,19 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1084474578, 1084474579, 1118029876, 1118029877, 1118029882]
+          "checklistItems": [
+            1084474578,
+            1084474579,
+            1118029876,
+            1118029877,
+            1118029882
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1387596457]
+          "checklistItems": [
+            1387596457
+          ]
         }
       ]
     },
@@ -280,11 +310,17 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1084474580, 1084474581, 1084474582]
+          "checklistItems": [
+            1084474580,
+            1084474581,
+            1084474582
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1370818878]
+          "checklistItems": [
+            1370818878
+          ]
         }
       ]
     }
@@ -329,11 +365,17 @@
       "checklists": [
         {
           "checklistId": 2609997025,
-          "checklistItems": [1067696994, 1067696995, 1067697004]
+          "checklistItems": [
+            1067696994,
+            1067696995,
+            1067697004
+          ]
         },
         {
           "checklistId": 1297424116,
-          "checklistItems": [1370818866]
+          "checklistItems": [
+            1370818866
+          ]
         }
       ]
     }
@@ -1390,52 +1432,122 @@
   },
   "220": {
     "recordHash": 3390078235,
-    "screenshot": "/static/images/screenshots/lore/archers-line_lunas-lost_3390078235.jpg"
+    "screenshot": "/static/images/screenshots/lore/archers-line_lunas-lost_3390078235.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 2313160420
+        }
+      ]
+    }
   },
   "221": {
     "recordHash": 3390078234,
-    "screenshot": "/static/images/screenshots/lore/the-worlds-grave_lunas-lost_3390078234.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-worlds-grave_lunas-lost_3390078234.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 993395957
+        }
+      ]
+    }
   },
   "222": {
     "recordHash": 3390078233,
-    "screenshot": "/static/images/screenshots/lore/shrine-of-oryx_lunas-lost_3390078233.jpg"
+    "screenshot": "/static/images/screenshots/lore/shrine-of-oryx_lunas-lost_3390078233.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 2244757358
+        }
+      ]
+    }
   },
   "223": {
     "displayProperties": {
       "description": "Enter the The Gatehouse via the HellMouth and follow it to a well-lit circular room. Along the windowed-wall on the right is what you seek."
     },
     "recordHash": 3390078232,
-    "screenshot": "/static/images/screenshots/lore/the-gatehouse_lunas-lost_3390078232.jpg"
+    "screenshot": "/static/images/screenshots/lore/the-gatehouse_lunas-lost_3390078232.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 687082423
+        }
+      ]
+    }
   },
   "224": {
     "recordHash": 3390078239,
-    "screenshot": "/static/images/screenshots/lore/summoning-pits_lunas-lost_3390078239.jpg"
+    "screenshot": "/static/images/screenshots/lore/summoning-pits_lunas-lost_3390078239.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 3799864144
+        }
+      ]
+    }
   },
   "225": {
     "displayProperties": {
       "description": "At the side on the hidden side of the pictured module."
     },
     "recordHash": 3390078238,
-    "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_lunas-lost_3390078238.jpg"
+    "screenshot": "/static/images/screenshots/lore/lunar-battlegrounds_lunas-lost_3390078238.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 3140210033
+        }
+      ]
+    }
   },
   "226": {
     "recordHash": 3390078237,
-    "screenshot": "/static/images/screenshots/lore/anchor-of-light_lunas-lost_3390078237.jpg"
+    "screenshot": "/static/images/screenshots/lore/anchor-of-light_lunas-lost_3390078237.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 2962817690
+        }
+      ]
+    }
   },
   "227": {
     "displayProperties": {
       "description": "In the Tunnels of Despair, on a cliff ledge adjacent to the green gas pit."
     },
     "recordHash": 3390078236,
-    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_lunas-lost_3390078236.jpg"
+    "screenshot": "/static/images/screenshots/lore/pit-of-heresy_lunas-lost_3390078236.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 3277020515
+        }
+      ]
+    }
   },
   "228": {
     "recordHash": 3390078227,
-    "screenshot": "/static/images/screenshots/lore/circle-of-bones_lunas-lost_3390078227.jpg"
+    "screenshot": "/static/images/screenshots/lore/circle-of-bones_lunas-lost_3390078227.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 1343473388
+        }
+      ]
+    }
   },
   "229": {
     "recordHash": 3390078226,
-    "screenshot": "/static/images/screenshots/lore/hellmouth_lunas-lost_3390078226.jpg"
+    "screenshot": "/static/images/screenshots/lore/hellmouth_lunas-lost_3390078226.jpg",
+    "related": {
+      "items": [
+        {
+          "itemHash": 2743180254
+        }
+      ]
+    }
   },
   "230": {
     "vendorHash": 1735426333,
@@ -2668,5 +2780,72 @@
     "extended": {
       "unavailable": "removed"
     }
+  },
+  "431": {
+    "checklistHash": 2014746732,
+    "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_114.jpg",
+    "displayProperties": {
+      "description": "In the depths of _Sunken Cavern_, enter an area through a triangular passage, turn, and see a bright yellow object which resembles an _Oracle_ of old."
+    },
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=m9G9kT69ESA&t=472"
+    }
+  },
+  "432": {
+    "checklistHash": 491541817,
+    "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_115.jpg",
+    "extended": {}
+  },
+  "433": {
+    "checklistHash": 1272530121,
+    "screenshot": "/static/images/screenshots/ghost-scans/chamber-of-sky_ghost-scans_134.jpg",
+    "displayProperties": {
+      "description": "Enter _Sunken Cavern_ via _Hallows_ and at the final bend prior to entering the main chamber, search for a small opening behind a large boulder at the left."
+    }
+  },
+  "434": {
+    "checklistHash": 2925348591,
+    "screenshot": "/static/images/screenshots/region-chests/exodus-black_region-chests_40.jpg",
+    "extended": {}
+  },
+  "435": {
+    "checklistHash": 3059588176,
+    "screenshot": "/static/images/screenshots/region-chests/exodus-black_region-chests_41.jpg",
+    "extended": {}
+  },
+  "436": {
+    "checklistHash": 131897336,
+    "screenshot": "/static/images/screenshots/region-chests/hallows_region-chests_43.jpg",
+    "extended": {}
+  },
+  "437": {
+    "checklistHash": 1295226450,
+    "screenshot": "/static/images/screenshots/region-chests/hallows_region-chests_44.jpg",
+    "extended": {}
+  },
+  "438": {
+    "checklistHash": 379286227,
+    "screenshot": "/static/images/screenshots/region-chests/hallows_region-chests_45.jpg",
+    "extended": {}
+  },
+  "439": {
+    "checklistHash": 3128564200,
+    "screenshot": "/static/images/screenshots/region-chests/the-cistern_region-chests_48.jpg",
+    "extended": {}
+  },
+  "440": {
+    "checklistHash": 301010312,
+    "screenshot": "/static/images/screenshots/ghost-scans/hallows_ghost-scans_111.jpg",
+    "extended": {}
+  },
+  "441": {
+    "checklistHash": 3416588901,
+    "screenshot": "/static/images/screenshots/ghost-scans/hallows_ghost-scans_112.jpg",
+    "extended": {}
+  },
+  "442": {
+    "checklistHash": 4007593410,
+    "screenshot": "/static/images/screenshots/ghost-scans/hallows_ghost-scans_113.jpg",
+    "extended": {}
   }
 }

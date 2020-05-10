@@ -194,7 +194,7 @@
 }
 
 #tooltip .expiry {
-  padding: 8px 16px 16px;
+  padding: 0 16px 16px;
   font-style: italic;
   font-size: 14px;
   letter-spacing: 0.8px;

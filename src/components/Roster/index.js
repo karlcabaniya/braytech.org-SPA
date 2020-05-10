@@ -124,7 +124,7 @@ class Roster extends React.Component {
         private: isPrivate,
         isOnline: m.isOnline,
         fireteamId: m.fireteamId,
-        displayName: m.destinyUserInfo?.LastSeenDisplayName,
+        displayName: m.destinyUserInfo?.LastSeenDisplayName?.toLowerCase(),
         lastPlayed,
         lastCharacter,
         triumphScore,

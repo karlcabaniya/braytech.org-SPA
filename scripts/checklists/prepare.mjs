@@ -355,6 +355,7 @@ async function run() {
           recordHash,
           pursuitHash,
           activityHash,
+          itemHash: existing && existing.itemHash,
           map: {
             points,
             in: within,
@@ -371,7 +372,7 @@ async function run() {
             screenshot,
             extended: {
               video: extended.video,
-            },
+            }
           });
         }
 
@@ -429,6 +430,13 @@ async function run() {
           ...BraytechMaps_EN[hash],
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
         };
+
+        // if (load.itemHash) {
+        //   BraytechMaps_EN[hash].related = {
+        //     ...(BraytechMaps_EN[hash].related || {}),
+        //     items: [{ itemHash: load.itemHash }],
+        //   };
+        // }
 
         if (Object.keys(extended).filter((key) => extended[key] !== undefined).length) {
           BraytechMaps_EN[hash].extended = extended;
