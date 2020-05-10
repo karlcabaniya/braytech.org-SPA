@@ -2354,13 +2354,15 @@
     "recordHash": 2104527485,
     "extended": {
       "video": "https://www.youtube.com/watch?v=DdDTBmTD4wA"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/watchers-grave_ghost-stories_2104527485.jpg"
   },
   "354": {
     "recordHash": 2104527486,
     "extended": {
       "video": "https://www.youtube.com/watch?v=xsFC0kP-zZI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-tangle_ghost-stories_2104527486.jpg"
   },
   "355": {
     "recordHash": 2104527481,
@@ -2784,9 +2786,6 @@
   "431": {
     "checklistHash": 2014746732,
     "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_114.jpg",
-    "displayProperties": {
-      "description": "In the depths of _Sunken Cavern_, enter an area through a triangular passage, turn, and see a bright yellow object which resembles an _Oracle_ of old."
-    },
     "extended": {
       "video": "https://www.youtube.com/watch?v=m9G9kT69ESA&t=472"
     }
@@ -2794,6 +2793,9 @@
   "432": {
     "checklistHash": 491541817,
     "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_115.jpg",
+    "displayProperties": {
+      "description": "In the depths of _Sunken Cavern_, enter an area through a triangular passage, turn, and see a bright yellow object which resembles an _Oracle_ of old."
+    },
     "extended": {}
   },
   "433": {
@@ -2826,6 +2828,9 @@
   "438": {
     "checklistHash": 379286227,
     "screenshot": "/static/images/screenshots/region-chests/hallows_region-chests_45.jpg",
+    "displayProperties": {
+      "description": "Near the _Hallows Vex Conflux_, amongst the roots of a dead tree."
+    },
     "extended": {}
   },
   "439": {
@@ -2836,6 +2841,9 @@
   "440": {
     "checklistHash": 301010312,
     "screenshot": "/static/images/screenshots/ghost-scans/hallows_ghost-scans_111.jpg",
+    "displayProperties": {
+      "description": "A defunct _Vex Goblin_ lies along the wall above _Hallows_."
+    },
     "extended": {}
   },
   "441": {
@@ -2846,6 +2854,106 @@
   "442": {
     "checklistHash": 4007593410,
     "screenshot": "/static/images/screenshots/ghost-scans/hallows_ghost-scans_113.jpg",
+    "extended": {}
+  },
+  "443": {
+    "checklistHash": 1965760095,
+    "screenshot": "/static/images/screenshots/region-chests/the-tangle_region-chests_55.jpg",
+    "extended": {}
+  },
+  "444": {
+    "checklistHash": 93401344,
+    "screenshot": "/static/images/screenshots/region-chests/the-tangle_region-chests_56.jpg",
+    "extended": {}
+  },
+  "445": {
+    "checklistHash": 722167505,
+    "screenshot": "/static/images/screenshots/region-chests/the-tangle_region-chests_57.jpg",
+    "extended": {}
+  },
+  "446": {
+    "checklistHash": 925785517,
+    "screenshot": "/static/images/screenshots/lost-sectors/the-tangle_lost-sectors_ancients-haunt.jpg",
+    "extended": {}
+  },
+  "447": {
+    "checklistHash": 274074864,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tangle_ghost-scans_98.jpg",
+    "extended": {}
+  },
+  "448": {
+    "checklistHash": 1531993101,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tangle_ghost-scans_99.jpg",
+    "extended": {}
+  },
+  "449": {
+    "checklistHash": 637803914,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tangle_ghost-scans_100.jpg",
+    "extended": {}
+  },
+  "450": {
+    "checklistHash": 3178323375,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tangle_ghost-scans_101.jpg",
+    "extended": {}
+  },
+  "451": {
+    "checklistHash": 2245460892,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-tangle_ghost-scans_102.jpg",
+    "extended": {}
+  },
+  "452": {
+    "checklistHash": 3621126393,
+    "screenshot": "/static/images/screenshots/ghost-scans/chamber-of-stone_ghost-scans_103.jpg",
+    "extended": {}
+  },
+  "453": {
+    "checklistHash": 3267068662,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-mists_ghost-scans_104.jpg",
+    "extended": {}
+  },
+  "454": {
+    "checklistHash": 1888720159,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-mists_ghost-scans_105.jpg",
+    "extended": {}
+  },
+  "455": {
+    "checklistHash": 3216317068,
+    "screenshot": "/static/images/screenshots/ghost-scans/the-mists_ghost-scans_106.jpg",
+    "extended": {}
+  },
+  "456": {
+    "checklistHash": 4143709398,
+    "screenshot": "/static/images/screenshots/region-chests/watchers-grave_region-chests_37.jpg",
+    "extended": {}
+  },
+  "457": {
+    "checklistHash": 2049004329,
+    "screenshot": "/static/images/screenshots/region-chests/watchers-grave_region-chests_38.jpg",
+    "extended": {}
+  },
+  "458": {
+    "checklistHash": 1780053523,
+    "screenshot": "/static/images/screenshots/region-chests/watchers-grave_region-chests_39.jpg",
+    "extended": {}
+  },
+  "459": {
+    "checklistHash": 138682577,
+    "screenshot": "/static/images/screenshots/ghost-scans/watchers-grave_ghost-scans_107.jpg",
+    "extended": {}
+  },
+  "460": {
+    "checklistHash": 1652024804,
+    "screenshot": "/static/images/screenshots/ghost-scans/watchers-grave_ghost-scans_108.jpg",
+    "extended": {}
+  },
+  "461": {
+    "checklistHash": 3443915767,
+    "screenshot": "/static/images/screenshots/ghost-scans/watchers-grave_ghost-scans_109.jpg",
+    "extended": {}
+  },
+  "462": {
+    "checklistHash": 3994204292,
+    "screenshot": "/static/images/screenshots/ghost-scans/chamber-of-water_ghost-scans_110.jpg",
     "extended": {}
   }
 }

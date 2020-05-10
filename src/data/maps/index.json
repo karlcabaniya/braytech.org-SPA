@@ -1479,6 +1479,7 @@
           "name": "Chamber of Water",
           "id": "chamber-of-water",
           "type": "suburb",
+          "sub": true,
           "nodes": [
             {
               "type": "title",
@@ -1506,6 +1507,7 @@
           "name": "Chamber of Sky",
           "id": "chamber-of-sky",
           "type": "suburb",
+          "sub": true,
           "nodes": [
             {
               "type": "title",
@@ -1558,7 +1560,14 @@
           "name": "The Mists",
           "id": "mists",
           "type": "suburb",
-          "nodes": []
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": 95,
+              "y": 278
+            }
+          ]
         },
         {
           "hash": 701006849,
@@ -1572,7 +1581,14 @@
           "name": "Chamber of Stone",
           "id": "chamber-of-stone",
           "type": "suburb",
-          "nodes": []
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": -197,
+              "y": 363
+            }
+          ]
         },
         {
           "hash": 3503630224,
