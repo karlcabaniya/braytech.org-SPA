@@ -1,7 +1,7 @@
 #service-worker-update {
   position: relative;
   padding: 0 3rem;
-  background-color: rgb(220, 81, 59);
+  background-color: yellow;
   z-index: 19;
 }
 
@@ -23,6 +23,7 @@
   font-family: var(--fontText);
   font-size: 14px;
   line-height: 1.6;
+  color: black;
 }
 
 
