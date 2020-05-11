@@ -49,8 +49,6 @@ class PresentationNode extends React.Component {
           definitionSecondary?.children.presentationNodes[0].presentationNodeHash
         : this.props.match.params.tertiary;
 
-    console.log(tertiaryHash);
-
     const definitionTertiary = manifest.DestinyPresentationNodeDefinition[tertiaryHash];
 
     const quaternaryHash = this.props.match.params.quaternary;

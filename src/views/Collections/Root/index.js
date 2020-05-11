@@ -33,21 +33,21 @@ class Root extends React.Component {
     const badgesStates = [];
 
     // items nodes
-    parent.children.presentationNodes.forEach(child => {
+    parent.children.presentationNodes.forEach((child) => {
       const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
       const states = [];
 
-      definitionNode.children.presentationNodes.forEach(nodeChild => {
+      definitionNode.children.presentationNodes.forEach((nodeChild) => {
         const definitionNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChild.presentationNodeHash];
 
-        definitionNodeChildNode.children.presentationNodes.forEach(nodeChildNodeChild => {
+        definitionNodeChildNode.children.presentationNodes.forEach((nodeChildNodeChild) => {
           const definitionNodeChildNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChildNodeChild.presentationNodeHash];
 
           if (definitionNodeChildNodeChildNode.children.presentationNodes.length > 0) {
-            definitionNodeChildNodeChildNode.children.presentationNodes.forEach(nodeChildNodeChildNodeChild => {
+            definitionNodeChildNodeChildNode.children.presentationNodes.forEach((nodeChildNodeChildNodeChild) => {
               const definitionNodeChildNodeChildNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChildNodeChildNodeChild.presentationNodeHash];
 
-              definitionNodeChildNodeChildNodeChildNode.children.collectibles.forEach(collectible => {
+              definitionNodeChildNodeChildNodeChildNode.children.collectibles.forEach((collectible) => {
                 const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[member.characterId].collectibles[collectible.collectibleHash];
 
                 if (scope) {
@@ -57,7 +57,7 @@ class Root extends React.Component {
               });
             });
           } else {
-            definitionNodeChildNodeChildNode.children.collectibles.forEach(collectible => {
+            definitionNodeChildNodeChildNode.children.collectibles.forEach((collectible) => {
               const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[member.characterId].collectibles[collectible.collectibleHash];
 
               if (scope) {
@@ -69,8 +69,8 @@ class Root extends React.Component {
         });
       });
 
-      const nodeProgress = states.filter(collectible => !enumerateCollectibleState(collectible).notAcquired).length;
-      const nodeTotal = states.filter(collectible => !enumerateCollectibleState(collectible).invisible).length;
+      const nodeProgress = states.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length;
+      const nodeTotal = states.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length;
 
       nodes.push(
         <div key={definitionNode.hash} className={cx('node', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
@@ -89,19 +89,19 @@ class Root extends React.Component {
     });
 
     // badges
-    parentBadges.children.presentationNodes.forEach(child => {
+    parentBadges.children.presentationNodes.forEach((child) => {
       const definitionBadge = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
       const classStates = [];
 
       let fullComplete = 0;
       let semiComplete = false;
 
-      definitionBadge.children.presentationNodes.forEach(nodeChild => {
+      definitionBadge.children.presentationNodes.forEach((nodeChild) => {
         const definitionNodeChildNode = manifest.DestinyPresentationNodeDefinition[nodeChild.presentationNodeHash];
 
         const sweep = [];
 
-        definitionNodeChildNode.children.collectibles.forEach(collectible => {
+        definitionNodeChildNode.children.collectibles.forEach((collectible) => {
           const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[member.characterId].collectibles[collectible.collectibleHash];
 
           if (scope) {
@@ -111,16 +111,16 @@ class Root extends React.Component {
 
         classStates.push({
           className: definitionNodeChildNode.displayProperties.name,
-          states: sweep
+          states: sweep,
         });
       });
 
       const classTotal = classStates.reduce((a, obj) => {
-        return Math.max(a, obj.states.filter(collectible => !enumerateCollectibleState(collectible).invisible).length);
+        return Math.max(a, obj.states.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length);
       }, 0);
 
-      classStates.forEach(obj => {
-        if (obj.states.filter(collectible => !enumerateCollectibleState(collectible).notAcquired).length === classTotal) {
+      classStates.forEach((obj) => {
+        if (obj.states.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length === classTotal) {
           fullComplete += 1;
           semiComplete = true;
         }
@@ -136,17 +136,16 @@ class Root extends React.Component {
           className={cx('badge', 'linked', {
             semiComplete: semiComplete,
             fullComplete: fullComplete === 3,
-            tooltip: viewport.width > 600
+            tooltip: viewport.width > 600,
           })}
           data-hash={definitionBadge.hash}
           data-type='collections-badge'
         >
-          <ProfileLink to={`/collections/badge/${definitionBadge.hash}`}>
-            <ObservedImage className='image icon' src={badgeImages[definitionBadge.hash] ? `/static/images/extracts/badges/${badgeImages[definitionBadge.hash]}` : `https://www.bungie.net${definitionBadge.displayProperties.icon}`} />
-            <div className='text'>
-              <div>{definitionBadge.displayProperties.name}</div>
-            </div>
-          </ProfileLink>
+          <ObservedImage className='image icon' src={badgeImages[definitionBadge.hash] ? `/static/images/extracts/badges/${badgeImages[definitionBadge.hash]}` : `https://www.bungie.net${definitionBadge.displayProperties.icon}`} />
+          <div className='text'>
+            <div>{definitionBadge.displayProperties.name}</div>
+          </div>
+          <ProfileLink to={`/collections/badge/${definitionBadge.hash}`} />
         </li>
       );
     });
@@ -157,7 +156,7 @@ class Root extends React.Component {
           <div className='sub-header'>
             <div>{t('Items')}</div>
             <div>
-              {collectionsStates.filter(collectible => !enumerateCollectibleState(collectible).notAcquired).length}/{collectionsStates.filter(collectible => !enumerateCollectibleState(collectible).invisible).length}
+              {collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length}/{collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length}
             </div>
           </div>
           <div className='node'>
@@ -199,15 +198,15 @@ class Root extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
