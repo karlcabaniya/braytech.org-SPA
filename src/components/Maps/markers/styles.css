@@ -91,22 +91,6 @@
   opacity: 0;
 }
 
-.map-omega .leaflet-container .icon-marker.highlight::before {
-  content: ' ';
-  position: absolute;
-  top: -500%;
-  left: -500%;
-  z-index: -1;
-  width: 1000%;
-  height: 1000%;
-  margin: 4px 0 0 6px;
-  pointer-events: none;
-  box-shadow: 0 0 0 2px #b5fc73;
-  background-color: rgba(181, 252, 115, 0.4);
-  border-radius: 100%;
-  animation: maps-tracking-pulse 2s linear 0s infinite;
-}
-
 .map-omega .leaflet-container .icon-marker .selected {
   content: ' ';
   position: absolute;
@@ -135,6 +119,14 @@
 
 .map-omega .leaflet-container .icon-marker .selected circle:nth-child(2) {
   animation: maps-rotate-linear 15s linear infinite reverse;
+}
+
+.map-omega .leaflet-container .icon-marker.highlight .selected {
+  opacity: 1;
+}
+
+.map-omega .leaflet-container .icon-marker.highlight .selected circle {
+  stroke: yellow !important;
 }
 
 .map-omega .leaflet-container .icon-marker .wrapper {
@@ -213,11 +205,11 @@
   opacity: 0.8;
 }
 
-.map-omega .leaflet-container .icon-marker.completed:not(.highlight) .wrapper .icon {
+.map-omega .leaflet-container .icon-marker.completed .wrapper .icon {
   opacity: 0.2;
 }
 
-.map-omega .leaflet-container .icon-marker.completed.checklistId-4178338182:not(.highlight) .wrapper .icon {
+.map-omega .leaflet-container .icon-marker.completed.checklistId-4178338182 .wrapper .icon {
   opacity: 0.4;
 }
 

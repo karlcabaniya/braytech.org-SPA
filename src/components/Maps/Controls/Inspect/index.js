@@ -10,6 +10,7 @@ import ObservedImage from '../../../ObservedImage';
 import Records from '../../../Records';
 import Button from '../../../UI/Button';
 import { cartographer } from '../../../../utils/maps';
+import { Maps } from '../../../../svg';
 
 import ProposeChanges from './ProposeChanges';
 
@@ -191,7 +192,19 @@ class Inspect extends React.Component {
           </Button>
         </div>
         <div className='wrapper'>
-          <div className='screenshot'>{unified.screenshot ? <ObservedImage src={unified.screenshot} /> : <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>}</div>
+          <div className='screenshot'>
+            {unified.screenshot ? (
+              <ObservedImage src={unified.screenshot}>
+                {unified.extended?.screenshot?.highlight ? (
+                  <div className='highlight' style={{ left: `${unified.extended.screenshot.highlight.x}%`, top: `${unified.extended.screenshot.highlight.y}%` }}>
+                    <Maps.ScreenshotHighlight />
+                  </div>
+                ) : null}
+              </ObservedImage>
+            ) : (
+              <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
+            )}
+          </div>
           {unified.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
           {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
           <div className='header'>

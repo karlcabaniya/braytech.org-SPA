@@ -83,7 +83,6 @@ class Checklists extends React.Component {
 
   render() {
     const map = maps[this.props.id].map;
-    const highlight = this.props.highlight && +this.props.highlight;
 
     const viewWidth = 1920;
     const viewHeight = 1080;
@@ -100,9 +99,17 @@ class Checklists extends React.Component {
         .filter((node) => node.destinationHash === maps[this.props.id].destination.hash)
         .filter((node) => (node.invisible && !this.props.settings.debug ? false : true))
         .map((node, i) => {
-          const selected = this.props.selected.checklistHash ?
-            this.props.selected.checklistHash === node.checklistHash ? true : false :
-              this.props.selected.recordHash !== undefined && this.props.selected.recordHash === node.recordHash ? true : false;
+          const highlight = this.props.highlight && +this.props.highlight === (node.checklistHash || node.recordHash);
+          const selected =
+            highlight ||
+            (this.props.selected.checklistHash // check if checklistHash item is selected
+              ? this.props.selected.checklistHash === node.checklistHash
+                ? true
+                : false
+              : // check if recordHash item is selected
+              this.props.selected.recordHash !== undefined && this.props.selected.recordHash === node.recordHash
+              ? true
+              : false);
 
           if (node.map.points.length) {
             return node.map.points.map((point) => {
@@ -120,13 +127,7 @@ class Checklists extends React.Component {
 
               // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
-              const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
-                `checklistId-${list.checklistId}`,
-                node.completed ? 'completed' : '',
-                node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '',
-                node.screenshot ? `has-screenshot` : '',
-                highlight === (node.checklistHash || node.recordHash) ? 'highlight' : '',
-              ], { icon: list.checklistIcon, url: list.checklistImage, selected });
+              const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [`checklistId-${list.checklistId}`, node.completed ? 'completed' : '', node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '', node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
               // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
 
               return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
@@ -140,13 +141,7 @@ class Checklists extends React.Component {
 
             // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
-            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, [
-              'error',
-              node.completed ? 'completed' : '',
-              `checklistId-${list.checklistId}`,
-              node.screenshot ? `has-screenshot` : '',
-              highlight === (node.checklistHash || node.recordHash) ? 'highlight' : '',
-            ], { icon: list.checklistIcon, url: list.checklistImage, selected });
+            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, ['error', node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
 
             return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
           } else {

@@ -51,6 +51,20 @@
   background-size: cover;
 }
 
+.map-omega .control.inspector .screenshot .highlight {
+  position: absolute;
+  width: 10%;
+  height: 17.86%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.map-omega .control.inspector .screenshot .highlight circle {
+  transform-origin: center center;
+  animation: maps-rotate-linear 20s linear infinite;
+}
+
 .map-omega .control.inspector .screenshot .info {
   position: absolute;
   left: 0;

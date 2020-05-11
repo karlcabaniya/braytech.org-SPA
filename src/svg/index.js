@@ -17,6 +17,7 @@ import { ReactComponent as TooltipTrialsOfOsiris } from './tooltips/trials-of-os
 import { ReactComponent as TooltipIronBanner } from './tooltips/iron-banner.svg';
 
 import { ReactComponent as MapsSelected } from './maps/selected.svg';
+import { ReactComponent as MapsScreenshotHighlight } from './maps/screenshot-highlight.svg';
 import { ReactComponent as MapsFastTravel } from './maps/fast-travel.svg';
 import { ReactComponent as MapsPortal } from './maps/portal.svg';
 import { ReactComponent as MapsAscendantChallenge } from './maps/ascendant-challenge.svg';
@@ -213,6 +214,7 @@ const Loading = {
 
 const Maps = {
   Selected: MapsSelected,
+  ScreenshotHighlight: MapsScreenshotHighlight,
   FastTravel: MapsFastTravel,
   Portal: MapsPortal,
   AscendantChallenge: MapsAscendantChallenge,

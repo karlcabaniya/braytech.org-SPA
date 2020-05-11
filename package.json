@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.24.32",
+  "version": "2.24.33",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -47,7 +47,7 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "chalk": "^4.0.0",
-    "entities": "^2.0.0",
+    "entities": "^2.0.2",
     "find-in-files": "^0.5.0",
     "fs-extra": "^9.0.0",
     "lodash": "^4.17.15",
