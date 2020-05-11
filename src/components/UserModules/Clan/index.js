@@ -14,17 +14,24 @@ import './styles.css';
 
 class Clan extends React.Component {
   componentDidMount() {
+    this.mounted = true;
+
     const { member } = this.props;
     const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
 
     if (group) {
       this.callGetGroupMembers(group);
-      this.startInterval();
     }
   }
 
   componentWillUnmount() {
-    this.clearInterval();
+    this.mounted = false;
+  }
+
+  componentDidUpdate(p) {
+    if (this.props.member.updated !== p.member?.updated) {
+      this.callGetGroupMembers();
+    }
   }
 
   callGetGroupMembers = async () => {
@@ -39,14 +46,6 @@ class Clan extends React.Component {
       await getGroupMembers(result.group, result.member.memberType > 2 && isAuthed);
     }
   };
-
-  startInterval() {
-    this.refreshClanDataInterval = window.setInterval(this.callGetGroupMembers, 60000);
-  }
-
-  clearInterval() {
-    window.clearInterval(this.refreshClanDataInterval);
-  }
 
   createRow = m => {
     const isPrivate = !m.profile || !m.profile.characterActivities.data || !m.profile.characters.data.length;

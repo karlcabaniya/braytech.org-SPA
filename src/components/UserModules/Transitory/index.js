@@ -27,7 +27,7 @@ class Transitory extends React.Component {
       this.props.rebindTooltips();
     }
 
-    if (this.props.member.data?.updated !== p.member.data?.updated) {
+    if (this.props.member.updated !== p.member?.updated) {
       this.getTransitoryResponse();
     }
   }
