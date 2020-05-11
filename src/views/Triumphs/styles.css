@@ -264,6 +264,7 @@
 
 #triumphs.root .list.notification-unredeemed li {
   height: 38px;
+  grid-template-columns: auto auto;
   align-items: center;
   align-content: unset;
   justify-content: space-between;
@@ -271,10 +272,6 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-family: var(--fontText);
-}
-
-#triumphs.root .list.notification-unredeemed li .text {
-  font-size: 13px;
 }
 
 #triumphs.root .list.notification-unredeemed ~ .info {

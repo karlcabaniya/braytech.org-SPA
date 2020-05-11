@@ -218,7 +218,6 @@ class Records extends React.Component {
     const { hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
     const recordsRequested = hashes;
-    const characterId = member.characterId;
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
     const profileRecordsTracked = member.data.profile?.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
@@ -233,7 +232,7 @@ class Records extends React.Component {
       // console.log(definitionRecord.displayProperties.name);
 
       const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
+      const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
       // if (definitionRecord.intervalInfo.intervalObjectives.length)
 
@@ -258,15 +257,26 @@ class Records extends React.Component {
           next: definitionRecord.completionInfo.ScoreValue,
         };
 
-        recordState.objectives = definitionRecord.objectiveHashes.map((hash, i) => {
-          const data = recordData && recordData.objectives.find((o) => o.objectiveHash === hash);
+        recordState.objectives = definitionRecord.objectiveHashes
+          .filter((hash) => {
+            const data = recordData && recordData.objectives.find((objective) => objective.objectiveHash === hash);
+            const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
-          return {
-            ...data,
-            score: definitionRecord.completionInfo.ScoreValue,
-            el: <ProgressBar key={`${hash}${i}`} {...data} />,
-          };
-        });
+            if (data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
+              return false;
+            }
+
+            return true;
+          })
+          .map((hash, h) => {
+            const data = recordData && recordData.objectives.find((objective) => objective.objectiveHash === hash);
+
+            return {
+              ...data,
+              score: definitionRecord.completionInfo.ScoreValue,
+              el: <ProgressBar key={h} {...data} />,
+            };
+          });
 
         const distance = recordState.objectives.reduce(
           (a, v) => {
@@ -281,7 +291,7 @@ class Records extends React.Component {
           }
         );
 
-        recordState.distance = distance.progressValueDecimal / distance.completionValueDiviser;
+        recordState.distance = distance.completionValueDiviser > 0 ? distance.progressValueDecimal / distance.completionValueDiviser : 0;
       }
 
       if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
@@ -420,9 +430,9 @@ class Records extends React.Component {
         const link = this.makeLink(hash, isCollectionBadge);
 
         const rewards = definitionRecord.rewardItems
-          ?.map((r) => {
-            let definitionItem = manifest.DestinyInventoryItemDefinition[r.itemHash];
-            let definitionCollectible = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] : false;
+          ?.map((reward) => {
+            const definitionItem = manifest.DestinyInventoryItemDefinition[reward.itemHash];
+            const definitionCollectible = manifest.DestinyCollectibleDefinition[definitionItem?.collectibleHash];
 
             if (definitionCollectible && !definitionCollectible.redacted) {
               return definitionCollectible.hash;
@@ -485,10 +495,10 @@ class Records extends React.Component {
                   <div className='description'>{description}</div>
                 </div>
               </div>
-              <div className='objectives'>{recordState.intervals.length ? recordState.intervalEl : recordState.objectives.map((e) => e.el)}</div>
+              {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
-                  <Collectibles selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden  />
+                  <Collectibles selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden />
                 </ul>
               ) : null}
               {link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}

@@ -44,16 +44,38 @@
   max-width: 700px;
 }
 
-#clan.about .module.about .bio ul {
+#clan.about .module.about .bio ul,
+#clan.about .module.about .bio ol {
   list-style-type: disc;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 2rem;  
   margin: 0 0 1rem;
 }
 
-#clan.about .module.about .bio ul li {
-  font-size: 14px;
+#clan.about .module.about .bio ol {
+  list-style-type: none;
+}
+
+#clan.about .module.about .bio ul li,
+#clan.about .module.about .bio ol li {
+  font-size: 16px;
   line-height: 1.6;
   margin: 0 0 6px;
+}
+
+#clan.about .module.about .bio ol {
+  counter-reset: list;
+}
+
+#clan.about .module.about .bio ol li {
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+
+#clan.about .module.about .bio ol li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: -18px;
 }
 
 #clan.about .module.progression .progress-bar {

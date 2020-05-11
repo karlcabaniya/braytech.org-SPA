@@ -364,6 +364,42 @@ export const associationsCollectionsBadges = [
     badgeHash: 2904806741,
   },
   {
+    recordHash: 3327085974, // Exotics: Red War (Warlock)
+    badgeHash: 3241617029,
+  },
+  {
+    recordHash: 1372723679, // Exotics: Red War (Titan)
+    badgeHash: 3241617029,
+  },
+  {
+    recordHash: 2109838578, // Exotics: Red War (Hunter)
+    badgeHash: 3241617029,
+  },
+  {
+    recordHash: 913036541, // Exotics: Curse of Osiris and Warmind (Warlock)
+    badgeHash: 1419883649,
+  },
+  {
+    recordHash: 2500732572, // Exotics: Curse of Osiris and Warmind (Titan)
+    badgeHash: 1419883649,
+  },
+  {
+    recordHash: 1247544128, // Exotics: Curse of Osiris and Warmind (Hunter)
+    badgeHash: 1419883649,
+  },
+  {
+    recordHash: 3016588454, // Exotics: Forsaken (Warlock)
+    badgeHash: 3333531796,
+  },
+  {
+    recordHash: 898220115, // Exotics: Forsaken (Titan)
+    badgeHash: 3333531796,
+  },
+  {
+    recordHash: 2904000913, // Exotics: Forsaken (Hunter)
+    badgeHash: 3333531796,
+  },
+  {
     recordHash: 2676320666, // Destinations: Curse of Osiris and Warmind
     badgeHash: 1331476689,
   },

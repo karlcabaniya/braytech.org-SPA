@@ -1,5 +1,3 @@
-
-
 .list.record-items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -9,7 +7,7 @@
 .list.record-items li {
   margin: 0;
   height: initial;
-  flex-flow: row wrap;
+  display: grid;
   align-content: space-between;
   font-size: 14px;
   background-color: rgba(255, 255, 255, 0);
@@ -32,7 +30,6 @@
 }
 
 .list.record-items li .properties {
-  flex-basis: 100%;
   padding: 1rem;  
   display: grid;
   grid-template-columns: 48px 1fr;
@@ -43,7 +40,6 @@
   position: relative;
   width: 48px;
   height: 48px;
-  flex-basis: 48px;
 }
 
 .list.record-items li .properties .text {
@@ -74,7 +70,7 @@
   position: absolute;
   right: -1rem;
   white-space: pre-wrap;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
 }
 
@@ -100,12 +96,10 @@
 }
 
 .list.record-items li .objectives {
-  flex-basis: 100%;
   padding: 0 1rem 1rem;
 }
 
 .list.record-items li .rewards {
-  flex-basis: 100%;
   padding: 0 1rem 1rem;
   grid-template-columns: 1fr;
   position: relative;
@@ -168,8 +162,13 @@
   background-color: rgba(188, 173, 113, 0);
 }
 
-.list.record-items li .progress-bar .bar.completed:not(.unredeemed) .fill {
+.list.record-items li .progress-bar.intervals .bar.completed:not(.unredeemed) .fill {
   background-color: rgba(188, 173, 113, 0.6);
+}
+
+.list.record-items li.completed .progress-bar .bar .fill,
+.list.record-items li.completed .progress-bar.intervals .bar.completed .fill {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .list.record-items li.linked.completed:hover {
@@ -197,9 +196,9 @@
   background-color: #7bdcc1;
 }
 
-.list.record-items li.completed .progress-bar .bars {
+/* .list.record-items li.completed .progress-bar .bars {
   opacity: 0;
-}
+} */
 
 .list.record-items li.tracked {
   background-color: rgba(182, 238, 129, 0.15);
