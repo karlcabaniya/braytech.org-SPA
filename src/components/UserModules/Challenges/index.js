@@ -67,7 +67,7 @@ class Challenges extends React.Component {
 
   getActivities = (activities) => {
     if (this.isNightmareHunt(activities[0]) || this.isNightfallOrdeal(activities[0])) {
-      return activities.filter((activityHash) => manifest.DestinyActivityDefinition[activityHash].activityLightLevel > 1000);
+      return activities.filter((activityHash) => manifest.DestinyActivityDefinition[activityHash].activityLightLevel > 1000 && manifest.DestinyActivityDefinition[activityHash].activityLightLevel < 1050);
     } else if (this.isLunasRecall(activities[0]) || this.isDungeon(activities[0]) || this.isRaid(activities[0])) {
       return activities;
     } else {
