@@ -1,6 +1,7 @@
 #collections {
   padding: 4rem 3rem 3rem;
   min-height: calc(100vh - 212px);
+  align-items: start;
 }
 
 #collections.root {

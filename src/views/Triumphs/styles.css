@@ -1,16 +1,13 @@
 #triumphs {
   padding: 4rem 3rem 3rem;
   min-height: calc(100vh - 212px);
+  align-items: start;
 }
 
 #triumphs.root {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 3rem;
-}
-
-#triumphs.root .sidebar {
-  
 }
 
 #triumphs.root .total-score {
