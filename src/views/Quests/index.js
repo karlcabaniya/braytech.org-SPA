@@ -303,7 +303,7 @@ class Quests extends React.Component {
       // milestone-lookin' quest steps
       if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
 
-      if (definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1) {
+      if (definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest.featured') > -1) {
         return true;
       }
 
@@ -316,6 +316,16 @@ class Quests extends React.Component {
 
       // milestone-lookin' quest steps
       if (definitionItem.inventory?.bucketTypeHash === 1801258597) return false;
+
+      if (filter === 'bounties') {
+        if (definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1) {
+          return true;
+        }
+      } else {
+        if (definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest.featured') > -1) {
+          return true;
+        }
+      }
 
       if (definitionItem.traitIds?.indexOf(filter !== 'bounties' ? 'inventory_filtering.quest' : 'inventory_filtering.bounty') > -1) {
         return true;
@@ -345,7 +355,7 @@ class Quests extends React.Component {
         return true;
       } else if (filter === 'past' && definitionItem.traitIds?.indexOf('quest.past') > -1) {
         return true;
-      } else if (filter === 'all' && definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1) {
+      } else if (filter === 'all' && (definitionItem.traitIds?.indexOf('inventory_filtering.quest') > -1 || definitionItem.traitIds?.indexOf('inventory_filtering.quest.featured') > -1)) {
         return true;
       }
 
