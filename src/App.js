@@ -361,7 +361,7 @@ class App extends React.Component {
         <Route
           render={(route) => (
             <div className={cx('wrapper', this.props.theme.active, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
-              <ServiceWorkerUpdate {...this.props} />
+              <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationLink />
               <NotificationProgress />
 

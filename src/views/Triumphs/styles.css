@@ -1,5 +1,6 @@
 #triumphs {
   padding: 4rem 3rem 3rem;
+  min-height: calc(100vh - 212px);
 }
 
 #triumphs.root {
@@ -325,6 +326,7 @@
 @media screen and (max-width: 600px) {
   #triumphs {
     padding: 3rem 2rem 2rem;
+    min-height: calc(100vh - 172px);
   }
 
   #triumphs.root {

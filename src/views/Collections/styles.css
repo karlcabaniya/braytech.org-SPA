@@ -1,5 +1,6 @@
 #collections {
   padding: 4rem 3rem 3rem;
+  min-height: calc(100vh - 212px);
 }
 
 #collections.root {
@@ -610,6 +611,7 @@
 @media screen and (max-width: 600px) {
   #collections {
     padding: 3rem 2rem 2rem;
+    min-height: calc(100vh - 172px);
   }
 
   #collections.root {
