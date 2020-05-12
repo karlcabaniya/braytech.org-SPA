@@ -2798,24 +2798,30 @@
   "431": {
     "checklistHash": 2014746732,
     "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_114.jpg",
+    "displayProperties": {
+      "description": "In the depths of _Sunken Cavern_, enter an area through a triangular passage, turn, and see a bright yellow object which resembles an _Oracle_ of old."
+    },
     "extended": {
-      "video": "https://www.youtube.com/watch?v=m9G9kT69ESA&t=472"
+      "video": "https://www.youtube.com/watch?v=m9G9kT69ESA&t=472",
+      "screenshot": {
+        "highlight": {
+          "x": 42.25,
+          "y": 50
+        }
+      }
     }
   },
   "432": {
     "checklistHash": 491541817,
     "screenshot": "/static/images/screenshots/ghost-scans/sunken-cavern_ghost-scans_115.jpg",
     "displayProperties": {
-      "description": "In the depths of _Sunken Cavern_, enter an area through a triangular passage, turn, and see a bright yellow object which resembles an _Oracle_ of old."
+      "description": "Enter _Sunken Cavern_ via _Hallows_ and at the final bend prior to entering the main chamber, search for a small opening behind a large boulder at the left."
     },
     "extended": {}
   },
   "433": {
     "checklistHash": 1272530121,
     "screenshot": "/static/images/screenshots/ghost-scans/chamber-of-sky_ghost-scans_134.jpg",
-    "displayProperties": {
-      "description": "Enter _Sunken Cavern_ via _Hallows_ and at the final bend prior to entering the main chamber, search for a small opening behind a large boulder at the left."
-    },
     "extended": {
       "screenshot": {
         "highlight": {
