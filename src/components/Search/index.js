@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { debounce } from 'lodash';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import duds from '../../data/records/duds';
 import Records from '../Records';
@@ -85,7 +84,7 @@ const manifestTables = [
   'DestinyVendorDefinition',
   'DestinyVendorGroupDefinition',
   'BraytechDefinition',
-  'DestinyClanBannerDefinition'
+  'DestinyClanBannerDefinition',
 ];
 
 class Search extends React.Component {
@@ -94,95 +93,94 @@ class Search extends React.Component {
 
     this.state = {
       results: [],
-      search: this.props.initialValue || ''
+      search: this.props.initialValue || '',
     };
 
     this.index = [];
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.results !== this.state.results) {
+  componentDidUpdate(p, s) {
+    if (s.results !== this.state.results) {
       this.props.rebindTooltips();
     }
   }
 
   componentDidMount() {
     const { collectibles, table, database } = this.props;
-    
+
     const tables = table ? [table] : manifestTables;
 
-    tables.forEach(table => {
-
+    tables.forEach((table) => {
       const entries = Object.keys(manifest[table]).reduce((index, key) => {
         if (!database && manifest[table][key].redacted) {
           return index;
         }
-  
-        if (!database && table === 'DestinyRecordDefinition' && collectibles.hideDudRecords && duds.includes(manifest.DestinyRecordDefinition[key]?.hash)) {
+
+        if (!database && table === 'DestinyRecordDefinition' && collectibles.hideDudRecords && duds.indexOf(manifest.DestinyRecordDefinition[key]?.hash) > -1) {
           return index;
         }
-  
+
         return [
           ...index,
           {
             table: table,
-            hash: manifest[table][key].hash
-          }
+            hash: manifest[table][key].hash,
+          },
         ];
       }, []);
 
       this.index.push(...entries);
-
-    });    
+    });
 
     if (this.props.initialValue) {
       this.performSearch();
     }
   }
 
-  onSearchChange = e => {
+  onSearchChange = (e) => {
     this.setState({ search: e.target.value });
 
     this.performSearch();
   };
 
-  onSearchKeyPress = e => {
+  onSearchKeyPress = (e) => {
     // If they pressed enter, ignore the debounce and search
     if (e.key === 'Enter') this.performSearch.flush();
   };
 
-  performSearch = debounce((term = this.state.search) => {
-    if (!term || term.length < 3) {
+  performSearch = debounce((search = this.state.search) => {
+    if (!search || search.length < 3) {
       this.setState({ results: [] });
       return;
     }
 
-    console.log(term);
+    // console.log(search);
 
-    term = term.toString().toLowerCase();
+    const term = search.toString().trim().toLowerCase();
 
-    // test for filters
-    let filters = term.match(/(type|name|description):/);
-    filters = filters && filters.length ? filters[1] : false;
+    // test for filter prefixes i.e. "name:MIDA Mini Tool"
+    const filters = term.match(/(type|name|description):/)?.[1];
 
-    const tableMatch = manifestTables.find(table => table.toLowerCase() === term);
+    const tableMatch = manifestTables.find((table) => table.toLowerCase() === term);
 
     if (tableMatch) {
-      const results = Object.keys(manifest[tableMatch]).map(key => ({
+      const results = Object.keys(manifest[tableMatch]).map((key) => ({
         table: tableMatch,
-        hash: manifest[tableMatch][key].hash
+        hash: manifest[tableMatch][key].hash,
       }));
 
-      console.log(results)
+      // console.log(results);
 
       this.setState({ results });
 
       return;
     }
 
-    let regex = RegExp(term, 'gi');
+    // console.log(filters)
 
-    const results = this.index.filter(entry => {
+    let regex = RegExp(term, 'i');
+
+    const results = this.index.filter((entry) => {
       const definition = manifest[entry.table][entry.hash];
 
       if (!definition) {
@@ -196,46 +194,38 @@ class Search extends React.Component {
         let description = definition?.displayProperties?.description;
         let type = definitionItem?.itemTypeAndTierDisplayName;
 
-        // normalise name, description, and type, removing funny versions of 'e'
+        // normalise name, description, and type, remove funny versions of 'e'
         name = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         description = description.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         type = type ? definitionItem.itemTypeAndTierDisplayName.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : false;
 
         if (filters && filters === 'name') {
-          regex = RegExp(term.replace('name:', '').trim(), 'gi');
+          regex = RegExp(term.replace('name:', '').trim(), 'i');
 
           if (regex.test(name)) {
             return true;
-          } else {
-            return false;
           }
         } else if (filters && filters === 'description') {
-          regex = RegExp(term.replace('description:', '').trim(), 'gi');
+          regex = RegExp(term.replace('description:', '').trim(), 'i');
 
           if (regex.test(description)) {
             return true;
-          } else {
-            return false;
           }
         } else if (type && filters && filters === 'type') {
-          regex = RegExp(term.replace('type:', '').trim(), 'gi');
+          regex = RegExp(term.replace('type:', '').trim(), 'i');
 
           if (regex.test(type)) {
             return true;
-          } else {
-            return false;
           }
         } else {
-          let concatenated = `${name} ${description}`;
-
-          if (regex.test(concatenated)) {
+          if (regex.test(`${name} ${description}`)) {
             return true;
-          } else {
-            return false;
           }
         }
+
+        return false;
       } else {
-        const root = Object.keys(definition).filter(key => {
+        const root = Object.keys(definition).filter((key) => {
           if (regex.test(definition[key])) {
             return key;
           }
@@ -243,13 +233,15 @@ class Search extends React.Component {
           return false;
         });
 
-        const displayProperties = definition.displayProperties && Object.keys(definition.displayProperties).filter(key => {
-          if (regex.test(definition.displayProperties[key])) {
-            return key;
-          }
+        const displayProperties =
+          definition.displayProperties &&
+          Object.keys(definition.displayProperties).filter((key) => {
+            if (regex.test(definition.displayProperties[key])) {
+              return key;
+            }
 
-          return false;
-        });
+            return false;
+          });
 
         if (root.length || displayProperties?.length) {
           return true;
@@ -259,26 +251,26 @@ class Search extends React.Component {
       }
     });
 
-    console.log(results)
+    // console.log(results);
 
     this.setState({ results });
   }, 500);
 
   render() {
-    const { t, table, database, resultsRenderFunction } = this.props;
+    const { table, database, resultsRenderFunction } = this.props;
     const { results, search } = this.state;
 
     let display;
     if (!database && table === 'DestinyRecordDefinition') {
       display = (
         <ul className='list record-items'>
-          <Records selfLinkFrom='/triumphs' hashes={results.map(e => e.hash)} ordered />
+          <Records selfLinkFrom='/triumphs' hashes={results.map((e) => e.hash)} ordered />
         </ul>
       );
     } else if (!database && table === 'DestinyCollectibleDefinition') {
       display = (
         <ul className='list collection-items'>
-          <Collectibles selfLinkFrom='/collections' hashes={results.map(e => e.hash)} ordered />
+          <Collectibles selfLinkFrom='/collections' hashes={results.map((e) => e.hash)} ordered />
         </ul>
       );
     } else if (resultsRenderFunction) {
@@ -304,16 +296,16 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     tooltips: state.tooltips,
-    collectibles: state.collectibles
+    collectibles: state.collectibles,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
