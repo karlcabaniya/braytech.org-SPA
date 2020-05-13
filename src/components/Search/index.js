@@ -5,87 +5,12 @@ import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
+import * as enums from '../../utils/destinyEnums';
 import duds from '../../data/records/duds';
 import Records from '../Records';
 import Collectibles from '../Collectibles';
 
 import './styles.css';
-
-const manifestTables = [
-  'DestinyAchievementDefinition',
-  'DestinyActivityDefinition',
-  'DestinyActivityGraphDefinition',
-  'DestinyActivityInteractableDefinition',
-  'DestinyActivityModeDefinition',
-  'DestinyActivityModifierDefinition',
-  'DestinyActivityTypeDefinition',
-  'DestinyArtDyeChannelDefinition',
-  'DestinyArtDyeReferenceDefinition',
-  'DestinyArtifactDefinition',
-  'DestinyBondDefinition',
-  'DestinyBreakerTypeDefinition',
-  'DestinyCharacterCustomizationCategoryDefinition',
-  'DestinyCharacterCustomizationOptionDefinition',
-  'DestinyChecklistDefinition',
-  'DestinyClassDefinition',
-  'DestinyCollectibleDefinition',
-  'DestinyDamageTypeDefinition',
-  'DestinyDestinationDefinition',
-  'DestinyEnemyRaceDefinition',
-  'DestinyEnergyTypeDefinition',
-  'DestinyEntitlementOfferDefinition',
-  'DestinyEquipmentSlotDefinition',
-  'DestinyFactionDefinition',
-  'DestinyGenderDefinition',
-  'DestinyHistoricalStatsDefinition',
-  'DestinyInventoryBucketDefinition',
-  'DestinyInventoryItemDefinition',
-  'DestinyInventoryItemLiteDefinition',
-  'DestinyItemCategoryDefinition',
-  'DestinyItemTierTypeDefinition',
-  'DestinyLocationDefinition',
-  'DestinyLoreDefinition',
-  'DestinyMaterialRequirementSetDefinition',
-  'DestinyMedalTierDefinition',
-  'DestinyMilestoneDefinition',
-  'DestinyNodeStepSummaryDefinition',
-  'DestinyObjectiveDefinition',
-  'DestinyPlaceDefinition',
-  'DestinyPlatformBucketMappingDefinition',
-  'DestinyPlugSetDefinition',
-  'DestinyPresentationNodeDefinition',
-  'DestinyProgressionDefinition',
-  'DestinyProgressionLevelRequirementDefinition',
-  'DestinyProgressionMappingDefinition',
-  'DestinyRaceDefinition',
-  'DestinyRecordDefinition',
-  'DestinyReportReasonCategoryDefinition',
-  'DestinyRewardAdjusterPointerDefinition',
-  'DestinyRewardAdjusterProgressionMapDefinition',
-  'DestinyRewardItemListDefinition',
-  'DestinyRewardMappingDefinition',
-  'DestinyRewardSheetDefinition',
-  'DestinyRewardSourceDefinition',
-  'DestinySackRewardItemListDefinition',
-  'DestinySandboxPatternDefinition',
-  'DestinySandboxPerkDefinition',
-  'DestinySeasonDefinition',
-  'DestinySeasonPassDefinition',
-  'DestinySocketCategoryDefinition',
-  'DestinySocketTypeDefinition',
-  'DestinyStatDefinition',
-  'DestinyStatGroupDefinition',
-  'DestinyTalentGridDefinition',
-  'DestinyUnlockCountMappingDefinition',
-  'DestinyUnlockDefinition',
-  'DestinyUnlockEventDefinition',
-  'DestinyUnlockExpressionMappingDefinition',
-  'DestinyUnlockValueDefinition',
-  'DestinyVendorDefinition',
-  'DestinyVendorGroupDefinition',
-  'BraytechDefinition',
-  'DestinyClanBannerDefinition',
-];
 
 class Search extends React.Component {
   constructor(props) {
@@ -108,7 +33,7 @@ class Search extends React.Component {
   componentDidMount() {
     const { collectibles, table, database } = this.props;
 
-    const tables = table ? [table] : manifestTables;
+    const tables = table ? [table] : enums.manifestTableNames;
 
     tables.forEach((table) => {
       const entries = Object.keys(manifest[table]).reduce((index, key) => {
@@ -161,7 +86,7 @@ class Search extends React.Component {
     // test for filter prefixes i.e. "name:MIDA Mini Tool"
     const filters = term.match(/(type|name|description):/)?.[1];
 
-    const tableMatch = manifestTables.find((table) => table.toLowerCase() === term);
+    const tableMatch = enums.manifestTableNames.find((table) => table.toLowerCase() === term);
 
     if (tableMatch) {
       const results = Object.keys(manifest[tableMatch]).map((key) => ({

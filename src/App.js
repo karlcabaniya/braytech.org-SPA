@@ -8,6 +8,7 @@ import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
 import * as ls from './utils/localStorage';
+import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 
 import 'intersection-observer';
@@ -256,49 +257,9 @@ class App extends React.Component {
   async downloadNewManifestTables(paths) {
     // paths is an object where key is table name and value is json file path
     return Promise.all(
-      [
-        'DestinyPlaceDefinition',
-        'DestinyActivityDefinition',
-        'DestinyActivityTypeDefinition',
-        'DestinyClassDefinition',
-        'DestinyGenderDefinition',
-        'DestinyInventoryBucketDefinition',
-        'DestinyRaceDefinition',
-        'DestinyTalentGridDefinition',
-        'DestinySandboxPerkDefinition',
-        'DestinyStatGroupDefinition',
-        'DestinyFactionDefinition',
-        'DestinyItemCategoryDefinition',
-        'DestinyDamageTypeDefinition',
-        'DestinyActivityModeDefinition',
-        'DestinyCollectibleDefinition',
-        'DestinyStatDefinition',
-        'DestinyItemTierTypeDefinition',
-        'DestinyMetricDefinition',
-        'DestinyPlugSetDefinition',
-        'DestinyPresentationNodeDefinition',
-        'DestinyRecordDefinition',
-        'DestinyDestinationDefinition',
-        'DestinyEquipmentSlotDefinition',
-        'DestinyInventoryItemDefinition',
-        'DestinyLocationDefinition',
-        'DestinyLoreDefinition',
-        'DestinyObjectiveDefinition',
-        'DestinyProgressionDefinition',
-        'DestinySeasonDefinition',
-        'DestinySeasonPassDefinition',
-        'DestinySocketCategoryDefinition',
-        'DestinySocketTypeDefinition',
-        'DestinyTraitDefinition',
-        'DestinyVendorDefinition',
-        'DestinyMilestoneDefinition',
-        'DestinyActivityModifierDefinition',
-        'DestinyReportReasonCategoryDefinition',
-        'DestinyArtifactDefinition',
-        'DestinyBreakerTypeDefinition',   // download each of these individual JSON files
-        'DestinyChecklistDefinition',     // and return them as a key value pair where
-        'DestinyEnergyTypeDefinition',    // key is table name and value is response value
-      ].map(async (key) => [key, await bungie.DownloadJsonFile(paths[key])])
+      // download each of these individual JSON files and return them
+      // as a key value pair where key is table name and value is response value
+      enums.manifestTableNames.map(async (key) => [key, await bungie.DownloadJsonFile(paths[key])])
     );
   }
 
