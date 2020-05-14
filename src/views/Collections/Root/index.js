@@ -134,8 +134,8 @@ class Root extends React.Component {
         <li
           key={definitionBadge.hash}
           className={cx('badge', 'linked', {
-            semiComplete: semiComplete,
-            fullComplete: fullComplete === 3,
+            'badge-semi': semiComplete,
+            'badge-complete': fullComplete === 3,
             tooltip: viewport.width > 600,
           })}
           data-hash={definitionBadge.hash}

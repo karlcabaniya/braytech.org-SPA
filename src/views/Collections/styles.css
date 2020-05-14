@@ -71,7 +71,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#collections .sidebar .badges .badge:not(.fullComplete) .image {
+#collections .sidebar .badges .badge:not(.badge-complete) .image {
   border-radius: 2.4%;
   overflow: hidden;
 }
@@ -106,12 +106,12 @@
   opacity: 0.4;
 }
 
-#collections .sidebar .badges .badge.semiComplete .image.dl,
-#collections .sidebar .badges .badge.fullComplete .image.dl {
+#collections .sidebar .badges .badge.badge-semi .image.dl,
+#collections .sidebar .badges .badge.badge-complete .image.dl {
   opacity: 1;
 }
 
-#collections .sidebar .badges .badge.fullComplete .image.dl {
+#collections .sidebar .badges .badge.badge-complete .image.dl {
   box-shadow: inset 0 0 0 2px #d7be5b;
 }
 
@@ -326,9 +326,13 @@
   position: relative;
   display: flex;
   justify-content: center;
-  border-radius: 0 2.4% 2.4% 2.4%;
+  border-radius: 2.4%;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+#collections .node.badge .children .icon.badge-completed {
+  border-radius: 0 2.4% 2.4% 2.4%;
 }
 
 #collections .node.badge .children .icon .corners {
@@ -342,7 +346,7 @@
   padding-bottom: calc(126 / 208 * 100%);
 }
 
-#collections .node.badge .children .icon .image.badge-completed {
+#collections .node.badge .children .icon .image.gilded {
   height: 40%;
   background-size: contain;
   background-position: left top;

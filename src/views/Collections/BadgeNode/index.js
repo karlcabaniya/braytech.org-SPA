@@ -127,9 +127,9 @@ class BadgeNode extends React.Component {
     return (
       <div className='node badge'>
         <div className='children'>
-          <div className='icon'>
+          <div className={cx('icon', { 'badge-completed': completed > 2})}>
             <ObservedImage className='image badge' src={enums.badgeImages[definitionBadge.hash] ? `/static/images/extracts/badges/${enums.badgeImages[definitionBadge.hash]}` : `https://www.bungie.net${definitionBadge.displayProperties.icon}`} />
-            {completed > 2 ? <ObservedImage className='image badge-completed' src={`/static/images/extracts/ui/0560-00001498.png`} /> : null}
+            {completed > 2 ? <ObservedImage className='image gilded' src={`/static/images/extracts/ui/0560-00001498.png`} /> : null}
           </div>
           <div className='text'>
             <div className='name'>{definitionBadge.displayProperties.name}</div>
