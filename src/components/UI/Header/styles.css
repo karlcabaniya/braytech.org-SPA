@@ -815,7 +815,8 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   #header.profile-header .characters .list li .displayName {
     font-size: 22px;
     font-weight: 500;
-    margin: 4px 0 4px;
+    line-height: 25px;
+    margin: 3px 0 2px;
   }
 
   #header.profile-header .characters .list li .displayName::before {
