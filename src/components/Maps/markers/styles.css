@@ -33,7 +33,7 @@
 }
 
 .map-omega .leaflet-container .text-marker.place .wrapper .name {
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   font-size: 22px;
   letter-spacing: 8px;
   text-transform: uppercase;

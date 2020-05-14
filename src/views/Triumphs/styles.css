@@ -151,7 +151,7 @@
 
 #triumphs .node.seal .children h4.completed {
   color: #e0ce85;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #triumphs .node.seal .children .progress {
@@ -269,7 +269,7 @@
   padding: 0 1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #triumphs.root .list.notification-unredeemed ~ .info {

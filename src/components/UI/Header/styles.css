@@ -20,7 +20,7 @@
   padding: 0 3rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 
@@ -48,7 +48,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 
 #header .braytech .logo {
   letter-spacing: 2px;
-  font-family: var(--fontDisplay);
+  font-family: var(--font-display);
   font-size: 15px;
   text-transform: uppercase;
 }
@@ -69,7 +69,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   align-items: center;
   cursor: pointer;
   font-size: 16px;
-  font-family: var(--fontDisplay);
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -117,7 +117,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   align-items: center;
   color: rgba(255, 255, 255, 0.6);
   font-size: 16px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #header .views ul li a.active {
@@ -318,7 +318,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   flex-flow: row wrap;
   text-transform: uppercase;
   font-size: 14px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   letter-spacing: 2px;
   line-height: 1;
   white-space: pre-wrap;
@@ -398,7 +398,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 #header.profile-header .characters .list li .refresh .stale {
   font-size: 14px;
   text-transform: uppercase;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   color: rgba(255, 255, 255, 0.6);
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
   opacity: 0;
@@ -542,7 +542,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 #header .nav .wrap .types .head .name {
   font-size: 18px;
   font-weight: 500;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #header .nav .wrap .types .head .description {
@@ -555,7 +555,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   padding: 10px 1rem;
   flex-basis: 100%;
   position: relative;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #header .nav .wrap .types li .name {
@@ -610,7 +610,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   margin: 6px 0 0;
   display: block;
   color: rgba(255, 255, 255, 0.5);
-  font-family: var(--fontDisplay);
+  font-family: var(--font-display);
   line-height: 1.4;
 }
 

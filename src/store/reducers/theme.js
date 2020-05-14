@@ -19,9 +19,11 @@ function updateScrollbars(theme) {
   if (theme === 'dark') {
     root.style.setProperty('--scrollbar-track', '#202020');
     root.style.setProperty('--scrollbar-draggy', '#414141');
+    root.style.setProperty('--body-background', '#111111');
   } else {
     root.style.setProperty('--scrollbar-track', '#a7a7a7');
     root.style.setProperty('--scrollbar-draggy', '#cacaca');
+    root.style.setProperty('--body-background', '');
   }
 }
 

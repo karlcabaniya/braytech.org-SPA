@@ -7,7 +7,7 @@
 }
 
 #legend .page .row.basics .col {
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #legend .page .row.basics .col .value {

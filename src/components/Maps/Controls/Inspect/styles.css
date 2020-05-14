@@ -138,7 +138,7 @@
 .map-omega .control.inspector .header .type {
   margin: 10px 0 6px;
   color: rgba(255, 255, 255, 0.8);
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   font-size: 12px;
   text-transform: uppercase;
 }

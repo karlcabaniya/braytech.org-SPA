@@ -37,7 +37,7 @@
 
 #legend .page .row.characters .col .class-bar .class,
 #legend .page .row.characters .col .class-bar .light {
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #legend .page .row.characters .col .class-bar .class {

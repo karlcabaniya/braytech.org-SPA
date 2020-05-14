@@ -13,7 +13,7 @@
   text-align: center;
   z-index: 2;
   background-color: #888888;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   pointer-events: none;
 }
 
@@ -51,7 +51,7 @@
   bottom: 7rem;
   left: 0;
   width: 100%;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   display: grid;
   grid-gap: 2rem;
   justify-content: center;
@@ -119,7 +119,7 @@
 
 #loading .version div span::after {
   content: ' // ';
-  font-family: var(--fontDisplay);
+  font-family: var(--font-display);
   font-size: 15px;
   color: rgba(255, 255, 255, 0.4);
 }

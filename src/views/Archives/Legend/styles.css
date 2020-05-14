@@ -142,7 +142,7 @@
 
 #legend .sub {
   font-size: 14px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   /* text-transform: uppercase; */
   color: var(--text-primary-40);
 }

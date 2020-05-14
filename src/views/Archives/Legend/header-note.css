@@ -6,7 +6,7 @@
 #legend .page .row.header-note .col {
   font-size: 12px;
   font-weight: 500;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   text-transform: uppercase;
   color: var(--text-margins);
 }

@@ -55,7 +55,7 @@
   flex-flow: row wrap;
   background-color: hsla(var(--common), 0.8);
   color: #fff;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #tooltip .header > div {
@@ -107,7 +107,7 @@
   color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   line-height: 1.4;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #tooltip .frame .highlight span {

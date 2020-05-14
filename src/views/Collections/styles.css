@@ -180,7 +180,7 @@
 }
 
 #collections.root .parent .node .text div:first-child {
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   font-weight: 500;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -383,7 +383,7 @@
 
 #collections .node.badge .children h4.completed {
   color: #e0ce85;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #collections .node.badge .children .progress {

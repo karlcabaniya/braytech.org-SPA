@@ -20,7 +20,7 @@
 #service-worker-update .wrapper > .text {
   display: grid;
   align-content: center;  
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   font-size: 14px;
   line-height: 1.6;
   color: black;

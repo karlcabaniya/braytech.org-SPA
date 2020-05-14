@@ -78,7 +78,7 @@
   grid-auto-flow: column;
   justify-content: space-between;
   font-size: 16px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   text-transform: uppercase;
 }
 
@@ -407,7 +407,7 @@
   grid-column: 2/3;
   align-self: end;
   font-size: 16px;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   color: rgba(255, 255, 255, 0.4);
 }
 

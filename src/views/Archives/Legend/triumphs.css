@@ -7,7 +7,7 @@
   display: grid;
   grid-gap: 2rem;
   grid-template-columns: repeat(5, 1fr);
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #legend .page .row.triumphs .seals .seal {

@@ -5,7 +5,7 @@
 
 #tooltip .frame.collections-badge .state > .text {
   margin: 0 0 1rem;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;

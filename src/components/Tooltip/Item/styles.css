@@ -206,7 +206,7 @@
 #tooltip .damage .slot .text {
   padding: 0 0 0 12px;
   text-transform: uppercase;
-  font-family: var(--fontText);
+  font-family: var(--font-text);
 }
 
 #tooltip .kill-tracker {
