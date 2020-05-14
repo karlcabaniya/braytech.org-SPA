@@ -262,14 +262,17 @@ class Records extends React.Component {
             const data = recordData && recordData.objectives.find((objective) => objective.objectiveHash === hash);
             const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
-            if (data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
+            if (data && data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
               return false;
             }
 
             return true;
           })
           .map((hash, h) => {
-            const data = recordData && recordData.objectives.find((objective) => objective.objectiveHash === hash);
+            const data = {
+              objectiveHash: hash,
+              ...(recordData?.objectives.find((objective) => objective.objectiveHash === hash) || {}),
+            };
 
             return {
               ...data,
@@ -297,8 +300,8 @@ class Records extends React.Component {
       if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
         recordState.intervals = definitionRecord.intervalInfo.intervalObjectives.map((interval, i) => {
           const definitionInterval = manifest.DestinyObjectiveDefinition[interval.intervalObjectiveHash];
-          const data = (recordData && recordData.intervalObjectives.find((o) => o.objectiveHash === interval.intervalObjectiveHash)) || {};
-          const unredeemed = i + 1 > recordData.intervalsRedeemedCount && data.complete;
+          const data = recordData?.intervalObjectives.find((objective) => objective.objectiveHash === interval.intervalObjectiveHash) || {};
+          const unredeemed = i + 1 > recordData?.intervalsRedeemedCount && data.complete;
 
           return {
             objectiveHash: definitionInterval.hash,
@@ -325,12 +328,36 @@ class Records extends React.Component {
           next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0,
         };
 
-        const nextIndex = recordData.intervalObjectives.findIndex((o) => !o.complete);
-        const lastIndex = nextIndex > 0 ? nextIndex - 1 : recordData.intervalObjectives.length - 1;
-        const lastInterval = recordData.intervalObjectives[recordData.intervalObjectives.length - 1];
+        const nextIndex = recordData?.intervalObjectives.findIndex((objective) => !objective.complete) || 0;
+        const lastIndex =
+          nextIndex > 0
+            ? nextIndex - 1
+            : recordData
+            ? // record data is available
+              recordData.intervalObjectives.length - 1
+            : // record data is not available
+              recordState.intervals.length;
+        const lastInterval = recordData?.intervalObjectives[recordData.intervalObjectives.length - 1] || recordState.intervals[recordState.intervals.length - 1];
 
-        const progress = nextIndex > -1 ? (lastIndex > -1 ? recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].progress) : 1;
-        const completionValue = nextIndex > -1 ? (lastIndex > -1 ? recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue : recordData.intervalObjectives[nextIndex].completionValue) : 1;
+        const progress =
+          recordData && nextIndex > -1
+            ? // if recordData and record not complete
+              lastIndex > -1
+              ? // if not first interval
+                recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue
+              : // is first interval
+                recordData.intervalObjectives[nextIndex].progress
+            : // must be complete so set to 1
+              1;
+        const completionValue =
+          recordData && nextIndex > -1 // if recordData and record not complete
+            ? lastIndex > -1
+              ? // if not first interval
+                recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue
+              : // is first interval
+                recordData.intervalObjectives[nextIndex].completionValue
+            : // must be complete so set to 1
+              1;
 
         const completionValueDiviser = 1;
         const progressValueDecimal = Math.min(progress / completionValue, 1);
@@ -349,35 +376,35 @@ class Records extends React.Component {
                 ) : null}
               </div>
               <div className='bars'>
-                {recordState.intervals.map((int, i) => {
-                  const prevInt = recordState.intervals[Math.max(i - 1, 0)];
+                {recordState.intervals.map((interval, i) => {
+                  const previousInterval = recordState.intervals[Math.max(i - 1, 0)];
 
-                  if (int.complete) {
+                  if (interval.complete) {
                     return (
-                      <div key={i} className={cx('bar', { completed: int.complete, unredeemed: int.unredeemed })}>
-                        <div className='fill' style={{ width: `${(int.progress / int.completionValue) * 100}%` }} />
+                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
                       </div>
                     );
-                  } else if (int.complete && !int.unredeemed) {
+                  } else if (interval.complete && !interval.unredeemed) {
                     return (
-                      <div key={i} className={cx('bar', { completed: int.complete, unredeemed: int.unredeemed })}>
-                        <div className='fill' style={{ width: `${(int.progress / int.completionValue) * 100}%` }} />
+                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
                       </div>
                     );
-                  } else if (prevInt && prevInt.complete) {
+                  } else if (previousInterval && previousInterval.complete) {
                     return (
-                      <div key={i} className={cx('bar', { completed: int.complete, unredeemed: int.unredeemed })}>
-                        <div className='fill' style={{ width: `${((int.progress - prevInt.completionValue) / (int.completionValue - prevInt.completionValue)) * 100}%` }} />
+                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                        <div className='fill' style={{ width: `${((interval.progress - previousInterval.completionValue) / (interval.completionValue - previousInterval.completionValue)) * 100}%` }} />
                       </div>
                     );
                   } else if (i === 0) {
                     return (
-                      <div key={i} className={cx('bar', { completed: int.complete, unredeemed: int.unredeemed })}>
-                        <div className='fill' style={{ width: `${(int.progress / int.completionValue) * 100}%` }} />
+                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
                       </div>
                     );
                   } else {
-                    return <div key={i} className={cx('bar', { completed: int.complete, unredeemed: int.unredeemed })} />;
+                    return <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })} />;
                   }
                 })}
               </div>
