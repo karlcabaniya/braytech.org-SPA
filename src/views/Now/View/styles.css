@@ -39,6 +39,7 @@
   align-items: center;
   justify-items: center;
   background-color: rgba(211, 208, 36, 0.6);
+  pointer-events: none;
 }
 
 #now .module .list.activities li .game-version-icon svg {

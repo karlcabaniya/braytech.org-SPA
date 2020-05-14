@@ -7,7 +7,7 @@
 #collections.root {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 3rem;
+  gap: 3rem;
 }
 
 #collections.root .nodes .node {
@@ -24,7 +24,7 @@
 #collections .sidebar .recently-discovered .list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-gap: 7px;
+  gap: 7px;
   justify-items: stretch;
   align-items: stretch;
   margin: 20px 0 calc(2rem + 24px);
@@ -41,7 +41,6 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  flex-basis: unset;
 }
 
 #collections .sidebar .recently-discovered .list li .text {
@@ -119,7 +118,7 @@
 #collections.root .parent {
   margin: 0 0 1rem;
   display: grid;
-  grid-gap: 1rem;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -269,11 +268,11 @@
 #collections .list.inventory-items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 7px;
+  gap: 7px;
 }
 
 #collections .list.tertiary.sets {
-  grid-gap: 2rem;
+  gap: 2rem;
 }
 
 #collections .list.tertiary.sets .set {
@@ -281,8 +280,8 @@
 }
 
 #collections .list.tertiary.sets > li {
-  background-color: rgba(36, 12, 12, 0);
-  padding: 0 0 0rem;
+  background-color: rgba(255, 255, 255, 0);
+  grid-template-columns: auto;
 }
 
 #collections .list.tertiary.sets > li::before {
@@ -290,7 +289,6 @@
 }
 
 #collections .list.tertiary.sets li.is-set > .text {
-  flex-basis: 100%;
   margin: 0;
   position: relative;
   margin: 0 0 1rem;
@@ -326,7 +324,6 @@
 
 #collections .node.badge .children .icon {
   position: relative;
-  flex-basis: 100%;
   display: flex;
   justify-content: center;
   border-radius: 0 2.4% 2.4% 2.4%;
@@ -387,11 +384,10 @@
 }
 
 #collections .node.badge .children .progress {
-  flex-basis: 100%;
   position: relative;
   background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;  
+  grid-template-columns: 38px 1fr;
   margin: 0 0 6px;
 }
 
@@ -400,11 +396,10 @@
 }
 
 #collections .node.badge .children .progress .class-icon {
-  flex-basis: 38px;
   height: 38px;
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -416,10 +411,9 @@
 }
 
 #collections .node.badge .children .progress .text {
-  flex-basis: calc(100% - 38px);
-  display: flex;
-  flex-flow: row wrap;
-  height: 38px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -443,8 +437,8 @@
 }
 
 #collections .node.badge .children .progress .bar {
+  grid-column: span 2;
   position: relative;
-  flex-basis: 100%;
   height: 7px;
   background-color: rgba(255, 255, 255, 0.3);
   transition: background-color 0.25s;
@@ -523,7 +517,7 @@
   left: calc(50% - 75px);
   display: grid;
   grid-template-columns: repeat(3, 40px);
-  grid-gap: 15px;
+  gap: 15px;
 }
 
 #collections .node.badge .entries .filters .list .linked,
@@ -549,21 +543,14 @@
 }
 
 @media screen and (max-width: 1400px) {
-  #collections.root .parent .node {
-    flex-basis: 12rem;
-  }
 
   #collections.root .parent .node .text {
     bottom: 2rem;
   }
-
   
 }
 
 @media screen and (max-width: 1200px) {
-  #collections.root .parent .node {
-    flex-basis: 8rem;
-  }
 
   #collections.root .parent {
     grid-template-columns: 1fr 1fr;
@@ -571,10 +558,6 @@
 
   #collections .list.inventory-items {
     grid-template-columns: 1fr 1fr;
-  }
-
-  #collections .list.tertiary li {
-    flex-basis: calc(100% / 2 - 3px);
   }
 
   #collections .node.badge {
@@ -589,7 +572,7 @@
 @media screen and (max-width: 1023px) {
   #collections.root {
     grid-template-columns: 1fr;
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   #collections .node .entries .list.collection-items,
@@ -617,7 +600,7 @@
 
   #collections.root {
     grid-template-columns: 1fr;
-    grid-gap: 2rem;
+    gap: 2rem;
   }
 
   #collections .header .name {
@@ -652,10 +635,6 @@
 
   #collections .list.inventory-items {
     grid-template-columns: 1fr;
-  }
-
-  #collections .list.tertiary li {
-    flex-basis: 100%;
   }
 
   #collections .node.badge .children .text .name {
