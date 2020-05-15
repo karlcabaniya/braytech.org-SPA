@@ -2,7 +2,7 @@ import * as ls from '../../utils/localStorage';
 
 const userState = ls.get('setting.three') ? ls.get('setting.visual') : {};
 const defaultState = {
-  animations: true,
+  passiveAnimations: true,
   three: false,
   threeDebug: false,
   threeShadows: false,

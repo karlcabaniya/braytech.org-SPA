@@ -321,7 +321,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route
           render={(route) => (
-            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.visual.animations, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.visual.passiveAnimations, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationLink />
               <NotificationProgress />

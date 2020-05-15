@@ -237,10 +237,10 @@ class Settings extends React.Component {
               <div>{t('Visual fidelity')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggleVisual('animations')}>
-                <Checkbox linked checked={this.props.visual.animations} text={t('Enable animations')} />
+              <li onClick={this.handler_toggleVisual('passiveAnimations')}>
+                <Checkbox linked checked={this.props.visual.passiveAnimations} text={t('Enable passive animations')} />
                 <div className='info'>
-                  <p>{t('Disabling this can improve performance on low power devices.')}</p>
+                  <p>{t('Controls most animations. Disabling passive animations may improve performance on low power devices.')}</p>
                 </div>
               </li>
               <li onClick={this.handler_toggleVisual('three')}>
