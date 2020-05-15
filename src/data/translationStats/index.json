@@ -1,114 +1,328 @@
 {
   "de": {
     "translated": 682,
-    "notTranslated": 7,
-    "added": [],
+    "notTranslated": 9,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "debug": {
-    "translated": 689,
+    "translated": 691,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "en": {
-    "translated": 689,
+    "translated": 691,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "es-mx": {
     "translated": 682,
-    "notTranslated": 7,
-    "added": [],
+    "notTranslated": 9,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "es": {
     "translated": 682,
-    "notTranslated": 7,
-    "added": [],
+    "notTranslated": 9,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "fr": {
-    "translated": 633,
-    "notTranslated": 56,
-    "added": [],
+    "translated": 626,
+    "notTranslated": 65,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "it": {
-    "translated": 644,
-    "notTranslated": 45,
-    "added": [],
+    "translated": 637,
+    "notTranslated": 54,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "ja": {
-    "translated": 570,
-    "notTranslated": 119,
-    "added": [],
+    "translated": 563,
+    "notTranslated": 128,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "ko": {
-    "translated": 523,
-    "notTranslated": 166,
-    "added": [],
+    "translated": 516,
+    "notTranslated": 175,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 687,
-    "added": [],
+    "notTranslated": 689,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "pt-br": {
-    "translated": 629,
-    "notTranslated": 60,
-    "added": [],
+    "translated": 622,
+    "notTranslated": 69,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "ru": {
     "translated": 682,
-    "notTranslated": 7,
-    "added": [],
+    "notTranslated": 9,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "zh-chs": {
-    "translated": 495,
-    "notTranslated": 194,
-    "added": [],
+    "translated": 489,
+    "notTranslated": 202,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   },
   "zh-cht": {
     "translated": 351,
-    "notTranslated": 338,
-    "added": [],
+    "notTranslated": 340,
+    "added": [
+      "3D model debug mode",
+      "3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.",
+      "Disabling this can improve performance on low power devices.",
+      "Displays extra information for debugging 3D models",
+      "Enable 3D model shadows",
+      "Enable 3D models",
+      "Enable animations",
+      "Visual fidelity",
+      "Where applicable, use 3D models. Not recommended for phones or low power devices."
+    ],
     "removed": [
-      "All collectibles"
+      "3D models",
+      "Displays extra information for debugging Three.js instances",
+      "Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.",
+      "Three.js debug mode",
+      "Use 3D models",
+      "Use shadows",
+      "Where available, use 3D models. Not recommended for phones or low processing-power devices."
     ]
   }
 }
