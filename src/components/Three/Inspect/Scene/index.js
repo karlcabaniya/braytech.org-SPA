@@ -59,7 +59,7 @@ class Scene extends Component {
   }
 
   async componentDidUpdate(p) {
-    const { itemHash = 3580904581, ornamentHash, debug, gender } = this.props;
+    const { itemHash = 3580904581, ornamentHash, threeDebug: debug, gender } = this.props;
 
     if (p.ornamentHash !== ornamentHash) {
       this.group.remove(this.group.children[0]);
@@ -86,7 +86,7 @@ class Scene extends Component {
   }
 
   scene = async () => {
-    const { itemHash = 3580904581, ornamentHash, debug, gender, shadows } = this.props;
+    const { itemHash = 3580904581, ornamentHash, threeDebug: debug, gender, shadows } = this.props;
 
     const lightShadows = {
       enabled: shadows,

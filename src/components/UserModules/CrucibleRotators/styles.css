@@ -1,4 +1,4 @@
-.activity-mode-icons {
+.crucible-rotators .modes {
   position: relative;
   display: grid;
   grid-gap: 20px;
@@ -6,178 +6,14 @@
   align-items: start;
 }
 
-.activity-mode-icons > div {
+.crucible-rotators .modes div {
   position: relative;
   display: grid;
   grid-gap: 4px;
   grid-template-columns: 1fr;
 }
 
-.activity-mode-icons > div .icon svg {
-  width: 100%;
-  height: auto;
-  transform: scale(1.2);
-  pointer-events: none;
-}
-
-.activity-mode-icons > div .icon svg .polygon.inner {
-  animation: rotate-linear 20s linear infinite;
-  transform-origin: center;
-}
-
-.activity-mode-icons > div .icon svg .polygon.inner.ani {
-  animation: rotate-and-scale-out 5s ease-out infinite;
-  transform-origin: center;
-}
-
-.activity-mode-icons > div .text {
+.crucible-rotators .modes div .text {
   text-align: center;
   font-size: 16px;
-}
-
-/* iron banner icon */
-.activity-mode-icons svg .iron-banner-3 .circles circle {
-  transform-origin: center center;
-  animation: rotate-linear 30s linear infinite;
-}
-
-.activity-mode-icons svg .iron-banner-3 .circles circle:nth-child(2) {
-  animation-duration: 10s;
-}
-
-.activity-mode-icons svg .iron-banner-3 .circles circle:nth-child(3) {
-  animation-direction: reverse;
-}
-
-.activity-mode-icons svg .petals {
-  opacity: 1 !important;
-}
-
-.activity-mode-icons svg .petals path {
-  opacity: 0;
-  transform-origin: center center;
-  animation: 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s crucible-modes-leaf-zoom infinite;
-  fill: #ff76b3 !important;
-}
-
-.activity-mode-icons svg .petals path:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(4) {
-  animation-delay: 2s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(5) {
-  animation-delay: 2.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(6) {
-  animation-delay: 3s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(7) {
-  animation-delay: 3.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(8) {
-  animation-delay: 4s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(9) {
-  animation-delay: 4.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(10) {
-  animation-delay: 5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(11) {
-  animation-delay: 5.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(12) {
-  animation-delay: 6s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(13) {
-  animation-delay: 6.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(14) {
-  animation-delay: 7s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(15) {
-  animation-delay: 7.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(16) {
-  animation-delay: 8s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(17) {
-  animation-delay: 8.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(18) {
-  animation-delay: 9s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(19) {
-  animation-delay: 9.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(20) {
-  animation-delay: 10s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(21) {
-  animation-delay: 10.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(22) {
-  animation-delay: 11s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(23) {
-  animation-delay: 11.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(24) {
-  animation-delay: 12s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(25) {
-  animation-delay: 12.5s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(26) {
-  animation-delay: 13s;
-}
-
-.activity-mode-icons svg .petals path:nth-child(27) {
-  animation-delay: 13.5s;
-}
-
-@keyframes crucible-modes-leaf-zoom {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.3);
-  }
 }

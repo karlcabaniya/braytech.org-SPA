@@ -343,6 +343,10 @@
   }
 }
 
+.wrapper.reduced-motion .list.reports li .head .standing .icon svg * {
+  animation: unset !important;
+}
+
 .list.reports li > .head .standing .text {
   position: absolute;
   top: 40%;

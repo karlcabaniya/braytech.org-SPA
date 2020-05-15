@@ -321,7 +321,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route
           render={(route) => (
-            <div className={cx('wrapper', this.props.theme.active, { standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.visual.animations, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationLink />
               <NotificationProgress />
@@ -382,10 +382,11 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     theme: state.theme,
+    visual: state.visual
   };
 }
 

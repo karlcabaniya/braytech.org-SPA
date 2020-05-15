@@ -17,168 +17,6 @@
   width: 96px;
 }
 
-.list.modes li .icon svg .polygon.inner {
-  animation: rotate-linear 20s linear infinite;
-  transform-origin: center;
-}
-
-.list.modes li .icon svg .polygon.inner.ani {
-  opacity: 0 !important;
-}
-
-/* iron banner icon */
-.list.modes li .icon svg .iron-banner-3 .circles circle {
-  transform-origin: center center;
-  animation: rotate-linear 30s linear infinite;
-}
-
-.list.modes li .icon svg .iron-banner-3 .circles circle:nth-child(2) {
-  animation-duration: 10s;
-}
-
-.list.modes li .icon svg .iron-banner-3 .circles circle:nth-child(3) {
-  animation-direction: reverse;
-}
-
-/* trials of osiris icon */
-.list.modes li .icon svg .trials .hexagon {
-  animation: rotate-linear 20s linear infinite;
-  transform-origin: center;
-}
-
-.list.modes li .icon svg .trials .hexagon:last-child {
-  animation-direction: reverse;
-  animation-duration: 10s;
-}
-
-/* crimson doubles icon */
-.list.modes li .icon svg .petals {
-  opacity: 1 !important;
-}
-
-.list.modes li .icon svg .petals path {
-  opacity: 0;
-  transform-origin: center center;
-  animation: crucible-modes-leaf-zoom 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s infinite;
-  fill: #ff76b3 !important;
-}
-
-.list.modes li .icon svg .petals path:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(2) {
-  animation-delay: 1s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(4) {
-  animation-delay: 2s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(5) {
-  animation-delay: 2.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(6) {
-  animation-delay: 3s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(7) {
-  animation-delay: 3.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(8) {
-  animation-delay: 4s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(9) {
-  animation-delay: 4.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(10) {
-  animation-delay: 5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(11) {
-  animation-delay: 5.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(12) {
-  animation-delay: 6s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(13) {
-  animation-delay: 6.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(14) {
-  animation-delay: 7s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(15) {
-  animation-delay: 7.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(16) {
-  animation-delay: 8s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(17) {
-  animation-delay: 8.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(18) {
-  animation-delay: 9s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(19) {
-  animation-delay: 9.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(20) {
-  animation-delay: 10s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(21) {
-  animation-delay: 10.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(22) {
-  animation-delay: 11s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(23) {
-  animation-delay: 11.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(24) {
-  animation-delay: 12s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(25) {
-  animation-delay: 12.5s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(26) {
-  animation-delay: 13s;
-}
-
-.list.modes li .icon svg .petals path:nth-child(27) {
-  animation-delay: 13.5s;
-}
-
-.list.modes li .icon svg .falling-2 {
-  animation-delay: 1s;
-}
-
-.list.modes li .icon svg .falling-3 {
-  animation-delay: 1.5s;
-}
-
 .list.modes li .text {
   width: calc(100% - 96px);
   height: 96px;
@@ -300,4 +138,172 @@
     font-size: 12px;
   }
 
+}
+
+
+
+.icon.mode svg .polygon.inner {
+  animation: rotate-linear 20s linear infinite;
+  transform-origin: center;
+}
+
+.icon.mode svg .polygon.inner.ani {
+  opacity: 0 !important;
+}
+
+/* iron banner icon */
+.icon.mode svg .iron-banner-3 .circles circle {
+  transform-origin: center center;
+  animation: rotate-linear 30s linear infinite;
+}
+
+.icon.mode svg .iron-banner-3 .circles circle:nth-child(2) {
+  animation-duration: 10s;
+}
+
+.icon.mode svg .iron-banner-3 .circles circle:nth-child(3) {
+  animation-direction: reverse;
+}
+
+/* trials of osiris icon */
+.icon.mode svg .trials .hexagon {
+  animation: rotate-linear 20s linear infinite;
+  transform-origin: center;
+}
+
+.icon.mode svg .trials .hexagon:last-child {
+  animation-direction: reverse;
+  animation-duration: 10s;
+}
+
+/* crimson doubles icon */
+.icon.mode svg .petals {
+  opacity: 1 !important;
+}
+
+.icon.mode svg .petals path {
+  opacity: 0;
+  transform-origin: center center;
+  animation: crucible-modes-leaf-zoom 10s cubic-bezier(0.39, 0.575, 0.565, 1) 0s infinite;
+  fill: #ff76b3 !important;
+}
+
+.icon.mode svg .petals path:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.icon.mode svg .petals path:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.icon.mode svg .petals path:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+.icon.mode svg .petals path:nth-child(4) {
+  animation-delay: 2s;
+}
+
+.icon.mode svg .petals path:nth-child(5) {
+  animation-delay: 2.5s;
+}
+
+.icon.mode svg .petals path:nth-child(6) {
+  animation-delay: 3s;
+}
+
+.icon.mode svg .petals path:nth-child(7) {
+  animation-delay: 3.5s;
+}
+
+.icon.mode svg .petals path:nth-child(8) {
+  animation-delay: 4s;
+}
+
+.icon.mode svg .petals path:nth-child(9) {
+  animation-delay: 4.5s;
+}
+
+.icon.mode svg .petals path:nth-child(10) {
+  animation-delay: 5s;
+}
+
+.icon.mode svg .petals path:nth-child(11) {
+  animation-delay: 5.5s;
+}
+
+.icon.mode svg .petals path:nth-child(12) {
+  animation-delay: 6s;
+}
+
+.icon.mode svg .petals path:nth-child(13) {
+  animation-delay: 6.5s;
+}
+
+.icon.mode svg .petals path:nth-child(14) {
+  animation-delay: 7s;
+}
+
+.icon.mode svg .petals path:nth-child(15) {
+  animation-delay: 7.5s;
+}
+
+.icon.mode svg .petals path:nth-child(16) {
+  animation-delay: 8s;
+}
+
+.icon.mode svg .petals path:nth-child(17) {
+  animation-delay: 8.5s;
+}
+
+.icon.mode svg .petals path:nth-child(18) {
+  animation-delay: 9s;
+}
+
+.icon.mode svg .petals path:nth-child(19) {
+  animation-delay: 9.5s;
+}
+
+.icon.mode svg .petals path:nth-child(20) {
+  animation-delay: 10s;
+}
+
+.icon.mode svg .petals path:nth-child(21) {
+  animation-delay: 10.5s;
+}
+
+.icon.mode svg .petals path:nth-child(22) {
+  animation-delay: 11s;
+}
+
+.icon.mode svg .petals path:nth-child(23) {
+  animation-delay: 11.5s;
+}
+
+.icon.mode svg .petals path:nth-child(24) {
+  animation-delay: 12s;
+}
+
+.icon.mode svg .petals path:nth-child(25) {
+  animation-delay: 12.5s;
+}
+
+.icon.mode svg .petals path:nth-child(26) {
+  animation-delay: 13s;
+}
+
+.icon.mode svg .petals path:nth-child(27) {
+  animation-delay: 13.5s;
+}
+
+.icon.mode svg .falling-2 {
+  animation-delay: 1s;
+}
+
+.icon.mode svg .falling-3 {
+  animation-delay: 1.5s;
+}
+
+.wrapper.reduced-motion .icon.mode svg * {
+  animation: unset !important;
 }

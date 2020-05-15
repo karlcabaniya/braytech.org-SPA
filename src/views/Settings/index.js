@@ -17,28 +17,28 @@ class Settings extends React.Component {
   constructor(props) {
     super(props);
 
-    let initLanguage = this.props.i18n.getCurrentLanguage();
+    const initLanguage = this.props.i18n.getCurrentLanguage();
 
     this.state = {
       language: {
         current: initLanguage,
-        selected: initLanguage
+        selected: initLanguage,
       },
       swInstalled: false,
       swUpdateAttempt: false,
-      swUnregisterAttempt: false
+      swUnregisterAttempt: false,
     };
   }
 
-  selectCollectibleDisplayState = state => e => {
+  selectCollectibleDisplayState = (state) => (e) => {
     this.props.setCollectibleDisplayState({
       ...this.props.collectibles,
-      [state]: !this.props.collectibles[state]
+      [state]: !this.props.collectibles[state],
     });
   };
 
-  selectLanguage = lang => {
-    this.setState(p => ({ ...p, language: { ...p.language, selected: lang } }));
+  selectLanguage = (lang) => {
+    this.setState((p) => ({ ...p, language: { ...p.language, selected: lang } }));
   };
 
   saveAndRestart = () => {
@@ -54,7 +54,7 @@ class Settings extends React.Component {
   handler_swUpdate = () => {
     if (this.mounted) this.setState({ swUpdateAttempt: true });
 
-    navigator.serviceWorker.getRegistration('/').then(function(registration) {
+    navigator.serviceWorker.getRegistration('/').then(function (registration) {
       registration.update();
     });
   };
@@ -62,7 +62,7 @@ class Settings extends React.Component {
   handler_swDump = () => {
     if (this.mounted) this.setState({ swUnregisterAttempt: true });
 
-    navigator.serviceWorker.getRegistration('/').then(function(registration) {
+    navigator.serviceWorker.getRegistration('/').then(function (registration) {
       registration.unregister();
       console.log(registration);
     });
@@ -70,7 +70,7 @@ class Settings extends React.Component {
 
   async componentDidMount() {
     this.mounted = true;
-    
+
     window.scrollTo(0, 0);
 
     const swInstalled = await this.swInstalled();
@@ -94,7 +94,7 @@ class Settings extends React.Component {
     return false;
   };
 
-  handler_toggleMapsDebugMode = e => {
+  handler_toggleMapsDebugMode = (e) => {
     if (this.props.maps.debug) {
       this.props.setMaps({ debug: false });
     } else {
@@ -102,7 +102,7 @@ class Settings extends React.Component {
     }
   };
 
-  handler_toggleMapsDebugModeNoScreenshotHighlight = e => {
+  handler_toggleMapsDebugModeNoScreenshotHighlight = (e) => {
     if (this.props.maps.noScreenshotHighlight) {
       this.props.setMaps({ noScreenshotHighlight: false });
     } else {
@@ -110,7 +110,7 @@ class Settings extends React.Component {
     }
   };
 
-  handler_toggleMapsDebugModeLogDetails = e => {
+  handler_toggleMapsDebugModeLogDetails = (e) => {
     if (this.props.maps.logDetails) {
       this.props.setMaps({ logDetails: false });
     } else {
@@ -118,43 +118,35 @@ class Settings extends React.Component {
     }
   };
 
-  handler_setTheme = theme => e => {
+  handler_setTheme = (theme) => (e) => {
     this.props.setTheme(theme);
   };
 
-  handler_toggleThree = e => {
-    this.props.setThree({ enabled: !this.props.three.enabled });
+  handler_toggleVisual = (flag) => (e) => {
+    this.props.setVisual({ [flag]: !this.props.visual[flag] });
   };
 
-  handler_toggleThreeDebugMode = e => {
-    this.props.setThree({ debug: !this.props.three.debug });
-  };
-
-  handler_toggleThreeShadows = e => {
-    this.props.setThree({ shadows: !this.props.three.shadows });
-  };
-
-  handler_resetLayouts = e => {
+  handler_resetLayouts = (e) => {
     this.props.resetLayouts({ target: false });
   };
 
-  handler_resetTrackedTriumphs = e => {
+  handler_resetTrackedTriumphs = (e) => {
     this.props.setTrackedTriumphs([]);
   };
 
-  handler_resetTipsState = e => {
+  handler_resetTipsState = (e) => {
     this.props.setTips([]);
   };
 
-  handler_resetProfileHistory = e => {
+  handler_resetProfileHistory = (e) => {
     ls.set('history.profiles', []);
   };
 
-  handler_resetNotificationsState = e => {
+  handler_resetNotificationsState = (e) => {
     ls.set('history.notifications', []);
   };
 
-  handler_reloadApp = e => {
+  handler_reloadApp = (e) => {
     setTimeout(() => {
       window.location.reload();
     }, 50);
@@ -163,7 +155,7 @@ class Settings extends React.Component {
   render() {
     const { t, availableLanguages, location } = this.props;
 
-    const languageButtons = availableLanguages.map(code => {
+    const languageButtons = availableLanguages.map((code) => {
       const langInfo = getLanguageInfo(code);
 
       return (
@@ -242,21 +234,27 @@ class Settings extends React.Component {
           </div>
           <div className='module'>
             <div className='sub-header sub'>
-              <div>{t('3D models')}</div>
+              <div>{t('Visual fidelity')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggleThree}>
-                <Checkbox linked checked={this.props.three.enabled} text={t('Use 3D models')} />
+              <li onClick={this.handler_toggleVisual('animations')}>
+                <Checkbox linked checked={this.props.visual.animations} text={t('Enable animations')} />
                 <div className='info'>
-                  <p>{t('Where available, use 3D models. Not recommended for phones or low processing-power devices.')}</p>
+                  <p>{t('Disabling this can improve performance on low power devices.')}</p>
                 </div>
               </li>
-              {this.props.three.enabled && 2 === 3 ? (
+              <li onClick={this.handler_toggleVisual('three')}>
+                <Checkbox linked checked={this.props.visual.three} text={t('Enable 3D models')} />
+                <div className='info'>
+                  <p>{t('Where applicable, use 3D models. Not recommended for phones or low power devices.')}</p>
+                </div>
+              </li>
+              {this.props.visual.three && 2 === 3 ? (
                 <>
-                  <li onClick={this.handler_toggleThreeShadows}>
-                    <Checkbox linked checked={this.props.three.shadows} text={t('Use shadows')} />
+                  <li onClick={this.handler_toggleVisual('threeShadows')}>
+                    <Checkbox linked checked={this.props.visual.threeShadows} text={t('Enable 3D model shadows')} />
                     <div className='info'>
-                      <p>{t('Models will cast shadows upon themselves for a more realistic and true representation. Affects performance.')}</p>
+                      <p>{t('3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.')}</p>
                     </div>
                   </li>
                 </>
@@ -322,10 +320,10 @@ class Settings extends React.Component {
               <div>{t('Developer')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggleThreeDebugMode}>
-                <Checkbox linked checked={this.props.three.debug} text={t('Three.js debug mode')} />
+              <li onClick={this.handler_toggleVisual('threeDebug')}>
+                <Checkbox linked checked={this.props.visual.threeDebug} text={t('3D model debug mode')} />
                 <div className='info'>
-                  <p>{t('Displays extra information for debugging Three.js instances')}</p>
+                  <p>{t('Displays extra information for debugging 3D models')}</p>
                 </div>
               </li>
               <li onClick={this.handler_toggleMapsDebugMode}>
@@ -386,36 +384,36 @@ function mapStateToProps(state, ownProps) {
     tooltips: state.tooltips,
     collectibles: state.collectibles,
     maps: state.maps,
-    three: state.three
+    visual: state.visual,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setTheme: value => {
+    setTheme: (value) => {
       dispatch({ type: 'SET_THEME', payload: value });
     },
-    setTooltipDetailMode: value => {
+    setTooltipDetailMode: (value) => {
       dispatch({ type: 'SET_TOOLTIPS_DESIGN', payload: { detailedMode: value } });
     },
-    setCollectibleDisplayState: value => {
+    setCollectibleDisplayState: (value) => {
       dispatch({ type: 'SET_COLLECTIBLES', payload: value });
     },
-    setTrackedTriumphs: value => {
+    setTrackedTriumphs: (value) => {
       dispatch({ type: 'SET_TRACKED_TRIUMPHS', payload: value });
     },
-    setMaps: value => {
+    setMaps: (value) => {
       dispatch({ type: 'SET_MAPS', payload: value });
     },
-    setThree: value => {
-      dispatch({ type: 'SET_THREE', payload: value });
+    setVisual: (value) => {
+      dispatch({ type: 'SET_VISUAL', payload: value });
     },
-    setTips: value => {
+    setTips: (value) => {
       dispatch({ type: 'SET_TIPS', payload: value });
     },
-    resetLayouts: value => {
+    resetLayouts: (value) => {
       dispatch({ type: 'RESET_LAYOUTS', payload: value });
-    }
+    },
   };
 }
 

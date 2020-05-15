@@ -82,11 +82,11 @@ class CrucibleRotators extends React.Component {
           </p>
         </div>
         <h4>{t('Rotator playlists')}</h4>
-        <div className='activity-mode-icons'>
+        <div className='modes'>
           {featuredCrucibleModes.map((f, i) => {
             return (
               <div key={i}>
-                <div className='icon'>{f.icon}</div>
+                <div className='icon mode'>{f.icon}</div>
                 <div className='text'>{f.displayProperties.name}</div>
               </div>
             );

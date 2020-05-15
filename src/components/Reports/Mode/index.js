@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
@@ -11,25 +10,29 @@ import { ProfileNavLink } from '../../ProfileLink';
 
 import './styles.css';
 
+const isActive = (param, mode) => (match, location) => {
+  if (param === mode) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function handler_onClick() {
+  document.getElementById('matches').scrollIntoView({behavior: "smooth"});
+}
+
 class Mode extends React.Component {
   render() {
-    const { match, location, stats, root = '/multiplayer/crucible', defaultMode = 5 } = this.props;
-    const modeParam = parseInt(match.params.mode || defaultMode, 10);
+    const { match, stats, root = '/multiplayer/crucible', defaultMode = 5 } = this.props;
+    const param = parseInt(match.params.mode || defaultMode, 10);
    
     const definitionActivityMode = Object.values(manifest.DestinyActivityModeDefinition).find(d => d.modeType === stats.mode);
-
     const extras = activityModeExtras(stats.mode);
-    const isActive = (match, location) => {
-      if (modeParam === stats.mode) {
-        return true;
-      } else {
-        return false;
-      }
-    };
     
     return (
-      <li className={cx('linked', { active: isActive(match, location) })}>
-        <div className='icon'>
+      <li className='linked'>
+        <div className='icon mode'>
           {extras && extras.icon}
         </div>
         <div className='text'>
@@ -57,10 +60,7 @@ class Mode extends React.Component {
             </>
           ) : <div className='no-stats'><div>{t('No stats available')}</div></div>}
         </div>
-        <ProfileNavLink isActive={isActive} to={{ pathname: stats.mode === parseInt(defaultMode, 10) ? root : `${root}/${stats.mode}`, state: {  } }} onClick={() => {
-          let element = document.getElementById('matches');
-          element.scrollIntoView({behavior: "smooth"});
-        }} />
+        <ProfileNavLink isActive={isActive(param, stats.mode)} to={{ pathname: stats.mode === parseInt(defaultMode, 10) ? root : `${root}/${stats.mode}`, state: {  } }} onClick={handler_onClick} />
       </li>
     );
   }
