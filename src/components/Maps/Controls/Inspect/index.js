@@ -53,7 +53,7 @@ function locationStrings({ activityHash, destinationHash, bubbleHash, map, exten
   const destinationString = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
   const within = map?.in;
-  const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
+  const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
 
   return {
     destinationString,
@@ -166,84 +166,70 @@ function unify(props) {
   }
 }
 
-class Inspect extends React.Component {
-  state = {};
+function Inspect(props) {
+  const unified = unify(props);
 
-  componentDidMount() {
-    this.mounted = true;
-  }
+  console.log(unified);
 
-  componentWillUnmount() {
-    this.mounted = false;
-  }
-
-  componentDidUpdate(p, s) {}
-
-  render() {
-    const unified = unify(this.props);
-
-    console.log(unified);
-
-    return (
-      <div className='control inspector acrylic'>
-        <div className='close'>
-          <Button action={this.props.handler}>
-            <i className='segoe-uniE8BB' />
-          </Button>
-        </div>
-        <div className='wrapper'>
-          <div className='screenshot'>
-            {unified.screenshot ? (
-              <ObservedImage src={unified.screenshot}>
-                {unified.extended?.screenshot?.highlight ? (
-                  <div className='highlight' style={{ left: `${unified.extended.screenshot.highlight.x}%`, top: `${unified.extended.screenshot.highlight.y}%` }}>
-                    <Maps.ScreenshotHighlight />
-                  </div>
-                ) : null}
-              </ObservedImage>
-            ) : (
-              <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
-            )}
-          </div>
-          {unified.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
-          {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
-          <div className='header'>
-            {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
-            <div className='type'>{unified.type?.name}</div>
-            <div className='name'>{unified.displayProperties?.name}</div>
-            {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
-          </div>
-          {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
-          {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
-          {unified.extended?.video ? (
-            <div className='video'>
-              <div className='text'>{t('This node has an associated video')}</div>
-              <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
-                <div className='text'>{t('View Video')}</div>
-              </a>
-            </div>
-          ) : null}
-          <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
-            {unified.extended?.instructions ? (
-              <>
-                <h4>{t('Instructions')}</h4>
-                <BungieText className='description instructions' source={unified.extended.instructions} />
-              </>
-            ) : null}
-            {unified.related?.records.length ? (
-              <>
-                <h4>{t('Triumphs')}</h4>
-                <ul className='list record-items'>
-                  <Records selfLinkFrom={this.props.location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered />
-                </ul>
-              </>
-            ) : null}
-          </div>
-          <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
-        </div>
+  return (
+    <div className='control inspector acrylic'>
+      <div className='close'>
+        <Button action={props.handler}>
+          <i className='segoe-uniE8BB' />
+        </Button>
       </div>
-    );
-  }
+      <div className='wrapper'>
+        <div className='screenshot'>
+          {unified.screenshot ? (
+            <ObservedImage src={unified.screenshot}>
+              {unified.extended?.screenshot?.highlight ? (
+                <div className='highlight' style={{ left: `${unified.extended.screenshot.highlight.x}%`, top: `${unified.extended.screenshot.highlight.y}%` }}>
+                  <Maps.ScreenshotHighlight />
+                </div>
+              ) : null}
+            </ObservedImage>
+          ) : (
+            <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
+          )}
+        </div>
+        {unified.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
+        {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
+        <div className='header'>
+          {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
+          <div className='type'>{unified.type?.name}</div>
+          <div className='name'>{unified.displayProperties?.name}</div>
+          {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
+        </div>
+        {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
+        {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
+        {unified.extended?.video ? (
+          <div className='video'>
+            <div className='text'>{t('This node has an associated video')}</div>
+            <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
+              <div className='text'>{t('View Video')}</div>
+            </a>
+          </div>
+        ) : null}
+        <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
+          {unified.extended?.instructions ? (
+            <>
+              <h4>{t('Instructions')}</h4>
+              <BungieText className='description instructions' source={unified.extended.instructions} />
+            </>
+          ) : null}
+          {unified.related?.records.length ? (
+            <>
+              <h4>{t('Triumphs')}</h4>
+              <ul className='list record-items'>
+                <Records selfLinkFrom={props.location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showInvisible />
+              </ul>
+            </>
+          ) : null}
+        </div>
+        <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
+      </div>
+    </div>
+  );
 }
 
 function mapStateToProps(state, ownProps) {

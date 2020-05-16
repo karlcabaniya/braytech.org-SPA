@@ -23,7 +23,7 @@ function updateScrollbars(theme) {
   } else {
     root.style.setProperty('--scrollbar-track', '#a7a7a7');
     root.style.setProperty('--scrollbar-draggy', '#cacaca');
-    root.style.setProperty('--body-background', '');
+    root.style.setProperty('--body-background', '#9e9e9e');
   }
 }
 

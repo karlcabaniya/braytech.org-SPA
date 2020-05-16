@@ -58,6 +58,12 @@ table {
   --body-background: #9e9e9e;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-background: #111111;
+  }
+}
+
 body {
   font-family: var(--font-display);
   font-weight: 400;

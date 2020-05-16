@@ -286,7 +286,8 @@
   },
   "12": {
     "displayProperties": {
-      "name": "Agonarch Abyss"
+      "name": "Agonarch Abyss",
+      "description": "Reach the bottom and eliminate the Taken Wizards.\n\n_Accept this challenge, walk between worlds, and undo what has been done._"
     },
     "icon": "ascendant-challenge",
     "type": {
@@ -323,6 +324,10 @@
           ]
         }
       ]
+    },
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_agonarch-abyss-1.jpg",
+    "extended": {
+      "video": "https://www.youtube.com/watch?v=R3hxNNzfxBI"
     }
   },
   "13": {
@@ -335,7 +340,9 @@
       "name": "Portal",
       "hash": "portal"
     },
-    "destinationHash": 2779202173
+    "destinationHash": 2779202173,
+    "bubbleHash": 735161098,
+    "screenshot": "/static/images/screenshots/ascendant-challenges/ascendant-challenge_agonarch-abyss-2.jpg"
   },
   "14": {
     "displayProperties": {
@@ -1417,14 +1424,14 @@
   },
   "217": {
     "displayProperties": {
-      "description": "Complete the Tunnels of Despair encounter. Before making your way deeper by traversing the height traps, climb carefully to their higest level."
+      "description": "Complete the _Chamber of Suffering_ encounter. Before making your way deeper by traversing the height traps, climb carefully to their higest level."
     },
     "recordHash": 2028468506,
     "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468506.jpg"
   },
   "218": {
     "displayProperties": {
-      "description": "Drop down into the Tunnels of Despair and keep right. Enter at the first crouch-way and follow it to its end. You'll see a red door. Standing at the red door turn 70° clockwise. You'll be staring at a boulder. To the right of the boulder is the prize you seek."
+      "description": "Drop down into the _Tunnels of Despair_ and keep right. Enter at the first crouch-way and follow it to its end. You'll see a red door. Standing at the red door turn 70° clockwise. You'll be staring at a boulder. To the right of the boulder is the prize you seek."
     },
     "recordHash": 2028468501,
     "screenshot": "/static/images/screenshots/lore/pit-of-heresy_necrotic-cyphers_2028468501.jpg"
@@ -1521,7 +1528,7 @@
   },
   "227": {
     "displayProperties": {
-      "description": "In the Tunnels of Despair, on a cliff ledge adjacent to the green gas pit."
+      "description": "In the _Tunnels of Despair_, on a cliff ledge adjacent to the green gas pit."
     },
     "recordHash": 3390078236,
     "screenshot": "/static/images/screenshots/lore/pit-of-heresy_lunas-lost_3390078236.jpg",
@@ -3024,6 +3031,11 @@
   "462": {
     "checklistHash": 3994204292,
     "screenshot": "/static/images/screenshots/ghost-scans/chamber-of-water_ghost-scans_110.jpg",
+    "extended": {}
+  },
+  "463": {
+    "checklistHash": 3360907267,
+    "screenshot": "/static/images/screenshots/lost-sectors/divalian-mists_lost-sectors_bay-of-drowned-wishes.jpg",
     "extended": {}
   }
 }

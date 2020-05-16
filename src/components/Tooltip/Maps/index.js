@@ -35,7 +35,7 @@ class Checklist extends React.Component {
     const bubbleName = definitionBubble?.displayProperties?.name;
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
 
     return (
       <>
@@ -98,7 +98,7 @@ class Record extends React.Component {
     const bubbleName = definitionBubble?.displayProperties?.name;
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
 
     return (
       <>
@@ -169,7 +169,7 @@ class Node extends React.Component {
     const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
 
     const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && definitionActivity?.displayProperties?.name) || bubbleName;
+    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
 
     const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 

@@ -136,7 +136,10 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -147,7 +150,10 @@ export const checklists = {
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: t('Ahamkara Bones'),
       checklistItemName_plural: t('Ahamkara Bones'),
@@ -167,7 +173,10 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -178,7 +187,10 @@ export const checklists = {
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: t('Corrupted Egg'),
       checklistItemName_plural: t('Corrupted Eggs'),
@@ -366,7 +378,10 @@ export const checklists = {
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -377,7 +392,10 @@ export const checklists = {
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
+
+        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[1420597821].displayProperties.name}`,
@@ -501,10 +519,10 @@ export const checklists = {
         const destinationName = definitionDestination?.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        const destinationActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
-        const activityName = (destinationActivity && destinationActivity.displayProperties && destinationActivity.displayProperties.name) || false;
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [activityName, bubbleName, destinationName].filter((s) => s).join(', ');
+        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -515,10 +533,10 @@ export const checklists = {
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        const destinationActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
-        const activityName = (destinationActivity && destinationActivity.displayProperties && destinationActivity.displayProperties.name) || false;
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [activityName, bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[4285512244].displayProperties.name}`,
@@ -551,10 +569,10 @@ export const checklists = {
         const destinationName = definitionDestination?.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        const destinationActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
-        const activityName = (destinationActivity && destinationActivity.displayProperties && destinationActivity.displayProperties.name) || false;
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [activityName, bubbleName, destinationName].filter((s) => s).join(', ');
+        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -565,10 +583,10 @@ export const checklists = {
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
 
-        const destinationActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
-        const activityName = (destinationActivity && destinationActivity.displayProperties && destinationActivity.displayProperties.name) || false;
+        const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
+        const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [activityName, bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,
       checklistItemName_plural: `${t('Lore')}: ${manifest.DestinyPresentationNodeDefinition[2474271317].displayProperties.name}`,

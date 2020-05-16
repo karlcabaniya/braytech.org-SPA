@@ -1955,7 +1955,14 @@
           "name": "Bay of Drowned Wishes",
           "id": "bay-of-drowned-wishes",
           "type": "suburb",
-          "nodes": []
+          "nodes": [
+            {
+              "type": "ascendant-challenge",
+              "nodeHash": 12,
+              "x": 449,
+              "y": -304
+            }
+          ]
         },
         {
           "hash": 3366050756,

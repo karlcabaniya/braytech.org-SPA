@@ -806,20 +806,22 @@
   "1297424116": [
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1370818871,
       "recordHash": 1859033168,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1370818868,
       "recordHash": 1859033171,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
@@ -869,11 +871,12 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1370818864,
       "recordHash": 1859033175,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
@@ -952,11 +955,12 @@
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1387596459,
       "recordHash": 1842255612,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
@@ -5200,6 +5204,7 @@
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442601,
       "recordHash": 2028468504,
       "activityHash": 1375089621,
       "map": {
@@ -5209,11 +5214,12 @@
             "y": 401
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442601,
       "recordHash": 2028468507,
       "activityHash": 1375089621,
       "map": {
@@ -5223,11 +5229,12 @@
             "y": 496
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442604,
       "recordHash": 2028468506,
       "activityHash": 1375089621,
       "map": {
@@ -5237,11 +5244,12 @@
             "y": 511
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442602,
       "recordHash": 2028468501,
       "activityHash": 1375089621,
       "map": {
@@ -5251,11 +5259,12 @@
             "y": 333
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442602,
       "recordHash": 2028468500,
       "activityHash": 1375089621,
       "map": {
@@ -5265,135 +5274,154 @@
             "y": 332
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     }
   ],
   "2609997025": [
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252171,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252168,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252169,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252174,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252175,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252172,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252173,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252162,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
-      "bubbleHash": "The Shattered Throne",
+      "activityHash": 2032534090,
       "checklistHash": 1101252163,
       "recordHash": 3024450468,
       "map": {
-        "points": []
+        "points": [],
+        "in": "dungeon"
       }
     },
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2856378140,
+      "activityHash": 1661734046,
       "checklistHash": 1118029885,
       "recordHash": 3024450464,
       "map": {
-        "points": []
+        "points": [],
+        "in": "raid"
       }
     },
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3202673012,
+      "activityHash": 1661734046,
       "checklistHash": 1118029884,
       "recordHash": 3024450464,
       "map": {
-        "points": []
+        "points": [],
+        "in": "raid"
       }
     },
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2000651678,
+      "activityHash": 1661734046,
       "checklistHash": 1118029887,
       "recordHash": 3024450464,
       "map": {
-        "points": []
+        "points": [],
+        "in": "raid"
       }
     },
     {
       "destinationHash": 2779202173,
       "bubbleHash": 2000651678,
+      "activityHash": 1661734046,
       "checklistHash": 1118029886,
       "recordHash": 3024450464,
       "map": {
-        "points": []
+        "points": [],
+        "in": "raid"
       }
     },
     {
       "destinationHash": 2779202173,
       "bubbleHash": 3118644576,
+      "activityHash": 1661734046,
       "checklistHash": 1118029881,
       "recordHash": 3024450464,
       "map": {
-        "points": []
+        "points": [],
+        "in": "raid"
       }
     },
     {
@@ -8115,6 +8143,7 @@
     },
     {
       "destinationHash": 290444260,
+      "bubbleHash": 2904442602,
       "recordHash": 3390078236,
       "activityHash": 1375089621,
       "itemHash": 3277020515,
@@ -8125,7 +8154,7 @@
             "y": 340
           }
         ],
-        "in": "activity"
+        "in": "dungeon"
       }
     },
     {

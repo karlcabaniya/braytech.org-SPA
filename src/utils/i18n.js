@@ -291,6 +291,8 @@ export function withinString(type, activityName) {
     return t('Found within Story: {{activityName}}', { activityName });
   } else if (type === 'ascendant-challenge') {
     return t('Found within Ascendant Challenge: {{activityName}}', { activityName });
+  } else if (activityName) {
+    return t('Found within activity: {{activityName}}', { activityName });
   } else {
     return t('Found within activity');
   }
@@ -300,7 +302,7 @@ export const Energy = {
   Solar: ['solar', 'solare', 'solares', 'огня'],
   Arc: ['arc', 'arco', 'молнии'],
   Void: ['void', 'vacío', 'vuoto', 'vácuo', 'пустоты'],
-}
+};
 
 export function basic(string) {
   return string.toLowerCase().replace(/[^\s0-9_A-Za-zÀ-ÖØ-öø-ÿ]+/g, '');

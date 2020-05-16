@@ -215,6 +215,10 @@ async function run() {
       ...((addins && addins.extended) || {}),
     };
 
+    if (bubbleHash === 'The Shattered Throne') {
+      bubbleHash = undefined;
+    }
+
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
     const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
 
@@ -250,7 +254,11 @@ async function run() {
       within = 'lost-sector';
     } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(18)) {
       within = 'strike';
-    } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(2)) {
+    } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(4)) {
+      within = 'raid';
+    } else if (activityHash && [2032534090, 1375089621].indexOf(activityHash) > -1) {
+      within = 'dungeon';
+    } else if (activityHash && activityHash !== 2032534090 && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(2)) {
       within = 'story';
     } else if (activityHash && checklistId !== 4178338182) {
       // exclude adventures from being located within themselves lol
@@ -341,6 +349,10 @@ async function run() {
           within = 'lost-sector';
         } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(18)) {
           within = 'strike';
+        } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(4)) {
+          within = 'raid';
+        } else if (activityHash && [2032534090, 1375089621].indexOf(activityHash) > -1) {
+          within = 'dungeon';
         } else if (activityHash && manifest.DestinyActivityDefinition[activityHash].activityModeTypes.includes(2)) {
           within = 'story';
         } else if (activityHash) {
