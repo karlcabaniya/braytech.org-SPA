@@ -236,6 +236,7 @@
   "Forget me": "清除授权",
   "Forsaken campaign": "遗落之族战役",
   "#####Found within activity": "🌐",
+  "#####Found within activity: {{activityName}}": "🌐",
   "#####Found within Ascendant Challenge: {{activityName}}": "🌐",
   "#####Found within Lost Sector: {{activityName}}": "🌐",
   "#####Found within Story: {{activityName}}": "🌐",

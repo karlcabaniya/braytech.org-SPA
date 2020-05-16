@@ -236,6 +236,7 @@
   "Forget me": "Vergiss mich",
   "Forsaken campaign": "Forsaken Kampagne",
   "Found within activity": "Gefunden in einer Aktivität",
+  "#####Found within activity: {{activityName}}": "🌐",
   "Found within Ascendant Challenge: {{activityName}}": "Gefunden in der Aszendenten-Challenge: {{activityName}}",
   "Found within Lost Sector: {{activityName}}": "Gefunden im Verlorenen Sektor: {{activityName}}",
   "Found within Story: {{activityName}}": "Gefunden in der Kampagne: {{activityName}}",

@@ -236,6 +236,7 @@
   "Forget me": "私を忘れなさい",
   "Forsaken campaign": "「孤独と影」キャンペーン",
   "#####Found within activity": "🌐",
+  "#####Found within activity: {{activityName}}": "🌐",
   "#####Found within Ascendant Challenge: {{activityName}}": "🌐",
   "#####Found within Lost Sector: {{activityName}}": "🌐",
   "#####Found within Story: {{activityName}}": "🌐",

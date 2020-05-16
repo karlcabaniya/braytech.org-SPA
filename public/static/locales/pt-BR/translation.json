@@ -236,6 +236,7 @@
   "Forget me": "Esquecer-me",
   "Forsaken campaign": "Campanha da Renegados",
   "#####Found within activity": "🌐",
+  "#####Found within activity: {{activityName}}": "🌐",
   "#####Found within Ascendant Challenge: {{activityName}}": "🌐",
   "#####Found within Lost Sector: {{activityName}}": "🌐",
   "#####Found within Story: {{activityName}}": "🌐",

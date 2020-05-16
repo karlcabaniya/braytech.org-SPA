@@ -236,6 +236,7 @@
   "Forget me": "Dimenticami",
   "Forsaken campaign": "Campagna de I Rinnegati",
   "Found within activity": "Trovato nella seguente attività",
+  "#####Found within activity: {{activityName}}": "🌐",
   "Found within Ascendant Challenge: {{activityName}}": "Trovato nella seguente Sfida Ascendente: {{activityName}}",
   "Found within Lost Sector: {{activityName}}": "Trovato nel seguente Settore Perduto: {{activityName}}",
   "Found within Story: {{activityName}}": "Trovato nella seguente missione Storia: {{activityName}}",

@@ -236,6 +236,7 @@
   "Forget me": "Olvídame",
   "Forsaken campaign": "Campaña de Los Renegados",
   "Found within activity": "Se encuentra dentro de la actividad",
+  "#####Found within activity: {{activityName}}": "🌐",
   "Found within Ascendant Challenge: {{activityName}}": "Se encuentra dentro del Desafío Ascendente: {{activityName}}",
   "Found within Lost Sector: {{activityName}}": "Se encuentra dentro del Sector Perdido: {{activityName}}",
   "Found within Story: {{activityName}}": "Se encuentra dentro de la misión: {{activityName}}",

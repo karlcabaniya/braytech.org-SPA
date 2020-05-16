@@ -236,6 +236,7 @@
   "Forget me": "Забыть меня",
   "Forsaken campaign": "Сюжет Отвергнутых",
   "Found within activity": "Находится в активности",
+  "#####Found within activity: {{activityName}}": "🌐",
   "Found within Ascendant Challenge: {{activityName}}": "Находится в Высшем Испытании: {{activityName}}",
   "Found within Lost Sector: {{activityName}}": "Находится в Затерянном Секторе: {{activityName}}",
   "Found within Story: {{activityName}}": "Находится во время сюжета: {{activityName}}",

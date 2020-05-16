@@ -1,167 +1,112 @@
 {
   "de": {
     "translated": 682,
-    "notTranslated": 9,
+    "notTranslated": 10,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 691,
+    "translated": 692,
     "notTranslated": 0,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 691,
+    "translated": 692,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 682,
-    "notTranslated": 9,
+    "notTranslated": 10,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 682,
-    "notTranslated": 9,
+    "notTranslated": 10,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 626,
-    "notTranslated": 65,
+    "notTranslated": 66,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 637,
-    "notTranslated": 54,
+    "notTranslated": 55,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 563,
-    "notTranslated": 128,
+    "notTranslated": 129,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 516,
-    "notTranslated": 175,
+    "notTranslated": 176,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 689,
+    "notTranslated": 690,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 622,
-    "notTranslated": 69,
+    "notTranslated": 70,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 682,
-    "notTranslated": 9,
+    "notTranslated": 10,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 489,
-    "notTranslated": 202,
+    "notTranslated": 203,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 351,
-    "notTranslated": 340,
+    "notTranslated": 341,
     "added": [
-      "Controls most animations. Disabling passive animations may improve performance on low power devices.",
-      "Enable passive animations"
+      "Found within activity: {{activityName}}"
     ],
-    "removed": [
-      "Disabling this can improve performance on low power devices.",
-      "Enable animations"
-    ]
+    "removed": []
   }
 }
