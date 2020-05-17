@@ -2121,7 +2121,8 @@
     "checklistHash": 1370818865,
     "extended": {
       "video": "https://www.youtube.com/watch?v=-3KkqGbjNko"
-    }
+    },
+    "screenshot": "/static/images/screenshots/ahamkara-bones/ahamkara-bones_1370818865.jpg"
   },
   "313": {
     "checklistHash": 1370818878,
@@ -2156,8 +2157,15 @@
   "318": {
     "checklistHash": 1387596461,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=EwLi345-9uY"
-    }
+      "video": "https://www.youtube.com/watch?v=EwLi345-9uY",
+      "screenshot": {
+        "highlight": {
+          "x": 57,
+          "y": 54
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/ahamkara-bones/ahamkara-bones_1387596461.jpg"
   },
   "319": {
     "checklistHash": 1387596460,
@@ -2337,7 +2345,8 @@
     "checklistHash": 3629051903,
     "extended": {
       "video": "https://youtu.be/NtCxIwocxik"
-    }
+    },
+    "screenshot": "/static/images/screenshots/feline-friends/divalian-mists_feline-friends_8_3629051903.jpg"
   },
   "349": {
     "recordHash": 2121305070,
@@ -2461,8 +2470,15 @@
   "367": {
     "recordHash": 276019967,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=ksFBEFuUOOk"
-    }
+      "video": "https://www.youtube.com/watch?v=ksFBEFuUOOk",
+      "screenshot": {
+        "highlight": {
+          "x": 36.5,
+          "y": 38
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/lore/divalian-mists_the-awoken-of-the-reef_276019967.jpg"
   },
   "368": {
     "recordHash": 276019966,
@@ -2474,7 +2490,8 @@
     "recordHash": 276019953,
     "extended": {
       "video": "https://www.youtube.com/watch?v=3fq7u2bCQsQ"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/divalian-mists_the-awoken-of-the-reef_276019953.jpg"
   },
   "370": {
     "recordHash": 276019952,
@@ -2486,7 +2503,8 @@
     "recordHash": 259242246,
     "extended": {
       "video": "https://www.youtube.com/watch?v=Rf4CpiRT-iw"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/spine-of-keres_the-awoken-of-the-reef_259242246.jpg"
   },
   "372": {
     "recordHash": 259242247,
@@ -3037,5 +3055,64 @@
     "checklistHash": 3360907267,
     "screenshot": "/static/images/screenshots/lost-sectors/divalian-mists_lost-sectors_bay-of-drowned-wishes.jpg",
     "extended": {}
+  },
+  "464": {
+    "checklistHash": 2700275579,
+    "screenshot": "/static/images/screenshots/region-chests/divalian-mists_region-chests_69.jpg",
+    "extended": {}
+  },
+  "465": {
+    "checklistHash": 633083132,
+    "screenshot": "/static/images/screenshots/region-chests/divalian-mists_region-chests_70.jpg",
+    "extended": {}
+  },
+  "466": {
+    "checklistHash": 1105312397,
+    "screenshot": "/static/images/screenshots/region-chests/divalian-mists_region-chests_71.jpg",
+    "extended": {}
+  },
+  "467": {
+    "checklistHash": 2326920926,
+    "screenshot": "/static/images/screenshots/region-chests/divalian-mists_region-chests_72.jpg",
+    "extended": {}
+  },
+  "468": {
+    "checklistHash": 1067696998,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/divalian-mists_corrupted-eggs_22_1067696998.jpg",
+    "extended": {}
+  },
+  "469": {
+    "checklistHash": 1067696992,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/spine-of-keres_corrupted-eggs_24_1067696992.jpg",
+    "extended": {}
+  },
+  "470": {
+    "checklistHash": 1067696993,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/spine-of-keres_corrupted-eggs_25_1067696993.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 34.5,
+          "y": 69.5
+        }
+      }
+    }
+  },
+  "471": {
+    "checklistHash": 2253687296,
+    "screenshot": "/static/images/screenshots/feline-friends/spine-of-keres_feline-friends_3_2253687296.jpg",
+    "extended": {}
+  },
+  "472": {
+    "checklistHash": 1159650715,
+    "screenshot": "/static/images/screenshots/feline-friends/spine-of-keres_feline-friends_4_1159650715.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 30,
+          "y": 77
+        }
+      }
+    }
   }
 }

@@ -527,6 +527,14 @@ function getScreenshot(checklistId, checklistItem, number, name) {
     screenshot = searchScreenshots('ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
   }
 
+  if (checklistId === 2609997025 && checklistItem.checklistHash) {
+    screenshot = searchScreenshots('corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
+  }
+
+  if (checklistId === 2726513366 && checklistItem.checklistHash) {
+    screenshot = searchScreenshots('feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+  }
+
   return screenshot;
 }
 

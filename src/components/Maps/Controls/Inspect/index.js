@@ -89,6 +89,10 @@ function screenshotFilename(node) {
     return `jade-rabbits_${checklistItem.checklistHash}.png`;
   } else if (node.checklist?.checklistId === 1297424116 && checklistItem.checklistHash) {
     return `ahamkara-bones_${checklistItem.checklistHash}.png`;
+  } else if (node.checklist?.checklistId === 2609997025 && checklistItem?.displayProperties.number) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_corrupted-eggs_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}.png`;
+  } else if (node.checklist?.checklistId === 2726513366 && checklistItem?.displayProperties.number) {
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_feline-friends_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}.png`;
   }
 
   return undefined;
