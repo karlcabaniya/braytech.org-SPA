@@ -15,6 +15,34 @@
       }
     ]
   },
+  "290444260": {
+    "bubbles": [
+      {
+        "hash": 2904442601,
+        "displayProperties": {
+          "name": "Некрополь"
+        }
+      },
+      {
+        "hash": 2904442602,
+        "displayProperties": {
+          "name": "Туннели Отчаяния"
+        }
+      },
+      {
+        "hash": 2904442603,
+        "displayProperties": {
+          "name": "Камера Страданий"
+        }
+      },
+      {
+        "hash": 2904442604,
+        "displayProperties": {
+          "name": "Борона"
+        }
+      }
+    ]
+  },
   "126924919": {
     "bubbles": [
       {
