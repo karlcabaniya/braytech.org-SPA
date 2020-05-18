@@ -208,18 +208,18 @@ export function locationStrings({ activityHash, destinationHash, bubbleHash, map
   const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
   const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
   const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (extended?.bubbleHash || bubbleHash));
-  const definitionBubbleMap = map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.bubbleHash);
+  const definitionAir = map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.bubbleHash);
 
   const destinationName = definitionDestination?.displayProperties?.name;
   const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
   const bubbleName = definitionBubble?.displayProperties?.name;
-  const bubbleNameMap = definitionBubbleMap?.displayProperties?.name;
+  const airName = definitionAir?.displayProperties?.name;
   const activityName = (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name);
 
-  const destinationString = [bubbleName, activityName, !activityName && destinationName, placeName].filter((string) => string).join(', ');
+  const destinationString = [bubbleName, activityName, !(airName || activityName) && destinationName, placeName].filter((string) => string).join(', ');
 
   const within = map?.in;
-  const withinName = within === 'ascendant-challenge' ? bubbleNameMap || bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleNameMap || bubbleName;
+  const withinName = within === 'ascendant-challenge' ? airName || bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || airName || bubbleName;
 
   return {
     destinationString,

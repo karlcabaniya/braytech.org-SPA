@@ -132,14 +132,16 @@ export const checklists = {
       itemLocation: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionBubble = definitionDestination.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionAir = i.map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === i.map.bubbleHash);
 
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
+        const airName = definitionAir?.displayProperties.name;
 
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
+        return [airName, bubbleName, activityName, !(airName || activityName) && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
@@ -169,14 +171,16 @@ export const checklists = {
       itemLocation: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionBubble = definitionDestination.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionAir = i.map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === i.map.bubbleHash);
 
         const destinationName = definitionDestination.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
+        const airName = definitionAir?.displayProperties.name;
 
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [bubbleName, activityName, !activityName && destinationName].filter((s) => s).join(', ');
+        return [airName, bubbleName, activityName, !(airName || activityName) && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
