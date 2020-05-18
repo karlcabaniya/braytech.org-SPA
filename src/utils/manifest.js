@@ -10,6 +10,7 @@ import BraytechMaps_EN from '../data/manifest/en/BraytechMaps/';
 import BraytechMaps_ES from '../data/manifest/es/BraytechMaps/';
 import BraytechMaps_ESMX from '../data/manifest/es-MX/BraytechMaps/';
 import BraytechMaps_IT from '../data/manifest/it/BraytechMaps/';
+import BraytechMaps_RU from '../data/manifest/ru/BraytechMaps/';
 
 import DestinyActivityDefinition_EN from '../data/manifest/en/DestinyActivityDefinition/';
 
@@ -70,6 +71,7 @@ const customs = {
   'pt-br': {},
   ru: {
     Braytech: Braytech_RU,
+    BraytechMaps: BraytechMaps_RU,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU,
     DestinyDestinationDefinition: DestinyDestinationDefinition_RU,
   },

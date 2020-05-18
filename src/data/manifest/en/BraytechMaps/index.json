@@ -2441,7 +2441,8 @@
     "recordHash": 276019960,
     "extended": {
       "video": "https://www.youtube.com/watch?v=9Kf2mNxHwYY"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/gardens-of-esila_the-awoken-of-the-reef_276019960.jpg"
   },
   "363": {
     "recordHash": 276019963,
@@ -3114,5 +3115,34 @@
         }
       }
     }
+  },
+  "473": {
+    "checklistHash": 1067696996,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/gardens-of-esila_corrupted-eggs_20_1067696996.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 42.5,
+          "y": 43
+        }
+      }
+    }
+  },
+  "474": {
+    "checklistHash": 1067696997,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/gardens-of-esila_corrupted-eggs_21_1067696997.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 48
+        }
+      }
+    }
+  },
+  "475": {
+    "checklistHash": 2420371297,
+    "screenshot": "/static/images/screenshots/feline-friends/gardens-of-esila_feline-friends_2_2420371297.jpg",
+    "extended": {}
   }
 }
