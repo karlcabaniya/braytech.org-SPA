@@ -78,12 +78,6 @@ const destinationHashOverrides = {
 
 const ascendantChallenges = [
   {
-    hash: 27792021731,
-    displayProperties: {
-      name: 'The Confluence',
-    },
-  },
-  {
     hash: 27792021732,
     displayProperties: {
       name: 'Ouroborea',
@@ -117,12 +111,6 @@ const ascendantChallenges = [
     hash: 27792021737,
     displayProperties: {
       name: 'Cimmerian Garrison',
-    },
-  },
-  {
-    hash: 27792021738,
-    displayProperties: {
-      name: 'Ascendant Plane',
     },
   },
 ];
@@ -215,10 +203,6 @@ async function run() {
       ...((addins && addins.extended) || {}),
     };
 
-    if (bubbleHash === 'The Shattered Throne') {
-      bubbleHash = undefined;
-    }
-
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
     const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
 
@@ -275,11 +259,17 @@ async function run() {
       itemHash: checklistItem && checklistItem.itemHash,
       recordHash,
       map: {
+        bubbleHash: undefined,
         points,
         in: within,
       },
       extended: (Object.keys(extended).length && extended) || undefined,
     };
+
+    if (ascendantChallenges.find(a => a.hash === bubbleHash)) {
+      changes.map.bubbleHash = bubbleHash;
+      changes.bubbleHash = 27792021738;
+    }
 
     const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
 
@@ -369,11 +359,17 @@ async function run() {
           activityHash,
           itemHash: existing && existing.itemHash,
           map: {
+            bubbleHash: undefined,
             points,
             in: within,
           },
           extended: (Object.keys(extended).length && extended) || undefined,
         };
+
+        if (ascendantChallenges.find(a => a.hash === bubbleHash)) {
+          changes.map.bubbleHash = bubbleHash;
+          changes.bubbleHash = 27792021738;
+        }
 
         const screenshot = getScreenshot(presentationHash, changes);
 

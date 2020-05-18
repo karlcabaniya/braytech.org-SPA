@@ -2448,7 +2448,8 @@
     "recordHash": 276019963,
     "extended": {
       "video": "https://www.youtube.com/watch?v=29HSzHoAktI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-strand_the-awoken-of-the-reef_276019963.jpg"
   },
   "364": {
     "recordHash": 276019962,
@@ -2466,7 +2467,8 @@
     "recordHash": 276019964,
     "extended": {
       "video": "https://www.youtube.com/watch?v=_5vqa97Uk5k"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/font-of-starlight_the-awoken-of-the-reef_276019964.jpg"
   },
   "367": {
     "recordHash": 276019967,
@@ -2546,8 +2548,15 @@
   "378": {
     "recordHash": 242464657,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=J2RbbxmI4T0"
-    }
+      "video": "https://www.youtube.com/watch?v=J2RbbxmI4T0",
+      "screenshot": {
+        "highlight": {
+          "x": 48.5,
+          "y": 64
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-strand_the-awoken-of-the-reef_242464657.jpg"
   },
   "379": {
     "recordHash": 3448739526,
@@ -3143,6 +3152,38 @@
   "475": {
     "checklistHash": 2420371297,
     "screenshot": "/static/images/screenshots/feline-friends/gardens-of-esila_feline-friends_2_2420371297.jpg",
+    "extended": {}
+  },
+  "476": {
+    "checklistHash": 3986286066,
+    "screenshot": "/static/images/screenshots/region-chests/the-strand_region-chests_77.jpg",
+    "extended": {}
+  },
+  "477": {
+    "checklistHash": 216809093,
+    "screenshot": "/static/images/screenshots/region-chests/the-strand_region-chests_78.jpg",
+    "extended": {}
+  },
+  "478": {
+    "checklistHash": 3162697940,
+    "screenshot": "/static/images/screenshots/region-chests/the-strand_region-chests_79.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 69,
+          "y": 70
+        }
+      }
+    }
+  },
+  "479": {
+    "checklistHash": 2357751383,
+    "screenshot": "/static/images/screenshots/region-chests/the-strand_region-chests_80.jpg",
+    "extended": {}
+  },
+  "480": {
+    "checklistHash": 2576690974,
+    "screenshot": "/static/images/screenshots/feline-friends/the-strand_feline-friends_1_2576690974.jpg",
     "extended": {}
   }
 }
