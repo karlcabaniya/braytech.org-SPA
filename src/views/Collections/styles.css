@@ -71,9 +71,8 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#collections .sidebar .badges .badge:not(.badge-complete) .image {
+#collections .sidebar .badges .badge:not(.badge-complete) {
   border-radius: 2.4%;
-  overflow: hidden;
 }
 
 #collections .sidebar .badges .list li.badge::before {
@@ -100,6 +99,10 @@
 
 #collections .sidebar .badges .badge .text {
   display: none;
+}
+
+#collections .sidebar .badges .badge .image {
+  background-size: cover;
 }
 
 #collections .sidebar .badges .badge .image.dl {

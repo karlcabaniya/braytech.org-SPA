@@ -81,7 +81,7 @@ const customs = {
 
 function mergeWithCustomizer(a, b) {
   if (Array.isArray(a) && b && Array.isArray(b)) {
-    return a.concat(b);
+    return b.concat(a);
   } else if (typeof a === 'string' && b && typeof b === 'string') {
     return b;
   } else if (typeof a === 'number' && b && typeof b === 'number') {

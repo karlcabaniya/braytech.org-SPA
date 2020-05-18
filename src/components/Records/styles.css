@@ -166,11 +166,6 @@
   background-color: rgba(188, 173, 113, 0.6);
 }
 
-.list.record-items li.completed .progress-bar .bar .fill,
-.list.record-items li.completed .progress-bar.intervals .bar.completed .fill {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
 .list.record-items li.linked.completed:hover {
   background-color: rgba(188, 173, 113, 0.8);
 }
@@ -181,7 +176,7 @@
 }
 
 .list.record-items li.unredeemed .progress-bar .bar {
-  background-color: rgba(123, 220, 193, 0);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .list.record-items li.unredeemed .progress-bar > .bar > .fill {
@@ -194,6 +189,13 @@
 
 .list.record-items li.unredeemed .progress-bar .check.ed::before {
   background-color: #7bdcc1;
+}
+
+.list.record-items li.unredeemed .progress-bar .bar,
+.list.record-items li.completed .progress-bar .bar,
+.list.record-items li.unredeemed .progress-bar.intervals .bar,
+.list.record-items li.completed .progress-bar.intervals .bar.completed {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* .list.record-items li.completed .progress-bar .bars {
