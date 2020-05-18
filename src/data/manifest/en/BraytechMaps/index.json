@@ -2546,6 +2546,9 @@
     }
   },
   "378": {
+    "displayProperties": {
+      "description": "Acquisition requires participation in the heroic version of the _Rift Generator_ public event."
+    },
     "recordHash": 242464657,
     "extended": {
       "video": "https://www.youtube.com/watch?v=J2RbbxmI4T0",

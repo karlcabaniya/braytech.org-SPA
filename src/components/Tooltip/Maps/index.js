@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { t, BungieText, withinString } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
 import { checklists, checkup } from '../../../utils/checklists';
-import { cartographer } from '../../../utils/maps';
+import { cartographer, locationStrings } from '../../../utils/maps';
 
 import './styles.css';
 
@@ -25,17 +25,7 @@ class Checklist extends React.Component {
     }
 
     const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
-
-    // console.log(node);
-
-    const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
-    const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
-    const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
-
-    const bubbleName = definitionBubble?.displayProperties?.name;
-
-    const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
+    const { destinationString, withinString } = locationStrings(node);
 
     return (
       <>
@@ -61,9 +51,9 @@ class Checklist extends React.Component {
             ) : null}
             {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
-            {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
+            {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.displayProperties.location}</div>
+              <div className='destination'>{destinationString}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
           </div>
@@ -90,15 +80,7 @@ class Record extends React.Component {
     const definitionParentNode = definitionRecord && manifest.DestinyPresentationNodeDefinition[definitionRecord.parentNodeHashes[0]];
 
     const node = cartographer({ key: 'recordHash', value: checklistItem.recordHash });
-
-    const definitionActivity = manifest.DestinyActivityDefinition[checklistItem.activityHash];
-    const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem.destinationHash];
-    const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === checklistItem.bubbleHash);
-
-    const bubbleName = definitionBubble?.displayProperties?.name;
-
-    const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
+    const { destinationString, withinString } = locationStrings(node);
 
     return (
       <>
@@ -135,9 +117,9 @@ class Record extends React.Component {
             ) : null}
             {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
-            {within ? <div className='within'>{withinString(within, withinName)}</div> : null}
+            {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>
-              <div className='destination'>{checklistItem.displayProperties.location}</div>
+              <div className='destination'>{destinationString}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
           </div>
@@ -157,19 +139,7 @@ class Node extends React.Component {
       return null;
     }
 
-    const definitionActivity = manifest.DestinyActivityDefinition[node.activityHash];
-    const definitionDestination = manifest.DestinyDestinationDefinition[node.destinationHash];
-    const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-    const definitionBubble = definitionDestination?.bubbles?.find((b) => b.hash === node.bubbleHash);
-
-    const destinationName = definitionDestination?.displayProperties?.name;
-    const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
-    const bubbleName = definitionBubble?.displayProperties?.name;
-
-    const destination = [bubbleName, destinationName, placeName].filter((string) => string).join(', ');
-
-    const within = node.map?.in;
-    const withinName = within === 'ascendant-challenge' ? bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || bubbleName;
+    const { destinationString, withinString } = locationStrings(node);
 
     const completed = node.related?.objectives?.filter((o) => !o.complete).length < 1;
 
@@ -194,9 +164,9 @@ class Node extends React.Component {
             ) : null}
             {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}
-            {within ? <div className='within'>{withinString(node.map.in, withinName)}</div> : null}
+            {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>
-              <div className='destination'>{destination}</div>
+              <div className='destination'>{destinationString}</div>
               {node.displayProperties?.description ? <BungieText className='text' source={node.displayProperties.description} /> : null}
             </div>
             {node.availability?.type === 'cycle' ? (

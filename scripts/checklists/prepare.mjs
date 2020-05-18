@@ -266,11 +266,6 @@ async function run() {
       extended: (Object.keys(extended).length && extended) || undefined,
     };
 
-    if (ascendantChallenges.find(a => a.hash === bubbleHash)) {
-      changes.map.bubbleHash = bubbleHash;
-      changes.bubbleHash = 27792021738;
-    }
-
     const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
 
     if (screenshot || extended.video) {
@@ -365,11 +360,6 @@ async function run() {
           },
           extended: (Object.keys(extended).length && extended) || undefined,
         };
-
-        if (ascendantChallenges.find(a => a.hash === bubbleHash)) {
-          changes.map.bubbleHash = bubbleHash;
-          changes.bubbleHash = 27792021738;
-        }
 
         const screenshot = getScreenshot(presentationHash, changes);
 
