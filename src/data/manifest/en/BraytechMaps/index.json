@@ -2339,7 +2339,8 @@
     "checklistHash": 56362725,
     "extended": {
       "video": "https://youtu.be/fhKIfCiFPt8"
-    }
+    },
+    "screenshot": "/static/images/screenshots/feline-friends/harbingers-seclude_feline-friends_6_56362725.jpg"
   },
   "348": {
     "checklistHash": 3629051903,
@@ -2455,13 +2456,15 @@
     "recordHash": 276019962,
     "extended": {
       "video": "https://www.youtube.com/watch?v=RAQQwphZxbk"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/rheasilvia_the-awoken-of-the-reef_276019962.jpg"
   },
   "365": {
     "recordHash": 276019965,
     "extended": {
       "video": "https://www.youtube.com/watch?v=jc0Kd61xi98"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/rheasilvia_the-awoken-of-the-reef_276019965.jpg"
   },
   "366": {
     "recordHash": 276019964,
@@ -2486,8 +2489,15 @@
   "368": {
     "recordHash": 276019966,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=zAJZrJ2WEss"
-    }
+      "video": "https://www.youtube.com/watch?v=zAJZrJ2WEss",
+      "screenshot": {
+        "highlight": {
+          "x": 69.5,
+          "y": 62
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/lore/harbingers-seclude_the-awoken-of-the-reef_276019966.jpg"
   },
   "369": {
     "recordHash": 276019953,
@@ -3187,6 +3197,98 @@
   "480": {
     "checklistHash": 2576690974,
     "screenshot": "/static/images/screenshots/feline-friends/the-strand_feline-friends_1_2576690974.jpg",
+    "extended": {}
+  },
+  "481": {
+    "checklistHash": 1109476065,
+    "screenshot": "/static/images/screenshots/region-chests/rheasilvia_region-chests_73.jpg",
+    "extended": {}
+  },
+  "482": {
+    "checklistHash": 1007922574,
+    "screenshot": "/static/images/screenshots/region-chests/rheasilvia_region-chests_74.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50.5,
+          "y": 67
+        }
+      }
+    }
+  },
+  "483": {
+    "checklistHash": 2728000495,
+    "screenshot": "/static/images/screenshots/region-chests/rheasilvia_region-chests_75.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 65
+        }
+      }
+    }
+  },
+  "484": {
+    "checklistHash": 2013384876,
+    "screenshot": "/static/images/screenshots/region-chests/rheasilvia_region-chests_76.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 54
+        }
+      }
+    }
+  },
+  "485": {
+    "checklistHash": 1118029882,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/harbingers-seclude_corrupted-eggs_17_1118029882.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 22
+        }
+      }
+    }
+  },
+  "486": {
+    "checklistHash": 1118029877,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/harbingers-seclude_corrupted-eggs_18_1118029877.jpg",
+    "extended": {}
+  },
+  "487": {
+    "checklistHash": 1118029876,
+    "screenshot": "/static/images/screenshots/corrupted-eggs/harbingers-seclude_corrupted-eggs_19_1118029876.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 23,
+          "y": 37
+        }
+      }
+    }
+  },
+  "488": {
+    "checklistHash": 2853314242,
+    "screenshot": "/static/images/screenshots/feline-friends/rheasilvia_feline-friends_5_2853314242.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 66
+        }
+      }
+    }
+  },
+  "489": {
+    "checklistHash": 4262976548,
+    "screenshot": "/static/images/screenshots/feline-friends/harbingers-seclude_feline-friends_7_4262976548.jpg",
+    "extended": {}
+  },
+  "490": {
+    "checklistHash": 3255812950,
+    "screenshot": "/static/images/screenshots/feline-friends/rheasilvia_feline-friends_9_3255812950.jpg",
     "extended": {}
   }
 }

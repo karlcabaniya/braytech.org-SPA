@@ -21,7 +21,7 @@ function updateScrollbars(theme) {
     root.style.setProperty('--scrollbar-draggy', '#414141');
     root.style.setProperty('--body-background', '#111111');
   } else {
-    root.style.setProperty('--scrollbar-track', '#a7a7a7');
+    root.style.setProperty('--scrollbar-track', '#afafaf');
     root.style.setProperty('--scrollbar-draggy', '#cacaca');
     root.style.setProperty('--body-background', '#9e9e9e');
   }

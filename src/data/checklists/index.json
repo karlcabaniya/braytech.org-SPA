@@ -845,14 +845,12 @@
       "checklistHash": 1370818866,
       "recordHash": 1859033173,
       "map": {
-        "bubbleHash": 27792021737,
         "points": [
           {
             "x": 1402,
             "y": 577
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -900,14 +898,12 @@
       "checklistHash": 1370818878,
       "recordHash": 1859033177,
       "map": {
-        "bubbleHash": 27792021736,
         "points": [
           {
             "x": 397,
             "y": -256
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -916,14 +912,12 @@
       "checklistHash": 1370818879,
       "recordHash": 1859033176,
       "map": {
-        "bubbleHash": 27792021734,
         "points": [
           {
             "x": 464,
             "y": -116
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -932,14 +926,12 @@
       "checklistHash": 1387596457,
       "recordHash": 1842255614,
       "map": {
-        "bubbleHash": 27792021735,
         "points": [
           {
             "x": -507,
             "y": -269
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -1001,14 +993,12 @@
       "checklistHash": 1387596460,
       "recordHash": 1842255611,
       "map": {
-        "bubbleHash": 27792021733,
         "points": [
           {
             "x": -26,
             "y": -1092
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -1017,14 +1007,12 @@
       "checklistHash": 1387596463,
       "recordHash": 1842255608,
       "map": {
-        "bubbleHash": 27792021732,
         "points": [
           {
             "x": -375,
             "y": 100
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     }
   ],
@@ -5484,8 +5472,8 @@
       "map": {
         "points": [
           {
-            "x": 685,
-            "y": 966
+            "x": 704,
+            "y": 1016
           }
         ]
       }
@@ -5594,14 +5582,12 @@
       "checklistHash": 1067696994,
       "recordHash": 3024450471,
       "map": {
-        "bubbleHash": 27792021737,
         "points": [
           {
             "x": 1227,
             "y": 255
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5610,14 +5596,12 @@
       "checklistHash": 1067696995,
       "recordHash": 3024450471,
       "map": {
-        "bubbleHash": 27792021737,
         "points": [
           {
             "x": 1354,
             "y": 730
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5626,14 +5610,12 @@
       "checklistHash": 1067697004,
       "recordHash": 3024450471,
       "map": {
-        "bubbleHash": 27792021737,
         "points": [
           {
             "x": 1507,
             "y": 382
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5642,14 +5624,12 @@
       "checklistHash": 1067697005,
       "recordHash": 3024450469,
       "map": {
-        "bubbleHash": 27792021734,
         "points": [
           {
             "x": 486,
             "y": -83
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5658,14 +5638,12 @@
       "checklistHash": 1084474583,
       "recordHash": 3024450469,
       "map": {
-        "bubbleHash": 27792021734,
         "points": [
           {
             "x": 533,
             "y": -105
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5674,14 +5652,12 @@
       "checklistHash": 1084474582,
       "recordHash": 3024450465,
       "map": {
-        "bubbleHash": 27792021736,
         "points": [
           {
             "x": 490,
             "y": -347
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5690,14 +5666,12 @@
       "checklistHash": 1084474581,
       "recordHash": 3024450465,
       "map": {
-        "bubbleHash": 27792021736,
         "points": [
           {
             "x": 511,
             "y": 180
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5706,14 +5680,12 @@
       "checklistHash": 1084474580,
       "recordHash": 3024450465,
       "map": {
-        "bubbleHash": 27792021736,
         "points": [
           {
             "x": 584,
             "y": -296
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5722,14 +5694,12 @@
       "checklistHash": 1084474579,
       "recordHash": 2974117605,
       "map": {
-        "bubbleHash": 27792021735,
         "points": [
           {
             "x": -752,
             "y": -326
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5738,14 +5708,12 @@
       "checklistHash": 1084474578,
       "recordHash": 2974117605,
       "map": {
-        "bubbleHash": 27792021735,
         "points": [
           {
             "x": -346,
             "y": -167
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5754,14 +5722,12 @@
       "checklistHash": 1084474577,
       "recordHash": 3024450470,
       "map": {
-        "bubbleHash": 27792021732,
         "points": [
           {
             "x": -488,
             "y": -33
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5770,14 +5736,12 @@
       "checklistHash": 1084474576,
       "recordHash": 3024450470,
       "map": {
-        "bubbleHash": 27792021732,
         "points": [
           {
             "x": -400,
             "y": -158
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5786,14 +5750,12 @@
       "checklistHash": 1084474591,
       "recordHash": 3024450470,
       "map": {
-        "bubbleHash": 27792021732,
         "points": [
           {
             "x": -219,
             "y": 153
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5802,14 +5764,12 @@
       "checklistHash": 1084474590,
       "recordHash": 2974117611,
       "map": {
-        "bubbleHash": 27792021733,
         "points": [
           {
             "x": -151,
             "y": -835
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     },
     {
@@ -5818,14 +5778,12 @@
       "checklistHash": 1034141726,
       "recordHash": 2974117611,
       "map": {
-        "bubbleHash": 27792021733,
         "points": [
           {
             "x": -132,
             "y": -750
           }
-        ],
-        "in": "ascendant-challenge"
+        ]
       }
     }
   ],
@@ -7518,7 +7476,6 @@
       "bubbleHash": 27792021738,
       "recordHash": 242464657,
       "map": {
-        "bubbleHash": 3522109173,
         "points": [
           {
             "x": 287,
