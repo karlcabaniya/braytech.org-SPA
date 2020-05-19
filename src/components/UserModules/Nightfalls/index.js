@@ -1,8 +1,7 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import Collectibles from '../../Collectibles';
@@ -11,98 +10,100 @@ import ObservedImage from '../../ObservedImage';
 
 import './styles.css';
 
-class Nightfalls extends React.Component {
-  render() {
-    const { t, member } = this.props;
-    const characterActivities = member.data.profile.characterActivities.data;
+function Nightfalls(props) {
+  // get all available nightfall strikes
+  const weeklyNightfallStrikeActivities = props.member.data.profile.characterActivities.data[props.member.characterId].availableActivities.filter((a) => {
+    if (!a.activityHash) return false;
 
-    const weeklyNightfallStrikeActivities = characterActivities[member.characterId].availableActivities.filter(a => {
-      if (!a.activityHash) return false;
+    const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
 
-      const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
+    if (definitionActivity && definitionActivity.activityModeTypes && definitionActivity.activityModeTypes.includes(46) && !definitionActivity.guidedGame && definitionActivity.modifiers && definitionActivity.modifiers.length > 2) return true;
 
-      if (definitionActivity && definitionActivity.activityModeTypes && definitionActivity.activityModeTypes.includes(46) && !definitionActivity.guidedGame && definitionActivity.modifiers && definitionActivity.modifiers.length > 2) return true;
+    return false;
+  });
 
-      return false;
-    });
+  // find the canonical hash of the active nightfall: ordeal
+  const weeklyNightfallStrikesOrdealHash = Object.keys(enums.nightfalls).find((hash) => enums.nightfalls[hash].ordealHashes.find((ordealHash) => weeklyNightfallStrikeActivities.find((activity) => activity.activityHash === ordealHash)));
+  // collect and sort available difficulties of the active nightfall: ordeal
+  const weeklyNightfallStrikesOrdealVersions = weeklyNightfallStrikeActivities.filter((activity) => enums.nightfalls[weeklyNightfallStrikesOrdealHash].ordealHashes.includes(activity.activityHash)).sort((a, b) => b.recommendedLight - a.recommendedLight);
+  // get old-style active nightfalls
+  const weeklyNightfallStrikesScored = weeklyNightfallStrikeActivities.filter((activity) => !Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.find((ordealHash) => ordealHash === activity.activityHash)) && activity.recommendedLight < 1000);
 
-    const weeklyNightfallStrikesOrdealHash = Object.keys(enums.nightfalls).find(k => enums.nightfalls[k].ordealHashes.find(o => weeklyNightfallStrikeActivities.find(w => w.activityHash === o)));
-    const weeklyNightfallStrikesOrdealVersions = weeklyNightfallStrikeActivities.filter(a => enums.nightfalls[weeklyNightfallStrikesOrdealHash].ordealHashes.includes(a.activityHash)).sort((a, b) => b.recommendedLight - a.recommendedLight);
+  // sub-header string localisations
+  const stringNightfall = manifest.DestinyPresentationNodeDefinition[4213993861]?.displayProperties?.name;
+  const stringNightfallOrdeal = manifest.DestinyPresentationNodeDefinition[656562339]?.displayProperties?.name;
 
-    const weeklyNightfallStrikesScored = weeklyNightfallStrikeActivities.filter(w => !Object.keys(enums.nightfalls).find(k => enums.nightfalls[k].ordealHashes.find(o => o === w.activityHash)));
+  // collate for render
+  const nightfalls = [{ activityHash: weeklyNightfallStrikesOrdealHash, ordeal: true }, ...weeklyNightfallStrikesScored];
 
-    const stringNightfall = manifest.DestinyPresentationNodeDefinition[4213993861]?.displayProperties?.name;
-    const stringNightfallOrdeal = manifest.DestinyPresentationNodeDefinition[656562339]?.displayProperties?.name;
+  return nightfalls.map((activity, a) => {
+    const nightfall = manifest.DestinyActivityDefinition[activity.activityHash];
 
-    return [{ activityHash: weeklyNightfallStrikesOrdealHash, ordeal: true }].concat(weeklyNightfallStrikesScored).map((activity, a) => {
-      const nightfall = manifest.DestinyActivityDefinition[activity.activityHash];
+    const modifierHashes = (activity.ordeal ? weeklyNightfallStrikesOrdealVersions[0].modifierHashes : weeklyNightfallStrikeActivities.find((a) => a.activityHash === activity.activityHash)?.modifierHashes) || [];
 
-      const modifierHashes = (activity.ordeal ? weeklyNightfallStrikesOrdealVersions[0].modifierHashes : weeklyNightfallStrikeActivities.find(a => a.activityHash === activity.activityHash)?.modifierHashes) || [];
-
-      return (
-        <div key={nightfall.hash} className='column'>
-          <div className='module'>
-            <div className='sub-header'>
-              <div>{activity.ordeal ? stringNightfallOrdeal : stringNightfall}</div>
-            </div>
-            <h3>{nightfall.selectionScreenDisplayProperties.name}</h3>
-            <h4>{t('Active modifiers')}</h4>
-            {modifierHashes.length ? (
-              <ul className='list modifiers condensed'>
-                {modifierHashes.map((hash, h) => {
-                  const definitionModifier = manifest.DestinyActivityModifierDefinition[hash];
-
-                  return (
-                    <li key={h} className='tooltip' data-hash={hash} data-type='modifier'>
-                      <div className='icon'>
-                        <ObservedImage className='image' src={`https://www.bungie.net${definitionModifier.displayProperties.icon}`} />
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <div className='info'>{t("Modifiers aren't available right now.")}</div>
-            )}
-            <h4>{t('Collectibles')}</h4>
-            {enums.nightfalls[nightfall.hash]?.collectibles.length ? (
-              <>
-                <ul className='list collection-items'>
-                  <Collectibles selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].collectibles} showInvisible />
-                </ul>
-              </>
-            ) : (
-              <div className='info'>
-                <p>
-                  <em>{t("This Nightfall doesn't have any associated collectibles.")}</em>
-                </p>
-              </div>
-            )}
-            <h4>{t('Triumphs')}</h4>
-            {enums.nightfalls[nightfall.hash]?.triumphs.length ? (
-              <>
-                <ul className='list record-items'>
-                  <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].triumphs} ordered showInvisible />
-                </ul>
-              </>
-            ) : (
-              <div className='info'>
-                <p>
-                  <em>{t("This Nightfall doesn't have any associated records.")}</em>
-                </p>
-              </div>
-            )}
+    return (
+      <div key={a} className='column'>
+        <div className='module'>
+          <div className='sub-header'>
+            <div>{activity.ordeal ? stringNightfallOrdeal : stringNightfall}</div>
           </div>
+          <h3>{nightfall.selectionScreenDisplayProperties.name}</h3>
+          <h4>{t('Active modifiers')}</h4>
+          {modifierHashes.length ? (
+            <ul className='list modifiers condensed'>
+              {modifierHashes.map((hash, h) => {
+                const definitionModifier = manifest.DestinyActivityModifierDefinition[hash];
+
+                return (
+                  <li key={h} className='tooltip' data-hash={hash} data-type='modifier'>
+                    <div className='icon'>
+                      <ObservedImage className='image' src={`https://www.bungie.net${definitionModifier.displayProperties.icon}`} />
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div className='info'>{t("Modifiers aren't available right now.")}</div>
+          )}
+          <h4>{t('Collectibles')}</h4>
+          {enums.nightfalls[nightfall.hash]?.collectibles.length ? (
+            <>
+              <ul className='list collection-items'>
+                <Collectibles selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].collectibles} showInvisible />
+              </ul>
+            </>
+          ) : (
+            <div className='info'>
+              <p>
+                <em>{t("This Nightfall doesn't have any associated collectibles.")}</em>
+              </p>
+            </div>
+          )}
+          <h4>{t('Triumphs')}</h4>
+          {enums.nightfalls[nightfall.hash]?.triumphs.length ? (
+            <>
+              <ul className='list record-items'>
+                <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].triumphs} ordered showInvisible />
+              </ul>
+            </>
+          ) : (
+            <div className='info'>
+              <p>
+                <em>{t("This Nightfall doesn't have any associated records.")}</em>
+              </p>
+            </div>
+          )}
         </div>
-      );
-    });
-  }
+      </div>
+    );
+  });
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    member: state.member
+    member: state.member,
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Nightfalls);
+export default connect(mapStateToProps)(Nightfalls);
