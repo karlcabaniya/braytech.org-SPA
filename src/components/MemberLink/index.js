@@ -270,8 +270,6 @@ class MemberLink extends React.Component {
   };
 
   render() {
-    const { membershipType, membershipId } = this.state.member;
-
     const options = {
       characterId: this.props.characterId,
       hideFlair: this.props.hideFlair,
@@ -301,6 +299,9 @@ class MemberLink extends React.Component {
       const fireteamMembers = (profileTransitoryData?.partyMembers.length && [...profileTransitoryData.partyMembers, ...fireteamPadding(lastActivity.matchmakingProperties?.maxParty, profileTransitoryData.joinability.openSlots, profileTransitoryData.partyMembers.length)]) || [];
 
       // console.log(profileTransitoryData);
+
+      const membershipType = this.state.overrideMember.membershipType || this.state.member.membershipType;
+      const membershipId = this.state.overrideMember.membershipId || this.state.member.membershipId;
 
       return (
         <>
