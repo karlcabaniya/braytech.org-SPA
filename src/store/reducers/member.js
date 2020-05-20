@@ -46,21 +46,18 @@ async function loadMember(membershipType, membershipId, characterId) {
 
     // console.log('member reducer', data);
 
-    ['profile', 'groups'].forEach(key => {
-      
-      if (!data[key].ErrorCode || data[key].ErrorCode !== 1) {
+    if (!data.profile.ErrorCode || data.profile.ErrorCode !== 1) {
         
-        store.dispatch({ type: 'MEMBER_LOAD_ERROR', payload: { membershipId, membershipType, error: { ...data[key] } } });
+      store.dispatch({ type: 'MEMBER_LOAD_ERROR', payload: { membershipId, membershipType, error: { ...data.profile } } });
 
-        if (data[key].ErrorCode) {
-          throw {
-            ...data[key]
-          }
-        } else {
-          throw Error('BUNGIE');
+      if (data.profile.ErrorCode) {
+        throw {
+          ...data.profile
         }
+      } else {
+        throw Error('BUNGIE');
       }
-    });
+    }console.log(data)
 
     // Requested characterId was not found -> maybe it's been deleted
     if (data.profile && characterId && !data.profile.Response.characters.data.filter(c => c.characterId === characterId).length) {

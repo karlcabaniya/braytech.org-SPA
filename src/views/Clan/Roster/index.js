@@ -5,8 +5,6 @@ import { t } from '../../../utils/i18n';
 import Spinner from '../../../components/UI/Spinner';
 import Roster from '../../../components/Roster';
 
-import ClanViewsLinks from '../ClanViewsLinks';
-
 import './styles.css';
 
 class RosterView extends React.Component {
@@ -19,11 +17,24 @@ class RosterView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks />
+        <div className='module header'>
+          <div className='text'>{t('Roster')}</div>
+          {groupMembers.members.length > 0 ? (
+            <>
+              <div className='ttr'>{!groupMembers.loading ? <div className='bar' /> : null}</div>
+              {groupMembers.loading ? (
+                <div className='state'>
+                  <Spinner mini />
+                </div>
+              ) : (
+                <div className='state'>{t('{{online}} online', { online: groupMembers.online })}</div>
+              )}
+            </>
+          ) : null}
+        </div>
         <div className='module'>
           {groupMembers.loading && groupMembers.members.length < 1 ? <Spinner /> : null}
           {!groupMembers.loading && groupMembers.error && groupMembers.members.length < 1 ? <div className='info'>{t('There was a network error')}</div> : null}
-          <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? <Spinner mini /> : <div className='ttl' /> : null}</div>
           <Roster />
         </div>
       </>
@@ -33,7 +44,7 @@ class RosterView extends React.Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    groupMembers: state.groupMembers
+    groupMembers: state.groupMembers,
   };
 }
 

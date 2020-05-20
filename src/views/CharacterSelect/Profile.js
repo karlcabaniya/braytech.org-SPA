@@ -9,8 +9,6 @@ class Profile extends React.Component {
   render() {
     const { member, location } = this.props;
 
-    const groups = member.data.groups.results;
-
     const timePlayed = Math.floor(
       Object.keys(member.data.profile.characters.data).reduce((sum, key) => {
         return sum + parseInt(member.data.profile.characters.data[key].minutesPlayedTotal, 10);
@@ -21,7 +19,7 @@ class Profile extends React.Component {
       <div className='user'>
         <div className='summary'>
           <div className='displayName'>{member.data.profile.profile.data.userInfo.displayName}</div>
-          {groups.length === 1 && <div className='clan'>{groups[0].group.name}</div>}
+          {member.data.groups?.results && <div className='clan'>{member.data.groups.results?.[0].group.name}</div>}
           <Flair type={member.membershipType} id={member.membershipId} />
           <div className='basics'>
             <div>

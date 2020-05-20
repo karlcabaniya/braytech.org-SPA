@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
 
-import { t } from '../../utils/i18n';
+import { t, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { Views } from '../../svg';
 
@@ -83,7 +82,7 @@ function Archives() {
           {entries.map((entry, i) => (
             <div key={i} className='module'>
               <h3>{entry.name}</h3>
-              <ReactMarkdown className='text' source={entry.description} />
+              <BraytechText className='text' value={entry.description} />
               <Link className='button' to={entry.link}>
                 <div className='text'>{entry.wip ? 'WIP' : t('Launch')}</div>
               </Link>

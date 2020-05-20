@@ -91,6 +91,10 @@ export async function getGroupMembers(group, getPending = false) {
     lastUpdated: new Date().getTime()
   };
 
+  if (memberResponses) {
+    payload.online = memberResponses.filter(m => m.isOnline).length;
+  }
+
   store.dispatch({
     type: 'GROUP_MEMBERS_LOADED',
     payload

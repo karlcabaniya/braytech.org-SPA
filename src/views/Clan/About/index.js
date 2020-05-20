@@ -14,8 +14,6 @@ import Spinner from '../../../components/UI/Spinner';
 import ProgressBar from '../../../components/UI/ProgressBar';
 import Checkbox from '../../../components/UI/Checkbox';
 
-import ClanViewsLinks from '../ClanViewsLinks';
-
 import './styles.css';
 
 function BannerPerks(props) {
@@ -90,7 +88,6 @@ class AboutView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks />
         <div className='module banner'>
           <ClanBanner bannerData={group.clanInfo.clanBannerData} />
           <Link className='button cta customise' to={`/clan-banner-builder/${group.clanInfo.clanBannerData.decalBackgroundColorId}/${group.clanInfo.clanBannerData.decalColorId}/${group.clanInfo.clanBannerData.decalId}/${group.clanInfo.clanBannerData.gonfalonColorId}/${group.clanInfo.clanBannerData.gonfalonDetailColorId}/${group.clanInfo.clanBannerData.gonfalonDetailId}/${group.clanInfo.clanBannerData.gonfalonId}/`}>

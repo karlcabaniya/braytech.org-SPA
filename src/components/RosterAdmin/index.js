@@ -328,7 +328,7 @@ class RosterAdmin extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
+    const groupMembership = this.props.member.data.groups?.results?.[0];
 
     if (groupMembership) {
       this.callGetGroupMembers();
@@ -352,7 +352,7 @@ class RosterAdmin extends React.Component {
 
   callGetGroupMembers = async () => {
     const groupMembers = this.props.groupMembers;
-    const groupMembership = this.props.member.data.groups.results.length && this.props.member.data.groups.results[0];
+    const groupMembership = this.props.member.data.groups?.results?.[0];
 
     const now = new Date().getTime();
 

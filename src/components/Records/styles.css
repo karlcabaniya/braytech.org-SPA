@@ -191,11 +191,16 @@
   background-color: #7bdcc1;
 }
 
+.list.record-items li .progress-bar .bar,
 .list.record-items li.unredeemed .progress-bar .bar,
 .list.record-items li.completed .progress-bar .bar,
 .list.record-items li.unredeemed .progress-bar.intervals .bar,
 .list.record-items li.completed .progress-bar.intervals .bar.completed {
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+.wrapper.dark .list.record-items li .progress-bar .check:not(.ed)::before {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* .list.record-items li.completed .progress-bar .bars {

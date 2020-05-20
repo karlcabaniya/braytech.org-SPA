@@ -17,7 +17,7 @@ class Clan extends React.Component {
     this.mounted = true;
 
     const { member } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
+    const group = member.data.groups?.results?.[0].group;
 
     if (group) {
       this.callGetGroupMembers(group);
@@ -36,7 +36,7 @@ class Clan extends React.Component {
 
   callGetGroupMembers = async () => {
     const { member, auth, groupMembers } = this.props;
-    const result = member.data.groups.results.length > 0 ? member.data.groups.results[0] : false;
+    const result = member.data.groups?.results?.[0];
 
     const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find(m => m.membershipId === member.membershipId);
 
@@ -65,7 +65,7 @@ class Clan extends React.Component {
 
   render() {
     const { t, member, groupMembers } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
+    const group = member.data.groups?.results?.[0].group;
 
     if (!group) {
       return (

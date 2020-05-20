@@ -4,6 +4,7 @@ const defaultState = {
   groupId: false,
   members: [],
   pending: [],
+  online: 0,
   lastUpdated: 0
 };
 

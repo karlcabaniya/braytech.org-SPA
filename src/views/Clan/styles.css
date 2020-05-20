@@ -1,107 +1,13 @@
-
 #clan {
   padding: 4rem 3rem 3rem;
   display: grid;
-  grid-template-columns: 60px repeat(9, 1fr);
-  gap: 3rem;
-  margin: 0 auto;
-  width: 100%;
 }
 
-#clan .module .module-header {
-  position: relative;
-  margin: 16px 0 0;
-}
-
-#clan .module .module-header .sub-name,
-#clan .module h3 {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-#clan .module .module-header .sub-name {
-  font-size: 18px;
-}
-
-#clan .module .module-header::after {
-  content: ' ';
-  position: absolute;
-  top: -12px;
-  left: 0;
-  width: 16px;
-  border-bottom: 3px solid #ffffff;
-  opacity: 0.2;
-}
-
-#clan .module .page-header .sub-title,
-#clan .module .module-header .sub-title {
-  margin: 0 0 3px;
-  font-size: 18px;
-}
-
-#clan .module .module-header .name {
-  font-size: 32px;
-  line-height: 1;
-  font-weight: 500;
-}
-
-#clan .module.head .content:first-child {
-  grid-column: 1/7;
-}
-
-#clan .module .content.highlight {
+#clan .buff {
   display: grid;
-  align-content: center;
-  position: relative;
-  padding: 0 0 0 2rem;
+  grid-template-columns: 60px 1fr;
+  gap: 3rem;
 }
-
-#clan .module .content.highlight::before {
-  content: ' ';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background-color: #fff;
-  opacity: 0.2;
-}
-
-#clan .module .content.highlight .value {
-  font-size: 28px;
-  line-height: 26px;
-  margin: 0 0 8px;
-}
-
-#clan .module .content.highlight .name {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-#clan .page-header {
-  margin-bottom: 0;
-}
-
-#clan .page-header .name .tag {
-  font-size: 25px;
-  font-weight: 400;
-  display: inline-block;
-  margin: 0 0 0 7px;
-  vertical-align: 11px;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-#clan .page-header .memberCount {
-  position: relative;
-  margin: 10px 0 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 14px;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-
 
 #clan .module.views > .list {
   position: sticky;
@@ -151,27 +57,88 @@
   color: #fff;
 }
 
+#clan .buff .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-content: start;
+}
+
+#clan .buff .content .module.header {
+  position: relative;
+  padding: 12px 0 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: max-content auto max-content;
+  align-items: center;
+  font-size: 16px;
+  font-family: var(--font-text);
+}
+
+#clan .buff .content .module.header div {
+  position: relative;
+}
+
+#clan .buff .content .module.header .text::before {
+  content: ' ';
+  position: absolute;
+  left: 0;
+  top: -12px;
+  width: 2rem;
+  height: 3px;
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+#clan .buff .content .module.header .ttr {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#clan .buff .content .module.header .ttr .bar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  animation: animation-ttr 60s linear 0s 1 forwards;
+}
+
+@keyframes animation-ttr {
+  0% {
+    width: 100%;
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+
+#clan .buff .content .module.header .state {
+  min-width: 24px;
+}
+
+#clan .buff .content .module.header .state .spinner {
+  position: absolute;
+  right: 0;
+  top: -12px;
+}
 
 @media screen and (max-width: 600px) {
-
   #clan {
     padding: 3rem 2rem 2rem;
+  }
+
+  #clan .buff {
     grid-template-columns: 40px 1fr;
     grid-gap: 2rem;
-  }
-
-  #clan .module .content.highlight {
-    padding: 0 0 0 12px;
-  }
-
-  #clan .module .content.highlight .value {
-    font-size: 22px;
-    line-height: 17px;
-  }
-  
-  #clan .module .content.highlight .name {
-    font-size: 14px;
-    line-height: 1.4;
   }
 
   #clan .module.views .list {
@@ -183,10 +150,57 @@
   #clan .module.views .list li {
     height: 40px;
   }
-  
+
   #clan .module.views .list li .icon svg {
     width: 24px;
     height: 24px;
   }
+
+  #clan .buff .content {
+    gap: 2rem;
+  }
+}
+
+#clan.error {
+  padding: 4rem 3rem 3rem;
+  display: grid;
+  justify-content: center;  
+  grid-template-columns: 1fr;
+}
+
+#clan.error .properties {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#clan.error .properties .name {
+  font-size: 38px;
+  font-weight: 600;
+  margin: 0 0 7px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 7px;
+  margin-bottom: 1rem;
+}
+
+#clan.error .properties .description {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+
+  #clan.error {
+    padding: 3rem 2rem 2rem;
+  }
+
+  #clan.error .properties .name {
+    font-size: 24px;
+  }
+  
+  #clan.error .properties .description {
+    font-size: 14px;
+  }  
 
 }

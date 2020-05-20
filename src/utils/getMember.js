@@ -83,14 +83,14 @@ async function getMember(membershipType, membershipId, silent = false) {
 
     const [profile, groups, milestones] = await Promise.all(requests);
   
-    if (profile?.ErrorCode === 1 && profile.Response?.profileProgression?.data && groups?.ErrorCode === 1) {
+    if (profile?.ErrorCode === 1 && profile.Response?.profileProgression?.data) {
 
       return {
         profile: {
           ...profile,
           Response: responseUtils.profileScrubber(profile.Response, 'activity')
         },
-        groups: {
+        groups: groups?.ErrorCode === 1 && {
           ...profile,
           Response: responseUtils.groupScrubber(groups.Response)
         },

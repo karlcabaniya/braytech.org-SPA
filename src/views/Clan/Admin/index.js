@@ -6,13 +6,11 @@ import { NoAuth } from '../../../components/BungieAuth';
 import Spinner from '../../../components/UI/Spinner';
 import RosterAdmin from '../../../components/RosterAdmin';
 
-import ClanViewsLinks from '../ClanViewsLinks';
-
 import './styles.css';
 
-class AdminView extends React.Component { 
+class AdminView extends React.Component {
   componentDidMount() {
-    window.scrollTo(0, 0);   
+    window.scrollTo(0, 0);
   }
 
   render() {
@@ -24,11 +22,24 @@ class AdminView extends React.Component {
 
     return (
       <>
-        <ClanViewsLinks />
+        <div className='module header'>
+          <div className='text'>{t('Administration')}</div>
+          {groupMembers.members.length > 0 ? (
+            <>
+              <div className='ttr'>{!groupMembers.loading ? <div className='bar' /> : null}</div>
+              {groupMembers.loading ? (
+                <div className='state'>
+                  <Spinner mini />
+                </div>
+              ) : (
+                <div className='state'>{t('{{online}} online', { online: groupMembers.online })}</div>
+              )}
+            </>
+          ) : null}
+        </div>
         <div className='module'>
           {groupMembers.loading && groupMembers.members.length < 1 ? <Spinner /> : null}
           {!groupMembers.loading && groupMembers.error && groupMembers.members.length < 1 ? <div className='info'>{t('There was a network error')}</div> : null}
-          <div className='status'>{groupMembers.members.length > 0 ? groupMembers.loading ? <Spinner mini /> : <div className='ttl' /> : null}</div>
           <RosterAdmin />
         </div>
       </>
@@ -36,10 +47,10 @@ class AdminView extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     auth: state.auth,
-    groupMembers: state.groupMembers
+    groupMembers: state.groupMembers,
   };
 }
 
