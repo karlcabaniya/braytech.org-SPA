@@ -87,10 +87,7 @@ class Actions extends React.Component {
   };
 
   memberApprove = (membershipId) => async (e) => {
-    const { groupMembers } = this.props;
-    const group = this.props.member.data.groups.results.length > 0 ? this.props.member.data.groups.results[0].group : false;
-
-    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
+    const member = this.props.groupMembers.members.concat(this.props.groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
       this.setState((p) => ({
@@ -106,10 +103,10 @@ class Actions extends React.Component {
             displayName: member.destinyUserInfo.displayName,
           },
         ],
-        message: 'This is a message',
+        message: 'This is an approve member reasoning message',
       });
       if (response && response.ErrorCode === 1) {
-        member.memberType = group.features.joinLevel;
+        member.memberType = this.props.member.data.groups.clan.features.joinLevel;
         member.pending = false;
 
         this.props.softUpdate();
@@ -122,9 +119,7 @@ class Actions extends React.Component {
   };
 
   memberDeny = (membershipId) => async (e) => {
-    const { groupMembers } = this.props;
-
-    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
+    const member = this.props.groupMembers.members.concat(this.props.groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
       this.setState((p) => ({
@@ -140,7 +135,7 @@ class Actions extends React.Component {
             displayName: member.destinyUserInfo.displayName,
           },
         ],
-        message: 'This is a message',
+        message: 'This is a deny member reasoning message',
       });
       if (response && response.ErrorCode === 1) {
         member.pending = false;
@@ -157,9 +152,7 @@ class Actions extends React.Component {
   };
 
   memberBan = (membershipId) => async (e) => {
-    const { groupMembers } = this.props;
-
-    let member = groupMembers.members.concat(groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
+    const member = this.props.groupMembers.members.concat(this.props.groupMembers.pending).find((r) => r.destinyUserInfo.membershipId === membershipId);
 
     if (member) {
       if (this.state.primed) {
@@ -328,9 +321,7 @@ class RosterAdmin extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    const groupMembership = this.props.member.data.groups?.results?.[0];
-
-    if (groupMembership) {
+    if (this.props.member.data.groups.clan) {
       this.callGetGroupMembers();
       this.startInterval();
     }
@@ -351,13 +342,10 @@ class RosterAdmin extends React.Component {
   }
 
   callGetGroupMembers = async () => {
-    const groupMembers = this.props.groupMembers;
-    const groupMembership = this.props.member.data.groups?.results?.[0];
-
     const now = new Date().getTime();
 
-    if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
-      await getGroupMembers(groupMembership.group, true);
+    if (!this.props.groupMembers.loading && this.props.member.data.groups.clan && (now - this.props.groupMembers.lastUpdated > 30000 || this.props.member.data.groups.clan.groupId !== this.props.groupMembers.groupId)) {
+      await getGroupMembers(this.props.member.data.groups.clan, true);
     }
   };
 
@@ -388,17 +376,17 @@ class RosterAdmin extends React.Component {
     const { member, auth, groupMembers, mini, showOnline = false } = this.props;
 
     const isAdmin =
-      member.data.groups.results.find((r) => {
-        const authed = auth.destinyMemberships.find((m) => m.membershipId === member.membershipId);
+      member.data.groups.results.find((group) => {
+        const authed = auth.destinyMemberships.find((authMember) => authMember.membershipId === member.membershipId);
 
-        if (r.member.memberType > 2 && authed && r.member.destinyUserInfo.membershipId === authed.membershipId) {
+        if (group.member.memberType > 2 && authed && group.member.destinyUserInfo.membershipId === authed.membershipId) {
           return true;
         } else {
           return false;
         }
       }) || member.membershipId === '4611686018449662397';
 
-    const results = showOnline ? groupMembers.members.filter((r) => r.isOnline) : groupMembers.members.concat(groupMembers.pending);
+    const results = showOnline ? groupMembers.members.filter((member) => member.isOnline) : groupMembers.members.concat(groupMembers.pending);
 
     let roster = [];
 

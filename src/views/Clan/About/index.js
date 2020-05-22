@@ -63,8 +63,7 @@ class AboutView extends React.Component {
     
     window.scrollTo(0, 0);
 
-    const group = this.props.member.data.groups.results.length > 0 ? this.props.member.data.groups.results[0].group : false;
-    const groupWeeklyRewardState = await bungie.GetClanWeeklyRewardState(group.groupId);
+    const groupWeeklyRewardState = await bungie.GetClanWeeklyRewardState(this.props.member.data.groups.clan.groupId);
 
     if (this.mounted && groupWeeklyRewardState && groupWeeklyRewardState.ErrorCode === 1) {
       this.setState({ weeklyRewardState: groupWeeklyRewardState.Response });
@@ -77,9 +76,9 @@ class AboutView extends React.Component {
 
   render() {
     const { member, groupMembers } = this.props;
-    const group = member.data.groups.results.length > 0 ? member.data.groups.results[0].group : false;
+    const clan = member.data.groups.clan;
 
-    const clanLevel = group.clanInfo.d2ClanProgressions[584850370];
+    const clanLevel = clan.clanInfo.d2ClanProgressions[584850370];
 
     const weeklyClanEngramsDefinition = manifest.DestinyMilestoneDefinition[4253138191].rewards[1064137897].rewardEntries;
     const weeklyRewardState = this.state.weeklyRewardState;
@@ -89,18 +88,18 @@ class AboutView extends React.Component {
     return (
       <>
         <div className='module banner'>
-          <ClanBanner bannerData={group.clanInfo.clanBannerData} />
-          <Link className='button cta customise' to={`/clan-banner-builder/${group.clanInfo.clanBannerData.decalBackgroundColorId}/${group.clanInfo.clanBannerData.decalColorId}/${group.clanInfo.clanBannerData.decalId}/${group.clanInfo.clanBannerData.gonfalonColorId}/${group.clanInfo.clanBannerData.gonfalonDetailColorId}/${group.clanInfo.clanBannerData.gonfalonDetailId}/${group.clanInfo.clanBannerData.gonfalonId}/`}>
+          <ClanBanner bannerData={clan.clanInfo.clanBannerData} />
+          <Link className='button cta customise' to={`/clan-banner-builder/${clan.clanInfo.clanBannerData.decalBackgroundColorId}/${clan.clanInfo.clanBannerData.decalColorId}/${clan.clanInfo.clanBannerData.decalId}/${clan.clanInfo.clanBannerData.gonfalonColorId}/${clan.clanInfo.clanBannerData.gonfalonDetailColorId}/${clan.clanInfo.clanBannerData.gonfalonDetailId}/${clan.clanInfo.clanBannerData.gonfalonId}/`}>
             <div className='text'>{t('Clan Banner Builder')}</div>
             <i className='segoe-uniE0AB' />
           </Link>
         </div>
         <div className='module about'>
-          <div className='name'>{group.name}</div>
+          <div className='name'>{clan.name}</div>
           <div className='members'>
-            {t('Founded')} {moment(group.creationDate).format('MMMM YYYY')} / {group.memberCount} {t('Members')}
+            {t('Founded')} {moment(clan.creationDate).format('MMMM YYYY')} / {clan.memberCount} {t('Members')}
           </div>
-          <BraytechText className={cx('bio', { 'includes-motto': group.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={group.motto !== '' ? `_${group.motto}_\n\n${group.about}` : group.about} escapeValue />
+          <BraytechText className={cx('bio', { 'includes-motto': clan.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={clan.motto !== '' ? `_${clan.motto}_\n\n${clan.about}` : clan.about} escapeValue />
         </div>
         <div className='module progression'>
           <div className='sub-header'>

@@ -4,7 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
-import { t, BungieText } from '../../../../utils/i18n';
+import { t, BungieText, unavailableString } from '../../../../utils/i18n';
 import manifest from '../../../../utils/manifest';
 import { cartographer, findNodeType, locationStrings, screenshotFilename } from '../../../../utils/maps';
 import ObservedImage from '../../../ObservedImage';
@@ -114,7 +114,7 @@ function Inspect(props) {
             <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
           )}
         </div>
-        {unified.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
+        {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
         {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
         <div className='header'>
           {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}

@@ -25,9 +25,7 @@ class Roster extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    const groupMembership = this.props.member.data.groups?.results?.[0];
-
-    if (groupMembership) {
+    if (this.props.member.data.groups.clan) {
       this.callGetGroupMembers();
       this.startInterval();
     }
@@ -50,12 +48,11 @@ class Roster extends React.Component {
   callGetGroupMembers = async () => {
     const { member, auth, groupMembers } = this.props;
     const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId);
-    const groupMembership = this.props.member.data.groups?.results?.[0];
 
     const now = new Date().getTime();
 
-    if (!groupMembers.loading && groupMembership && (now - groupMembers.lastUpdated > 30000 || groupMembership.group.groupId !== groupMembers.groupId)) {
-      await getGroupMembers(groupMembership.group, groupMembership.member.memberType > 2 && isAuthed);
+    if (!groupMembers.loading && this.props.member.data.groups.clan && (now - groupMembers.lastUpdated > 30000 || this.props.member.data.groups.clan.groupId !== groupMembers.groupId)) {
+      await getGroupMembers(this.props.member.data.groups.clan, this.props.member.data.groups.clan.self.memberType > 2 && isAuthed);
     }
   };
 

@@ -1182,10 +1182,7 @@
   },
   "176": {
     "checklistHash": 2384365695,
-    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg",
-    "extended": {
-      "unavailable": "removed"
-    }
+    "screenshot": "/static/images/screenshots/ghost-scans/exodus-black_ghost-scans_132.jpg"
   },
   "177": {
     "checklistHash": 159325932,
@@ -2838,10 +2835,7 @@
     "extended": {}
   },
   "430": {
-    "checklistHash": 1427733666,
-    "extended": {
-      "unavailable": "removed"
-    }
+    "checklistHash": 1427733666
   },
   "431": {
     "checklistHash": 2014746732,

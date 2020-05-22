@@ -15,7 +15,7 @@ class CharacterEmblem extends React.Component {
     const { member, onboarding, characterSelect, responsive } = this.props;
 
     if (member.data && !onboarding && !characterSelect) {
-      const groups = member.data.groups;
+      const clan = member.data.groups.clan;
       const profile = member.data.profile.profile;
       const characters = member.data.profile.characters.data;
       const characterEquipment = member.data.profile.characterEquipment.data;
@@ -48,7 +48,7 @@ class CharacterEmblem extends React.Component {
               </div>
             ) : null}
             <div className='displayName'>{profile.data.userInfo.displayName}</div>
-            <div className='group'>{groups && groups.results && groups.results.length ? groups.results[0].group.name : ''}</div>
+            <div className='group'>{clan?.name || ''}</div>
             <div className='light'>{character.light}</div>
           </div>
         </div>

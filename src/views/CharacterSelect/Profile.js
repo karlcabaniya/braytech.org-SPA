@@ -16,7 +16,7 @@ function Profile(props) {
     <div className='user'>
       <div className='summary'>
         <div className='displayName'>{props.member.data.profile.profile.data.userInfo.displayName}</div>
-        {props.member.data.groups?.results?.[0] && <div className='clan'>{props.member.data.groups.results[0].group.name}</div>}
+        {props.member.data.groups.clan && <div className='clan'>{props.member.data.groups.clan.name}</div>}
         <Flair type={props.member.membershipType} id={props.member.membershipId} />
         <div className='basics'>
           <div>

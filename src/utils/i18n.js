@@ -298,6 +298,16 @@ export function withinString(type, activityName) {
   }
 }
 
+export function unavailableString(status) {
+  if (status === 'removed') {
+    return t('Unavailable: this node is no longer available in-game.');
+  } else if (status === 'api') {
+    return t('Unavailable: something is preventing this node from relaying its status correctly.');
+  } else {
+    return t('Unavailable');
+  }
+}
+
 export const Energy = {
   Solar: ['solar', 'solare', 'solares', 'огня'],
   Arc: ['arc', 'arco', 'молнии'],

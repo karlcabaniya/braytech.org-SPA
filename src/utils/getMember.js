@@ -91,7 +91,7 @@ async function getMember(membershipType, membershipId, silent = false) {
           Response: responseUtils.profileScrubber(profile.Response, 'activity')
         },
         groups: groups?.ErrorCode === 1 && {
-          ...profile,
+          ...groups,
           Response: responseUtils.groupScrubber(groups.Response)
         },
         milestones

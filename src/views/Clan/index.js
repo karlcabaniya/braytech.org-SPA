@@ -75,7 +75,6 @@ function NoClan() {
 
 function Clan(props) {
   const { member, viewport } = props;
-  const group = member.data.groups?.results?.[0].group;
 
   const views = {
     about: About,
@@ -88,7 +87,7 @@ function Clan(props) {
 
   let view = props.match.params.view || 'about';
 
-  if (!group) view = 'no-clan';
+  if (!member.data.groups.clan) view = 'no-clan';
   if (view === 'admin' && viewport.width < 1280) view = 'viewport-width';
   if (!views[view]) view = 'about';
 

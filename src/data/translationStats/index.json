@@ -1,137 +1,124 @@
 {
   "de": {
-    "translated": 682,
-    "notTranslated": 13,
+    "translated": 695,
+    "notTranslated": 2,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "debug": {
-    "translated": 695,
+    "translated": 697,
     "notTranslated": 0,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "en": {
-    "translated": 695,
+    "translated": 697,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 682,
-    "notTranslated": 13,
+    "notTranslated": 15,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "es": {
     "translated": 682,
-    "notTranslated": 13,
+    "notTranslated": 15,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "fr": {
     "translated": 626,
-    "notTranslated": 69,
+    "notTranslated": 71,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "it": {
     "translated": 637,
-    "notTranslated": 58,
+    "notTranslated": 60,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "ja": {
     "translated": 605,
-    "notTranslated": 90,
+    "notTranslated": 92,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "ko": {
     "translated": 516,
-    "notTranslated": 179,
+    "notTranslated": 181,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 693,
+    "notTranslated": 695,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 622,
-    "notTranslated": 73,
+    "notTranslated": 75,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "ru": {
     "translated": 692,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 489,
-    "notTranslated": 206,
+    "notTranslated": 208,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 351,
-    "notTranslated": 344,
+    "notTranslated": 346,
     "added": [
-      "Administration",
-      "Roster",
-      "{{online}} online"
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status correctly."
     ],
     "removed": []
   }

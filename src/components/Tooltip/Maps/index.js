@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { t, BungieText } from '../../../utils/i18n';
+import { t, BungieText, unavailableString } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import { bookCovers } from '../../../utils/destinyEnums';
@@ -49,7 +49,7 @@ class Checklist extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{unavailableString(node.extended.unavailable)}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>
@@ -115,7 +115,7 @@ class Record extends React.Component {
                 <ObservedImage className='image' src={node.screenshot} />
               </div>
             ) : null}
-            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{unavailableString(node.extended.unavailable)}</div> : null}
             {checklistItem.completed ? <div className='completed'>{t('Discovered_singular')}</div> : null}
             {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>
@@ -162,7 +162,7 @@ class Node extends React.Component {
                 <ObservedImage src={node.screenshot} />
               </div>
             ) : null}
-            {node.extended?.unavailable ? <div className='highlight major'>{t('Unavailable: this node is no longer available in-game.')}</div> : null}
+            {node.extended?.unavailable ? <div className='highlight major'>{unavailableString(node.extended.unavailable)}</div> : null}
             {completed ? <div className='completed'>{t('Completed')}</div> : null}
             {withinString ? <div className='within'>{withinString}</div> : null}
             <div className='description'>

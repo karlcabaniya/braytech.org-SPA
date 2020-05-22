@@ -5,6 +5,7 @@ import store from '../store';
 
 import { t } from './i18n';
 import manifest from './manifest';
+import { isUnavailable } from './maps';
 import { enumerateRecordState } from './destinyEnums';
 import data from '../data/checklists';
 import { Maps } from '../svg';
@@ -630,7 +631,7 @@ function hydrateItems(options) {
       destinationName: manifest.DestinyDestinationDefinition[i.destinationHash]?.displayProperties.name,
       bubbleName: manifest.DestinyDestinationDefinition[i.destinationHash]?.bubbles.find((b) => b.hash === i.bubbleHash)?.displayProperties.name,
     },
-    completed: i.completed,
+    completed: i.completed
   }));
 }
 

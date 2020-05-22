@@ -57,7 +57,7 @@ async function loadMember(membershipType, membershipId, characterId) {
       } else {
         throw Error('BUNGIE');
       }
-    }console.log(data)
+    }
 
     // Requested characterId was not found -> maybe it's been deleted
     if (data.profile && characterId && !data.profile.Response.characters.data.filter(c => c.characterId === characterId).length) {
@@ -69,7 +69,13 @@ async function loadMember(membershipType, membershipId, characterId) {
           characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
           data: {
             profile: data.profile.Response,
-            groups: data.groups.Response,
+            groups: {
+              ...data.groups.Response,
+              clan: data.groups.Response?.results?.[0] && {
+                ...data.groups.Response?.results?.[0].group,
+                self: data.groups.Response?.results?.[0].member
+              }
+            },
             milestones: data.milestones.Response
           },
           error: {
@@ -90,7 +96,13 @@ async function loadMember(membershipType, membershipId, characterId) {
         characterId,
         data: {
           profile: data.profile.Response,
-          groups: data.groups.Response,
+          groups: {
+            ...data.groups.Response,
+            clan: data.groups.Response?.results?.[0] && {
+              ...data.groups.Response.results[0].group,
+              self: data.groups.Response.results[0].member
+            }
+          },
           milestones: data.milestones.Response
         }
       }

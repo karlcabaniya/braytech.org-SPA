@@ -3273,6 +3273,9 @@
             "y": -642
           }
         ]
+      },
+      "extended": {
+        "unavailable": "removed"
       }
     },
     {
@@ -3773,6 +3776,9 @@
             "y": -395
           }
         ]
+      },
+      "extended": {
+        "unavailable": "api"
       }
     },
     {
@@ -4579,6 +4585,9 @@
             "y": -25
           }
         ]
+      },
+      "extended": {
+        "unavailable": "removed"
       }
     },
     {

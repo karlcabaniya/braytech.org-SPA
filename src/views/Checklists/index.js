@@ -1,14 +1,12 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
+import { t } from '../../utils/i18n';
+import checklists from '../../utils/checklists';
 import ObservedImage from '../../components/ObservedImage';
 import Button from '../../components/UI/Button';
 import Checklist from '../../components/Checklist';
-
-import checklists from '../../utils/checklists';
 
 import './styles.css';
 
@@ -21,16 +19,16 @@ function getItemsPerPage(width) {
   return 1;
 }
 
-const ListButton = p => (
-  <li key={p.checklistId} className={cx('linked', { active: p.visible })} onClick={p.onClick}>
-    {p.checklistImage ? <ObservedImage className='image icon' src={p.checklistImage} /> : <div className='icon'>{p.checklistIcon}</div>}
+const ListButton = (props) => (
+  <li key={props.checklistId} className={cx('linked', { active: props.visible })} onClick={props.onClick}>
+    {props.checklistImage ? <ObservedImage className='image icon' src={props.checklistImage} /> : <div className='icon'>{props.checklistIcon}</div>}
   </li>
 );
 
 export class Checklists extends React.Component {
   state = {
     page: 0,
-    itemsPerPage: null
+    itemsPerPage: null,
   };
 
   static getDerivedStateFromProps(p, s) {
@@ -40,37 +38,38 @@ export class Checklists extends React.Component {
 
     return {
       page: 0,
-      itemsPerPage: getItemsPerPage(p.viewport.width)
+      itemsPerPage: getItemsPerPage(p.viewport.width),
     };
   }
 
-  handler_toggleCompleted = e => {
+  handler_toggleCompleted = (e) => {
     const currentState = this.props.collectibles;
     const newState = {
-      hideCompletedChecklistItems: !currentState.hideCompletedChecklistItems
+      hideCompletedChecklistItems: !currentState.hideCompletedChecklistItems,
     };
 
     this.props.setCollectibleDisplayState(newState);
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(p, s) {
     const newWidth = this.props.viewport.width;
-    if (prevProps.viewport.width !== newWidth) {
+
+    if (p.viewport.width !== newWidth) {
       this.setState({ itemsPerPage: getItemsPerPage(newWidth) });
     }
-    if (prevState.itemsPerPage !== this.state.itemsPerPage || prevState.page !== this.state.page) {
+
+    if (s.itemsPerPage !== this.state.itemsPerPage || s.page !== this.state.page) {
       this.props.rebindTooltips();
     }
   }
 
-  handler_changeSkip = index => e => {
+  handler_changeSkip = (index) => (e) => {
     this.setState({
-      page: Math.floor(index / this.state.itemsPerPage)
+      page: Math.floor(index / this.state.itemsPerPage),
     });
   };
 
   render() {
-    const { t } = this.props;
     const { page, itemsPerPage } = this.state;
 
     const lists = [checklists[1697465175](), checklists[3142056444](), checklists[4178338182](), checklists[2360931290](), checklists[365218222](), checklists[2955980198](), checklists[2609997025](), checklists[1297424116](), checklists[2726513366](), checklists[1912364094](), checklists[1420597821](), checklists[3305936921](), checklists[655926402](), checklists[4285512244](), checklists[2474271317]()];
@@ -109,7 +108,7 @@ export class Checklists extends React.Component {
                 ))}
               </ul>
             </div>
-            {visible.map(list => (
+            {visible.map((list) => (
               <div key={list.checklistId} className='module list'>
                 <Checklist {...list} />
               </div>
@@ -133,19 +132,19 @@ function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
     collectibles: state.collectibles,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
     },
-    setCollectibleDisplayState: value => {
+    setCollectibleDisplayState: (value) => {
       dispatch({ type: 'SET_COLLECTIBLES', payload: value });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Checklists);
+export default connect(mapStateToProps, mapDispatchToProps)(Checklists);

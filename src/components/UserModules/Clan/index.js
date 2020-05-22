@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import Markdown from 'react-markdown';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as utils from '../../../utils/destinyUtils';
 import getGroupMembers from '../../../utils/getGroupMembers';
@@ -16,11 +15,8 @@ class Clan extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    const { member } = this.props;
-    const group = member.data.groups?.results?.[0].group;
-
-    if (group) {
-      this.callGetGroupMembers(group);
+    if (this.props.member.data.groups.clan) {
+      this.callGetGroupMembers(this.props.member.data.groups.clan);
     }
   }
 
@@ -36,14 +32,13 @@ class Clan extends React.Component {
 
   callGetGroupMembers = async () => {
     const { member, auth, groupMembers } = this.props;
-    const result = member.data.groups?.results?.[0];
 
     const isAuthed = auth && auth.destinyMemberships && auth.destinyMemberships.find(m => m.membershipId === member.membershipId);
 
-    let now = new Date();
+    const now = new Date();
 
-    if (result && (now - groupMembers.lastUpdated > 30000 || result.group.groupId !== groupMembers.groupId)) {
-      await getGroupMembers(result.group, result.member.memberType > 2 && isAuthed);
+    if (this.props.member.data.groups.clan && (now - groupMembers.lastUpdated > 30000 || this.props.member.data.groups.clan.groupId !== groupMembers.groupId)) {
+      await getGroupMembers(this.props.member.data.groups.clan, this.props.member.data.groups.clan.self.memberType > 2 && isAuthed);
     }
   };
 
@@ -64,8 +59,8 @@ class Clan extends React.Component {
   };
 
   render() {
-    const { t, member, groupMembers } = this.props;
-    const group = member.data.groups?.results?.[0].group;
+    const groupMembers = this.props.groupMembers;
+    const group = this.props.member.data.groups.clan;
 
     if (!group) {
       return (
@@ -177,4 +172,4 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Clan);
+export default connect(mapStateToProps)(Clan);
