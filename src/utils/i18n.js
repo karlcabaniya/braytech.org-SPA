@@ -302,7 +302,7 @@ export function unavailableString(status) {
   if (status === 'removed') {
     return t('Unavailable: this node is no longer available in-game.');
   } else if (status === 'api') {
-    return t('Unavailable: something is preventing this node from relaying its status correctly.');
+    return t('Unavailable: something is preventing this node from relaying its status reliably.');
   } else {
     return t('Unavailable');
   }

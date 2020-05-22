@@ -631,7 +631,7 @@
   "Triumphs": "Триумфы",
   "Troubleshooting": "Решение проблем",
   "#####Unavailable": "🌐",
-  "#####Unavailable: something is preventing this node from relaying its status correctly.": "🌐",
+  "#####Unavailable: something is preventing this node from relaying its status reliably.": "🌐",
   "Unavailable: this node is no longer available in-game.": "Недоступно: этот узел больше недоступен в игре.",
   "Undertake your most perilous albeit rewarding strikes yet, in the name of the Light, the Vanguard, and The Last City.": "Пройдите ваши самые опасные налеты, получив ценную награду за них, во имя Света, Авангарда и Последнего Города.",
   "Unknown": "Неизвестно",
