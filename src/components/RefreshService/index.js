@@ -6,7 +6,7 @@ import getMember from '../../utils/getMember';
 const AUTO_REFRESH_INTERVAL = 30 * 1000;
 const TIMEOUT = 60 * 60 * 1000;
 
-class RefreshService extends React.Component { 
+class RefreshService extends React.Component {
   componentDidMount() {
     // ensure refresh state is accurate in case member data is updated by some other means
     if (new Date().getTime() - this.props.member.updated <= TIMEOUT) {
@@ -75,17 +75,17 @@ class RefreshService extends React.Component {
     window.clearInterval(this.refreshAccountDataInterval);
   }
 
-  handler_click = e => {
+  handler_click = (e) => {
     const wasInactive = !this.activeWithinTimespan(TIMEOUT);
 
     this.track();
 
-    // if was inactive, fire service immediately 
+    // if was inactive, fire service immediately
     // instead of waiting for interval timer
     if (wasInactive) this.service();
   };
 
-  handler_visibility = e => {
+  handler_visibility = (e) => {
     if (document.hidden === false) {
       this.track();
       this.service();
@@ -93,13 +93,12 @@ class RefreshService extends React.Component {
   };
 
   service = async () => {
-
     // service is already asking for fresh data
     if (this.props.refresh.loading) {
       return;
     }
 
-    // user has been inactive for TIMEOUT 
+    // user has been inactive for TIMEOUT
     // so we'll stop pinging the API
     if (!this.activeWithinTimespan(TIMEOUT)) {
       this.props.setState({ stale: true });
@@ -108,18 +107,15 @@ class RefreshService extends React.Component {
     }
 
     const { membershipType, membershipId, characterId, data: previousMemberLoad } = this.props.member;
-      
+
     this.props.setState({ loading: true });
 
     try {
-
       const data = await getMember(membershipType, membershipId, true);
 
-      ['profile', 'groups'].forEach(key => {
-        if (data[key].ErrorCode !== 1) {
-          throw new Error(data[key].ErrorCode);
-        }
-      });
+      if (data.profile.ErrorCode !== 1) {
+        throw new Error(data.profile.ErrorCode);
+      }
 
       if (data) {
         this.props.setMember({
@@ -128,9 +124,18 @@ class RefreshService extends React.Component {
           characterId,
           data: {
             profile: data.profile.Response,
-            groups: data.groups.Response,
-            milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones
-          }
+            groups:
+              data.groups?.ErrorCode === 1
+                ? {
+                    ...data.groups.Response,
+                    clan: data.groups.Response?.results?.[0] && {
+                      ...data.groups.Response.results[0].group,
+                      self: data.groups.Response.results[0].member,
+                    },
+                  }
+                : previousMemberLoad.groups,
+            milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones,
+          },
         });
       }
 
@@ -146,18 +151,18 @@ class RefreshService extends React.Component {
 function mapStateToProps(state) {
   return {
     member: state.member,
-    refresh: state.refresh
+    refresh: state.refresh,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setMember: payload => {
+    setMember: (payload) => {
       dispatch({ type: 'MEMBER_LOADED', payload });
     },
-    setState: value => {
+    setState: (value) => {
       dispatch({ type: 'SET_REFRESH_STATE', payload: value });
-    }
+    },
   };
 }
 
