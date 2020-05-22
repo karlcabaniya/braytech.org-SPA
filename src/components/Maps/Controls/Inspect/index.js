@@ -143,7 +143,7 @@ function Inspect(props) {
             <>
               <h4>{t('Triumphs')}</h4>
               <ul className='list record-items'>
-                <Records selfLinkFrom={props.location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showInvisible />
+                <Records selfLinkFrom={props.location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showCompleted showInvisible />
               </ul>
             </>
           ) : null}

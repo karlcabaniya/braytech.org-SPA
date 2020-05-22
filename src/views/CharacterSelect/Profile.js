@@ -1,51 +1,45 @@
 import React from 'react';
 
 import { t } from '../../utils/i18n';
-import * as utils from '../../utils/destinyUtils';
+import { progressionSeasonRank, collectionTotal } from '../../utils/destinyUtils';
 import Characters from '../../components/UI/Characters';
 import Flair from '../../components/UI/Flair';
 
-class Profile extends React.Component {
-  render() {
-    const { member, location } = this.props;
+function Profile(props) {
+  const timePlayed = Math.floor(
+    Object.keys(props.member.data.profile.characters.data).reduce((sum, key) => {
+      return sum + parseInt(props.member.data.profile.characters.data[key].minutesPlayedTotal, 10);
+    }, 0) / 1440
+  );
 
-    const timePlayed = Math.floor(
-      Object.keys(member.data.profile.characters.data).reduce((sum, key) => {
-        return sum + parseInt(member.data.profile.characters.data[key].minutesPlayedTotal, 10);
-      }, 0) / 1440
-    );
-
-    return (
-      <div className='user'>
-        <div className='summary'>
-          <div className='displayName'>{member.data.profile.profile.data.userInfo.displayName}</div>
-          {member.data.groups?.results && <div className='clan'>{member.data.groups.results?.[0].group.name}</div>}
-          <Flair type={member.membershipType} id={member.membershipId} />
-          <div className='basics'>
-            <div>
-              <div className='value'>{utils.progressionSeasonRank(member).level}</div>
-              <div className='name'>{t('Season rank')}</div>
-            </div>
-            <div>
-              <div className='value'>
-                {timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}
-              </div>
-              <div className='name'>{t('Time played across characters')}</div>
-            </div>
-            <div>
-              <div className='value'>{member.data.profile.profileRecords.data.score.toLocaleString()}</div>
-              <div className='name'>{t('Triumph score')}</div>
-            </div>
-            <div>
-              <div className='value'>{utils.collectionTotal(member.data.profile).toLocaleString()}</div>
-              <div className='name'>{t('Collection total')}</div>
-            </div>
+  return (
+    <div className='user'>
+      <div className='summary'>
+        <div className='displayName'>{props.member.data.profile.profile.data.userInfo.displayName}</div>
+        {props.member.data.groups?.results?.[0] && <div className='clan'>{props.member.data.groups.results[0].group.name}</div>}
+        <Flair type={props.member.membershipType} id={props.member.membershipId} />
+        <div className='basics'>
+          <div>
+            <div className='value'>{progressionSeasonRank(props.member).level}</div>
+            <div className='name'>{t('Season rank')}</div>
+          </div>
+          <div>
+            <div className='value'>{timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}</div>
+            <div className='name'>{t('Time played across characters')}</div>
+          </div>
+          <div>
+            <div className='value'>{props.member.data.profile.profileRecords.data.score.toLocaleString()}</div>
+            <div className='name'>{t('Triumph score')}</div>
+          </div>
+          <div>
+            <div className='value'>{collectionTotal(props.member.data.profile).toLocaleString()}</div>
+            <div className='name'>{t('Collection total')}</div>
           </div>
         </div>
-        <Characters member={member} location={location} onClickCharacter={this.props.onClickCharacter} />
       </div>
-    );
-  }
+      <Characters member={props.member} location={props.location} onClickCharacter={props.onClickCharacter} />
+    </div>
+  );
 }
 
 export default Profile;
