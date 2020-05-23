@@ -247,12 +247,16 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.wrapper.dark #tooltip .frame.activity .score {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
 #tooltip .frame.activity .score .team .value {
   position: relative;
   width: 100px;
   padding: 8px;
   margin: 0 0 12px;
-  font-size: 1.4vw;
+  font-size: 28px;
   font-weight: 500;
   line-height: 1;
   text-transform: uppercase;

@@ -169,6 +169,7 @@
   },
   "2032534090": {
     "activityLightLevel": 750,
-    "activityTypeHash": 608898761
+    "activityTypeHash": 608898761,
+    "activityModeHashes": [608898761]
   }
 }

@@ -37,7 +37,7 @@ function activityType(hash, modeHash, playlistHash) {
 
   const activityModeHashes = [...(definitionActivity.activityModeHashes || []), modeHash];
 
-  if (enums.adventures.includes(hash)) {
+  if (enums.adventures.includes(definitionActivity.hash)) {
     return {
       ...defaults,
       mode: t('Adventure'),
@@ -45,7 +45,7 @@ function activityType(hash, modeHash, playlistHash) {
       icon: <Tooltips.Adventure />,
       pgcrImage: false,
     };
-  } else if (enums.ordealHashes.includes(hash)) {
+  } else if (enums.ordealHashes.includes(definitionActivity.hash)) {
     const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
     const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
 
@@ -111,6 +111,7 @@ function activityType(hash, modeHash, playlistHash) {
         className: 'crucible',
         activityLightLevel: false,
         isCrucible: true,
+        hasScore: true,
         icon: <Tooltips.Crucible />,
       };
     } // Trials of Osiris
@@ -124,6 +125,7 @@ function activityType(hash, modeHash, playlistHash) {
         className: 'crucible trials-of-osiris',
         activityLightLevel: false,
         isCrucible: true,
+        hasScore: true,
         icon: <Tooltips.TrialsOfOsiris />,
       };
     } // Iron Banner
@@ -137,6 +139,7 @@ function activityType(hash, modeHash, playlistHash) {
         className: 'crucible iron-banner',
         activityLightLevel: false,
         isCrucible: true,
+        hasScore: true,
         icon: <Tooltips.IronBanner />,
       };
     } else {
@@ -149,6 +152,7 @@ function activityType(hash, modeHash, playlistHash) {
         className: 'crucible',
         activityLightLevel: false,
         isCrucible: true,
+        hasScore: true,
         icon: <Tooltips.Crucible />,
       };
     }
@@ -178,6 +182,7 @@ function activityType(hash, modeHash, playlistHash) {
       destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
       className: 'gambit',
       activityLightLevel: false,
+      hasScore: definitionActivityMode.hash === 1848252830,
       icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />,
     };
   } else if (definitionActivity.activityTypeHash === 332181804) {
@@ -303,7 +308,7 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
                   {properties.isCrucible ? (
                     <>
                       <li>{t('Player versus player')}</li>
-                      {definitionActivityPlaylist && enums.levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
+                      {definitionActivityPlaylist && enums.levelAdvantagesEnabled.includes(definitionActivityPlaylist.hash) ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
                     </>
                   ) : (
                     <li>{t('Cooperative')}</li>
@@ -322,7 +327,7 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
                 {t('Recommended light')}: <span>{properties.activityLightLevel}</span>
               </div>
             ) : null}
-            {context === 'roster' && transitory && transitory.profile?.profileTransitoryData?.data?.currentActivity?.numberOfOpponents > 1 ? (
+            {context === 'roster' && transitory && transitory.profile?.profileTransitoryData?.data?.currentActivity?.numberOfOpponents > 0 && properties.hasScore ? (
               <div className='score'>
                 <div className='team'>
                   <div className={cx('value', { winning: transitory.profile.profileTransitoryData.data.currentActivity.score > transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{transitory.profile.profileTransitoryData.data.currentActivity.score}</div>
