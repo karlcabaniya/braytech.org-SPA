@@ -1,140 +1,125 @@
 {
   "de": {
     "translated": 695,
-    "notTranslated": 2,
+    "notTranslated": 4,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 697,
+    "translated": 699,
     "notTranslated": 0,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 697,
+    "translated": 699,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 682,
-    "notTranslated": 15,
+    "notTranslated": 17,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "es": {
     "translated": 682,
-    "notTranslated": 15,
+    "notTranslated": 17,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 626,
-    "notTranslated": 71,
+    "notTranslated": 73,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "it": {
     "translated": 637,
-    "notTranslated": 60,
+    "notTranslated": 62,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 605,
-    "notTranslated": 92,
+    "notTranslated": 94,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 516,
-    "notTranslated": 181,
+    "notTranslated": 183,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 695,
+    "notTranslated": 697,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 622,
-    "notTranslated": 75,
+    "notTranslated": 77,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 692,
-    "notTranslated": 5,
+    "notTranslated": 7,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 489,
-    "notTranslated": 208,
+    "notTranslated": 210,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 351,
-    "notTranslated": 346,
+    "notTranslated": 348,
     "added": [
-      "Unavailable: something is preventing this node from relaying its status reliably."
+      "Enemy team",
+      "Their team"
     ],
-    "removed": [
-      "Unavailable: something is preventing this node from relaying its status correctly."
-    ]
+    "removed": []
   }
 }

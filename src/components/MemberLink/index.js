@@ -264,7 +264,8 @@ class MemberLink extends React.Component {
   };
 
   handler_onCharacterClick = characterId => e => {
-    const { membershipType, membershipId } = this.state.member;
+    const membershipType = this.state.overrideMember.membershipType || this.state.member.membershipType;
+    const membershipId = this.state.overrideMember.membershipId || this.state.member.membershipId;
 
     store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType, membershipId, characterId } });
   };

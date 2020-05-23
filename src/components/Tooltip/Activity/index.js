@@ -1,10 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
-import { BungieText } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import * as utils from '../../../utils/destinyUtils';
@@ -15,331 +13,342 @@ import { Tooltips } from '../../../svg';
 
 import './styles.css';
 
-class Activity extends React.Component {
-  render() {
-    const { t, member, context, hash, mode, playlist, lastorbiteddestination } = this.props;
+function activityType(hash, modeHash, playlistHash) {
+  const definitionActivity = manifest.DestinyActivityDefinition[hash];
+  const definitionActivityMode = manifest.DestinyActivityModeDefinition[modeHash];
+  const definitionActivityModeParent = manifest.DestinyActivityModeDefinition[definitionActivityMode?.parentHashes?.[0]];
+  const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlistHash];
+  const definitionActivityType = manifest.DestinyActivityTypeDefinition[definitionActivityPlaylist?.activityTypeHash];
+  const definitionDestination = manifest.DestinyDestinationDefinition[definitionActivity?.destinationHash];
+  const definitionPlace = manifest.DestinyPlaceDefinition[definitionActivity?.placeHash];
 
-    const definitionActivity = manifest.DestinyActivityDefinition[hash];
-    const definitionActivityMode = manifest.DestinyActivityModeDefinition[mode];
-    const definitionActivityModeParent = definitionActivityMode && definitionActivityMode.parentHashes && definitionActivityMode.parentHashes.length && manifest.DestinyActivityModeDefinition[definitionActivityMode.parentHashes[0]];
-    const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlist];
-    const definitionActivityType = definitionActivityPlaylist?.activityTypeHash && manifest.DestinyActivityTypeDefinition[definitionActivityPlaylist.activityTypeHash];
-    const definitionDestination = manifest.DestinyDestinationDefinition[definitionActivity?.destinationHash];
-    const definitionPlace = manifest.DestinyPlaceDefinition[definitionActivity?.placeHash];
+  const node = cartographer({ key: 'activityHash', value: definitionActivity.hash });
+  const definitionBubble = node.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === node.bubbleHash);
 
-    if (!definitionActivity) {
-      console.warn('Hash not found');
+  const defaults = {
+    name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),
+    mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
+    description: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.description ? definitionActivity.selectionScreenDisplayProperties.description : definitionActivity.displayProperties && definitionActivity.displayProperties.description ? definitionActivity.displayProperties.description : t('Unknown'),
+    destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name].filter((a, b, self) => self.indexOf(a) === b),
+    activityLightLevel: definitionActivity.activityLightLevel && definitionActivity.activityLightLevel !== 10 && definitionActivity.activityLightLevel,
+    icon: <Tooltips.FastTravel />,
+    pgcrImage: definitionActivity.pgcrImage,
+  };
 
-      return null;
-    }
+  const activityModeHashes = [...(definitionActivity.activityModeHashes || []), modeHash];
 
-    if (definitionActivity.redacted) {
-      return (
-        <>
-          <div className='acrylic' />
-          <div className={cx('frame', 'common')}>
-            <div className='header'>
-              <div className='name'>{t('Classified')}</div>
-              <div>
-                <div className='kind'>{t('Insufficient clearance')}</div>
-              </div>
-            </div>
-            <div className='black'>
-              <div className='description'>
-                <pre>{t('Keep it clean.')}</pre>
-              </div>
-            </div>
-          </div>
-        </>
-      );
+  if (enums.adventures.includes(hash)) {
+    return {
+      ...defaults,
+      mode: t('Adventure'),
+      className: 'adventure',
+      icon: <Tooltips.Adventure />,
+      pgcrImage: false,
+    };
+  } else if (enums.ordealHashes.includes(hash)) {
+    const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
+    const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
+
+    return {
+      ...defaults,
+      name: definitionStrke.selectionScreenDisplayProperties.name,
+      mode: definitionActivity.displayProperties.name,
+      description: definitionStrke.displayProperties.description,
+      className: 'strike',
+      icon: <Tooltips.Strike />,
+    };
+  } else if (definitionActivity.activityTypeHash === 838603889) {
+    return {
+      ...defaults,
+      name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown'),
+      description: definitionActivityPlaylist?.displayProperties.description || definitionActivity.displayProperties.description || t('Unknown'),
+      mode: definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
+      activityLightLevel: definitionActivityPlaylist?.activityLightLevel || definitionActivity.activityLightLevel,
+      className: 'forge',
+      pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage,
+      icon: <Tooltips.ForgeIgnition />,
+    };
+  } else if (definitionActivity.activityTypeHash === 400075666) {
+    return {
+      ...defaults,
+      destination: [definitionDestination?.displayProperties.name],
+      mode: false,
+      activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
+      className: 'menagerie',
+      icon: <Tooltips.Menagerie />,
+    };
+  } else if (activityModeHashes.includes(608898761)) {
+    return {
+      ...defaults,
+      name: definitionActivityPlaylist?.originalDisplayProperties?.name || definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name,
+      mode: manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name,
+      className: 'dungeon',
+      icon: <Tooltips.Dungeon />,
+    };
+  } else if (activityModeHashes.includes(1686739444)) {
+    return {
+      ...defaults,
+      mode: manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name,
+      className: 'story',
+      icon: <Tooltips.Story />,
+    };
+  } else if (activityModeHashes.includes(2394616003)) {
+    return {
+      ...defaults,
+      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
+      className: 'strike',
+      icon: <Tooltips.Strike />,
+    };
+  } else if (activityModeHashes.includes(1164760504)) {
+    // Survival, Survival: Freelance
+    if (definitionActivityPlaylist?.hash === 135537449 || definitionActivityPlaylist?.hash === 740891329) {
+      return {
+        ...defaults,
+        name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
+        mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
+        description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
+        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        className: 'crucible',
+        activityLightLevel: false,
+        isCrucible: true,
+        icon: <Tooltips.Crucible />,
+      };
+    } // Trials of Osiris
+    else if (definitionActivityPlaylist?.hash === 1166905690) {
+      return {
+        ...defaults,
+        name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
+        mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
+        description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
+        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        className: 'crucible trials-of-osiris',
+        activityLightLevel: false,
+        isCrucible: true,
+        icon: <Tooltips.TrialsOfOsiris />,
+      };
+    } // Iron Banner
+    else if (definitionActivityPlaylist?.hash === 3753505781) {
+      return {
+        ...defaults,
+        name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
+        mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
+        description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
+        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        className: 'crucible iron-banner',
+        activityLightLevel: false,
+        isCrucible: true,
+        icon: <Tooltips.IronBanner />,
+      };
     } else {
-      const activityType = (hash, activityTypeHash, activityModeHashes = []) => {
-        if (enums.adventures.includes(hash)) {
-          return 'adventure';
-        } else if (enums.ordealHashes.includes(hash)) {
-          return 'nightfall-ordeal';
-        } else if (activityTypeHash === 838603889) {
-          // Forge Ignition
-          return 'forge';
-        } else if (activityTypeHash === 400075666) {
-          // The Menagerie
-          return 'menagerie';
-        } else if (activityModeHashes.includes(608898761) || definitionActivityPlaylist?.hash === 2032534090) {
-          // catches dungeon types and Story: The Shattered Throne
-          return 'dungeon';
-        } else if (activityModeHashes.includes(1686739444)) {
-          return 'story';
-        } else if (activityModeHashes.includes(2394616003)) {
-          return 'strike';
-        } else if (activityModeHashes.includes(3497767639)) {
-          return 'patrol';
-        } else if (activityModeHashes.includes(1164760504)) {
-          return 'crucible';
-        } else if (activityTypeHash === 2043403989) {
-          return 'raid';
-        } else if (activityModeHashes.includes(3894474826)) {
-          return 'reckoning';
-        } else if (activityModeHashes.includes(1418469392)) {
-          // Gambit Prime
-          return 'gambit';
-        } else if (activityModeHashes.includes(1848252830)) {
-          // Gambit
-          return 'gambit';
-        } else if (activityTypeHash === 332181804) {
-          return 'nightmare-hunt';
-        } else if (activityModeHashes.includes(2319502047)) {
-          return 'seasonal-arena';
-        }
+      return {
+        ...defaults,
+        name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
+        mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
+        description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
+        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        className: 'crucible',
+        activityLightLevel: false,
+        isCrucible: true,
+        icon: <Tooltips.Crucible />,
       };
+    }
+  } else if (definitionActivity.activityTypeHash === 2043403989) {
+    return {
+      ...defaults,
+      name: definitionActivity.displayProperties.name,
+      description: definitionActivity.displayProperties.description,
+      mode: definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name,
+      className: 'raid',
+      icon: <Tooltips.Raid />,
+    };
+  } else if (activityModeHashes.includes(3894474826)) {
+    return {
+      ...defaults,
+      mode: definitionActivity.originalDisplayProperties?.name,
+      description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
+      className: 'reckoning',
+      icon: <Tooltips.Reckoning />,
+    };
+  } else if (activityModeHashes.includes(1418469392) || activityModeHashes.includes(1848252830)) {
+    return {
+      ...defaults,
+      name: definitionActivityMode.displayProperties.name,
+      mode: definitionActivityModeParent.displayProperties.name,
+      description: definitionActivityMode.displayProperties.description,
+      destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+      className: 'gambit',
+      activityLightLevel: false,
+      icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />,
+    };
+  } else if (definitionActivity.activityTypeHash === 332181804) {
+    return {
+      ...defaults,
+      name: definitionActivity.displayProperties.name,
+      mode: manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
+      description: definitionActivity.displayProperties.description,
+      suggestion: t('Equip Dreambane armor mods to enhance your light within this activity.'),
+      className: 'shadowkeep nightmare-hunt',
+      icon: <Tooltips.Shadowkeep />,
+    };
+  } else if (activityModeHashes.includes(2319502047)) {
+    return {
+      ...defaults,
+      name: definitionActivityPlaylist?.displayProperties.name,
+      description: definitionActivityPlaylist?.displayProperties.description,
+      mode: manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name,
+      className: 'seasonal-arena',
+      icon: <Tooltips.SeasonalArena />,
+    };
+  } else if (activityModeHashes.includes(3497767639)) {
+    return {
+      ...defaults,
+      destination: [definitionPlace?.displayProperties.name],
+      description: manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description,
+      activityLightLevel: false,
+      mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
+      pgcrImage: false,
+    };
+  } else if (definitionActivity.placeHash === 2961497387) {
+    return {
+      ...defaults,
+      name: manifest.DestinyPlaceDefinition[2961497387].displayProperties.name,
+      mode: undefined,
+      destination: [],
+      description: t('In orbit, planning something terribly heroic.'),
+      activityLightLevel: false,
+    };
+  }
 
-      const modeFiltered = activityType(definitionActivity.hash, definitionActivity.activityTypeHash, definitionActivity.activityModeHashes ? definitionActivity.activityModeHashes.concat([mode]) : [mode]);
+  return defaults;
+}
 
-      const node = cartographer({ key: 'activityHash', value: definitionActivity.hash });
+function Activity({ member, groupMembers, context, hash, mode, playlist, membershipid }) {
+  const definitionActivity = manifest.DestinyActivityDefinition[hash];
+  const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlist];
 
-      const definitionBubble = node.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === node.bubbleHash);
+  if (!definitionActivity) {
+    console.warn('Hash not found');
 
-      const activityTypeDisplay = {
-        name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),
+    return null;
+  }
 
-        mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
-
-        description: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.description ? definitionActivity.selectionScreenDisplayProperties.description : definitionActivity.displayProperties && definitionActivity.displayProperties.description ? definitionActivity.displayProperties.description : t('Unknown'),
-
-        destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name].filter((a, b, self) => self.indexOf(a) === b),
-
-        activityLightLevel: definitionActivity.activityLightLevel && definitionActivity.activityLightLevel !== 10 && definitionActivity.activityLightLevel,
-
-        pgcrImage: definitionActivity.pgcrImage,
-
-        icon: <Tooltips.FastTravel />,
-      };
-
-      // console.log(activityTypeDisplay, definitionActivity, mode, definitionActivityPlaylist)
-
-      if (definitionActivity.placeHash === 2961497387) {
-        activityTypeDisplay.name = manifest.DestinyPlaceDefinition[2961497387].displayProperties.name;
-        activityTypeDisplay.mode = undefined;
-        activityTypeDisplay.destination = [];
-        activityTypeDisplay.description = t('In orbit, planning something terribly heroic.');
-        activityTypeDisplay.activityLightLevel = false;
-      }
-
-      if (modeFiltered === 'patrol') {
-        activityTypeDisplay.destination = [definitionPlace?.displayProperties.name];
-        activityTypeDisplay.description = manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description;
-        activityTypeDisplay.activityLightLevel = false;
-        activityTypeDisplay.mode = definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name;
-        activityTypeDisplay.pgcrImage = false;
-      }
-
-      if (modeFiltered === 'story') {
-        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name;
-        activityTypeDisplay.className = 'story';
-        activityTypeDisplay.icon = <Tooltips.Story />;
-      }
-
-      if (modeFiltered === 'crucible') {
-        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties?.name || t('Unknown');
-        activityTypeDisplay.mode = manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name;
-        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties?.description || t('Unknown');
-        activityTypeDisplay.destination = [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description];
-        activityTypeDisplay.className = 'crucible';
-        activityTypeDisplay.activityLightLevel = false;
-        activityTypeDisplay.isCrucible = true;
-        activityTypeDisplay.icon = <Tooltips.Crucible />;
-
-        // Survival, Survival: Freelance
-        if (definitionActivityPlaylist && [135537449, 740891329].includes(definitionActivityPlaylist.hash)) {
-          activityTypeDisplay.name = definitionActivityPlaylist.displayProperties.name;
-        }
-
-        // Trials of Osiris
-        if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 1166905690) {
-          activityTypeDisplay.icon = <Tooltips.TrialsOfOsiris />;
-          activityTypeDisplay.className = 'crucible trials-of-osiris';
-        }
-
-        // Iron Banner
-        if (definitionActivityPlaylist && definitionActivityPlaylist.hash === 3753505781) {
-          activityTypeDisplay.icon = <Tooltips.IronBanner />;
-          activityTypeDisplay.className = 'crucible iron-banner';
-        }
-      }
-
-      if (modeFiltered === 'raid') {
-        activityTypeDisplay.name = definitionActivity.displayProperties.name;
-        activityTypeDisplay.description = definitionActivity.displayProperties.description;
-        activityTypeDisplay.mode = definitionActivityMode?.displayProperties.name || manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name;
-        activityTypeDisplay.className = 'raid';
-        activityTypeDisplay.icon = <Tooltips.Raid />;
-      }
-
-      if (modeFiltered === 'forge') {
-        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown');
-        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties.description || definitionActivity.displayProperties.description || t('Unknown');
-        activityTypeDisplay.mode = definitionActivityType?.displayProperties.name || manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name;
-        activityTypeDisplay.activityLightLevel = definitionActivityPlaylist?.activityLightLevel || definitionActivity.activityLightLevel;
-        activityTypeDisplay.className = 'forge';
-        activityTypeDisplay.pgcrImage = definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage;
-        activityTypeDisplay.icon = <Tooltips.ForgeIgnition />;
-      }
-
-      if (modeFiltered === 'menagerie') {
-        activityTypeDisplay.destination = [definitionDestination?.displayProperties.name];
-        activityTypeDisplay.mode = false;
-        activityTypeDisplay.activityLightLevel = definitionActivityPlaylist?.activityLightLevel;
-        activityTypeDisplay.className = 'menagerie';
-        activityTypeDisplay.icon = <Tooltips.Menagerie />;
-      }
-
-      if (modeFiltered === 'reckoning') {
-        activityTypeDisplay.mode = definitionActivity.originalDisplayProperties?.name;
-        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties?.description || t('Unknown');
-        activityTypeDisplay.className = 'reckoning';
-        activityTypeDisplay.icon = <Tooltips.Reckoning />;
-      }
-
-      if (modeFiltered === 'gambit') {
-        activityTypeDisplay.name = definitionActivityMode.displayProperties.name;
-        activityTypeDisplay.mode = definitionActivityModeParent.displayProperties.name;
-        activityTypeDisplay.description = definitionActivityMode.displayProperties.description;
-        activityTypeDisplay.destination = [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description];
-        activityTypeDisplay.className = 'gambit';
-        activityTypeDisplay.activityLightLevel = false;
-        activityTypeDisplay.icon = definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />;
-      }
-
-      if (modeFiltered === 'strike') {
-        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name;
-        activityTypeDisplay.className = 'strike';
-        activityTypeDisplay.icon = <Tooltips.Strike />;
-      }
-
-      if (modeFiltered === 'nightfall-ordeal') {
-        const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
-        const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
-
-        // activityTypeDisplay.name= definitionActivity.displayProperties.name;
-        // activityTypeDisplay.mode= manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name;
-        activityTypeDisplay.name = definitionStrke.selectionScreenDisplayProperties.name;
-        activityTypeDisplay.mode = definitionActivity.displayProperties.name;
-        activityTypeDisplay.description = definitionStrke.displayProperties.description;
-        activityTypeDisplay.className = 'strike';
-        activityTypeDisplay.icon = <Tooltips.Strike />;
-      }
-
-      if (modeFiltered === 'adventure') {
-        activityTypeDisplay.mode = t('Adventure');
-        activityTypeDisplay.className = 'adventure';
-        activityTypeDisplay.icon = <Tooltips.Adventure />;
-        activityTypeDisplay.pgcrImage = false;
-      }
-
-      if (modeFiltered === 'nightmare-hunt') {
-        activityTypeDisplay.name = definitionActivity.displayProperties.name;
-        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name;
-        activityTypeDisplay.description = definitionActivity.displayProperties.description;
-        activityTypeDisplay.suggestion = t('Equip Dreambane armor mods to enhance your light within this activity.');
-        activityTypeDisplay.className = 'shadowkeep nightmare-hunt';
-        activityTypeDisplay.icon = <Tooltips.Shadowkeep />;
-      }
-
-      if (modeFiltered === 'dungeon') {
-        activityTypeDisplay.name = definitionActivityPlaylist?.originalDisplayProperties?.name || definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name;
-        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name;
-        activityTypeDisplay.className = 'dungeon';
-        activityTypeDisplay.icon = <Tooltips.Dungeon />;
-      }
-
-      if (modeFiltered === 'seasonal-arena') {
-        activityTypeDisplay.name = definitionActivityPlaylist?.displayProperties.name;
-        activityTypeDisplay.description = definitionActivityPlaylist?.displayProperties.description;
-        activityTypeDisplay.mode = manifest.DestinyActivityTypeDefinition[263019149].displayProperties.name;
-        activityTypeDisplay.className = 'seasonal-arena';
-        activityTypeDisplay.icon = <Tooltips.SeasonalArena />;
-      }
-
-      const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity.matchmaking;
-
-      const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
-
-      return (
-        <>
-          <div className='acrylic' />
-          <div className={cx('frame', 'activity', activityTypeDisplay.className)}>
-            <div className='header'>
-              <div className='icon'>{activityTypeDisplay.icon}</div>
-              <div className='text'>
-                <div className='name'>{activityTypeDisplay.name}</div>
-                <div>
-                  <div className='kind'>{activityTypeDisplay.mode}</div>
-                </div>
-              </div>
-            </div>
-            {eligibilityRequirements && !eligibilityRequirements.eligible ? <div className='highlight major'>{eligibilityRequirements.unlock.text}</div> : null}
-            <div className='black'>
-              {activityTypeDisplay.pgcrImage && activityTypeDisplay.pgcrImage !== '/img/theme/destiny/bgs/pgcrs/placeholder.jpg' ? (
-                <div className='screenshot'>
-                  <ObservedImage className='image' src={`https://www.bungie.net${activityTypeDisplay.pgcrImage}`} />
-                </div>
-              ) : null}
-              {activityTypeDisplay.destination.length || activityTypeDisplay.description ? (
-                <div className='description'>
-                  {activityTypeDisplay.destination.length ? <div className='destination'>{activityTypeDisplay.destination.filter((s) => s).join(', ')}</div> : null}
-                  <BungieText value={activityTypeDisplay.description} />
-                </div>
-              ) : null}
-              {matchmakingProperties && definitionActivity.placeHash !== 2961497387 ? (
-                <div className='matchmaking'>
-                  <ul>
-                    {matchmakingProperties.maxParty > 1 ? (
-                      <li>
-                        {t('Fireteam')}: {t('{{players}} players', { players: matchmakingProperties.minParty < matchmakingProperties.maxParty ? `${matchmakingProperties.minParty}-${matchmakingProperties.maxParty}` : matchmakingProperties.maxParty })}
-                      </li>
-                    ) : (
-                      <>
-                        <li>{t('Free for all')}</li>
-                        <li>{t('Single player')}</li>
-                      </>
-                    )}
-                    {matchmakingProperties.isMatchmade ? <li>{t('Matchmaking')}</li> : null}
-                    {activityTypeDisplay.isCrucible ? (
-                      <>
-                        <li>{t('Player versus player')}</li>
-                        {definitionActivityPlaylist && enums.levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
-                      </>
-                    ) : (
-                      <li>{t('Cooperative')}</li>
-                    )}
-                  </ul>
-                </div>
-              ) : null}
-              {activityTypeDisplay.suggestion ? <div className='highlight'>{activityTypeDisplay.suggestion}</div> : null}
-              {definitionActivity.timeToComplete ? (
-                <div className='highlight'>
-                  {t('Approximate length')}: <span>{t('{{minutes}} Minutes', { minutes: definitionActivity.timeToComplete || 0 })}</span>
-                </div>
-              ) : null}
-              {activityTypeDisplay.activityLightLevel ? (
-                <div className='highlight recommended-light'>
-                  {t('Recommended light')}: <span>{activityTypeDisplay.activityLightLevel}</span>
-                </div>
-              ) : null}
-              {context === 'maps' && node?.completed ? <div className='completed'>{t('Completed')}</div> : null}
+  if (definitionActivity.redacted) {
+    return (
+      <>
+        <div className='acrylic' />
+        <div className={cx('frame', 'common')}>
+          <div className='header'>
+            <div className='name'>{t('Classified')}</div>
+            <div>
+              <div className='kind'>{t('Insufficient clearance')}</div>
             </div>
           </div>
-        </>
-      );
-    }
+          <div className='black'>
+            <div className='description'>
+              <pre>{t('Keep it clean.')}</pre>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  } else {
+    const properties = activityType(hash, mode, playlist);
+
+    const matchmakingProperties = definitionActivityPlaylist?.matchmaking || definitionActivity.matchmaking;
+
+    const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
+
+    const transitory = membershipid && groupMembers?.members?.find((m) => m.destinyUserInfo?.membershipId === membershipid);
+
+    return (
+      <>
+        <div className='acrylic' />
+        <div className={cx('frame', 'activity', properties.className)}>
+          <div className='header'>
+            <div className='icon'>{properties.icon}</div>
+            <div className='text'>
+              <div className='name'>{properties.name}</div>
+              <div>
+                <div className='kind'>{properties.mode}</div>
+              </div>
+            </div>
+          </div>
+          {eligibilityRequirements && !eligibilityRequirements.eligible ? <div className='highlight major'>{eligibilityRequirements.unlock.text}</div> : null}
+          <div className='black'>
+            {properties.pgcrImage && properties.pgcrImage !== '/img/theme/destiny/bgs/pgcrs/placeholder.jpg' ? (
+              <div className='screenshot'>
+                <ObservedImage className='image' src={`https://www.bungie.net${properties.pgcrImage}`} />
+              </div>
+            ) : null}
+            {properties.destination.length || properties.description ? (
+              <div className='description'>
+                {properties.destination.length ? <div className='destination'>{properties.destination.filter((s) => s).join(', ')}</div> : null}
+                <BungieText value={properties.description} />
+              </div>
+            ) : null}
+            {matchmakingProperties && definitionActivity.placeHash !== 2961497387 ? (
+              <div className='matchmaking'>
+                <ul>
+                  {matchmakingProperties.maxParty > 1 ? (
+                    <li>
+                      {t('Fireteam')}: {t('{{players}} players', { players: matchmakingProperties.minParty < matchmakingProperties.maxParty ? `${matchmakingProperties.minParty}-${matchmakingProperties.maxParty}` : matchmakingProperties.maxParty })}
+                    </li>
+                  ) : (
+                    <>
+                      <li>{t('Free for all')}</li>
+                      <li>{t('Single player')}</li>
+                    </>
+                  )}
+                  {matchmakingProperties.isMatchmade ? <li>{t('Matchmaking')}</li> : null}
+                  {properties.isCrucible ? (
+                    <>
+                      <li>{t('Player versus player')}</li>
+                      {definitionActivityPlaylist && enums.levelAdvantagesEnabled.indexOf(definitionActivityPlaylist.hash) > -1 ? <li>{t('Level advantages enabled')}</li> : <li>{t('Level advantages disabled')}</li>}
+                    </>
+                  ) : (
+                    <li>{t('Cooperative')}</li>
+                  )}
+                </ul>
+              </div>
+            ) : null}
+            {properties.suggestion ? <div className='highlight'>{properties.suggestion}</div> : null}
+            {definitionActivity.timeToComplete ? (
+              <div className='highlight'>
+                {t('Approximate length')}: <span>{t('{{minutes}} Minutes', { minutes: definitionActivity.timeToComplete || 0 })}</span>
+              </div>
+            ) : null}
+            {properties.activityLightLevel ? (
+              <div className='highlight recommended-light'>
+                {t('Recommended light')}: <span>{properties.activityLightLevel}</span>
+              </div>
+            ) : null}
+            {context === 'roster' && transitory && transitory.profile?.profileTransitoryData?.data?.currentActivity?.numberOfOpponents > 1 ? (
+              <div className='score'>
+                <div className='team'>
+                  <div className={cx('value', { winning: transitory.profile.profileTransitoryData.data.currentActivity.score > transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{transitory.profile.profileTransitoryData.data.currentActivity.score}</div>
+                  <div className='name'>{t('Their team')}</div>
+                </div>
+                <div className='team enemy'>
+                  <div className={cx('value', { winning: transitory.profile.profileTransitoryData.data.currentActivity.score < transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore}</div>
+                  <div className='name'>{t('Enemy team')}</div>
+                </div>
+              </div>
+            ) : null}
+            {context === 'maps' && properties?.completed ? <div className='completed'>{t('Completed')}</div> : null}
+          </div>
+        </div>
+      </>
+    );
   }
 }
 
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
+    groupMembers: state.groupMembers,
     viewport: state.viewport,
     tooltips: state.tooltips,
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Activity);
+export default connect(mapStateToProps)(Activity);

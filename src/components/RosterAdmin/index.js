@@ -456,7 +456,7 @@ class RosterAdmin extends React.Component {
                     </li>
                     <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
                       {m.isOnline && lastActivityString ? (
-                        <div className='tooltip' data-type='activity' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash}>
+                        <div className='tooltip' data-type='activity' data-context='roster' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash} data-membershipid={m.destinyUserInfo?.membershipId}>
                           <div>
                             {lastActivityString}
                             <span>{moment(lastPlayed).locale('rel-abr').fromNow(true)}</span>
