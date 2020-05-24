@@ -29,7 +29,11 @@ function activityType(hash, modeHash, playlistHash) {
     name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),
     mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
     description: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.description ? definitionActivity.selectionScreenDisplayProperties.description : definitionActivity.displayProperties && definitionActivity.displayProperties.description ? definitionActivity.displayProperties.description : t('Unknown'),
-    destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name].filter((a, b, self) => self.indexOf(a) === b),
+    destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name] // remove falsey values
+      .filter((string) => string)
+      // remove duplicate values
+      .filter((a, b, self) => self.indexOf(a) === b)
+      .join(', '),
     activityLightLevel: definitionActivity.activityLightLevel && definitionActivity.activityLightLevel !== 10 && definitionActivity.activityLightLevel,
     icon: <Tooltips.FastTravel />,
     pgcrImage: definitionActivity.pgcrImage,
@@ -71,7 +75,7 @@ function activityType(hash, modeHash, playlistHash) {
   } else if (definitionActivity.activityTypeHash === 400075666) {
     return {
       ...defaults,
-      destination: [definitionDestination?.displayProperties.name],
+      destination: definitionDestination?.displayProperties.name,
       mode: false,
       activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
       className: 'menagerie',
@@ -107,7 +111,7 @@ function activityType(hash, modeHash, playlistHash) {
         name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
         mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
         description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        destination: `${definitionActivity.displayProperties.name}, ${definitionActivity.displayProperties.description}`,
         className: 'crucible',
         activityLightLevel: false,
         isCrucible: true,
@@ -121,7 +125,7 @@ function activityType(hash, modeHash, playlistHash) {
         name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
         mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
         description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        destination: `${definitionActivity.displayProperties.name}, ${definitionActivity.displayProperties.description}`,
         className: 'crucible trials-of-osiris',
         activityLightLevel: false,
         isCrucible: true,
@@ -135,7 +139,7 @@ function activityType(hash, modeHash, playlistHash) {
         name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
         mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
         description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        destination: `${definitionActivity.displayProperties.name}, ${definitionActivity.displayProperties.description}`,
         className: 'crucible iron-banner',
         activityLightLevel: false,
         isCrucible: true,
@@ -148,7 +152,7 @@ function activityType(hash, modeHash, playlistHash) {
         name: definitionActivityPlaylist?.displayProperties?.name || t('Unknown'),
         mode: manifest.DestinyActivityModeDefinition[1164760504].displayProperties.name,
         description: definitionActivityPlaylist?.displayProperties?.description || t('Unknown'),
-        destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+        destination: `${definitionActivity.displayProperties.name}, ${definitionActivity.displayProperties.description}`,
         className: 'crucible',
         activityLightLevel: false,
         isCrucible: true,
@@ -179,7 +183,7 @@ function activityType(hash, modeHash, playlistHash) {
       name: definitionActivityMode.displayProperties.name,
       mode: definitionActivityModeParent.displayProperties.name,
       description: definitionActivityMode.displayProperties.description,
-      destination: [definitionActivity.displayProperties.name, definitionActivity.displayProperties.description],
+      destination: `${definitionActivity.displayProperties.name}, ${definitionActivity.displayProperties.description}`,
       className: 'gambit',
       activityLightLevel: false,
       hasScore: definitionActivityMode.hash === 1848252830,
@@ -204,21 +208,23 @@ function activityType(hash, modeHash, playlistHash) {
       className: 'seasonal-arena',
       icon: <Tooltips.SeasonalArena />,
     };
-  } else if (activityModeHashes.includes(3497767639)) {
+  } // Explore
+  else if (activityModeHashes.includes(3497767639)) {
     return {
       ...defaults,
-      destination: [definitionPlace?.displayProperties.name],
+      destination: definitionPlace?.displayProperties.name,
       description: manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description,
       activityLightLevel: false,
       mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
       pgcrImage: false,
     };
-  } else if (definitionActivity.placeHash === 2961497387) {
+  } // Orbit
+  else if (definitionActivity.placeHash === 2961497387) {
     return {
       ...defaults,
       name: manifest.DestinyPlaceDefinition[2961497387].displayProperties.name,
       mode: undefined,
-      destination: [],
+      destination: false,
       description: t('In orbit, planning something terribly heroic.'),
       activityLightLevel: false,
     };
@@ -285,9 +291,9 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
                 <ObservedImage className='image' src={`https://www.bungie.net${properties.pgcrImage}`} />
               </div>
             ) : null}
-            {properties.destination.length || properties.description ? (
+            {properties.destination || properties.description ? (
               <div className='description'>
-                {properties.destination.length ? <div className='destination'>{properties.destination.filter((s) => s).join(', ')}</div> : null}
+                {properties.destination ? <div className='destination'>{properties.destination}</div> : null}
                 <BungieText value={properties.description} />
               </div>
             ) : null}

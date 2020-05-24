@@ -3,17 +3,75 @@ import { Link } from 'react-router-dom';
 
 import { t, fromNow, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
+import ObservedImage from '../../components/ObservedImage';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
+import Spinner from '../../components/UI/Spinner';
 import { Common, Views } from '../../svg';
 
 import captainsLog from '../../data/captainsLog';
 
 import './styles.css';
 
+const highlights = [
+  {
+    name: t('Clan'),
+    desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
+    slug: '/clan',
+    icon: Views.Index.Clan,
+  },
+  {
+    name: t('Collections'),
+    desc: t('Items your Guardian has acquired over their lifetime'),
+    slug: '/collections',
+    icon: Views.Index.Collections,
+  },
+  {
+    name: t('Triumphs'),
+    desc: t('Records your Guardian has achieved through their trials'),
+    slug: '/triumphs',
+    icon: Views.Index.Triumphs,
+  },
+  {
+    name: t('Checklists'),
+    desc: t('Ghost scans and item checklists spanning the Sol system'),
+    slug: '/checklists',
+    icon: Views.Index.Checklists,
+  },
+  {
+    name: t('Maps'),
+    desc: t('Interactive maps charting checklists and other notable destinations'),
+    slug: '/maps',
+    icon: Views.Index.Maps,
+  },
+  {
+    name: t('This Week'),
+    desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
+    slug: '/this-week',
+    icon: Views.Index.ThisWeek,
+  },
+  {
+    name: t('Quests'),
+    desc: t('Track your pursuits, including quests and bounties'),
+    slug: '/quests',
+    icon: Views.Index.Quests,
+  },
+  {
+    name: t('Reports'),
+    desc: t('Explore and filter your Post Game Carnage Reports in detail'),
+    slug: '/reports',
+    icon: Views.Index.Reports,
+  },
+];
+
 class Index extends React.Component {
   state = {
     log: 0,
+    twab: {
+      loading: true,
+      posts: [],
+      files: [],
+    },
   };
 
   logs = [...captainsLog].reverse();
@@ -24,11 +82,31 @@ class Index extends React.Component {
     this.mounted = true;
 
     window.scrollTo(0, 0);
+
+    this.getTwabs();
   }
 
   componentWillUnmount() {
     this.mounted = false;
   }
+
+  getTwabs = async () => {
+    const response = await fetch(`https://directus.upliftnaturereserve.com/bt03/custom/twab`)
+      .then((response) => {
+        return response.json();
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
+
+    this.setState({
+      twab: {
+        loading: false,
+        posts: response.posts.data,
+        files: response.files.data,
+      },
+    });
+  };
 
   shuffle(array) {
     var currentIndex = array.length,
@@ -71,57 +149,6 @@ class Index extends React.Component {
   };
 
   render() {
-    const highlights = [
-      {
-        name: t('Clan'),
-        desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
-        slug: '/clan',
-        icon: Views.Index.Clan,
-      },
-      {
-        name: t('Collections'),
-        desc: t('Items your Guardian has acquired over their lifetime'),
-        slug: '/collections',
-        icon: Views.Index.Collections,
-      },
-      {
-        name: t('Triumphs'),
-        desc: t('Records your Guardian has achieved through their trials'),
-        slug: '/triumphs',
-        icon: Views.Index.Triumphs,
-      },
-      {
-        name: t('Checklists'),
-        desc: t('Ghost scans and item checklists spanning the Sol system'),
-        slug: '/checklists',
-        icon: Views.Index.Checklists,
-      },
-      {
-        name: t('Maps'),
-        desc: t('Interactive maps charting checklists and other notable destinations'),
-        slug: '/maps',
-        icon: Views.Index.Maps,
-      },
-      {
-        name: t('This Week'),
-        desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
-        slug: '/this-week',
-        icon: Views.Index.ThisWeek,
-      },
-      {
-        name: t('Quests'),
-        desc: t('Track your pursuits, including quests and bounties'),
-        slug: '/quests',
-        icon: Views.Index.Quests,
-      },
-      {
-        name: t('Reports'),
-        desc: t('Explore and filter your Post Game Carnage Reports in detail'),
-        slug: '/reports',
-        icon: Views.Index.Reports,
-      },
-    ];
-
     return (
       <div className='view' id='index'>
         <div className='row header'>
@@ -146,6 +173,53 @@ class Index extends React.Component {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+        <div className='row patreon'>
+          <div className='wrapper'>
+            <div className='device'>
+              <Common.Patreon />
+            </div>
+            <div className='module'>
+              <h3>{t('Support Braytech')}</h3>
+              <div className='description'>
+                <p>Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.</p>
+                <p>By supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.</p>
+              </div>
+              <a className='button cta' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
+                <div className='text'>{t('Become a Patron')}</div>
+                <i className='segoe-uniE0AB' />
+              </a>
+            </div>
+            <div className='module tags'>
+              {this.supporters?.map((membershipId, m) => (
+                <MemberLink key={m} id={membershipId} hideFlair />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className='row changes'>
+          <div className='wrapper'>
+            <div className='module twab'>
+              <h3>{t('This Week At Braytech')}</h3>
+              <ThisWeekAtBraytech match={this.props.match} {...this.state.twab} />
+            </div>
+            <div className='module'>
+              <h3>{t('Change log')}</h3>
+              <div className='meta'>
+                <div className='text'>
+                  <div className='number'>{this.logs[this.state.log].version}</div>
+                  <div className='time'>
+                    <time title={this.logs[this.state.log].date}>{fromNow(this.logs[this.state.log].date)}</time>
+                  </div>
+                </div>
+                <div className='buttons'>
+                  <Button text={t('Older')} action={this.handler_onClickPrevious} disabled={this.state.log + 1 === this.logs.length ? true : false} />
+                  <Button text={t('Newer')} action={this.handler_onClickNext} disabled={this.state.log === 0 ? true : false} />
+                </div>
+              </div>
+              <BraytechText className='log-content' value={this.logs[this.state.log].content} />
             </div>
           </div>
         </div>
@@ -190,50 +264,76 @@ class Index extends React.Component {
             ) : null}
           </div>
         </div>
-        <div className='row patreon'>
-          <div className='wrapper'>
-            <div className='device'>
-              <Common.Patreon />
-            </div>
-            <div className='module'>
-              <h3>{t('How you can help')}</h3>
-              <div className='description'>
-                <p>Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.</p>
-                <p>By supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.</p>
-              </div>
-              <a className='button cta' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
-                <div className='text'>{t('Become a Patron')}</div>
-                <i className='segoe-uniE0AB' />
-              </a>
-            </div>
-            <div className='module tags'>
-              {this.supporters?.map((membershipId, m) => (
-                <MemberLink key={m} id={membershipId} hideFlair />
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className='row changes'>
-          <div className='wrapper'>
-            <div className='meta'>
-              <h3>{t('Change log')}</h3>
-              <div className='text'>
-                <div className='number'>{this.logs[this.state.log].version}</div>
-                <div className='time'>
-                  <time title={this.logs[this.state.log].date}>{fromNow(this.logs[this.state.log].date)}</time>
-                </div>
-              </div>
-              <div className='buttons'>
-                <Button text={t('Older')} action={this.handler_onClickPrevious} disabled={this.state.log + 1 === this.logs.length ? true : false} />
-                <Button text={t('Newer')} action={this.handler_onClickNext} disabled={this.state.log === 0 ? true : false} />
-              </div>
-            </div>
-            <BraytechText className='log-content' value={this.logs[this.state.log].content} />
-          </div>
-        </div>
       </div>
     );
   }
 }
 
 export default Index;
+
+function ThisWeekAtBraytech(props) {
+  console.log(props);
+  const { match, loading, posts, files } = props;
+  const postId = match.params.postId && +match.params.postId;
+
+  if (loading) {
+    return <Spinner />;
+  }
+
+  const post = posts.find((post) => post.id === postId);
+
+  if (post) {
+    return (
+      <div className='post'>
+        <div className='content'>
+          {post.content?.map((block, b) => {
+            const markdown = block.markdown && block.markdown.trim() !== '' && block.markdown;
+            const media = block.media && block.media !== '' && block.media;
+            const source = block.source && block.source !== '' && block.source;
+
+            if (media) {
+              const file = files.find((f) => f.id === block.media.id);
+              const fileRatio = file && file.height / file.width;
+
+              const caption = file && file.description;
+
+              if (!file) return null;
+
+              return (
+                <div key={b} className='block file'>
+                  <ObservedImage className='image' ratio={fileRatio} src={file.width > 1920 ? `https://directus.upliftnaturereserve.com/bt03/assets/${file.private_hash}?key=1920` : file.data.full_url} />
+                  {caption ? <BraytechText className='caption text' value={caption} /> : null}
+                  {source ? <BraytechText className='source' value={source} /> : null}
+                </div>
+              );
+            } else if (markdown) {
+              return (
+                <div key={b} className='block text'>
+                  <BraytechText value={markdown} />
+                </div>
+              );
+            } else {
+              return <div key={b} className='block'></div>;
+            }
+          })}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className='posts'>
+        <ul className='list'>
+          {posts.map((post, p) => (
+            <li key={p} className='linked'>
+              <div className='text'>
+                <div>{post.name}</div>
+                <div>{post.modified_on}</div>
+              </div>
+              <Link to={`/${post.id}/${post.slug}`} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}

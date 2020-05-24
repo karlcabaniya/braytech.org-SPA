@@ -401,9 +401,8 @@ class Roster extends React.Component {
                 })}
           </ul>
           {mini ? (
-            <ProfileLink className='button cta' to='/clan/roster'>
+            <ProfileLink className='button' to='/clan/roster'>
               <div className='text'>{t('See full roster')}</div>
-              <i className='segoe-uniE0AB' />
             </ProfileLink>
           ) : null}
         </>

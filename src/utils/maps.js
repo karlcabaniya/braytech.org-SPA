@@ -214,9 +214,14 @@ export function locationStrings({ activityHash, destinationHash, bubbleHash, map
   const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;
   const bubbleName = definitionBubble?.displayProperties?.name;
   const airName = definitionAir?.displayProperties?.name;
-  const activityName = (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name);
+  const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name;
 
-  const destinationString = [bubbleName, activityName, !(airName || activityName) && destinationName, placeName].filter((string) => string).join(', ');
+  const destinationString = [bubbleName, activityName, !(airName || activityName) && destinationName, placeName]
+    // remove falsey values
+    .filter((string) => string)
+    // remove duplicate values
+    .filter((a, b, self) => self.indexOf(a) === b)
+    .join(', ');
 
   const within = map?.in;
   const withinName = within === 'ascendant-challenge' ? airName || bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || airName || bubbleName;
