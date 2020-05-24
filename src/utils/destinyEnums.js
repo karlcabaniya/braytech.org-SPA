@@ -210,6 +210,24 @@ export const enumeratePartyMemberState = (state) => ({
   partyLeader: flagEnum(state, 8),
 });
 
+export const DestinyGamePrivacySetting = {
+  Open: 0,
+  ClanAndFriendsOnly: 1,
+  FriendsOnly: 2,
+  InvitationOnly: 3,
+  Closed: 4,
+};
+
+export const enumerateJoinClosedReasons = (state) => ({
+  none: flagEnum(state, 0),
+  inMatchmaking: flagEnum(state, 1),
+  loading: flagEnum(state, 2),
+  soloMode: flagEnum(state, 4),
+  internalReasons: flagEnum(state, 8),
+  disallowedByGameState: flagEnum(state, 16),
+  offline: flagEnum(state, 32768),
+});
+
 export const enumerateProgressionRewardItemState = (state) => ({
   none: flagEnum(state, 0),
   invisible: flagEnum(state, 1),
