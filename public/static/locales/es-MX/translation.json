@@ -363,7 +363,7 @@
   "Maps.ProposeChanges.Description": "Envía una sugerencia para que se modifiquen los datos de este nodo y mejorar _Mapas_ para otros Guardianes.",
   "Maps.ProposeChanges.Form.Description.Placeholder": "Ejemplo: cerca de una roca en el lado más alejado de la última habitación",
   "Maps.ProposeChanges.Form.Issues.Placeholder": "Ejemplo: el nodo ya no es accesible",
-  "Maps.ProposeChanges.Form.Screenshots": "Las capturas de pantalla propuestas deben cumplir un estricto criterio de calidad:\n- sin HUD (interfaz) visible\n- sin Guardianes o equipamiento visible\n- sin enemigos visibles\n- ajustes de video al máximo\n  - incluyendo una resolución de renderizado al 200%",
+  "Maps.ProposeChanges.Form.Screenshots": "Las capturas de pantalla propuestas deben cumplir un estricto criterio de calidad:\n- resolución de pantalla de 1920x1080\n- sin HUD (interfaz) visible\n- sin Guardianes o equipamiento visible\n- sin enemigos visibles\n- ajustes de video al máximo\n  - incluyendo una resolución de renderizado al 200%",
   "Match system": "Igual que el sistema",
   "Matches": "Partidas",
   "Matchmaking": "Matchmaking",
