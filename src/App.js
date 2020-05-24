@@ -364,7 +364,7 @@ class App extends React.Component {
                   <Route path='/test' component={Test} />
                   <SuspenseRoute path='/three' exact component={TestThree} />
 
-                  <Route path='/:postId?' component={Index} />
+                  <Route path='/' component={Index} />
                 </Switch>
               </div>
 

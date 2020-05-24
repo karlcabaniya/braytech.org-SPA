@@ -1,125 +1,140 @@
 {
   "de": {
-    "translated": 695,
-    "notTranslated": 4,
+    "translated": 694,
+    "notTranslated": 5,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "debug": {
     "translated": 699,
     "notTranslated": 0,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "en": {
     "translated": 699,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "es-mx": {
-    "translated": 682,
-    "notTranslated": 17,
+    "translated": 681,
+    "notTranslated": 18,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "es": {
-    "translated": 682,
-    "notTranslated": 17,
+    "translated": 681,
+    "notTranslated": 18,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "fr": {
-    "translated": 626,
-    "notTranslated": 73,
+    "translated": 625,
+    "notTranslated": 74,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "it": {
-    "translated": 637,
-    "notTranslated": 62,
+    "translated": 636,
+    "notTranslated": 63,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "ja": {
-    "translated": 605,
-    "notTranslated": 94,
+    "translated": 604,
+    "notTranslated": 95,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "ko": {
-    "translated": 516,
-    "notTranslated": 183,
+    "translated": 515,
+    "notTranslated": 184,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 697,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "pt-br": {
-    "translated": 622,
-    "notTranslated": 77,
+    "translated": 621,
+    "notTranslated": 78,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "ru": {
-    "translated": 692,
-    "notTranslated": 7,
+    "translated": 691,
+    "notTranslated": 8,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "zh-chs": {
-    "translated": 489,
-    "notTranslated": 210,
+    "translated": 488,
+    "notTranslated": 211,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   },
   "zh-cht": {
-    "translated": 351,
-    "notTranslated": 348,
+    "translated": 350,
+    "notTranslated": 349,
     "added": [
-      "Enemy team",
-      "Their team"
+      "Support Braytech"
     ],
-    "removed": []
+    "removed": [
+      "How you can help"
+    ]
   }
 }

@@ -112,7 +112,8 @@
   line-height: 1.4;
 }
 
-#index .row.about > .wrapper {
+#index .row.about > .wrapper,
+#index .row.changes > .wrapper {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -184,32 +185,6 @@
 
 #index .row.patreon .module.tags .member-link {
   max-width: unset;
-}
-
-
-#index .row.changes > .wrapper {
-  position: relative;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-#index .row.changes .wrapper .twab {
-  grid-column: span 2;
-}
-
-#index .row.changes .wrapper .twab .posts .list li {
-  display: grid;
-}
-
-#index .row.changes .wrapper .twab .posts .list .text {
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  font-size: 16px;
-}
-
-#index .row.changes .wrapper .twab .post .block.text p {
-  max-width: 800px;
 }
 
 #index .row.changes .meta {
@@ -299,16 +274,13 @@
     font-size: 18px;
   }
 
-  #index .row.about > .wrapper {
+  #index .row.about > .wrapper,
+  #index .row.changes > .wrapper {
     grid-template-columns: 1fr 1fr;
   }
 
   #index .row.patreon > .wrapper {
     grid-template-columns: 2fr 1fr 1fr;
-  }
-
-  #index .row.changes > .wrapper {
-    grid-template-columns: 1fr 2fr;
   }
 
   #index .row.patreon .module.tags,

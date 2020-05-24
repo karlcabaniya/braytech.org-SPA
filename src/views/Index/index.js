@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { t, fromNow, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
-import ObservedImage from '../../components/ObservedImage';
 import MemberLink from '../../components/MemberLink';
 import Button from '../../components/UI/Button';
-import Spinner from '../../components/UI/Spinner';
 import { Common, Views } from '../../svg';
 
 import captainsLog from '../../data/captainsLog';
@@ -67,11 +65,6 @@ const highlights = [
 class Index extends React.Component {
   state = {
     log: 0,
-    twab: {
-      loading: true,
-      posts: [],
-      files: [],
-    },
   };
 
   logs = [...captainsLog].reverse();
@@ -82,31 +75,11 @@ class Index extends React.Component {
     this.mounted = true;
 
     window.scrollTo(0, 0);
-
-    this.getTwabs();
   }
 
   componentWillUnmount() {
     this.mounted = false;
   }
-
-  getTwabs = async () => {
-    const response = await fetch(`https://directus.upliftnaturereserve.com/bt03/custom/twab`)
-      .then((response) => {
-        return response.json();
-      })
-      .catch((error) => {
-        // console.log(error);
-      });
-
-    this.setState({
-      twab: {
-        loading: false,
-        posts: response.posts.data,
-        files: response.files.data,
-      },
-    });
-  };
 
   shuffle(array) {
     var currentIndex = array.length,
@@ -199,30 +172,6 @@ class Index extends React.Component {
             </div>
           </div>
         </div>
-        <div className='row changes'>
-          <div className='wrapper'>
-            <div className='module twab'>
-              <h3>{t('This Week At Braytech')}</h3>
-              <ThisWeekAtBraytech match={this.props.match} {...this.state.twab} />
-            </div>
-            <div className='module'>
-              <h3>{t('Change log')}</h3>
-              <div className='meta'>
-                <div className='text'>
-                  <div className='number'>{this.logs[this.state.log].version}</div>
-                  <div className='time'>
-                    <time title={this.logs[this.state.log].date}>{fromNow(this.logs[this.state.log].date)}</time>
-                  </div>
-                </div>
-                <div className='buttons'>
-                  <Button text={t('Older')} action={this.handler_onClickPrevious} disabled={this.state.log + 1 === this.logs.length ? true : false} />
-                  <Button text={t('Newer')} action={this.handler_onClickNext} disabled={this.state.log === 0 ? true : false} />
-                </div>
-              </div>
-              <BraytechText className='log-content' value={this.logs[this.state.log].content} />
-            </div>
-          </div>
-        </div>
         <div className='row about'>
           <div className='wrapper'>
             <div className='module'>
@@ -264,76 +213,29 @@ class Index extends React.Component {
             ) : null}
           </div>
         </div>
+        <div className='row changes'>
+          <div className='wrapper'>
+            <div className='module'>
+              <h3>{t('Change log')}</h3>
+              <div className='meta'>
+                <div className='text'>
+                  <div className='number'>{this.logs[this.state.log].version}</div>
+                  <div className='time'>
+                    <time title={this.logs[this.state.log].date}>{fromNow(this.logs[this.state.log].date)}</time>
+                  </div>
+                </div>
+                <div className='buttons'>
+                  <Button text={t('Older')} action={this.handler_onClickPrevious} disabled={this.state.log + 1 === this.logs.length ? true : false} />
+                  <Button text={t('Newer')} action={this.handler_onClickNext} disabled={this.state.log === 0 ? true : false} />
+                </div>
+              </div>
+              <BraytechText className='log-content' value={this.logs[this.state.log].content} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default Index;
-
-function ThisWeekAtBraytech(props) {
-  console.log(props);
-  const { match, loading, posts, files } = props;
-  const postId = match.params.postId && +match.params.postId;
-
-  if (loading) {
-    return <Spinner />;
-  }
-
-  const post = posts.find((post) => post.id === postId);
-
-  if (post) {
-    return (
-      <div className='post'>
-        <div className='content'>
-          {post.content?.map((block, b) => {
-            const markdown = block.markdown && block.markdown.trim() !== '' && block.markdown;
-            const media = block.media && block.media !== '' && block.media;
-            const source = block.source && block.source !== '' && block.source;
-
-            if (media) {
-              const file = files.find((f) => f.id === block.media.id);
-              const fileRatio = file && file.height / file.width;
-
-              const caption = file && file.description;
-
-              if (!file) return null;
-
-              return (
-                <div key={b} className='block file'>
-                  <ObservedImage className='image' ratio={fileRatio} src={file.width > 1920 ? `https://directus.upliftnaturereserve.com/bt03/assets/${file.private_hash}?key=1920` : file.data.full_url} />
-                  {caption ? <BraytechText className='caption text' value={caption} /> : null}
-                  {source ? <BraytechText className='source' value={source} /> : null}
-                </div>
-              );
-            } else if (markdown) {
-              return (
-                <div key={b} className='block text'>
-                  <BraytechText value={markdown} />
-                </div>
-              );
-            } else {
-              return <div key={b} className='block'></div>;
-            }
-          })}
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className='posts'>
-        <ul className='list'>
-          {posts.map((post, p) => (
-            <li key={p} className='linked'>
-              <div className='text'>
-                <div>{post.name}</div>
-                <div>{post.modified_on}</div>
-              </div>
-              <Link to={`/${post.id}/${post.slug}`} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-}
