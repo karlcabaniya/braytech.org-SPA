@@ -11,57 +11,6 @@ import captainsLog from '../../data/captainsLog';
 
 import './styles.css';
 
-const highlights = [
-  {
-    name: t('Clan'),
-    desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
-    slug: '/clan',
-    icon: Views.Index.Clan,
-  },
-  {
-    name: t('Collections'),
-    desc: t('Items your Guardian has acquired over their lifetime'),
-    slug: '/collections',
-    icon: Views.Index.Collections,
-  },
-  {
-    name: t('Triumphs'),
-    desc: t('Records your Guardian has achieved through their trials'),
-    slug: '/triumphs',
-    icon: Views.Index.Triumphs,
-  },
-  {
-    name: t('Checklists'),
-    desc: t('Ghost scans and item checklists spanning the Sol system'),
-    slug: '/checklists',
-    icon: Views.Index.Checklists,
-  },
-  {
-    name: t('Maps'),
-    desc: t('Interactive maps charting checklists and other notable destinations'),
-    slug: '/maps',
-    icon: Views.Index.Maps,
-  },
-  {
-    name: t('This Week'),
-    desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
-    slug: '/this-week',
-    icon: Views.Index.ThisWeek,
-  },
-  {
-    name: t('Quests'),
-    desc: t('Track your pursuits, including quests and bounties'),
-    slug: '/quests',
-    icon: Views.Index.Quests,
-  },
-  {
-    name: t('Reports'),
-    desc: t('Explore and filter your Post Game Carnage Reports in detail'),
-    slug: '/reports',
-    icon: Views.Index.Reports,
-  },
-];
-
 class Index extends React.Component {
   state = {
     log: 0,
@@ -122,6 +71,57 @@ class Index extends React.Component {
   };
 
   render() {
+    const highlights = [
+      {
+        name: t('Clan'),
+        desc: t('About your clan, its roster, summative historical stats for all members, and admin mode'),
+        slug: '/clan',
+        icon: Views.Index.Clan,
+      },
+      {
+        name: t('Collections'),
+        desc: t('Items your Guardian has acquired over their lifetime'),
+        slug: '/collections',
+        icon: Views.Index.Collections,
+      },
+      {
+        name: t('Triumphs'),
+        desc: t('Records your Guardian has achieved through their trials'),
+        slug: '/triumphs',
+        icon: Views.Index.Triumphs,
+      },
+      {
+        name: t('Checklists'),
+        desc: t('Ghost scans and item checklists spanning the Sol system'),
+        slug: '/checklists',
+        icon: Views.Index.Checklists,
+      },
+      {
+        name: t('Maps'),
+        desc: t('Interactive maps charting checklists and other notable destinations'),
+        slug: '/maps',
+        icon: Views.Index.Maps,
+      },
+      {
+        name: t('This Week'),
+        desc: t('Noteworthy records and collectibles which are available at a weekly cadence'),
+        slug: '/this-week',
+        icon: Views.Index.ThisWeek,
+      },
+      {
+        name: t('Quests'),
+        desc: t('Track your pursuits, including quests and bounties'),
+        slug: '/quests',
+        icon: Views.Index.Quests,
+      },
+      {
+        name: t('Reports'),
+        desc: t('Explore and filter your Post Game Carnage Reports in detail'),
+        slug: '/reports',
+        icon: Views.Index.Reports,
+      },
+    ];
+
     return (
       <div className='view' id='index'>
         <div className='row header'>
@@ -177,7 +177,9 @@ class Index extends React.Component {
             <div className='module'>
               <h3>{t('What is Braytech')}</h3>
               <div className='description'>
-                <p>Braytech is a Destiny fan site with many features. The exhaustive list includes but is not limited to; a clan roster with admin mode, collections and triumphs as per the game itself with some extra bells and whistles, a curated <em>This Week</em> view detailing end-games chases and their conditions, exhaustive checklists with links to maps, post game carnage reports with details on activities and their participants, a pursuits view for bounties and quests which are supplemented with extra curated data, and a bunch of other stuff too.</p>
+                <p>
+                  Braytech is a Destiny fan site with many features. The exhaustive list includes but is not limited to; a clan roster with admin mode, collections and triumphs as per the game itself with some extra bells and whistles, a curated <em>This Week</em> view detailing end-games chases and their conditions, exhaustive checklists with links to maps, post game carnage reports with details on activities and their participants, a pursuits view for bounties and quests which are supplemented with extra curated data, and a bunch of other stuff too.
+                </p>
                 <p>Destiny is a game for all Guardians, available in various languages. So is Braytech. It’s beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.</p>
                 <p>The name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny’s best third party resources.</p>
               </div>

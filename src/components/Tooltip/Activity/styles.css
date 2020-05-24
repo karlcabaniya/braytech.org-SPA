@@ -273,13 +273,31 @@
 }
 
 #tooltip .frame.activity .score .team .name {
-  text-align: center;
   width: 100px;
+  text-align: center;
   font-size: 12px;
   line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+#tooltip .frame.activity .joinability {
+  margin: 16px 0 0;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#tooltip .frame.activity .score ~ .joinability {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #tooltip .frame.activity .completed {

@@ -1,140 +1,164 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 5,
+    "notTranslated": 10,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 699,
+    "translated": 704,
     "notTranslated": 0,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 699,
+    "translated": 704,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 681,
-    "notTranslated": 18,
+    "notTranslated": 23,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 681,
-    "notTranslated": 18,
+    "notTranslated": 23,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 625,
-    "notTranslated": 74,
+    "notTranslated": 79,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 636,
-    "notTranslated": 63,
+    "notTranslated": 68,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 604,
-    "notTranslated": 95,
+    "notTranslated": 100,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 515,
-    "notTranslated": 184,
+    "notTranslated": 189,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 697,
+    "notTranslated": 702,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 621,
-    "notTranslated": 78,
+    "notTranslated": 83,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 691,
-    "notTranslated": 8,
+    "notTranslated": 13,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 488,
-    "notTranslated": 211,
+    "notTranslated": 216,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 350,
-    "notTranslated": 349,
+    "notTranslated": 354,
     "added": [
-      "Support Braytech"
+      "Fireteam closed",
+      "Fireteam full",
+      "Match is loading",
+      "Open fireteam",
+      "Single player activity"
     ],
-    "removed": [
-      "How you can help"
-    ]
+    "removed": []
   }
 }

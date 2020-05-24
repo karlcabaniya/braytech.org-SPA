@@ -37,6 +37,7 @@ function activityType(hash, modeHash, playlistHash) {
     activityLightLevel: definitionActivity.activityLightLevel && definitionActivity.activityLightLevel !== 10 && definitionActivity.activityLightLevel,
     icon: <Tooltips.FastTravel />,
     pgcrImage: definitionActivity.pgcrImage,
+    completed: node.completed,
   };
 
   const activityModeHashes = [...(definitionActivity.activityModeHashes || []), modeHash];
@@ -233,6 +234,26 @@ function activityType(hash, modeHash, playlistHash) {
   return defaults;
 }
 
+function joinability({ closedReasons, openSlots, privacySetting }, maxParty) {
+  const enumeratedClosedReasons = enums.enumerateJoinClosedReasons(closedReasons);
+
+  if (privacySetting > 2) {
+    return t('Fireteam closed');
+  } else if (enumeratedClosedReasons.inMatchmaking) {
+    return t('Matchmaking');
+  } else if (enumeratedClosedReasons.soloMode) {
+    return t('Single player activity');
+  } else if (enumeratedClosedReasons.loading) {
+    return t('Match is loading');
+  } else if (openSlots < 1 && privacySetting < 2) {
+    return t('Fireteam full');
+  } else if (openSlots > 0 && privacySetting < 2 && !(enumeratedClosedReasons.disallowedByGameState || enumeratedClosedReasons.internalReasons || enumeratedClosedReasons.offline)) {
+    return `${t('Open fireteam')}${maxParty && maxParty > 1 ? ` (${maxParty - openSlots}/${maxParty})` : ''}`;
+  }
+
+  return false;
+}
+
 function Activity({ member, groupMembers, context, hash, mode, playlist, membershipid }) {
   const definitionActivity = manifest.DestinyActivityDefinition[hash];
   const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlist];
@@ -269,7 +290,11 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
 
     const eligibilityRequirements = member.data?.profile && definitionActivity.eligibilityRequirements && utils.gameVersion(member.data.profile.profile.data.versionsOwned, definitionActivity.eligibilityRequirements.gameVersion);
 
-    const transitory = membershipid && groupMembers?.members?.find((m) => m.destinyUserInfo?.membershipId === membershipid);
+    const rosterProfile = membershipid && groupMembers?.members?.find((m) => m.destinyUserInfo?.membershipId === membershipid);
+
+    // console.log(rosterProfile?.profile.profileTransitoryData.data);
+
+    const joinabilityString = rosterProfile && joinability(rosterProfile.profile.profileTransitoryData.data.joinability, matchmakingProperties?.maxParty);
 
     return (
       <>
@@ -333,18 +358,19 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
                 {t('Recommended light')}: <span>{properties.activityLightLevel}</span>
               </div>
             ) : null}
-            {context === 'roster' && transitory && transitory.profile?.profileTransitoryData?.data?.currentActivity?.numberOfOpponents > 0 && properties.hasScore ? (
+            {context === 'roster' && rosterProfile && rosterProfile.profile?.profileTransitoryData?.data?.currentActivity?.numberOfOpponents > 0 && properties.hasScore ? (
               <div className='score'>
                 <div className='team'>
-                  <div className={cx('value', { winning: transitory.profile.profileTransitoryData.data.currentActivity.score > transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{transitory.profile.profileTransitoryData.data.currentActivity.score}</div>
+                  <div className={cx('value', { winning: rosterProfile.profile.profileTransitoryData.data.currentActivity.score > rosterProfile.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{rosterProfile.profile.profileTransitoryData.data.currentActivity.score}</div>
                   <div className='name'>{t('Their team')}</div>
                 </div>
                 <div className='team enemy'>
-                  <div className={cx('value', { winning: transitory.profile.profileTransitoryData.data.currentActivity.score < transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{transitory.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore}</div>
+                  <div className={cx('value', { winning: rosterProfile.profile.profileTransitoryData.data.currentActivity.score < rosterProfile.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore })}>{rosterProfile.profile.profileTransitoryData.data.currentActivity.highestOpposingFactionScore}</div>
                   <div className='name'>{t('Enemy team')}</div>
                 </div>
               </div>
             ) : null}
+            {context === 'roster' && joinabilityString ? <div className='joinability'>{joinabilityString}</div> : null}
             {context === 'maps' && properties?.completed ? <div className='completed'>{t('Completed')}</div> : null}
           </div>
         </div>
