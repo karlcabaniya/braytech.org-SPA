@@ -2,25 +2,13 @@
   "de": {
     "translated": 694,
     "notTranslated": 10,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 704,
     "notTranslated": 0,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -30,135 +18,69 @@
     "removed": []
   },
   "es-mx": {
-    "translated": 681,
-    "notTranslated": 23,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "translated": 699,
+    "notTranslated": 5,
+    "added": [],
     "removed": []
   },
   "es": {
-    "translated": 681,
-    "notTranslated": 23,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "translated": 699,
+    "notTranslated": 5,
+    "added": [],
     "removed": []
   },
   "fr": {
     "translated": 625,
     "notTranslated": 79,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "it": {
     "translated": 636,
     "notTranslated": 68,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "ja": {
     "translated": 604,
     "notTranslated": 100,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "ko": {
     "translated": 515,
     "notTranslated": 189,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 702,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "pt-br": {
     "translated": 621,
     "notTranslated": 83,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "ru": {
     "translated": 691,
     "notTranslated": 13,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-chs": {
     "translated": 488,
     "notTranslated": 216,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-cht": {
     "translated": 350,
     "notTranslated": 354,
-    "added": [
-      "Fireteam closed",
-      "Fireteam full",
-      "Match is loading",
-      "Open fireteam",
-      "Single player activity"
-    ],
+    "added": [],
     "removed": []
   }
 }
