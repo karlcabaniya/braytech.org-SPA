@@ -297,5 +297,11 @@
       "name": "Recuerdos latentes",
       "description": "Misteriosos nodos de prueba están dispersos por todo Marte. ¿Cuál es su propósito?"
     }
+  },
+  "tooltip-error": {
+    "displayProperties": {
+      "name": "Error desconocido",
+      "description": "Se produjo un error al renderizar esta información. Probablemente sea un error temporal. Disculpas."
+    }
   }
 }
