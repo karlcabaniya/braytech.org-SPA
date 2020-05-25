@@ -50,15 +50,22 @@ function activityType(hash, modeHash, playlistHash) {
       icon: <Tooltips.Adventure />,
       pgcrImage: false,
     };
-  } else if (enums.ordealHashes.includes(definitionActivity.hash)) {
+  } else if (enums.ordealHashes.includes(definitionActivity.hash)) { // Nightfall: Ordeals
     const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
     const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
 
     return {
       ...defaults,
       name: definitionStrke.selectionScreenDisplayProperties.name,
-      mode: definitionActivity.displayProperties.name,
+      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
       description: definitionStrke.displayProperties.description,
+      className: 'strike',
+      icon: <Tooltips.Strike />,
+    };
+  } else if (activityModeHashes.includes(2394616003)) { // Strikes
+    return {
+      ...defaults,
+      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
       className: 'strike',
       icon: <Tooltips.Strike />,
     };
@@ -96,13 +103,6 @@ function activityType(hash, modeHash, playlistHash) {
       mode: manifest.DestinyActivityTypeDefinition[1686739444].displayProperties.name,
       className: 'story',
       icon: <Tooltips.Story />,
-    };
-  } else if (activityModeHashes.includes(2394616003)) {
-    return {
-      ...defaults,
-      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
-      className: 'strike',
-      icon: <Tooltips.Strike />,
     };
   } else if (activityModeHashes.includes(1164760504)) {
     // Survival, Survival: Freelance
@@ -294,7 +294,7 @@ function Activity({ member, groupMembers, context, hash, mode, playlist, members
 
     // console.log(rosterProfile?.profile.profileTransitoryData.data);
 
-    const joinabilityString = rosterProfile && joinability(rosterProfile.profile.profileTransitoryData.data.joinability, matchmakingProperties?.maxParty);
+    const joinabilityString = rosterProfile && rosterProfile.profile.profileTransitoryData.data?.joinability && joinability(rosterProfile.profile.profileTransitoryData.data.joinability, matchmakingProperties?.maxParty);
 
     return (
       <>

@@ -129,7 +129,7 @@ class ChaliceRecipes extends React.Component {
     });
   };
 
-  handler_rewardItemClick = item => {
+  handler_rewardItemClick = item => e => {
     console.log(item);
 
     if (!item || !item.combo) {
