@@ -72,6 +72,7 @@ import { ReactComponent as Stats } from './common/stats.svg';
 import { ReactComponent as Roster } from './common/roster.svg';
 import { ReactComponent as RosterAdmin } from './common/roster-admin.svg';
 import { ReactComponent as Tracking } from './common/tracking.svg';
+import { ReactComponent as ItemStateLocked } from './common/item-state-locked.svg';
 import { ReactComponent as CrossSave } from './common/cross-save.svg';
 import { ReactComponent as TraitAll } from './common/trait-all.svg';
 import { ReactComponent as TraitWeekly } from './common/trait-weekly.svg';
@@ -167,6 +168,7 @@ const Common = {
   SealTitle,
   Braytech,
   Tracking,
+  ItemStateLocked,
   CrossSave,
 };
 

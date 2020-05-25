@@ -12,6 +12,7 @@ import { stats } from '../../../utils/destinyItems/stats';
 import { masterwork } from '../../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../../utils/destinyItems/utils';
 import ObservedImage from '../../ObservedImage';
+import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -130,20 +131,28 @@ class Item extends React.Component {
       }
     }
 
-    const masterworked = enums.enumerateItemState(item.state).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
+    const itemState = enums.enumerateItemState(item.state);
+    const masterworked = itemState.masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
 
     // console.log(item)
 
     return (
       <>
         <div className='acrylic' />
-        <div className={cx('frame', item.style, item.type, item.rarity, { masterworked: masterworked })}>
+        <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
           <div className='header'>
             {masterworked ? <ObservedImage className={cx('image', 'bg')} src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
             <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
-              {item.rarity && item.style !== 'ui' ? <div className='rarity'>{definitionItem.inventory.tierTypeName}</div> : null}
+              <div>
+                {item.rarity && item.style !== 'ui' ? <div className='rarity'>{definitionItem.inventory.tierTypeName}</div> : null}
+                {itemState.locked && item.style !== 'ui' ? (
+                  <div className='item-state'>
+                    <Common.ItemStateLocked />
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
           {importantText ? <div className='highlight major'>{importantText}</div> : null}

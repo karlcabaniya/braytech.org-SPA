@@ -1,6 +1,6 @@
 
 #tooltip .frame.vendor .header {
-  display: grid;
+  gap: unset;
   grid-template-columns: 96px auto;
   background-color: transparent;
   color: #fff;
@@ -24,6 +24,7 @@
   background-color: hsla(var(--commonDark), 0.8);
   display: grid;
   align-content: center;
+  gap: 4px;
   padding: 20px 16px 26px;
 }
 

@@ -1,5 +1,5 @@
 #tooltip .frame.activity .header {
-  display: grid;
+  gap: unset;
   grid-template-columns: 96px auto;
   background-color: transparent;
   color: #fff;
@@ -24,6 +24,7 @@
   background-color: hsla(202, 0%, 25%, 0.8);
   display: grid;
   align-content: center;
+  gap: 4px;
   padding: 20px 16px 26px;
 }
 

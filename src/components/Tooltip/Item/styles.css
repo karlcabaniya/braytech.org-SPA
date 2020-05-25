@@ -92,6 +92,22 @@
   background-repeat: no-repeat;
 }
 
+#tooltip .frame.item .header > div {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+#tooltip .frame.item .header > div > div {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 6px;
+}
+
+#tooltip .frame.item .header .name {
+  grid-template-columns: unset;
+}
+
 #tooltip .damage {
   padding: 14px 16px 10px;
   color: #fff;
