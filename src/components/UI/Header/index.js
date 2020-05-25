@@ -174,6 +174,16 @@ class Header extends React.Component {
         group: 0,
       },
       {
+        name: 'Inventory',
+        desc: 'Equip your Guardian with their finest wares',
+        path: '/inventory',
+        exact: false,
+        profile: true,
+        inline: !isProfileRoute || viewport.width >= 1620,
+        group: 0,
+        dev: true,
+      },
+      {
         name: t('Reports'),
         desc: t('Explore and filter your Post Game Carnage Reports in detail'),
         path: '/reports',
@@ -233,7 +243,7 @@ class Header extends React.Component {
         profile: false,
         group: 1,
       },
-    ];
+    ].filter((view) => view.dev ? process.env.NODE_ENV === 'development' : true);
 
     const viewsInline = viewport.width >= 1280;
 

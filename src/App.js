@@ -341,7 +341,7 @@ class App extends React.Component {
                   <RedirectRoute path='/triumphs' />
                   <RedirectRoute path='/trackers' />
                   <RedirectRoute path='/checklists' exact />
-                  <RedirectRoute path='/character' exact />
+                  <RedirectRoute path='/inventory' exact />
                   <RedirectRoute path='/this-week' />
                   <RedirectRoute path='/now' />
                   <RedirectRoute path='/quests' />

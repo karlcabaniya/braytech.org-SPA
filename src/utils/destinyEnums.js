@@ -116,8 +116,41 @@ export const DestinyItemSubType = {
 };
 
 export const DestinyInventoryBucket = {
+  ChestArmor: 14239492,
+  LegArmor: 20886954,
+  General: 138197802,
+  LostItems: 215593132,
+  Ships: 284967655,
+  Engrams: 375726501,
+  PowerWeapons: 953998645,
+  Auras: 1269569095,
+  Quests: 1345459588,
+  SpecialOrders: 1367666825,
+  Consumables: 1469714392,
+  KineticWeapons: 1498876634,
+  SeasonalArtifact: 1506418338,
+  ClassArmor: 1585787867,
+  Vehicle: 2025709351,
+  EnergyWeapons: 2465295065,
+  UpgradePoint: 2689798304,
+  StrangeCoin: 2689798305,
+  Glimmer: 2689798308,
+  LegendaryShards: 2689798309,
+  Silver: 2689798310,
+  BrightDust: 2689798311,
   Shaders: 2973005342,
+  Emotes: 3054419239,
+  Messages: 3161908920,
+  Subclass: 3284755031,
   Modifications: 3313201758,
+  WrappedItems: 3350918817,
+  Helmet: 3448274439,
+  Gauntlets: 3551918588,
+  Finishers: 3683254069,
+  Materials: 3865314626,
+  Ghost: 4023194814,
+  Emblems: 4274335291,
+  ClanBanners: 4292445962,
 };
 
 export const energyStats = {
@@ -200,6 +233,13 @@ export const enumerateItemState = (state) => ({
   locked: flagEnum(state, 1),
   tracked: flagEnum(state, 2),
   masterworked: flagEnum(state, 4),
+});
+
+export const enumerateTransferStatus = (state) => ({
+  canTransfer: flagEnum(state, 0),
+  itemIsEquipped: flagEnum(state, 1),
+  notTransferrable: flagEnum(state, 2),
+  noRoomInDestination: flagEnum(state, 4),
 });
 
 export const enumeratePartyMemberState = (state) => ({

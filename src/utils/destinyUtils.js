@@ -6,7 +6,16 @@ import manifest from './manifest';
 import * as enums from './destinyEnums';
 import * as SVG from '../svg';
 
-export const isProfileRoute = (location) => location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/);
+export const isProfileRoute = (location) => {
+  // if (location.pathname.indexOf('inventory') > -1) {
+  //   return false;
+  // } else
+  if (location.pathname.match(/\/(?:[1|2|3|4|5])\/(?:[0-9]+)\/(?:[0-9]+)/)) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 export const pathSubDir = (location) => location.pathname.split('/')?.[1];
 

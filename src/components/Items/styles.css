@@ -194,6 +194,19 @@
 
 
 
+.list.inventory-items li.placeholder {
+  padding-bottom: 100%;
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.list.inventory-items li.placeholder::before,
+.list.inventory-items li.placeholder::after {
+  content: none;;
+}
+
+
+
+
 @media screen and (max-width: 1280px) {
   .list.inventory-items {
     grid-template-columns: repeat(8, 1fr);
