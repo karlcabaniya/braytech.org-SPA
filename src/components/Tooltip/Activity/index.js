@@ -50,7 +50,8 @@ function activityType(hash, modeHash, playlistHash) {
       icon: <Tooltips.Adventure />,
       pgcrImage: false,
     };
-  } else if (enums.ordealHashes.includes(definitionActivity.hash)) { // Nightfall: Ordeals
+  } // Nightfall: Ordeals
+  else if (enums.ordealHashes.includes(definitionActivity.hash)) {
     const strikeHash = Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.includes(definitionActivity.hash));
     const definitionStrke = manifest.DestinyActivityDefinition[strikeHash];
 
@@ -62,7 +63,8 @@ function activityType(hash, modeHash, playlistHash) {
       className: 'strike',
       icon: <Tooltips.Strike />,
     };
-  } else if (activityModeHashes.includes(2394616003)) { // Strikes
+  } // Strikes
+  else if (activityModeHashes.includes(2394616003)) {
     return {
       ...defaults,
       mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
@@ -104,8 +106,8 @@ function activityType(hash, modeHash, playlistHash) {
       className: 'story',
       icon: <Tooltips.Story />,
     };
-  } else if (activityModeHashes.includes(1164760504)) {
-    // Survival, Survival: Freelance
+  } // Survival, Survival: Freelance
+  else if (activityModeHashes.includes(1164760504)) {
     if (definitionActivityPlaylist?.hash === 135537449 || definitionActivityPlaylist?.hash === 740891329) {
       return {
         ...defaults,
@@ -190,10 +192,11 @@ function activityType(hash, modeHash, playlistHash) {
       hasScore: definitionActivityMode.hash === 1848252830,
       icon: definitionActivityMode.hash === 1418469392 ? <Tooltips.GambitPrime /> : <Tooltips.Gambit />,
     };
-  } else if (definitionActivity.activityTypeHash === 332181804) {
+  } // Nightmare Hunts
+  else if (definitionActivity.activityTypeHash === 332181804) {
     return {
       ...defaults,
-      name: definitionActivity.displayProperties.name,
+      name: definitionActivity.originalDisplayProperties?.name.replace('Nightmare Hunt: ', '') || definitionActivity.displayProperties.name,
       mode: manifest.DestinyActivityTypeDefinition[definitionActivity.activityTypeHash].displayProperties.name,
       description: definitionActivity.displayProperties.description,
       suggestion: t('Equip Dreambane armor mods to enhance your light within this activity.'),
