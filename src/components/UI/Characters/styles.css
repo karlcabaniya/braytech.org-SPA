@@ -85,10 +85,6 @@
   line-height: 1;
 }
 
-.characters-list .char .button .metric {
-  
-}
-
 .characters-list .char .button .metric .progress {
   position: absolute;
   right: 10.5%;

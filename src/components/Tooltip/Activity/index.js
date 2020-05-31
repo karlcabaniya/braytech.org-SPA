@@ -63,15 +63,8 @@ function activityType(hash, modeHash, playlistHash) {
       className: 'strike',
       icon: <Tooltips.Strike />,
     };
-  } // Strikes
-  else if (activityModeHashes.includes(2394616003)) {
-    return {
-      ...defaults,
-      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
-      className: 'strike',
-      icon: <Tooltips.Strike />,
-    };
-  } else if (definitionActivity.activityTypeHash === 838603889) {
+  } // Forges
+  else if (definitionActivity.activityTypeHash === 838603889) {
     return {
       ...defaults,
       name: definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name || t('Unknown'),
@@ -82,14 +75,23 @@ function activityType(hash, modeHash, playlistHash) {
       pgcrImage: definitionActivityPlaylist?.pgcrImage || definitionActivity.pgcrImage,
       icon: <Tooltips.ForgeIgnition />,
     };
-  } else if (definitionActivity.activityTypeHash === 400075666) {
+  } // Menagerie
+  else if (definitionActivity.activityTypeHash === 400075666) {
     return {
       ...defaults,
       destination: definitionDestination?.displayProperties.name,
-      mode: false,
+      mode: definitionActivityType?.displayProperties.name,
       activityLightLevel: definitionActivityPlaylist?.activityLightLevel,
       className: 'menagerie',
       icon: <Tooltips.Menagerie />,
+    };
+  } // Strikes (down here so we don't catch activities like Strikes)
+  else if (activityModeHashes.includes(2394616003)) {
+    return {
+      ...defaults,
+      mode: manifest.DestinyActivityTypeDefinition[2884569138].displayProperties.name,
+      className: 'strike',
+      icon: <Tooltips.Strike />,
     };
   } else if (activityModeHashes.includes(608898761)) {
     return {

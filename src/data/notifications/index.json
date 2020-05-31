@@ -305,5 +305,16 @@
         "dismiss": true
       }
     ]
+  },
+  {
+    "id": "u7wxx5442iwckkv6q50ca",
+    "date": "2020-06-01T17:00:00.000Z",
+    "expiry": 2592000000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Pride month",
+      "description": "June is Pride month. For more information on what Pride means, use your preferred search engine. I'm not always good or effectual at expressing my feelings and thoughts. To be silent is to be complicit.\n\nThe message of this notification is fairly self-explanatory: be a good human.\n\nMarginalised lives matter.\n\nBlack lives matter.",
+      "prompt": true
+    }
   }
 ]
