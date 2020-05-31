@@ -4,14 +4,15 @@ import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
 import { ProfileNavLink } from '../../components/ProfileLink';
-import { Views } from '../../svg';
+import { Views, Common } from '../../svg';
 
 import './styles.css';
 
 import About from './About';
 import Roster from './Roster';
+import RosterAdmin from './RosterAdmin';
+import RosterProgress from './RosterProgress';
 import Stats from './Stats';
-import Admin from './Admin';
 
 export function NavLinks() {
   return (
@@ -29,6 +30,12 @@ export function NavLinks() {
           </div>
           <ProfileNavLink to='/clan/roster' />
         </li>
+        {/* <li className='linked'>
+          <div className='icon'>
+            <Common.Tricorn />
+          </div>
+          <ProfileNavLink to='/clan/progress' />
+        </li> */}
         <li className='linked'>
           <div className='icon'>
             <Views.Clan.RosterAdmin />
@@ -79,8 +86,9 @@ function Clan(props) {
   const views = {
     about: About,
     roster: Roster,
+    admin: RosterAdmin,
+    progress: RosterProgress,
     stats: Stats,
-    admin: Admin,
     'no-clan': NoClan,
     'viewport-width': ViewportWidth,
   };

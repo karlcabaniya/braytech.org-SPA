@@ -366,7 +366,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   left: -2px;
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 #header.profile-header .characters .list li .progress-bar .bar .text {
@@ -375,7 +375,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 
 #header.profile-header .characters .list li .progress-bar .bar .fill {
   background-color: rgba(255, 255, 255, 0.6);
-  background: linear-gradient(90deg, hsl(3, 100%, 60%), hsl(34, 100%, 60%), hsl(51, 98%, 65%), hsl(113, 100%, 61%), hsl(207, 100%, 60%), hsl(310, 100%, 67%), hsl(3, 100%, 60%));
+  background: linear-gradient(90deg, #a42f31, #de9938, #f1df4c, #a2c85e, #84b8e0, #802c8a, #a42f31);
   background-size: 400%;
   transition: width 1s;
   animation: animation-wave 10s linear infinite;

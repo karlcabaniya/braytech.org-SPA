@@ -1,0 +1,9 @@
+#clan.roster .buff .content {
+  row-gap: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  #clan.roster .buff .content {
+    row-gap: 1rem;
+  }
+}
