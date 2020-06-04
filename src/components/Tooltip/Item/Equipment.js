@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import cx from 'classnames';
 
-import { BungieText, t } from '../../../utils/i18n';
+import { BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { stringToIcons } from '../../../utils/destinyUtils';
@@ -181,7 +181,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
             // map through socketCategories
 
             if (category.sockets.length) {
-              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isMasterwork || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug);
+              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug);
 
               if (socketsWithPlugs.length) {
                 return (
@@ -196,7 +196,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
                             .map((plug, p) => {
                               // filter for enabled plugs and map through
 
-                              const type = socket.isIntrinsic ? plug.definition.displayProperties.description : socket.isMasterwork ? t('Masterwork') : plug.definition.itemTypeDisplayName;
+                              const type = socket.isIntrinsic ? plug.definition.displayProperties.description : plug.definition.itemTypeDisplayName;
 
                               return (
                                 <div key={p} className={cx('plug', { intrinsic: socket.isIntrinsic, enabled: true })}>
