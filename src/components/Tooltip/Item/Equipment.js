@@ -30,8 +30,8 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   const displayStats = (stats && stats.length && !stats.find((stat) => stat.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
   const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug).length;
 
-  const armor2MasterworkSockets = sockets && sockets.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
-console.log(armor2MasterworkSockets)
+  const armor2MasterworkSockets = sockets?.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
+
   const energy =
     definitionItem.itemType === enums.DestinyItemType.Armor &&
     ((itemComponents && itemComponents.instance && itemComponents.instance.energy) ||
