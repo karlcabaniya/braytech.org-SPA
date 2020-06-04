@@ -66,7 +66,7 @@ function buildForsakenKillTracker(item) {
       progress: plugObjective.progress,
       typeIcon: objectiveDef.displayProperties.icon,
       typeDesc: objectiveDef.progressDescription,
-      typeName: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.definition.hash)
+      typeName: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash)
         ? 'crucible'
         : 'vanguard'
     };
@@ -76,21 +76,22 @@ function buildForsakenKillTracker(item) {
 }
 
 function buildForsakenMasterworkStats(item) {
+  console.log(item)
   const index = item.sockets.sockets && item.sockets.sockets.findIndex((socket) =>
     Boolean(
-      socket.plug?.plugItem?.plug &&
-        (socket.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') ||
-          socket.definition.plug.plugCategoryIdentifier.endsWith('_masterwork'))
+      socket.plug?.definition?.plug &&
+        (socket.plug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') ||
+          socket.plug.definition.plug.plugCategoryIdentifier.endsWith('_masterwork'))
     )
   );
 
   const socket = item.sockets.sockets && item.sockets.sockets[index];
   
-  if (socket?.plug?.plugItem?.investmentStats?.length) {
+  if (socket?.plug?.definition?.investmentStats?.length) {
 
     socket.isMasterwork = true;
 
-    const masterwork = socket.definition.investmentStats[0];
+    const masterwork = socket.plug.definition.investmentStats[0];
 
     return {
       socketIndex: index,
@@ -99,13 +100,13 @@ function buildForsakenMasterworkStats(item) {
           hash: masterwork.statTypeHash,
           value: socket.plug.stats
           ? socket.plug.stats[masterwork.statTypeHash]
-          : (socket.plugOptions.find(p => p.plugItem.hash === socket.definition.hash) && socket.plugOptions.find(p => p.plugItem.hash === socket.definition.hash).stats[masterwork.statTypeHash]) || 0
+          : (socket.plugOptions.find(p => p.plugItem.hash === socket.plug.definition.hash) && socket.plugOptions.find(p => p.plugItem.hash === socket.plug.definition.hash).stats[masterwork.statTypeHash]) || 0
         }
       ],
       objective: {
         typeName: 'vanguard',
-        typeIcon: socket.definition.displayProperties.icon,
-        typeDesc: socket.definition.displayProperties.description
+        typeIcon: socket.plug.definition.displayProperties.icon,
+        typeDesc: socket.plug.definition.displayProperties.description
       }
     };
   }
@@ -129,7 +130,7 @@ function buildMasterworkInfo(sockets) {
 
   const plugObjective = socket.plug.plugObjectives[0];
   
-  const investmentStats = socket.definition.investmentStats;
+  const investmentStats = socket.plug.definition.investmentStats;
   if (!investmentStats || !investmentStats.length) {
     return null;
   }
@@ -145,7 +146,7 @@ function buildMasterworkInfo(sockets) {
 
   socket.isMasterwork = true;
 
-  // console.log(socket.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible')
+  // console.log(socket.plug.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible')
   
   return {
     socketIndex: index,
@@ -155,7 +156,7 @@ function buildMasterworkInfo(sockets) {
     })),
     objective: {
       progress: plugObjective.progress,
-      typeName: socket.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible',
+      typeName: socket.plug.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible',
       typeIcon: objectiveDef.displayProperties.icon,
       typeDesc: objectiveDef.progressDescription
     }

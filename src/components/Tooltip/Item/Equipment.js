@@ -15,8 +15,6 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   // definition of item
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
-  console.log(sockets)
-
   // description as flair string
   const flair = definitionItem.displayProperties && definitionItem.displayProperties.description !== '' && definitionItem.displayProperties.description;
 
@@ -30,10 +28,10 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   const damageTypeHash = itemComponents?.instance?.damageTypeHash ? itemComponents.instance.damageTypeHash : definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes?.[0] ? definitionItem.damageTypeHashes[0] : false;
 
   const displayStats = (stats && stats.length && !stats.find((stat) => stat.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
-  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug.definition).length;
+  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug).length;
 
   const armor2MasterworkSockets = sockets && sockets.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
-
+console.log(armor2MasterworkSockets)
   const energy =
     definitionItem.itemType === enums.DestinyItemType.Armor &&
     ((itemComponents && itemComponents.instance && itemComponents.instance.energy) ||
@@ -173,27 +171,25 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
           // styling for single plug sockets
           one:
             sockets.sockets
-              .filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug?.definition)
-              // idk
-              .map((socket) => socket.plugOptions && socket.plugOptions.filter((plug) => plug.isEnabled))
+              .filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug)
+              .map((socket) => socket.plugOptions)
               .filter((socket) => socket.length).length === 1,
         })}
       >
         {sockets.socketCategories
-          .map((category, i) => {
+          .map((category, c) => {
             // map through socketCategories
 
             if (category.sockets.length) {
-              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug.definition);
+              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug);
 
               if (socketsWithPlugs.length) {
                 return (
-                  <div key={category.category.hash} className='category'>
+                  <div key={c} className='category'>
                     {socketsWithPlugs.map((socket, s) => {
                       // filter for perks and map through sockets
-                      console.log(socket)
                       return (
-                        <div key={socket.socketIndex} className='socket'>
+                        <div key={s} className='socket'>
                           {socket.plugOptions
                             // removed plug.isEnabled // 2.24.74
                             .filter((plug) => plug.definition?.hash === socket.plug?.definition?.hash)

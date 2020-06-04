@@ -21,7 +21,7 @@ export function compareBy(fn) {
 }
 
 function getPlugHashesFromCategory(category) {
-  return category.sockets.map((socket) => socket.plugItem?.hash || null).filter(Boolean);
+  return category.sockets.map((socket) => socket.plug?.definition?.hash || null).filter(Boolean);
 }
 
 /**
@@ -38,8 +38,9 @@ function getNonReuseableModSockets(sockets) {
   const reusableSocketHashes = (reusableSocketCategory && getPlugHashesFromCategory(reusableSocketCategory)) || [];
 
   return sockets.sockets.filter((socket) => {
-    const plugItemHash = socket.plugItem?.hash || null;
-    const categoryHashes = socket.plugItem?.itemCategoryHashes || [];
+    const plugItemHash = socket.plug?.definition?.hash || null;
+    const categoryHashes = socket.plug?.definition?.itemCategoryHashes || [];
+
     return categoryHashes.filter((hash) => modItemCategoryHashes.includes(hash)).length > 0 && !reusableSocketHashes.includes(plugItemHash);
   });
 }
@@ -49,7 +50,7 @@ export function getOrnamentSocket(sockets) {
     return false;
   }
 
-  return sockets.sockets.find((socket) => socket.plugItem?.itemSubType === enums.DestinyItemSubType.Ornament);
+  return sockets.sockets.find((socket) => socket.plug?.definition?.itemSubType === enums.DestinyItemSubType.Ornament);
 }
 
 /**
@@ -57,26 +58,26 @@ export function getOrnamentSocket(sockets) {
  * Returns the total value the stat is modified by, or 0 if it is not being modified.
  */
 export function getModdedStatValue(sockets, stat) {
-  const modSockets = getNonReuseableModSockets(sockets).filter((socket) => Object.keys(socket.plugItem.stats || {}).includes(String(stat.statHash)));
+  const modSockets = getNonReuseableModSockets(sockets).filter((socket) => Object.keys(socket.plug.stats || {}).includes(String(stat.statHash)));
 
   // sum returns 0 for empty array
-  return sum(modSockets.map((socket) => (socket.plugItem.stats ? socket.plugItem.stats[stat.statHash] : 0)));
+  return sum(modSockets.map((socket) => (socket.plug.stats ? socket.plug.stats[stat.statHash] : 0)));
 }
 
 export function getMasterworkSocketHashes(sockets, style) {
-  const masterworkSocketCategory = sockets.socketCategories.find((c) => c.category.categoryStyle === style);
+  const masterworkSocketCategory = sockets.socketCategories.find((category) => category.category.categoryStyle === style);
 
   return (masterworkSocketCategory && getPlugHashesFromCategory(masterworkSocketCategory)) || [];
 }
 
 export function getSocketsWithStyle(sockets, style) {
   const masterworkSocketHashes = getMasterworkSocketHashes(sockets, style);
-  return sockets.sockets.filter((socket) => socket.plugItem?.hash && masterworkSocketHashes.includes(socket.plugItem.hash));
+  return sockets.sockets.filter((socket) => socket.plug?.definition?.hash && masterworkSocketHashes.includes(socket.plug.definition.hash));
 }
 
 export function getSocketsWithPlugCategoryHash(sockets, categoryHash) {
   return sockets.sockets.filter((socket) => {
-    const categoryHashes = socket.plugItem?.itemCategoryHashes;
+    const categoryHashes = socket.plug?.definition?.itemCategoryHashes;
 
     return categoryHashes && categoryHashes.includes(categoryHash);
   });
@@ -86,5 +87,5 @@ export function getSocketsWithPlugCategoryHash(sockets, categoryHash) {
  * Sums up all the armor statistics from the plug in the socket.
  */
 export function getSumOfArmorStats(sockets, armorStatHashes) {
-  return sumBy(sockets, (socket) => sumBy(armorStatHashes, (armorStatHash) => (socket.plugItem && socket.plugItem.stats && socket.plugItem.stats[armorStatHash]) || 0));
+  return sumBy(sockets, (socket) => sumBy(armorStatHashes, (armorStatHash) => socket.plug?.stats?.[armorStatHash] || 0));
 }

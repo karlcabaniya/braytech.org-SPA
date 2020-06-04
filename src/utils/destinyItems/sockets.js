@@ -80,108 +80,6 @@ export const sockets = item => {
 };
 
 /**
- * Build information about an individual socket, and its plugs, using live information.
- */
-function buildSocket(item, socket, socketDef, index, reusablePlugs, plugObjectivesData) {
-  // if (
-  //   !socketDef ||
-  //   (!socket.isVisible &&
-  //     // Keep the kill-tracker socket around even though it may not be visible
-  //     // TODO: does this really happen? I think all these sockets are visible
-  //     !(socket.plugHash && plugObjectivesData[socket.plugHash].length, (o) => o))
-  // ) {
-  //   return undefined;
-  // }
-
-  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
-
-  const socketTypeDef = manifest.DestinySocketTypeDefinition[socketDef.socketTypeHash];
-  if (!socketTypeDef) {
-    return undefined;
-  }
-
-  const socketCategoryDef = manifest.DestinySocketCategoryDefinition[socketTypeDef.socketCategoryHash];
-  if (!socketCategoryDef) {
-    return undefined;
-  }
-
-  // Is this socket a perk-style socket, or something more general (mod-like)?
-  const isPerk = Boolean(socketCategoryDef.categoryStyle === enums.DestinySocketCategoryStyle.Reusable || (definitionItem.itemType === enums.DestinyItemType.Ghost && enums.DestinySocketCategoryStyle.Unlockable));
-
-  // The currently equipped plug, if any.
-  const plugItem = buildPlug(socket, socketDef, plugObjectivesData);
-
-  // TODO: not sure if this should always be included!
-  const plugOptions = plugItem ? [plugItem] : [];
-  
-  const isMasterwork = plugItem && Boolean(plugItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
-
-  // We only build a larger list of plug options if this is a perk socket, since users would
-  // only want to see (and search) the plug options for perks. For other socket types (mods, shaders, etc.)
-  // we will only populate plugOptions with the currently inserted plug.
-  if (isPerk) {
-    if (reusablePlugs) {
-      // This perk's list of plugs comes from the live reusablePlugs component.
-      const reusableDimPlugs = reusablePlugs ? compact(reusablePlugs.map(reusablePlug => buildPlug(reusablePlug, socketDef, plugObjectivesData))) : [];
-
-      if (reusableDimPlugs.length) {
-        reusableDimPlugs.forEach(reusablePlug => {
-          if (filterReusablePlug(reusablePlug)) {
-            if (plugItem && reusablePlug.definition.hash === plugItem.hash) {
-              // Use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
-              plugOptions.shift();
-              plugOptions.push(plugItem);
-            } else {
-              // API Bugfix: Filter out intrinsic perks past the first: https://github.com/Bungie-net/api/issues/927
-              if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
-                plugOptions.push(reusablePlug);
-              }
-            }
-          }
-        });
-      }
-    } else if (socketDef.reusablePlugItems) {
-      // This perk's list of plugs come from the definition's list of items?
-      // TODO: should we fill this in for perks?
-    } else if (socketDef.reusablePlugSetHash) {
-      // This perk's list of plugs come from a plugSet
-      // TODO: should we fill this in for perks?
-    }
-  }
-  // } else if (socketDef.reusablePlugItems?.length && isMasterwork) {
-  //   socketDef.reusablePlugItems.forEach(reusablePlug => {
-  //     if (!plugOptions.find(p => p.plugItem.hash === reusablePlug.plugItemHash)) {
-  //       plugOptions.push(buildDefinedPlug(socketDef, reusablePlug));
-  //     }
-  //   });
-  // }
-
-  // TODO: is this still true?
-  const hasRandomizedPlugItems = Boolean(socketDef && socketDef.randomizedPlugSetHash) || socketTypeDef.alwaysRandomizeSockets;
-
-  const isIntrinsic = plugItem && Boolean(plugItem.itemCategoryHashes?.includes(2237038328));
-  const isMod = plugItem && Boolean(plugItem.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
-  const isShader = plugItem && Boolean(plugItem.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
-  const isOrnament = plugItem && Boolean(plugItem.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.hash));
-  const isTracker = plugItem && Boolean(plugItem.plug?.plugCategoryIdentifier?.includes('trackers'));
-
-  return {
-    socketIndex: index,
-    plug: plugItem,
-    plugOptions,
-    hasRandomizedPlugItems,
-    isPerk,
-    isIntrinsic,
-    isMasterwork,
-    isMod,
-    isShader,
-    isOrnament,
-    isTracker,
-    definition: socketDef
-  };
-}
-
-/**
  * Build sockets that come from the live instance.
  */
 export function buildInstancedSockets(item, sockets, reusablePlugData, plugObjectivesData) {
@@ -232,14 +130,14 @@ function buildDefinedSockets(item) {
   };
 }
 
-function buildDefinedSocket(item, socketDef, index) {
+function buildDefinedSocket(item, socketDefinition, index) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-  if (!socketDef) {
+  if (!socketDefinition) {
     return undefined;
   }
 
-  const socketTypeDef = manifest.DestinySocketTypeDefinition[socketDef.socketTypeHash];
+  const socketTypeDef = manifest.DestinySocketTypeDefinition[socketDefinition.socketTypeHash];
   if (!socketTypeDef) {
     return undefined;
   }
@@ -252,18 +150,18 @@ function buildDefinedSocket(item, socketDef, index) {
   // Is this socket a perk-style socket, or something more general (mod-like)?
   const isPerk = Boolean(socketCategoryDef.categoryStyle === enums.DestinySocketCategoryStyle.Reusable || (definitionItem.itemType === enums.DestinyItemType.Ghost && enums.DestinySocketCategoryStyle.Unlockable));
 
-  const reusablePlugItems = (socketDef.reusablePlugSetHash && manifest.DestinyPlugSetDefinition[socketDef.reusablePlugSetHash] && manifest.DestinyPlugSetDefinition[socketDef.reusablePlugSetHash].reusablePlugItems) || [];
+  const reusablePlugItems = (socketDefinition.reusablePlugSetHash && manifest.DestinyPlugSetDefinition[socketDefinition.reusablePlugSetHash] && manifest.DestinyPlugSetDefinition[socketDefinition.reusablePlugSetHash].reusablePlugItems) || [];
 
-  const randomizedPlugs = (socketDef.randomizedPlugSetHash && manifest.DestinyPlugSetDefinition[socketDef.randomizedPlugSetHash] && manifest.DestinyPlugSetDefinition[socketDef.randomizedPlugSetHash].reusablePlugItems) || [];
+  const randomizedPlugs = (socketDefinition.randomizedPlugSetHash && manifest.DestinyPlugSetDefinition[socketDefinition.randomizedPlugSetHash] && manifest.DestinyPlugSetDefinition[socketDefinition.randomizedPlugSetHash].reusablePlugItems) || [];
 
   const reusablePlugs = compact(
-    (socketDef.reusablePlugItems || [])
+    (socketDefinition.reusablePlugItems || [])
       .concat(reusablePlugItems)
       .concat(randomizedPlugs)
       .filter((obj, pos, arr) => {
         return arr.map(mapObj => mapObj.plugItemHash).indexOf(obj.plugItemHash) === pos;
       })
-      .map(reusablePlug => buildDefinedPlug(socketDef, reusablePlug))
+      .map(reusablePlug => buildPlug(socketDefinition, reusablePlug))
   );
 
   const plugOptions = [];
@@ -276,93 +174,150 @@ function buildDefinedSocket(item, socketDef, index) {
     });
   }
 
-  const plugItem = (socketDef.singleInitialItemHash && socketDef.singleInitialItemHash !== 0 && manifest.DestinyInventoryItemDefinition[socketDef.singleInitialItemHash]) || false;
+  const plugItem = buildPlug(socketDefinition, (socketDefinition.singleInitialItemHash && socketDefinition.singleInitialItemHash !== 0 && { plugItemHash: socketDefinition.singleInitialItemHash }) || undefined) || false;
 
   if (plugOptions.length < 1 && plugItem) {
-    plugOptions.push(buildDefinedPlug(socketDef, { plugItemHash: plugItem.hash }));
+    plugOptions.push(buildPlug(socketDefinition, { plugItemHash: plugItem.hash }));
   }
 
-  const isIntrinsic = Boolean(plugOptions && plugOptions.find(o => o.isIntrinsic));
-  const isMod = Boolean(plugOptions && plugOptions.find(o => o.isMod));
-  const isShader = Boolean(plugOptions && plugOptions.find(o => o.isShader));
-  const isOrnament = Boolean(plugOptions && plugOptions.find(o => o.isOrnament));
-  const isTracker = Boolean(plugOptions && plugOptions.find(o => o.isTracker));
+  const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
+  const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
+  const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
+  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition?.plugCategoryIdentifier?.endsWith('_masterwork'));
+  const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
   
   return {
     socketIndex: index,
     plug: plugItem,
     plugOptions,
-    hasRandomizedPlugItems: Boolean(socketDef.randomizedPlugSetHash) || socketTypeDef.alwaysRandomizeSockets,
+    hasRandomizedPlugItems: Boolean(socketDefinition.randomizedPlugSetHash) || socketTypeDef.alwaysRandomizeSockets,
     isPerk,
     isIntrinsic,
-    isMasterwork: false,
+    isMasterwork,
     isMod,
     isShader,
     isOrnament,
     isTracker,
-    definition: socketDef
+    socketDefinition
   };
 }
 
-function buildPlug(plug, socketDef, plugObjectivesData) {
-  const plugHash = isDestinyItemPlug(plug) ? plug.plugItemHash : plug.plugHash;
-  const isEnabled = isDestinyItemPlug(plug) ? plug.enabled : plug.isEnabled;
+/**
+ * Build information about an individual socket, and its plugs, using live information.
+ */
+function buildSocket(item, socket, socketDefinition, index, reusablePlugs, plugObjectivesData) {
+  // if (
+  //   !socketDef ||
+  //   (!socket.isVisible &&
+  //     // Keep the kill-tracker socket around even though it may not be visible
+  //     // TODO: does this really happen? I think all these sockets are visible
+  //     !(socket.plugHash && plugObjectivesData[socket.plugHash].length, (o) => o))
+  // ) {
+  //   return undefined;
+  // }
 
-  if (!plugHash) {
-    return null;
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+  const socketTypeDef = manifest.DestinySocketTypeDefinition[socketDefinition.socketTypeHash];
+  if (!socketTypeDef) {
+    return undefined;
   }
 
-  const definitonPlug = manifest.DestinyInventoryItemDefinition[plugHash] || (socketDef.singleInitialItemHash && manifest.DestinyInventoryItemDefinition[socketDef.singleInitialItemHash]);
-
-  if (!definitonPlug) {
-    return null;
+  const socketCategoryDef = manifest.DestinySocketCategoryDefinition[socketTypeDef.socketCategoryHash];
+  if (!socketCategoryDef) {
+    return undefined;
   }
 
-  const failReasons = plug.enableFailIndexes ? plug.enableFailIndexes.map(index => definitonPlug.plug.enabledRules[index].failureMessage).join('\n') : '';
+  // Is this socket a perk-style socket, or something more general (mod-like)?
+  const isPerk = Boolean(socketCategoryDef.categoryStyle === enums.DestinySocketCategoryStyle.Reusable || (definitionItem.itemType === enums.DestinyItemType.Ghost && enums.DestinySocketCategoryStyle.Unlockable));
+
+  // The currently equipped plug, if any.
+  const plugItem = buildPlug(socketDefinition, socket, plugObjectivesData);
+
+  // TODO: not sure if this should always be included!
+  const plugOptions = plugItem ? [plugItem] : [];
+
+  // We only build a larger list of plug options if this is a perk socket, since users would
+  // only want to see (and search) the plug options for perks. For other socket types (mods, shaders, etc.)
+  // we will only populate plugOptions with the currently inserted plug.
+  if (isPerk) {
+    if (reusablePlugs) {
+      // This perk's list of plugs comes from the live reusablePlugs component.
+      const reusableDimPlugs = reusablePlugs ? compact(reusablePlugs.map(reusablePlug => buildPlug(socketDefinition, reusablePlug, plugObjectivesData))) : [];
+
+      if (reusableDimPlugs.length) {
+        reusableDimPlugs.forEach(reusablePlug => {
+          if (filterReusablePlug(reusablePlug)) {
+            if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
+              // Use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
+              plugOptions.shift();
+              plugOptions.push(plugItem);
+            } else {
+              // API Bugfix: Filter out intrinsic perks past the first: https://github.com/Bungie-net/api/issues/927
+              if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
+                plugOptions.push(reusablePlug);
+              }
+            }
+          }
+        });
+      }
+    } else if (socketDefinition.reusablePlugItems) {
+      // This perk's list of plugs come from the definition's list of items?
+      // TODO: should we fill this in for perks?
+    } else if (socketDefinition.reusablePlugSetHash) {
+      // This perk's list of plugs come from a plugSet
+      // TODO: should we fill this in for perks?
+    }
+  }
+
+  // TODO: is this still true?
+  const hasRandomizedPlugItems = Boolean(socketDefinition && socketDefinition.randomizedPlugSetHash) || socketTypeDef.alwaysRandomizeSockets;
+
+  const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
+  const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
+  const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
+  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition?.plugCategoryIdentifier?.endsWith('_masterwork'));
+  const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
   return {
-    definition: definitonPlug,
-    isEnabled: isEnabled && (!isDestinyItemPlug(plug) || plug.canInsert),
-    enableFailReasons: failReasons,
-    plugObjectives: (plugObjectivesData && plugObjectivesData[plugHash]) || [],
-    perks: definitonPlug.perks ? definitonPlug.perks.map(perk => manifest.DestinySandboxPerkDefinition[perk.perkHash]) : [],
-    stats: null
+    socketIndex: index,
+    plug: plugItem,
+    plugOptions,
+    hasRandomizedPlugItems,
+    isPerk,
+    isIntrinsic,
+    isMasterwork,
+    isMod,
+    isShader,
+    isOrnament,
+    isTracker,
+    socketDefinition
   };
 }
 
-function buildDefinedPlug(socketDef, plug) {
-  const plugHash = isDestinyItemPlug(plug) ? plug.plugItemHash : plug.plugHash;
+function buildPlug(definitionSocket, plug, plugObjectivesData) {
+  const plugHash = plug && (plug.plugItemHash || plug.plugHash);
 
   if (!plugHash) {
     return null;
   }
 
-  const definitionPlug = manifest.DestinyInventoryItemDefinition[plugHash];
+  const definitionPlug = manifest.DestinyInventoryItemDefinition[plugHash] || (definitionSocket.singleInitialItemHash && manifest.DestinyInventoryItemDefinition[definitionSocket.singleInitialItemHash]);
 
   if (!definitionPlug) {
     return null;
   }
 
-  const isActive = Boolean(socketDef.singleInitialItemHash && socketDef.singleInitialItemHash === plugHash);
-  const isIntrinsic = Boolean(definitionPlug.itemCategoryHashes && definitionPlug.itemCategoryHashes.includes(2237038328));
-  const isMod = Boolean(definitionPlug.itemCategoryHashes && definitionPlug.itemCategoryHashes.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
-  const isShader = Boolean(definitionPlug.inventory && definitionPlug.inventory.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
-  const isOrnament = Boolean(definitionPlug.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(definitionPlug.hash));
-  const isTracker = Boolean(definitionPlug.plug && definitionPlug.plug.plugCategoryIdentifier && definitionPlug.plug.plugCategoryIdentifier.includes('trackers'));
+  const failReasons = plug.enableFailIndexes ? plug.enableFailIndexes.map(index => definitionPlug.plug.enabledRules[index].failureMessage).join('\n') : '';
 
   return {
     definition: definitionPlug,
-    isEnabled: true,
-    isActive,
-    isIntrinsic,
-    isMod,
-    isShader,
-    isOrnament,
-    isTracker,
-    enableFailReasons: '',
-    plugObjectives: [],
-    perks: (definitionPlug.perks || []).map(perk => manifest.DestinySandboxPerkDefinition[perk.perkHash]),
-    stats: null
+    enableFailReasons: failReasons,
+    plugObjectives: (plugObjectivesData && plugObjectivesData[plugHash]) || [],
+    perks: definitionPlug.perks.map(perk => manifest.DestinySandboxPerkDefinition[perk.perkHash]) || [],
+    stats: null,
   };
 }
 
@@ -370,8 +325,4 @@ function filterReusablePlug(reusablePlug) {
   const itemCategoryHashes = reusablePlug.definition.itemCategoryHashes || [];
 
   return !EXCLUDED_PLUGS.has(reusablePlug.definition.hash) && !itemCategoryHashes.includes(MASTERWORK_MOD_CATEGORY) && !itemCategoryHashes.includes(GHOST_MOD_CATEGORY) && (!reusablePlug.definition.plug || !reusablePlug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat'));
-}
-
-function isDestinyItemPlug(plug) {
-  return Boolean(plug.plugItemHash);
 }

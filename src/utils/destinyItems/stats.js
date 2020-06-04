@@ -259,8 +259,8 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
 
   // Add the chosen plugs' investment stats to the item's base investment stats
   for (const socket of sockets) {
-    if (socket.plug && socket.definition.investmentStats) {
-      for (const perkStat of socket.definition.investmentStats) {
+    if (socket.plug?.definition?.investmentStats) {
+      for (const perkStat of socket.plug.definition.investmentStats) {
         const statHash = perkStat.statTypeHash;
         const itemStat = statsByHash[statHash];
         const value = perkStat.value || 0;
@@ -269,7 +269,7 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
           itemStat.investmentValue += value;
         } else if (shouldShowStat(item, statHash, statDisplays)) {
           // This stat didn't exist before we modified it, so add it here.
-          const stat = socket.definition.investmentStats.find((s) => s.statTypeHash === statHash);
+          const stat = socket.plug.definition.investmentStats.find((s) => s.statTypeHash === statHash);
 
           if (stat && stat.value) {
             const definitionStat = manifest.DestinyStatDefinition[statHash];
@@ -420,7 +420,7 @@ export const stats = (item) => {
   let investmentStats = buildInvestmentStats(item, definitionItem.stats.statGroupHash, statDisplays) || [];
 
   // Include the contributions from perks and mods
-  if (item.sockets?.sockets && item.sockets.sockets.length) {
+  if (item.sockets?.sockets?.length) {
     investmentStats = enhanceStatsWithPlugs(item, investmentStats, statDisplays);
   }
 
