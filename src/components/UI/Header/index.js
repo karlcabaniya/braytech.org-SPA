@@ -181,7 +181,7 @@ class Header extends React.Component {
         profile: true,
         inline: !isProfileRoute || viewport.width >= 1620,
         group: 0,
-        dev: true,
+        beta: true,
       },
       {
         name: t('Reports'),
@@ -243,7 +243,9 @@ class Header extends React.Component {
         profile: false,
         group: 1,
       },
-    ].filter((view) => view.dev ? process.env.NODE_ENV === 'development' : true);
+    ]
+      .filter((view) => (view.dev ? process.env.NODE_ENV === 'development' : true))
+      .filter((view) => (view.beta ? process.env.NODE_ENV === 'development' || process.env.REACT_APP_BETA === 'true' : true));
 
     const viewsInline = viewport.width >= 1280;
 

@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import manifest from '../../utils/manifest';
 import store from '../../store';
 import * as bungie from '../../utils/bungie';
 import * as enums from '../../utils/destinyEnums';
+import { NoAuth, DiffProfile } from '../../components/BungieAuth';
 import Items from '../../components/Items';
+import Spinner from '../../components/UI/Spinner';
 
 import './styles.css';
 
 const equipItem = (member) => (item) => async (e) => {
-  console.log(item, member);
+  // console.log(item, member);
+
   try {
     await bungie.EquipItem({
       itemId: item.itemInstanceId,
@@ -48,6 +51,26 @@ const bucketsAuxiliary = [enums.DestinyInventoryBucket.Ghost, enums.DestinyInven
 const slotsValue = 9;
 
 function Inventory(props) {
+  useEffect(() => {
+    props.rebindTooltips();
+  });
+
+  if (!props.member.data.profile.profileInventory?.data && !props.auth) {
+    return <NoAuth />;
+  }
+
+  if (!props.member.data.profile.profileInventory?.data && props.auth && !props.auth.destinyMemberships.find((m) => m.membershipId === props.member.membershipId)) {
+    return <DiffProfile />;
+  }
+
+  if (!props.member.data.profile.profileInventory?.data && props.auth && props.auth.destinyMemberships.find((m) => m.membershipId === props.member.membershipId)) {
+    return (
+      <div className='view' id='inventory'>
+        <Spinner />
+      </div>
+    );
+  }
+
   const member = { membershipType: props.member.membershipType, membershipId: props.member.membershipId, characterId: props.member.characterId };
 
   const inventory = [
@@ -103,7 +126,15 @@ function Inventory(props) {
 function mapStateToProps(state) {
   return {
     member: state.member,
+    auth: state.auth,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    rebindTooltips: (value) => {
+      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    },
   };
 }
 
-export default connect(mapStateToProps)(Inventory);
+export default connect(mapStateToProps, mapDispatchToProps)(Inventory);
