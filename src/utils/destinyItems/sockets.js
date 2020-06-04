@@ -195,9 +195,9 @@ function buildDefinedSocket(item, definitionSocket, index) {
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
-  const isMasterwork = plugItem && Boolean(plugItem.definition.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition?.plugCategoryIdentifier?.endsWith('_masterwork'));
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
-  
+
   return {
     socketIndex: index,
     plug: plugItem,
@@ -294,7 +294,7 @@ function buildSocket(item, socket, definitionSocket, index, reusablePlugs, plugO
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
-  const isMasterwork = plugItem && Boolean(plugItem.definition.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition?.plugCategoryIdentifier?.endsWith('_masterwork'));
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
   return {
