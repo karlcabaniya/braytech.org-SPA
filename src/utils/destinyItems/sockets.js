@@ -164,20 +164,25 @@ function buildDefinedSocket(item, socketDefinition, index) {
       .map(reusablePlug => buildPlug(socketDefinition, reusablePlug))
   );
 
-  const plugOptions = [];
+  const plugItem = buildPlug(socketDefinition, (socketDefinition.singleInitialItemHash && socketDefinition.singleInitialItemHash !== 0 && { plugItemHash: socketDefinition.singleInitialItemHash }) || undefined) || false;
+
+  const plugOptions = plugItem ? [plugItem] : [];
 
   if (reusablePlugs.length) {
     reusablePlugs.forEach(reusablePlug => {
       if (filterReusablePlug(reusablePlug)) {
-        plugOptions.push(reusablePlug);
+        if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
+          // Use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
+          plugOptions.shift();
+          plugOptions.push(plugItem);
+        } else {
+          // API Bugfix: Filter out intrinsic perks past the first: https://github.com/Bungie-net/api/issues/927
+          if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
+            plugOptions.push(reusablePlug);
+          }
+        }
       }
     });
-  }
-
-  const plugItem = buildPlug(socketDefinition, (socketDefinition.singleInitialItemHash && socketDefinition.singleInitialItemHash !== 0 && { plugItemHash: socketDefinition.singleInitialItemHash }) || undefined) || false;
-
-  if (plugOptions.length < 1 && plugItem) {
-    plugOptions.push(buildPlug(socketDefinition, { plugItemHash: plugItem.hash }));
   }
 
   const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
@@ -235,7 +240,6 @@ function buildSocket(item, socket, socketDefinition, index, reusablePlugs, plugO
   // The currently equipped plug, if any.
   const plugItem = buildPlug(socketDefinition, socket, plugObjectivesData);
 
-  // TODO: not sure if this should always be included!
   const plugOptions = plugItem ? [plugItem] : [];
 
   // We only build a larger list of plug options if this is a perk socket, since users would

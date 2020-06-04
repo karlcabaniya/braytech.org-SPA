@@ -76,7 +76,6 @@ function buildForsakenKillTracker(item) {
 }
 
 function buildForsakenMasterworkStats(item) {
-  console.log(item)
   const index = item.sockets.sockets && item.sockets.sockets.findIndex((socket) =>
     Boolean(
       socket.plug?.definition?.plug &&
@@ -100,7 +99,7 @@ function buildForsakenMasterworkStats(item) {
           hash: masterwork.statTypeHash,
           value: socket.plug.stats
           ? socket.plug.stats[masterwork.statTypeHash]
-          : (socket.plugOptions.find(p => p.plugItem.hash === socket.plug.definition.hash) && socket.plugOptions.find(p => p.plugItem.hash === socket.plug.definition.hash).stats[masterwork.statTypeHash]) || 0
+          : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[masterwork.statTypeHash]) || 0
         }
       ],
       objective: {
@@ -118,13 +117,10 @@ function buildForsakenMasterworkStats(item) {
  * Pre-Forsaken weapons store their masterwork info on an objective of a plug.
  */
 function buildMasterworkInfo(sockets) {
-  const index = sockets.sockets.findIndex((socket) =>
-    Boolean(socket?.plug?.plugObjectives?.length)
-  );
-
+  const index = sockets.sockets.findIndex((socket) => Boolean(socket.plug?.plugObjectives?.length));
   const socket = sockets.sockets[index];
 
-  if (!socket?.plug?.plugObjectives?.length) {
+  if (index < 0 || !socket.plug?.plugObjectives?.length) {
     return null;
   }
 
