@@ -15,13 +15,13 @@ export function compareBy(fn) {
   return (a, b) => {
     const aVal = fn(a);
     const bVal = fn(b);
-    
+
     return aVal < bVal ? -1 : aVal > bVal ? 1 : 0;
   };
 }
 
 function getPlugHashesFromCategory(category) {
-  return category.sockets.map((socket) => socket.plug.plugItem?.hash || null).filter(Boolean);
+  return category.sockets.map((socket) => socket.plugItem?.hash || null).filter(Boolean);
 }
 
 /**
@@ -33,20 +33,14 @@ function getNonReuseableModSockets(sockets) {
     return [];
   }
 
-  const reusableSocketCategory = sockets.socketCategories.find(
-    (category) => category.category.categoryStyle === enums.DestinySocketCategoryStyle.Reusable
-  );
+  const reusableSocketCategory = sockets.socketCategories.find((category) => category.category.categoryStyle === enums.DestinySocketCategoryStyle.Reusable);
 
-  const reusableSocketHashes =
-    (reusableSocketCategory && getPlugHashesFromCategory(reusableSocketCategory)) || [];
+  const reusableSocketHashes = (reusableSocketCategory && getPlugHashesFromCategory(reusableSocketCategory)) || [];
 
   return sockets.sockets.filter((socket) => {
-    const plugItemHash = (socket.plug && socket.plug.plugItem.hash) || null;
-    const categoryHashes = (socket.plug && socket.plug.plugItem.itemCategoryHashes) || [];
-    return (
-      categoryHashes.filter(hash => modItemCategoryHashes.includes(hash)).length > 0 &&
-      !reusableSocketHashes.includes(plugItemHash)
-    );
+    const plugItemHash = socket.plugItem?.hash || null;
+    const categoryHashes = socket.plugItem?.itemCategoryHashes || [];
+    return categoryHashes.filter((hash) => modItemCategoryHashes.includes(hash)).length > 0 && !reusableSocketHashes.includes(plugItemHash);
   });
 }
 
@@ -55,7 +49,7 @@ export function getOrnamentSocket(sockets) {
     return false;
   }
 
-  return sockets.sockets.find(socket => socket.plug && socket.plug.plugItem && socket.plug.plugItem.itemSubType === enums.DestinyItemSubType.Ornament);
+  return sockets.sockets.find((socket) => socket.plugItem?.itemSubType === enums.DestinyItemSubType.Ornament);
 }
 
 /**
@@ -63,34 +57,26 @@ export function getOrnamentSocket(sockets) {
  * Returns the total value the stat is modified by, or 0 if it is not being modified.
  */
 export function getModdedStatValue(sockets, stat) {
-  const modSockets = getNonReuseableModSockets(sockets).filter((socket) =>
-    Object.keys(socket.plug.stats || {}).includes(String(stat.statHash))
-  );
+  const modSockets = getNonReuseableModSockets(sockets).filter((socket) => Object.keys(socket.plugItem.stats || {}).includes(String(stat.statHash)));
 
   // sum returns 0 for empty array
-  return sum(
-    modSockets.map((socket) => (socket.plug.stats ? socket.plug.stats[stat.statHash] : 0))
-  );
+  return sum(modSockets.map((socket) => (socket.plugItem.stats ? socket.plugItem.stats[stat.statHash] : 0)));
 }
 
 export function getMasterworkSocketHashes(sockets, style) {
-  const masterworkSocketCategory = sockets.socketCategories.find(
-    (c) => c.category.categoryStyle === style
-  );
+  const masterworkSocketCategory = sockets.socketCategories.find((c) => c.category.categoryStyle === style);
 
   return (masterworkSocketCategory && getPlugHashesFromCategory(masterworkSocketCategory)) || [];
 }
 
 export function getSocketsWithStyle(sockets, style) {
   const masterworkSocketHashes = getMasterworkSocketHashes(sockets, style);
-  return sockets.sockets.filter(
-    (socket) => socket.plug && masterworkSocketHashes.includes(socket.plug.plugItem.hash)
-  );
+  return sockets.sockets.filter((socket) => socket.plugItem?.hash && masterworkSocketHashes.includes(socket.plugItem.hash));
 }
 
 export function getSocketsWithPlugCategoryHash(sockets, categoryHash) {
   return sockets.sockets.filter((socket) => {
-    const categoryHashes = socket.plug?.plugItem?.itemCategoryHashes;
+    const categoryHashes = socket.plugItem?.itemCategoryHashes;
 
     return categoryHashes && categoryHashes.includes(categoryHash);
   });
@@ -100,7 +86,5 @@ export function getSocketsWithPlugCategoryHash(sockets, categoryHash) {
  * Sums up all the armor statistics from the plug in the socket.
  */
 export function getSumOfArmorStats(sockets, armorStatHashes) {
-  return sumBy(sockets, (socket) =>
-    sumBy(armorStatHashes, (armorStatHash) => (socket.plug && socket.plug.stats && socket.plug.stats[armorStatHash]) || 0)
-  );
+  return sumBy(sockets, (socket) => sumBy(armorStatHashes, (armorStatHash) => (socket.plugItem && socket.plugItem.stats && socket.plugItem.stats[armorStatHash]) || 0));
 }

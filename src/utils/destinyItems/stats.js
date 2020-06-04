@@ -228,7 +228,7 @@ function buildInvestmentStats(item, statGroupHash, statDisplays) {
 function buildPlugStats(plug, statsByHash, statDisplays) {
   const stats = {};
 
-  for (const perkStat of plug.plugItem.investmentStats) {
+  for (const perkStat of plug.definition.investmentStats) {
     let value = perkStat.value || 0;
     const itemStat = statsByHash[perkStat.statTypeHash];
     const statDisplay = statDisplays[perkStat.statTypeHash];
@@ -259,8 +259,8 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
 
   // Add the chosen plugs' investment stats to the item's base investment stats
   for (const socket of sockets) {
-    if (socket.plug && socket.plug.plugItem.investmentStats) {
-      for (const perkStat of socket.plug.plugItem.investmentStats) {
+    if (socket.plug && socket.definition.investmentStats) {
+      for (const perkStat of socket.definition.investmentStats) {
         const statHash = perkStat.statTypeHash;
         const itemStat = statsByHash[statHash];
         const value = perkStat.value || 0;
@@ -269,7 +269,7 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
           itemStat.investmentValue += value;
         } else if (shouldShowStat(item, statHash, statDisplays)) {
           // This stat didn't exist before we modified it, so add it here.
-          const stat = socket.plug.plugItem.investmentStats.find((s) => s.statTypeHash === statHash);
+          const stat = socket.definition.investmentStats.find((s) => s.statTypeHash === statHash);
 
           if (stat && stat.value) {
             const definitionStat = manifest.DestinyStatDefinition[statHash];
@@ -302,7 +302,7 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
 
   for (const socket of sortedSockets) {
     for (const plug of socket.plugOptions) {
-      if (plug && plug.plugItem && plug.plugItem.investmentStats && plug.plugItem.investmentStats.length) {
+      if (plug?.definition?.investmentStats?.length) {
         plug.stats = buildPlugStats(plug, statsByHash, statDisplays);
       }
     }

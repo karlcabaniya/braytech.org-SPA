@@ -11,10 +11,11 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../
 import { statsMs } from '../../../utils/destinyItems/stats';
 import ObservedImage from '../../ObservedImage';
 
-const Equipment = (props) => {
-  const { itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex } = props;
-
+const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex }) => {
+  // definition of item
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
+
+  console.log(sockets)
 
   // description as flair string
   const flair = definitionItem.displayProperties && definitionItem.displayProperties.description !== '' && definitionItem.displayProperties.description;
@@ -26,11 +27,10 @@ const Equipment = (props) => {
   const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
 
   // weapon damage type
-  let damageTypeHash = definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes[0];
-  damageTypeHash = itemComponents && itemComponents.instance ? itemComponents.instance.damageTypeHash : damageTypeHash;
+  const damageTypeHash = itemComponents?.instance?.damageTypeHash ? itemComponents.instance.damageTypeHash : definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes?.[0] ? definitionItem.damageTypeHashes[0] : false;
 
-  const displayStats = (stats && stats.length && !stats.find((s) => s.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
-  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem).length;
+  const displayStats = (stats && stats.length && !stats.find((stat) => stat.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
+  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug.definition).length;
 
   const armor2MasterworkSockets = sockets && sockets.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
 
@@ -173,38 +173,40 @@ const Equipment = (props) => {
           // styling for single plug sockets
           one:
             sockets.sockets
-              .filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem)
-              .map((s) => s.plugOptions && s.plugOptions.filter((p) => p.isEnabled))
-              .filter((s) => s.length).length === 1,
+              .filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug?.definition)
+              // idk
+              .map((socket) => socket.plugOptions && socket.plugOptions.filter((plug) => plug.isEnabled))
+              .filter((socket) => socket.length).length === 1,
         })}
       >
         {sockets.socketCategories
-          .map((c, i) => {
+          .map((category, i) => {
             // map through socketCategories
 
-            if (c.sockets.length) {
-              const plugs = c.sockets.filter((s) => (s.isPerk || s.isIntrinsic || s.isMod || s.isOrnament) && !s.isTracker && !s.isShader && s.plug?.plugItem);
+            if (category.sockets.length) {
+              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug.definition);
 
-              if (plugs.length) {
+              if (socketsWithPlugs.length) {
                 return (
-                  <div key={c.category.hash} className='category'>
-                    {plugs.map((s) => {
+                  <div key={category.category.hash} className='category'>
+                    {socketsWithPlugs.map((socket, s) => {
                       // filter for perks and map through sockets
-
+                      console.log(socket)
                       return (
-                        <div key={s.socketIndex} className='socket'>
-                          {s.plugOptions
-                            .filter((p) => p.isEnabled && p.plugItem?.hash === s.plug.plugItem?.hash)
-                            .map((p) => {
+                        <div key={socket.socketIndex} className='socket'>
+                          {socket.plugOptions
+                            // removed plug.isEnabled // 2.24.74
+                            .filter((plug) => plug.definition?.hash === socket.plug?.definition?.hash)
+                            .map((plug, p) => {
                               // filter for enabled plugs and map through
 
-                              const type = s.isIntrinsic ? p.plugItem.displayProperties.description : p.plugItem.itemTypeDisplayName;
+                              const type = socket.isIntrinsic ? plug.definition.displayProperties.description : plug.definition.itemTypeDisplayName;
 
                               return (
-                                <div key={p.plugItem.hash} className={cx('plug', { intrinsic: s.isIntrinsic, enabled: true })}>
-                                  <ObservedImage className='image icon' src={`https://www.bungie.net${p.plugItem.displayProperties.icon ? p.plugItem.displayProperties.icon : `/img/misc/missing_icon_d2.png`}`} />
+                                <div key={p} className={cx('plug', { intrinsic: socket.isIntrinsic, enabled: true })}>
+                                  <ObservedImage className='image icon' src={`https://www.bungie.net${plug.definition.displayProperties.icon ? plug.definition.displayProperties.icon : `/img/misc/missing_icon_d2.png`}`} />
                                   <div className='text'>
-                                    <div className='name'>{p.plugItem.displayProperties.name}</div>
+                                    <div className='name'>{plug.definition.displayProperties.name}</div>
                                     {type ? <div className='type'>{stringToIcons(type)}</div> : null}
                                   </div>
                                 </div>
