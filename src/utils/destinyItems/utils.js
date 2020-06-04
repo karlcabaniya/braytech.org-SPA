@@ -2,7 +2,7 @@ import { sum, sumBy } from 'lodash';
 
 import * as enums from '../destinyEnums';
 
-import { modItemCategoryHashes } from './sockets';
+import { defaultPlugs, modItemCategoryHashes } from './sockets';
 
 /**
  * Generate a comparator from a mapping function.
@@ -50,7 +50,7 @@ export function getOrnamentSocket(sockets) {
     return false;
   }
 
-  return sockets.sockets.find((socket) => socket.plug?.definition?.itemSubType === enums.DestinyItemSubType.Ornament);
+  return sockets.sockets.find((socket) => !defaultPlugs.includes(socket.plug?.definition?.hash) && socket.plug?.definition?.itemSubType === enums.DestinyItemSubType.Ornament);
 }
 
 /**

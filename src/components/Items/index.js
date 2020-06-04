@@ -11,6 +11,7 @@ import { itemComponents } from '../../utils/destinyItems/itemComponents';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
+import { getOrnamentSocket } from '../../utils/destinyItems/utils';
 import ObservedImage from '../../components/ObservedImage';
 import ProgressBar from '../../components/UI/ProgressBar';
 import { Common } from '../../svg';
@@ -47,6 +48,10 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
     const masterworked = enums.enumerateItemState(item.state).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
     const tracked = enums.enumerateItemState(item.state).tracked;
 
+    const ornamentSocket = item.sockets && getOrnamentSocket(item.sockets);
+
+    const icon = definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : ornamentSocket?.plug?.definition?.displayProperties?.icon ? `https://www.bungie.net${ornamentSocket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`;
+
     return {
       name: definitionItem.displayProperties.name,
       tierType: definitionItem.inventory?.tierType,
@@ -75,7 +80,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
           onClick={handler ? handler(item) : undefined}
         >
           <div className='icon'>
-            <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
+            <ObservedImage className='image' src={icon} />
           </div>
           {tracked ? (
             <div className='track'>

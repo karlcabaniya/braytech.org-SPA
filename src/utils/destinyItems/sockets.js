@@ -17,7 +17,7 @@ import * as utils from './utils';
  * removes the "Default Ornament" plug, "Default Shader" and "Rework Masterwork"
  * TODO: with AWA we may want to put some of these back
  */
-const EXCLUDED_PLUGS = new Set([
+export const defaultPlugs = [
   // Default ornament
   2931483505,
   1959648454,
@@ -28,7 +28,7 @@ const EXCLUDED_PLUGS = new Set([
   3612467353,
   // Default Shader
   4248210736
-]);
+];
 
 // used in displaying the modded segments on item stats
 export const modItemCategoryHashes = [
@@ -194,7 +194,7 @@ function buildDefinedSocket(item, definitionSocket, index) {
   const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
-  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
+  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !defaultPlugs.includes(plugItem.definition.hash));
   const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
@@ -293,7 +293,7 @@ function buildSocket(item, socket, definitionSocket, index, reusablePlugs, plugO
   const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
-  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !EXCLUDED_PLUGS.has(plugItem.definition.hash));
+  const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !defaultPlugs.includes(plugItem.definition.hash));
   const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
@@ -340,5 +340,5 @@ function buildPlug(definitionSocket, plug, plugObjectivesData) {
 function filterReusablePlug(reusablePlug) {
   const itemCategoryHashes = reusablePlug.definition.itemCategoryHashes || [];
 
-  return !EXCLUDED_PLUGS.has(reusablePlug.definition.hash) && !itemCategoryHashes.includes(MASTERWORK_MOD_CATEGORY) && !itemCategoryHashes.includes(GHOST_MOD_CATEGORY) && (!reusablePlug.definition.plug || !reusablePlug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat'));
+  return !defaultPlugs.includes(reusablePlug.definition.hash) && !itemCategoryHashes.includes(MASTERWORK_MOD_CATEGORY) && !itemCategoryHashes.includes(GHOST_MOD_CATEGORY) && (!reusablePlug.definition.plug || !reusablePlug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat'));
 }

@@ -121,10 +121,10 @@ function Item(props) {
   const Meat = item.type && woolworths[item.type];
 
   if (item.sockets) {
-    const ornament = getOrnamentSocket(item.sockets);
+    const ornamentSocket = getOrnamentSocket(item.sockets);
 
-    if (ornament && ornament.plug?.definition?.screenshot && ornament.plug?.definition?.screenshot !== '') {
-      item.screenshot = ornament.plug.definition.screenshot;
+    if (ornamentSocket && ornamentSocket.plug?.definition?.screenshot && ornamentSocket.plug?.definition?.screenshot !== '') {
+      item.screenshot = ornamentSocket.plug.definition.screenshot;
     }
   }
 
