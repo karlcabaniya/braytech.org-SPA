@@ -46,6 +46,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
     const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enums.enumerateVendorItemStatus(item.saleStatus);
 
     const masterworked = enums.enumerateItemState(item.state).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
+    const locked = enums.enumerateItemState(item.state).locked;
     const tracked = enums.enumerateItemState(item.state).tracked;
 
     const ornamentSocket = item.sockets && getOrnamentSocket(item.sockets);
@@ -83,8 +84,13 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
             <ObservedImage className='image' src={icon} />
           </div>
           {tracked ? (
-            <div className='track'>
+            <div className='item-state tracked'>
               <Common.Tracking />
+            </div>
+          ) : null}
+          {locked ? (
+            <div className='item-state locked'>
+              <Common.ItemStateLocked />
             </div>
           ) : null}
           {asPanels ? (

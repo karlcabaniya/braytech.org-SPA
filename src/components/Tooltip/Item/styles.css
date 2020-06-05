@@ -441,11 +441,11 @@
 }
 
 #tooltip .super {
-  padding: 24px 16px 0;
+  padding: 20px 16px 0;
 }
 
 #tooltip .super .path {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 }
 
 #tooltip .super .path .text {
@@ -507,7 +507,7 @@
 }
 
 #tooltip .super .ability .text .name {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
 }
 
 #tooltip .super .ability .text .description {
@@ -517,8 +517,8 @@
 #tooltip .super .ability .text .description p {
   font-style: italic;
   font-size: 14px;
-  letter-spacing: 0.8px;
-  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Nova Warp */

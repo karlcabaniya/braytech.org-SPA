@@ -36,7 +36,7 @@
 
 .list.inventory-items li .completed,
 .list.inventory-items li .expired,
-.list.inventory-items li .track {
+.list.inventory-items li .tracked {
   position: absolute;
   right: 0;
   top: 0;
@@ -55,14 +55,25 @@
   left: 0;
 }
 
-.list.inventory-items li .track {
+.list.inventory-items li .tracked {
   right: 12%;
   width: 30%;
 }
 
+.list.inventory-items li .locked {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  width: 16%;
+  z-index: 4;
+  line-height: 0;
+  opacity: 0.8;
+}
+
 .list.inventory-items li .completed svg,
 .list.inventory-items li .expired svg,
-.list.inventory-items li .track svg {
+.list.inventory-items li .tracked svg,
+.list.inventory-items li .locked svg {
   width: 100%;
   height: auto;
   pointer-events: none;
@@ -81,19 +92,19 @@
   box-shadow: inset 0 0 0 3px #b5fc73;
 }
 
-.list.inventory-items li.tracked .track .grid {
+.list.inventory-items li.tracked .tracked .grid {
   transform-origin: center center;
   transform-box: fill-box;
   animation: rotate-linear 3s both infinite linear;
 }
 
-.list.inventory-items li.tracked .track .pulse path {
+.list.inventory-items li.tracked .tracked .pulse path {
   transform-origin: center center;
   animation: tracked-pulse 4s linear infinite;
   stroke-width: 10px !important;
 }
 
-.list.inventory-items li.tracked .track .pulse path:last-child {
+.list.inventory-items li.tracked .tracked .pulse path:last-child {
   animation-delay: 0.3s;
 }
 

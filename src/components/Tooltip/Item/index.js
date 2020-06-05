@@ -84,6 +84,8 @@ function Item(props) {
       item.type = 'emblem';
     } else if (definitionItem.itemType === enums.DestinyItemType.Mod) {
       item.type = 'mod';
+    } else if (definitionItem.itemType === enums.DestinyItemType.Subclass) {
+      item.type = 'sub-class';
     } else if (enums.trialsPassages.indexOf(definitionItem.hash) > -1) {
       item.type = 'trials-passage';
     }
