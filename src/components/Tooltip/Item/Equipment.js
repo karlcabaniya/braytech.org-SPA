@@ -28,7 +28,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   const damageTypeHash = itemComponents?.instance?.damageTypeHash ? itemComponents.instance.damageTypeHash : definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes?.[0] ? definitionItem.damageTypeHashes[0] : false;
 
   const displayStats = (stats && stats.length && !stats.find((stat) => stat.statHash === -1000)) || (stats && stats.length && stats.find((s) => s.statHash === -1000 && s.value !== 0));
-  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug).length;
+  const displaySockets = sockets && sockets.socketCategories && sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
 
   const armor2MasterworkSockets = sockets?.socketCategories && getSocketsWithStyle(sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
 
@@ -171,7 +171,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
           // styling for single plug sockets
           one:
             sockets.sockets
-              .filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug)
+              .filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug)
               .map((socket) => socket.plugOptions)
               .filter((socket) => socket.length).length === 1,
         })}
@@ -181,7 +181,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
             // map through socketCategories
 
             if (category.sockets.length) {
-              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug);
+              const socketsWithPlugs = category.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug);
 
               if (socketsWithPlugs.length) {
                 return (

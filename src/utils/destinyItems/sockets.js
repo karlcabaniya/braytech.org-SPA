@@ -27,14 +27,16 @@ export const defaultPlugs = [
   1961001474,
   3612467353,
   // Default Shader
-  4248210736
+  4248210736,
+  // Default Transmat Effect (SpawnFX)
+  1390587439,
 ];
 
 // used in displaying the modded segments on item stats
 export const modItemCategoryHashes = [
   1052191496, // weapon mods
   4062965806, // armor mods (pre-2.0)
-  4104513227 // armor 2.0 mods
+  4104513227, // armor 2.0 mods
 ];
 
 /** The item category hash for "intrinsic perk" */
@@ -195,6 +197,7 @@ function buildDefinedSocket(item, definitionSocket, index) {
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !defaultPlugs.includes(plugItem.definition.hash));
+  const isSpawnFX = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('spawnfx') && !defaultPlugs.includes(plugItem.definition.hash));
   const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
@@ -205,10 +208,11 @@ function buildDefinedSocket(item, definitionSocket, index) {
     hasRandomizedPlugItems: Boolean(definitionSocket.randomizedPlugSetHash) || definitionSocketType.alwaysRandomizeSockets,
     isPerk,
     isIntrinsic,
-    isMasterwork,
     isMod,
     isShader,
     isOrnament,
+    isSpawnFX,
+    isMasterwork,
     isTracker,
     socketDefinition: definitionSocket
   };
@@ -294,6 +298,7 @@ function buildSocket(item, socket, definitionSocket, index, reusablePlugs, plugO
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter(hash => modItemCategoryHashes.includes(hash)).length > 0);
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament && !defaultPlugs.includes(plugItem.definition.hash));
+  const isSpawnFX = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('spawnfx') && !defaultPlugs.includes(plugItem.definition.hash));
   const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork'));
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
@@ -304,10 +309,11 @@ function buildSocket(item, socket, definitionSocket, index, reusablePlugs, plugO
     hasRandomizedPlugItems,
     isPerk,
     isIntrinsic,
-    isMasterwork,
     isMod,
     isShader,
     isOrnament,
+    isSpawnFX,
+    isMasterwork,
     isTracker,
     socketDefinition: definitionSocket
   };

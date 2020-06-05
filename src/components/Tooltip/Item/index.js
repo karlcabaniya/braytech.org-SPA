@@ -123,7 +123,7 @@ function Item(props) {
   if (item.sockets) {
     const ornamentSocket = getOrnamentSocket(item.sockets);
 
-    if (ornamentSocket && ornamentSocket.plug?.definition?.screenshot && ornamentSocket.plug?.definition?.screenshot !== '') {
+    if (ornamentSocket?.plug?.definition?.screenshot) {
       item.screenshot = ornamentSocket.plug.definition.screenshot;
     }
   }
