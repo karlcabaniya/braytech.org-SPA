@@ -14,7 +14,8 @@ import CollectionsBadge from './CollectionsBadge';
 class Tooltip extends React.Component {
   state = {
     hash: false,
-    table: false,
+    table: undefined,
+    type: undefined,
     data: {},
   };
 
@@ -33,7 +34,7 @@ class Tooltip extends React.Component {
   rAF = null;
 
   helper_tooltipPositionUpdate = () => {
-    if (this.ref_tooltip.current) {
+    if (this.ref_tooltip.current && this.state.hash) {
       this.ref_tooltip.current.style.transform = `translate(${this.mousePosition.x}px, ${this.mousePosition.y}px)`;
     }
 
@@ -41,12 +42,16 @@ class Tooltip extends React.Component {
   };
 
   helper_windowMouseMove = (e) => {
+    if (this.state.data.toggle && !e.currentTarget?.dataset?.hash) {
+      return;
+    }
+
+    const offset = 0;
+    const tooltipWidth = 440;
+    const tooltipHeight = this.state.hash ? this.ref_tooltip.current.clientHeight : 0;
+    const scrollbarAllowance = 24;
     let x = 0;
     let y = 0;
-    let offset = 0;
-    let tooltipWidth = 440;
-    let tooltipHeight = this.state.hash ? this.ref_tooltip.current.clientHeight : 0;
-    let scrollbarAllowance = 24;
 
     x = e.clientX;
     y = e.clientY - (tooltipHeight >= 320 ? 140 : 0);
@@ -62,12 +67,10 @@ class Tooltip extends React.Component {
     }
     y = y < scrollbarAllowance ? scrollbarAllowance : y;
 
-    if (this.state.hash) {
-      this.mousePosition = {
-        x,
-        y,
-      };
-    }
+    this.mousePosition = {
+      x,
+      y,
+    };
   };
 
   helper_targetMouseEnter = (e) => {
@@ -80,6 +83,7 @@ class Tooltip extends React.Component {
           ...e.currentTarget.dataset,
         },
       });
+
       this.helper_windowMouseMove(e);
     }
   };
@@ -100,7 +104,11 @@ class Tooltip extends React.Component {
   helper_targetTouchMove = (e) => {};
 
   helper_targetTouchEnd = (e) => {
-    const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
+    const drag = e?.changedTouches?.length
+      ? // there are changed touches so we'll do some math and check if there's movement
+        !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0)
+      : // no changed touches -> proceed
+        false;
 
     if (!drag) {
       if (e.currentTarget.dataset.hash) {
@@ -128,23 +136,45 @@ class Tooltip extends React.Component {
   helper_tooltipTouchEnd = (e) => {
     e.preventDefault();
 
-    const drag = e && e.changedTouches && e.changedTouches.length ? !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0) : false;
+    const drag = e?.changedTouches?.length
+      ? // there are changed touches so we'll do some math and check if there's movement
+        !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0)
+      : // no changed touches -> proceed
+        false;
 
     if (!drag) {
       this.resetState();
     }
   };
 
+  helper_targetMouseUp = (e) => {
+    if (e.currentTarget.dataset.hash) {
+      this.setState({
+        hash: e.currentTarget.dataset.hash,
+        table: e.currentTarget.dataset.table,
+        type: e.currentTarget.dataset.type,
+        data: {
+          ...e.currentTarget.dataset,
+        },
+      });
+
+      this.helper_windowMouseMove(e);
+    }
+  };
+
   resetState = () => {
     this.setState({
       hash: false,
-      table: false,
+      table: undefined,
+      type: undefined,
       data: {},
     });
+
     this.touchPosition = {
       x: 0,
       y: 0,
     };
+
     this.mousePosition = {
       x: 0,
       y: 0,
@@ -157,7 +187,12 @@ class Tooltip extends React.Component {
     }
 
     const targets = document.querySelectorAll('.tooltip');
+
     targets.forEach((target) => {
+      // code for if I ever decide to enable toggle tooltips on desktop again
+      // if (target.dataset.toggle) {
+      //   target.addEventListener('mouseup', this.helper_targetMouseUp);
+      // } else {
       target.addEventListener('touchstart', this.helper_targetTouchStart);
       target.addEventListener('touchmove', this.helper_targetTouchMove);
       target.addEventListener('touchend', this.helper_targetTouchEnd);
@@ -178,7 +213,6 @@ class Tooltip extends React.Component {
     }
 
     if (this.props.location && p.location.pathname !== this.props.location.pathname) {
-      // console.log('location change');
       this.bind_TooltipItem(true);
     }
 
@@ -219,7 +253,7 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div ref={this.ref_tooltip} id='tooltip' className={cx({ visible: this.state.hash })}>
+      <div ref={this.ref_tooltip} id='tooltip' className={cx({ visible: this.state.hash, toggle: this.state.data.toggle })}>
         {this.state.hash ? (
           <TooltipErrorBoundary>
             <Tooltip {...this.state.data} />

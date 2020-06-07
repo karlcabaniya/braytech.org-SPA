@@ -7,7 +7,7 @@ import cx from 'classnames';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
-import { itemComponents } from '../../utils/destinyItems/itemComponents';
+import itemComponents from '../../utils/destinyItems/itemComponents';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';

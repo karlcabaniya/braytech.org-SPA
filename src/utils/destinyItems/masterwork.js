@@ -39,6 +39,8 @@ export const masterwork = item => {
   return masterworkInfo;
 }
 
+export default masterwork;
+
 /**
  * Post-Forsaken weapons store their masterwork info and kill tracker on different plugs.
  */

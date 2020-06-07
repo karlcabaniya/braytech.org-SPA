@@ -31,8 +31,17 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
 } */
 
+#tooltip.toggle {
+  position: absolute;
+  pointer-events: unset;
+}
+
 #tooltip.visible {
   opacity: 1;
+}
+
+#tooltip .wrapper {
+  position: relative;
 }
 
 #tooltip .acrylic {
@@ -76,10 +85,22 @@
   text-align: right;
 }
 
-#tooltip .header .item-state svg {
+#tooltip .header .item-state {
   height: 16px;
-  width: auto;
+}
+
+#tooltip .header .item-state .locked,
+#tooltip .header .item-state .spinner {
+  display: grid;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
   opacity: 0.8;
+}
+
+#tooltip .header .item-state .locked svg {
+  height: 16px;
+  width: 12px;
 }
 
 #tooltip .frame .highlight {
@@ -354,6 +375,10 @@
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: contain;
     backdrop-filter: brightness(0.6) blur(7px);
+  }
+
+  #tooltip.toggle {
+    position: fixed;
   }
 
   #tooltip.visible {

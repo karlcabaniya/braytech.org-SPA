@@ -6,7 +6,7 @@ import cx from 'classnames';
 import { t, duration, timestampToDuration, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
-import { itemComponents } from '../../utils/destinyItems/itemComponents';
+import itemComponents from '../../utils/destinyItems/itemComponents';
 import { removeMemberIds } from '../../utils/paths';
 
 import { NoAuth, DiffProfile } from '../../components/BungieAuth';

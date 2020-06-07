@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Clan from '../views/Clan';
-import Inventory from '../views/Inventory';
 import Reports from '../views/Reports';
 import Collections from '../views/Collections';
 import Triumphs from '../views/Triumphs';
@@ -55,7 +54,6 @@ class ProfileRoutes extends React.Component {
           <Route path={`${match.url}/checklists`} exact component={Checklists} />
           <Route path={`${match.url}/this-week/:view?`} component={ThisWeek} />
           <Route path={`${match.url}/now/:view?`} component={Now} />
-          <Route path={`${match.url}/inventory`} exact component={Inventory} />
           <Route path={`${match.url}/quests/:filter?/:variable?/:order?`} exact component={Quests} />
           <Route path={`${match.url}/reports/:type?/:mode(\\-?\\d+)?/:offset(\\d+)?`} component={Reports} />
           <Route path={`${match.url}/`} render={route => <Redirect to={{ pathname: `${match.url}/now` }} />} />

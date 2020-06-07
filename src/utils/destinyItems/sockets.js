@@ -81,6 +81,8 @@ export const sockets = item => {
   return { ...sockets, missingSockets };
 };
 
+export default sockets;
+
 /**
  * Build sockets that come from the live instance.
  */

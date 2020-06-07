@@ -35,10 +35,11 @@ export default function reducer(state = defaultState, action) {
     case 'POP_NOTIFICATION':
       // console.log(`POP_NOTIFICATION`, action, state);
 
-      let objToPop = state.objects.find((n) => n.id === action.payload);
-      let trash = [];
-      if (objToPop && objToPop.showOnce) {
-        trash = state.trash.concat([action.payload]);
+      const trash = [];
+
+      if (state.objects.find((n) => n.id === action.payload)?.showOnce) {
+        trash.push(action.payload);
+
         ls.set('history.notifications', trash);
       }
 

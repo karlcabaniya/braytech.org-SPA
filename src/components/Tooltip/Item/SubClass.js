@@ -11,7 +11,7 @@ const Subclass = props => {
   const subClassInfo = getSubclassPathInfo(itemComponents, { itemHash, itemInstanceId });
 
   // description as flair string
-  const flair = definitionItem.displayProperties && definitionItem.displayProperties.description !== '' && definitionItem.displayProperties.description;
+  const flair = definitionItem.displayProperties?.description !== '' && definitionItem.displayProperties.description;
 
   return (
     <div className='background-overflow'>

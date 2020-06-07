@@ -16,7 +16,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
   // description as flair string
-  const flair = definitionItem.displayProperties && definitionItem.displayProperties.description !== '' && definitionItem.displayProperties.description;
+  const flair = definitionItem.displayProperties?.description !== '' && definitionItem.displayProperties.description;
 
   // source string
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;

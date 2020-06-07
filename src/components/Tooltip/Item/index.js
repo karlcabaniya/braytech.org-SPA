@@ -6,12 +6,13 @@ import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as converters from '../../../utils/destinyConverters';
 import * as enums from '../../../utils/destinyEnums';
-import { itemComponents } from '../../../utils/destinyItems/itemComponents';
-import { sockets } from '../../../utils/destinyItems/sockets';
-import { stats } from '../../../utils/destinyItems/stats';
-import { masterwork } from '../../../utils/destinyItems/masterwork';
+import itemComponents from '../../../utils/destinyItems/itemComponents';
+import sockets from '../../../utils/destinyItems/sockets';
+import stats from '../../../utils/destinyItems/stats';
+import masterwork from '../../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../../utils/destinyItems/utils';
 import ObservedImage from '../../ObservedImage';
+import Spinner from '../../UI/Spinner';
 import { Common } from '../../../svg';
 
 import './styles.css';
@@ -40,11 +41,11 @@ function Item(props) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[props.hash];
 
   const item = {
-    itemHash: definitionItem?.hash || +props.hash,
+    itemHash: +props.hash,
     itemInstanceId: props.instanceid,
     itemComponents: null,
+    itemState: +props.state || 0,
     quantity: +props.quantity || 1,
-    state: +props.state || 0,
     vendorHash: props.vendorhash,
     vendorItemIndex: props.vendoritemindex,
     rarity: converters.itemRarityToString(definitionItem?.inventory?.tierType),
@@ -93,6 +94,7 @@ function Item(props) {
     item.screenshot = definitionItem.screenshot;
   }
 
+  // item.itemState = itemState(item, props.member);
   item.itemComponents = itemComponents(item, props.member);
   item.sockets = sockets(item);
   item.stats = stats(item);
@@ -130,36 +132,42 @@ function Item(props) {
     }
   }
 
-  const itemState = enums.enumerateItemState(item.state);
-  const masterworked = itemState.masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const masterworked = enums.enumerateItemState(item.itemState).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const locked = enums.enumerateItemState(item.itemState).locked;
 
   return (
     <>
-      <div className='acrylic' />
-      <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
-        <div className='header'>
-          {masterworked ? <ObservedImage className={cx('image', 'bg')} src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
-          <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
-          <div>
-            {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
+      <div className='wrapper'>
+        <div className='acrylic' />
+        <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
+          <div className='header'>
+            {masterworked ? <ObservedImage className={cx('image', 'bg')} src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
+            <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
-              {item.rarity && item.style !== 'ui' ? <div className='rarity'>{definitionItem.inventory.tierTypeName}</div> : null}
-              {itemState.locked && item.style !== 'ui' ? (
+              {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
+              <div>
+                {item.rarity && item.style !== 'ui' ? <div className='rarity'>{definitionItem.inventory.tierTypeName}</div> : null}
                 <div className='item-state'>
-                  <Common.ItemStateLocked />
+                  {item.state ? (
+                    <Spinner />
+                  ) : locked && item.style !== 'ui' ? (
+                    <div className='locked'>
+                      <Common.ItemStateLocked />
+                    </div>
+                  ) : null}
                 </div>
-              ) : null}
+              </div>
             </div>
           </div>
-        </div>
-        {importantText ? <div className='highlight major'>{importantText}</div> : null}
-        <div className='black'>
-          {props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash)) ? (
-            <div className='screenshot'>
-              <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
-            </div>
-          ) : null}
-          {woolworths[item.type] ? <Meat {...props.member} {...item} /> : <Default {...props.member} {...item} />}
+          {importantText ? <div className='highlight major'>{importantText}</div> : null}
+          <div className='black'>
+            {props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash)) ? (
+              <div className='screenshot'>
+                <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
+              </div>
+            ) : null}
+            {woolworths[item.type] ? <Meat {...props.member} {...item} /> : <Default {...props.member} {...item} />}
+          </div>
         </div>
       </div>
     </>

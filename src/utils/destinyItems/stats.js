@@ -451,6 +451,8 @@ export const stats = (item) => {
   return investmentStats && investmentStats.length ? investmentStats.sort(compareBy((s) => s.sort)) : null;
 };
 
+export default stats;
+
 function totalStat(stats = []) {
   const total = sumBy(stats, (s) => s.value);
   const baseTotal = sumBy(stats, (s) => s.base);

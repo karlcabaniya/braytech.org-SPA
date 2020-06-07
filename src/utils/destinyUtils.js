@@ -21,9 +21,9 @@ export const pathSubDir = (location) => location.pathname.split('/')?.[1];
 
 export function metricImages(metricHash) {
   const definitionMetric = manifest.DestinyMetricDefinition[metricHash];
-  const definitionParent = manifest.DestinyPresentationNodeDefinition[definitionMetric.parentNodeHashes[0]];
+  const definitionParent = manifest.DestinyPresentationNodeDefinition[definitionMetric?.parentNodeHashes?.[0]];
 
-  const traitHash = definitionMetric.traitHashes.find((h) => h !== 1434215347);
+  const traitHash = definitionMetric.traitHashes.find((hash) => hash !== 1434215347);
   const definitionTrait = traitHash && manifest.DestinyTraitDefinition[traitHash];
 
   return {
