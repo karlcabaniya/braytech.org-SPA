@@ -330,6 +330,11 @@
 
 .map-omega .leaflet-container .widgets {
   cursor: default;
+  transition: opacity 0.5s;
+}
+
+.map-omega.loading .leaflet-container .widgets {
+  opacity: 0;
 }
 
 .map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper {  

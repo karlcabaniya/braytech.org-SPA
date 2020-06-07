@@ -147,15 +147,13 @@ function Item(props) {
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
               <div>
                 {item.rarity && item.style !== 'ui' ? <div className='rarity'>{definitionItem.inventory.tierTypeName}</div> : null}
-                <div className='item-state'>
-                  {item.state ? (
-                    <Spinner />
-                  ) : locked && item.style !== 'ui' ? (
+                {locked && item.style !== 'ui' ? (
+                  <div className='item-state'>
                     <div className='locked'>
                       <Common.ItemStateLocked />
                     </div>
-                  ) : null}
-                </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

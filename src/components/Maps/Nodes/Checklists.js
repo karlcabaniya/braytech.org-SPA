@@ -58,7 +58,7 @@ class Checklists extends React.Component {
           return {
             ...i,
             tooltipHash: list.checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
-            screenshot: Boolean(node?.screenshot),
+            screenshot: list.checklistId === 2955980198 || Boolean(node?.screenshot),
           };
         }),
       };
@@ -72,13 +72,15 @@ class Checklists extends React.Component {
   };
 
   handler_markerMouseOver = (e) => {
+    return;
+    
     if (!this.props.settings.debug || !this.props.settings.logDetails) return;
 
     const dataset = e.target?._icon?.children?.[0]?.children?.[0]?.dataset;
 
     const node = dataset.hash && cartographer({ key: dataset.type === 'activity' ? 'activityHash' : dataset.type === 'record' ? 'recordHash' : 'checklistHash', value: dataset.hash });
 
-    // console.log(node);
+    console.log(node);
   };
 
   render() {

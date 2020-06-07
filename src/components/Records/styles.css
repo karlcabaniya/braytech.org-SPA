@@ -219,7 +219,7 @@
 .list.record-items li .track {
   position: absolute;
   top: 1px;
-  right: 120px;
+  right: 25%;
   width: 20px;
   cursor: pointer;
   opacity: 0;
