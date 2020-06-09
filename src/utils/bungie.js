@@ -44,8 +44,8 @@ async function apiRequest(path, options = {}) {
   }
 
   if (tokens && options.withAuth && !options.headers.Authorization) {
-    let now = new Date().getTime() + 10000;
-    let then = new Date(tokens.access.expires).getTime();
+    const now = new Date().getTime() + 10000;
+    const then = new Date(tokens.access.expires).getTime();
 
     // console.log('Adding auth');
 
@@ -208,6 +208,13 @@ export const EquipItem = async body =>
 
 export const SetItemLockState = async body =>
   apiRequest(`/Platform/Destiny2/Actions/Items/SetLockState/`, {
+    withAuth: true,
+    method: 'post',
+    body
+  });
+
+export const SetQuestTrackedState = async body =>
+  apiRequest(`/Platform/Destiny2/Actions/Items/SetTrackedState/`, {
     withAuth: true,
     method: 'post',
     body

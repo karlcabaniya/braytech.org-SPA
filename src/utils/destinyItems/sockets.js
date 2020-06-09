@@ -340,7 +340,7 @@ function buildPlug(definitionSocket, plug, plugObjectivesData) {
     definition: definitionPlug,
     enableFailReasons: failReasons,
     plugObjectives: (plugObjectivesData && plugObjectivesData[plugHash]) || [],
-    perks: definitionPlug.perks.map(perk => manifest.DestinySandboxPerkDefinition[perk.perkHash]) || [],
+    perks: definitionPlug.perks?.map(perk => manifest.DestinySandboxPerkDefinition[perk.perkHash]) || [],
     stats: null,
   };
 }

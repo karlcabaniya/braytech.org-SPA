@@ -143,15 +143,20 @@ class NotificationLink extends React.Component {
 
       actions = [
         ...actions,
-        ...(actions.filter((a) => a.type === 'agreement').length < 1
-          ? [
-              {
-                type: 'dismiss',
-                text: t('Dismiss'),
-                dismiss: true,
-              },
-            ]
-          : []),
+        ...(
+          // force agreement
+          actions.filter((a) => a.type === 'agreement').length < 1 &&
+          // if maintenance, why dismiss?
+          !state.javascript?.message === 'maintenance'
+            ? [
+                {
+                  type: 'dismiss',
+                  text: t('Dismiss'),
+                  dismiss: true,
+                },
+              ]
+            : []
+        ),
       ].filter((a) => a);
 
       if (state && state.displayProperties?.prompt) {

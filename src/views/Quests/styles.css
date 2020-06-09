@@ -372,6 +372,10 @@
   padding: unset;
 }
 
+#quests .list.quests li .list.inventory-items li:not(.masterworked)::before {
+  box-shadow: inset 0 0 0 2px rgb(209, 209, 209);
+}
+
 #quests .list.quests li .text .name {
   font-size: 16px;
   margin: 0 0 6px;
@@ -384,6 +388,57 @@
 
 #quests .list.quests li .text .description p {
   line-height: 1.4;
+}
+
+#quests .list.quests li.tracked {
+  background-color: rgba(182, 238, 129, 0.25);
+  box-shadow: inset 0 0 0 2px #b5fc73;
+}
+
+#quests .list.quests li.linked.tracked:hover {
+  background-color: rgba(182, 238, 129, 0.6);
+}
+
+#quests .list.quests li .track {
+  position: absolute;
+  top: 1px;
+  right: 25%;
+  width: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.25s;
+  z-index: 5;
+}
+
+#quests .list.quests li .track svg {
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  overflow: visible;
+}
+
+#quests .list.quests li:hover .track {
+  opacity: 1;
+}
+
+#quests .list.quests li.tracked .track {
+  opacity: 1;
+}
+
+#quests .list.quests li.tracked .track .grid {
+  transform-origin: center center;
+  transform-box: fill-box;
+  animation: rotate-linear 3s both infinite linear;
+}
+
+#quests .list.quests li.tracked .track .pulse path {
+  transform-origin: center center;
+  animation: tracked-pulse 4s linear infinite;
+  stroke-width: 10px !important;
+}
+
+#quests .list.quests li.tracked .track .pulse path:last-child {
+  animation-delay: 0.3s;
 }
 
 #quests .list.quests li .progress-bar {
@@ -471,6 +526,10 @@
 
   #quests .filter.description .text .description {
     font-size: 16px;
+  }
+
+  #quests .list.quests li .track {
+    opacity: 1;
   }
 }
 

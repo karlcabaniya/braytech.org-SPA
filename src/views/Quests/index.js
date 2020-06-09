@@ -6,6 +6,7 @@ import cx from 'classnames';
 import { t, duration, timestampToDuration, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
+import * as bungie from '../../utils/bungie';
 import itemComponents from '../../utils/destinyItems/itemComponents';
 import { removeMemberIds } from '../../utils/paths';
 
@@ -56,6 +57,15 @@ class Quests extends React.Component {
       window.scrollTo(0, 0);
     }
   }
+
+  handler_toggleTrack = (item) => async (e) => {
+    const response = await bungie.SetQuestTrackedState({
+      state: !!!enums.enumerateItemState(item.state).tracked,
+      itemId: item.itemInstanceId,
+      characterId: this.props.member.characterId,
+      membershipType: this.props.member.membershipType,
+    });
+  };
 
   getItems = (items = []) => {
     const { member, viewport } = this.props;
@@ -139,7 +149,7 @@ class Quests extends React.Component {
                         <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
                       </div>
                       {tracked ? (
-                        <div className='track'>
+                        <div className='tracked'>
                           <Common.Tracking />
                         </div>
                       ) : null}
@@ -215,20 +225,21 @@ class Quests extends React.Component {
             </li>
           )
         ) : (
-          <li key={item.itemHash} className={cx('linked', { tooltip: viewport.width > 600, exotic: definitionItem.inventory?.tierType === 6 })} data-hash={item.itemHash} data-instanceid={item.itemInstanceId} data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}>
+          <li
+            key={item.itemHash}
+            className={cx('linked', {
+              tooltip: viewport.width > 600,
+              exotic: definitionItem.inventory?.tierType === 6,
+              completed,
+              expired,
+              tracked,
+            })}
+            data-hash={item.itemHash}
+            data-instanceid={item.itemInstanceId}
+            data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
+          >
             <ul className='list inventory-items'>
-              <li
-                key={item.itemHash}
-                className={cx(
-                  {
-                    completed,
-                    expired,
-                    tracked,
-                    masterworked,
-                  },
-                  bucketName
-                )}
-              >
+              <li key={item.itemHash} className={cx({ masterworked }, bucketName)}>
                 <div className='icon'>
                   <ObservedImage src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
                 </div>
@@ -237,6 +248,11 @@ class Quests extends React.Component {
                 {expired || expiresSoon ? <div className='expired' /> : null}
               </li>
             </ul>
+            {definitionItem.itemType === enums.DestinyItemType.QuestStep || definitionItem.itemType === enums.DestinyItemType.QuestStepComplete || definitionItem.itemType === enums.DestinyItemType.Quest ? (
+              <div className='track' onClick={this.handler_toggleTrack(item)}>
+                <Common.Tracking />
+              </div>
+            ) : null}
             <div className='text'>
               <div className='name'>{questLineName || definitionItem.displayProperties.name}</div>
               <BungieText className='description' value={definitionItem.displayProperties.description} single trim='70' />
