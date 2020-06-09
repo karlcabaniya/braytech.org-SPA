@@ -23,9 +23,9 @@ function Nightfalls(props) {
   });
 
   // find the canonical hash of the active nightfall: ordeal
-  const weeklyNightfallStrikesOrdealHash = Object.keys(enums.nightfalls).find((hash) => enums.nightfalls[hash].ordealHashes.find((ordealHash) => weeklyNightfallStrikeActivities.find((activity) => activity.activityHash === ordealHash)));
+  const weeklyNightfallStrikesOrdealHash = Object.keys(enums.nightfalls).find((hash) => enums.nightfalls[hash]?.ordealHashes.find((ordealHash) => weeklyNightfallStrikeActivities.find((activity) => activity.activityHash === ordealHash)));
   // collect and sort available difficulties of the active nightfall: ordeal
-  const weeklyNightfallStrikesOrdealVersions = weeklyNightfallStrikeActivities.filter((activity) => enums.nightfalls[weeklyNightfallStrikesOrdealHash].ordealHashes.includes(activity.activityHash)).sort((a, b) => b.recommendedLight - a.recommendedLight);
+  const weeklyNightfallStrikesOrdealVersions = weeklyNightfallStrikeActivities.filter((activity) => enums.nightfalls[weeklyNightfallStrikesOrdealHash]?.ordealHashes.includes(activity.activityHash)).sort((a, b) => b.recommendedLight - a.recommendedLight);
   // get old-style active nightfalls
   const weeklyNightfallStrikesScored = weeklyNightfallStrikeActivities.filter((activity) => !Object.keys(enums.nightfalls).find((k) => enums.nightfalls[k].ordealHashes.find((ordealHash) => ordealHash === activity.activityHash)) && activity.recommendedLight < 1000);
 
@@ -37,7 +37,20 @@ function Nightfalls(props) {
   const nightfalls = [{ activityHash: weeklyNightfallStrikesOrdealHash, ordeal: true }, ...weeklyNightfallStrikesScored];
 
   return nightfalls.map((activity, a) => {
-    const nightfall = manifest.DestinyActivityDefinition[activity.activityHash];
+    const definitionNightfall = manifest.DestinyActivityDefinition[activity.activityHash];
+
+    if (!definitionNightfall) {
+      return (
+        <div key={a} className='column'>
+          <div className='module'>
+            <div className='sub-header'>
+              <div>???</div>
+            </div>
+            <h3>???</h3>
+          </div>
+        </div>
+      );
+    }
 
     const modifierHashes = (activity.ordeal ? weeklyNightfallStrikesOrdealVersions[0].modifierHashes : weeklyNightfallStrikeActivities.find((a) => a.activityHash === activity.activityHash)?.modifierHashes) || [];
 
@@ -47,7 +60,7 @@ function Nightfalls(props) {
           <div className='sub-header'>
             <div>{activity.ordeal ? stringNightfallOrdeal : stringNightfall}</div>
           </div>
-          <h3>{nightfall.selectionScreenDisplayProperties.name}</h3>
+          <h3>{definitionNightfall.selectionScreenDisplayProperties.name}</h3>
           <h4>{t('Active modifiers')}</h4>
           {modifierHashes.length ? (
             <ul className='list modifiers condensed'>
@@ -67,10 +80,10 @@ function Nightfalls(props) {
             <div className='info'>{t("Modifiers aren't available right now.")}</div>
           )}
           <h4>{t('Collectibles')}</h4>
-          {enums.nightfalls[nightfall.hash]?.collectibles.length ? (
+          {enums.nightfalls[definitionNightfall.hash]?.collectibles.length ? (
             <>
               <ul className='list collection-items'>
-                <Collectibles selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].collectibles} showInvisible />
+                <Collectibles selfLinkFrom='/this-week' hashes={enums.nightfalls[definitionNightfall.hash].collectibles} showInvisible />
               </ul>
             </>
           ) : (
@@ -81,10 +94,10 @@ function Nightfalls(props) {
             </div>
           )}
           <h4>{t('Triumphs')}</h4>
-          {enums.nightfalls[nightfall.hash]?.triumphs.length ? (
+          {enums.nightfalls[definitionNightfall.hash]?.triumphs.length ? (
             <>
               <ul className='list record-items'>
-                <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[nightfall.hash].triumphs} ordered showInvisible />
+                <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[definitionNightfall.hash].triumphs} ordered showInvisible />
               </ul>
             </>
           ) : (

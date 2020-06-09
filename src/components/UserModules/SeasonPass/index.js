@@ -19,11 +19,11 @@ function getSeasonPassItemsPerPage(width) {
   if (width >= 768) return 5;
   if (width < 768) return 3;
   return 3;
-};
+}
 
 class SeasonPass extends React.Component {
   state = {
-    seasonPassRewardsPage: null
+    seasonPassRewardsPage: null,
   };
 
   static getDerivedStateFromProps(p, s) {
@@ -37,7 +37,7 @@ class SeasonPass extends React.Component {
     const definitionSeason = manifest.DestinySeasonDefinition[manifest.settings.destiny2CoreSettings.currentSeasonHash];
 
     return {
-      seasonPassRewardsPage: Math.ceil((Math.min(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash] && characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level, 99) + 1) / getSeasonPassItemsPerPage(viewport.width))
+      seasonPassRewardsPage: Math.ceil((Math.min(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash] && characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level, 99) + 1) / getSeasonPassItemsPerPage(viewport.width)),
     };
   }
 
@@ -52,40 +52,40 @@ class SeasonPass extends React.Component {
     }
 
     if ((p.member.data.profile.characterProgressions.data[p.member.characterId].progressions[definitionSeason.seasonPassProgressionHash] && p.member.data.profile.characterProgressions.data[p.member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level) !== (characterProgressions[this.props.member.characterId].progressions[definitionSeason.seasonPassProgressionHash] && characterProgressions[this.props.member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level)) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        seasonPassRewardsPage: Math.ceil((characterProgressions[this.props.member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level + 1) / getSeasonPassItemsPerPage(viewport.width))
+        seasonPassRewardsPage: Math.ceil((characterProgressions[this.props.member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level + 1) / getSeasonPassItemsPerPage(viewport.width)),
       }));
     }
 
     if (p.viewport.width !== viewport.width) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        seasonPassRewardsPage: Math.ceil((Math.min(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level, 99) + 1) / getSeasonPassItemsPerPage(viewport.width))
+        seasonPassRewardsPage: Math.ceil((Math.min(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].level, 99) + 1) / getSeasonPassItemsPerPage(viewport.width)),
       }));
     }
   }
 
-  handler_seasonPassPrev = e => {
-    this.setState(p => ({
+  handler_seasonPassPrev = (e) => {
+    this.setState((p) => ({
       ...p,
-      seasonPassRewardsPage: p.seasonPassRewardsPage - 1
+      seasonPassRewardsPage: p.seasonPassRewardsPage - 1,
     }));
   };
 
-  handler_seasonPassNext = e => {
-    this.setState(p => ({
+  handler_seasonPassNext = (e) => {
+    this.setState((p) => ({
       ...p,
-      seasonPassRewardsPage: p.seasonPassRewardsPage + 1
+      seasonPassRewardsPage: p.seasonPassRewardsPage + 1,
     }));
   };
 
   render() {
     const { t, member, viewport } = this.props;
     const characters = member.data.profile.characters.data;
-    const character = characters.find(c => c.characterId === member.characterId);
+    const character = characters.find((c) => c.characterId === member.characterId);
     const characterProgressions = member.data.profile.characterProgressions.data;
-    
+
     const definitionSeason = manifest.DestinySeasonDefinition[manifest.settings.destiny2CoreSettings.currentSeasonHash];
 
     // just in case
@@ -104,13 +104,13 @@ class SeasonPass extends React.Component {
           .map((r, i) => {
             return {
               ...r,
-              state: enums.enumerateProgressionRewardItemState(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].rewardItemStates[i])
+              state: enums.enumerateProgressionRewardItemState(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].rewardItemStates[i]),
             };
           })
           .filter((r, i) => r.rewardedAtProgressionLevel === rank);
         const rewardsFree = rewards
-          .filter(r => r.uiDisplayStyle === 'free')
-          .filter(i => {
+          .filter((r) => r.uiDisplayStyle === 'free')
+          .filter((i) => {
             const definitionItem = manifest.DestinyInventoryItemDefinition[i.itemHash];
 
             // if package search contents
@@ -118,7 +118,7 @@ class SeasonPass extends React.Component {
               if (
                 definitionItem.gearset &&
                 definitionItem.gearset.itemList &&
-                definitionItem.gearset.itemList.filter(t => {
+                definitionItem.gearset.itemList.filter((t) => {
                   const definitionItem = manifest.DestinyInventoryItemDefinition[t];
 
                   if (definitionItem.classType > -1 && definitionItem.classType < 3 && definitionItem.classType !== character.classType) {
@@ -138,17 +138,21 @@ class SeasonPass extends React.Component {
               return true;
             }
           });
+
         const rewardsPremium = rewards
-          .filter(r => r.uiDisplayStyle === 'premium')
-          .filter(i => {
+          .filter((r) => r.uiDisplayStyle === 'premium')
+          .filter((i) => {
             const definitionItem = manifest.DestinyInventoryItemDefinition[i.itemHash];
+
+            // remove extra "Twisted Energy" from season 11 premium pass
+            if (definitionItem.hash === 669434421 || definitionItem.hash === 686728455) return false;
 
             // if package, search contents
             if (definitionItem.itemCategoryHashes.includes(268598612)) {
               if (
                 definitionItem.gearset &&
                 definitionItem.gearset.itemList &&
-                definitionItem.gearset.itemList.filter(t => {
+                definitionItem.gearset.itemList.filter((t) => {
                   const definitionItem = manifest.DestinyInventoryItemDefinition[t];
 
                   if (definitionItem.classType > -1 && definitionItem.classType < 3 && definitionItem.classType !== character.classType) {
@@ -162,7 +166,9 @@ class SeasonPass extends React.Component {
               } else {
                 return true;
               }
-            } else if (definitionItem.plug?.plugCategoryIdentifier) {
+            }
+            // if it's not a shader, it might be an armour ornament in which case we only want the one matching our current class
+            else if (definitionItem.plug?.plugCategoryIdentifier && definitionItem.plug.plugCategoryIdentifier !== 'shader') {
               const classString = enums.classStrings[character.classType];
 
               if (definitionItem.plug.plugCategoryIdentifier.indexOf(classString) > -1) {
@@ -180,9 +186,9 @@ class SeasonPass extends React.Component {
         return {
           rank,
           free: rewardsFree,
-          premium: rewardsPremium
+          premium: rewardsPremium,
         };
-      })
+      }),
     };
 
     const seasonRank = progressionSeasonRank(member);
@@ -234,10 +240,10 @@ class SeasonPass extends React.Component {
                   <ul className='list inventory-items'>
                     {r.free.length ? (
                       <Items
-                        items={r.free.map(r => {
+                        items={r.free.map((r) => {
                           return {
                             ...r,
-                            state: null
+                            state: null,
                           };
                         })}
                       />
@@ -248,10 +254,10 @@ class SeasonPass extends React.Component {
                   <ul className='list inventory-items'>
                     {r.premium.length ? (
                       <Items
-                        items={r.premium.map(r => {
+                        items={r.premium.map((r) => {
                           return {
                             ...r,
-                            state: null
+                            state: null,
                           };
                         })}
                       />
@@ -273,15 +279,15 @@ class SeasonPass extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
