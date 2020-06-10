@@ -49,13 +49,14 @@ class QuestItem extends React.Component {
   state = {};
 
   static getDerivedStateFromProps(p, s) {
-    if (s.tracked !== undefined) {
+    if (p.member.updated === s.memberUpdated) {
       return null;
     }
 
     const tracked = enums.enumerateItemState(p.item.state).Tracked;
 
     return {
+      memberUpdated: p.member.updated,
       tracked,
     };
   }
@@ -67,7 +68,7 @@ class QuestItem extends React.Component {
 
     const response = await bungie.SetQuestTrackedState({
       state: !tracked,
-      itemId: item.itemInstanceId,
+      itemId: item.itemInstanceId || item.itemHash,
       characterId: this.props.member.characterId,
       membershipType: this.props.member.membershipType,
     });
