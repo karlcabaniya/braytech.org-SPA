@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { t } from '../../../utils/i18n';
+import { t, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 import Collectibles from '../../Collectibles';
@@ -215,9 +215,7 @@ class Raid extends React.Component {
                   </div>
                   <div className='text'>
                     <div className='name'>{data[key].challenges[challenge].name || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.name)}</div>
-                    <div className='description'>
-                      {data[key].challenges[challenge].description}
-                    </div>
+                    <BraytechText className='description' value={data[key].challenges[challenge].description} />
                   </div>
                 </li>
               );
@@ -275,9 +273,7 @@ class Raid extends React.Component {
             </ul>
             <div className='text'>
               <div className='name'>{data[key].challenges[data[key].challenge[0]].name}</div>
-              <div className='description'>
-                {data[key].challenges[data[key].challenge[0]].description}
-              </div>
+              <BraytechText className='description' value={data[key].challenges[data[key].challenge[0]].description} />
             </div>
           </div>
           <h4>{t('Collectibles')}</h4>

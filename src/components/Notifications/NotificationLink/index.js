@@ -145,7 +145,7 @@ class NotificationLink extends React.Component {
         ...actions,
         ...(
           // force agreement
-          actions.filter((a) => a.type === 'agreement').length < 1 &&
+          actions.filter((a) => a.type === 'agreement').length < 1 ||
           // if maintenance, why dismiss?
           !state.javascript?.message === 'maintenance'
             ? [
