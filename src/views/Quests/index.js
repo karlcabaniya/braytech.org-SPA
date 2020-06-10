@@ -45,6 +45,253 @@ function navLinkQuestsAllIsActive(match, location) {
 
 const filters = ['bounties', 'all', 'new-light', 'expansion', 'seasonal', 'playlists', 'exotics', 'past'];
 
+class QuestItem extends React.Component {
+  state = {};
+
+  static getDerivedStateFromProps(p, s) {
+    if (s.tracked) {
+      return null;
+    }
+
+    const tracked = enums.enumerateItemState(p.item.state).Tracked;
+
+    return {
+      tracked,
+    };
+  }
+
+  handler_toggleTrack = (item) => async (e) => {
+    const tracked = this.state.tracked;
+
+    this.setState(state => ({ tracked: !tracked }));
+
+    const response = await bungie.SetQuestTrackedState({
+      state: !tracked,
+      itemId: item.itemInstanceId,
+      characterId: this.props.member.characterId,
+      membershipType: this.props.member.membershipType,
+    });
+
+    if (response?.ErrorCode !== 1) {
+      this.setState(state => ({ tracked }));
+    }
+  };
+
+  render() {
+    const { member, viewport, filter, item } = this.props;
+
+    const timestamp = new Date().getTime();
+
+    const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+    const definitionQuestLine = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash];
+    const definitionBucket = manifest.DestinyInventoryBucketDefinition[item.bucketHash];
+
+    const expirationDate = item.itemComponents?.item?.expirationDate;
+    const timestampExpiry = expirationDate && new Date(expirationDate).getTime();
+
+    const completed = item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length === 0;
+    const expired = !completed && timestamp > timestampExpiry;
+    const expiresSoon = !completed && timestamp + 7200 * 1000 > timestampExpiry;
+    const masterworked = enums.enumerateItemState(item.state).Masterworked;
+    const tracked = this.state.tracked && !(expired || expiresSoon);
+
+    const bucketName = definitionBucket?.displayProperties?.name?.replace(' ', '-').toLowerCase();
+
+    const objectives = definitionItem.objectives?.objectiveHashes?.map((hash, h) => {
+      const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
+
+      const instanceProgressObjective = item.itemComponents?.objectives?.length && item.itemComponents.objectives.find((o) => o.objectiveHash === hash);
+
+      const playerProgress = {
+        complete: false,
+        progress: 0,
+        objectiveHash: definitionObjective.hash,
+        ...instanceProgressObjective,
+      };
+
+      return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
+    });
+
+    const objectivesProgress =
+      (!completed &&
+        item.itemComponents?.objectives?.reduce((acc, curr) => {
+          return acc + curr.progress;
+        }, 0)) ||
+      0;
+    const objectivesCompletionValue =
+      (!completed &&
+        item.itemComponents?.objectives?.reduce((acc, curr) => {
+          return acc + curr.completionValue;
+        }, 0)) ||
+      0;
+
+    // it's a bounty
+    if (definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1) {
+      if (viewport.width > 1023) {
+        return (
+          <li key={item.itemHash} className={cx({ completed })}>
+            <ul>
+              <li className='col bounty-item'>
+                <ul className='list inventory-items'>
+                  <li
+                    className={cx(
+                      {
+                        linked: true,
+                        tooltip: true,
+                        completed,
+                        expired,
+                        tracked,
+                        masterworked,
+                        exotic: definitionItem.inventory?.tierType === 6,
+                      },
+                      bucketName
+                    )}
+                    data-hash={item.itemHash}
+                    data-instanceid={item.itemInstanceId}
+                    data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
+                  >
+                    <div className='icon'>
+                      <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
+                    </div>
+                    {tracked ? (
+                      <div className='tracked'>
+                        <Common.Tracking />
+                      </div>
+                    ) : null}
+                    {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
+                    {completed ? (
+                      <div className='completed'>
+                        <Common.Completed />
+                      </div>
+                    ) : null}
+                    {expired || expiresSoon ? (
+                      <div className='expired'>
+                        <Common.Expired />
+                      </div>
+                    ) : null}
+                  </li>
+                </ul>
+              </li>
+              <li className='col bounty-text'>
+                <div className='name'>
+                  <BungieText value={definitionItem.displayProperties?.name} textOnly energy />
+                </div>
+                <BungieText className='description' value={definitionItem.displayProperties?.description} energy />
+              </li>
+              <li className='col objectives'>{objectives}</li>
+              <li className='col reward-items'>
+                <ul className='list inventory-items'>
+                  <Items items={definitionItem.value?.itemValue?.filter((item) => item.itemHash !== 0)} noBorder hideQuantity />
+                </ul>
+              </li>
+              <li className='col expires'>
+                <div>{!completed && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired')}</> : '–'}</div>
+              </li>
+            </ul>
+          </li>
+        );
+      } else {
+        return (
+          <li
+            className={cx(
+              {
+                linked: true,
+                tooltip: true,
+                completed,
+                expired,
+                tracked,
+                masterworked,
+                exotic: definitionItem.inventory?.tierType === 6,
+              },
+              bucketName
+            )}
+            data-hash={item.itemHash}
+            data-instanceid={item.itemInstanceId}
+            data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
+          >
+            <div className='icon'>
+              <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
+            </div>
+            {tracked ? (
+              <div className='track'>
+                <Common.Tracking />
+              </div>
+            ) : null}
+            {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
+            {completed ? (
+              <div className='completed'>
+                <Common.Completed />
+              </div>
+            ) : null}
+            {expired || expiresSoon ? (
+              <div className='expired'>
+                <Common.Expired />
+              </div>
+            ) : null}
+            {!completed ? <ProgressBar objectiveHash={item.itemComponents.objectives[0].objectiveHash} progress={objectivesProgress} completionValue={objectivesCompletionValue} hideCheck /> : null}
+          </li>
+        );
+      }
+    }
+
+    const questLineName = (definitionQuestLine?.setData?.questLineName && definitionQuestLine.setData.questLineName !== '' && definitionQuestLine.setData.questLineName) || definitionQuestLine?.displayProperties.name;
+
+    // it's a quest item
+    return (
+      <li
+        key={item.itemHash}
+        className={cx('linked', {
+          tooltip: viewport.width > 600,
+          exotic: definitionItem.inventory?.tierType === 6,
+          completed,
+          expired,
+          tracked,
+        })}
+        data-hash={item.itemHash}
+        data-instanceid={item.itemInstanceId}
+        data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
+      >
+        <ul className='list inventory-items'>
+          <li key={item.itemHash} className={cx({ masterworked }, bucketName)}>
+            <div className='icon'>
+              <ObservedImage src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
+            </div>
+            {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
+            {completed ? <div className='completed' /> : null}
+            {expired || expiresSoon ? <div className='expired' /> : null}
+          </li>
+        </ul>
+        {definitionItem.itemType === enums.DestinyItemType.QuestStep || definitionItem.itemType === enums.DestinyItemType.QuestStepComplete || definitionItem.itemType === enums.DestinyItemType.Quest ? (
+          <div className='track' onClick={this.handler_toggleTrack(item)}>
+            <Common.Tracking />
+          </div>
+        ) : null}
+        <div className='text'>
+          <div className='name'>{questLineName || definitionItem.displayProperties.name}</div>
+          <BungieText className='description' value={definitionItem.displayProperties.description} single trim='70' />
+        </div>
+        {!expired && item.itemComponents?.objectives?.length ? (
+          <ProgressBar
+            objectiveHash={item.itemComponents?.objectives[0].objectiveHash}
+            progress={item.itemComponents?.objectives.reduce((acc, curr) => {
+              return acc + curr.progress;
+            }, 0)}
+            completionValue={item.itemComponents?.objectives.reduce((acc, curr) => {
+              return acc + curr.completionValue;
+            }, 0)}
+            hideCheck
+            hideFraction
+            hideDescription
+          />
+        ) : null}
+        <ProfileLink to={`/quests/${filter}/${item.itemHash}`} />
+      </li>
+    );
+  }
+}
+
+QuestItem = connect(mapStateToProps, mapDispatchToProps)(QuestItem);
+
 class Quests extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -58,53 +305,19 @@ class Quests extends React.Component {
     }
   }
 
-  handler_toggleTrack = (item) => async (e) => {
-    const response = await bungie.SetQuestTrackedState({
-      state: !!!enums.enumerateItemState(item.state).Tracked,
-      itemId: item.itemInstanceId,
-      characterId: this.props.member.characterId,
-      membershipType: this.props.member.membershipType,
-    });
-  };
-
   getItems = (items = []) => {
-    const { member, viewport } = this.props;
+    const { member } = this.props;
     const filter = this.props.match.params.filter || 'bounties';
-
-    const timestamp = new Date().getTime();
 
     return items.map((item, i) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
-      const definitionQuestLine = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash];
-      const definitionBucket = manifest.DestinyInventoryBucketDefinition[item.bucketHash];
 
       item.itemComponents = itemComponents(item, member);
 
       const expirationDate = item.itemComponents?.item?.expirationDate;
       const timestampExpiry = expirationDate && new Date(expirationDate).getTime();
 
-      const bucketName = definitionBucket?.displayProperties?.name?.replace(' ', '-').toLowerCase();
-
       const completed = item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length === 0;
-      const expired = !completed && timestamp > timestampExpiry;
-      const expiresSoon = !completed && timestamp + 7200 * 1000 > timestampExpiry;
-      const masterworked = enums.enumerateItemState(item.state).Masterworked;
-      const tracked = enums.enumerateItemState(item.state).Tracked && !(expired || expiresSoon);
-
-      const objectives = definitionItem.objectives?.objectiveHashes?.map((hash, h) => {
-        const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
-
-        const instanceProgressObjective = item.itemComponents?.objectives?.length && item.itemComponents.objectives.find((o) => o.objectiveHash === hash);
-
-        const playerProgress = {
-          complete: false,
-          progress: 0,
-          objectiveHash: definitionObjective.hash,
-          ...instanceProgressObjective,
-        };
-
-        return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
-      });
 
       const objectivesProgress =
         (!completed &&
@@ -119,162 +332,6 @@ class Quests extends React.Component {
           }, 0)) ||
         0;
 
-      const questLineName = (definitionQuestLine?.setData?.questLineName && definitionQuestLine.setData.questLineName !== '' && definitionQuestLine.setData.questLineName) || definitionQuestLine?.displayProperties.name;
-
-      const element =
-        definitionItem.traitIds?.indexOf('inventory_filtering.bounty') > -1 ? (
-          viewport.width > 1023 ? (
-            <li key={item.itemHash} className={cx({ completed })}>
-              <ul>
-                <li className='col bounty-item'>
-                  <ul className='list inventory-items'>
-                    <li
-                      className={cx(
-                        {
-                          linked: true,
-                          tooltip: true,
-                          completed,
-                          expired,
-                          tracked,
-                          masterworked,
-                          exotic: definitionItem.inventory?.tierType === 6,
-                        },
-                        bucketName
-                      )}
-                      data-hash={item.itemHash}
-                      data-instanceid={item.itemInstanceId}
-                      data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
-                    >
-                      <div className='icon'>
-                        <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
-                      </div>
-                      {tracked ? (
-                        <div className='tracked'>
-                          <Common.Tracking />
-                        </div>
-                      ) : null}
-                      {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-                      {completed ? (
-                        <div className='completed'>
-                          <Common.Completed />
-                        </div>
-                      ) : null}
-                      {expired || expiresSoon ? (
-                        <div className='expired'>
-                          <Common.Expired />
-                        </div>
-                      ) : null}
-                    </li>
-                  </ul>
-                </li>
-                <li className='col bounty-text'>
-                  <div className='name'>
-                    <BungieText value={definitionItem.displayProperties?.name} textOnly energy />
-                  </div>
-                  <BungieText className='description' value={definitionItem.displayProperties?.description} energy />
-                </li>
-                <li className='col objectives'>{objectives}</li>
-                <li className='col reward-items'>
-                  <ul className='list inventory-items'>
-                    <Items items={definitionItem.value?.itemValue?.filter((item) => item.itemHash !== 0)} noBorder hideQuantity />
-                  </ul>
-                </li>
-                <li className='col expires'>
-                  <div>{!completed && expirationDate ? timestampExpiry > timestamp ? <>{duration(timestampToDuration(expirationDate), { relative: true })}</> : <>{t('Expired')}</> : '–'}</div>
-                </li>
-              </ul>
-            </li>
-          ) : (
-            <li
-              className={cx(
-                {
-                  linked: true,
-                  tooltip: true,
-                  completed,
-                  expired,
-                  tracked,
-                  masterworked,
-                  exotic: definitionItem.inventory?.tierType === 6,
-                },
-                bucketName
-              )}
-              data-hash={item.itemHash}
-              data-instanceid={item.itemInstanceId}
-              data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
-            >
-              <div className='icon'>
-                <ObservedImage className='image' src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
-              </div>
-              {tracked ? (
-                <div className='track'>
-                  <Common.Tracking />
-                </div>
-              ) : null}
-              {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory?.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-              {completed ? (
-                <div className='completed'>
-                  <Common.Completed />
-                </div>
-              ) : null}
-              {expired || expiresSoon ? (
-                <div className='expired'>
-                  <Common.Expired />
-                </div>
-              ) : null}
-              {!completed ? <ProgressBar objectiveHash={item.itemComponents.objectives[0].objectiveHash} progress={objectivesProgress} completionValue={objectivesCompletionValue} hideCheck /> : null}
-            </li>
-          )
-        ) : (
-          <li
-            key={item.itemHash}
-            className={cx('linked', {
-              tooltip: viewport.width > 600,
-              exotic: definitionItem.inventory?.tierType === 6,
-              completed,
-              expired,
-              tracked,
-            })}
-            data-hash={item.itemHash}
-            data-instanceid={item.itemInstanceId}
-            data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
-          >
-            <ul className='list inventory-items'>
-              <li key={item.itemHash} className={cx({ masterworked }, bucketName)}>
-                <div className='icon'>
-                  <ObservedImage src={definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`} />
-                </div>
-                {item.quantity && item.quantity > 1 ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{item.quantity}</div> : null}
-                {completed ? <div className='completed' /> : null}
-                {expired || expiresSoon ? <div className='expired' /> : null}
-              </li>
-            </ul>
-            {definitionItem.itemType === enums.DestinyItemType.QuestStep || definitionItem.itemType === enums.DestinyItemType.QuestStepComplete || definitionItem.itemType === enums.DestinyItemType.Quest ? (
-              <div className='track' onClick={this.handler_toggleTrack(item)}>
-                <Common.Tracking />
-              </div>
-            ) : null}
-            <div className='text'>
-              <div className='name'>{questLineName || definitionItem.displayProperties.name}</div>
-              <BungieText className='description' value={definitionItem.displayProperties.description} single trim='70' />
-            </div>
-            {!expired && item.itemComponents?.objectives?.length ? (
-              <ProgressBar
-                objectiveHash={item.itemComponents?.objectives[0].objectiveHash}
-                progress={item.itemComponents?.objectives.reduce((acc, curr) => {
-                  return acc + curr.progress;
-                }, 0)}
-                completionValue={item.itemComponents?.objectives.reduce((acc, curr) => {
-                  return acc + curr.completionValue;
-                }, 0)}
-                hideCheck
-                hideFraction
-                hideDescription
-              />
-            ) : null}
-            <ProfileLink to={`/quests/${filter}/${item.itemHash}`} />
-          </li>
-        );
-
       return {
         ...item,
         sorts: {
@@ -283,7 +340,7 @@ class Quests extends React.Component {
           objectives: objectivesCompletionValue === 0 ? -1 : objectivesProgress / objectivesCompletionValue,
           timestampExpiry: (objectivesCompletionValue !== 0 && timestampExpiry) || 10000 * 10000 * 10000 * 10000,
         },
-        element,
+        element: <QuestItem key={i} filter={filter} item={item} />,
       };
     });
   };

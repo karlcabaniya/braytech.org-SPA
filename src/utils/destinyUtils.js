@@ -701,15 +701,11 @@ export function lastPlayerActivity(member) {
         // Scored Nightfall Strikes
 
         lastActivityString = definitionActivity.selectionScreenDisplayProperties?.name ? `${definitionActivityMode.displayProperties.name}: ${definitionActivity.selectionScreenDisplayProperties.name}` : `${definitionActivityMode.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
-      } else if (lastActivity.currentActivityModeHash === 2319502047) {
-        // The Sundial
-
-        lastActivityString = `${definitionActivity.displayProperties.name}`;
       } else if (definitionActivity.activityTypeHash === 838603889) {
         // Forge Ignition
 
         lastActivityString = `${definitionActivity.displayProperties.name}: ${definitionActivityPlaylist.displayProperties.name}`;
-      } else if (definitionPlace && definitionActivity.placeHash === 4148998934) {
+      } else if (definitionActivity.activityTypeHash === 3005692706 && definitionActivity.placeHash === 4148998934) {
         // The Reckoning
 
         lastActivityString = `${definitionActivity.displayProperties.name}`;
@@ -727,6 +723,10 @@ export function lastPlayerActivity(member) {
         lastActivityString = definitionActivity.displayProperties.name;
       } else if (definitionActivityPlaylist?.hash === 2032534090) {
         // Convert Story: The Shattered Throne -> Dungeon: The Shattered Throne
+
+        lastActivityString = `${manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name}: ${definitionActivity.displayProperties.name}`;
+      } else if (definitionActivityPlaylist?.hash === 4148187374) {
+        // Convert Raid: Prophecy -> Dungeon: Prophecy
 
         lastActivityString = `${manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name}: ${definitionActivity.displayProperties.name}`;
       } else if (definitionActivityMode && definitionActivity?.placeHash !== 2961497387) {

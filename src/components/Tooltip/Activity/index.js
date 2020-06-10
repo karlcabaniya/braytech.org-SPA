@@ -93,7 +93,8 @@ function activityType(hash, modeHash, playlistHash) {
       className: 'strike',
       icon: <Tooltips.Strike />,
     };
-  } else if (activityModeHashes.includes(608898761)) {
+  } // Dunegons and explicitly catch Prophecy dungeon
+  else if (activityModeHashes.includes(608898761) || definitionActivity.hash === 4148187374) {
     return {
       ...defaults,
       name: definitionActivityPlaylist?.originalDisplayProperties?.name || definitionActivityPlaylist?.displayProperties.name || definitionActivity.displayProperties.name,
