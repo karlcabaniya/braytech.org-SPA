@@ -49,7 +49,7 @@ class QuestItem extends React.Component {
   state = {};
 
   static getDerivedStateFromProps(p, s) {
-    if (s.tracked) {
+    if (s.tracked !== undefined) {
       return null;
     }
 
