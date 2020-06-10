@@ -197,57 +197,63 @@ export const DestinyStatCategory = {
 const flagEnum = (state, value) => !!(state & value);
 
 export const enumerateDestinyGameVersions = (state) => ({
-  none: flagEnum(state, 0),
-  base: flagEnum(state, 1),
-  osiris: flagEnum(state, 2),
-  warmind: flagEnum(state, 4),
-  forsaken: flagEnum(state, 8),
-  forsakenAnnualPass: flagEnum(state, 16),
-  shadowkeep: flagEnum(state, 32),
+  None: flagEnum(state, 0),
+  Base: flagEnum(state, 1),
+  Osiris: flagEnum(state, 2),
+  Warmind: flagEnum(state, 4),
+  Forsaken: flagEnum(state, 8),
+  ForsakenAnnualPass: flagEnum(state, 16),
+  Shadowkeep: flagEnum(state, 32),
+});
+
+export const enumeratePresentationNodeState = (state) => ({
+  None: flagEnum(state, 0),
+  Invisible: flagEnum(state, 1),
+  Obscured: flagEnum(state, 2),
 });
 
 export const enumerateRecordState = (state) => ({
-  none: flagEnum(state, 0),
-  recordRedeemed: flagEnum(state, 1),
-  rewardUnavailable: flagEnum(state, 2),
-  objectiveNotCompleted: flagEnum(state, 4),
-  obscured: flagEnum(state, 8),
-  invisible: flagEnum(state, 16),
-  entitlementUnowned: flagEnum(state, 32),
-  canEquipTitle: flagEnum(state, 64),
+  None: flagEnum(state, 0),
+  RecordRedeemed: flagEnum(state, 1),
+  RewardUnavailable: flagEnum(state, 2),
+  ObjectiveNotCompleted: flagEnum(state, 4),
+  Obscured: flagEnum(state, 8),
+  Invisible: flagEnum(state, 16),
+  EntitlementUnowned: flagEnum(state, 32),
+  CanEquipTitle: flagEnum(state, 64),
 });
 
 export const enumerateCollectibleState = (state) => ({
-  none: flagEnum(state, 0),
-  notAcquired: flagEnum(state, 1),
-  obscured: flagEnum(state, 2),
-  invisible: flagEnum(state, 4),
-  cannotAffordMaterialRequirements: flagEnum(state, 8),
-  inventorySpaceUnavailable: flagEnum(state, 16),
-  uniquenessViolation: flagEnum(state, 32),
-  purchaseDisabled: flagEnum(state, 64),
+  None: flagEnum(state, 0),
+  NotAcquired: flagEnum(state, 1),
+  Obscured: flagEnum(state, 2),
+  Invisible: flagEnum(state, 4),
+  CannotAffordMaterialRequirements: flagEnum(state, 8),
+  InventorySpaceUnavailable: flagEnum(state, 16),
+  UniquenessViolation: flagEnum(state, 32),
+  PurchaseDisabled: flagEnum(state, 64),
 });
 
 export const enumerateItemState = (state) => ({
-  none: flagEnum(state, 0),
-  locked: flagEnum(state, 1),
-  tracked: flagEnum(state, 2),
-  masterworked: flagEnum(state, 4),
+  None: flagEnum(state, 0),
+  Locked: flagEnum(state, 1),
+  Tracked: flagEnum(state, 2),
+  Masterworked: flagEnum(state, 4),
 });
 
 export const enumerateTransferStatus = (state) => ({
-  canTransfer: flagEnum(state, 0),
-  itemIsEquipped: flagEnum(state, 1),
-  notTransferrable: flagEnum(state, 2),
-  noRoomInDestination: flagEnum(state, 4),
+  CanTransfer: flagEnum(state, 0),
+  ItemIsEquipped: flagEnum(state, 1),
+  NotTransferrable: flagEnum(state, 2),
+  NoRoomInDestination: flagEnum(state, 4),
 });
 
 export const enumeratePartyMemberState = (state) => ({
-  none: flagEnum(state, 0),
-  fireteamMember: flagEnum(state, 1),
-  posseMember: flagEnum(state, 2),
-  groupMember: flagEnum(state, 4),
-  partyLeader: flagEnum(state, 8),
+  None: flagEnum(state, 0),
+  FireteamMember: flagEnum(state, 1),
+  PosseMember: flagEnum(state, 2),
+  GroupMember: flagEnum(state, 4),
+  PartyLeader: flagEnum(state, 8),
 });
 
 export const DestinyGamePrivacySetting = {
@@ -259,56 +265,56 @@ export const DestinyGamePrivacySetting = {
 };
 
 export const enumerateJoinClosedReasons = (state) => ({
-  none: flagEnum(state, 0),
-  inMatchmaking: flagEnum(state, 1),
-  loading: flagEnum(state, 2),
-  soloMode: flagEnum(state, 4),
-  internalReasons: flagEnum(state, 8),
-  disallowedByGameState: flagEnum(state, 16),
-  offline: flagEnum(state, 32768),
+  None: flagEnum(state, 0),
+  InMatchmaking: flagEnum(state, 1),
+  Loading: flagEnum(state, 2),
+  SoloMode: flagEnum(state, 4),
+  InternalReasons: flagEnum(state, 8),
+  DisallowedByGameState: flagEnum(state, 16),
+  Offline: flagEnum(state, 32768),
 });
 
 export const enumerateProgressionRewardItemState = (state) => ({
-  none: flagEnum(state, 0),
-  invisible: flagEnum(state, 1),
-  earned: flagEnum(state, 2),
-  claimed: flagEnum(state, 4),
-  claimAllowed: flagEnum(state, 8),
+  None: flagEnum(state, 0),
+  Invisible: flagEnum(state, 1),
+  Earned: flagEnum(state, 2),
+  Claimed: flagEnum(state, 4),
+  ClaimAllowed: flagEnum(state, 8),
 });
 
 export const enumerateVendorItemStatus = (state) => ({
-  success: flagEnum(state, 0),
-  noInventorySpace: flagEnum(state, 1),
-  noFunds: flagEnum(state, 2),
-  noProgression: flagEnum(state, 4),
-  noUnlock: flagEnum(state, 8),
-  noQuantity: flagEnum(state, 16),
-  outsidePurchaseWindow: flagEnum(state, 32),
-  notAvailable: flagEnum(state, 64),
-  uniquenessViolation: flagEnum(state, 128),
-  unknownError: flagEnum(state, 256),
-  alreadySelling: flagEnum(state, 512),
-  unsellable: flagEnum(state, 1024),
-  sellingInhibited: flagEnum(state, 2048),
-  alreadyOwned: flagEnum(state, 4096),
-  displayOnly: flagEnum(state, 8192),
+  Success: flagEnum(state, 0),
+  NoInventorySpace: flagEnum(state, 1),
+  NoFunds: flagEnum(state, 2),
+  NoProgression: flagEnum(state, 4),
+  NoUnlock: flagEnum(state, 8),
+  NoQuantity: flagEnum(state, 16),
+  OutsidePurchaseWindow: flagEnum(state, 32),
+  NotAvailable: flagEnum(state, 64),
+  UniquenessViolation: flagEnum(state, 128),
+  UnknownError: flagEnum(state, 256),
+  AlreadySelling: flagEnum(state, 512),
+  Unsellable: flagEnum(state, 1024),
+  SellingInhibited: flagEnum(state, 2048),
+  AlreadyOwned: flagEnum(state, 4096),
+  DisplayOnly: flagEnum(state, 8192),
 });
 
 export const enumerateUnlockValueUIStyle = (state) => ({
-  automatic: state === 0,
-  fraction: state === 1,
-  checkbox: state === 2,
-  percentage: state === 3,
-  datetime: state === 4,
-  fractionFloat: state === 5,
-  integer: state === 6,
-  timeDuration: state === 7,
-  hidden: state === 8,
-  multiplier: state === 9,
-  greenPips: state === 10,
-  redPips: state === 11,
-  explicitPercentage: state === 12,
-  rawFloat: state === 13,
+  Automatic: state === 0,
+  Fraction: state === 1,
+  Checkbox: state === 2,
+  Percentage: state === 3,
+  Datetime: state === 4,
+  FractionFloat: state === 5,
+  Integer: state === 6,
+  TimeDuration: state === 7,
+  Hidden: state === 8,
+  Multiplier: state === 9,
+  GreenPips: state === 10,
+  RedPips: state === 11,
+  ExplicitPercentage: state === 12,
+  RawFloat: state === 13,
 });
 
 export const bookCovers = {

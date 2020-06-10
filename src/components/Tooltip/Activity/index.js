@@ -244,15 +244,15 @@ function joinability({ closedReasons, openSlots, privacySetting }, maxParty) {
 
   if (privacySetting > 2) {
     return t('Fireteam closed');
-  } else if (enumeratedClosedReasons.inMatchmaking) {
+  } else if (enumeratedClosedReasons.InMatchmaking) {
     return t('Matchmaking');
-  } else if (enumeratedClosedReasons.soloMode) {
+  } else if (enumeratedClosedReasons.SoloMode) {
     return t('Single player activity');
-  } else if (enumeratedClosedReasons.loading) {
+  } else if (enumeratedClosedReasons.Loading) {
     return t('Match is loading');
   } else if (openSlots < 1 && privacySetting < 2) {
     return t('Fireteam full');
-  } else if (openSlots > 0 && privacySetting < 2 && !(enumeratedClosedReasons.disallowedByGameState || enumeratedClosedReasons.internalReasons || enumeratedClosedReasons.offline)) {
+  } else if (openSlots > 0 && privacySetting < 2 && !(enumeratedClosedReasons.DisallowedByGameState || enumeratedClosedReasons.InternalReasons || enumeratedClosedReasons.Offline)) {
     return `${t('Open fireteam')}${maxParty && maxParty > 1 ? ` (${maxParty - openSlots}/${maxParty})` : ''}`;
   }
 

@@ -56,10 +56,10 @@ class Root extends React.Component {
               if (recordData.intervalObjectives?.length) {
                 if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
               } else {
-                if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+                if (!enumerateRecordState(recordData.state).RecordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
               }
 
-              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return;
+              if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return;
 
               recordData.hash = definitionRecord.hash;
               recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;
@@ -71,8 +71,8 @@ class Root extends React.Component {
         });
       });
 
-      const nodeProgress = states.filter((record) => enumerateRecordState(record.state).recordRedeemed).length;
-      const nodeTotal = states.filter((record) => !enumerateRecordState(record.state).invisible).length;
+      const nodeProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed).length;
+      const nodeTotal = states.filter((record) => !enumerateRecordState(record.state).Invisible).length;
 
       nodes.push(
         <li key={definitionNode.hash} className={cx('linked', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
@@ -95,17 +95,17 @@ class Root extends React.Component {
     sealsParent.children.presentationNodes.forEach((child) => {
       const definitionSeal = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
 
-      if (definitionSeal.redacted) {
-        console.log(`Seal ${child.presentationNodeHash} is redacted`);
+      if (!definitionSeal || definitionSeal.redacted) {
+        console.log(`Seal ${child.presentationNodeHash} is redacted or 404`);
         return;
       }
 
-      const definitionCompletionRecord = definitionSeal.completionRecordHash && manifest.DestinyRecordDefinition[definitionSeal.completionRecordHash];
+      const definitionCompletionRecord = manifest.DestinyRecordDefinition[definitionSeal.completionRecordHash];
 
-      const completionRecordData = definitionSeal && definitionSeal.completionRecordHash && definitionSeal.scope === 1 ? characterRecords[member.characterId].records[definitionSeal.completionRecordHash] : profileRecords[definitionSeal.completionRecordHash];
+      const completionRecordData = definitionSeal.completionRecordHash && definitionSeal.scope === 1 ? characterRecords[member.characterId].records[definitionSeal.completionRecordHash] : profileRecords[definitionSeal.completionRecordHash];
 
       // temporary fix for https://github.com/Bungie-net/api/issues/1167
-      if (completionRecordData && enumerateRecordState(completionRecordData.state).rewardUnavailable && enumerateRecordState(completionRecordData.state).objectiveNotCompleted && child.presentationNodeHash !== 2209950401) {
+      if (completionRecordData && enumerateRecordState(completionRecordData.state).RewardUnavailable && enumerateRecordState(completionRecordData.state).ObjectiveNotCompleted && child.presentationNodeHash !== 2209950401) {
         console.log(`Completion record for seal ${child.presentationNodeHash} says it's no longer available`, enumerateRecordState(completionRecordData.state));
         return;
       }
@@ -128,7 +128,7 @@ class Root extends React.Component {
 
       // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
       if (definitionSeal.hash === 1002334440) {
-        nodeProgress = states.filter((s) => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
+        nodeProgress = states.filter((s) => !enumerateRecordState(s.state).ObjectiveNotCompleted && enumerateRecordState(s.state).RecordRedeemed).length;
         nodeTotal = 23;
       }
 
@@ -197,7 +197,7 @@ class Root extends React.Component {
           <div className='sub-header'>
             <div>{t('Triumphs')}</div>
             <div>
-              {recordsStates.filter((state) => !state.seal).filter((state) => enumerateRecordState(state.state).recordRedeemed).length}/{recordsStates.filter((state) => !state.seal).filter((state) => !enumerateRecordState(state.state).invisible).length}
+              {recordsStates.filter((state) => !state.seal).filter((state) => enumerateRecordState(state.state).RecordRedeemed).length}/{recordsStates.filter((state) => !state.seal).filter((state) => !enumerateRecordState(state.state).Invisible).length}
             </div>
           </div>
           <ul className='list parents'>{nodes}</ul>

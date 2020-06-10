@@ -60,7 +60,7 @@ class Quests extends React.Component {
 
   handler_toggleTrack = (item) => async (e) => {
     const response = await bungie.SetQuestTrackedState({
-      state: !!!enums.enumerateItemState(item.state).tracked,
+      state: !!!enums.enumerateItemState(item.state).Tracked,
       itemId: item.itemInstanceId,
       characterId: this.props.member.characterId,
       membershipType: this.props.member.membershipType,
@@ -88,8 +88,8 @@ class Quests extends React.Component {
       const completed = item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length === 0;
       const expired = !completed && timestamp > timestampExpiry;
       const expiresSoon = !completed && timestamp + 7200 * 1000 > timestampExpiry;
-      const masterworked = enums.enumerateItemState(item.state).masterworked;
-      const tracked = enums.enumerateItemState(item.state).tracked && !(expired || expiresSoon);
+      const masterworked = enums.enumerateItemState(item.state).Masterworked;
+      const tracked = enums.enumerateItemState(item.state).Tracked && !(expired || expiresSoon);
 
       const objectives = definitionItem.objectives?.objectiveHashes?.map((hash, h) => {
         const definitionObjective = manifest.DestinyObjectiveDefinition[hash];

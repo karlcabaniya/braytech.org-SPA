@@ -715,7 +715,7 @@ class Legend extends React.Component {
                       const completionRecordData = definitionSeal && definitionSeal.completionRecordHash && definitionSeal.scope === 1 ? characterRecords[member.characterId].records[definitionSeal.completionRecordHash] : profileRecords[definitionSeal.completionRecordHash];
 
                       // temporary fix for https://github.com/Bungie-net/api/issues/1167
-                      if (completionRecordData && enums.enumerateRecordState(completionRecordData.state).rewardUnavailable && enums.enumerateRecordState(completionRecordData.state).objectiveNotCompleted && child.presentationNodeHash !== 2209950401) {
+                      if (completionRecordData && enums.enumerateRecordState(completionRecordData.state).RewardUnavailable && enums.enumerateRecordState(completionRecordData.state).ObjectiveNotCompleted && child.presentationNodeHash !== 2209950401) {
                         console.log(`Completion record for seal ${child.presentationNodeHash} says it's no longer available`, enums.enumerateRecordState(completionRecordData.state));
                         return;
                       }
@@ -736,7 +736,7 @@ class Legend extends React.Component {
 
                       // // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
                       if (definitionSeal.hash === 1002334440) {
-                        nodeProgress = states.filter(s => !enums.enumerateRecordState(s.state).objectiveNotCompleted && enums.enumerateRecordState(s.state).recordRedeemed).length;
+                        nodeProgress = states.filter(s => !enums.enumerateRecordState(s.state).ObjectiveNotCompleted && enums.enumerateRecordState(s.state).RecordRedeemed).length;
                         nodeTotal = 23;
                       }
 

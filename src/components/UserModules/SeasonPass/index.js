@@ -236,7 +236,7 @@ class SeasonPass extends React.Component {
             return (
               <div key={r.rank} className='rank' data-rank={r.rank}>
                 <ProgressBar hideCheck {...progressData} />
-                <div className={cx('free', { earned: r.free.length && r.free[0].state.earned, claimed: r.free.length && r.free[0].state.claimed, claimAllowed: r.free.length && r.free[0].state.claimAllowed })}>
+                <div className={cx('free', { earned: r.free.length && r.free[0].state.Earned, claimed: r.free.length && r.free[0].state.Claimed, claimAllowed: r.free.length && r.free[0].state.ClaimAllowed })}>
                   <ul className='list inventory-items'>
                     {r.free.length ? (
                       <Items
@@ -250,7 +250,7 @@ class SeasonPass extends React.Component {
                     ) : null}
                   </ul>
                 </div>
-                <div className={cx('premium', { earned: r.premium.length && r.premium[0].state.earned, claimed: r.premium.length && r.premium[0].state.claimed, claimAllowed: r.premium.length && r.premium[0].state.claimAllowed })}>
+                <div className={cx('premium', { earned: r.premium.length && r.premium[0].state.Earned, claimed: r.premium.length && r.premium[0].state.Claimed, claimAllowed: r.premium.length && r.premium[0].state.ClaimAllowed })}>
                   <ul className='list inventory-items'>
                     {r.premium.length ? (
                       <Items

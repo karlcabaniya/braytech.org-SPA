@@ -91,11 +91,11 @@ class PresentationNode extends React.Component {
             if (recordData.intervalObjectives?.length) {
               if (collectibles.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return false;
             } else {
-              if (collectibles.hideUnobtainableRecords && !enumerateRecordState(recordData.state).recordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (collectibles.hideUnobtainableRecords && !enumerateRecordState(recordData.state).RecordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
             }
 
             // skip those with the state of...
-            if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+            if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
 
             return recordData;
           })
@@ -109,8 +109,8 @@ class PresentationNode extends React.Component {
           }
         }
 
-        const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).recordRedeemed).length;
-        const secondaryTotal = collectibles && collectibles.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).invisible).length : states.length;
+        const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed).length;
+        const secondaryTotal = collectibles && collectibles.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).Invisible).length : states.length;
 
         if (secondaryTotal === 0) {
           return null;
@@ -139,9 +139,9 @@ class PresentationNode extends React.Component {
         if (recordData.intervalObjectives?.length) {
           if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
         } else {
-          if (!enumerateRecordState(recordData.state).recordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          if (!enumerateRecordState(recordData.state).RecordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
         }
-        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).obscured || enumerateRecordState(recordData.state).invisible)) return false;
+        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
 
         return true;
       })

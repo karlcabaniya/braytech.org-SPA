@@ -110,15 +110,15 @@ export function displayValue(value = '', objectiveHash, styleOverride = 0) {
 
   // console.log(manifest.DestinyObjectiveDefinition[objectiveHash]?.inProgressValueStyle, enumerated)
 
-  if (enumerated.percentage || enumerated.explicitPercentage) {
+  if (enumerated.Percentage || enumerated.ExplicitPercentage) {
     return `${value}%`;
   }
 
-  if (enumerated.rawFloat) {
+  if (enumerated.RawFloat) {
     return (value / 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
-  if (enumerated.timeDuration) {
+  if (enumerated.TimeDuration) {
     const duration = unixTimestampToDuration(value);
 
     return `${duration.hours}:${duration.minutes.toString().padStart(2, '0')}:${duration.seconds.toString().padStart(2, '0')}`;

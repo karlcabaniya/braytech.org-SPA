@@ -27,7 +27,7 @@ export const masterwork = item => {
   let masterworkInfo = null;
 
   // Pre-Forsaken Masterwork
-  if (enums.enumerateItemState(item.state).masterworked) {
+  if (enums.enumerateItemState(item.state).Masterworked) {
     masterworkInfo = buildMasterworkInfo(item.sockets);
   }
 

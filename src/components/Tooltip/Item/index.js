@@ -132,8 +132,8 @@ function Item(props) {
     }
   }
 
-  const masterworked = enums.enumerateItemState(item.itemState).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
-  const locked = enums.enumerateItemState(item.itemState).locked;
+  const masterworked = enums.enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const locked = enums.enumerateItemState(item.itemState).Locked;
 
   return (
     <>

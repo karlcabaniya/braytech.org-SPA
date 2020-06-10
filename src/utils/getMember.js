@@ -28,6 +28,7 @@ async function getMember(membershipType, membershipId, silent = false) {
     308,  // ItemPlugStates
     309,  // ItemPlugObjectives
     310,  // ItemReusablePlugs
+    700,  // PresentationNodes
     800,  // Collectibles
     900,  // Records
     1100, // Metrics

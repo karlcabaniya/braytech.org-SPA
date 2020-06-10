@@ -45,9 +45,9 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
 
     const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enums.enumerateVendorItemStatus(item.saleStatus);
 
-    const masterworked = enums.enumerateItemState(item.state).masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
-    const locked = enums.enumerateItemState(item.state).locked;
-    const tracked = enums.enumerateItemState(item.state).tracked;
+    const masterworked = enums.enumerateItemState(item.state).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
+    const locked = enums.enumerateItemState(item.state).Locked;
+    const tracked = enums.enumerateItemState(item.state).Tracked;
 
     const ornamentSocket = item.sockets && getOrnamentSocket(item.sockets);
 
@@ -67,7 +67,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
               tracked,
               exotic: definitionItem.inventory && definitionItem.inventory.tierType === 6,
               'no-border': (definitionItem.uiItemDisplayStyle === 'ui_display_style_engram' && item.bucketHash !== 3284755031) || (definitionItem.itemCategoryHashes && definitionItem.itemCategoryHashes.includes(268598612)) || (definitionItem.itemCategoryHashes && definitionItem.itemCategoryHashes.includes(18)) || noBorder,
-              unavailable: (vendorItemStatus && !vendorItemStatus.success) || item.unavailable,
+              unavailable: (vendorItemStatus && !vendorItemStatus.Success) || item.unavailable,
             },
             `item-type-${definitionItem.itemType || 0}`
           )}

@@ -103,11 +103,11 @@ class Read extends React.Component {
                         return null;
                       }
 
-                      const state = enumerateRecordState(this.recordState(record.recordHash));
+                      const enumeratedState = enumerateRecordState(this.recordState(record.recordHash));
 
                       return (
                         <li key={r} className='linked'>
-                          <div className='text'>{!state.recordRedeemed ? '???' : definitionRecord.displayProperties.name}</div>
+                          <div className='text'>{!enumeratedState.RecordRedeemed ? '???' : definitionRecord.displayProperties.name}</div>
                           <Link to={`/read/record/${record.recordHash}`} />
                         </li>
                       );

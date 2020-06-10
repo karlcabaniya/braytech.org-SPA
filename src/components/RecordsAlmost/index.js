@@ -65,10 +65,10 @@ class RecordsAlmost extends React.Component {
         return;
       }
 
-      const recordState = enumerateRecordState(recordData.state);
+      const enumeratedState = enumerateRecordState(recordData.state);
 
-      if (recordState.recordRedeemed || !recordState.objectiveNotCompleted) return;
-      if (collectibles.hideInvisibleRecords && (recordState.obscured || recordState.invisible)) return;
+      if (enumeratedState.RecordRedeemed || !enumeratedState.ObjectiveNotCompleted) return;
+      if (collectibles.hideInvisibleRecords && (enumeratedState.Obscured || enumeratedState.Invisible)) return;
 
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;

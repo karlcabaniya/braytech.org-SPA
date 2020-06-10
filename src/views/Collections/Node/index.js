@@ -118,8 +118,8 @@ class PresentationNode extends React.Component {
           }
         };
 
-        const secondaryProgress = states.filter((state) => !enums.enumerateCollectibleState(state).notAcquired).length;
-        const secondaryTotal = collectibles && collectibles.hideInvisibleCollectibles ? states.filter((state) => !enums.enumerateCollectibleState(state).invisible).length : states.length;
+        const secondaryProgress = states.filter((state) => !enums.enumerateCollectibleState(state).NotAcquired).length;
+        const secondaryTotal = collectibles && collectibles.hideInvisibleCollectibles ? states.filter((state) => !enums.enumerateCollectibleState(state).Invisible).length : states.length;
 
         return (
           <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>

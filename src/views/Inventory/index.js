@@ -41,7 +41,7 @@ const equipItem = (member) => (item) => async (e) => {
 };
 
 function itemsInBucket(inventory, bucketHash, equipped) {
-  return inventory.filter((item) => item.bucketHash === bucketHash && (equipped ? enums.enumerateTransferStatus(item.transferStatus).itemIsEquipped : !enums.enumerateTransferStatus(item.transferStatus).itemIsEquipped));
+  return inventory.filter((item) => item.bucketHash === bucketHash && (equipped ? enums.enumerateTransferStatus(item.transferStatus).ItemIsEquipped : !enums.enumerateTransferStatus(item.transferStatus).ItemIsEquipped));
 }
 
 const bucketsWeapons = [enums.DestinyInventoryBucket.KineticWeapons, enums.DestinyInventoryBucket.EnergyWeapons, enums.DestinyInventoryBucket.PowerWeapons];

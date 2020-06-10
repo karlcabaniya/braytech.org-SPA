@@ -110,8 +110,8 @@ class Collectibles extends React.Component {
             const state = scope?.state || 0;
 
             if (
-              (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
-              (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+              (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+              (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
             ) {
               set.push({
                 hash: definitionCollectible.hash,
@@ -151,7 +151,7 @@ class Collectibles extends React.Component {
                   <li
                     key={c}
                     className={cx('item', 'tooltip', {
-                      completed: !enumerateCollectibleState(state).notAcquired && !enumerateCollectibleState(state).invisible,
+                      completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                     })}
                     data-hash={definitionCollectible.itemHash}
@@ -172,7 +172,7 @@ class Collectibles extends React.Component {
 
           const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.ref_scrollTo : null;
 
-          if (collectibles.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).invisible).length === set.length) {
+          if (collectibles.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length === set.length) {
             return;
           }
 
@@ -181,7 +181,7 @@ class Collectibles extends React.Component {
               key={n}
               ref={ref}
               className={cx('is-set', {
-                completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).notAcquired).length === set.length,
+                completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length,
               })}
             >
               <div className='text'>
@@ -190,9 +190,9 @@ class Collectibles extends React.Component {
               <div className='set'>
                 {set.filter((collectible) => collectible.element).length ? ( // collectibles avaiable to display
                   <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
-                ) : collectibles.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).notAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
+                ) : collectibles.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
                   <div className='info'>{t('All acquired')}</div>
-                ) : <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).invisible).length })}</div>}
+                ) : <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>}
               </div>
             </li>
           );
@@ -205,8 +205,8 @@ class Collectibles extends React.Component {
           const state = scope?.state || 0;
 
           if (
-            (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
-            (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+            (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+            (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
           ) {
             return;
           }
@@ -246,7 +246,7 @@ class Collectibles extends React.Component {
                   key={c}
                   ref={ref}
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
-                    completed: !enumerateCollectibleState(state).notAcquired,
+                    completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                   })}
                   data-hash={definitionCollectible.itemHash}
@@ -289,8 +289,8 @@ class Collectibles extends React.Component {
         const state = scope?.state || 0;
 
         if (
-          (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).invisible && !showInvisible) || // hide invisibles
-          (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).notAcquired && !showCompleted) // hide completed
+          (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+          (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
         ) {
           return;
         }
@@ -308,7 +308,7 @@ class Collectibles extends React.Component {
               className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
                 tooltip: viewport.width <= 600 && link && selfLinkFrom && !forceTooltip ? false : true,
                 linked: link && selfLinkFrom,
-                completed: !enumerateCollectibleState(state).notAcquired,
+                completed: !enumerateCollectibleState(state).NotAcquired,
               })}
               data-hash={definitionCollectible.itemHash}
             >

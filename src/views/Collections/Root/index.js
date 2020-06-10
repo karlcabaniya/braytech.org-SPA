@@ -69,8 +69,8 @@ class Root extends React.Component {
         });
       });
 
-      const nodeProgress = states.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length;
-      const nodeTotal = states.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length;
+      const nodeProgress = states.filter((collectible) => !enumerateCollectibleState(collectible).NotAcquired).length;
+      const nodeTotal = states.filter((collectible) => !enumerateCollectibleState(collectible).Invisible).length;
 
       nodes.push(
         <div key={definitionNode.hash} className={cx('node', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
@@ -116,11 +116,11 @@ class Root extends React.Component {
       });
 
       const classTotal = classStates.reduce((a, obj) => {
-        return Math.max(a, obj.states.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length);
+        return Math.max(a, obj.states.filter((collectible) => !enumerateCollectibleState(collectible).Invisible).length);
       }, 0);
 
       classStates.forEach((obj) => {
-        if (obj.states.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length === classTotal) {
+        if (obj.states.filter((collectible) => !enumerateCollectibleState(collectible).NotAcquired).length === classTotal) {
           fullComplete += 1;
           semiComplete = true;
         }
@@ -156,7 +156,7 @@ class Root extends React.Component {
           <div className='sub-header'>
             <div>{t('Items')}</div>
             <div>
-              {collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).notAcquired).length}/{collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).invisible).length}
+              {collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).NotAcquired).length}/{collectionsStates.filter((collectible) => !enumerateCollectibleState(collectible).Invisible).length}
             </div>
           </div>
           <div className='node'>

@@ -34,7 +34,7 @@ class RecordsTracked extends React.Component {
           state = 0;
         }
 
-        return !enumerateRecordState(state).recordRedeemed && enumerateRecordState(state).objectiveNotCompleted
+        return !enumerateRecordState(state).RecordRedeemed && enumerateRecordState(state).ObjectiveNotCompleted
 
       });
 

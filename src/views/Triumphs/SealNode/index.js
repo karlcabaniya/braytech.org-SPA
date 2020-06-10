@@ -42,7 +42,7 @@ class SealNode extends React.Component {
 
     // MOMENTS OF TRIUMPH: MMXIX does not have the above ^
     if (definitionSeal.hash === 1002334440) {
-      progress = states.filter((s) => !enumerateRecordState(s.state).objectiveNotCompleted && enumerateRecordState(s.state).recordRedeemed).length;
+      progress = states.filter((s) => !enumerateRecordState(s.state).ObjectiveNotCompleted && enumerateRecordState(s.state).RecordRedeemed).length;
       total = 23;
     }
 

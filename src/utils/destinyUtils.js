@@ -65,8 +65,9 @@ export function collectionTotal(data) {
   let profileTempCollections = {};
 
   for (const [hash, collectible] of Object.entries(data.profileCollectibles.data.collectibles)) {
-    let collectibleState = enums.enumerateCollectibleState(collectible.state);
-    if (!collectibleState.notAcquired) {
+    const collectibleState = enums.enumerateCollectibleState(collectible.state);
+
+    if (!collectibleState.NotAcquired) {
       if (!profileTempCollections[hash]) {
         profileTempCollections[hash] = 1;
       }
@@ -75,8 +76,9 @@ export function collectionTotal(data) {
 
   for (const [characterId, character] of Object.entries(data.characterCollectibles.data)) {
     for (const [hash, collectible] of Object.entries(character.collectibles)) {
-      let collectibleState = enums.enumerateCollectibleState(collectible.state);
-      if (!collectibleState.notAcquired) {
+      const collectibleState = enums.enumerateCollectibleState(collectible.state);
+      
+      if (!collectibleState.NotAcquired) {
         if (!profileTempCollections[hash]) {
           profileTempCollections[hash] = 1;
         }
@@ -198,7 +200,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       unlock: {
         text: 'Requires Destiny 2',
       },
-      eligible: owned[versionHash],
+      eligible: owned.Base,
       displayProperties: {
         icon: SVG.Campaign.RedWar,
       },
@@ -209,7 +211,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       unlock: {
         text: t('Requires Destiny 2: Curse of Osiris'),
       },
-      eligible: owned[versionHash],
+      eligible: owned.Osiris,
       displayProperties: {
         icon: SVG.Campaign.CurseOfOsiris,
       },
@@ -220,7 +222,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       unlock: {
         text: t('Requires Destiny 2: Warmind'),
       },
-      eligible: owned[versionHash],
+      eligible: owned.Warmind,
       displayProperties: {
         icon: SVG.Campaign.Warmind,
       },
@@ -231,7 +233,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       unlock: {
         text: t('Requires Destiny 2: Forsaken'),
       },
-      eligible: owned[versionHash],
+      eligible: owned.Forsaken,
       displayProperties: {
         icon: SVG.Campaign.Forsaken,
       },
@@ -242,7 +244,7 @@ export const gameVersion = (versionsOwned, versionHash) => {
       unlock: {
         text: t('Requires Destiny 2: Shadowkeep'),
       },
-      eligible: owned[versionHash],
+      eligible: owned.Shadowkeep,
       displayProperties: {
         icon: SVG.Campaign.Shadowkeep,
       },

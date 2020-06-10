@@ -721,7 +721,7 @@ function presentationItems(presentationHash, dropFirst = true) {
 
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
 
-      const completed = enumerableState && !enumerateRecordState(enumerableState).objectiveNotCompleted;
+      const completed = enumerableState && !enumerateRecordState(enumerableState).ObjectiveNotCompleted;
 
       return {
         ...entry,

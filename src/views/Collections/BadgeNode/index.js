@@ -87,11 +87,11 @@ class BadgeNode extends React.Component {
 
     let completed = 0;
     const classTotal = classStates.reduce((a, obj) => {
-      return Math.max(a, obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).invisible).length);
+      return Math.max(a, obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).Invisible).length);
     }, 0);
     
     const progress = classStates.map((obj, i) => {
-      if (obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).notAcquired).length === classTotal) {
+      if (obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).NotAcquired).length === classTotal) {
         completed++;
       }
 
@@ -105,18 +105,18 @@ class BadgeNode extends React.Component {
           <div className='text'>
             <div className='title'>{obj.name}</div>
             <div className='fraction'>
-              {obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).notAcquired).length}/{classTotal}
+              {obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).NotAcquired).length}/{classTotal}
             </div>
           </div>
           <div
             className={cx('bar', {
-              completed: obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).notAcquired).length === classTotal
+              completed: obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).NotAcquired).length === classTotal
             })}
           >
             <div
               className='fill'
               style={{
-                width: `${(obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).notAcquired).length / classTotal) * 100}%`
+                width: `${(obj.states.filter(collectible => !enums.enumerateCollectibleState(collectible).NotAcquired).length / classTotal) * 100}%`
               }}
             />
           </div>
