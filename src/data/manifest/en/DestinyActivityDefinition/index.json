@@ -171,5 +171,9 @@
     "activityLightLevel": 750,
     "activityTypeHash": 608898761,
     "activityModeHashes": [608898761]
+  },
+  "4148187374": {
+    "activityModeHashes": [608898761],
+    "directActivityModeHash": 608898761
   }
 }

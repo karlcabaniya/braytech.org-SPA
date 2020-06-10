@@ -677,6 +677,14 @@ button.square.active {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 
+html.no-backdrop-filter .wrapper .sticky-nav {
+  background-color: hsla(0, 0%, 83%, 0.6);
+}
+
+html.no-backdrop-filter .wrapper.dark  .sticky-nav {
+  background-color: hsla(0, 0%, 3%, 0.8);
+}
+
 @keyframes animation-background-highlight {
   0% {
     background-color: rgba(255, 255, 255, 0.1);

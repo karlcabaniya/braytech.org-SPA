@@ -63,7 +63,7 @@ class QuestItem extends React.Component {
   handler_toggleTrack = (item) => async (e) => {
     const tracked = this.state.tracked;
 
-    this.setState(state => ({ tracked: !tracked }));
+    this.setState({ tracked: !tracked });
 
     const response = await bungie.SetQuestTrackedState({
       state: !tracked,
@@ -73,12 +73,12 @@ class QuestItem extends React.Component {
     });
 
     if (response?.ErrorCode !== 1) {
-      this.setState(state => ({ tracked }));
+      this.setState({ tracked });
     }
   };
 
   render() {
-    const { member, viewport, filter, item } = this.props;
+    const { viewport, filter, item } = this.props;
 
     const timestamp = new Date().getTime();
 
