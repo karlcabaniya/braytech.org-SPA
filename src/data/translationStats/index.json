@@ -1,86 +1,125 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 10,
-    "added": [],
+    "notTranslated": 12,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 704,
+    "translated": 706,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "en": {
-    "translated": 704,
+    "translated": 706,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 699,
-    "notTranslated": 5,
-    "added": [],
+    "translated": 704,
+    "notTranslated": 2,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "es": {
-    "translated": 699,
-    "notTranslated": 5,
-    "added": [],
+    "translated": 704,
+    "notTranslated": 2,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "fr": {
     "translated": 625,
-    "notTranslated": 79,
-    "added": [],
+    "notTranslated": 81,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "it": {
     "translated": 636,
-    "notTranslated": 68,
-    "added": [],
+    "notTranslated": 70,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "ja": {
     "translated": 604,
-    "notTranslated": 100,
-    "added": [],
+    "notTranslated": 102,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "ko": {
     "translated": 515,
-    "notTranslated": 189,
-    "added": [],
+    "notTranslated": 191,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 702,
-    "added": [],
+    "notTranslated": 704,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "pt-br": {
     "translated": 621,
-    "notTranslated": 83,
-    "added": [],
+    "notTranslated": 85,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "ru": {
-    "translated": 691,
-    "notTranslated": 13,
-    "added": [],
+    "translated": 704,
+    "notTranslated": 2,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 488,
-    "notTranslated": 216,
-    "added": [],
+    "notTranslated": 218,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 350,
-    "notTranslated": 354,
-    "added": [],
+    "notTranslated": 356,
+    "added": [
+      "Power limit",
+      "Progress"
+    ],
     "removed": []
   }
 }

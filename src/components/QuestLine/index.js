@@ -62,7 +62,7 @@ function questFilters(key) {
         description: t('Quests from the current season'),
         icon: <Views.Quests.Seasonal />,
       },
-      preview: '/static/images/extracts/ui/quests/01E3-06C0.png',
+      preview: '/static/images/extracts/ui/quests/01e3-00001729.png',
     };
   } else if (key === 'expansion') {
     return {

@@ -113,14 +113,14 @@ class AppLoading extends React.Component {
         <div className='view' id='loading'>
           <div className='bg'>
             <div className='containment'>
-              <Loading.WarmindHalf />
+              {/* <Loading.WarmindHalf /> */}
             </div>
           </div>
           <div className='logo'>
             <Common.Braytech />
           </div>
           <div className='version'>
-            <div><span>S10</span> Clovis Bray ++{packageJSON.version}</div>
+            <div><span>S11</span> Clovis Bray ++{packageJSON.version}</div>
             <Loading.ClovisBray />
           </div>
           <div className='text'>
@@ -128,7 +128,7 @@ class AppLoading extends React.Component {
             <div className={cx('status', { error: isError })}>
               {!isError ? (
                 <div>
-                  <Spinner mini dark />
+                  <Spinner mini />
                 </div>
               ) : null}
               <div>{status}</div>
