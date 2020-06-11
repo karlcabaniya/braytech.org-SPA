@@ -40,6 +40,7 @@ export const manifestTableNames = [
   'DestinyBreakerTypeDefinition',
   'DestinyChecklistDefinition',
   'DestinyEnergyTypeDefinition',
+  'DestinyPowerCapDefinition',
 ];
 
 export const platforms = {
@@ -55,6 +56,16 @@ export const classStrings = {
   0: 'titan',
   1: 'hunter',
   2: 'warlock',
+};
+
+export const DestinyTierType = {
+  Unknown: 0,
+  Currency: 1,
+  Basic: 2,
+  Common: 3,
+  Rare: 4,
+  Superior: 5,
+  Exotic: 6,
 };
 
 export const DestinyItemType = {
@@ -365,7 +376,7 @@ export const sealImages = {
   2039028930: '0560-000000EB.png',
   991908404: '0560-0000107E.png',
   3170835069: '0560-00006583.png',
-  1002334440: '0560-00007495.png', // Moments of Triumph: MMXIX 
+  1002334440: '0560-00007495.png', // Moments of Triumph: MMXIX
   3303651244: '0597_057C_00.png',
   4097789885: '0597_0573_00.png',
   2209950401: '0597_056A_00.png',

@@ -23,18 +23,18 @@ class Test extends React.Component {
 
     window.scrollTo(0, 0);
 
-    const oof = [];
+    // const oof = [];
 
-    Object.values(manifest.DestinyObjectiveDefinition).forEach(definition => {
-      if (definition.progressDescription.indexOf('[') > -1) {
-        const lol = stringToIcons(definition.progressDescription);
-        
-        if (lol[0].indexOf('[') > -1) console.log(definition.hash, lol)
-        if (lol[0].indexOf('[') > -1) oof.push({ objectiveHash: definition.hash, unicode: 'lol', substring: definition.progressDescription })
-      }
-    });
+    // Object.values(manifest.DestinyObjectiveDefinition).forEach((definition) => {
+    //   if (definition.progressDescription.indexOf('[') > -1) {
+    //     const lol = stringToIcons(definition.progressDescription);
 
-    console.log(JSON.stringify(oof))
+    //     if (lol[0].indexOf('[') > -1) console.log(definition.hash, lol);
+    //     if (lol[0].indexOf('[') > -1) oof.push({ objectiveHash: definition.hash, unicode: 'lol', substring: definition.progressDescription });
+    //   }
+    // });
+
+    // console.log(JSON.stringify(oof));
   }
 
   componentWillUnmount() {
@@ -47,8 +47,14 @@ class Test extends React.Component {
         <div id='tooltip' className='visible'>
           <Item hash='2408405461' />
         </div>
-        {/* <div id='tooltip' className='visible'>
+        <div id='tooltip' className='visible'>
           <Item hash='1600633250' />
+        </div>
+        <div id='tooltip' className='visible'>
+          <Item hash='572122304' />
+        </div>
+        <div id='tooltip' className='visible'>
+          <Item hash='1498852482' instanceid='6917529116167757369' />
         </div>
         <div id='tooltip' className='visible'>
           <Item hash='3524313097' />
@@ -62,17 +68,11 @@ class Test extends React.Component {
         <div id='tooltip' className='visible'>
           <Item hash='1864563948' />
         </div>
-        <div id='tooltip' className='visible'>
+        {/* <div id='tooltip' className='visible'>
           <Item hash='3899270607' />
         </div>
         <div id='tooltip' className='visible'>
           <Item hash='1852863732' />
-        </div> */}
-        {/* <div id='tooltip' className='visible'>
-          <Item hash='572122304' />
-        </div> */}
-        {/* <div id='tooltip' className='visible'>
-          <Item hash='1498852482' instanceid='6917529116167757369' />
         </div> */}
         {/* <div id='tooltip' className='visible'>
           <Item hash='3948284065' />
@@ -80,9 +80,6 @@ class Test extends React.Component {
         {/* <div id='tooltip' className='visible'>
           <Item hash='3887892656' instanceid='6917529029394206558' />
         </div> */}
-        <div id='tooltip' className='visible'>
-          <Item hash='820036195' />
-        </div>
       </div>
     );
   }

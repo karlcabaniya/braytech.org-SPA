@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import cx from 'classnames';
 
-import { BungieText } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { stringToIcons } from '../../../utils/destinyUtils';
@@ -14,6 +14,9 @@ import ObservedImage from '../../ObservedImage';
 const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex }) => {
   // definition of item
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
+
+  // quality/power cap
+  const powerCap = definitionItem.inventory.tierType === enums.DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 
   // description as flair string
   const flair = definitionItem.displayProperties?.description !== '' && definitionItem.displayProperties.description;
@@ -91,7 +94,21 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
     blocks.push(<BungieText className='flair' value={flair} />);
   }
 
-  if ((primaryStat && displayStats) || (flair && displayStats) || (flair && !displayStats && displaySockets)) blocks.push(<div className='line' />);
+  if ((powerCap && flair) || (primaryStat && powerCap)) blocks.push(<div className='line' />);
+
+  // power cap
+  if (powerCap) {
+    blocks.push(
+      <div className='power-cap'>
+        <div className='text'>
+          <div>{t('Power limit')}</div>
+          <div>{powerCap}</div>
+        </div>
+      </div>
+    );
+  }
+
+  if ((primaryStat && displayStats) || (powerCap && displayStats) || (flair && displayStats) || (flair && !displayStats && displaySockets)) blocks.push(<div className='line' />);
 
   if (masterwork?.objective?.progress) {
     blocks.push(

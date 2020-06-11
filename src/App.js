@@ -233,7 +233,14 @@ class App extends React.Component {
 
     let tmpManifest = null;
 
-    if (!storedManifest || currentVersion !== storedManifest.version) {
+    if (
+      // no manifest available
+      !storedManifest ||
+      // manifest version mismatch
+      currentVersion !== storedManifest.version ||
+      // missing tables
+      enums.manifestTableNames.filter((key) => Object.keys(storedManifest).indexOf(key) === -1).length
+    ) {
       // Manifest missing from IndexedDB or doesn't match the current version -
       // download a new one and store it.
       tmpManifest = await this.downloadNewManifest(currentVersion, paths);
@@ -385,7 +392,7 @@ function mapStateToProps(state) {
   return {
     member: state.member,
     theme: state.theme,
-    visual: state.visual
+    visual: state.visual,
   };
 }
 
