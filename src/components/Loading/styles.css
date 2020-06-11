@@ -27,7 +27,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: hsl(40 40% 60% / 1);
+  background-color: hsl(0 0% 7% / 1);
   display: grid;
   justify-items: right;
   overflow: hidden;
