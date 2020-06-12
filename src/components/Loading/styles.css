@@ -33,10 +33,6 @@
   overflow: hidden;
 }
 
-.wrapper.dark #loading .bg {
-  background-color: hsl(0 0% 7% / 1);
-}
-
 #loading .bg .grad {
   position: absolute;
   left: 0;
