@@ -341,7 +341,7 @@ class Quests extends React.Component {
           objectives: objectivesCompletionValue === 0 ? -1 : objectivesProgress / objectivesCompletionValue,
           timestampExpiry: (objectivesCompletionValue !== 0 && timestampExpiry) || 10000 * 10000 * 10000 * 10000,
         },
-        element: <QuestItem key={i} filter={filter} item={item} />,
+        element: <QuestItem key={item.itemHash} filter={filter} item={item} />,
       };
     });
   };

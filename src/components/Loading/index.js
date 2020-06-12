@@ -112,6 +112,7 @@ class AppLoading extends React.Component {
       return (
         <div className='view' id='loading'>
           <div className='bg'>
+            <div className='grad' />
             <div className='containment'>
               {/* <Loading.WarmindHalf /> */}
             </div>
