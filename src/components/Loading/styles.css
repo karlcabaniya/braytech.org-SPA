@@ -27,11 +27,14 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: hsl(0 0% 7% / 1);
   background-color: hsl(0 0% 100% / 1);
   display: grid;
   justify-items: right;
   overflow: hidden;
+}
+
+.wrapper.dark #loading .bg {
+  background-color: hsl(0 0% 7% / 1);
 }
 
 #loading .bg .grad {
@@ -49,7 +52,16 @@
   background: 
     linear-gradient(217deg, var(--color-a-0), var(--color-a-1) 70.71%), 
     linear-gradient(157deg, var(--color-b-0), var(--color-c-1) 70.71%), 
-    linear-gradient(350deg, var(--color-c-0), var(--color-c-1) 70.71%);
+    linear-gradient(0deg, var(--color-c-0), var(--color-c-1) 90.71%);
+}
+
+#loading .bg .grad {
+  --color-a-0: #d9ded7;
+  --color-a-1: #d9ded700;
+  --color-b-0: #d9ded7;
+  --color-b-1: #d9ded700;
+  --color-c-0: #68854b;
+  --color-c-1: #68854b00;
 }
 
 #loading .bg .containment {
