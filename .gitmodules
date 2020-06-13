@@ -1,0 +1,3 @@
+[submodule "scripts/d2-additional-info"]
+	path = scripts/d2-additional-info
+	url = https://github.com/DestinyItemManager/d2-additional-info

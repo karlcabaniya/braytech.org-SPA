@@ -9,6 +9,7 @@ import { stringToIcons } from '../../../utils/destinyUtils';
 import { damageTypeToAsset, ammoTypeToAsset, breakerTypeToIcon, energyTypeToAsset, energyStatToType } from '../../../utils/destinyConverters';
 import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../../../utils/destinyItems/utils';
 import { statsMs } from '../../../utils/destinyItems/stats';
+import lightcapToSeason from  '../../../data/d2-additional-info/lightcap-to-season.json';
 import ObservedImage from '../../ObservedImage';
 
 const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex }) => {
@@ -102,8 +103,14 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
       <div className='power-cap'>
         <div className='text'>
           <div>{t('Power limit')}</div>
-          <div>{powerCap}</div>
+          <div className='light'>{powerCap}</div>
         </div>
+        {lightcapToSeason[powerCap] ? (
+          <div className='text'>
+            <div>{t('Sunset')}</div>
+            <div>{t('Season {{season}}', { season: lightcapToSeason[powerCap] })}</div>
+          </div>
+        ) : null}
       </div>
     );
   }

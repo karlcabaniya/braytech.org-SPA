@@ -12,6 +12,7 @@ import { commonality } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
 import * as paths from '../../utils/paths';
+import catalystTriumphIcons from  '../../data/d2-additional-info/catalyst-triumph-icons.json';
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
@@ -156,6 +157,16 @@ function recordDescription(hash) {
   } else {
     return '';
   }
+}
+
+function recordIcon(hash) {
+  const definitionRecord = manifest.DestinyRecordDefinition[hash];
+  
+  if (catalystTriumphIcons[hash]) {
+    return catalystTriumphIcons[hash];
+  }
+
+  return definitionRecord.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage;
 }
 
 class Records extends React.Component {
@@ -496,7 +507,7 @@ class Records extends React.Component {
               ) : null}
               <div className='properties'>
                 <div className='icon'>
-                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionRecord.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${recordIcon(definitionRecord.hash)}`} />
                 </div>
                 <div className='text'>
                   <div className='name'>{definitionRecord.displayProperties.name}</div>

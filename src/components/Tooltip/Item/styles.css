@@ -228,25 +228,27 @@
 #tooltip .power-cap,
 #tooltip .kill-tracker {
   padding: 12px 16px;
+  display: grid;
+  row-gap: 6px;
 }
 
 #tooltip .power-cap .text,
 #tooltip .kill-tracker .text {
   display: grid;
-  grid-template-columns: max-content min-content;
+  grid-template-columns: max-content max-content;
   justify-content: space-between;
   font-size: 14px;
   line-height: 1.4;
 }
 
-#tooltip .power-cap .text div:last-child {
+#tooltip .power-cap .text .light:last-child {
   position: relative;
   font-weight: 500;
   font-family: var(--font-text);
   color: #e5d163;
 }
 
-#tooltip .power-cap .text div:last-child::before {
+#tooltip .power-cap .text .light:last-child::before {
   content: 'l';
   position: absolute;
   top: 4px;

@@ -5,7 +5,6 @@ import { SuspenseRoute, slowImport } from '../App';
 import PostmasterCapacity from '../components/Notifications/PostmasterCapacity';
 
 import Archives from '../views/Archives';
-import Eververse from '../views/Archives/Eververse';
 import Manifest from '../views/Archives/Manifest';
 import LastWish from '../views/Archives/LastWish';
 import Grimoire from '../views/Archives/Grimoire';
@@ -24,7 +23,6 @@ class ArchivesRoutes extends React.Component {
         <PostmasterCapacity />
         <Switch>
           <SuspenseRoute path={`${match.url}/legend`} exact component={Legend} />
-          <Route path={`${match.url}/eververse`} component={Eververse} />
           <Route path={`${match.url}/manifest`} component={Manifest} />
           <Route path={`${match.url}/last-wish`} component={LastWish} />
           <SuspenseRoute path={`${match.url}/chalice-of-opulence/debug`} exact component={ChaliceRecipesDebug} />
