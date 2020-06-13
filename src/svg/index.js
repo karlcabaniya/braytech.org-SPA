@@ -132,6 +132,7 @@ import { ReactComponent as CampaignShadowkeep } from './common/campaign_shadowke
 
 import { ReactComponent as ExpansionShadowkeep } from './seasonal/shadowkeep.svg';
 import { ReactComponent as SeasonWorthy } from './seasonal/worthy.svg';
+import { ReactComponent as SeasonArrivals } from './seasonal/arrivals.svg';
 
 import { ReactComponent as WarmindHalf } from './miscellaneous/warmind-half.svg';
 import { ReactComponent as TrialsOfOsirisDevice } from './miscellaneous/trials-of-osiris-device.svg';
@@ -310,7 +311,7 @@ const Views = {
     NewLight: Tricorn,
     All: Story,
     Expansion: ExpansionShadowkeep,
-    Seasonal: SeasonWorthy,
+    Seasonal: SeasonArrivals,
     Playlists,
     Exotics: Engram,
     Past

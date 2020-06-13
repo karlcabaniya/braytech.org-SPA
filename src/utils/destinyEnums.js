@@ -364,6 +364,8 @@ export const bookCovers = {
   2090388805: '0709-00003964.png',
   2454250131: '0912-0FBF.png',
   2410366478: '0912-0FC6.png',
+  1460852227: '0966-10A1.png',
+  1096842912: '0966-1099.png',
 };
 
 export const sealImages = {
@@ -387,6 +389,7 @@ export const sealImages = {
   1617497214: '0912-0F4C.png', // Flawless
   1673689807: '0912-0CDD.png', // Conqueror
   952001576: '0560-00007495.png', // Moments of Triumph 2020
+  2699827342: '0966-105D.png', // Arrivals
 };
 
 export const badgeImages = {
@@ -408,6 +411,7 @@ export const badgeImages = {
   223465203: '0597_048E_00.png',
   4257248973: '0709-00003436.png',
   564984975: '0912-0E95.png',
+  3459575786: '0966-0FF6.png',
 };
 
 export const associationsCollectionsBadgesClasses = {
