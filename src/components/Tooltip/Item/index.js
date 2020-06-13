@@ -159,7 +159,7 @@ function Item(props) {
           </div>
           {importantText ? <div className='highlight major'>{importantText}</div> : null}
           <div className='black'>
-            {(props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) || definitionItem.traitIds.filter(id => id.includes('ornament')).length ? (
+            {(props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) || definitionItem.traitIds?.filter(id => id.includes('ornament')).length ? (
               <div className='screenshot'>
                 <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
               </div>
