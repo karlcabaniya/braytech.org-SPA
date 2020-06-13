@@ -1,124 +1,124 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 12,
+    "notTranslated": 14,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 706,
+    "translated": 708,
     "notTranslated": 0,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "en": {
-    "translated": 706,
+    "translated": 708,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 704,
+    "translated": 706,
     "notTranslated": 2,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "es": {
-    "translated": 704,
+    "translated": 706,
     "notTranslated": 2,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "fr": {
     "translated": 625,
-    "notTranslated": 81,
+    "notTranslated": 83,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "it": {
-    "translated": 636,
-    "notTranslated": 70,
+    "translated": 706,
+    "notTranslated": 2,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "ja": {
     "translated": 604,
-    "notTranslated": 102,
+    "notTranslated": 104,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "ko": {
     "translated": 515,
-    "notTranslated": 191,
+    "notTranslated": 193,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 704,
+    "notTranslated": 706,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 621,
-    "notTranslated": 85,
+    "notTranslated": 87,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "ru": {
-    "translated": 704,
+    "translated": 706,
     "notTranslated": 2,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 488,
-    "notTranslated": 218,
+    "notTranslated": 220,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 350,
-    "notTranslated": 356,
+    "notTranslated": 358,
     "added": [
-      "Power limit",
-      "Progress"
+      "Season {{season}}",
+      "Sunset"
     ],
     "removed": []
   }
