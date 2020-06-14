@@ -21,7 +21,7 @@ class ThisWeek extends React.Component {
   render() {
     const view = (this.props.match.params.view && views[this.props.match.params.view] && this.props.match.params.view) || 'default';
 
-    let ViewComponent = views[view].component;
+    const ViewComponent = views[view].component;
 
     return (
       <div className={cx('view', views[view].name)} id='this-week'>

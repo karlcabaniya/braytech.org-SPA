@@ -45,7 +45,7 @@ class ErrorBoundary extends React.Component {
 
   handler_reload = e => {
     setTimeout(() => {
-      window.location.reload();
+      window.location.replace(new URL(window.location.href).origin);
     }, 50);
   };
 
