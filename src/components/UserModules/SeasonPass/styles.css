@@ -124,6 +124,14 @@
   grid-template-columns: 1fr;
 }
 
+.group.season-pass .wrapper .rewards .rank .list.inventory-items li:not(.no-border)::before {
+  box-shadow: inset 0 0 0 2px rgb(209, 209, 209);
+}
+
+.group.season-pass .wrapper .rewards .rank .list.inventory-items li .quantity {
+  background-color: rgb(209, 209, 209);
+}
+
 .group.season-pass .wrapper .rewards .rank div:not(.earned):not(.claimed):not(.claimAllowed) li {
   opacity: 0.6;
 }

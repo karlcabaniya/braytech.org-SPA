@@ -166,9 +166,17 @@ class SeasonPass extends React.Component {
               } else {
                 return true;
               }
+            } else if (
+              //traveler
+              // check if pre-approved based on traitIds
+              definitionItem.traitIds?.filter((id) => ['emote', 'weapon_ornament'].filter((trait) => id.includes(trait)).length).length ||
+              // check if pre-approved based on plugCategoryIdentifiers
+              ['spawnfx', 'shader'].filter((identifier) => definitionItem.plug?.plugCategoryIdentifier?.includes(identifier)).length
+            ) {
+              return true;
             }
             // if it's not a shader, it might be an armour ornament in which case we only want the one matching our current class
-            else if (definitionItem.plug?.plugCategoryIdentifier && definitionItem.plug.plugCategoryIdentifier !== 'shader') {
+            else if (definitionItem.plug?.plugCategoryIdentifier) {
               const classString = enums.classStrings[character.classType];
 
               if (definitionItem.plug.plugCategoryIdentifier.indexOf(classString) > -1) {

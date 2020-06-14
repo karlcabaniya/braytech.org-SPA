@@ -37,6 +37,8 @@ const hideScreenshotBuckets = [
   1506418338, // artifact
 ];
 
+const forcedScreenshotTraits = ['ornament'];
+
 function Item(props) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[props.hash];
 
@@ -135,6 +137,13 @@ function Item(props) {
   const masterworked = enums.enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
   const locked = enums.enumerateItemState(item.itemState).Locked;
 
+  const showScreenshot =
+    // if viewport is less than 601, item has a screenshot, and hideScreenshotBuckets does not mind this item
+    (props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
+    // if item is one of these fellas, force show screenshot always
+    definitionItem.traitIds?.filter((id) => forcedScreenshotTraits.filter((trait) => id.includes(trait)).length).length ||
+    definitionItem.plug?.plugCategoryIdentifier?.includes('armor_skins');
+
   return (
     <>
       <div className='wrapper'>
@@ -159,7 +168,7 @@ function Item(props) {
           </div>
           {importantText ? <div className='highlight major'>{importantText}</div> : null}
           <div className='black'>
-            {(props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) || definitionItem.traitIds?.filter(id => id.includes('ornament')).length ? (
+            {showScreenshot ? (
               <div className='screenshot'>
                 <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
               </div>
