@@ -20,7 +20,6 @@
     "jsx": "react"
   },
   "include": [
-    "./src/**/*.ts",
-    "./src"    
+    "./src/**/*.ts"
   ]
 }
