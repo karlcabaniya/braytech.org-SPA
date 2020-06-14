@@ -9,7 +9,7 @@ import manifest from '../../utils/manifest';
 import { commonality } from '../../utils/destinyUtils';
 import { ProfileLink } from '../../components/ProfileLink';
 import ObservedImage from '../../components/ObservedImage';
-import { enumerateCollectibleState } from '../../utils/destinyEnums';
+import { enumerateCollectibleState, dcv } from '../../utils/destinyEnums';
 import { energyStatToType, energyTypeToAsset } from '../../utils/destinyConverters';
 
 import './styles.css';
@@ -192,7 +192,9 @@ class Collectibles extends React.Component {
                   <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
                 ) : collectibles.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
                   <div className='info'>{t('All acquired')}</div>
-                ) : <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>}
+                ) : (
+                  <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>
+                )}
               </div>
             </li>
           );
@@ -248,6 +250,7 @@ class Collectibles extends React.Component {
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
+                    red: dcv.includes(definitionCollectible.hash)
                   })}
                   data-hash={definitionCollectible.itemHash}
                 >
@@ -268,10 +271,8 @@ class Collectibles extends React.Component {
         if (collectiblesOutput.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
           collectiblesOutput.push({
             element: (
-              <li key='0' className='all-completed'>
-                <div className='properties'>
-                  <div className='text'>{t('All acquired')}</div>
-                </div>
+              <li key='all-completed' className='all-completed'>
+                <div className='info'>{t('All acquired')}</div>
               </li>
             ),
           });
@@ -329,10 +330,8 @@ class Collectibles extends React.Component {
       if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
         collectiblesOutput.push({
           element: (
-            <li key='0' className='all-completed'>
-              <div className='properties'>
-                <div className='text'>{t('All acquired')}</div>
-              </div>
+            <li key='all-completed' className='all-completed'>
+              <div className='info'>{t('All acquired')}</div>
             </li>
           ),
         });

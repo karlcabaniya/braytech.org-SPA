@@ -167,7 +167,6 @@ class SeasonPass extends React.Component {
                 return true;
               }
             } else if (
-              //traveler
               // check if pre-approved based on traitIds
               definitionItem.traitIds?.filter((id) => ['emote', 'weapon_ornament'].filter((trait) => id.includes(trait)).length).length ||
               // check if pre-approved based on plugCategoryIdentifiers
