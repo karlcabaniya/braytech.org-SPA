@@ -1,7 +1,8 @@
 .list.collection-items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 7px;
+  gap: 7px;
+  align-content: start;
 }
 
 .list.collection-items li {

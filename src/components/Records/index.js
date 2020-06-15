@@ -228,6 +228,7 @@ class Records extends React.Component {
   render() {
     const { settings, lists, hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
+    const supressHighlights = this.props.supressHighlights || settings.supressHighlights;
     const recordsRequested = hashes;
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
@@ -501,7 +502,7 @@ class Records extends React.Component {
                 'no-description': !description,
                 'has-intervals': recordState.intervals.length,
                 selected: settings.lists && lists.records.includes(definitionRecord.hash),
-                expired: isVaultedRecord,
+                expired: !supressHighlights && isVaultedRecord,
               })}
               onClick={settings.lists ? this.props.addToList({ type: 'records', value: definitionRecord.hash }) : undefined}
             >
@@ -541,10 +542,10 @@ class Records extends React.Component {
               {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
-                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden />
+                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} supressHighlights={this.props.supressHighlights} showCompleted showInvisible showHidden />
                 </ul>
               ) : null}
-              {isVaultedRecord && (
+              {!supressHighlights && isVaultedRecord && (
                 <div className='highlight major'>
                   {t('This record will be archived in {{duration}}', {
                     duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),

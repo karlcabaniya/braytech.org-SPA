@@ -88,6 +88,7 @@ class Collectibles extends React.Component {
   render() {
     const { settings, lists, member, collectibles, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
+    const supressHighlights = this.props.supressHighlights || settings.supressHighlights;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
     const characterCollectibles = member.data.profile?.characterCollectibles.data;
@@ -157,14 +158,14 @@ class Collectibles extends React.Component {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                       selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                      expired: isVaultedCollectible,
+                      expired: !supressHighlights && isVaultedCollectible,
                     })}
                     data-hash={definitionCollectible.itemHash}
                     onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                   >
                     <div className='icon'>
                       <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                      {isVaultedCollectible && (
+                      {!supressHighlights && isVaultedCollectible && (
                         <div className='expired'>
                           <Common.Expired />
                         </div>
@@ -265,14 +266,14 @@ class Collectibles extends React.Component {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                     selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                    expired: isVaultedCollectible,
+                    expired: !supressHighlights && isVaultedCollectible,
                   })}
                   data-hash={definitionCollectible.itemHash}
                   onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                 >
                   <div className='icon'>
                     <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                    {isVaultedCollectible && (
+                    {!supressHighlights && isVaultedCollectible && (
                       <div className='expired'>
                         <Common.Expired />
                       </div>
@@ -334,14 +335,14 @@ class Collectibles extends React.Component {
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
                 selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                expired: isVaultedCollectible,
+                expired: !supressHighlights && isVaultedCollectible,
               })}
               data-hash={definitionCollectible.itemHash}
               onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
             >
               <div className='icon'>
                 <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
-                {isVaultedCollectible && (
+                {!supressHighlights && isVaultedCollectible && (
                   <div className='expired'>
                     <Common.Expired />
                   </div>

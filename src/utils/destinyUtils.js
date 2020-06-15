@@ -885,12 +885,12 @@ export function isContentVaulted(hash) {
   for (let content = 0; content < enums.dcv.length; content++) {
     const vault = enums.dcv[content];
 
-    for (let index = 0; index < vault.folders.length; index++) {
-      const folder = vault.folders[index];
+    for (let index = 0; index < vault.activities.length; index++) {
+      const activity = vault.activities[index];
 
       const collectibles = [
-        ...folder.artifacts.collectibles, // static collectibles
-        ...folder.artifacts.nodes
+        ...activity.artifacts.collectibles, // static collectibles
+        ...activity.artifacts.nodes
           .reduce(
             (array, presentationNodeHash) => [
               // derived from presentation nodes
@@ -902,8 +902,8 @@ export function isContentVaulted(hash) {
           .flat(),
       ];
       const records = [
-        ...folder.artifacts.records, // static records
-        ...folder.artifacts.nodes
+        ...activity.artifacts.records, // static records
+        ...activity.artifacts.nodes
           .reduce(
             (array, presentationNodeHash) => [
               // derived from presentation nodes
@@ -927,16 +927,16 @@ export function isContentVaulted(hash) {
 export function isChildOfNodeVaulted(presentationNodeHash) {
   const hashes = getHashesFromNode(presentationNodeHash);
 
-  return hashes.filter(hash => isContentVaulted(hash)).length;
+  return hashes.filter((hash) => isContentVaulted(hash)).length;
 }
 
 function getHashesFromNode(presentationNodeHash) {
   const definitionNode = manifest.DestinyPresentationNodeDefinition[presentationNodeHash];
 
   return [
-    ...definitionNode.children.presentationNodes.map((node) => getHashesFromNode(node.presentationNodeHash)).flat(),
-    ...definitionNode.children.collectibles.map((collectible) => collectible.collectibleHash),
-    ...definitionNode.children.records.map((record) => record.recordHash),
-    ...definitionNode.children.metrics.map((metric) => metric.metricHash),
-  ].filter((hash, index, array) => array.indexOf(hash) === index);
+    ...definitionNode.children.presentationNodes.map((node) => getHashesFromNode(node.presentationNodeHash)).flat(), // Nodes
+    ...definitionNode.children.collectibles.map((collectible) => collectible.collectibleHash), // Collectibles
+    ...definitionNode.children.records.map((record) => record.recordHash), // Records
+    ...definitionNode.children.metrics.map((metric) => metric.metricHash), // Metrics
+  ].filter((hash, index, array) => array.indexOf(hash) === index); // De-dupe
 }

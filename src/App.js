@@ -48,6 +48,7 @@ import Index from './views/Index';
 import CharacterSelect from './views/CharacterSelect';
 import Settings from './views/Settings';
 import FAQ from './views/FAQ';
+import Vaulted from './views/Vaulted';
 import OOB from './views/OOB';
 
 import Read from './views/Read';
@@ -365,6 +366,7 @@ class App extends React.Component {
                   <Route path='/commonality' exact component={Commonality} />
                   <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                   <Route path='/faq' exact component={FAQ} />
+                  <Route path='/vaulted' exact component={Vaulted} />
 
                   <Route path='/oob' component={OOB} />
                   <Route path='/test' component={Test} />

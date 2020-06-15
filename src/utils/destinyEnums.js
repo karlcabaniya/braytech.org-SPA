@@ -1439,7 +1439,8 @@ export const adventures = [
 export const dcv = [
   {
     season: 12,
-    folders: [
+    aside: `The following collectibles and records will be vaulted come September.`,
+    activities: [
       {
         placeHash: 4251857532, // Io
         artifacts: {

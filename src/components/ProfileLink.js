@@ -51,4 +51,4 @@ export const ProfileNavLink = BuildProfileNavLink;
 // };
 
 
-export const neverProfileLinks = ['/maps'];
+export const neverProfileLinks = ['/maps', '/vaulted'];

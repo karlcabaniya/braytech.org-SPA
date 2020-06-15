@@ -1,7 +1,8 @@
 .list.record-items {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 7px;
+  gap: 7px;
+  align-content: start;
 }
 
 .list.record-items li {
@@ -135,7 +136,7 @@
 
 .list.record-items li .objectives .progress-bar.intervals .bar .bars {
   display: grid;
-  grid-gap: 4px;
+  gap: 4px;
   grid-auto-flow: column;
   height: 100%;
   transition: opacity 0.5s;

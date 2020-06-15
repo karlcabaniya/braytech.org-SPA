@@ -214,6 +214,14 @@ class Header extends React.Component {
         group: 1,
       },
       {
+        name: t('The Vault'),
+        desc: t('An exhaustive list of collectibles and records that are pending archival.'),
+        path: '/vaulted',
+        exact: false,
+        profile: false,
+        group: 1,
+      },
+      {
         name: t('Archives'),
         desc: t('Interactive tools, manuals, legends, and other content preserved'),
         path: '/archives',
