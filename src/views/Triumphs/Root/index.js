@@ -7,6 +7,7 @@ import manifest from '../../../utils/manifest';
 import duds from '../../../data/records/duds';
 import unobtainable from '../../../data/records/unobtainable';
 import { enumeratePresentationNodeState, enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
+import { isChildOfNodeVaulted } from '../../../utils/destinyUtils';
 import { displayValue } from '../../../utils/destinyConverters';
 import { ProfileLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
@@ -113,6 +114,8 @@ function Root({ member, collectibles, ...props }) {
 
     // console.log(definitionSeal.displayProperties.name, enumeratePresentationNodeState(profilePresentationNodes[definitionSeal.hash].state), profilePresentationNodes[definitionSeal.hash])
 
+    const hasVaultedChild = isChildOfNodeVaulted(definitionSeal.hash);
+
     sealNodes.push({
       completed: isComplete,
       element: (
@@ -120,6 +123,7 @@ function Root({ member, collectibles, ...props }) {
           key={definitionSeal.hash}
           className={cx('linked', {
             completed: isComplete,
+            expired: hasVaultedChild,
           })}
         >
           {!isComplete ? <div className='progress-bar-background' style={{ width: `${(nodeProgress / nodeTotal) * 100}%` }} /> : null}

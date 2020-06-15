@@ -923,3 +923,20 @@ export function isContentVaulted(hash) {
 
   return false;
 }
+
+export function isChildOfNodeVaulted(presentationNodeHash) {
+  const hashes = getHashesFromNode(presentationNodeHash);
+
+  return hashes.filter(hash => isContentVaulted(hash)).length;
+}
+
+function getHashesFromNode(presentationNodeHash) {
+  const definitionNode = manifest.DestinyPresentationNodeDefinition[presentationNodeHash];
+
+  return [
+    ...definitionNode.children.presentationNodes.map((node) => getHashesFromNode(node.presentationNodeHash)).flat(),
+    ...definitionNode.children.collectibles.map((collectible) => collectible.collectibleHash),
+    ...definitionNode.children.records.map((record) => record.recordHash),
+    ...definitionNode.children.metrics.map((metric) => metric.metricHash),
+  ].filter((hash, index, array) => array.indexOf(hash) === index);
+}

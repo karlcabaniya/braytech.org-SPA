@@ -1635,11 +1635,241 @@ export const dcv = [
             3816666661, // Activate ESCALATION
             2770012883, // Groundswell Nullifier99
             2691646944, // Specter of the Gun
+            2670498157, // Technological Singularity
           ],
           records: [
             709188219, // The Tyrant
             435060157, // The Last Bray
           ],
+        },
+      },
+      {
+        activityHash: 548750096, // Scourge of the Past
+        artifacts: {
+          nodes: [
+            1114960391, // Gunsmith's Devotion Suit
+            1384165442, // Bladesmith's Memory Suit
+            1672247878, // Bulletsmith's Ire Suit,
+            4214538151, // Scourge of the Past
+          ],
+          collectibles: [
+            982798874, // No Feelings
+            204024317, // Tempered Dynamo
+            4165423054, // Bellowing Giant
+            2596090783, // Threat Level
+            1903459810, // Always on Time
+            2220014607, // Anarchy
+            4176285806, // Fallen Invigoration
+            3647888847, // Fallen Armaments
+            3162743664, // Recovered Memories
+            1657525185, // Fallen Barrier
+            557403582, // Fallen Repurposing
+            2473783710, // Scourge of Nothing
+          ],
+          records: [],
+        },
+      },
+      {
+        activityHash: 2693136600, // Leviathan: Normal
+        artifacts: {
+          nodes: [
+            1375933822, // Fulminator Suit
+            1375933823, // Emperor's Minister Suit
+            464179111, // Ace-Defiant Suit
+            464179110, // Emperor's Agent Suit
+            1847361715, // Rull Suit
+            1847361714, // Emperor's Champion Suit
+          ],
+          collectibles: [
+            1088431377, // It Stared Back
+            1116762618, // Inaugural Address
+            1152758804, // Alone as a god
+            1333654057, // Ghost Primus
+            1296095691, // Midnight Coup
+            2283993083, // Conspirator
+            1503018490, // The Emperor's Pleasure
+            1551165471, // Sins of the Past
+            1718922260, // Contender's Shell
+            1687023288, // Calus's Selected
+            1687023289, // Calus's Treasured
+            3125541837, // Embrace His Name
+            3125541836, // Glory to the Emperor
+            3125541835, // Splish Splash
+            3125541834, // Good Dog
+            3125541833, // Two Enter, One Leaves
+            3125541832, // Take the Throne
+            2982198545, // Mob Justice
+            199171389, // Legend of Acrius
+          ],
+          records: [
+            3420353827, // Grow Fat from Strength
+            940998165, // Calus Has Spoken
+          ],
+        },
+      },
+      {
+        activityHash: 3089205900, // Leviathan, Eater of Worlds: Normal
+        artifacts: {
+          nodes: [
+            1375933820, // Sekris Suit
+            464179109, // Feltroc Suit
+            1847361713, // Nohr Suit
+          ],
+          collectibles: [
+            137678704, // Eater of Worlds Ornament
+            34034587, // Eater of Worlds Ornament
+            142045026, // Eater of Worlds Ornament
+            163526584, // Eater of Worlds Ornament
+            570175150, // Eater of Worlds Ornament
+            568904801, // Eater of Worlds Ornament
+            732164139, // Eater of Worlds Ornament
+            923412096, // Eater of Worlds Ornament
+            2010060117, // Eater of Worlds Ornament
+            1563262913, // Eater of Worlds Ornament
+            2668637695, // Eater of Worlds Ornament
+            2865463981, // Eater of Worlds Ornament
+            3142552022, // Eater of Worlds Ornament
+            3447840252, // Eater of Worlds Ornament
+            3646831311, // Eater of Worlds Ornament
+            3159097105, // Emperor's Envy
+            3159097108, // Covetous Emperor
+            1687023290, // Calus's Elite
+            1041306085, // Zenith of Your Kind
+            2287445851, // I Am Alive
+            1687023291, // Calus's Preferred
+          ],
+          records: [
+            2602370549, // A Whole Buffet
+            3861076347, // Fine Dining
+          ],
+        },
+      },
+      {
+        activityHash: 119944200, // Leviathan, Spire of Stars: Normal
+        artifacts: {
+          nodes: [
+            1375933818, // Insigne Shade Suit
+            464179107, // Equitis Shade Suit
+            1847361719, // Turris Shade Suit
+          ],
+          collectibles: [
+            1672335738, // Atop the Spire
+            1683229551, // The Emperor's Envy
+            1687023292, // Praetorian Visage
+            1687023293, // Calus's Shadow
+            2365603951, // Grind Underfoot
+            3125541831, // Spire Star
+            2365603950, // Together, For Glory!
+            1200315408, // Last of the Legion
+            147690202, // Praetorian Ornament
+            812431666, // Praetorian Ornament
+            830288331, // Praetorian Ornament
+            1356356143, // Praetorian Ornament
+            1581770035, // Praetorian Ornament
+            1117261917, // Praetorian Ornament
+            1848153313, // Praetorian Ornament
+            2251847166, // Praetorian Ornament
+            2550071209, // Praetorian Ornament
+            2401836420, // Praetorian Ornament
+            1932322183, // Praetorian Ornament
+            2799901966, // Praetorian Ornament
+            3443184892, // Praetorian Ornament
+            4121352016, // Praetorian Ornament
+            3171962093, // Praetorian Ornament
+          ],
+          records: [
+            1742345588, // On Your Way Up
+            2923250426, // A Superior Retainer
+          ],
+        },
+      },
+      {
+        activityHash: 3333172150, // Crown of Sorrow: Normal
+        artifacts: {
+          nodes: [
+            714676221, // Shadow of Judgment Suit
+            3847915640, // Shadow of Silence Suit
+            1649720500, // Shadow of War Suit
+            1070500232, // The Chronicon
+            2721577348, // Confessions
+            1891105980, // Crown of Sorrow
+          ],
+          collectibles: [
+            2014766405, // Emperor's Courtesy
+            916585710, // Calusea Noblesse
+            3424884099, // Gahlran's Right Hand
+            3923108273, // Bane of Sorrow
+            2329697053, // Tarrabah
+            3927974185, // Hive Barrier
+            3587920870, // Hive Invigoration
+            2600003719, // Hive Armaments
+            1366523382, // Hive Repurposing
+            753635605, // Shadow of Earth Shell
+            3171386139, // Crown of Sorrow
+            3171386140, // Heavy Is the Crown
+            2168196994, // Imperial Opulence
+            2168196995, // Imperial Dress
+          ],
+          records: [],
+        },
+      },
+      {
+        activityHash: 352668024, // The Menagerie
+        artifacts: {
+          nodes: [
+            2551808106, // Opulent Scholar Suit
+            327169819, // Opulent Stalker Suit
+            3760158863, // Opulent Duelist Suit
+            1117466231, // Menagerie
+          ],
+          collectibles: [
+            152623661, // Drang (Baroque)
+            527295602, // The Epicurean
+            3394660195, // Beloved
+            3376099856, // Goldtusk
+            2857012626, // Austringer
+            2237685612, // CALUS Mini-Tool
+            1572606157, // Death's Razor
+            1692129580, // Throne-Cleaver
+            1100183748, // Imperial Decree
+            832124045, // Fixed Odds
+            3003919297, // Striking Hand
+            3950181352, // Energized
+            3702797496, // Power Overwhelming
+            3646536351, // Emperor's Balance
+            2923955453, // Giving Hand
+            1980462058, // Radiant Largesse
+            1108546639, // Emperor's Shock
+            632821489, // Empowering Largesse
+            528474349, // Embraced Largesse
+            620017332, // Emperor's Blaze
+            462836291, // Shielding Hand
+            1763840761, // Truth
+            3636059127, // Árma Mákhēs
+            2678796997, // The Emperor's Chosen
+            1242690195, // A Hall of Delights
+            1242690194, // The Imperial Menagerie
+            704486706, // Shadow Gilt
+            704486707, // Cinderchar
+            704486704, // Golden Empire
+            704486705, // Goldleaf
+          ],
+          records: [
+            52802522, // Mint in Box
+          ],
+        },
+      },
+      {
+        activityHash: 3858493935, // The Tribute Hall
+        artifacts: {
+          nodes: [
+            3892601654, // The Tribute Hall
+          ],
+          collectibles: [
+            4207100358, // Bad Juju
+            1242690193, // The Tribute Hall
+          ],
+          records: [],
         },
       },
     ],

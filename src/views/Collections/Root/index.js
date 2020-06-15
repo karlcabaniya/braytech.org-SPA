@@ -4,12 +4,12 @@ import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { badgeImages } from '../../../utils/destinyEnums';
+import { badgeImages, enumerateCollectibleState } from '../../../utils/destinyEnums';
+import { isChildOfNodeVaulted } from '../../../utils/destinyUtils';
 import ObservedImage from '../../../components/ObservedImage';
 import Collectibles from '../../../components/Collectibles';
 import Search from '../../../components/Search';
 import { ProfileLink } from '../../../components/ProfileLink';
-import { enumerateCollectibleState } from '../../../utils/destinyEnums';
 
 class Root extends React.Component {
   componentDidUpdate(p) {
@@ -130,6 +130,8 @@ class Root extends React.Component {
         badgesStates.push(definitionBadge.displayProperties.name);
       }
 
+      const hasVaultedChild = isChildOfNodeVaulted(definitionBadge.hash);
+
       badges.push(
         <li
           key={definitionBadge.hash}
@@ -137,14 +139,12 @@ class Root extends React.Component {
             'badge-semi': semiComplete,
             'badge-complete': fullComplete === 3,
             tooltip: viewport.width > 600,
+            expired: hasVaultedChild,
           })}
           data-hash={definitionBadge.hash}
           data-type='collections-badge'
         >
           <ObservedImage className='image icon' src={badgeImages[definitionBadge.hash] ? `/static/images/extracts/badges/${badgeImages[definitionBadge.hash]}` : `https://www.bungie.net${definitionBadge.displayProperties.icon}`} />
-          <div className='text'>
-            <div>{definitionBadge.displayProperties.name}</div>
-          </div>
           <ProfileLink to={`/collections/badge/${definitionBadge.hash}`} />
         </li>
       );

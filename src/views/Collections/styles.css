@@ -64,7 +64,7 @@
 
 #collections .sidebar .badges .badge {
   position: relative;
-  padding-bottom: calc(126 / 208 * 100%);
+  padding-bottom: calc(268 / 440 * 100%);
   height: unset;
   margin: 0;
   transition: background-color 0.5s, box-shadow 0.25s;
@@ -88,7 +88,7 @@
   background-color: rgba(255, 255, 255, 0);
 }
 
-#collections .sidebar .badges .badge a {
+#collections .sidebar .badges .list li.badge a {
   position: absolute;
   top: 0;
   left: 0;
@@ -97,25 +97,26 @@
   padding: 0;
 }
 
-#collections .sidebar .badges .badge .text {
-  display: none;
-}
-
-#collections .sidebar .badges .badge .image {
+#collections .sidebar .badges .list li.badge .image {
   background-size: cover;
 }
 
-#collections .sidebar .badges .badge .image.dl {
+#collections .sidebar .badges .list li.badge .image.dl {
   opacity: 0.4;
 }
 
-#collections .sidebar .badges .badge.badge-semi .image.dl,
-#collections .sidebar .badges .badge.badge-complete .image.dl {
+#collections .sidebar .badges .list li.badge.badge-semi .image.dl,
+#collections .sidebar .badges .list li.badge.badge-complete .image.dl {
   opacity: 1;
 }
 
-#collections .sidebar .badges .badge.badge-complete .image.dl {
+#collections .sidebar .badges .list li.badge.badge-complete .image.dl {
   box-shadow: inset 0 0 0 2px #d7be5b;
+}
+
+#collections .sidebar .badges .list li.badge.expired::before {
+  box-shadow: inset 0 0 0 2px #b34949;
+  background-color: rgba(179, 73, 73, 0.4);
 }
 
 #collections.root .parent {

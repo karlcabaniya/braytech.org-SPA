@@ -74,8 +74,9 @@ class Search extends React.Component {
   };
 
   performSearch = debounce((search = this.state.search) => {
-    if (!search || search.length < 3) {
+    if (!search || search.replace(/(source|type|name|description):/,'').length < 3) {
       this.setState({ results: [] });
+
       return;
     }
 
