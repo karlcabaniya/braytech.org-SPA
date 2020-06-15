@@ -15,6 +15,8 @@ import collectibles from './reducers/collectibles.js';
 import maps from './reducers/maps.js';
 import layouts from './reducers/layouts.js';
 import visual from './reducers/visual.js';
+import lists from './reducers/lists.js';
+import settings from './reducers/settings.js';
 
 const rootReducer = combineReducers({
   viewport,
@@ -31,7 +33,9 @@ const rootReducer = combineReducers({
   collectibles,
   maps,
   layouts,
-  visual
+  visual,
+  lists,
+  settings
 });
 
 const store = createStore(

@@ -4,6 +4,7 @@ import { once } from 'lodash';
 import { t } from './i18n';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
+import { D2SeasonInfo, D2CalculatedSeason } from '../data/d2-additional-info/d2-season-info.ts';
 import * as SVG from '../svg';
 
 export const isProfileRoute = (location) => {
@@ -77,7 +78,7 @@ export function collectionTotal(data) {
   for (const [characterId, character] of Object.entries(data.characterCollectibles.data)) {
     for (const [hash, collectible] of Object.entries(character.collectibles)) {
       const collectibleState = enums.enumerateCollectibleState(collectible.state);
-      
+
       if (!collectibleState.NotAcquired) {
         if (!profileTempCollections[hash]) {
           profileTempCollections[hash] = 1;
@@ -878,4 +879,47 @@ export function activityModeExtras(mode) {
   ];
 
   return extras.find((m) => (Array.isArray(mode) ? m.modes.filter((n) => mode.indexOf(n) > -1) : m.modes.indexOf(mode) > -1));
+}
+
+export function isContentVaulted(hash) {
+  for (let content = 0; content < enums.dcv.length; content++) {
+    const vault = enums.dcv[content];
+
+    for (let index = 0; index < vault.folders.length; index++) {
+      const folder = vault.folders[index];
+
+      const collectibles = [
+        ...folder.artifacts.collectibles, // static collectibles
+        ...folder.artifacts.nodes
+          .reduce(
+            (array, presentationNodeHash) => [
+              // derived from presentation nodes
+              ...array,
+              manifest.DestinyPresentationNodeDefinition[presentationNodeHash].children.collectibles.map((collectible) => collectible.collectibleHash),
+            ],
+            []
+          )
+          .flat(),
+      ];
+      const records = [
+        ...folder.artifacts.records, // static records
+        ...folder.artifacts.nodes
+          .reduce(
+            (array, presentationNodeHash) => [
+              // derived from presentation nodes
+              ...array,
+              manifest.DestinyPresentationNodeDefinition[presentationNodeHash].children.records.map((record) => record.recordHash),
+            ],
+            []
+          )
+          .flat(),
+      ];
+
+      const isVaulted = collectibles.includes(hash) || records.includes(hash);
+
+      if (isVaulted) return D2SeasonInfo[vault.season];
+    }
+  }
+
+  return false;
 }

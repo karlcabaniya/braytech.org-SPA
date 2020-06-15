@@ -740,3 +740,27 @@ span.highlight.energy-arc {
 span.highlight.energy-void {
   background-color: var(--energy-void);
 }
+
+div.highlight {
+  padding: 12px 16px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #e5d163;
+}
+
+div.highlight ~ div.highlight {
+  padding-top: 8px;
+}
+
+div.highlight:last-child {
+  padding-bottom: 14px;
+}
+
+div.highlight.major {
+  padding: 7px 16px 6px;
+  background-color: hsla(5, 61%, 41%, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  line-height: 1.4;
+  font-family: var(--font-text);
+}

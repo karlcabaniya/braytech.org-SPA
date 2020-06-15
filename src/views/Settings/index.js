@@ -126,6 +126,10 @@ class Settings extends React.Component {
     this.props.setVisual({ [flag]: !this.props.visual[flag] });
   };
 
+  handler_toggle = (key) => (e) => {
+    this.props.set({ [key]: !this.props.settings[key] });
+  };
+
   handler_resetLayouts = (e) => {
     this.props.resetLayouts({ target: false });
   };
@@ -348,6 +352,12 @@ class Settings extends React.Component {
                   </li>
                 </>
               ) : null}
+              <li onClick={this.handler_toggle('lists')}>
+                <Checkbox linked checked={this.props.settings.lists} text={t('Enable lists')} />
+                <div className='info'>
+                  <p>{t('Enable developer lists by overriding links')}</p>
+                </div>
+              </li>
             </ul>
             <div className='sub-header sub'>
               <div>{t('Troubleshooting')}</div>
@@ -377,7 +387,7 @@ class Settings extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     theme: state.theme,
@@ -385,6 +395,7 @@ function mapStateToProps(state, ownProps) {
     collectibles: state.collectibles,
     maps: state.maps,
     visual: state.visual,
+    settings: state.settings
   };
 }
 
@@ -413,6 +424,9 @@ function mapDispatchToProps(dispatch) {
     },
     resetLayouts: (value) => {
       dispatch({ type: 'RESET_LAYOUTS', payload: value });
+    },
+    set: (payload) => {
+      dispatch({ type: 'SET_SETTING', payload });
     },
   };
 }

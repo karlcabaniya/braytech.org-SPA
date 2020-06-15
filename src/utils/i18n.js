@@ -58,6 +58,10 @@ export default i18next;
 export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
 
 const durationKeys = {
+  months: {
+    single: t('1 Month'),
+    plural: (months) => t('{{months}} Months', { months }),
+  },
   days: {
     single: t('1 Day'),
     plural: (days) => t('{{days}} Days', { days }),
@@ -77,6 +81,10 @@ const durationKeys = {
 };
 
 const durationKeysAbr = {
+  months: {
+    single: t('1 Mth'),
+    plural: (months) => t('{{months}} Mths', { months }),
+  },
   days: {
     single: t('1 Day'),
     plural: (days) => t('{{days}} Days', { days }),
@@ -99,13 +107,17 @@ function finalString(value) {
   return value.toLocaleString();
 }
 
-export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false } = {}) => {
+export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false } = {}) => {
   const string = [];
 
   const keys = abbreviated ? durationKeysAbr : durationKeys;
 
   if (relative) {
-    if (days > 0) {
+    if (months > 0) {
+      string.push(months === 1 ? keys.months.single : keys.months.plural(finalString(months)));
+
+      return string.join(' ');
+    } else if (days > 0) {
       string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
 
       return string.join(' ');
@@ -142,7 +154,12 @@ export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { un
     return string.join(' ');
   }
 
-  if (days > 0) {
+  if (months > 0) {
+    string.push(months === 1 ? keys.months.single : keys.months.plural(finalString(months)));
+    if (days > 0) string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+  }
+
+  if (days > 0 && months < 1) {
     string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
     if (hours > 0) string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
   }
@@ -162,6 +179,15 @@ export const duration = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }, { un
   }
 
   return string.join(' ');
+};
+
+export const timestampToDifference = (timestamp, unit = 'seconds', start = moment()) => {
+  const end = moment(timestamp);
+  const difference = end.diff(start, unit);
+
+  return {
+    [unit]: difference
+  };
 };
 
 export const timestampToDuration = (timestamp, start = moment()) => {

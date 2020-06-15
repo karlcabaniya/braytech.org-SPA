@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 
-import { t } from '../../../utils/i18n';
+import { t, duration, timestampToDifference } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as converters from '../../../utils/destinyConverters';
 import * as enums from '../../../utils/destinyEnums';
+import { isContentVaulted } from '../../../utils/destinyUtils';
 import itemComponents from '../../../utils/destinyItems/itemComponents';
 import sockets from '../../../utils/destinyItems/sockets';
 import stats from '../../../utils/destinyItems/stats';
@@ -119,9 +120,19 @@ function Item(props) {
     item.primaryStat.value = Math.floor((942 / 973) * character.light);
   }
 
-  let importantText = false;
+  const importantText = [];
+
+  const isVaultedItem = isContentVaulted(definitionItem.collectibleHash);
+  if (definitionItem.collectibleHash && isVaultedItem) {
+    importantText.push(
+      t('This collectible will be archived in {{duration}}', {
+        duration: duration(timestampToDifference(`${isVaultedItem.releaseDate}T${isVaultedItem.resetTime}`, 'days'), { unit: 'days' }),
+      })
+    );
+  }
+
   if (!item.itemComponents && props.uninstanced) {
-    importantText = t('Collections roll');
+    importantText.push(t('Collections roll'));
   }
 
   const Meat = item.type && woolworths[item.type];
@@ -150,7 +161,7 @@ function Item(props) {
         <div className='acrylic' />
         <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
           <div className='header'>
-            {masterworked ? <ObservedImage className={cx('image', 'bg')} src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
+            {masterworked ? <ObservedImage className='image bg' src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
             <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
@@ -166,7 +177,13 @@ function Item(props) {
               </div>
             </div>
           </div>
-          {importantText ? <div className='highlight major'>{importantText}</div> : null}
+          {importantText.length ? (
+            <div className='highlight major'>
+              {importantText.map((text, t) => (
+                <p key={t}>{text}</p>
+              ))}
+            </div>
+          ) : null}
           <div className='black'>
             {showScreenshot ? (
               <div className='screenshot'>

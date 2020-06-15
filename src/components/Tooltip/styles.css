@@ -103,30 +103,6 @@
   width: 12px;
 }
 
-#tooltip .frame .highlight {
-  padding: 12px 16px 0;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #e5d163;
-}
-
-#tooltip .frame .highlight ~ .highlight {
-  padding-top: 8px;
-}
-
-#tooltip .frame .highlight:last-child {
-  padding-bottom: 14px;
-}
-
-#tooltip .frame .highlight.major {
-  padding: 7px 16px 6px;
-  background-color: hsla(5, 61%, 41%, 0.9);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13px;
-  line-height: 1.4;
-  font-family: var(--font-text);
-}
-
 #tooltip .frame .highlight span {
   text-transform: lowercase;
 }

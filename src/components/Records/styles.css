@@ -328,7 +328,9 @@
   box-shadow: none;
 }
 
-
+.list.record-items li.selected {
+  background-color: rgba(0, 132, 255, 0.1) !important;
+}
 
 @media screen and (max-width: 1440px) {
 

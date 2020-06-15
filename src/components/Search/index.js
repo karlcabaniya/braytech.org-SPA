@@ -84,7 +84,7 @@ class Search extends React.Component {
     const term = search.toString().trim().toLowerCase();
 
     // test for filter prefixes i.e. "name:MIDA Mini Tool"
-    const filters = term.match(/(type|name|description):/)?.[1];
+    const filters = term.match(/(source|type|name|description):/)?.[1];
 
     const tableMatch = enums.manifestTableNames.find((table) => table.toLowerCase() === term);
 
@@ -118,11 +118,13 @@ class Search extends React.Component {
         let name = definition?.displayProperties?.name;
         let description = definition?.displayProperties?.description;
         let type = definitionItem?.itemTypeAndTierDisplayName;
+        let source = definition?.sourceString;
 
         // normalise name, description, and type, remove funny versions of 'e'
         name = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         description = description.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         type = type ? definitionItem.itemTypeAndTierDisplayName.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : false;
+        source = source ? definition.sourceString.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : false;
 
         if (filters && filters === 'name') {
           regex = RegExp(term.replace('name:', '').trim(), 'i');
@@ -140,6 +142,12 @@ class Search extends React.Component {
           regex = RegExp(term.replace('type:', '').trim(), 'i');
 
           if (regex.test(type)) {
+            return true;
+          }
+        } else if (source && filters && filters === 'source') {
+          regex = RegExp(term.replace('source:', '').trim(), 'i');
+
+          if (regex.test(source)) {
             return true;
           }
         } else {

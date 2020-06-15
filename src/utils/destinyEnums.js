@@ -1437,5 +1437,211 @@ export const adventures = [
 ];
 
 export const dcv = [
-  2283993085
-]
+  {
+    season: 12,
+    folders: [
+      {
+        placeHash: 4251857532, // Io
+        artifacts: {
+          nodes: [
+            4139791846, // Gensym Knight Suit
+            3476818387, // Gensym Knight Suit
+            3952745167, // Gensym Knight Suit
+            3457070432, // Io
+          ],
+          collectibles: [
+            3647875337, // Mindbreaker Boots
+            3858283821, // Mindbreaker Boots
+            3946669544, // Mindbreaker Boots
+            2239241196, // Io Shell
+            2982198547, // Death Adder
+            273762351, // Valakadyn
+            2963869879, // Tarantula
+            2963869878, // Man o' War
+            1551165468, // Blue Shift
+            2287445847, // Berenger's Memory
+            1088431376, // Unspoken Promise
+            2202434428, // The Rattler
+            1058083666, // Baligant
+            1169536399, // Widow's Bite
+            1169536389, // Elegy-49
+            1152758802, // Silicon Neuroma
+            259147460, // Echo Mesa
+            3642181656, // Traveler's Departure
+            3642181657, // Asher's Asylum
+            3642181658, // Taken Resurgence
+            3642181659, // Ignition Unsparked
+            3773976314, // Traveler's Flight
+            259147462, // Ballet Lover
+            259147463, // Holy Ground
+            1176046836, // Echoes of Io
+            1176046837, // Flowers of Io
+            2219212014, // Eulogy SI4
+            2716100025, // Sonata-48
+            3895764279, // Guseva-C
+          ],
+          records: [
+            1289798960, // The Tortured Scientist
+          ],
+        },
+      },
+      {
+        placeHash: 386951460, // Titan, Moon of Saturn
+        artifacts: {
+          nodes: [
+            4139791844, // Lost Pacific Suit
+            3476818385, // Lost Pacific Suit
+            3952745165, // Lost Pacific Suit
+            3252380766, // Titan
+          ],
+          collectibles: [
+            1073998665, // Songbreaker Gauntlets
+            942424421, // Songbreaker Grips
+            2754601998, // Songbreaker Gloves
+            1058083665, // First In, Last Out
+            273762349, // Solemn Hymn
+            1184968901, // Nox Echo III
+            1551165466, // Hoosegow
+            1088431381, // Crown-Splitter
+            1169536385, // A Single Clap
+            1088431379, // Negative Space
+            1116762620, // Swift Ride
+            2202434430, // Dead Man Walking
+            3788698913, // Annual Skate
+            2283993085, // Tone Patrol
+            2982198549, // Foggy Notion
+            1333654061, // Duty Bound
+            2239241194, // Moon of Saturn Shell
+            259147458, // New Pacific Arcology
+            2532590120, // Utopia Lost
+            2532590121, // Sloane's Watchtower
+            2532590122, // Hive Infestation
+            2532590123, // Golden Age Tarnished
+            3773976304, // New Pacific Access
+            3773976311, // Solarium Yellow
+            3773976310, // Cargo Bay Cross
+            1176046832, // New Pacific Rush
+            1176046833, // New Pacific Sink
+          ],
+          records: [
+            2808299284, // The Titan on Titan
+            2442138301, // Steadfast
+          ],
+        },
+      },
+      {
+        placeHash: 1259908504, // Mercury
+        artifacts: {
+          nodes: [
+            4139791842, // Kairos Function Suit
+            3476818391, // Kairos Function Suit
+            3952745163, // Kairos Function Suit
+            2904849017, // Mercury
+          ],
+          collectibles: [
+            256984756, // Null Calamity 9
+            1105208971, // Future Safe 10
+            1041306084, // Perfect Paradox
+            1116543653, // The Conqueror 2
+            1279318109, // West of Sunfall 7
+            1116762615, // Infinite Paths 8
+            2606709043, // Garden Progeny 1
+            3788698917, // Jack Queen King 3
+            4257745796, // Machina Dei 4
+            2998976136, // Sol Pariah 6
+            2219212009, // Traveler's Judgment 5
+            1718922262, // Sagira's Shell
+            225592290, // Legend of Saint-14
+            2034908838, // Prophetic Arsenal
+            225592289, // Crossroads Emblem
+            225592291, // Secrets of the Vex
+            225592292, // Vex Destroyer
+            225592293, // Vex Scholar
+            259147459, // Fields of Glass
+            4068960693, // Burning Silicon
+            4068960695, // Vex Convergence
+            4068960694, // Infinite Possibilities
+            4068960692, // Vance's Temple
+            1282368185, // Kairos Gold
+            1282368187, // Kairos Black
+            1282368186, // Mercury Prophetic
+            1282368184, // Kairos Bronze
+            1152758801, // Maestro-46
+            1168191342, // Elatha FR4
+            1200315410, // Vertical Orbit QSm
+            1534387878, // Countess SA/2
+            2653720568, // Hero of the Infinite
+          ],
+          records: [
+            1590210414, // Cursed with Prophecy
+            2765010546, // The Lighthouse Keeper
+          ],
+        },
+      },
+      {
+        placeHash: 2426873752, // Mars
+        artifacts: {
+          nodes: [
+            4139791843, // BrayTech Suit
+            4139791840, // Yuga Sundown Suit
+            3476818390, // BrayTech Suit
+            3476818389, // Abhorrent Imperative Suit
+            3952745162, // BrayTech Suit
+            3952745161, // Midnight Exigent Suit
+            3570368582, // Mars
+          ],
+          collectibles: [
+            1041306082, // IKELOS_SG_v1.0.1
+            1203091693, // IKELOS_SR_v1.0.1
+            2998976141, // IKELOS_SMG_v1.0.1
+            3805476501, // IKELOS_HC_v1.0.1
+            256984754, // Kibou AR3
+            1168191343, // Proelium FR3
+            1105208973, // Hagakure
+            1099984909, // Requiem-45
+            1152758813, // The Frigid Jackal
+            1099984910, // Agrona PR4
+            1350431644, // Foregone Conclusion
+            1350431647, // BrayTech Winter Wolf
+            1534387876, // Scipio-D
+            1945987450, // G-72 Classical Sepheid
+            2589931337, // Telemachus-C
+            2219212008, // 18 Kelvins
+            2130750728, // Polestar II Shell
+            2691646945, // Data Mine
+            4259147767, // Warmind's Fortress
+            4259147765, // Wormslayer
+            4259147766, // Cradle of Invention
+            4259147764, // Relic of the Golden Age
+            2691646949, // IKELOS Imperative
+            2691646946, // Warminded
+            2691646947, // Cold Comfort
+            2589931338, // Niflheim Frost
+            2300770642, // Vacuna SR4
+            2130750731, // Polestar I Shell
+            2691646950, // Apparatus Belli
+            2691646948, // Arctic Arsenalist
+            2770012880, // Alpha Umi
+            2998976138, // The Quickstep
+            1282368177, // Arctic Dreamscape
+            1232035296, // The Mad Monk
+            1282368176, // Bray Innovation
+            259147457, // Hellas Basin
+            1199798688, // Block-Z Shell
+            1945987448, // G-335 Anseris Overdrive
+            1945987451, // G-693 Orchestral Maneuver
+            1945987454, // Pacific Deception
+            3368709535, // GENOTYPENULL-ZERO
+            3816666661, // Activate ESCALATION
+            2770012883, // Groundswell Nullifier99
+            2691646944, // Specter of the Gun
+          ],
+          records: [
+            709188219, // The Tyrant
+            435060157, // The Last Bray
+          ],
+        },
+      },
+    ],
+  },
+];

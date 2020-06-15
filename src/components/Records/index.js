@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 
-import { t } from '../../utils/i18n';
+import { t, duration, timestampToDifference } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
-import { commonality } from '../../utils/destinyUtils';
+import { commonality, isContentVaulted } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
-import * as paths from '../../utils/paths';
-import catalystTriumphIcons from  '../../data/d2-additional-info/catalyst-triumph-icons.json';
+import { removeMemberIds } from '../../utils/paths';
+import catalystTriumphIcons from '../../data/d2-additional-info/catalyst-triumph-icons.json';
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
@@ -161,7 +161,7 @@ function recordDescription(hash) {
 
 function recordIcon(hash) {
   const definitionRecord = manifest.DestinyRecordDefinition[hash];
-  
+
   if (catalystTriumphIcons[hash]) {
     return catalystTriumphIcons[hash];
   }
@@ -210,7 +210,7 @@ class Records extends React.Component {
       return {
         pathname: collectionsPathname,
         state: {
-          from: paths.removeMemberIds(this.props.location.pathname),
+          from: removeMemberIds(this.props.location.pathname),
         },
       };
     } else if (this.props.selfLinkFrom) {
@@ -226,7 +226,7 @@ class Records extends React.Component {
   };
 
   render() {
-    const { hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
+    const { settings, lists, hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
     const recordsRequested = hashes;
     const characterRecords = member.data.profile?.characterRecords.data;
@@ -482,6 +482,8 @@ class Records extends React.Component {
 
         const description = recordDescription(definitionRecord.hash);
 
+        const isVaultedRecord = isContentVaulted(definitionRecord.hash);
+
         recordsOutput.push({
           completed: enumeratedState.RecordRedeemed,
           progressDistance: recordState.distance,
@@ -491,14 +493,17 @@ class Records extends React.Component {
               key={h}
               ref={ref}
               className={cx({
-                linked: Boolean(link),
+                linked: link && true,
                 highlight: highlight === definitionRecord.hash,
                 completed: enumeratedState.RecordRedeemed,
                 unredeemed: !enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
                 tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted,
                 'no-description': !description,
                 'has-intervals': recordState.intervals.length,
+                selected: settings.lists && lists.records.includes(definitionRecord.hash),
+                expired: isVaultedRecord,
               })}
+              onClick={settings.lists ? this.props.addToList({ type: 'records', value: definitionRecord.hash }) : undefined}
             >
               {!enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
                 <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
@@ -536,10 +541,17 @@ class Records extends React.Component {
               {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
-                  <Collectibles selfLinkFrom={paths.removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden />
+                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} showCompleted showInvisible showHidden />
                 </ul>
               ) : null}
-              {link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
+              {isVaultedRecord && (
+                <div className='highlight major'>
+                  {t('This record will be archived in {{duration}}', {
+                    duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),
+                  })}
+                </div>
+              )}
+              {!settings.lists && link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
             </li>
           ),
         });
@@ -549,10 +561,8 @@ class Records extends React.Component {
     if (recordsRequested.length > 0 && recordsOutput.length === 0 && collectibles?.hideCompletedRecords && !showCompleted) {
       recordsOutput.push({
         element: (
-          <li key='lol' className='all-completed'>
-            <div className='properties'>
-              <div className='text'>{t('All completed')}</div>
-            </div>
+          <li key='all-completed' className='all-completed'>
+            <div className='info'>{t('All acquired')}</div>
           </li>
         ),
       });
@@ -562,7 +572,6 @@ class Records extends React.Component {
       recordsOutput = orderBy(recordsOutput, [(item) => item.progressDistance], ['desc']);
     } else if (ordered) {
       recordsOutput = orderBy(recordsOutput, [(item) => item.completed], ['asc']);
-    } else {
     }
 
     if (limit) {
@@ -573,11 +582,13 @@ class Records extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
     triumphs: state.triumphs,
     collectibles: state.collectibles,
+    lists: state.lists,
   };
 }
 
@@ -585,6 +596,9 @@ function mapDispatchToProps(dispatch) {
   return {
     setTrackedTriumphs: (value) => {
       dispatch({ type: 'SET_TRACKED_TRIUMPHS', payload: value });
+    },
+    addToList: (payload) => (e) => {
+      dispatch({ type: 'ADD_TO_LIST', payload });
     },
   };
 }
