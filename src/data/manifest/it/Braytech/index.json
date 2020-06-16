@@ -122,7 +122,7 @@
   "braytech_green_rune": {
     "displayProperties": {
       "description": "Una runa verde. Rune verdi includono; Runa della Guerra, Runa dell'Orgoglio, e Runa del Desiderio.",
-      "name": "Runa Verde",
+      "name": "Runa Verde"
     },
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
@@ -133,7 +133,7 @@
   "braytech_blue_rune": {
     "displayProperties": {
       "description": "Una runa blu. Rune blu includono; Runa dell'Eccesso, Runa della Ricchezza, e Runa del Piacere.",
-      "name": "Runa Blu",
+      "name": "Runa Blu"
     },
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
