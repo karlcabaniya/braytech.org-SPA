@@ -117,7 +117,7 @@ class PresentationNode extends React.Component {
           return null;
         }
 
-        const hasVaultedChild = settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionNode.hash);
+        const hasVaultedChild = !settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionNode.hash);
 
         return (
           <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash, expired: hasVaultedChild })}>

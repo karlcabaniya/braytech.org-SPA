@@ -130,7 +130,7 @@ class Root extends React.Component {
         badgesStates.push(definitionBadge.displayProperties.name);
       }
 
-      const hasVaultedChild = settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionBadge.hash);
+      const hasVaultedChild = !settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionBadge.hash);
 
       badges.push(
         <li

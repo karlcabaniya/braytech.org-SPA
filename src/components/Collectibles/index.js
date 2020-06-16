@@ -146,7 +146,7 @@ class Collectibles extends React.Component {
                 ),
               });
             } else {
-              const isVaultedCollectible = isContentVaulted(definitionCollectible.hash);
+              const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
               set.push({
                 hash: definitionCollectible.hash,
@@ -254,7 +254,7 @@ class Collectibles extends React.Component {
             const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
             const energyAsset = definitionItem?.investmentStats?.[0]?.statTypeHash && energyTypeToAsset(energyStatToType(definitionItem.investmentStats[0].statTypeHash));
 
-            const isVaultedCollectible = isContentVaulted(definitionCollectible.hash);
+            const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
             collectiblesOutput.push({
               hash: definitionCollectible.hash,
@@ -323,7 +323,7 @@ class Collectibles extends React.Component {
 
         const link = selfLinkCollectible(definitionCollectible.hash);
 
-        const isVaultedCollectible = isContentVaulted(definitionCollectible.hash);
+        const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
         collectiblesOutput.push({
           hash: definitionCollectible.hash,

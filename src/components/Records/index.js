@@ -483,7 +483,7 @@ class Records extends React.Component {
 
         const description = recordDescription(definitionRecord.hash);
 
-        const isVaultedRecord = isContentVaulted(definitionRecord.hash);
+        const isVaultedRecord= !supressVaultWarning && isContentVaulted(definitionRecord.hash);
 
         recordsOutput.push({
           completed: enumeratedState.RecordRedeemed,
