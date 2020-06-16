@@ -4,7 +4,6 @@
       "name": "Xbox",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
   "platform_playstation": {
@@ -12,7 +11,6 @@
       "name": "Playstation",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
   "platform_steam": {
@@ -20,7 +18,6 @@
       "name": "Steam",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
   "platform_battlenet": {
@@ -28,7 +25,6 @@
       "name": "Battle.net",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
   "platform_stadia": {
@@ -36,7 +32,6 @@
       "name": "Stadia",
       "description": "La piattaforma d'appartenenza di questo profilo."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Piattaforma"
   },
   "warmind": {
@@ -44,7 +39,6 @@
       "name": "Sovrintendente",
       "description": "Tom Chapman, creatore e ingeniere di Braytech."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Intelligenza Artificiale"
   },
   "patron-veteran": {
@@ -52,7 +46,6 @@
       "name": "Subroutine",
       "description": "Questo guardiano è un faro di luce che, attraverso le sue azioni, ha dimostrato di valorizzare il coraggio e il servizio sopra ogni altra cosa."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Ricompensa Patron"
   },
   "patron": {
@@ -60,236 +53,126 @@
       "name": "Ricercatore",
       "description": "Un compagno tecnico di Clovis Bray, questo Guardiano cerca di migliorare Braytech."
     },
-    "itemType": 1,
     "itemTypeDisplayName": "Ricompensa Patron"
   },
   "commonality": {
     "displayProperties": {
       "name": "Rarità",
       "description": "Una rappresentazione del numero di giocatori che hanno acquisito o riscattato questa voce."
-    },
-    "itemType": 1
+    }
   },
   "score": {
     "displayProperties": {
       "name": "Valore punteggio",
       "description": "Il valore in punti di questo trionfo."
-    },
-    "itemType": 1
+    }
   },
   "record_intervals": {
     "displayProperties": {
       "name": "Intervalli trionfi",
       "description": "Alcuni trionfi hanno intervalli. Differenti intervalli hanno vari requisiti e punteggi."
-    },
-    "itemType": 1
+    }
   },
   "character_bound": {
     "displayProperties": {
-      "name": "Esclusivo al personaggio",
-      "description": "Questi oggetti sono esclusivi al personaggio. Ciò significa che ogni personaggio li scoprirà unicamente."
-    },
-    "itemType": 1
+      "name": "Legato al personaggio",
+      "description": "Questi oggetti sono legati al personaggio. Ciò significa che ogni personaggio li scoprirà unicamente."
+    }
   },
   "coverage": {
     "displayProperties": {
       "name": "Copertura",
       "description": "La copertura in percentuale di questa traduzione."
-    },
-    "itemType": 1
+    }
   },
   "total_resets": {
     "displayProperties": {
       "name": "Reset totali",
       "description": "I reset di tutte le stagioni. Dalla Stagione 4 in poi."
-    },
-    "itemType": 1
+    }
   },
   "destiny_tracker_elo": {
     "displayProperties": {
       "name": "Destiny Tracker Elo",
       "description": "Elo provenienti da un sito di terze parti, _Destiny Tracker_. _Destiny Tracker_ assegna Elo a tutti i giocatori di Destiny che hanno partecipato nelle attività di _Crogiolo_ e _Azzardo_."
-    },
-    "itemType": 1
+    }
   },
   "braytech_purple_rune": {
     "displayProperties": {
       "description": "Una runa viola. Le rune viola includono; Runa della Gioia, Runa della Bestia, e Runa del Giubilo.",
-      "name": "Runa Viola",
-      "icon": "/static/images/extracts/ui/rune_purple.png",
-      "localIcon": true,
-      "hasIcon": true
+      "name": "Runa Viola"
     },
-    "itemTypeDisplayName": "Material",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeDisplayName": "Materiale",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Legendary",
-      "tierType": 5
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune0",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Leggendario"
+    }
   },
   "braytech_red_rune": {
     "displayProperties": {
       "description": "Una runa rossa. Le rune rosse includono; Runa dell'Ambizione, Runa dell'Ingordigia, e Runa dell'Astuzia.",
-      "name": "Runa Rossa",
-      "icon": "/static/images/extracts/ui/rune_red.png",
-      "localIcon": true,
-      "hasIcon": true
+      "name": "Runa Rossa"
     },
-    "itemTypeDisplayName": "Material",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeDisplayName": "Materiale",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Legendary",
-      "tierType": 5
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune3",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Leggendario"
+    }
   },
   "braytech_green_rune": {
     "displayProperties": {
       "description": "Una runa verde. Rune verdi includono; Runa della Guerra, Runa dell'Orgoglio, e Runa del Desiderio.",
       "name": "Runa Verde",
-      "icon": "/static/images/extracts/ui/rune_green.png",
-      "localIcon": true,
-      "hasIcon": true
     },
-    "itemTypeDisplayName": "Material",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeDisplayName": "Materiale",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Legendary",
-      "tierType": 5
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune6",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Leggendario"
+    }
   },
   "braytech_blue_rune": {
     "displayProperties": {
       "description": "Una runa blu. Rune blu includono; Runa dell'Eccesso, Runa della Ricchezza, e Runa del Piacere.",
       "name": "Runa Blu",
-      "icon": "/static/images/extracts/ui/rune_blue.png",
-      "localIcon": true,
-      "hasIcon": true
     },
-    "itemTypeDisplayName": "Material",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeDisplayName": "Materiale",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Legendary",
-      "tierType": 5
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune9",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Leggendario"
+    }
   },
   "braytech_no_rune": {
     "displayProperties": {
       "description": "Inserisci un runa in questo slot",
-      "name": "Slot vuoto",
-      "icon": "/static/images/extracts/ui/0560-00006055.png",
-      "localIcon": true,
-      "hasIcon": true
+      "name": "Slot vuoto"
     },
     "itemTypeDisplayName": "Action",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Common",
-      "tierType": 1
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune20",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Comune"
+    }
   },
   "braytech_remove_rune": {
     "displayProperties": {
-      "description": "Rimuovi rune da questo slot",
-      "name": "Slot vuoto",
-      "icon": "/static/images/extracts/ui/0560-00006055.png",
-      "localIcon": true,
-      "hasIcon": true
+      "description": "Rimuovi runa da questo slot",
+      "name": "Slot vuoto"
     },
     "itemTypeDisplayName": "Action",
-    "uiItemDisplayStyle": "",
-    "itemTypeAndTierDisplayName": "Legendary Material",
-    "displaySource": "",
+    "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "bucketTypeHash": 2422292810,
-      "tierTypeHash": 4008398120,
-      "tierTypeName": "Common",
-      "tierType": 1
-    },
-    "plug": {
-      "plugCategoryIdentifier": "penumbra.runes.legendary.rune21",
-      "plugCategoryHash": 415109986
-    },
-    "itemCategoryHashes": [3109687656],
-    "itemType": 20,
-    "itemSubType": 0,
-    "classType": 3,
-    "hash": 2149082452,
-    "redacted": false,
-    "blacklisted": false
+      "tierTypeName": "Comune"
+    }
+  },
+  "latent-memories": {
+    "displayProperties": {
+      "name": "Memorie Latenti",
+      "description": "Misteriosi nodi di test sono sparsi per Marte. Qual è il loro scopo?"
+    }
+  },
+  "tooltip-error": {
+    "displayProperties": {
+      "name": "Errore Sconosciuto",
+      "description": "Si è verificato un errore durante il rendering di questo tooltip.\n\nQuesto errore è probabilmente temporaneo. Sentite scuse."
+    }
   }
 }
