@@ -2,15 +2,37 @@
   "1199524104": {
     "bubbles": [
       {
-        "hash": 11995241041,
         "displayProperties": {
           "name": "La Fattoria"
         }
       },
       {
-        "hash": 11995241042,
         "displayProperties": {
-          "name": "Echion Battledeck"
+          "name": "Ponte di Battaglia Echion"
+        }
+      }
+    ]
+  },
+  "290444260": {
+    "bubbles": [
+      {
+        "displayProperties": {
+          "name": "Necropoli"
+        }
+      },
+      {
+        "displayProperties": {
+          "name": "Gallerie della Disperazione"
+        }
+      },
+      {
+        "displayProperties": {
+          "name": "Androne del Tormento"
+        }
+      },
+      {
+        "displayProperties": {
+          "name": "Lo Strazio"
         }
       }
     ]
@@ -18,31 +40,26 @@
   "126924919": {
     "bubbles": [
       {
-        "hash": 1269249191,
         "displayProperties": {
           "name": "La Spirale Inverita"
         }
       },
       {
-        "hash": 1269249192,
         "displayProperties": {
           "name": "Condotto Virgo"
         }
       },
       {
-        "hash": 1269249193,
         "displayProperties": {
           "name": "Pozzo della Polvere"
         }
       },
       {
-        "hash": 1269249194,
         "displayProperties": {
           "name": "La Faglia"
         }
       },
       {
-        "hash": 1269249195,
         "displayProperties": {
           "name": "Pozzo delle Stelle"
         }
@@ -52,13 +69,11 @@
   "359854275": {
     "bubbles": [
       {
-        "hash": 1519764506,
         "displayProperties": {
           "name": "Altipiani"
         }
       },
       {
-        "hash": 3598542751,
         "displayProperties": {
           "name": "Sjursrest"
         }
@@ -68,51 +83,48 @@
   "2779202173": {
     "bubbles": [
       {
-        "hash": 27792021731,
         "displayProperties": {
           "name": "La Confluenza"
         }
       },
       {
-        "hash": 27792021732,
         "displayProperties": {
           "name": "Ouroborea"
         }
       },
       {
-        "hash": 27792021733,
         "displayProperties": {
           "name": "Altare del Pegno"
         }
       },
       {
-        "hash": 27792021734,
         "displayProperties": {
           "name": "Rovine Infrante"
         }
       },
       {
-        "hash": 27792021735,
         "displayProperties": {
           "name": "Rocca dei Fili Affinati"
         }
       },
       {
-        "hash": 27792021736,
         "displayProperties": {
           "name": "Abisso Agonarca"
         }
       },
       {
-        "hash": 27792021737,
         "displayProperties": {
           "name": "Bastione Cimmerio"
         }
       },
       {
-        "hash": 27792021738,
         "displayProperties": {
           "name": "Piano Ascendente"
+        }
+      },
+      {
+        "displayProperties": {
+          "name": "Corte della Regina"
         }
       }
     ]
