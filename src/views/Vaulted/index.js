@@ -41,6 +41,7 @@ class Vaulted extends React.Component {
     const data = DestinyContentVault[0];
 
     const selectedVault = (hash && data.vault.find((activity) => hash === (activity.placeHash || activity.activityHash))) || data.vault[0];
+    const selectedHash = selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash;
 
     const collectibles =
       selectedVault &&
@@ -90,10 +91,10 @@ class Vaulted extends React.Component {
               <div className='children'>
                 <ul className='list secondary'>
                   {data.vault.map((vault, v) => {
+                    const vaultHash = vault.bucketHash || vault.placeHash || vault.activityHash;
+
                     const isActive = (match, location) => {
-                      if ((selectedVault.placeHash || selectedVault.activityHash) === (vault.placeHash || vault.activityHash)) {
-                        return true;
-                      } else if (hash === (vault.placeHash || vault.activityHash)) {
+                      if (selectedHash === vaultHash || hash === vaultHash) {
                         return true;
                       } else if (match) {
                         return true;
@@ -102,26 +103,45 @@ class Vaulted extends React.Component {
                       }
                     };
 
+                    const name =
+                      // bucketHash
+                      (vault.bucketHash && manifest.DestinyInventoryBucketDefinition[vault.bucketHash].displayProperties.name) ||
+                      // placeHash
+                      (vault.placeHash && manifest.DestinyPlaceDefinition[vault.placeHash].displayProperties.name) ||
+                      // activityHash
+                      (vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].originalDisplayProperties.name);
+                    const prefix = vault.placeHash ? `${manifest.DestinyActivityModeDefinition[3497767639].displayProperties.name}: ` : '';
+
                     return (
                       <li key={v} className={cx('linked', { active: isActive })}>
                         <div className='text'>
-                          <div className='name'>{(vault.placeHash && manifest.DestinyPlaceDefinition[vault.placeHash].displayProperties.name) || (vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].originalDisplayProperties.name)}</div>
+                          <div className='name'>
+                            {prefix + name}
+                          </div>
                         </div>
-                        <NavLink isActive={isActive} to={`/vaulted/${data.season}/${vault.placeHash || vault.activityHash}`} />
+                        <NavLink isActive={isActive} to={`/vaulted/${data.season}/${vaultHash}`} />
                       </li>
                     );
                   })}
                 </ul>
               </div>
               <div className='entries'>
-                <h4>{t('Collectibles')}</h4>
-                <ul className='list collection-items'>
-                  <Collectibles hashes={collectibles} supressVaultWarning selfLinkFrom='/vaulted' />
-                </ul>
-                <h4>{t('Records')}</h4>
-                <ul className='list record-items'>
-                  <Records hashes={records} supressVaultWarning selfLinkFrom='/vaulted' />
-                </ul>
+                {collectibles.length ? (
+                  <>
+                    <h4>{t('Collectibles')}</h4>
+                    <ul className='list collection-items'>
+                      <Collectibles hashes={collectibles} supressVaultWarning selfLinkFrom='/vaulted' showCompleted showInvisible />
+                    </ul>
+                  </>
+                ) : null}
+                {records.length ? (
+                  <>
+                    <h4>{t('Records')}</h4>
+                    <ul className='list record-items'>
+                      <Records hashes={records} supressVaultWarning selfLinkFrom='/vaulted' showCompleted showInvisible />
+                    </ul>
+                  </>
+                ) : null}
               </div>
             </div>
           </div>

@@ -1442,6 +1442,20 @@ export const DestinyContentVault = [
     aside: `The following collectibles and records will be vaulted come September.`,
     vault: [
       {
+        bucketHash: 138197802, // General
+        buckets: {
+          nodes: [
+
+          ],
+          collectibles: [
+
+          ],
+          records: [
+            565725664, 2122886722, 1971661116
+          ],
+        },
+      },
+      {
         placeHash: 4251857532, // Io
         buckets: {
           nodes: [
@@ -1483,6 +1497,7 @@ export const DestinyContentVault = [
           ],
           records: [
             1289798960, // The Tortured Scientist
+            2104527481, 2104527482, 2104527483, 242464659
           ],
         },
       },
@@ -1527,6 +1542,7 @@ export const DestinyContentVault = [
           records: [
             2808299284, // The Titan on Titan
             2442138301, // Steadfast
+            259242254, 2121305062, 2104527484, 2121305063
           ],
         },
       },
@@ -1576,6 +1592,8 @@ export const DestinyContentVault = [
           records: [
             1590210414, // Cursed with Prophecy
             2765010546, // The Lighthouse Keeper
+            242464658, // Exegesis
+            2104527480, // From Fallen Ground
           ],
         },
       },
@@ -1641,33 +1659,8 @@ export const DestinyContentVault = [
           records: [
             709188219, // The Tyrant
             435060157, // The Last Bray
+            242464656, 3431961942, 2104527476, 2104527477, 3431961937
           ],
-        },
-      },
-      {
-        activityHash: 548750096, // Scourge of the Past
-        buckets: {
-          nodes: [
-            1114960391, // Gunsmith's Devotion Suit
-            1384165442, // Bladesmith's Memory Suit
-            1672247878, // Bulletsmith's Ire Suit,
-            4214538151, // Scourge of the Past
-          ],
-          collectibles: [
-            982798874, // No Feelings
-            204024317, // Tempered Dynamo
-            4165423054, // Bellowing Giant
-            2596090783, // Threat Level
-            1903459810, // Always on Time
-            2220014607, // Anarchy
-            4176285806, // Fallen Invigoration
-            3647888847, // Fallen Armaments
-            3162743664, // Recovered Memories
-            1657525185, // Fallen Barrier
-            557403582, // Fallen Repurposing
-            2473783710, // Scourge of Nothing
-          ],
-          records: [],
         },
       },
       {
@@ -1782,6 +1775,32 @@ export const DestinyContentVault = [
             1742345588, // On Your Way Up
             2923250426, // A Superior Retainer
           ],
+        },
+      },
+      {
+        activityHash: 548750096, // Scourge of the Past
+        buckets: {
+          nodes: [
+            1114960391, // Gunsmith's Devotion Suit
+            1384165442, // Bladesmith's Memory Suit
+            1672247878, // Bulletsmith's Ire Suit,
+            4214538151, // Scourge of the Past
+          ],
+          collectibles: [
+            982798874, // No Feelings
+            204024317, // Tempered Dynamo
+            4165423054, // Bellowing Giant
+            2596090783, // Threat Level
+            1903459810, // Always on Time
+            2220014607, // Anarchy
+            4176285806, // Fallen Invigoration
+            3647888847, // Fallen Armaments
+            3162743664, // Recovered Memories
+            1657525185, // Fallen Barrier
+            557403582, // Fallen Repurposing
+            2473783710, // Scourge of Nothing
+          ],
+          records: [],
         },
       },
       {

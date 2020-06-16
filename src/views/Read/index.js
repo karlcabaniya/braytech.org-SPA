@@ -95,8 +95,8 @@ class Read extends React.Component {
               </div>
               <div className='content'>
                 {kind === 'book' ? (
-                  <ul className={cx('list')}>
-                    {definitionParent.children.records.map((record, r) => {
+                  <ul className='list'>
+                    {definitionParent?.children.records.map((record, r) => {
                       const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
 
                       if (!definitionRecord?.loreHash) {
