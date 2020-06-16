@@ -1439,19 +1439,16 @@ export const adventures = [
 export const DestinyContentVault = [
   {
     season: 12,
-    aside: `The following collectibles and records will be vaulted come September.`,
     vault: [
       {
         bucketHash: 138197802, // General
         buckets: {
-          nodes: [
-
-          ],
-          collectibles: [
-
-          ],
+          nodes: [],
+          collectibles: [],
           records: [
-            565725664, 2122886722, 1971661116
+            565725664, // Uldren Sov
+            2122886722, // Ghost Stories
+            1971661116, // The Awoken of the Reef
           ],
         },
       },
@@ -1480,7 +1477,6 @@ export const DestinyContentVault = [
             1058083666, // Baligant
             1169536399, // Widow's Bite
             1169536389, // Elegy-49
-            1152758802, // Silicon Neuroma
             259147460, // Echo Mesa
             3642181656, // Traveler's Departure
             3642181657, // Asher's Asylum
@@ -1497,7 +1493,12 @@ export const DestinyContentVault = [
           ],
           records: [
             1289798960, // The Tortured Scientist
-            2104527481, 2104527482, 2104527483, 242464659
+            2104527481, // Ghost Community Theater Presents
+            2104527482, // Difference of Opinion
+            2104527483, // Protector of Ghosts
+            242464659, // Gensym Scribe
+            3793243435, // Mission: Sacrilege
+            1322754255, // Mission: Fury
           ],
         },
       },
@@ -1526,7 +1527,6 @@ export const DestinyContentVault = [
             3788698913, // Annual Skate
             2283993085, // Tone Patrol
             2982198549, // Foggy Notion
-            1333654061, // Duty Bound
             2239241194, // Moon of Saturn Shell
             259147458, // New Pacific Arcology
             2532590120, // Utopia Lost
@@ -1542,7 +1542,13 @@ export const DestinyContentVault = [
           records: [
             2808299284, // The Titan on Titan
             2442138301, // Steadfast
-            259242254, 2121305062, 2104527484, 2121305063
+            259242254, // Pilgrimage
+            2121305062, // The Watchful Eye
+            2104527484, // Into the Fray
+            2121305063, // Confession of Hope | Part One
+            3765705655, // Mission: Hope
+            4140553751, // Mission: Riptide
+            3657886407, // Mission: Utopia
           ],
         },
       },
@@ -1594,6 +1600,15 @@ export const DestinyContentVault = [
             2765010546, // The Lighthouse Keeper
             242464658, // Exegesis
             2104527480, // From Fallen Ground
+            3985356666, // Explorer of the Infinite
+            1522954160, // Mission: The Gateway
+            574761812, // Mission: A Deadly Trial
+            1144140061, // Mission: Beyond Infinity
+            4255945596, // Mission: Deep Storage
+            614406941, // Mission: A Garden World
+            2332658765, // Mission: Hijacked
+            1518196036, // Mission: Tree of Probabilities
+            2846658569, // Mission: Omega
           ],
         },
       },
@@ -1657,14 +1672,84 @@ export const DestinyContentVault = [
             2670498157, // Technological Singularity
           ],
           records: [
+            581089627, // The Frozen Horde
             709188219, // The Tyrant
             435060157, // The Last Bray
-            242464656, 3431961942, 2104527476, 2104527477, 3431961937
+            242464656, // Emissary
+            3431961942, // Fanatic | Part II
+            2104527476, // Savin
+            2104527477, // Pulled Pork
+            3431961937, // Fanatic | Part I
+            3647083276, // Mission: Ice and Shadow
+            1651981295, // Mission: Pilgrimage
+            2982664966, // Mission: Will of the Thousands
+            452451691, // Mission: Strange Terrain
+            3158715546, // Mission: Off-World Recovery
           ],
         },
       },
       {
-        activityHash: 2693136600, // Leviathan: Normal
+        activityModeHash: 547513715, // Scored Nightfall Strikes
+        buckets: {
+          nodes: [],
+          collectibles: [
+            2448009818, // Universal Wavefunction
+            1463718186, // Savathûn's Song
+            1083244620, // Praxic Fire
+            1083244623, // Watcher from Beyond
+            1083244622, // Search and Rescue
+            2206107773, // Master Gardener
+            2222885351, // Master Cartographer
+            2428465607, // Blast from the Past
+            2428465604, // Odysseus's Offspring
+            1463718183, // A Garden World
+            2428465606, // Pulling Out the Roots
+            3333524756, // An Inscrutable Amygdaloid Eigenstate
+            1463718182, // The Pyramidion
+            3333524758, // Operation Intrepid
+            3333524759, // Spiraling into the Infinite
+            1165552016, // Maleficarum Interrupted
+            1165552017, // Purifying Light
+            1165552018, // Bane of Nokris
+            2256440525, // Strange Terrain
+            1489018578, // Feast of Worms
+            1489018579, // Giantfall
+            2256440524, // Will of the Thousands
+            1489018577, // Death to the Deathless
+            3810498718, // No More Lasers
+            3810498717, // A Forest of Red
+            1463718184, // Tree of Probabilities
+            3810498719, // Valus Intrigue
+            1152758802, // Silicon Neuroma
+            1333654061, // Duty Bound
+            1279318110, // D.F.A.
+            2466440635, // Worm God Incarnation
+            1534387877, // BrayTech Osprey
+          ],
+          records: [
+            3054774873, // A Garden World
+            2692332187, // A Garden World
+            1398454187, // The Quickening
+            1889144800, // Tree of Probabilities
+            2282894388, // Tree of Probabilities
+            3636866482, // Laser Dodger
+            256005845, // Savathûn's Song
+            1442950315, // The Best Defense
+            2099501667, // Savathûn's Song
+            165166474, // Strange Terrain
+            1871570556, // Don't Take Five
+            2737678546, // Strange Terrain
+            3013611925, // Three and Out
+            1039797865, // Will of the Thousands
+            3749730895, // Will of the Thousands
+            319759693, // The Pyramidion
+            1060780635, // The Pyramidion
+            1142177491, // Siege Engine
+          ],
+        },
+      },
+      {
+        activityHash: 2693136600, // Leviathan
         buckets: {
           nodes: [
             1375933822, // Fulminator Suit
@@ -1702,7 +1787,7 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 3089205900, // Leviathan, Eater of Worlds: Normal
+        activityHash: 3089205900, // Leviathan, Eater of Worlds
         buckets: {
           nodes: [
             1375933820, // Sekris Suit
@@ -1739,7 +1824,7 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 119944200, // Leviathan, Spire of Stars: Normal
+        activityHash: 119944200, // Leviathan, Spire of Stars
         buckets: {
           nodes: [
             1375933818, // Insigne Shade Suit
@@ -1783,7 +1868,7 @@ export const DestinyContentVault = [
           nodes: [
             1114960391, // Gunsmith's Devotion Suit
             1384165442, // Bladesmith's Memory Suit
-            1672247878, // Bulletsmith's Ire Suit,
+            1672247878, // Bulletsmith's Ire Suit
             4214538151, // Scourge of the Past
           ],
           collectibles: [
@@ -1804,7 +1889,7 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 3333172150, // Crown of Sorrow: Normal
+        activityHash: 3333172150, // Crown of Sorrow
         buckets: {
           nodes: [
             714676221, // Shadow of Judgment Suit
@@ -1892,7 +1977,9 @@ export const DestinyContentVault = [
             4207100358, // Bad Juju
             1242690193, // The Tribute Hall
           ],
-          records: [],
+          records: [
+            2245186555, // Bad Juju Catalyst
+          ],
         },
       },
     ],

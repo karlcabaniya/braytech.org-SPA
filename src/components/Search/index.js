@@ -155,6 +155,9 @@ class Search extends React.Component {
           if (regex.test(`${name} ${description}`)) {
             return true;
           }
+          if (regex.test(definition?.hash)) {
+            return true;
+          }
         }
 
         return false;

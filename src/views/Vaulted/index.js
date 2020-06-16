@@ -6,23 +6,30 @@ import cx from 'classnames';
 import { t, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { DestinyContentVault } from '../../utils/destinyEnums';
-
-import './styles.css';
 import Collectibles from '../../components/Collectibles';
 import Records from '../../components/Records';
+import { Common } from '../../svg';
+
+import './styles.css';
 
 export function NavLinks() {
   return (
     <div className='module views'>
       <ul className='list'>
-        <li className='linked disabled'>
-          <div className='icon'></div>
-          {/* <NavLink to='/' exact /> */}
+        <li className='linked'>
+          <div className='icon'>
+            <Common.Seasons />
+          </div>
+          <NavLink to='/vaulted' exact />
         </li>
       </ul>
     </div>
   );
 }
+
+const asides = {
+  12: '',
+};
 
 class Vaulted extends React.Component {
   componentDidMount() {
@@ -40,8 +47,8 @@ class Vaulted extends React.Component {
     const hash = +this.props.match.params.hash;
     const data = DestinyContentVault[0];
 
-    const selectedVault = (hash && data.vault.find((activity) => hash === (activity.placeHash || activity.activityHash))) || data.vault[0];
-    const selectedHash = selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash;
+    const selectedVault = (hash && data.vault.find((selectedVault) => hash === (selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash || selectedVault.activityModeHash))) || data.vault[0];
+    const selectedHash = selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash || selectedVault.activityModeHash;
 
     const collectibles =
       selectedVault &&
@@ -77,21 +84,19 @@ class Vaulted extends React.Component {
         <div className='module head'>
           <div className='page-header'>
             <div className='sub-name'>{t('The Vault')}</div>
-            <div className='name'>{t('Pending')}</div>
+            <div className='name'>{t('Season {{season}}', { season: data.season })}</div>
           </div>
+          <BraytechText className='text' value={t('For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)')} />
         </div>
         <div className='buff'>
           <NavLinks />
-          <div className='content presentation-node'>
-            <div className='module season'>
-              <h3>{t('Season {{season}}', { season: data.season })}</h3>
-              <BraytechText className='text' value={data.aside} />
-            </div>
+          <div className='presentation-node'>
             <div className='node'>
               <div className='children'>
+                <h4>{t('Areas')}</h4>
                 <ul className='list secondary'>
                   {data.vault.map((vault, v) => {
-                    const vaultHash = vault.bucketHash || vault.placeHash || vault.activityHash;
+                    const vaultHash = vault.bucketHash || vault.placeHash || vault.activityHash || vault.activityModeHash;
 
                     const isActive = (match, location) => {
                       if (selectedHash === vaultHash || hash === vaultHash) {
@@ -109,21 +114,22 @@ class Vaulted extends React.Component {
                       // placeHash
                       (vault.placeHash && manifest.DestinyPlaceDefinition[vault.placeHash].displayProperties.name) ||
                       // activityHash
-                      (vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].originalDisplayProperties.name);
+                      (vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].originalDisplayProperties.name) ||
+                      // activityModeHash
+                      (vault.activityModeHash && manifest.DestinyActivityModeDefinition[vault.activityModeHash].displayProperties.name);
                     const prefix = vault.placeHash ? `${manifest.DestinyActivityModeDefinition[3497767639].displayProperties.name}: ` : '';
 
                     return (
                       <li key={v} className={cx('linked', { active: isActive })}>
                         <div className='text'>
-                          <div className='name'>
-                            {prefix + name}
-                          </div>
+                          <div className='name'>{prefix + name}</div>
                         </div>
                         <NavLink isActive={isActive} to={`/vaulted/${data.season}/${vaultHash}`} />
                       </li>
                     );
                   })}
                 </ul>
+                <BraytechText className='info' value={t('For convenience, only significant collectibles and records have been marked and sorted.')} />
               </div>
               <div className='entries'>
                 {collectibles.length ? (

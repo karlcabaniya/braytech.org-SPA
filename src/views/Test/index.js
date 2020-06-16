@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import manifest from '../../utils/manifest';
 
 import { stringToIcons } from '../../utils/destinyUtils';
+import { DestinyContentVault } from '../../utils/destinyEnums';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
 
@@ -51,32 +52,28 @@ class Test extends React.Component {
     // const reducedCollectibles = [...this.props.lists.nodes.reduce((a, v) => [...a, manifest.DestinyPresentationNodeDefinition[v].children.collectibles.map((c) => c.collectibleHash)], []).flat(), ...this.props.list.collectibles];
 
     // const reducedRecords = [...this.props.lists.nodes.reduce((a, v) => [...a, manifest.DestinyPresentationNodeDefinition[v].children.records.map((c) => c.recordHash)], []).flat(), ...this.props.list.records];
-
-    const dcv = [
-      {
-        activityHash: 3858493935,
-        artifacts: this.props.lists,
-      },
-    ];
-
+    console.log(DestinyContentVault[0])
+    //selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash || selectedVault.activityModeHash
     console.log(
-      dcv
-        .map((place) => {
+      DestinyContentVault[0].vault.map((place) => {
           return `{${place.placeHash ? `placeHash: ${place.placeHash}, // ${manifest.DestinyPlaceDefinition[place.placeHash].displayProperties.name}\n` : ``}
-  ${place.activityHash ? `activityHash: ${place.activityHash}, // ${manifest.DestinyActivityDefinition[place.activityHash].displayProperties.name}\n` : ``}
-  artifacts: {
+          ${place.bucketHash ? `bucketHash: ${place.bucketHash}, // ${manifest.DestinyInventoryBucketDefinition[place.bucketHash].displayProperties.name}\n` : ``}
+          ${place.activityHash ? `activityHash: ${place.activityHash}, // ${manifest.DestinyActivityDefinition[place.activityHash].originalDisplayProperties.name}\n` : ``}
+          ${place.activityModeHash ? `activityModeHash: ${place.activityModeHash}, // ${manifest.DestinyActivityModeDefinition[place.activityModeHash].displayProperties.name}\n` : ``}
+  buckets: {
     nodes: [
-      ${place.artifacts.nodes.map((hash) => `${hash}, // ${manifest.DestinyPresentationNodeDefinition[hash].displayProperties.name}`).join('\n')}
+      ${place.buckets.nodes.map((hash) => `${hash}, // ${manifest.DestinyPresentationNodeDefinition[hash].displayProperties.name}`).join('\n')}
     ],
     collectibles: [
-      ${place.artifacts.collectibles.map((hash) => `${hash}, // ${manifest.DestinyCollectibleDefinition[hash].displayProperties.name}`).join('\n')}
+      ${place.buckets.collectibles.map((hash) => `${hash}, // ${manifest.DestinyCollectibleDefinition[hash].displayProperties.name}`).join('\n')}
     ],
     records: [
-      ${place.artifacts.records.map((hash) => `${hash}, // ${manifest.DestinyRecordDefinition[hash].displayProperties.name}`).join('\n')}
+      ${place.buckets.records.map((hash) => `${hash}, // ${manifest.DestinyRecordDefinition[hash].displayProperties.name}`).join('\n')}
     ],
   }
 },`;
         })
+        
         .join('\n')
     );
 

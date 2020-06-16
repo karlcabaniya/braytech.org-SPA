@@ -1,270 +1,218 @@
 {
   "de": {
     "translated": 707,
-    "notTranslated": 11,
+    "notTranslated": 17,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "debug": {
-    "translated": 718,
+    "translated": 724,
     "notTranslated": 0,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "en": {
-    "translated": 718,
+    "translated": 724,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "es-mx": {
     "translated": 707,
-    "notTranslated": 11,
+    "notTranslated": 17,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "es": {
     "translated": 707,
-    "notTranslated": 11,
+    "notTranslated": 17,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "fr": {
     "translated": 624,
-    "notTranslated": 94,
+    "notTranslated": 100,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "it": {
-    "translated": 707,
-    "notTranslated": 11,
+    "translated": 717,
+    "notTranslated": 7,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "ja": {
     "translated": 603,
-    "notTranslated": 115,
+    "notTranslated": 121,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 204,
+    "notTranslated": 210,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 716,
+    "notTranslated": 722,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "pt-br": {
-    "translated": 620,
-    "notTranslated": 98,
+    "translated": 710,
+    "notTranslated": 14,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "ru": {
     "translated": 705,
-    "notTranslated": 13,
+    "notTranslated": 19,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "zh-chs": {
     "translated": 487,
-    "notTranslated": 231,
+    "notTranslated": 237,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 369,
+    "notTranslated": 375,
     "added": [
-      "1 Month",
-      "1 Mth",
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "Enable developer lists by overriding links",
-      "Enable lists",
-      "Pending",
-      "The Vault",
-      "This collectible will be archived in {{duration}}",
-      "This record will be archived in {{duration}}",
-      "{{months}} Months",
-      "{{months}} Mths"
+      "Areas",
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)",
+      "Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.",
+      "Reset all user settings, saved data, and history.",
+      "Reset everything",
+      "Supress Vault Warnings"
     ],
     "removed": [
-      "All completed"
+      "Pending"
     ]
   }
 }
