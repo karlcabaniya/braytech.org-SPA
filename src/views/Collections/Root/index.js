@@ -19,7 +19,7 @@ class Root extends React.Component {
   }
 
   render() {
-    const { member, viewport } = this.props;
+    const { settings, member, viewport } = this.props;
 
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
@@ -130,7 +130,7 @@ class Root extends React.Component {
         badgesStates.push(definitionBadge.displayProperties.name);
       }
 
-      const hasVaultedChild = isChildOfNodeVaulted(definitionBadge.hash);
+      const hasVaultedChild = settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionBadge.hash);
 
       badges.push(
         <li
@@ -195,8 +195,9 @@ class Root extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
     viewport: state.viewport,
   };

@@ -90,32 +90,10 @@
   margin: 1rem 0 0;
 }
 
-#vaulted .module .artifacts .sub-header {
-  
-}
-
-#vaulted .module .artifacts > .list.collection-items,
-#vaulted .module .artifacts > .list.record-items {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-#vaulted .module .artifacts > .list:not(:last-child) {
-  margin-bottom: 2rem;
-}
-
-
-
-@media screen and (max-width: 1660px) {
-  #vaulted .module .artifacts > .list.collection-items,
-  #vaulted .module .artifacts > .list.record-items {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 @media screen and (max-width: 1280px) {
-  #vaulted .module .artifacts > .list.collection-items,
-  #vaulted .module .artifacts > .list.record-items {
-    grid-template-columns: repeat(2, 1fr);
+  #vaulted .entries > .list.record-items {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -127,11 +105,8 @@
   #vaulted .content {
     grid-template-columns: auto;
   }
-}
 
-@media screen and (max-width: 768px) {
-  #vaulted .module .artifacts > .list.collection-items,
-  #vaulted .module .artifacts > .list.record-items {
+  #vaulted .entries > .list.collection-items {
     grid-template-columns: 1fr;
   }
 }

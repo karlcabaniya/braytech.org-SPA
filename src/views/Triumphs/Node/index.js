@@ -8,6 +8,7 @@ import manifest from '../../../utils/manifest';
 import duds from '../../../data/records/duds';
 import unobtainable from '../../../data/records/unobtainable';
 import { enumerateRecordState } from '../../../utils/destinyEnums';
+import { isChildOfNodeVaulted } from '../../../utils/destinyUtils';
 import { ProfileNavLink } from '../../../components/ProfileLink';
 import ObservedImage from '../../../components/ObservedImage';
 import Records from '../../../components/Records';
@@ -116,8 +117,10 @@ class PresentationNode extends React.Component {
           return null;
         }
 
+        const hasVaultedChild = settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionNode.hash);
+
         return (
-          <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash })}>
+          <li key={definitionNode.hash} className={cx('linked', { completed: secondaryProgress === secondaryTotal && secondaryTotal !== 0, active: definitionTertiary.hash === child.presentationNodeHash, expired: hasVaultedChild })}>
             <div className='text'>
               <div className='name'>{definitionNode.displayProperties.name}</div>
               <div className='progress'>

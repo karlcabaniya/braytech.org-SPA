@@ -88,7 +88,7 @@ class Collectibles extends React.Component {
   render() {
     const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
-    const supressHighlights = this.props.supressHighlights || settings.supressHighlights;
+    const supressVaultWarning = this.props.supressVaultWarning || settings.itemVisibility.supressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
     const characterCollectibles = member.data.profile?.characterCollectibles.data;
@@ -157,15 +157,15 @@ class Collectibles extends React.Component {
                     className={cx('item', 'tooltip', {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
-                      selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                      expired: !supressHighlights && isVaultedCollectible,
+                      selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
+                      expired: !supressVaultWarning && isVaultedCollectible,
                     })}
                     data-hash={definitionCollectible.itemHash}
-                    onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
+                    onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                   >
                     <div className='icon'>
                       <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                      {!supressHighlights && isVaultedCollectible && (
+                      {!supressVaultWarning && isVaultedCollectible && (
                         <div className='expired'>
                           <Common.Expired />
                         </div>
@@ -175,7 +175,7 @@ class Collectibles extends React.Component {
                       <div className='name'>{definitionCollectible.displayProperties.name}</div>
                       {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
                     </div>
-                    {!settings.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
+                    {!settings.developer.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
                   </li>
                 ),
               });
@@ -194,10 +194,10 @@ class Collectibles extends React.Component {
               ref={ref}
               className={cx('is-set', {
                 completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length,
-                selected: settings.lists && lists.nodes.includes(definitionNode.hash),
+                selected: settings.developer.lists && lists.nodes.includes(definitionNode.hash),
               })}
             >
-              <div className='text' onClick={settings.lists ? this.props.addToList({ type: 'nodes', value: definitionNode.hash }) : undefined}>
+              <div className='text' onClick={settings.developer.lists ? this.props.addToList({ type: 'nodes', value: definitionNode.hash }) : undefined}>
                 <div className='name'>{definitionNode.displayProperties.name}</div>
               </div>
               <div className='set'>
@@ -265,15 +265,15 @@ class Collectibles extends React.Component {
                   className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
-                    selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                    expired: !supressHighlights && isVaultedCollectible,
+                    selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
+                    expired: !supressVaultWarning && isVaultedCollectible,
                   })}
                   data-hash={definitionCollectible.itemHash}
-                  onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
+                  onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                 >
                   <div className='icon'>
                     <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                    {!supressHighlights && isVaultedCollectible && (
+                    {!supressVaultWarning && isVaultedCollectible && (
                       <div className='expired'>
                         <Common.Expired />
                       </div>
@@ -283,7 +283,7 @@ class Collectibles extends React.Component {
                     <div className='name'>{definitionCollectible.displayProperties.name}</div>
                     {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
                   </div>
-                  {!settings.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
+                  {!settings.developer.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
                 </li>
               ),
             });
@@ -334,15 +334,15 @@ class Collectibles extends React.Component {
                 tooltip: viewport.width <= 600 && link && selfLinkFrom && !forceTooltip ? false : true,
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
-                selected: settings.lists && lists.collectibles.includes(definitionCollectible.hash),
-                expired: !supressHighlights && isVaultedCollectible,
+                selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
+                expired: !supressVaultWarning && isVaultedCollectible,
               })}
               data-hash={definitionCollectible.itemHash}
-              onClick={settings.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
+              onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
             >
               <div className='icon'>
                 <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
-                {!supressHighlights && isVaultedCollectible && (
+                {!supressVaultWarning && isVaultedCollectible && (
                   <div className='expired'>
                     <Common.Expired />
                   </div>
@@ -352,8 +352,8 @@ class Collectibles extends React.Component {
                 <div className='name'>{definitionCollectible.displayProperties.name}</div>
                 {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
               </div>
-              {!settings.lists && link && selfLinkFrom && !inspect ? <ProfileLink to={{ pathname: link, state: { from: selfLinkFrom } }} /> : null}
-              {!settings.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
+              {!settings.developer.lists && link && selfLinkFrom && !inspect ? <ProfileLink to={{ pathname: link, state: { from: selfLinkFrom } }} /> : null}
+              {!settings.developer.lists && inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/${definitionCollectible.itemHash}`, state: { from: selfLinkFrom } }} /> : null}
             </li>
           ),
         });

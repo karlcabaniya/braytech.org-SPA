@@ -882,15 +882,15 @@ export function activityModeExtras(mode) {
 }
 
 export function isContentVaulted(hash) {
-  for (let content = 0; content < enums.dcv.length; content++) {
-    const vault = enums.dcv[content];
+  for (let content = 0; content < enums.DestinyContentVault.length; content++) {
+    const season = enums.DestinyContentVault[content];
 
-    for (let index = 0; index < vault.activities.length; index++) {
-      const activity = vault.activities[index];
+    for (let index = 0; index < season.vault.length; index++) {
+      const vault = season.vault[index];
 
       const collectibles = [
-        ...activity.artifacts.collectibles, // static collectibles
-        ...activity.artifacts.nodes
+        ...vault.buckets.collectibles, // static collectibles
+        ...vault.buckets.nodes
           .reduce(
             (array, presentationNodeHash) => [
               // derived from presentation nodes
@@ -902,8 +902,8 @@ export function isContentVaulted(hash) {
           .flat(),
       ];
       const records = [
-        ...activity.artifacts.records, // static records
-        ...activity.artifacts.nodes
+        ...vault.buckets.records, // static records
+        ...vault.buckets.nodes
           .reduce(
             (array, presentationNodeHash) => [
               // derived from presentation nodes
@@ -917,7 +917,7 @@ export function isContentVaulted(hash) {
 
       const isVaulted = collectibles.includes(hash) || records.includes(hash);
 
-      if (isVaulted) return D2SeasonInfo[vault.season];
+      if (isVaulted) return D2SeasonInfo[season.season];
     }
   }
 

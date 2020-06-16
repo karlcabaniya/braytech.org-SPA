@@ -1436,14 +1436,14 @@ export const adventures = [
   4238309598,
 ];
 
-export const dcv = [
+export const DestinyContentVault = [
   {
     season: 12,
     aside: `The following collectibles and records will be vaulted come September.`,
-    activities: [
+    vault: [
       {
         placeHash: 4251857532, // Io
-        artifacts: {
+        buckets: {
           nodes: [
             4139791846, // Gensym Knight Suit
             3476818387, // Gensym Knight Suit
@@ -1488,7 +1488,7 @@ export const dcv = [
       },
       {
         placeHash: 386951460, // Titan, Moon of Saturn
-        artifacts: {
+        buckets: {
           nodes: [
             4139791844, // Lost Pacific Suit
             3476818385, // Lost Pacific Suit
@@ -1532,7 +1532,7 @@ export const dcv = [
       },
       {
         placeHash: 1259908504, // Mercury
-        artifacts: {
+        buckets: {
           nodes: [
             4139791842, // Kairos Function Suit
             3476818391, // Kairos Function Suit
@@ -1581,7 +1581,7 @@ export const dcv = [
       },
       {
         placeHash: 2426873752, // Mars
-        artifacts: {
+        buckets: {
           nodes: [
             4139791843, // BrayTech Suit
             4139791840, // Yuga Sundown Suit
@@ -1646,7 +1646,7 @@ export const dcv = [
       },
       {
         activityHash: 548750096, // Scourge of the Past
-        artifacts: {
+        buckets: {
           nodes: [
             1114960391, // Gunsmith's Devotion Suit
             1384165442, // Bladesmith's Memory Suit
@@ -1672,7 +1672,7 @@ export const dcv = [
       },
       {
         activityHash: 2693136600, // Leviathan: Normal
-        artifacts: {
+        buckets: {
           nodes: [
             1375933822, // Fulminator Suit
             1375933823, // Emperor's Minister Suit
@@ -1710,7 +1710,7 @@ export const dcv = [
       },
       {
         activityHash: 3089205900, // Leviathan, Eater of Worlds: Normal
-        artifacts: {
+        buckets: {
           nodes: [
             1375933820, // Sekris Suit
             464179109, // Feltroc Suit
@@ -1747,7 +1747,7 @@ export const dcv = [
       },
       {
         activityHash: 119944200, // Leviathan, Spire of Stars: Normal
-        artifacts: {
+        buckets: {
           nodes: [
             1375933818, // Insigne Shade Suit
             464179107, // Equitis Shade Suit
@@ -1786,7 +1786,7 @@ export const dcv = [
       },
       {
         activityHash: 3333172150, // Crown of Sorrow: Normal
-        artifacts: {
+        buckets: {
           nodes: [
             714676221, // Shadow of Judgment Suit
             3847915640, // Shadow of Silence Suit
@@ -1816,11 +1816,14 @@ export const dcv = [
       },
       {
         activityHash: 352668024, // The Menagerie
-        artifacts: {
+        buckets: {
           nodes: [
             2551808106, // Opulent Scholar Suit
             327169819, // Opulent Stalker Suit
             3760158863, // Opulent Duelist Suit
+            4139791855, // Exodus Down Suit
+            3476818394, // Exodus Down Suit
+            3952745158, // Exodus Down Suit
             1117466231, // Menagerie
           ],
           collectibles: [
@@ -1862,7 +1865,7 @@ export const dcv = [
       },
       {
         activityHash: 3858493935, // The Tribute Hall
-        artifacts: {
+        buckets: {
           nodes: [
             3892601654, // The Tribute Hall
           ],

@@ -14,12 +14,15 @@ let _currentLanguage;
 
 function getCurrentLanguage() {
   if (_currentLanguage) return _currentLanguage;
+
   _currentLanguage = ls.get('setting.language');
+
   return _currentLanguage || _defaultLanguage;
 }
 
 function setCurrentLanguage(lang) {
   _currentLanguage = lang;
+
   ls.set('setting.language', lang);
 }
 
@@ -29,20 +32,14 @@ i18next
   .init({
     lng: getCurrentLanguage(),
     fallbackLng: _defaultLanguage,
-
     backend: {
       loadPath: '/static/locales/{{lng}}/{{ns}}.json',
     },
-
     // allow keys to be phrases having `:`, `.`
     nsSeparator: false,
     keySeparator: false,
-
     interpolation: {
       escapeValue: false,
-      // format: function (value, format, lng) {
-      //   // if (format === 'bold') return <strong>{value}</strong>;
-      // },
     },
     react: {
       wait: true,
@@ -54,6 +51,88 @@ i18next.getCurrentLanguage = getCurrentLanguage;
 i18next.setCurrentLanguage = setCurrentLanguage;
 
 export default i18next;
+
+export function getLanguageInfo(code) {
+  switch (code) {
+    case 'debug':
+      return {
+        name: 'Debug',
+        code: code
+      };
+    case 'de':
+      return {
+        name: 'Deutsch',
+        code: code
+      };
+    case 'en':
+      return {
+        name: 'English',
+        code: code
+      };
+    case 'en-au':
+      return {
+        name: 'English (Australia)',
+        code: code
+      };
+    case 'es':
+      return {
+        name: 'Español',
+        code: code
+      };
+    case 'es-mx':
+      return {
+        name: 'Español mexicano',
+        code: code
+      };
+    case 'fr':
+      return {
+        name: 'Français',
+        code: code
+      };
+    case 'it':
+      return {
+        name: 'Italiano',
+        code: code
+      };
+    case 'ja':
+      return {
+        name: '日本語',
+        code: code
+      };
+    case 'ko':
+      return {
+        name: '한국어',
+        code: code
+      };
+    case 'pl':
+      return {
+        name: 'Polski',
+        code: code
+      };
+    case 'pt-br':
+      return {
+        name: 'Português Brasileiro',
+        code: code
+      };
+    case 'ru':
+      return {
+        name: 'Русский',
+        code: code
+      };
+    case 'zh-cht':
+      return {
+        name: '繁體中文',
+        code: code
+      };
+    case 'zh-chs':
+      return {
+        name: '简体中文',
+        code: code
+      };
+    default:
+      return { code: code };
+  }
+}
 
 export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
 
@@ -186,7 +265,7 @@ export const timestampToDifference = (timestamp, unit = 'seconds', start = momen
   const difference = end.diff(start, unit);
 
   return {
-    [unit]: difference
+    [unit]: difference,
   };
 };
 

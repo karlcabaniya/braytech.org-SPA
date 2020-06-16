@@ -114,7 +114,7 @@ function Root({ settings, member, ...props }) {
 
     // console.log(definitionSeal.displayProperties.name, enumeratePresentationNodeState(profilePresentationNodes[definitionSeal.hash].state), profilePresentationNodes[definitionSeal.hash])
 
-    const hasVaultedChild = isChildOfNodeVaulted(definitionSeal.hash);
+    const hasVaultedChild = settings.itemVisibility.supressVaultWarnings && isChildOfNodeVaulted(definitionSeal.hash);
 
     sealNodes.push({
       completed: isComplete,

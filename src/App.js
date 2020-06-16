@@ -172,15 +172,16 @@ class App extends React.Component {
   }
 
   // Called on window resize and dispatches changes to redux
-  hanlder_resizeViewport = () => {
+  handler_resizeViewport = () => {
     this.props.setViewport({ width: window.innerWidth, height: window.innerHeight });
   };
 
   // Upon App.js mount; bind window reisze handler,
   // check if client online, start fetching manifest
   async componentDidMount() {
-    this.hanlder_resizeViewport();
-    window.addEventListener('resize', this.hanlder_resizeViewport);
+    this.handler_resizeViewport();
+
+    window.addEventListener('resize', this.handler_resizeViewport);
 
     CSSFeatureDetects();
 
@@ -305,7 +306,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.hanlder_resizeViewport);
+    window.removeEventListener('resize', this.handler_resizeViewport);
   }
 
   render() {
@@ -366,7 +367,7 @@ class App extends React.Component {
                   <Route path='/commonality' exact component={Commonality} />
                   <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                   <Route path='/faq' exact component={FAQ} />
-                  <Route path='/vaulted' exact component={Vaulted} />
+                  <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
 
                   <Route path='/oob' component={OOB} />
                   <Route path='/test' component={Test} />
