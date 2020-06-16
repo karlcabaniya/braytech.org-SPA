@@ -35,10 +35,8 @@ const ChecklistItem = (props) => {
   );
 };
 
-const Checklist = (props) => {
-  const { collectibles, headless, completedItems, checklistCharacterBound, checklistItemName_plural, checklistProgressDescription } = props;
-
-  const items = collectibles.hideCompletedChecklistItems ? props.items.filter((item) => !item.completed).filter((item) => !item.extended?.unavailable) : props.items.filter((item) => item.completed || (!item.completed && !item.extended?.unavailable));
+const Checklist = ({ settings, headless, completedItems, checklistCharacterBound, checklistItemName_plural, checklistProgressDescription, ...props }) => {
+  const items = settings.itemVisibility.hideCompletedChecklistItems ? props.items.filter((item) => !item.completed).filter((item) => !item.extended?.unavailable) : props.items.filter((item) => item.completed || (!item.completed && !item.extended?.unavailable));
   const totalItems = props.items.filter((item) => item.completed || (!item.completed && !item.extended?.unavailable)).length;
 
   if (headless) {
@@ -85,9 +83,9 @@ const Checklist = (props) => {
   }
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    collectibles: state.collectibles,
+    settings: state.settings,
   };
 }
 

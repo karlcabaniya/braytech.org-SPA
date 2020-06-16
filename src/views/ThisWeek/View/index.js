@@ -288,7 +288,7 @@ function mapStateToProps(state, ownProps) {
     member: state.member,
     auth: state.auth,
     layout: state.layouts['this-week'],
-    collectibles: state.collectibles,
+    settings: state.settings,
     tips: state.tips
   };
 }

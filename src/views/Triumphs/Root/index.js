@@ -16,7 +16,7 @@ import RecordsAlmost from '../../../components/RecordsAlmost';
 import RecordsTracked from '../../../components/RecordsTracked';
 import Search from '../../../components/Search';
 
-function Root({ member, collectibles, ...props }) {
+function Root({ settings, member, ...props }) {
   const character = member.data.profile.characters.data.find((character) => character.characterId === member.characterId);
   const profilePresentationNodes = member.data.profile.profilePresentationNodes.data.nodes;
   const profileRecords = member.data.profile.profileRecords.data.records;
@@ -50,15 +50,15 @@ function Root({ member, collectibles, ...props }) {
           const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
           if (recordData) {
-            if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
+            if (settings.itemVisibility.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
 
             if (recordData.intervalObjectives?.length) {
-              if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (recordData.intervalsRedeemedCount === 0 && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
             } else {
-              if (!enumerateRecordState(recordData.state).RecordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (!enumerateRecordState(recordData.state).RecordRedeemed && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
             }
 
-            if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return;
+            if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return;
 
             recordData.hash = definitionRecord.hash;
             recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;
@@ -205,10 +205,10 @@ function Root({ member, collectibles, ...props }) {
   );
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
   };
 }
 

@@ -43,12 +43,11 @@ export class Checklists extends React.Component {
   }
 
   handler_toggleCompleted = (e) => {
-    const currentState = this.props.collectibles;
-    const newState = {
-      hideCompletedChecklistItems: !currentState.hideCompletedChecklistItems,
-    };
-
-    this.props.setCollectibleDisplayState(newState);
+    this.props.set({
+      itemVisibility: {
+        hideCompletedChecklistItems: !this.props.settings.itemVisibility.hideCompletedChecklistItems,
+      },
+    });
   };
 
   componentDidUpdate(p, s) {
@@ -83,7 +82,7 @@ export class Checklists extends React.Component {
 
     const toggleCompletedLink = (
       <Button action={this.handler_toggleCompleted}>
-        {this.props.collectibles.hideCompletedChecklistItems ? (
+        {this.props.settings.itemVisibility.hideCompletedChecklistItems ? (
           <>
             <i className='segoe-uniF16E' />
             {t('Show all')}
@@ -128,22 +127,22 @@ export class Checklists extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
     viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
+    set: (payload) => {
+      dispatch({ type: 'SET_SETTING', payload });
+    },
     rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    },
-    setCollectibleDisplayState: (value) => {
-      dispatch({ type: 'SET_COLLECTIBLES', payload: value });
-    },
+    }
   };
 }
 

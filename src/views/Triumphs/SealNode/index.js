@@ -84,7 +84,7 @@ function SealNode({ match, member, ...props }) {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    collectibles: state.collectibles,
+    settings: state.settings,
   };
 }
 

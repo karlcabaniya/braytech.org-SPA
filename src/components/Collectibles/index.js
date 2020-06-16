@@ -80,13 +80,13 @@ class Collectibles extends React.Component {
   }
 
   componentDidUpdate(p) {
-    if (p.collectibles !== this.props.collectibles) {
+    if (p.settings.itemVisibility !== this.props.settings.itemVisibility) {
       this.props.rebindTooltips();
     }
   }
 
   render() {
-    const { settings, lists, member, collectibles, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
+    const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const supressHighlights = this.props.supressHighlights || settings.supressHighlights;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
@@ -112,8 +112,8 @@ class Collectibles extends React.Component {
             const state = scope?.state || 0;
 
             if (
-              (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
-              (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
+              (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+              (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
             ) {
               set.push({
                 hash: definitionCollectible.hash,
@@ -184,7 +184,7 @@ class Collectibles extends React.Component {
 
           const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? this.ref_scrollTo : null;
 
-          if (collectibles.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length === set.length) {
+          if (settings.itemVisibility.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length === set.length) {
             return;
           }
 
@@ -203,7 +203,7 @@ class Collectibles extends React.Component {
               <div className='set'>
                 {set.filter((collectible) => collectible.element).length ? ( // collectibles avaiable to display
                   <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
-                ) : collectibles.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
+                ) : settings.itemVisibility.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
                   <div className='info'>{t('All acquired')}</div>
                 ) : (
                   <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>
@@ -220,8 +220,8 @@ class Collectibles extends React.Component {
           const state = scope?.state || 0;
 
           if (
-            (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
-            (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
+            (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+            (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
           ) {
             return;
           }
@@ -290,7 +290,7 @@ class Collectibles extends React.Component {
           }
         });
 
-        if (collectiblesOutput.filter((c) => c).length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
+        if (collectiblesOutput.filter((c) => c).length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
           collectiblesOutput.push({
             element: (
               <li key='all-completed' className='all-completed'>
@@ -312,8 +312,8 @@ class Collectibles extends React.Component {
         const state = scope?.state || 0;
 
         if (
-          (collectibles.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
-          (collectibles.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
+          (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+          (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
         ) {
           return;
         }
@@ -359,7 +359,7 @@ class Collectibles extends React.Component {
         });
       });
 
-      if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && collectibles.hideCompletedCollectibles && !showCompleted) {
+      if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
         collectiblesOutput.push({
           element: (
             <li key='all-completed' className='all-completed'>
@@ -380,7 +380,6 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
     viewport: state.viewport,
     lists: state.lists,
   };

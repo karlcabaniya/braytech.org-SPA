@@ -74,7 +74,7 @@ class Checklists extends React.Component {
   handler_markerMouseOver = (e) => {
     return;
     
-    if (!this.props.settings.debug || !this.props.settings.logDetails) return;
+    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
     const dataset = e.target?._icon?.children?.[0]?.children?.[0]?.dataset;
 
@@ -157,7 +157,7 @@ class Checklists extends React.Component {
 function mapStateToProps(state) {
   return {
     member: state.member,
-    collectibles: state.collectibles,
+    settings: state.settings,
     viewport: state.viewport,
     settings: state.maps,
   };

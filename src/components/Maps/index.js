@@ -336,7 +336,7 @@ class Maps extends React.Component {
   };
 
   handler_map_mouseDown = (e) => {
-    if (!this.props.settings.debug || !this.props.settings.logDetails) return;
+    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
     const destination = resolveDestination(this.props.params.map).id;
 
@@ -372,7 +372,7 @@ class Maps extends React.Component {
   };
 
   handler_map_viewportChange = (e) => {
-    if (!this.props.settings.debug || !this.props.settings.logDetails) return;
+    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
     // console.log(e);
   };
@@ -388,7 +388,7 @@ class Maps extends React.Component {
     ];
 
     return (
-      <div className={cx('map-omega', `zoom-${this.state.viewport.zoom}`, { loading: this.state.loading, debug: settings.debug, 'highlight-no-screenshot': settings.noScreenshotHighlight })}>
+      <div className={cx('map-omega', `zoom-${this.state.viewport.zoom}`, { loading: this.state.loading, debug: settings.maps.debug, 'highlight-no-screenshot': settings.maps.noScreenshotHighlight })}>
         <div className='leaflet-pane leaflet-background-pane tinted'>
           <BackgroundLayer {...destination} />
         </div>
@@ -428,25 +428,24 @@ class Maps extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
     viewport: state.viewport,
-    settings: state.maps,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
+    rebindTooltips: () => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
     },
-    changeCharacterId: (value) => {
-      dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload: value });
+    changeCharacterId: (payload) => {
+      dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload });
     },
-    setScrollbars: (value) => {
-      dispatch({ type: 'SET_SCROLLBARS', payload: value });
+    setScrollbars: (payload) => {
+      dispatch({ type: 'SET_SCROLLBARS', payload });
     },
   };
 }

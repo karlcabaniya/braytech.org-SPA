@@ -31,7 +31,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    const { collectibles, table, database } = this.props;
+    const { settings, table, database } = this.props;
 
     const tables = table ? [table] : enums.manifestTableNames;
 
@@ -41,7 +41,7 @@ class Search extends React.Component {
           return index;
         }
 
-        if (!database && table === 'DestinyRecordDefinition' && collectibles.hideDudRecords && duds.indexOf(manifest.DestinyRecordDefinition[key]?.hash) > -1) {
+        if (!database && table === 'DestinyRecordDefinition' && settings.itemVisibility.hideDudRecords && duds.indexOf(manifest.DestinyRecordDefinition[key]?.hash) > -1) {
           return index;
         }
 
@@ -226,11 +226,11 @@ class Search extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
     tooltips: state.tooltips,
-    collectibles: state.collectibles,
   };
 }
 

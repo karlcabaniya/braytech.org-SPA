@@ -1,17 +1,37 @@
+import { merge } from 'lodash';
 import * as ls from '../../utils/localStorage';
 
 const history = ls.get('settings') || {
-  lists: false
+  visual: {
+    passiveAnimations: true,
+    three: false,
+    threeDebug: false,
+    threeShadows: false,
+  },
+  itemVisibility: {
+    hideCompletedRecords: false,
+    hideCompletedChecklistItems: false,
+    hideCompletedCollectibles: false,
+    hideInvisibleRecords: true,
+    hideInvisibleCollectibles: true,
+    hideDudRecords: true,
+    hideUnobtainableRecords: true,
+  },
+  maps: {
+    debug: false,
+    noScreenshotHighlight: false,
+    logDetails: false,
+  },
+  developer: {
+    lists: false,
+  }
 };
 
 export default function reducer(state = history, action) {
   switch (action.type) {
     case 'SET_SETTING':
 
-      const adjusted = {
-        ...state,
-        ...action.payload
-      };
+      const adjusted = merge({...state}, action.payload);
       
       ls.set('settings', adjusted);
 

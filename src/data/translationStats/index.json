@@ -1,125 +1,270 @@
 {
   "de": {
-    "translated": 694,
-    "notTranslated": 14,
+    "translated": 707,
+    "notTranslated": 11,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "debug": {
-    "translated": 708,
+    "translated": 718,
     "notTranslated": 0,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "en": {
-    "translated": 708,
+    "translated": 718,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "es-mx": {
-    "translated": 706,
-    "notTranslated": 2,
+    "translated": 707,
+    "notTranslated": 11,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "es": {
-    "translated": 706,
-    "notTranslated": 2,
+    "translated": 707,
+    "notTranslated": 11,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "fr": {
-    "translated": 625,
-    "notTranslated": 83,
+    "translated": 624,
+    "notTranslated": 94,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "it": {
-    "translated": 706,
-    "notTranslated": 2,
+    "translated": 707,
+    "notTranslated": 11,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "ja": {
-    "translated": 604,
-    "notTranslated": 104,
+    "translated": 603,
+    "notTranslated": 115,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "ko": {
-    "translated": 515,
-    "notTranslated": 193,
+    "translated": 514,
+    "notTranslated": 204,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 706,
+    "notTranslated": 716,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "pt-br": {
-    "translated": 621,
-    "notTranslated": 87,
+    "translated": 620,
+    "notTranslated": 98,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "ru": {
-    "translated": 706,
-    "notTranslated": 2,
+    "translated": 705,
+    "notTranslated": 13,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "zh-chs": {
-    "translated": 488,
-    "notTranslated": 220,
+    "translated": 487,
+    "notTranslated": 231,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   },
   "zh-cht": {
-    "translated": 350,
-    "notTranslated": 358,
+    "translated": 349,
+    "notTranslated": 369,
     "added": [
-      "Season {{season}}",
-      "Sunset"
+      "1 Month",
+      "1 Mth",
+      "An exhaustive list of collectibles and records that are pending archival.",
+      "Enable developer lists by overriding links",
+      "Enable lists",
+      "Pending",
+      "The Vault",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}",
+      "{{months}} Months",
+      "{{months}} Mths"
     ],
-    "removed": []
+    "removed": [
+      "All completed"
+    ]
   }
 }

@@ -11,35 +11,29 @@ import notifications from './reducers/notifications.js';
 import pgcr from './reducers/pgcr.js';
 import tooltips from './reducers/tooltips.js';
 import triumphs from './reducers/triumphs.js';
-import collectibles from './reducers/collectibles.js';
-import maps from './reducers/maps.js';
 import layouts from './reducers/layouts.js';
-import visual from './reducers/visual.js';
 import lists from './reducers/lists.js';
 import settings from './reducers/settings.js';
 
 const rootReducer = combineReducers({
-  viewport,
+  settings,
   theme,
-  tips,
+  viewport,
+  tooltips,
   auth,
   member,
   groupMembers,
-  refresh,
-  notifications,
   pgcr,
-  tooltips,
+  refresh,
+  tips,
+  notifications,
   triumphs,
-  collectibles,
-  maps,
   layouts,
-  visual,
   lists,
-  settings
 });
 
 const store = createStore(
-  rootReducer,
+  rootReducer
   // window.__REDUX_DEVTOOLS_EXTENSION__ &&
   //   window.__REDUX_DEVTOOLS_EXTENSION__({
   //     actionsBlacklist: ['PGCR_LOADED', 'PGCR_LOADING'],

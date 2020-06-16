@@ -23,15 +23,18 @@ class Triumphs extends React.Component {
   };
 
   handler_toggleCompleted = (e) => {
-    this.props.setCollectibleDisplayState({
-      hideCompletedRecords: !this.props.collectibles.hideCompletedRecords,
+    this.props.set({
+      itemVisibility: {
+        hideCompletedRecords: !this.props.settings.itemVisibility.hideCompletedRecords,
+      },
     });
   };
 
   toggleAlmostCompleteSort = () => {
-    this.setState((prevState, props) => {
-      prevState.almostCompleteSort = prevState.almostCompleteSort < 2 ? prevState.almostCompleteSort + 1 : 0;
-      return prevState;
+    this.setState((state) => {
+      state.almostCompleteSort = state.almostCompleteSort < 2 ? state.almostCompleteSort + 1 : 0;
+
+      return state;
     });
   };
 
@@ -55,7 +58,7 @@ class Triumphs extends React.Component {
 
     const toggleCompletedLink = (
       <Button action={this.handler_toggleCompleted}>
-        {this.props.collectibles.hideCompletedRecords ? (
+        {this.props.settings.itemVisibility.hideCompletedRecords ? (
           <>
             <i className='segoe-uniF16E' />
             {t('Show all')}
@@ -236,19 +239,19 @@ class Triumphs extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setCollectibleDisplayState: (value) => {
-      dispatch({ type: 'SET_COLLECTIBLES', payload: value });
+    set: (payload) => {
+      dispatch({ type: 'SET_SETTING', payload });
     },
-    rebindTooltips: (value) => {
+    rebindTooltips: () => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
     },
   };

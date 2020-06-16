@@ -13,15 +13,11 @@ import Node from './Node/';
 import BadgeNode from './BadgeNode/';
 
 class Collections extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  handler_toggleCompleted = e => {
-    this.props.setCollectibleDisplayState({
-      hideCompletedCollectibles: !this.props.collectibles.hideCompletedCollectibles
+  handler_toggleCompleted = (e) => {
+    this.props.set({
+      itemVisibility: {
+        hideCompletedCollectibles: !this.props.settings.itemVisibility.hideCompletedCollectibles,
+      },
     });
   };
 
@@ -47,7 +43,7 @@ class Collections extends React.Component {
 
     const toggleCompletedLink = (
       <Button action={this.handler_toggleCompleted}>
-        {this.props.collectibles.hideCompletedCollectibles ? (
+        {this.props.settings.itemVisibility.hideCompletedCollectibles ? (
           <>
             <i className='segoe-uniF16E' />
             {t('Show all')}
@@ -115,28 +111,22 @@ class Collections extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setCollectibleDisplayState: value => {
-      dispatch({ type: 'SET_COLLECTIBLES', payload: value });
+    set: (payload) => {
+      dispatch({ type: 'SET_SETTING', payload });
     },
-    rebindTooltips: value => {
+    rebindTooltips: () => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(Collections);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Collections);

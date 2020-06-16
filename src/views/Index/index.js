@@ -134,9 +134,9 @@ class Index extends React.Component {
                 <i className='segoe-uniE0AB' />
               </Link>
             </div>
-            <div className='highlights'>
+            <div className='views'>
               {highlights.map((h, i) => (
-                <div key={i} className='highlight'>
+                <div key={i} className='view'>
                   <div className='icon'>
                     <h.icon />
                   </div>

@@ -1,15 +1,15 @@
-const defaultState = {
-  loading: false,
-  stale: false
-};
-
-export default function reducer(state = defaultState, action) {
+export default function reducer(
+  state = {
+    loading: false,
+    stale: false,
+  },
+  action
+) {
   switch (action.type) {
     case 'SET_REFRESH_STATE':
-
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
       };
     default:
       return state;

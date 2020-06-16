@@ -154,12 +154,11 @@ function Inspect(props) {
   );
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
     viewport: state.viewport,
-    settings: state.maps,
   };
 }
 

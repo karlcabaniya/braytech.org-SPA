@@ -61,7 +61,7 @@ class Inspect extends React.Component {
   };
 
   render() {
-    const { t, member, visual, location } = this.props;
+    const { t, settings, member, location } = this.props;
     const returnPath = location.state?.from || '/collections';
     const query = queryString.parse(location.search);
 
@@ -159,8 +159,8 @@ class Inspect extends React.Component {
     return (
       <>
         <div className='view' id='inspect'>
-          {visual.three ? (
-            <Scene itemHash={definitionItem.hash} ornamentHash={this.state.ornamentHash} {...visual} />
+          {settings.visual.three ? (
+            <Scene itemHash={definitionItem.hash} ornamentHash={this.state.ornamentHash} {...settings.visual} />
           ) : definitionItem.screenshot && definitionItem.screenshot !== '' ? (
             <div className='screenshot'>
               <ObservedImage src={`https://www.bungie.net${definitionItem.screenshot}`} />
@@ -332,10 +332,10 @@ class Inspect extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    member: state.member,
-    visual: state.visual
+    settings: state.settings,
+    member: state.member
   };
 }
 

@@ -15,7 +15,7 @@ class RecordsAlmost extends React.Component {
   scrollToRecordRef = React.createRef();
 
   render() {
-    const { member, collectibles, sort, limit, selfLinkFrom = false } = this.props;
+    const { settings, member, sort, limit, selfLinkFrom = false } = this.props;
     const characterRecords = member && member.data.profile.characterRecords.data;
     const profileRecords = member && member.data.profile.profileRecords.data.records;
 
@@ -49,11 +49,11 @@ class RecordsAlmost extends React.Component {
     Object.entries(records).forEach(([key, recordData]) => {
       const hash = +key;
 
-      if (collectibles.hideUnobtainableRecords && unobtainable.indexOf(hash) > -1) {
+      if (settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(hash) > -1) {
         return;
       }
 
-      if (collectibles.hideDudRecords && duds.indexOf(hash) > -1) {
+      if (settings.itemVisibility.hideDudRecords && duds.indexOf(hash) > -1) {
         return;
       }
 
@@ -68,7 +68,7 @@ class RecordsAlmost extends React.Component {
       const enumeratedState = enumerateRecordState(recordData.state);
 
       if (enumeratedState.RecordRedeemed || !enumeratedState.ObjectiveNotCompleted) return;
-      if (collectibles.hideInvisibleRecords && (enumeratedState.Obscured || enumeratedState.Invisible)) return;
+      if (settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Obscured || enumeratedState.Invisible)) return;
 
       let completionValueDiviser = 0;
       let progressValueDecimal = 0;
@@ -143,10 +143,10 @@ class RecordsAlmost extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
   };
 }
 

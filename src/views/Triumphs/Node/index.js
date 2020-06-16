@@ -20,7 +20,7 @@ const classNodes = {
 
 class PresentationNode extends React.Component {
   render() {
-    const { member, collectibles } = this.props;
+    const { settings, member } = this.props;
     const characterRecords = member.data.profile.characterRecords.data;
     const profileRecords = member.data.profile.profileRecords.data.records;
     const characters = member.data.profile.characters.data;
@@ -85,17 +85,17 @@ class PresentationNode extends React.Component {
             const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
             // skip hardcoded duds
-            if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+            if (settings.itemVisibility.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
 
             // skip hardcoded unobtainables
             if (recordData.intervalObjectives?.length) {
-              if (collectibles.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (settings.itemVisibility.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return false;
             } else {
-              if (collectibles.hideUnobtainableRecords && !enumerateRecordState(recordData.state).RecordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (settings.itemVisibility.hideUnobtainableRecords && !enumerateRecordState(recordData.state).RecordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
             }
 
             // skip those with the state of...
-            if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
+            if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
 
             return recordData;
           })
@@ -110,7 +110,7 @@ class PresentationNode extends React.Component {
         }
 
         const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed).length;
-        const secondaryTotal = collectibles && collectibles.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).Invisible).length : states.length;
+        const secondaryTotal = settings.itemVisibility.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).Invisible).length : states.length;
 
         if (secondaryTotal === 0) {
           return null;
@@ -135,13 +135,13 @@ class PresentationNode extends React.Component {
         const scopeRecord = definitionRecord.scope || 0;
         const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
-        if (collectibles.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+        if (settings.itemVisibility.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
         if (recordData.intervalObjectives?.length) {
-          if (recordData.intervalsRedeemedCount === 0 && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          if (recordData.intervalsRedeemedCount === 0 && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
         } else {
-          if (!enumerateRecordState(recordData.state).RecordRedeemed && collectibles.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          if (!enumerateRecordState(recordData.state).RecordRedeemed && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
         }
-        if (collectibles.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
+        if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
 
         return true;
       })
@@ -175,10 +175,10 @@ class PresentationNode extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles,
   };
 }
 

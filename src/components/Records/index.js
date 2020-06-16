@@ -226,7 +226,7 @@ class Records extends React.Component {
   };
 
   render() {
-    const { settings, lists, hashes, member, triumphs, collectibles, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
+    const { settings, lists, hashes, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
     const supressHighlights = this.props.supressHighlights || settings.supressHighlights;
     const recordsRequested = hashes;
@@ -428,11 +428,11 @@ class Records extends React.Component {
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
       const enumeratedState = enumerateRecordState(enumerableState);
 
-      if (!showInvisible && collectibles.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
+      if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
         return;
       }
 
-      if (!showCompleted && collectibles.hideCompletedRecords && enumeratedState.RecordRedeemed) {
+      if (!showCompleted && settings.itemVisibility.hideCompletedRecords && enumeratedState.RecordRedeemed) {
         return;
       }
 
@@ -559,7 +559,7 @@ class Records extends React.Component {
       }
     });
 
-    if (recordsRequested.length > 0 && recordsOutput.length === 0 && collectibles?.hideCompletedRecords && !showCompleted) {
+    if (recordsRequested.length > 0 && recordsOutput.length === 0 && settings.itemVisibility.hideCompletedRecords && !showCompleted) {
       recordsOutput.push({
         element: (
           <li key='all-completed' className='all-completed'>
@@ -588,7 +588,6 @@ function mapStateToProps(state) {
     settings: state.settings,
     member: state.member,
     triumphs: state.triumphs,
-    collectibles: state.collectibles,
     lists: state.lists,
   };
 }

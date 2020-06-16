@@ -19,19 +19,19 @@ class PlugSet extends React.Component {
   componentDidMount() {
     if (this.props.highlight && this.scrollToRecordRef.current !== null) {
       window.scrollTo({
-        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2
+        top: this.scrollToRecordRef.current.offsetTop + this.scrollToRecordRef.current.offsetHeight / 2 - window.innerHeight / 2,
       });
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.collectibles !== this.props.collectibles) {
+  componentDidUpdate(p) {
+    if (p.settings.itemVisibility !== this.props.settings.itemVisibility) {
       this.props.rebindTooltips();
     }
   }
 
   render() {
-    const { t, member, set, plugs, showCompleted, collectibles } = this.props;
+    const { t, settings, member, set, plugs, showCompleted } = this.props;
 
     let hashSet = set;
     if (/^emotes_/.test(set)) hashSet = '3224618006';
@@ -42,12 +42,12 @@ class PlugSet extends React.Component {
 
     let output = [];
 
-    plugs.forEach(hash => {
+    plugs.forEach((hash) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[hash];
 
-      const completed = data.find(p => p.plugItemHash === definitionItem.hash && p.enabled);
+      const completed = data.find((p) => p.plugItemHash === definitionItem.hash && p.enabled);
 
-      if (collectibles && collectibles.hideCompletedCollectibles && completed && !showCompleted) {
+      if (settings.itemVisibility.hideCompletedCollectibles && completed && !showCompleted) {
         return;
       }
 
@@ -55,7 +55,7 @@ class PlugSet extends React.Component {
         <li
           key={definitionItem.hash}
           className={cx('tooltip', {
-            completed
+            completed,
           })}
           data-hash={definitionItem.hash}
         >
@@ -69,9 +69,8 @@ class PlugSet extends React.Component {
         </li>
       );
     });
-    
 
-    if (output.length === 0 && collectibles && collectibles.hideCompletedCollectibles && !showCompleted) {
+    if (output.length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
       output.push(
         <li key='lol' className='all-completed'>
           <div className='properties'>
@@ -85,25 +84,19 @@ class PlugSet extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
+    settings: state.settings,
     member: state.member,
-    collectibles: state.collectibles
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withTranslation()
-)(PlugSet);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(PlugSet);
