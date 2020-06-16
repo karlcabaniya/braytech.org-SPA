@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import cx from 'classnames';
 
-import { t } from '../../../utils/i18n';
+import { t, BraytechText } from '../../../utils/i18n';
 import * as utils from '../../../utils/destinyUtils';
 import { classHashToString } from '../../../utils/destinyConverters';
 import { ProfileNavLink } from '../../ProfileLink';
@@ -214,8 +214,8 @@ class Header extends React.Component {
         group: 1,
       },
       {
-        name: t('The Vault'),
-        desc: t('An exhaustive list of collectibles and records that are pending archival.'),
+        name: t('Content Vault'),
+        desc: t('An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_'),
         path: '/vaulted',
         exact: false,
         profile: false,
@@ -395,7 +395,7 @@ class Header extends React.Component {
                           return (
                             <li key={view.path}>
                               <div className='name'>{view.name}</div>
-                              <div className='description'>{view.desc}</div>
+                              <BraytechText className='description' value={view.desc} />
                               <ProfileNavLink to={view.path} isActive={isActive} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
@@ -403,7 +403,7 @@ class Header extends React.Component {
                           return (
                             <li key={view.path}>
                               <div className='name'>{view.name}</div>
-                              <div className='description'>{view.desc}</div>
+                              <BraytechText className='description' value={view.desc} />
                               <NavLink to={view.path} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
@@ -422,7 +422,7 @@ class Header extends React.Component {
                           return (
                             <li key={view.path}>
                               <div className='name'>{view.name}</div>
-                              <div className='description'>{view.desc}</div>
+                              <BraytechText className='description' value={view.desc} />
                               <ProfileNavLink to={view.path} isActive={isActive} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );
@@ -430,7 +430,7 @@ class Header extends React.Component {
                           return (
                             <li key={view.path}>
                               <div className='name'>{view.name}</div>
-                              <div className='description'>{view.desc}</div>
+                              <BraytechText className='description' value={view.desc} />
                               <NavLink to={view.path} exact={view.exact} onClick={this.handler_closeNav} />
                             </li>
                           );

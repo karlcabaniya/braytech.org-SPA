@@ -83,7 +83,7 @@ class Vaulted extends React.Component {
       <div className='view' id='vaulted'>
         <div className='module head'>
           <div className='page-header'>
-            <div className='sub-name'>{t('The Vault')}</div>
+            <div className='sub-name'>{t('Content Vault')}</div>
             <div className='name'>{t('Season {{season}}', { season: data.season })}</div>
           </div>
           <BraytechText className='text' value={t('For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Help/Article/49167)')} />
