@@ -316,5 +316,17 @@
       "description": "June is Pride month. For more information on what Pride means, use your preferred search engine. I'm not always good or effectual at expressing my feelings and thoughts. To be silent is to be complicit.\n\nThe message of this notification is fairly self-explanatory: be a good human.\n\nMarginalised lives matter.\n\nBlack lives matter.",
       "prompt": true
     }
+  },
+  {
+    "id": "1ctvujtmq25id63cyafdhb",
+    "date": "2020-06-17T02:12:00.150Z",
+    "expiry": 2628000000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Destiny Content Vault",
+      "image": "/static/images/notifications/dcv.jpg",
+      "description": "_The Destiny Content Vault (DCV) is a new content model being implemented in Year 4 of Destiny 2. Each year we will cycle some destination and activity content out of the game (and into the DCV) to make room for new experiences._\n\n_Unvaulting starts in D2 Year 4, with the Cosmodrome coming back, as well as its three Strikes and the return of the Vault of Glass Raid._\n\nBraytech, through the perseverance of fellow Guardians and my own sheer will, have collected data and crafted interfaces that permit you to more easily prepare for coming changes.\n\nVisit the _Content Vault_ via the _Views_ or _More_ menus. Suppress Vault Warnings through the _Settings_ view.",
+      "prompt": true
+    }
   }
 ]

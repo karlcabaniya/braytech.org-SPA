@@ -228,7 +228,7 @@ class Records extends React.Component {
   render() {
     const { settings, lists, hashes, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.highlight || false;
-    const supressVaultWarning = this.props.supressVaultWarning || settings.itemVisibility.supressVaultWarnings;
+    const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const recordsRequested = hashes;
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
@@ -483,7 +483,7 @@ class Records extends React.Component {
 
         const description = recordDescription(definitionRecord.hash);
 
-        const isVaultedRecord= !supressVaultWarning && isContentVaulted(definitionRecord.hash);
+        const isVaultedRecord= !suppressVaultWarning && isContentVaulted(definitionRecord.hash);
 
         recordsOutput.push({
           completed: enumeratedState.RecordRedeemed,
@@ -502,7 +502,7 @@ class Records extends React.Component {
                 'no-description': !description,
                 'has-intervals': recordState.intervals.length,
                 selected: settings.developer.lists && lists.records.includes(definitionRecord.hash),
-                expired: !supressVaultWarning && isVaultedRecord,
+                expired: !suppressVaultWarning && isVaultedRecord,
               })}
               onClick={settings.developer.lists ? this.props.addToList({ type: 'records', value: definitionRecord.hash }) : undefined}
             >
@@ -542,10 +542,10 @@ class Records extends React.Component {
               {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
               {rewards && rewards.length ? (
                 <ul className='list rewards collection-items'>
-                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} supressVaultWarning={this.props.supressVaultWarning} showCompleted showInvisible showHidden />
+                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} suppressVaultWarning={this.props.suppressVaultWarning} showCompleted showInvisible showHidden />
                 </ul>
               ) : null}
-              {!supressVaultWarning && isVaultedRecord && (
+              {!suppressVaultWarning && isVaultedRecord && (
                 <div className='highlight major'>
                   {t('This record will be archived in {{duration}}', {
                     duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),

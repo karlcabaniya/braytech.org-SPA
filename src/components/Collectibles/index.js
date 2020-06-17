@@ -88,7 +88,7 @@ class Collectibles extends React.Component {
   render() {
     const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
-    const supressVaultWarning = this.props.supressVaultWarning || settings.itemVisibility.supressVaultWarnings;
+    const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
     const characterId = member.characterId;
     const characterCollectibles = member.data.profile?.characterCollectibles.data;
@@ -146,7 +146,7 @@ class Collectibles extends React.Component {
                 ),
               });
             } else {
-              const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
+              const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
               set.push({
                 hash: definitionCollectible.hash,
@@ -158,14 +158,14 @@ class Collectibles extends React.Component {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                       selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
-                      expired: !supressVaultWarning && isVaultedCollectible,
+                      expired: !suppressVaultWarning && isVaultedCollectible,
                     })}
                     data-hash={definitionCollectible.itemHash}
                     onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                   >
                     <div className='icon'>
                       <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                      {!supressVaultWarning && isVaultedCollectible && (
+                      {!suppressVaultWarning && isVaultedCollectible && (
                         <div className='expired'>
                           <Common.Expired />
                         </div>
@@ -254,7 +254,7 @@ class Collectibles extends React.Component {
             const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
             const energyAsset = definitionItem?.investmentStats?.[0]?.statTypeHash && energyTypeToAsset(energyStatToType(definitionItem.investmentStats[0].statTypeHash));
 
-            const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
+            const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
             collectiblesOutput.push({
               hash: definitionCollectible.hash,
@@ -266,14 +266,14 @@ class Collectibles extends React.Component {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                     selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
-                    expired: !supressVaultWarning && isVaultedCollectible,
+                    expired: !suppressVaultWarning && isVaultedCollectible,
                   })}
                   data-hash={definitionCollectible.itemHash}
                   onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                 >
                   <div className='icon'>
                     <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                    {!supressVaultWarning && isVaultedCollectible && (
+                    {!suppressVaultWarning && isVaultedCollectible && (
                       <div className='expired'>
                         <Common.Expired />
                       </div>
@@ -323,7 +323,7 @@ class Collectibles extends React.Component {
 
         const link = selfLinkCollectible(definitionCollectible.hash);
 
-        const isVaultedCollectible= !supressVaultWarning && isContentVaulted(definitionCollectible.hash);
+        const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
         collectiblesOutput.push({
           hash: definitionCollectible.hash,
@@ -335,14 +335,14 @@ class Collectibles extends React.Component {
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
                 selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
-                expired: !supressVaultWarning && isVaultedCollectible,
+                expired: !suppressVaultWarning && isVaultedCollectible,
               })}
               data-hash={definitionCollectible.itemHash}
               onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
             >
               <div className='icon'>
                 <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
-                {!supressVaultWarning && isVaultedCollectible && (
+                {!suppressVaultWarning && isVaultedCollectible && (
                   <div className='expired'>
                     <Common.Expired />
                   </div>

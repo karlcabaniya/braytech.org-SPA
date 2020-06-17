@@ -203,8 +203,8 @@ class Settings extends React.Component {
                 <Checkbox linked checked={settings.itemVisibility.hideInvisibleCollectibles} text={t('Hide invisible collection items')} />
                 <BraytechText className='info' value={t('If the game specifies that you are unable to see a particular collectible, it will be hidden under Collections views.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.supressVaultWarnings')}>
-                <Checkbox linked checked={settings.itemVisibility.supressVaultWarnings} text={t('Supress Vault Warnings')} />
+              <li onClick={this.handler_toggle('itemVisibility.suppressVaultWarnings')}>
+                <Checkbox linked checked={settings.itemVisibility.suppressVaultWarnings} text={t('Suppress Vault Warnings')} />
                 <BraytechText className='info' value={t('Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.')} />
               </li>
             </ul>

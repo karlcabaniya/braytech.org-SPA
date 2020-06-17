@@ -16,7 +16,7 @@ const history = ls.get('settings') || {
     hideInvisibleCollectibles: true,
     hideDudRecords: true,
     hideUnobtainableRecords: true,
-    supressVaultWarnings: false
+    suppressVaultWarnings: false
   },
   maps: {
     debug: false,

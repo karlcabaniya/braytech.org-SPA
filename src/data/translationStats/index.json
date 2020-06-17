@@ -3,24 +3,20 @@
     "translated": 707,
     "notTranslated": 17,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "debug": {
     "translated": 724,
     "notTranslated": 0,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "en": {
@@ -28,140 +24,117 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "es-mx": {
-    "translated": 707,
-    "notTranslated": 17,
+    "translated": 723,
+    "notTranslated": 1,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "es": {
-    "translated": 707,
-    "notTranslated": 17,
+    "translated": 723,
+    "notTranslated": 1,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "fr": {
     "translated": 624,
     "notTranslated": 100,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "it": {
     "translated": 715,
     "notTranslated": 9,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "ja": {
     "translated": 603,
     "notTranslated": 121,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "ko": {
     "translated": 514,
     "notTranslated": 210,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 722,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "pt-br": {
     "translated": 708,
     "notTranslated": 16,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "ru": {
     "translated": 705,
     "notTranslated": 19,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "zh-chs": {
     "translated": 487,
     "notTranslated": 237,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   },
   "zh-cht": {
     "translated": 349,
     "notTranslated": 375,
     "added": [
-      "An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_",
-      "Content Vault"
+      "Suppress Vault Warnings"
     ],
     "removed": [
-      "An exhaustive list of collectibles and records that are pending archival.",
-      "The Vault"
+      "Supress Vault Warnings"
     ]
   }
 }

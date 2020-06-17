@@ -30,12 +30,12 @@ export default function reducer(state = defaultState, action) {
 
       return {
         ...state,
-        objects: state.objects.concat([action.payload]),
+        objects: [...state.objects, action.payload],
       };
     case 'POP_NOTIFICATION':
       // console.log(`POP_NOTIFICATION`, action, state);
 
-      const trash = [];
+      const trash = [...state.trash];
 
       if (state.objects.find((n) => n.id === action.payload)?.showOnce) {
         trash.push(action.payload);

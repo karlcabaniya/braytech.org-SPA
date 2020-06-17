@@ -1133,5 +1133,10 @@
     "date": "2020-04-28T07:45:22.764Z",
     "version": "2.24.0",
     "content": "- a whole new _Quests_ view"
+  },
+  {
+    "date": "2020-06-17T02:12:00.150Z",
+    "version": "2.25.0",
+    "content": "- Destiny _Content Vault_ view\n\nHundreds of other changes in the 115 revisions since 2.24."
   }
 ]
