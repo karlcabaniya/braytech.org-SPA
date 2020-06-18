@@ -1490,6 +1490,7 @@ export const DestinyContentVault = [
             2219212014, // Eulogy SI4
             2716100025, // Sonata-48
             3895764279, // Guseva-C
+            3875807583, // Whisper of the Worm
           ],
           records: [
             1289798960, // The Tortured Scientist
@@ -1499,6 +1500,7 @@ export const DestinyContentVault = [
             242464659, // Gensym Scribe
             3793243435, // Mission: Sacrilege
             1322754255, // Mission: Fury
+            773877428, // Whisper Catalyst
           ],
         },
       },
@@ -1538,6 +1540,10 @@ export const DestinyContentVault = [
             3773976310, // Cargo Bay Cross
             1176046832, // New Pacific Rush
             1176046833, // New Pacific Sink
+            564802918, // Rat King
+            2500286745, // Outbreak Perfected
+            1660030046, // Ace of Spades
+            4009683574, // Thorn
           ],
           records: [
             2808299284, // The Titan on Titan
@@ -1670,6 +1676,12 @@ export const DestinyContentVault = [
             2770012883, // Groundswell Nullifier99
             2691646944, // Specter of the Gun
             2670498157, // Technological Singularity
+            2300770645, // BrayTech RWP Mk. II
+            2857012627, // Rose
+            2924632392, // Lumina
+            1642951318, // Polaris Lance
+            199171387, // Worldline Zero
+            199171386, // Sleeper Simulant
           ],
           records: [
             581089627, // The Frozen Horde
@@ -1685,6 +1697,7 @@ export const DestinyContentVault = [
             2982664966, // Mission: Will of the Thousands
             452451691, // Mission: Strange Terrain
             3158715546, // Mission: Off-World Recovery
+            1640774328, // Polaris Lance Catalyst
           ],
         },
       },
@@ -1783,6 +1796,8 @@ export const DestinyContentVault = [
           records: [
             3420353827, // Grow Fat from Strength
             940998165, // Calus Has Spoken
+            3337586114, // Acrius Catalyst
+            3985015094, // Skyburner Catalyst
           ],
         },
       },
@@ -1820,6 +1835,7 @@ export const DestinyContentVault = [
           records: [
             2602370549, // A Whole Buffet
             3861076347, // Fine Dining
+            2087362844, // Telesto Catalyst
           ],
         },
       },
@@ -1859,6 +1875,7 @@ export const DestinyContentVault = [
           records: [
             1742345588, // On Your Way Up
             2923250426, // A Superior Retainer
+            3686797699, // Sleeper Simulant Catalyst
           ],
         },
       },

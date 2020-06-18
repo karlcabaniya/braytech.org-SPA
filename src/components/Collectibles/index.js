@@ -86,7 +86,7 @@ class Collectibles extends React.Component {
   }
 
   render() {
-    const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible, showHidden } = this.props;
+    const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);

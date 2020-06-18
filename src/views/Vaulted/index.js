@@ -136,7 +136,7 @@ class Vaulted extends React.Component {
                   <>
                     <h4>{t('Collectibles')}</h4>
                     <ul className='list collection-items'>
-                      <Collectibles hashes={collectibles} suppressVaultWarning selfLinkFrom='/vaulted' showCompleted showInvisible />
+                      <Collectibles hashes={collectibles} suppressVaultWarning selfLinkFrom={`/vaulted/${data.season}/${selectedHash}`} showCompleted showInvisible />
                     </ul>
                   </>
                 ) : null}
@@ -144,7 +144,7 @@ class Vaulted extends React.Component {
                   <>
                     <h4>{t('Records')}</h4>
                     <ul className='list record-items'>
-                      <Records hashes={records} suppressVaultWarning selfLinkFrom='/vaulted' showCompleted showInvisible />
+                      <Records hashes={records} suppressVaultWarning selfLinkFrom={`/vaulted/${data.season}/${selectedHash}`} showCompleted showInvisible />
                     </ul>
                   </>
                 ) : null}

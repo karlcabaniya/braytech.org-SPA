@@ -226,7 +226,7 @@ class Records extends React.Component {
   };
 
   render() {
-    const { settings, lists, hashes, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible, showHidden } = this.props;
+    const { settings, lists, hashes, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible } = this.props;
     const highlight = +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const recordsRequested = hashes;
