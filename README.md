@@ -13,6 +13,10 @@ _The source code of braytech.org_
 
 4.  Submit pull request
 
+## Other contributions
+
+All other contributions should be proposed through [discord.braytech.org](https://discord.braytech.org) prior to any pull requests being submitted.
+
 ## Running the dev build
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
