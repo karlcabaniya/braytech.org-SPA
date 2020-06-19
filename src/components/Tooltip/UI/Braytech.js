@@ -14,10 +14,10 @@ const Braytech = (props) => {
   return (
     <>
       {description ? <BungieText className='description' value={description} /> : null}
-      {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? <div className='line' /> : null}
-      {itemHash === 'commonality' && relatedHash && manifest.statistics.triumphs[relatedHash] > 1 ? (
+      {itemHash === 'commonality' && relatedHash && (manifest.statistics.triumphs[relatedHash] > 1 || manifest.statistics.collections[relatedHash] > 1) ? <div className='line' /> : null}
+      {itemHash === 'commonality' && relatedHash && (manifest.statistics.triumphs[relatedHash] > 1 || manifest.statistics.collections[relatedHash] > 1) ? (
         <div className='description'>
-          <p>{t('{{players}} players have completed this.', { players: manifest.statistics.triumphs[relatedHash]?.toLocaleString() || 0 })}</p>
+          <p>{manifest.statistics.triumphs[relatedHash] ? t('{{players}} players have redeemed this.', { players: manifest.statistics.triumphs[relatedHash].toLocaleString() || 0 }) : t('{{players}} players have collected this.', { players: manifest.statistics.collections[relatedHash].toLocaleString() || 0 })}</p>
         </div>
       ) : null}
       {itemHash === 'commonality' ? <div className='line' /> : null}

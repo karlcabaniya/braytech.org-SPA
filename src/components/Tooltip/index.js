@@ -4,12 +4,12 @@ import cx from 'classnames';
 
 import './styles.css';
 
-import UI from './UI';
 import Item from './Item';
 import Activity from './Activity';
 import Vendor from './Vendor';
 import { Checklist, Record, Node } from './Maps';
 import CollectionsBadge from './CollectionsBadge';
+import UI from './UI';
 
 class Tooltip extends React.Component {
   state = {

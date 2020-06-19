@@ -1,30 +1,30 @@
+import React from 'react';
+
 import { t, unixTimestampToDuration } from './i18n';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
 import * as SVG from '../svg';
 
 export function ammoTypeToAsset(type) {
-  let string;
-  let icon;
-
   switch (type) {
     case 1:
-      string = manifest.DestinyPresentationNodeDefinition[1731162900]?.displayProperties?.name;
-      break;
+      return {
+        string: manifest.DestinyPresentationNodeDefinition[1731162900]?.displayProperties?.name,
+        icon: <SVG.Common.Ammo.Primary />,
+      };
     case 2:
-      string = manifest.DestinyPresentationNodeDefinition[638914517]?.displayProperties?.name;
-      break;
+      return {
+        string: manifest.DestinyPresentationNodeDefinition[638914517]?.displayProperties?.name,
+        icon: <SVG.Common.Ammo.Special />,
+      };
     case 3:
-      string = manifest.DestinyPresentationNodeDefinition[3686962409]?.displayProperties?.name;
-      break;
+      return {
+        string: manifest.DestinyPresentationNodeDefinition[3686962409]?.displayProperties?.name,
+        icon: <SVG.Common.Ammo.Heavy />,
+      };
     default:
-      string = '';
+      return {};
   }
-
-  return {
-    string,
-    icon,
-  };
 }
 
 export function breakerTypeToIcon(type) {
@@ -72,36 +72,34 @@ export function classTypeToString(type, gender) {
   return classHashToString(classHash, gender);
 }
 
-export function damageTypeToAsset(type) {
-  let string;
-  let char;
-
-  switch (type) {
+export function damageTypeToAsset(damageTypeHash) {
+  switch (damageTypeHash) {
     case 3373582085:
-      string = 'kinetic';
-      char = '';
-      break;
+      return {
+        string: 'kinetic',
+        char: '',
+      };
     case 1847026933:
-      string = 'solar';
-      char = '';
-      break;
+      return {
+        string: 'solar',
+        char: '',
+      };
     case 2303181850:
-      string = 'arc';
-      char = '';
-      break;
+      return {
+        string: 'arc',
+        char: '',
+      };
     case 3454344768:
-      string = 'void';
-      char = '';
-      break;
+      return {
+        string: 'void',
+        char: '',
+      };
     default:
-      string = '';
-      char = '';
+      return {
+        string: '',
+        char: '',
+      };
   }
-
-  return {
-    string,
-    char,
-  };
 }
 
 // https://bungie-net.github.io/multi/schema_Destiny-DestinyUnlockValueUIStyle.html#schema_Destiny-DestinyUnlockValueUIStyle

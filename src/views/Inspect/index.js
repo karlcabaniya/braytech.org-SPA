@@ -1,18 +1,17 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { withRouter, Link } from 'react-router-dom';
 import cx from 'classnames';
 import queryString from 'query-string';
 
+import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import * as enums from '../../utils/destinyEnums';
-import * as utils from '../../utils/destinyUtils';
-import { damageTypeToAsset, itemRarityToString } from '../../utils/destinyConverters';
+import { commonality } from '../../utils/destinyUtils';
+import { damageTypeToAsset, breakerTypeToIcon, itemRarityToString, ammoTypeToAsset } from '../../utils/destinyConverters';
 import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
-import { Common } from '../../svg';
 
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats, statsMs } from '../../utils/destinyItems/stats';
@@ -23,23 +22,90 @@ import Scene from '../../components/Three/Inspect/Scene';
 
 import './styles.css';
 
+function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props }) {
+  return (
+    <div className={cx('module', 'category', { mods: category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable, intrinsic: category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk })}>
+      <div className='module-name'>{category.displayProperties.name}</div>
+      <div className='category-sockets'>
+        {sockets
+          .filter((socket) => !socket.isTracker)
+          .map((socket, s) => {
+            const expanded = false; // TODO lol
 
-import './styles.css';
+            // if mods and socket expanded by user OR if mods and a single plug option OR if not mods i.e. perks lol
+            // ^ ????
 
-const damageTypeMap = {
-  3454344768: {
-    className: 'void',
-    svg: Common.Void
-  },
-  2303181850:{
-    className: 'arc',
-    svg: Common.Arc
-  },
-  1847026933:{
-    className: 'solar',
-    svg: Common.Solar
-  }
-};
+            // intrinsics
+            if (category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].plugOptions.length === 1) {
+              return (
+                <div key={s} className='socket intrinsic'>
+                  {socket.plugOptions.map((plug, p) => {
+                    return (
+                      <div key={p} className='plug active'>
+                        <div className='icon'>
+                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                        </div>
+                        <div className='text'>
+                          <div className='name'>{plug.definition.displayProperties.name}</div>
+                          <BungieText className='description' value={plug.definition.displayProperties.description} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            } // armor perks and armor tier (and shader?)
+            else if ((category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable && expanded) || (category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable && socket.plugOptions.length < 2) || category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable) {
+              return (
+                <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                  {socket.plugOptions.map((plug, p) => {
+                    return (
+                      <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                        <div className='icon'>
+                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                        </div>
+                        <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />{' '}
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            } else {
+              return (
+                <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                  {socket.plugOptions
+                    .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
+                    .map((plug, p) => {
+                      return (
+                        <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                          <div className='icon'>
+                            <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                          </div>
+                          <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
+                        </div>
+                      );
+                    })}
+                </div>
+              );
+            }
+          })}
+      </div>
+    </div>
+  );
+}
+
+function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
+  const socketsString = sockets.map((socket) => {
+    // replace with plugHash at appropriate socket index
+    if (socket.socketIndex === socketIndex) return plugHash;
+
+    // return current or null
+    return selectedSockets?.[socket.socketIndex] || '';
+  });
+
+  // create string
+  return `/inspect/${itemHash}?sockets=${socketsString.join('/')}`;
+}
 
 class Inspect extends React.Component {
   state = {};
@@ -50,27 +116,21 @@ class Inspect extends React.Component {
     this.props.rebindTooltips();
   }
 
-  handler_plugClick = (socketIndex, plugHash) => e => {
-    // this.setState(p => ({
-    //   sockets: {
-    //     ...p.sockets,
-    //     [socketIndex]: plugHash
-    //   }
-    // }));
-    // console.log(socketIndex, plugHash)
-  };
-
   render() {
-    const { t, settings, member, location } = this.props;
+    const { settings, member, location } = this.props;
     const returnPath = location.state?.from || '/collections';
+
     const query = queryString.parse(location.search);
+    const selectedSockets = query.sockets?.split('/').map((socketHash) => Number(socketHash) || '');
+
+    console.log(selectedSockets);
 
     const item = {
       itemHash: this.props.match.params.hash,
       itemInstanceId: false,
       itemComponents: false,
       showHiddenStats: true,
-      showDefaultSockets: true
+      showDefaultSockets: true,
     };
 
     const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
@@ -82,28 +142,28 @@ class Inspect extends React.Component {
     if (item.sockets.sockets) {
       item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
         const selectedPlugHash = Number(query.sockets?.split('/')[socket.socketIndex]);
-  
+
         // if user has selected a plug
         if (selectedPlugHash > 0) {
-          const selectedPlug = socket.plugOptions.find(o => selectedPlugHash === o.plugItem.hash);
-  
+          const selectedPlug = socket.plugOptions.find((o) => selectedPlugHash === o.definition.hash);
+
           // reconfigure plugOptions for this socket, according to user-selected plugs
-          socket.plugOptions = socket.plugOptions.map(o => {
+          socket.plugOptions = socket.plugOptions.map((o) => {
             o.isActive = false;
-  
-            if (selectedPlug && selectedPlug.plugItem.hash === o.plugItem.hash) {
+
+            if (selectedPlug && selectedPlug.definition.hash === o.definition.hash) {
               o.isActive = true;
             }
-  
+
             return o;
           });
-  
+
           // set active plug as primary plug
-          socket.plug = (selectedPlugHash && socket.plugOptions.find(o => selectedPlugHash === o.plugItem.hash)) || socket.plug;
-  
+          socket.plug = (selectedPlugHash && socket.plugOptions.find((o) => selectedPlugHash === o.definition.hash)) || socket.plug;
+
           return socket;
         }
-  
+
         return socket;
       });
     }
@@ -112,16 +172,19 @@ class Inspect extends React.Component {
     item.stats = stats(item);
     item.masterwork = masterwork(item);
 
-    item.primaryStat = (definitionItem.itemType === 2 || definitionItem.itemType === 3) && definitionItem.stats && !definitionItem.stats.disablePrimaryStatDisplay && definitionItem.stats.primaryBaseStatHash && {
-      hash: definitionItem.stats.primaryBaseStatHash,
-      displayProperties: manifest.DestinyStatDefinition[definitionItem.stats.primaryBaseStatHash].displayProperties,
-      value: 950
-    };
+    item.primaryStat = (definitionItem.itemType === 2 || definitionItem.itemType === 3) &&
+      definitionItem.stats &&
+      !definitionItem.stats.disablePrimaryStatDisplay &&
+      definitionItem.stats.primaryBaseStatHash && {
+        hash: definitionItem.stats.primaryBaseStatHash,
+        displayProperties: manifest.DestinyStatDefinition[definitionItem.stats.primaryBaseStatHash].displayProperties,
+        value: 950,
+      };
 
     if (item.primaryStat && item.itemComponents && item.itemComponents.instance?.primaryStat) {
       item.primaryStat.value = item.itemComponents.instance.primaryStat.value;
     } else if (item.primaryStat && member && member.data) {
-      let character = member.data.profile.characters.data.find(characrer => characrer.characterId === member.characterId);
+      let character = member.data.profile.characters.data.find((characrer) => characrer.characterId === member.characterId);
 
       item.primaryStat.value = Math.floor((942 / 973) * character.light);
     }
@@ -131,185 +194,180 @@ class Inspect extends React.Component {
     // weapon damage type
     const damageTypeHash = definitionItem.itemType === enums.DestinyItemType.Weapon && (item.itemComponents?.instance ? item.itemComponents.instance.damageTypeHash : definitionItem.defaultDamageTypeHash);
 
-    const DamageTypeSVG = damageTypeMap[damageTypeHash]?.svg;
+    const preparedSockets = item.sockets?.socketCategories?.reduce((sockets, socketCategory) => {
+      // console.log(sockets, socketCategory)
 
-    const preparedSockets = item.sockets?.socketCategories?.reduce((a, v) => {
-      v.sockets.forEach(socket => {
-        if (socket.plugOptions.filter(plug => plug.isOrnament).length) {
+      // what does this do
+      socketCategory.sockets.forEach((socket) => {
+        if (socket.plugOptions.filter((plug) => plug.isOrnament).length) {
           socket.plugOptions.splice(0, 0, socket.plug);
         }
       });
 
-      const modCategory = a.find(category => category.category.categoryStyle === 2);
+      // if it's a mod and we've already processed a mod socket before
+      const modCategoryIndex = sockets.findIndex((category) => category.category.categoryStyle === 2);
 
-      if (modCategory) {
-        modCategory.sockets.push(...v.sockets);
+      if (modCategoryIndex > -1) {
+        sockets[modCategoryIndex].sockets.push(...socketCategory.sockets);
 
-        return a;
+        return sockets;
       } else {
-        return [...a, v];
+        return [...sockets, socketCategory];
       }
     }, []);
 
-    const displayStats = (item.stats && item.stats.length && !item.stats.find(stat => stat.statHash === -1000)) || (item.stats && item.stats.length && item.stats.find(stat => stat.statHash === -1000 && stat.value !== 0));
-    const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter(socket => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament) && !socket.isTracker && !socket.isShader && socket.plug?.plugItem).length;
-
     const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
+
+    const powerCap = definitionItem.inventory.tierType === enums.DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
+
+    const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
+    const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
+    const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
+    const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
+    const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
 
     return (
       <>
         <div className='view' id='inspect'>
-          {settings.visual.three ? (
-            <Scene itemHash={definitionItem.hash} ornamentHash={this.state.ornamentHash} {...settings.visual} />
-          ) : definitionItem.screenshot && definitionItem.screenshot !== '' ? (
-            <div className='screenshot'>
-              <ObservedImage src={`https://www.bungie.net${definitionItem.screenshot}`} />
-            </div>
-          ) : null}
-          {definitionItem.secondaryIcon && definitionItem.secondaryIcon !== '/img/misc/missing_icon_d2.png' && definitionItem.secondaryIcon !== '' ? (
-            <div className='foundry'>
-              <ObservedImage src={`https://www.bungie.net${definitionItem.secondaryIcon}`} />
-            </div>
-          ) : null}
           <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
-          <div className='wrap'>
-            <div className='row header'>
+          <div className={cx('wrap', { uniform: !(displayTaxonomy || displayCommonality) })}>
+            <div className='module header'>
               <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
               <div className='text'>
                 <div className='name'>{definitionItem.displayProperties.name}</div>
                 <div className='type'>{definitionItem.itemTypeDisplayName}</div>
               </div>
-              <div className='flair'>{definitionItem.displayProperties.description}</div>
+              <BungieText className='flair' value={definitionItem.displayProperties.description} />
             </div>
-            {displayStats ? (
-              <div className='row values'>
-                {item.primaryStat ? <div className='primary'>
-                  <div className='stat'>
-                    {damageTypeMap[damageTypeHash] ? <div className={cx('icon', damageTypeToAsset(damageTypeHash)?.string)}>
-                      <DamageTypeSVG />
-                    </div> : null}
-                    <div className='text'>{item.primaryStat.value}</div>
-                  </div>
-                </div> : null}
-                <div className='stats'>
-                  {item.stats.map(stat => {
-                    // map through stats
-
-                    const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [stat.statHash]);
-
-                    const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, stat);
-                    const masterworkValue = (item.masterwork && item.masterwork.stats?.find(m => m.hash === stat.statHash) && item.masterwork.stats?.find(m => m.hash === stat.statHash).value) || armor2MasterworkValue || 0;
-
-                    let baseBar = stat.value;
-
-                    if (moddedValue) {
-                      baseBar -= moddedValue;
-                    }
-
-                    if (masterworkValue) {
-                      baseBar -= masterworkValue;
-                    }
-
-                    const segments = [[baseBar]];
-
-                    if (moddedValue) {
-                      segments.push([moddedValue, 'modded']);
-                    }
-
-                    if (masterworkValue) {
-                      segments.push([masterworkValue, 'masterwork']);
-                    }
-
-                    return (
-                      <div key={stat.statHash} className='stat'>
-                        <div className='name'>{stat.statHash === -1000 ? t('Total') : stat.displayProperties.name}</div>
-                        <div className={cx('value', { bar: stat.bar })}>
-                          {stat.bar ? (
-                            <>
-                              {segments.map(([value, className], i) => (
-                                <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / stat.maximumValue)))}%` }} />
-                              ))}
-                              <div className='int'>{stat.value}</div>
-                            </>
-                          ) : (
-                            <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
-                              {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
-                            </div>
-                          )}
+            {displayTaxonomy || displayCommonality ? (
+              <div className='module'>
+                {displayTaxonomy ? (
+                  <div className='module taxonomy'>
+                    <div className='module-name'>{t('Basic characteristics')}</div>
+                    {powerCap ? (
+                      <div className='term power-cap'>
+                        <div className='icon' />
+                        <div className='text'>
+                          <div className='name'>{powerCap}</div>
+                          <div className='type'>{t('Power limit')}</div>
                         </div>
                       </div>
-                    );
-                  })}
-                </div>
+                    ) : null}
+                    {definitionItem.equippingBlock?.ammoType ? (
+                      <div className='term ammo-type'>
+                        <div className='icon'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).icon}</div>
+                        <div className='text'>
+                          <div className='name'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).string}</div>
+                          <div className='type'>{t('Ammo type')}</div>
+                        </div>
+                      </div>
+                    ) : null}
+                    {definitionItem.breakerType > 0 ? (
+                      <div className='term breaker-type'>
+                        <div className='icon'>{breakerTypeToIcon(definitionItem.breakerTypeHash)}</div>
+                        <div className='text'>
+                          <div className='name'>{manifest.DestinyBreakerTypeDefinition[definitionItem.breakerTypeHash].displayProperties.name}</div>
+                          <div className='type'>{t('Breaker type')}</div>
+                        </div>
+                      </div>
+                    ) : null}
+                    {definitionItem.defaultDamageTypeHash ? (
+                      <div className='term damage-type'>
+                        <div className={cx('icon', damageTypeToAsset(definitionItem.defaultDamageTypeHash).string)}>{damageTypeToAsset(definitionItem.defaultDamageTypeHash).char}</div>
+                        <div className='text'>
+                          <div className='name'>{manifest.DestinyDamageTypeDefinition[definitionItem.defaultDamageTypeHash].displayProperties.name}</div>
+                          <div className='type'>{t('Energy affinity')}</div>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+                {definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash] ? (
+                  <div className='module commonality'>
+                    <div className='module-name'>{t('Commonality')}</div>
+                    <div>
+                      <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionItem.collectibleHash}>
+                        {commonality(manifest.statistics.collections[definitionItem.collectibleHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                      </div>
+                    </div>
+                    <div className='info'>{t("The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.")}</div>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+            {displayStatsOrIntrinsic ? (
+              <div className='module'>
+                {displayStats ? (
+                  <div className='module stats'>
+                    <div className='module-name'>{definitionItem.itemType === enums.DestinyItemType.Armor ? t('Armor stats') : t('Weapon stats')}</div>
+                    {item.stats.map((stat) => {
+                      // map through stats
+
+                      const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [stat.statHash]);
+
+                      const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, stat);
+                      const masterworkValue = (item.masterwork && item.masterwork.stats?.find((m) => m.hash === stat.statHash) && item.masterwork.stats?.find((m) => m.hash === stat.statHash).value) || armor2MasterworkValue || 0;
+
+                      let baseBar = stat.value;
+
+                      if (moddedValue) {
+                        baseBar -= moddedValue;
+                      }
+
+                      if (masterworkValue) {
+                        baseBar -= masterworkValue;
+                      }
+
+                      const segments = [[baseBar]];
+
+                      if (moddedValue) {
+                        segments.push([moddedValue, 'modded']);
+                      }
+
+                      if (masterworkValue) {
+                        segments.push([masterworkValue, 'masterwork']);
+                      }
+
+                      return (
+                        <div key={stat.statHash} className='stat'>
+                          <div className='name'>{stat.statHash === -1000 ? t('Total') : stat.displayProperties.name}</div>
+                          <div className={cx('value', { bar: stat.bar })}>
+                            {stat.bar ? (
+                              <>
+                                {segments.map(([value, className], i) => (
+                                  <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / stat.maximumValue)))}%` }} />
+                                ))}
+                                <div className='int'>{stat.value}</div>
+                              </>
+                            ) : (
+                                <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
+                                  {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
+                                </div>
+                              )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
+                {displaySockets ? (
+                  <div className='module sockets'>
+                    {preparedSockets
+                      .filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1)
+                      .map((socketCategory, c) => (
+                        <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={selectedSockets} />
+                      ))}
+                  </div>
+                ) : null}
               </div>
             ) : null}
             {displaySockets ? (
-              <div className='sockets'>
-                {preparedSockets.map((category, c) => {
-                  return (
-                    <div className={cx('row', 'category', { mods: category.category.categoryStyle === 2 })} key={c}>
-                      <div className='category-name'>{category.category.displayProperties.name}</div>
-                      <div className='category-sockets'>
-                        {category.sockets
-                          .filter(socket => !socket.isTracker)
-                          .map((socket, s) => {
-                            const expanded = false; // TODO lol
-
-                            // if mods and socket expanded by user OR if mods and a single plug option OR if not mods i.e. perks lol
-                            // ^ ????
-
-                            // armor perks and armor tier (and shader?)
-                            if ((category.category.categoryStyle === 2 && expanded) || (category.category.categoryStyle === 2 && socket.plugOptions.length < 2) || category.category.categoryStyle !== 2) {
-                              return (
-                                <div className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.category.categoryStyle !== 2 && socket.plugOptions.length > 9 })} key={s}>
-                                  {socket.plugOptions.map((plug, p) => {
-                                    const selectedSockets = query.sockets?.split('/');
-                                    const socketsString = item.sockets.sockets.map(socket => (selectedSockets && Number(selectedSockets[socket.socketIndex])) || '');
-  
-                                    socketsString[socket.socketIndex] = plug.plugItem.hash;
-  
-                                    const socketLink = `/inspect/${item.itemHash}?sockets=${socketsString.join('/')}`;
-  
-                                    return (
-                                      <div key={p} className={cx('plug', 'tooltip', { active: plug.isActive })} data-hash={plug.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(socket.socketIndex, plug.plugItem.hash)}>
-                                        <div className='icon'>
-                                          <ObservedImage src={`https://www.bungie.net${plug.plugItem.displayProperties.icon}`} />
-                                        </div>
-                                        <Link to={socketLink} />
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              );
-                            } else {
-                              return (
-                                <div className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.category.categoryStyle !== 2 && socket.plugOptions.length > 9 })} key={s}>
-                                  {socket.plugOptions.filter(o => o.plugItem?.hash === socket.plug.plugItem?.hash).map((plug, p) => {
-                                    const selectedSockets = query.sockets?.split('/');
-                                    const socketsString = item.sockets.sockets.map(socket => (selectedSockets && Number(selectedSockets[socket.socketIndex])) || '');
-  
-                                    socketsString[socket.socketIndex] = plug.plugItem.hash;
-  
-                                    const socketLink = `/inspect/${item.itemHash}?sockets=${socketsString.join('/')}`;
-  
-                                    return (
-                                      <div key={p} className={cx('plug', 'tooltip', { active: plug.isActive })} data-hash={plug.plugItem.hash} data-style='ui' onClick={this.handler_plugClick(socket.socketIndex, plug.plugItem.hash)}>
-                                        <div className='icon'>
-                                          <ObservedImage src={`https://www.bungie.net${plug.plugItem.displayProperties.icon}`} />
-                                        </div>
-                                        <Link to={socketLink} />
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              );
-                            }
-                            
-                          })}
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className='module sockets perks'>
+                {preparedSockets
+                  .filter((socketCategory) => socketCategory.category.categoryStyle !== enums.DestinySocketCategoryStyle.LargePerk)
+                  .map((socketCategory, c) => (
+                    <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={selectedSockets} />
+                  ))}
               </div>
             ) : null}
           </div>
@@ -335,16 +393,16 @@ class Inspect extends React.Component {
 function mapStateToProps(state) {
   return {
     settings: state.settings,
-    member: state.member
+    member: state.member,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation(), withRouter)(Inspect);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(Inspect);

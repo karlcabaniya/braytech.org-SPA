@@ -3,35 +3,35 @@
 }
 
 #tooltip .frame.exotic .black {
-  background-color: hsla(var(--exoticDark), 0.9);
+  background-color: hsla(var(--tier-exotic-dark), 0.9);
 }
 
 #tooltip .frame.legendary .header {
-  background-color: hsla(var(--legendary), 0.9);
+  background-color: hsla(var(--tier-legendary), 0.9);
 }
 
 #tooltip .frame.legendary .black {
-  background-color: hsla(var(--legendaryDark), 0.9);
+  background-color: hsla(var(--tier-legendary-dark), 0.9);
 }
 
 #tooltip .frame.rare .header {
-  background-color: hsla(var(--rare), 0.9);
+  background-color: hsla(var(--tier-rare), 0.9);
 }
 
 #tooltip .frame.rare .black {
-  background-color: hsla(var(--rareDark), 0.9);
+  background-color: hsla(var(--tier-rare-dark), 0.9);
 }
 
 #tooltip .frame.uncommon .header {
-  background-color: hsla(var(--uncommon), 0.9);
+  background-color: hsla(var(--tier-uncommon), 0.9);
 }
 
 #tooltip .frame.uncommon .black {
-  background-color: hsla(var(--uncommonDark), 0.9);
+  background-color: hsla(var(--tier-uncommon-dark), 0.9);
 }
 
 #tooltip .frame.common .header {
-  background-color: hsla(var(--common), 0.9);
+  background-color: hsla(var(--tier-common), 0.9);
   color: #000;
 }
 

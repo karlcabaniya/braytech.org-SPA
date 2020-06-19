@@ -42,9 +42,12 @@ import { ReactComponent as MapsPatrolBoss } from './maps/patrol-boss.svg';
 import { ReactComponent as MapsPatrolMinion } from './maps/patrol-minion.svg';
 
 import { ReactComponent as Braytech } from './common/braytech-device.svg';
-import { ReactComponent as Arc } from './common/arc.svg';
-import { ReactComponent as Solar } from './common/solar.svg';
-import { ReactComponent as Void } from './common/void.svg';
+import { ReactComponent as EnergyArc } from './common/energy-arc.svg';
+import { ReactComponent as EnergySolar } from './common/energy-solar.svg';
+import { ReactComponent as EnergyVoid } from './common/energy-void.svg';
+import { ReactComponent as AmmoPrimary } from './common/ammo-primary.svg';
+import { ReactComponent as AmmoSpecial } from './common/ammo-special.svg';
+import { ReactComponent as AmmoHeavy } from './common/ammo-heavy.svg';
 import { ReactComponent as Titan } from './common/titan.svg';
 import { ReactComponent as Hunter } from './common/hunter.svg';
 import { ReactComponent as Warlock } from './common/warlock.svg';
@@ -151,9 +154,14 @@ import { ReactComponent as GrimoireInventory } from './grimoire/inventory.svg';
 import { ReactComponent as GrimoirePlaces } from './grimoire/places.svg';
 
 const Common = {
-  Arc,
-  Solar,
-  Void,
+  Arc: EnergyArc,
+  Solar: EnergySolar,
+  Void: EnergyVoid,
+  Ammo: {
+    Primary: AmmoPrimary,
+    Special: AmmoSpecial,
+    Heavy: AmmoHeavy
+  },
   Titan,
   Hunter,
   Warlock,

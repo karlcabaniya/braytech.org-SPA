@@ -9,7 +9,7 @@
 }
 
 #tooltip .frame.vendor .header .icon {
-  background-color: hsla(var(--commonDark), 0.9);
+  background-color: hsla(var(--tier-common-dark), 0.9);
   display: grid;
   justify-items: center;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 #tooltip .frame.vendor .header .text {
-  background-color: hsla(var(--commonDark), 0.8);
+  background-color: hsla(var(--tier-common-dark), 0.8);
   display: grid;
   align-content: center;
   gap: 4px;

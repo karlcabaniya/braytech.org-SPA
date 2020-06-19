@@ -351,6 +351,11 @@ export function BungieText(props) {
   // get first sentence
   let source = single ? value.split('\n')[0] : value;
 
+  // double line breaks
+  source = source.replace(/\n/g, '\n\n');
+  // replace • with actual list items
+  source = source.replace(/•/g, '-');
+
   // chop any trailing colons off
   source =
     source.substr(source.length - 1) === ':'

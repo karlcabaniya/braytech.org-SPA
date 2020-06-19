@@ -4,6 +4,11 @@
   color: #fff;
 }
 
+#tooltip .frame.ui .black {
+  background-color: rgba(5, 5, 5, 0.85);
+}
+
+
 #tooltip .frame.ui .stats {
   border-top: none;
   border-color: red;

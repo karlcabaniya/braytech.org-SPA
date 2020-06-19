@@ -2,6 +2,16 @@
   --energy-solar: #ef641f;
   --energy-arc: #79bbe7;
   --energy-void: #a371c2;
+  --exotic: 48, 61%, 50%;
+  --tier-legendary: 279, 36%, 29%;
+  --tier-rare: 213, 34%, 48%;
+  --tier-uncommon: 126, 35%, 32%;
+  --tier-common: 0, 0%, 80%;
+  --tier-exotic-dark: 48, 71%, 5%;
+  --tier-legendary-dark: 279, 36%, 5%;
+  --tier-rare-dark: 213, 34%, 6%;
+  --tier-uncommon-dark: 126, 35%, 5%;
+  --tier-common-dark: 0, 0%, 7%;
 }
 
 #root .main {
