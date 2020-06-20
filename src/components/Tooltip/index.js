@@ -32,6 +32,7 @@ class Tooltip extends React.Component {
   };
 
   rAF = null;
+  currentTarget = null;
 
   helper_tooltipPositionUpdate = () => {
     if (this.ref_tooltip.current && this.state.hash) {
@@ -41,8 +42,20 @@ class Tooltip extends React.Component {
     window.requestAnimationFrame(this.helper_tooltipPositionUpdate);
   };
 
+  helper_checkIfTargetExists = () => {
+    if (document.body.contains(this.currentTarget)) {
+      return true;
+    }
+
+    return false;
+  }
+
   helper_windowMouseMove = (e) => {
-    if (this.state.data.toggle && !e.currentTarget?.dataset?.hash) {
+    if (!this.helper_checkIfTargetExists()) {
+      this.resetState();
+    }
+
+    if ((this.state.data.toggle && !e.currentTarget?.dataset?.hash)) {
       return;
     }
 
@@ -75,14 +88,7 @@ class Tooltip extends React.Component {
 
   helper_targetMouseEnter = (e) => {
     if (e.currentTarget.dataset.hash) {
-      this.setState({
-        hash: e.currentTarget.dataset.hash,
-        table: e.currentTarget.dataset.table,
-        type: e.currentTarget.dataset.type,
-        data: {
-          ...e.currentTarget.dataset,
-        },
-      });
+      this.doSetState(e);
 
       this.helper_windowMouseMove(e);
     }
@@ -112,14 +118,7 @@ class Tooltip extends React.Component {
 
     if (!drag) {
       if (e.currentTarget.dataset.hash) {
-        this.setState({
-          hash: e.currentTarget.dataset.hash,
-          table: e.currentTarget.dataset.table,
-          type: e.currentTarget.dataset.type,
-          data: {
-            ...e.currentTarget.dataset,
-          },
-        });
+        this.doSetState(e);
       }
     }
   };
@@ -148,19 +147,26 @@ class Tooltip extends React.Component {
   };
 
   helper_targetMouseUp = (e) => {
-    if (e.currentTarget.dataset.hash) {
-      this.setState({
-        hash: e.currentTarget.dataset.hash,
-        table: e.currentTarget.dataset.table,
-        type: e.currentTarget.dataset.type,
-        data: {
-          ...e.currentTarget.dataset,
-        },
-      });
+    // code for if I ever decide to enable toggle tooltips on desktop again
+    // if (e.currentTarget.dataset.hash) {
+    //   this.doSetState(e);
 
-      this.helper_windowMouseMove(e);
-    }
+    //   this.helper_windowMouseMove(e);
+    // }
   };
+
+  doSetState = (e) => {
+    this.currentTarget = e.currentTarget;
+
+    this.setState({
+      hash: e.currentTarget.dataset.hash,
+      table: e.currentTarget.dataset.table,
+      type: e.currentTarget.dataset.type,
+      data: {
+        ...e.currentTarget.dataset,
+      },
+    });
+  }
 
   resetState = () => {
     this.setState({
@@ -169,6 +175,8 @@ class Tooltip extends React.Component {
       type: undefined,
       data: {},
     });
+
+    this.target = null;
 
     this.touchPosition = {
       x: 0,
@@ -182,7 +190,7 @@ class Tooltip extends React.Component {
   };
 
   bind_TooltipItem = (reset) => {
-    if (reset) {
+    if (reset || !this.helper_checkIfTargetExists()) {
       this.resetState();
     }
 
@@ -238,7 +246,7 @@ class Tooltip extends React.Component {
   render() {
     let Tooltip = Item;
 
-    if (this.state.hash) {
+    if (this.state.hash && this.currentTarget) {
       if (this.state.table === 'DestinyActivityDefinition') Tooltip = Activity;
       if (this.state.table === 'DestinyVendorDefinition') Tooltip = Vendor;
       if (this.state.table === 'DestinyChecklistDefinition') Tooltip = Checklist;

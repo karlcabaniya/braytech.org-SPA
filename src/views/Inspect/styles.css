@@ -176,7 +176,7 @@
 
 
 #inspect .module.taxonomy {
-  gap: 1rem;
+  gap: 10px;
 }
 
 #inspect .module.taxonomy .term {
@@ -455,6 +455,26 @@
   opacity: 1;
   transform: scale(1.08) translateZ(0);
   box-shadow: 0 0 0 2px rgb(255, 255, 255);
+}
+
+#inspect .sockets .module.category .category-sockets .socket .options {
+  position: absolute;
+  left: 0;
+  top: 80px;
+  display: grid;
+  grid-template-columns: repeat(7, 64px);
+  gap: 8px;
+}
+
+#inspect .sockets .module.category .category-sockets .socket .options::before {
+  content: ' ';
+  position: absolute;
+  left: 0px;
+  top: -12px;
+  width: 64px;
+  height: 4px;
+  background-color: rgb(255 255 255 / 0.3);
+  pointer-events: none;
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets,

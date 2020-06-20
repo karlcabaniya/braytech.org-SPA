@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { compose } from 'redux';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import cx from 'classnames';
 import queryString from 'query-string';
 
 import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
+import { rebind } from '../../store/actions/tooltips';
 import * as enums from '../../utils/destinyEnums';
 import { commonality } from '../../utils/destinyUtils';
 import { damageTypeToAsset, breakerTypeToIcon, itemRarityToString, ammoTypeToAsset } from '../../utils/destinyConverters';
@@ -23,13 +24,21 @@ import Scene from '../../components/Three/Inspect/Scene';
 import './styles.css';
 
 function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props }) {
-  const [socketState, setSocketState] = useState([]);
+  const [socketState, setSocketState] = useState([6]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(rebind());
+  }, [dispatch, socketState])
 
   const toggleSocket = (socketIndex) => (e) => {
     if (socketState.indexOf(socketIndex) > -1) {
-      setSocketState([...socketState.filter(i => i !== socketIndex)]);
+      setSocketState([...socketState.filter((i) => i !== socketIndex)]);
     } else {
-      setSocketState([...socketState, socketIndex]);
+      setSocketState([
+        //...socketState,
+        socketIndex,
+      ]);
     }
   };
 
@@ -80,17 +89,30 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
               return (
                 <div key={s} className={cx('socket', { columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6), background: 'blue' }}>
                   {socket.plugOptions
-                    .filter((plugOption) => socketState.indexOf(socket.socketIndex) > -1 ? true : plugOption.definition?.hash === socket.plug.definition?.hash)
+                    .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
                     .map((plug, p) => {
                       return (
                         <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui' onClick={toggleSocket(socket.socketIndex)}>
                           <div className='icon'>
                             <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                           </div>
-                          {/* <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} /> */}
                         </div>
                       );
                     })}
+                  {socketState.indexOf(socket.socketIndex) > -1 ? (
+                    <div className='options'>
+                      {socket.plugOptions.map((plug, p) => {
+                        return (
+                          <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                            <div className='icon'>
+                              <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                            </div>
+                            <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} onClick={toggleSocket(socket.socketIndex)} />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : null}
                 </div>
               );
             }
@@ -101,12 +123,12 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
 }
 
 function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
-  const socketsString = sockets.map((socket) => {
+  const socketsString = sockets.map((socket, s) => {
     // replace with plugHash at appropriate socket index
     if (socket.socketIndex === socketIndex) return plugHash;
 
     // return current or null
-    return selectedSockets?.[socket.socketIndex] || '';
+    return selectedSockets?.[s] || '';
   });
 
   // create string
@@ -145,25 +167,12 @@ class Inspect extends React.Component {
     // adjust sockets according to user selection
     if (item.sockets.sockets) {
       item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
-        const selectedPlugHash = Number(query.sockets?.split('/')[socket.socketIndex]);
+        const selectedPlugHash = selectedSockets?.[s] || 0;
 
         // if user has selected a plug
         if (selectedPlugHash > 0) {
-          const selectedPlug = socket.plugOptions.find((o) => selectedPlugHash === o.definition.hash);
-
-          // reconfigure plugOptions for this socket, according to user-selected plugs
-          socket.plugOptions = socket.plugOptions.map((o) => {
-            o.isActive = false;
-
-            if (selectedPlug && selectedPlug.definition.hash === o.definition.hash) {
-              o.isActive = true;
-            }
-
-            return o;
-          });
-
           // set active plug as primary plug
-          socket.plug = (selectedPlugHash && socket.plugOptions.find((o) => selectedPlugHash === o.definition.hash)) || socket.plug;
+          socket.plug = (selectedPlugHash && socket.plugOptions.find((plugOption) => selectedPlugHash === plugOption.definition.hash)) || socket.plug;
 
           return socket;
         }
@@ -200,13 +209,6 @@ class Inspect extends React.Component {
 
     const preparedSockets = item.sockets?.socketCategories?.reduce((sockets, socketCategory) => {
       // console.log(sockets, socketCategory)
-
-      // what does this do
-      socketCategory.sockets.forEach((socket) => {
-        if (socket.plugOptions.filter((plug) => plug.isOrnament).length) {
-          socket.plugOptions.splice(0, 0, socket.plug);
-        }
-      });
 
       // if it's a mod and we've already processed a mod socket before
       const modCategoryIndex = sockets.findIndex((category) => category.category.categoryStyle === 2);

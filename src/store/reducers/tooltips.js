@@ -8,7 +8,7 @@ export default function reducer(
     case 'REBIND_TOOLTIPS':
       return {
         ...state,
-        bindTime: action.payload,
+        bindTime: new Date().getTime(),
       };
     default:
       return state;

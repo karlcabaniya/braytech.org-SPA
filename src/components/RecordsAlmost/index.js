@@ -91,7 +91,7 @@ class RecordsAlmost extends React.Component {
       } else if (recordData.objectives) {
         recordData.objectives.forEach((objective) => {
           completionValueDiviser += 1;
-          progressValueDecimal += Math.min(objective.progress / objective.completionValue, 1);
+          progressValueDecimal += Math.min((objective.progress || 0) / (objective.completionValue || 1), 1);
         });
       } else {
         return;
@@ -106,9 +106,7 @@ class RecordsAlmost extends React.Component {
       const definitionRecord = manifest.DestinyRecordDefinition[hash];
       const score = definitionRecord?.completionInfo?.ScoreValue || 0;
 
-      // if (hash === 759958308) console.log(distance, progressValueDecimal, completionValueDiviser)
-
-      // if (hash === 452100546) console.log(definitionRecord.displayProperties.name, distance, progressValueDecimal, completionValueDiviser)
+      // if (hash === 61221277) console.log(definitionRecord.displayProperties.name, distance, progressValueDecimal, completionValueDiviser);
 
       almost.push({
         distance,
