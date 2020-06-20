@@ -19,17 +19,17 @@ import { stats, statsMs } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
 import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../../utils/destinyItems/utils';
 
-import Scene from '../../components/Three/Inspect/Scene';
+// import Scene from '../../components/Three/Inspect/Scene';
 
 import './styles.css';
 
 function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props }) {
-  const [socketState, setSocketState] = useState([6]);
+  const [socketState, setSocketState] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(rebind());
-  }, [dispatch, socketState])
+  }, [dispatch, socketState]);
 
   const toggleSocket = (socketIndex) => (e) => {
     if (socketState.indexOf(socketIndex) > -1) {
@@ -42,81 +42,82 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
     }
   };
 
+  const socketsToMap = sockets.filter((socket) => socket.socketDefinition.defaultVisible).filter((socket) => !socket.isTracker);
+  const expandedSocket = socketsToMap.find((socket) => socketState.indexOf(socket.socketIndex) > -1);
+
   return (
     <div className={cx('module', 'category', { mods: category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable, intrinsic: category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk })}>
       <div className='module-name'>{category.displayProperties.name}</div>
       <div className='category-sockets'>
-        {sockets
-          .filter((socket) => !socket.isTracker)
-          .map((socket, s) => {
-            // intrinsics
-            if (category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1) {
-              return (
-                <div key={s} className='socket intrinsic'>
-                  {socket.plugOptions.map((plug, p) => {
-                    return (
-                      <div key={p} className='plug active'>
-                        <div className='icon'>
-                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                        </div>
-                        <div className='text'>
-                          <div className='name'>{plug.definition.displayProperties.name}</div>
-                          <BungieText className='description' value={plug.definition.displayProperties.description} />
-                        </div>
+        {socketsToMap.map((socket, s) => {
+          // intrinsics
+          if (category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1) {
+            return (
+              <div key={s} className='socket intrinsic'>
+                {socket.plugOptions.map((plug, p) => {
+                  return (
+                    <div key={p} className='plug active'>
+                      <div className='icon'>
+                        <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                       </div>
-                    );
-                  })}
-                </div>
-              );
-            } // perks
-            else if (category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable) {
-              return (
-                <div key={s} className={cx('socket', {})} style={{ background: 'red' }}>
-                  {socket.plugOptions.map((plug, p) => {
-                    return (
-                      <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
-                        <div className='icon'>
-                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                        </div>
-                        <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
+                      <div className='text'>
+                        <div className='name'>{plug.definition.displayProperties.name}</div>
+                        <BungieText className='description' value={plug.definition.displayProperties.description} />
                       </div>
-                    );
-                  })}
-                </div>
-              );
-            } // mods
-            else {
-              return (
-                <div key={s} className={cx('socket', { columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6), background: 'blue' }}>
-                  {socket.plugOptions
-                    .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
-                    .map((plug, p) => {
-                      return (
-                        <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui' onClick={toggleSocket(socket.socketIndex)}>
-                          <div className='icon'>
-                            <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  {socketState.indexOf(socket.socketIndex) > -1 ? (
-                    <div className='options'>
-                      {socket.plugOptions.map((plug, p) => {
-                        return (
-                          <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
-                            <div className='icon'>
-                              <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                            </div>
-                            <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} onClick={toggleSocket(socket.socketIndex)} />
-                          </div>
-                        );
-                      })}
                     </div>
-                  ) : null}
+                  );
+                })}
+              </div>
+            );
+          } // perks
+          else if (category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable) {
+            return (
+              <div key={s} className={cx('socket', { columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                {socket.plugOptions.map((plug, p) => {
+                  return (
+                    <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                      <div className='icon'>
+                        <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                      </div>
+                      <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          } // mods
+          else {
+            return (
+              <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
+                {socket.plugOptions
+                  .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
+                  .map((plug, p) => {
+                    return (
+                      <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                        <div className='icon'>
+                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            );
+          }
+        })}
+        {expandedSocket ? (
+          <div className='socket options'>
+            {expandedSocket.plugOptions.map((plug, p) => {
+              return (
+                <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-hash={plug.definition.hash}>
+                  <div className='icon'>
+                    <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                  </div>
+                  <Link to={socketsUrl(itemHash, itemSockets, selected, expandedSocket.socketIndex, plug.definition.hash)} onClick={toggleSocket(expandedSocket.socketIndex)} />
                 </div>
               );
-            }
-          })}
+            })}
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -136,7 +137,19 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
 }
 
 class Inspect extends React.Component {
-  state = {};
+  state = {
+    from: undefined,
+  };
+
+  static getDerivedStateFromProps(p, s) {
+    if (s.from) {
+      return null;
+    }
+
+    return {
+      from: p.location.state?.from || '/collections',
+    };
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -146,7 +159,6 @@ class Inspect extends React.Component {
 
   render() {
     const { settings, member, location } = this.props;
-    const returnPath = location.state?.from || '/collections';
 
     const query = queryString.parse(location.search);
     const selectedSockets = query.sockets?.split('/').map((socketHash) => Number(socketHash) || '');
@@ -225,6 +237,8 @@ class Inspect extends React.Component {
     const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
 
     const powerCap = definitionItem.inventory.tierType === enums.DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
+
+    const definitionLore = manifest.DestinyLoreDefinition[definitionItem.loreHash];
 
     const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
     const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
@@ -346,7 +360,7 @@ class Inspect extends React.Component {
                                 <div className='int'>{stat.value}</div>
                               </>
                             ) : (
-                              <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
+                              <div className={cx('text', { masterwork: masterworkValue !== 0, modded: moddedValue !== 0 })}>
                                 {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
                               </div>
                             )}
@@ -376,6 +390,18 @@ class Inspect extends React.Component {
                   ))}
               </div>
             ) : null}
+            {definitionLore ? (
+              <div className='module lore'>
+                <div className='module-name'>{t('Lore')}</div>
+                <BungieText className='text' value={definitionLore.displayProperties.description} />
+              </div>
+            ) : null}
+            {definitionItem.screenshot && definitionItem.screenshot !== '' ? (
+              <div className='module screenshot'>
+                <div className='module-name'>{t('Screenshot')}</div>
+                <ObservedImage src={`https://www.bungie.net${definitionItem.screenshot}`} />
+              </div>
+            ) : null}
           </div>
         </div>
         <div className='sticky-nav'>
@@ -383,7 +409,7 @@ class Inspect extends React.Component {
             <div />
             <ul>
               <li>
-                <Link className='button' to={returnPath}>
+                <Link className='button' to={this.state.from}>
                   <DestinyKey type='dismiss' />
                   {t('Dismiss')}
                 </Link>

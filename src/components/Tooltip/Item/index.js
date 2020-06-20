@@ -93,8 +93,6 @@ function Item(props) {
     } else if (enums.trialsPassages.indexOf(definitionItem.hash) > -1) {
       item.type = 'trials-passage';
     }
-
-    item.screenshot = definitionItem.screenshot;
   }
 
   // item.itemState = itemState(item, props.member);
@@ -102,6 +100,7 @@ function Item(props) {
   item.sockets = sockets(item);
   item.stats = stats(item);
   item.masterwork = masterwork(item);
+  item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
 
   item.primaryStat = (definitionItem.itemType === 2 || definitionItem.itemType === 3) &&
     definitionItem.stats &&
@@ -151,9 +150,9 @@ function Item(props) {
   const showScreenshot =
     // if viewport is less than 601, item has a screenshot, and hideScreenshotBuckets does not mind this item
     (props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
-    // if item is one of these fellas, force show screenshot always
-    definitionItem.traitIds?.filter((id) => forcedScreenshotTraits.filter((trait) => id.includes(trait)).length).length ||
-    definitionItem.plug?.plugCategoryIdentifier?.includes('armor_skins');
+    (item.screenshot &&
+      // if item is one of these fellas, force show screenshot always
+      (definitionItem.traitIds?.filter((id) => forcedScreenshotTraits.filter((trait) => id.includes(trait)).length).length || definitionItem.plug?.plugCategoryIdentifier?.includes('armor_skins')));
 
   return (
     <>

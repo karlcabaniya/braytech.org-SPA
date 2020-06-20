@@ -84,7 +84,7 @@ const statsNoBar = [
   3871231066, // Magazine
   2961396640, // Charge Time
   447667954, // Draw Time
-  1931675084, // Recovery
+  1931675084, // Inventory Size
   2715839340, // Recoil Direction
 ];
 
@@ -123,6 +123,7 @@ const statListOrder = [
   2961396640, // Charge Time
   447667954, // Draw Time
   3871231066, // Magazine
+  1931675084, // Inventory Size
   925767036, // Ammo Capacity
   2715839340, // Recoil Direction
   ...armorStats,
@@ -291,7 +292,7 @@ function enhanceStatsWithPlugs(item, stats, statDisplays) {
 
       stat.value = statDisplay ? interpolateStatValue(stat.investmentValue, statDisplays[stat.statHash]) : Math.min(stat.investmentValue, stat.maximumValue);
 
-      if (stat.statHash === 2715839340) console.log(stat);
+      // if (stat.statHash === 2715839340) console.log(stat);
     }
   }
 

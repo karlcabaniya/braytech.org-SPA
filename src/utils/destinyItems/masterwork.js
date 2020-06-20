@@ -62,12 +62,12 @@ function buildForsakenKillTracker(item) {
   if (killTrackerSocket) {
     const plugObjective = killTrackerSocket.plug.plugObjectives[0];
 
-    const objectiveDef = manifest.DestinyObjectiveDefinition[plugObjective.objectiveHash];
+    const definitionObjective = manifest.DestinyObjectiveDefinition[plugObjective.objectiveHash];
 
     return {
       progress: plugObjective.progress,
-      typeIcon: objectiveDef.displayProperties.icon,
-      typeDesc: objectiveDef.progressDescription,
+      typeIcon: definitionObjective.displayProperties.icon,
+      typeDesc: definitionObjective.progressDescription,
       typeName: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash)
         ? 'crucible'
         : 'vanguard'
@@ -82,7 +82,7 @@ function buildForsakenMasterworkStats(item) {
     Boolean(
       socket.plug?.definition?.plug &&
         (socket.plug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') ||
-          socket.plug.definition.plug.plugCategoryIdentifier.endsWith('_masterwork'))
+        socket.plug.definition.plug.plugCategoryIdentifier.endsWith('masterwork'))
     )
   );
 
@@ -92,18 +92,15 @@ function buildForsakenMasterworkStats(item) {
 
     socket.isMasterwork = true;
 
-    const masterwork = socket.plug.definition.investmentStats[0];
-
     return {
       socketIndex: index,
-      stats: [
-        {
+      stats: socket.plug.definition.investmentStats.map(masterwork => ({
           hash: masterwork.statTypeHash,
           value: socket.plug.stats
-          ? socket.plug.stats[masterwork.statTypeHash]
-          : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[masterwork.statTypeHash]) || 0
-        }
-      ],
+            ? socket.plug.stats[masterwork.statTypeHash]
+            : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[masterwork.statTypeHash]) || 0
+        })
+      ),
       objective: {
         typeName: 'vanguard',
         typeIcon: socket.plug.definition.displayProperties.icon,
