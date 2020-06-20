@@ -529,6 +529,10 @@
   gap: 1rem;
 }
 
+#inspect .module.screenshot.double {
+  grid-column: span 2;
+}
+
 #inspect .module.screenshot .image {
   position: relative;
   height: unset;
@@ -619,7 +623,8 @@
   }
   
   #inspect .module.lore,
-  #inspect .module.screenshot {
+  #inspect .module.screenshot,
+  #inspect .module.screenshot.double {
     grid-column: unset;
   }
 

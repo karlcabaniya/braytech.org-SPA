@@ -397,7 +397,7 @@ class Inspect extends React.Component {
               </div>
             ) : null}
             {definitionItem.screenshot && definitionItem.screenshot !== '' ? (
-              <div className='module screenshot'>
+              <div className={cx('module', 'screenshot', { double: !definitionLore })}>
                 <div className='module-name'>{t('Screenshot')}</div>
                 <ObservedImage src={`https://www.bungie.net${definitionItem.screenshot}`} />
               </div>

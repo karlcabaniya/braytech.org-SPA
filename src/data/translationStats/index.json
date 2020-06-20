@@ -1,140 +1,259 @@
 {
   "de": {
-    "translated": 707,
-    "notTranslated": 17,
+    "translated": 706,
+    "notTranslated": 27,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "debug": {
-    "translated": 724,
+    "translated": 733,
     "notTranslated": 0,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "en": {
-    "translated": 724,
+    "translated": 733,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "es-mx": {
-    "translated": 723,
-    "notTranslated": 1,
+    "translated": 722,
+    "notTranslated": 11,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "es": {
-    "translated": 723,
-    "notTranslated": 1,
+    "translated": 722,
+    "notTranslated": 11,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "fr": {
-    "translated": 624,
-    "notTranslated": 100,
+    "translated": 623,
+    "notTranslated": 110,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "it": {
-    "translated": 715,
-    "notTranslated": 9,
+    "translated": 714,
+    "notTranslated": 19,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "ja": {
-    "translated": 603,
-    "notTranslated": 121,
+    "translated": 602,
+    "notTranslated": 131,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 210,
+    "notTranslated": 219,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 722,
+    "notTranslated": 731,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "pt-br": {
-    "translated": 708,
-    "notTranslated": 16,
+    "translated": 707,
+    "notTranslated": 26,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "ru": {
-    "translated": 705,
-    "notTranslated": 19,
+    "translated": 722,
+    "notTranslated": 11,
     "added": [
-      "Suppress Vault Warnings"
+      "1 Month",
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "#1 Month",
+      "{{players}} players have completed this."
     ]
   },
   "zh-chs": {
     "translated": 487,
-    "notTranslated": 237,
+    "notTranslated": 246,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 375,
+    "notTranslated": 384,
     "added": [
-      "Suppress Vault Warnings"
+      "Ammo type",
+      "Armor stats",
+      "Basic characteristics",
+      "Breaker type",
+      "Energy affinity",
+      "Screenshot",
+      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
+      "Weapon stats",
+      "{{players}} players have collected this.",
+      "{{players}} players have redeemed this."
     ],
     "removed": [
-      "Supress Vault Warnings"
+      "{{players}} players have completed this."
     ]
   }
 }
