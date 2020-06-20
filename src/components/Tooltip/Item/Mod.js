@@ -6,7 +6,7 @@ import manifest from '../../../utils/manifest';
 import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import ObservedImage from '../../ObservedImage';
 
-const Mod = props => {
+const Mod = (props) => {
   const { itemHash, vendorHash, vendorItemIndex } = props;
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
@@ -16,6 +16,9 @@ const Mod = props => {
 
   // source string
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
+
+  // perks
+  const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash] && manifest.DestinySandboxPerkDefinition[perk.perkHash].isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
 
   // energy cost
   const energyCost = definitionItem.plug.energyCost;
@@ -41,7 +44,33 @@ const Mod = props => {
     blocks.push(<BungieText className='description' value={description} />);
   }
 
-  if (description && sourceString) blocks.push(<div className='line' />);
+  if (description && perks.length) blocks.push(<div className='line' />);
+
+  if (perks.length) {
+    blocks.push(
+      <div className={cx('sockets perks', { one: perks.length === 0 })}>
+        {perks
+          .map((perk) => {
+            const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];
+
+            return (
+              <div key={perk.perkHash} className='socket'>
+                <div className={cx('plug', { enabled: true })}>
+                  <ObservedImage className='image icon' src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} />
+                  <div className='text'>
+                    <div className='name'>{definitionPerk.displayProperties?.name}</div>
+                    <BungieText className='description' value={definitionPerk.displayProperties?.description} />
+                  </div>
+                </div>
+              </div>
+            );
+          })
+          .filter((c) => c)}
+      </div>
+    );
+  }
+
+  if ((description && !perks.length && sourceString) || (perks.length && sourceString)) blocks.push(<div className='line' />);
 
   if (sourceString) {
     blocks.push(

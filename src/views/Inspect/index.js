@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
@@ -23,6 +23,16 @@ import Scene from '../../components/Three/Inspect/Scene';
 import './styles.css';
 
 function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props }) {
+  const [socketState, setSocketState] = useState([]);
+
+  const toggleSocket = (socketIndex) => (e) => {
+    if (socketState.indexOf(socketIndex) > -1) {
+      setSocketState([...socketState.filter(i => i !== socketIndex)]);
+    } else {
+      setSocketState([...socketState, socketIndex]);
+    }
+  };
+
   return (
     <div className={cx('module', 'category', { mods: category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable, intrinsic: category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk })}>
       <div className='module-name'>{category.displayProperties.name}</div>
@@ -30,13 +40,8 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
         {sockets
           .filter((socket) => !socket.isTracker)
           .map((socket, s) => {
-            const expanded = false; // TODO lol
-
-            // if mods and socket expanded by user OR if mods and a single plug option OR if not mods i.e. perks lol
-            // ^ ????
-
             // intrinsics
-            if (category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].plugOptions.length === 1) {
+            if (category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1) {
               return (
                 <div key={s} className='socket intrinsic'>
                   {socket.plugOptions.map((plug, p) => {
@@ -54,34 +59,35 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
                   })}
                 </div>
               );
-            } // armor perks and armor tier (and shader?)
-            else if ((category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable && expanded) || (category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable && socket.plugOptions.length < 2) || category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable) {
+            } // perks
+            else if (category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable) {
               return (
-                <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                <div key={s} className={cx('socket', {})} style={{ background: 'red' }}>
                   {socket.plugOptions.map((plug, p) => {
                     return (
                       <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
                         <div className='icon'>
                           <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                         </div>
-                        <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />{' '}
+                        <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
                       </div>
                     );
                   })}
                 </div>
               );
-            } else {
+            } // mods
+            else {
               return (
-                <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                <div key={s} className={cx('socket', { columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6), background: 'blue' }}>
                   {socket.plugOptions
-                    .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
+                    .filter((plugOption) => socketState.indexOf(socket.socketIndex) > -1 ? true : plugOption.definition?.hash === socket.plug.definition?.hash)
                     .map((plug, p) => {
                       return (
-                        <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                        <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui' onClick={toggleSocket(socket.socketIndex)}>
                           <div className='icon'>
                             <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                           </div>
-                          <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
+                          {/* <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} /> */}
                         </div>
                       );
                     })}
@@ -122,8 +128,6 @@ class Inspect extends React.Component {
 
     const query = queryString.parse(location.search);
     const selectedSockets = query.sockets?.split('/').map((socketHash) => Number(socketHash) || '');
-
-    console.log(selectedSockets);
 
     const item = {
       itemHash: this.props.match.params.hash,
@@ -340,10 +344,10 @@ class Inspect extends React.Component {
                                 <div className='int'>{stat.value}</div>
                               </>
                             ) : (
-                                <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
-                                  {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
-                                </div>
-                              )}
+                              <div className={cx('text', { masterwork: masterworkValue !== 0 })}>
+                                {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
+                              </div>
+                            )}
                           </div>
                         </div>
                       );
