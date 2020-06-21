@@ -1616,6 +1616,7 @@ export const DestinyContentVault = [
             1518196036, // Mission: Tree of Probabilities
             2846658569, // Mission: Omega
             2927675329, // Panoptes: Heroic
+            1879702969, // Heroic: Curse of Osiris
           ],
         },
       },
@@ -1699,7 +1700,9 @@ export const DestinyContentVault = [
             452451691, // Mission: Strange Terrain
             3158715546, // Mission: Off-World Recovery
             1640774328, // Polaris Lance Catalyst
+            2562666046, // Worldline Catalyst
             559593008, // Xol: Heroic
+            3957303142, // Heroic: Warmind
           ],
         },
       },
