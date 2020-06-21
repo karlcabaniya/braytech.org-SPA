@@ -1615,6 +1615,7 @@ export const DestinyContentVault = [
             2332658765, // Mission: Hijacked
             1518196036, // Mission: Tree of Probabilities
             2846658569, // Mission: Omega
+            2927675329, // Panoptes: Heroic
           ],
         },
       },
@@ -1698,6 +1699,7 @@ export const DestinyContentVault = [
             452451691, // Mission: Strange Terrain
             3158715546, // Mission: Off-World Recovery
             1640774328, // Polaris Lance Catalyst
+            559593008, // Xol: Heroic
           ],
         },
       },

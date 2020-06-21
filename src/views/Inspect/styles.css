@@ -621,6 +621,10 @@
     font-size: 14px;
     letter-spacing: 0.5px;
   }
+
+  #inspect .module.stats .stat {
+    grid-template-columns: minmax(100px, 140px) auto;
+  }
   
   #inspect .module.lore,
   #inspect .module.screenshot,
