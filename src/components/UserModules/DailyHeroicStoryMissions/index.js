@@ -13,17 +13,17 @@ class DailyHeroicStoryMissions extends React.Component {
     const characterActivities = member.data.profile.characterActivities.data;
 
     const knownStoryActivities = [129918239, 271962655, 589157009, 1023966646, 1070049743, 1132291813, 1259766043, 1313648352, 1513386090, 1534123682, 1602328239, 1872813880, 1882259272, 1906514856, 2000185095, 2146977720, 2568845238, 2660895412, 2772894447, 2776154899, 3008658049, 3205547455, 3271773240, 4009655461, 4234327344, 4237009519, 4244464899, 2962137994];
-    const dailyHeroicStoryActivities = characterActivities[member.characterId].availableActivities.filter(a => {
-      if (!a.activityHash) return false;
+    const dailyHeroicStoryActivities = characterActivities[member.characterId].availableActivities.filter(activity => {
+      if (!activity.activityHash) return false;
 
-      if (!knownStoryActivities.includes(a.activityHash)) return false;
+      if (!knownStoryActivities.includes(activity.activityHash)) return false;
 
       return true;
     });
     const dailyHeroicStories = {
       activities: dailyHeroicStoryActivities,
       displayProperties: {
-        name: manifest.DestinyPresentationNodeDefinition[3028486709] && manifest.DestinyPresentationNodeDefinition[3028486709].displayProperties && manifest.DestinyPresentationNodeDefinition[3028486709].displayProperties.name
+        ...(manifest.DestinyPresentationNodeDefinition[3028486709]?.displayProperties || {})
       }
     };
 
@@ -40,19 +40,19 @@ class DailyHeroicStoryMissions extends React.Component {
         <h4>{t('Available activities')}</h4>
         <ul className='list activities'>
           {orderBy(
-            dailyHeroicStories.activities.map((a, i) => {
-              const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
+            dailyHeroicStories.activities.map((activity, a) => {
+              const definitionActivity = manifest.DestinyActivityDefinition[activity.activityHash];
 
               const gameVersion = definitionActivity.eligibilityRequirements && utils.gameVersion(false, definitionActivity.eligibilityRequirements.gameVersion);
 
               return {
                 light: definitionActivity.activityLightLevel,
                 timeToComplete: definitionActivity.timeToComplete || 0,
-                el: (
-                  <li key={i} className={cx('linked', 'tooltip', { [gameVersion.hash]: gameVersion.hash !== 'base' })} data-type='activity' data-hash={a.activityHash} data-mode='175275639'>
+                element: (
+                  <li key={a} className={cx('linked', 'tooltip', gameVersion.hash)} data-type='activity' data-hash={activity.activityHash} data-mode='175275639'>
                     <div className='name'>{definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown')}</div>
                     <div>
-                      {gameVersion.hash !== 'base' && gameVersion.displayProperties.icon ? (
+                      {gameVersion.displayProperties.icon ? (
                         <div className='game-version-icon'>
                           <gameVersion.displayProperties.icon />
                         </div>
@@ -65,7 +65,7 @@ class DailyHeroicStoryMissions extends React.Component {
             }),
             [m => m.timeToComplete],
             ['asc']
-          ).map(e => e.el)}
+          ).map(e => e.element)}
         </ul>
       </div>
     );

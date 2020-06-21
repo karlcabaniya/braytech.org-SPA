@@ -1138,5 +1138,10 @@
     "date": "2020-06-17T02:12:00.150Z",
     "version": "2.25.0",
     "content": "- Destiny _Content Vault_ view\n\nHundreds of other changes in the 115 revisions since 2.24."
+  },
+  {
+    "date": "2020-06-21T08:59:22.734Z",
+    "version": "2.26.0",
+    "content": "- an all new _Inspect_ view for collectibles"
   }
 ]
