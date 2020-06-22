@@ -143,11 +143,7 @@ class App extends React.Component {
 
     moment.locale(momentLocale);
 
-    if (['zh-cn', 'zh-tw'].indexOf(momentLocale) > -1) {
-      moment.defineLocale('rel-abr', {
-        parentLocale: momentLocale,
-      });
-    } else {
+    if (this.currentLanguage === 'en') {
       moment.defineLocale('rel-abr', {
         parentLocale: momentLocale,
         relativeTime: {

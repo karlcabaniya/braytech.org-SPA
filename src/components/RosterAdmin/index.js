@@ -2,9 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
-import moment from 'moment';
 
-import { t } from '../../utils/i18n';
+import { t, fromNow } from '../../utils/i18n';
 import * as enums from '../../utils/destinyEnums';
 import * as utils from '../../utils/destinyUtils';
 import { classHashToIcon, groupMemberTypeToString } from '../../utils/destinyConverters';
@@ -459,14 +458,14 @@ class RosterAdmin extends React.Component {
                         <div className='tooltip' data-type='activity' data-context='roster' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash} data-membershipid={m.destinyUserInfo?.membershipId}>
                           <div>
                             {lastActivityString}
-                            <span>{moment(lastPlayed).locale('rel-abr').fromNow(true)}</span>
+                            <span>{fromNow(lastPlayed, true, true)}</span>
                           </div>
                         </div>
                       ) : (
-                        <div>{moment(lastPlayed).locale('rel-abr').fromNow()}</div>
+                        <div>{fromNow(lastPlayed, true)}</div>
                       )}
                     </li>
-                    <li className='col joinDate'>{!m.pending ? moment(m.joinDate).locale('rel-abr').fromNow() : null}</li>
+                    <li className='col joinDate'>{!m.pending ? fromNow(m.joinDate, true) : null}</li>
                     <li className='col weeklyXp'>
                       <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                     </li>

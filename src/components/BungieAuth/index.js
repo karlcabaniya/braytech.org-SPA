@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { Redirect, Link, withRouter } from 'react-router-dom';
 import { debounce } from 'lodash';
 import cx from 'classnames';
-import Moment from 'react-moment';
 import Markdown from 'react-markdown';
 import queryString from 'query-string';
 
 import store from '../../store';
-import { t } from '../../utils/i18n';
+import { t, formatTime } from '../../utils/i18n';
 import * as bungie from '../../utils/bungie';
 import * as voluspa from '../../utils/voluspa';
 import * as enums from '../../utils/destinyEnums';
@@ -247,7 +246,7 @@ class BungieAuth extends React.Component {
                 <div className='text'>
                   <div className='displayName'>{memberships.bungieNetUser.displayName}</div>
                   <div className='firstAccess'>
-                    <Moment format='DD/MM/YYYY'>{memberships.bungieNetUser.firstAccess}</Moment>
+                    <time datetime={memberships.bungieNetUser.firstAccess}>{formatTime(memberships.bungieNetUser.firstAccess, 'DD/MM/YYYY')}</time>
                   </div>
                 </div>
               </div>

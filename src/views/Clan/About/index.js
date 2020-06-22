@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
 import cx from 'classnames';
 
-import { t, BraytechText } from '../../../utils/i18n';
+import { t, formatTime, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
 import Roster from '../../../components/Roster';
@@ -97,7 +96,7 @@ class AboutView extends React.Component {
         <div className='module about'>
           <div className='name'>{clan.name}</div>
           <div className='members'>
-            {t('Founded')} {moment(clan.creationDate).format('MMMM YYYY')} / {clan.memberCount} {t('Members')}
+            {t('Founded')} {formatTime(clan.creationDate, 'MMMM YYYY')} / {clan.memberCount} {t('Members')}
           </div>
           <BraytechText className={cx('bio', { 'includes-motto': clan.motto !== '' })} escapeHtml disallowedTypes={['image', 'imageReference']} value={clan.motto !== '' ? `_${clan.motto}_\n\n${clan.about}` : clan.about} escapeValue />
         </div>

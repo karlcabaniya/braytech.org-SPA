@@ -57,77 +57,77 @@ export function getLanguageInfo(code) {
     case 'debug':
       return {
         name: 'Debug',
-        code: code
+        code: code,
       };
     case 'de':
       return {
         name: 'Deutsch',
-        code: code
+        code: code,
       };
     case 'en':
       return {
         name: 'English',
-        code: code
+        code: code,
       };
     case 'en-au':
       return {
         name: 'English (Australia)',
-        code: code
+        code: code,
       };
     case 'es':
       return {
         name: 'Español',
-        code: code
+        code: code,
       };
     case 'es-mx':
       return {
         name: 'Español mexicano',
-        code: code
+        code: code,
       };
     case 'fr':
       return {
         name: 'Français',
-        code: code
+        code: code,
       };
     case 'it':
       return {
         name: 'Italiano',
-        code: code
+        code: code,
       };
     case 'ja':
       return {
         name: '日本語',
-        code: code
+        code: code,
       };
     case 'ko':
       return {
         name: '한국어',
-        code: code
+        code: code,
       };
     case 'pl':
       return {
         name: 'Polski',
-        code: code
+        code: code,
       };
     case 'pt-br':
       return {
         name: 'Português Brasileiro',
-        code: code
+        code: code,
       };
     case 'ru':
       return {
         name: 'Русский',
-        code: code
+        code: code,
       };
     case 'zh-cht':
       return {
         name: '繁體中文',
-        code: code
+        code: code,
       };
     case 'zh-chs':
       return {
         name: '简体中文',
-        code: code
+        code: code,
       };
     default:
       return { code: code };
@@ -316,13 +316,26 @@ export const unixTimestampToDuration = (seconds) => {
   };
 };
 
-export const fromNow = (timestamp, abbreviated = false) => {
-  if (abbreviated) {
-    return moment(timestamp).locale('rel-abr').fromNow();
+export const formatTime = (date = moment(), format) => {
+  if (format === 'ISO8601') {
+    return moment(date).toISOString();
   } else {
-    return moment(timestamp)
+    return moment(date).format(format);
+  }
+};
+
+export const addTime = (date = moment(), value, unit = 'seconds') => {
+  return moment(date).add(value, unit);
+};
+
+export const fromNow = (date, abbreviated, withoutSuffix) => {
+  console.log(date)
+  if (abbreviated) {
+    return moment(date).locale('rel-abr').fromNow(withoutSuffix);
+  } else {
+    return moment(date)
       .locale(['zh-chs', 'zh-cht'].indexOf(i18next.language) > -1 ? 'zh-cn' : i18next.language)
-      .fromNow();
+      .fromNow(withoutSuffix);
   }
 };
 

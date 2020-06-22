@@ -3,9 +3,8 @@ import { compose } from 'redux';
 import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
-import moment from 'moment';
-import Moment from 'react-moment';
 
+import { addTime, fromNow, formatTime } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import { activityModeExtras } from '../../../utils/destinyUtils';
@@ -31,7 +30,7 @@ class ReportHeader extends React.Component {
     const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
 
     // add activityDurationSeconds to activity start time
-    const realEndTime = moment(period).add(entry.values.activityDurationSeconds.basic.value, 'seconds');
+    const realEndTime = addTime(period, entry.values.activityDurationSeconds.basic.value, 'seconds');
 
     let mode = definitionMode?.displayProperties?.name;
     if (extras?.name) {
@@ -47,7 +46,7 @@ class ReportHeader extends React.Component {
         <div className='mode'>{mode}</div>
         <div className='map'>{definitionMap?.displayProperties?.name}</div>
         <div className='ago'>
-          <Moment fromNow withTitle>{realEndTime}</Moment>
+          <time datetime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>{fromNow(realEndTime)}</time>
         </div>
       </div>
     );
@@ -73,7 +72,7 @@ class ReportHeaderLarge extends React.Component {
     const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
 
     // add activityDurationSeconds to activity start time
-    const realEndTime = moment(period).add(entry.values.activityDurationSeconds.basic.value, 'seconds');
+    const realEndTime = addTime(period, entry.values.activityDurationSeconds.basic.value, 'seconds');
 
     // standing based on current character, if possible
     const standing = entry.values.standing && entry.values.standing.basic.value !== undefined ? entry.values.standing.basic.value : -1;
@@ -116,7 +115,7 @@ class ReportHeaderLarge extends React.Component {
           <div>
             <div className='duration'>{entry.values.activityDurationSeconds.basic.displayValue}</div>
             <div className='ago'>
-              <Moment fromNow withTitle>{realEndTime}</Moment>
+              <time datetime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>{fromNow(realEndTime)}</time>
             </div>
           </div>
         </div>
