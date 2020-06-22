@@ -127,13 +127,13 @@
 }
 
 #character-select .profile .summary .basics div .name {
-  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 8px;
   line-height: 1.4;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 #character-select .profile .summary .basics div .value {
   font-size: 18px;
-  margin: 0 0 8px;
 }
 
 #character-select .characters-list {

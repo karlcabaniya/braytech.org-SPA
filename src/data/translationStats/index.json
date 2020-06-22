@@ -2,258 +2,85 @@
   "de": {
     "translated": 706,
     "notTranslated": 27,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "debug": {
     "translated": 733,
     "notTranslated": 0,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "en": {
     "translated": 733,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "removed": []
   },
   "es-mx": {
-    "translated": 722,
-    "notTranslated": 11,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "translated": 733,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es": {
-    "translated": 722,
-    "notTranslated": 11,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "translated": 733,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 623,
     "notTranslated": 110,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 714,
     "notTranslated": 19,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 602,
     "notTranslated": 131,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 514,
     "notTranslated": 219,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 731,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 707,
     "notTranslated": 26,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
     "translated": 722,
     "notTranslated": 11,
-    "added": [
-      "1 Month",
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "#1 Month",
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
     "translated": 487,
     "notTranslated": 246,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 349,
     "notTranslated": 384,
-    "added": [
-      "Ammo type",
-      "Armor stats",
-      "Basic characteristics",
-      "Breaker type",
-      "Energy affinity",
-      "Screenshot",
-      "The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.",
-      "Weapon stats",
-      "{{players}} players have collected this.",
-      "{{players}} players have redeemed this."
-    ],
-    "removed": [
-      "{{players}} players have completed this."
-    ]
+    "added": [],
+    "removed": []
   }
 }

@@ -20,20 +20,20 @@ function Profile(props) {
         <Flair type={props.member.membershipType} id={props.member.membershipId} />
         <div className='basics'>
           <div>
-            <div className='value'>{progressionSeasonRank(props.member).level}</div>
             <div className='name'>{t('Season rank')}</div>
+            <div className='value'>{progressionSeasonRank(props.member).level}</div>
           </div>
           <div>
-            <div className='value'>{timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}</div>
             <div className='name'>{t('Time played across characters')}</div>
+            <div className='value'>{timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}</div>
           </div>
           <div>
-            <div className='value'>{props.member.data.profile.profileRecords.data.score.toLocaleString()}</div>
             <div className='name'>{t('Triumph score')}</div>
+            <div className='value'>{props.member.data.profile.profileRecords.data.score.toLocaleString()}</div>
           </div>
           <div>
-            <div className='value'>{collectionTotal(props.member.data.profile).toLocaleString()}</div>
             <div className='name'>{t('Collection total')}</div>
+            <div className='value'>{collectionTotal(props.member.data.profile).toLocaleString()}</div>
           </div>
         </div>
       </div>
