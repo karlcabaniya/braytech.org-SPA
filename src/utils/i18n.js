@@ -329,7 +329,6 @@ export const addTime = (date = moment(), value, unit = 'seconds') => {
 };
 
 export const fromNow = (date, abbreviated, withoutSuffix) => {
-  console.log(date)
   if (abbreviated) {
     return moment(date).locale('rel-abr').fromNow(withoutSuffix);
   } else {

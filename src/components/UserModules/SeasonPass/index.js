@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import manifest from '../../../utils/manifest';
-import * as enums from '../../../utils/destinyEnums';
+import { classStrings, enumerateProgressionRewardItemState } from '../../../utils/destinyEnums';
 import { progressionSeasonRank } from '../../../utils/destinyUtils';
 import Button from '../../UI/Button';
 import ProgressBar from '../../UI/ProgressBar';
@@ -104,7 +104,7 @@ class SeasonPass extends React.Component {
           .map((r, i) => {
             return {
               ...r,
-              state: enums.enumerateProgressionRewardItemState(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].rewardItemStates[i]),
+              state: enumerateProgressionRewardItemState(characterProgressions[member.characterId].progressions[definitionSeason.seasonPassProgressionHash].rewardItemStates[i]),
             };
           })
           .filter((r, i) => r.rewardedAtProgressionLevel === rank);
@@ -176,7 +176,7 @@ class SeasonPass extends React.Component {
             }
             // if it's not a shader, it might be an armour ornament in which case we only want the one matching our current class
             else if (definitionItem.plug?.plugCategoryIdentifier) {
-              const classString = enums.classStrings[character.classType];
+              const classString = classStrings[character.classType];
 
               if (definitionItem.plug.plugCategoryIdentifier.indexOf(classString) > -1) {
                 return true;

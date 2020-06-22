@@ -75,7 +75,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
               <div className='text'>{primaryStat.displayProperties.name}</div>
             </div>
             {energy ? (
-              <div className='energy'>
+              <div className='big-value energy'>
                 <div className={cx('value', definitionEnergy.string)}>
                   <div className='icon'>{definitionEnergy.icon}</div> {energy.energyCapacity}
                 </div>

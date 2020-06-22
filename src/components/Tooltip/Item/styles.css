@@ -410,7 +410,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#tooltip .energy {
+#tooltip .big-value {
   padding: 0 16px;
   color: #fff;
   display: flex;
@@ -419,39 +419,47 @@
   font-size: 16px;
 }
 
-#tooltip .frame.mod .energy {
+#tooltip .frame.mod .big-value {
   padding-top: 14px;
 }
 
-#tooltip .energy .value {
+#tooltip .big-value .value {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 36px;
 }
 
-#tooltip .energy .value .icon {
+#tooltip .big-value .value .icon {
   font-size: 16px;
   font-weight: 400;
   padding: 0 3px 0 0;
 }
 
-#tooltip .energy .value.solar {
+#tooltip .big-value.energy .value.solar {
   color: var(--energy-solar);
 }
 
-#tooltip .energy .value.arc {
+#tooltip .big-value.energy .value.arc {
   color: var(--energy-arc);
 }
 
-#tooltip .energy .value.void {
+#tooltip .big-value.energy .value.void {
   color: var(--energy-void);
 }
 
-#tooltip .energy .text {
+#tooltip .big-value .text {
   padding: 0 0 0 12px;
   text-transform: uppercase;
+}
+
+#tooltip .big-value.masterwork {
+  color: #ecbc4f;
+}
+
+#tooltip .big-value.masterwork .value {
+  font-size: 36px;
 }
 
 #tooltip .frame .emblem {

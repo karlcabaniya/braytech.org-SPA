@@ -58,7 +58,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
                   return (
                     <div key={p} className='plug active'>
                       <div className='icon'>
-                        <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                       </div>
                       <div className='text'>
                         <div className='name'>{plug.definition.displayProperties.name}</div>
@@ -77,7 +77,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
                   return (
                     <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
                       <div className='icon'>
-                        <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                       </div>
                       <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
                     </div>
@@ -89,17 +89,11 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
           else {
             return (
               <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
-                {socket.plugOptions
-                  .filter((plugOption) => plugOption.definition?.hash === socket.plug.definition?.hash)
-                  .map((plug, p) => {
-                    return (
-                      <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
-                        <div className='icon'>
-                          <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                        </div>
-                      </div>
-                    );
-                  })}
+                <div className={cx('plug', 'tooltip', 'active')} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                  <div className='icon'>
+                    <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
+                  </div>
+                </div>
               </div>
             );
           }
@@ -110,7 +104,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, ...props 
               return (
                 <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-hash={plug.definition.hash}>
                   <div className='icon'>
-                    <ObservedImage src={`https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                    <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                   </div>
                   <Link to={socketsUrl(itemHash, itemSockets, selected, expandedSocket.socketIndex, plug.definition.hash)} onClick={toggleSocket(expandedSocket.socketIndex)} />
                 </div>
@@ -245,6 +239,8 @@ class Inspect extends React.Component {
     const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
     const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
     const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
+
+    // console.log(JSON.stringify(manifest.DestinyInventoryItemDefinition[2323986101]))
 
     return (
       <>

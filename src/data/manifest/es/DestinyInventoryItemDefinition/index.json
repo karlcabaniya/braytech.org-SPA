@@ -28,5 +28,15 @@
     "displayProperties": {
       "description": "Aumenta la experiencia de tu Guardián"
     }
+  },
+  "23239861010": {
+    "displayProperties": {
+      "description": "No masterwork currently selected.",
+      "name": "Empty Masterwork Socket"
+    },
+    "itemTypeDisplayName": "Weapon Mod",
+    "inventory": {
+      "tierTypeName": "Common"
+    }
   }
 }

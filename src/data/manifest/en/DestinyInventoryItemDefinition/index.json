@@ -28,5 +28,59 @@
     "displayProperties": {
       "description": "Increases your Guardian's experience"
     }
+  },
+  "23239861010": {
+    "displayProperties": {
+      "description": "No masterwork currently selected.",
+      "name": "Empty Masterwork Socket",
+      "icon": "/static/images/extracts/ui/items/no-mod.png",
+      "localIcon": true,
+      "hasIcon": true
+    },
+    "itemTypeDisplayName": "Weapon Mod",
+    "tooltipStyle": "vendor_action",
+    "inventory": {
+      "maxStackSize": 1000,
+      "bucketTypeHash": 2422292810,
+      "recoveryBucketTypeHash": 0,
+      "tierTypeHash": 3340296461,
+      "isInstanceItem": false,
+      "nonTransferrableOriginal": false,
+      "tierTypeName": "Common",
+      "tierType": 2,
+      "expirationTooltip": "",
+      "expiredInActivityMessage": "",
+      "expiredInOrbitMessage": "",
+      "suppressExpirationWhenObjectivesComplete": true
+    },
+    "plug": {
+      "insertionRules": [],
+      "plugCategoryIdentifier": "v400.weapon.masterwork_empty",
+      "plugCategoryHash": 3945646995,
+      "onActionRecreateSelf": false,
+      "actionRewardSiteHash": 0,
+      "actionRewardItemOverrideHash": 0,
+      "insertionMaterialRequirementHash": 0,
+      "previewItemOverrideHash": 0,
+      "enabledMaterialRequirementHash": 0,
+      "enabledRules": [],
+      "uiPlugLabel": "",
+      "plugStyle": 0,
+      "plugAvailability": 0,
+      "alternateUiPlugLabel": "",
+      "alternatePlugStyle": 0,
+      "isDummyPlug": false
+    },
+    "perks": [],
+    "itemCategoryHashes": [59, 945330047, 610365472],
+    "specialItemType": 0,
+    "itemType": 19,
+    "itemSubType": 0,
+    "classType": 3,
+    "breakerType": 0,
+    "equippable": false,
+    "defaultDamageType": 0,
+    "hash": 23239861010,
+    "redacted": false
   }
 }

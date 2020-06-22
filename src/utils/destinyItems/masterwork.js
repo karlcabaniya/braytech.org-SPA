@@ -78,7 +78,7 @@ function buildForsakenKillTracker(item) {
 }
 
 function buildForsakenMasterworkStats(item) {
-  const index = item.sockets.sockets && item.sockets.sockets.findIndex((socket) =>
+  const index = item.sockets.sockets?.findIndex((socket) =>
     Boolean(
       socket.plug?.definition?.plug &&
         (socket.plug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') ||
@@ -86,7 +86,7 @@ function buildForsakenMasterworkStats(item) {
     )
   );
 
-  const socket = item.sockets.sockets && item.sockets.sockets[index];
+  const socket = item.sockets.sockets?.[index];
   
   if (socket?.plug?.definition?.investmentStats?.length) {
 
@@ -94,11 +94,11 @@ function buildForsakenMasterworkStats(item) {
 
     return {
       socketIndex: index,
-      stats: socket.plug.definition.investmentStats.map(masterwork => ({
-          hash: masterwork.statTypeHash,
+      stats: socket.plug.definition.investmentStats.map(stat => ({
+          hash: stat.statTypeHash,
           value: socket.plug.stats
-            ? socket.plug.stats[masterwork.statTypeHash]
-            : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[masterwork.statTypeHash]) || 0
+            ? socket.plug.stats[stat.statTypeHash]
+            : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[stat.statTypeHash]) || 0
         })
       ),
       objective: {

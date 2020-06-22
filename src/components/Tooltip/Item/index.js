@@ -116,7 +116,8 @@ function Item(props) {
   } else if (item.primaryStat && props.member?.data) {
     const character = props.member.data.profile.characters.data.find((character) => character.characterId === props.member.characterId);
 
-    item.primaryStat.value = Math.floor((942 / 973) * character.light);
+    // item.primaryStat.value = Math.floor((942 / 973) * character.light);
+    item.primaryStat.value = character.light;
   }
 
   const importantText = [];

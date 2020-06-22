@@ -27,15 +27,27 @@ const Mod = (props) => {
   // vendor costs
   const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
 
+  // is it a masterwork?
+  const probablyMasterworkPlug = ((definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork')) && definitionItem.investmentStats?.length === 1);
+
   const blocks = [];
 
   if (energyCost) {
     blocks.push(
-      <div className='energy'>
+      <div className='big-value energy'>
         <div className={cx('value', energyType.string)}>
           <div className='icon'>{energyType.icon}</div> {energyCost.energyCost}
         </div>
         <div className='text'>{t('Energy cost')}</div>
+      </div>
+    );
+  }
+
+  if (probablyMasterworkPlug) {
+    blocks.push(
+      <div className='big-value masterwork'>
+        <div className='value'>{definitionItem.investmentStats[0].value}</div>
+        <div className='text'>{manifest.DestinyStatDefinition[definitionItem.investmentStats[0].statTypeHash]?.displayProperties.name}</div>
       </div>
     );
   }
