@@ -28,5 +28,15 @@
       "displayProperties": {
         "description": "Увеличь опыт своего Стража"
       }
+    },
+  "23239861010": {
+    "displayProperties": {
+      "description": "Абсоют не выбран.",
+      "name": "Пустой слот Абсолюта"
+    },
+    "itemTypeDisplayName": "Модификатор оружия",
+    "inventory": {
+      "tierTypeName": "Обычный"
     }
   }
+}
