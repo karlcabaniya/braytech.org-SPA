@@ -33,10 +33,12 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   if (energyCost) {
     blocks.push(
       <div className='big-value energy'>
-        <div className={cx('value', energyType.string)}>
-          <div className='icon'>{energyType.icon}</div> {energyCost.energyCost}
+        <div className='stat'>
+          <div className={cx('value', energyType.string)}>
+            <div className='icon'>{energyType.icon}</div> {energyCost.energyCost}
+          </div>
+          <div className='text'>{t('Energy cost')}</div>
         </div>
-        <div className='text'>{t('Energy cost')}</div>
       </div>
     );
   }
