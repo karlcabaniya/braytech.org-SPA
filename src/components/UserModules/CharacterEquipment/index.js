@@ -61,15 +61,15 @@ class CharacterEquipment extends React.Component {
         </div>
         <h4>{manifest.DestinyPresentationNodeDefinition[1528930164].displayProperties.name}</h4>
         <ul className='list inventory-items'>
-          <Items items={weapons} />
+          <Items items={weapons} inspect />
         </ul>
         <h4>{manifest.DestinyPresentationNodeDefinition[1605042242].displayProperties.name}</h4>
         <ul className='list inventory-items'>
-          <Items items={armor} />
+          <Items items={armor} inspect />
         </ul>
         <h4>{t('Auxiliary')}</h4>
         <ul className='list inventory-items'>
-          <Items items={aux} />
+          <Items items={aux} inspect />
         </ul>
         <h4>{t('Stats')}</h4>
         <div className='stats'>

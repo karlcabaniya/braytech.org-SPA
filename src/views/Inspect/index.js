@@ -17,7 +17,7 @@ import { DestinyKey } from '../../components/UI/Button';
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats, statsMs } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
-import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../../utils/destinyItems/utils';
+import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats, getOrnamentSocket } from '../../utils/destinyItems/utils';
 
 // import Scene from '../../components/Three/Inspect/Scene';
 
@@ -78,7 +78,10 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
           else if (isEnergyMeter) {
             const { energyTypeHash, capacityValue, usedValue } = masterwork?.energy || {};
             const energyAsset = energyTypeToAsset(energyTypeHash);
-            const masterworkTiers = Array(10).fill('disabled').fill('unused', 0, capacityValue || 0).fill('used', 0, usedValue || 0);
+            const masterworkTiers = Array(10)
+              .fill('disabled')
+              .fill('unused', 0, capacityValue || 0)
+              .fill('used', 0, usedValue || 0);
 
             // console.log(socket.plug.definition.plug);
 
@@ -95,10 +98,12 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
                       <div className='value'>{capacityValue || 0}</div>
                       <div className='text'>{t('Energy')}</div>
                     </div>
-                    {capacityValue ? <div className={cx('unused', { debt: capacityValue - usedValue < 0 })}>
-                      <div className='text'>{t('Unused')}</div>
-                      <div className='value'>{capacityValue - usedValue}</div>
-                    </div> : null}
+                    {capacityValue ? (
+                      <div className={cx('unused', { debt: capacityValue - usedValue < 0 })}>
+                        <div className='text'>{t('Unused')}</div>
+                        <div className='value'>{capacityValue - usedValue}</div>
+                      </div>
+                    ) : null}
                   </div>
                   <div className='upgrade-icon'></div>
                   <div className='masterwork tiers'>
@@ -112,7 +117,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
           } // perks
           else if (isPerks) {
             return (
-              <div key={s} className={cx('socket', { columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+              <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
                 {socket.plugOptions.map((plug, p) => {
                   return (
                     <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
@@ -134,6 +139,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
                 <div className={cx('plug', 'tooltip', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
                   <div className='icon'>
                     <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
+                    {socket.plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{socket.plug.definition.plug.energyCost.energyCost}</div> : null}
                   </div>
                 </div>
               </div>
@@ -149,6 +155,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
                 <div key={p} className={cx('plug', 'tooltip', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-hash={plug.definition.hash}>
                   <div className='icon'>
                     <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                    {plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{plug.definition.plug.energyCost.energyCost}</div> : null}
                   </div>
                   <Link to={socketsUrl(itemHash, itemSockets, selected, expandedSocket.socketIndex, plug.definition.hash)} onClick={toggleSocket(expandedSocket.socketIndex)} />
                 </div>
@@ -185,7 +192,7 @@ class Inspect extends React.Component {
     }
 
     return {
-      from: p.location.state?.from || '/collections',
+      from: p.location.state?.from || (p.member.characterId && `/${p.member.membershipType}/${p.member.membershipId}/${p.member.characterId}/collections`) || '/collections',
     };
   }
 
@@ -211,6 +218,8 @@ class Inspect extends React.Component {
 
     const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
+    item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
+
     // process sockets
     item.sockets = sockets(item);
 
@@ -229,6 +238,11 @@ class Inspect extends React.Component {
 
         return socket;
       });
+
+      const ornamentSocket = getOrnamentSocket(item.sockets);
+      if (ornamentSocket?.plug?.definition?.screenshot) {
+        item.screenshot = ornamentSocket.plug.definition.screenshot && ornamentSocket.plug.definition.screenshot !== '' && ornamentSocket.plug.definition.screenshot;
+      }
     }
 
     // stats and masterwork as per usual
@@ -436,10 +450,12 @@ class Inspect extends React.Component {
                 <BungieText className='text' value={definitionLore.displayProperties.description} />
               </div>
             ) : null}
-            {definitionItem.screenshot && definitionItem.screenshot !== '' ? (
+            {item.screenshot ? (
               <div className={cx('module', 'screenshot', { double: !definitionLore })}>
                 <div className='module-name'>{t('Screenshot')}</div>
-                <ObservedImage src={`https://www.bungie.net${definitionItem.screenshot}`} />
+                <div className='frame'>
+                  <ObservedImage src={`https://www.bungie.net${item.screenshot}`} />
+                </div>
               </div>
             ) : null}
           </div>

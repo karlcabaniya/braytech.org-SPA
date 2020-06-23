@@ -189,8 +189,8 @@ function buildDefinedSocket(item, definitionSocket, index) {
           // build the default plug
           buildPlug(definitionSocket, { plugItemHash: DEFAULT_MASTERWORK_PLUG }),
           ...reusablePlugs.filter((reusablePlug) =>
-            // is it a weapon
-            definitionItem.itemType === enums.DestinyItemType.Weapon
+            // is it a weapon and not an exotic
+            definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.inventory.tierType === enums.DestinyTierType.Superior
               ? // okay just give me masterwork plugs with a stat value of 10
                 reusablePlug.definition.investmentStats?.[0]?.value === 10
               : // is it armor

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 
@@ -22,7 +22,28 @@ const bucketsToExcludeFromInstanceProgressDisplay = [
   4274335291, // Emblems
 ];
 
+function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
+  if (!sockets?.length) {
+    return {
+      url: `/inspect/${itemHash}`,
+      sockets: ''
+    }
+  };
+
+  const socketsString = sockets.map((socket, s) => {
+    return socket.plug?.definition?.hash || '';
+  });
+
+  // create strings
+  return {
+    url: `/inspect/${itemHash}?sockets=${socketsString.join('/')}`,
+    sockets: socketsString.join('/')
+  };
+}
+
 function Items({ member, items, handler, disableTooltip, order, noBorder, showQuantity, hideQuantity, asPanels, placeholders = 0, showHash, selfLinkFrom, inspect }) {
+  const location = useLocation();
+
   if (!items || !items.length) {
     console.warn('No items specified');
 
@@ -116,7 +137,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
             />
           ) : null}
           {(showQuantity || item.quantity > 1) && !hideQuantity ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{displayValue(item.quantity || 0)}</div> : null}
-          {inspect && definitionItem.hash ? <Link to={{ pathname: `/inspect/${definitionItem.hash}`, state: { from: selfLinkFrom } }} /> : null}
+          {inspect ? <Link to={{ pathname: `/inspect/${item.itemHash}`, search: `?sockets=${socketsUrl(item.itemHash, item.sockets.sockets).sockets}`, state: { from: selfLinkFrom || location.pathname } }} /> : null}
         </li>
       ),
     };

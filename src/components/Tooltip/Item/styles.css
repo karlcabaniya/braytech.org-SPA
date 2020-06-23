@@ -413,53 +413,58 @@
 #tooltip .big-value {
   padding: 0 16px;
   color: #fff;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
   font-size: 16px;
 }
 
 #tooltip .frame.mod .big-value {
   padding-top: 14px;
+  display: grid;
+  gap: 6px;
 }
 
-#tooltip .big-value .value {
+#tooltip .big-value .stat {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+}
+
+#tooltip .big-value .stat .value {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   font-weight: 500;
+  font-size: 24px;
+}
+
+#tooltip .big-value .stat:first-child:last-child .value {
   font-size: 36px;
 }
 
-#tooltip .big-value .value .icon {
+#tooltip .big-value .stat .value .icon {
   font-size: 16px;
   font-weight: 400;
   padding: 0 3px 0 0;
 }
 
-#tooltip .big-value.energy .value.solar {
+#tooltip .big-value.energy .stat .value.solar {
   color: var(--energy-solar);
 }
 
-#tooltip .big-value.energy .value.arc {
+#tooltip .big-value.energy .stat .value.arc {
   color: var(--energy-arc);
 }
 
-#tooltip .big-value.energy .value.void {
+#tooltip .big-value.energy .stat .value.void {
   color: var(--energy-void);
 }
 
-#tooltip .big-value .text {
+#tooltip .big-value .stat .text {
   padding: 0 0 0 12px;
   text-transform: uppercase;
 }
 
 #tooltip .big-value.masterwork {
   color: #ecbc4f;
-}
-
-#tooltip .big-value.masterwork .value {
-  font-size: 36px;
 }
 
 #tooltip .frame .emblem {

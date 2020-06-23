@@ -6,9 +6,7 @@ import manifest from '../../../utils/manifest';
 import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import ObservedImage from '../../ObservedImage';
 
-const Mod = (props) => {
-  const { itemHash, vendorHash, vendorItemIndex } = props;
-
+const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
   // description
@@ -18,7 +16,7 @@ const Mod = (props) => {
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
 
   // perks
-  const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash] && manifest.DestinySandboxPerkDefinition[perk.perkHash].isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
+  const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash]?.isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
 
   // energy cost
   const energyCost = definitionItem.plug.energyCost;
@@ -28,7 +26,7 @@ const Mod = (props) => {
   const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
 
   // is it a masterwork?
-  const probablyMasterworkPlug = ((definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork')) && definitionItem.investmentStats?.length === 1);
+  const probablyMasterworkPlug = definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork');
 
   const blocks = [];
 
@@ -46,8 +44,12 @@ const Mod = (props) => {
   if (probablyMasterworkPlug) {
     blocks.push(
       <div className='big-value masterwork'>
-        <div className='value'>{definitionItem.investmentStats[0].value}</div>
-        <div className='text'>{manifest.DestinyStatDefinition[definitionItem.investmentStats[0].statTypeHash]?.displayProperties.name}</div>
+        {definitionItem.investmentStats.map((stat, s) => (
+          <div key={s} className='stat'>
+            <div className='value'>{stat.value}</div>
+            <div className='text'>{manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name}</div>
+          </div>
+        ))}
       </div>
     );
   }
@@ -60,7 +62,7 @@ const Mod = (props) => {
 
   if (perks.length) {
     blocks.push(
-      <div className={cx('sockets perks', { one: perks.length === 0 })}>
+      <div className='sockets perks'>
         {perks
           .map((perk) => {
             const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];

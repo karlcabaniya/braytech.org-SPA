@@ -428,6 +428,15 @@
   height: 64px;
 }
 
+#inspect .sockets .module.category .category-sockets .socket .plug .icon .energy-cost {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  font-size: 14px;
+  font-family: var(--font-text);
+  pointer-events: none;
+}
+
 #inspect .sockets .module.category .category-sockets .socket .plug a {
   position: absolute;
   left: 0;
@@ -681,10 +690,10 @@
   grid-column: span 2;
 }
 
-#inspect .module.screenshot .image {
+#inspect .module.screenshot .frame {
   position: relative;
-  height: unset;
   padding-bottom: 56.25%;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 
