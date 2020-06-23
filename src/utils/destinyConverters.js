@@ -137,36 +137,19 @@ export function energyStatToType(statHash) {
   }
 }
 
-export function energyTypeToAsset(type) {
-  let string;
-  let char;
-
-  switch (type) {
+export function energyTypeToAsset(energyTypeHash) {
+  switch (energyTypeHash) {
     case 591714140:
-      string = 'solar';
-      char = '';
-      break;
+      return { string: 'solar', char: '' };
     case 728351493:
-      string = 'arc';
-      char = '';
-      break;
+      return { string: 'arc', char: '' };
     case 4069572561:
-      string = 'void';
-      char = '';
-      break;
+      return { string: 'void', char: '' };
     case 1198124803:
-      string = 'any';
-      char = '';
-      break;
+      return { string: 'any', char: '' };
     default:
-      string = '';
-      char = '';
+      return { string: '', char: '' };
   }
-
-  return {
-    string,
-    char,
-  };
 }
 
 /**

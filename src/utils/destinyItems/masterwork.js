@@ -65,10 +65,10 @@ function buildForsakenKillTracker(item) {
     const definitionObjective = manifest.DestinyObjectiveDefinition[plugObjective.objectiveHash];
 
     return {
+      ...definitionObjective.displayProperties,
+      description: definitionObjective.progressDescription,
       progress: plugObjective.progress,
-      typeIcon: definitionObjective.displayProperties.icon,
-      typeDesc: definitionObjective.progressDescription,
-      typeName: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash)
+      type: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash)
         ? 'crucible'
         : 'vanguard'
     };
@@ -87,9 +87,8 @@ function buildForsakenMasterworkStats(item) {
   );
 
   const socket = item.sockets.sockets?.[index];
-  
-  if (socket?.plug?.definition?.investmentStats?.length) {
 
+  if (socket?.plug?.definition?.investmentStats?.length) {
     socket.isMasterwork = true;
 
     return {
@@ -102,9 +101,12 @@ function buildForsakenMasterworkStats(item) {
         })
       ),
       objective: {
-        typeName: 'vanguard',
-        typeIcon: socket.plug.definition.displayProperties.icon,
-        typeDesc: socket.plug.definition.displayProperties.description
+        type: 'vanguard',
+        ...socket.plug.definition.displayProperties
+      },
+      energy: {
+        usedValue: item.sockets.sockets.reduce((total, socket) => total + (socket.plug?.definition?.plug?.energyCost?.energyCost || 0), 0),
+        ...socket.plug.definition.plug.energyCapacity,
       }
     };
   }

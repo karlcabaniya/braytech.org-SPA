@@ -348,12 +348,16 @@
   gap: 20px;
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets {
+#inspect .sockets .module.category.perks .category-sockets {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Crect x='21.74707' y='19.5' width='8.25293' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='19.49414' y='21.74554' width='1.5' height='8.25446' style='fill: %23fff;opacity: 0.03'/%3E%3Cpolygon points='21.001 21 21.001 19.5 20.994 19.5 19.494 19.5 19.494 21 20.994 21 21.001 21' style='fill: %23fff;opacity: 0.15'/%3E%3Crect x='19.49414' width='1.5' height='3.75153' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='21.74707' y='4.4976' width='8.25293' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='19.49414' y='6.74414' width='1.5' height='12.01031' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='6.7478' y='4.5' width='12.00195' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='4.49414' width='1.5' height='3.75446' style='fill: %23fff;opacity: 0.03'/%3E%3Crect y='4.5' width='3.74854' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Cpolygon points='5.994 4.5 4.494 4.5 4.494 6 5.994 6 6.002 6 6.002 4.5 5.994 4.5' style='fill: %23fff;opacity: 0.15'/%3E%3Cpolygon points='20.99 4.5 19.49 4.5 19.49 6 20.99 6 20.998 6 20.998 4.5 20.99 4.5' style='fill: %23fff;opacity: 0.15'/%3E%3Crect x='6.73828' y='19.5' width='12.01025' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='4.49414' y='6.74554' width='1.5' height='12.00891' style='fill: %23fff;opacity: 0.03'/%3E%3Crect y='19.5' width='3.74854' height='1.5' style='fill: %23fff;opacity: 0.03'/%3E%3Crect x='4.49414' y='19.5' width='1.49866' height='1.5' style='fill: %23fff;opacity: 0.15'/%3E%3Crect x='4.49414' y='21.74554' width='1.5' height='8.25446' style='fill: %23fff;opacity: 0.03'/%3E%3C/svg%3E%0A");
 }
 
 #inspect .sockets .module.category.mods .category-sockets {
   gap: 10px;
+}
+
+#inspect .sockets .module.category.energy-meter .category-sockets {
+  grid-template-columns: 1fr;
 }
 
 #inspect .sockets .module.category .category-sockets .socket {
@@ -363,7 +367,7 @@
   gap: 10px;
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket::after {
+#inspect .sockets .module.category.perks .category-sockets .socket::after {
   content: ' ';
   position: absolute;
   top: 0;
@@ -405,6 +409,18 @@
 
 #inspect .sockets .module.category .category-sockets .socket .plug {
   position: relative;
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.solar .image {
+  background-color: var(--energy-solar);
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.arc .image {
+  background-color: var(--energy-arc);
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.void .image {
+  background-color: var(--energy-void);
 }
 
 #inspect .sockets .module.category .category-sockets .socket .plug .icon {
@@ -453,22 +469,22 @@
   pointer-events: none;
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket:not(.intrinsic) .plug.active {
+#inspect .sockets .module.category.perks .category-sockets .socket:not(.intrinsic) .plug.active {
   background-color: #5a94bd;
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket:not(.intrinsic) .plug::before {
+#inspect .sockets .module.category.perks .category-sockets .socket:not(.intrinsic) .plug::before {
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket .plug,
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket .plug a,
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket:not(.intrinsic) .plug::before,
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket:not(.intrinsic) .plug::after {
+#inspect .sockets .module.category.perks .category-sockets .socket .plug,
+#inspect .sockets .module.category.perks .category-sockets .socket .plug a,
+#inspect .sockets .module.category.perks .category-sockets .socket:not(.intrinsic) .plug::before,
+#inspect .sockets .module.category.perks .category-sockets .socket:not(.intrinsic) .plug::after {
   border-radius: 100%;
 }
 
-#inspect .sockets .module.category:not(.mods) .category-sockets .socket:not(.intrinsic) .plug .icon .image {
+#inspect .sockets .module.category.perks .category-sockets .socket:not(.intrinsic) .plug .icon .image {
   background-size: 78%;
 }
 
@@ -509,6 +525,130 @@
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description p {
   line-height: 1.4;
+}
+
+#inspect .sockets .module.category .energy-meter {
+  grid-column: -1/1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 64px auto;
+  gap: 10px;
+}
+
+#inspect .sockets .module.category .energy-meter .affinity {
+  width: 64px;
+  height: 64px;
+}
+
+#inspect .sockets .module.category .energy-meter .affinity .plug {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-size: 38px;
+  color: white;
+}
+
+#inspect .sockets .module.category .energy-meter .socket.affinity .plug::before {
+  box-shadow: inset 0 0 0 2px rgba(204, 204, 204, 0);
+}
+
+#inspect .sockets .module.category .energy-meter .socket.affinity .plug:hover::before {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+#inspect .sockets .module.category .energy-meter .masterwork {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+}
+
+#inspect .sockets .module.category .energy-meter .masterwork:not(.tiers) {
+  grid-template-rows: auto 18px;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade {
+  grid-column: 1/10;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-content: center;
+  padding: 2px 20px;
+  color: white;
+  font-size: 16px;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade > div {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  align-items: center;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade .value {
+  font-weight: 500;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade .capacity .text {
+  text-transform: uppercase;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade .capacity .value {
+  font-size: 32px;
+  line-height: 24px;
+}
+
+#inspect .sockets .module.category .energy-meter .upgrade .unused.debt {
+  color: #dc513b;
+}
+
+#inspect .sockets .module.category .energy-meter .tiers {
+  grid-column: -1/1;
+  align-items: center;
+}
+
+#inspect .sockets .module.category .energy-meter .tiers .tier {
+  height: 18px;
+}
+
+#inspect .sockets .module.category .energy-meter .tiers .tier.disabled {
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#inspect .sockets .module.category .energy-meter .tiers .tier.unused {
+  box-shadow: inset 0 0 0 3px white;
+}
+
+#inspect .sockets .module.category .energy-meter .tiers .tier.used {
+  background-color: rgb(255, 255, 255);
+}
+
+#inspect .sockets .module.category .energy-meter .tiers .tier.used.debt {
+  background-color: #dc513b;
+}
+
+#inspect .sockets .module.category .energy-meter .affinity,
+#inspect .sockets .module.category .energy-meter .upgrade,
+#inspect .sockets .module.category .energy-meter .upgrade-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#inspect .sockets .module.category .energy-meter.solar .affinity,
+#inspect .sockets .module.category .energy-meter.solar .upgrade,
+#inspect .sockets .module.category .energy-meter.solar .upgrade-icon {
+  background-color: rgba(241, 101, 25, 0.6);
+}
+
+#inspect .sockets .module.category .energy-meter.arc .affinity,
+#inspect .sockets .module.category .energy-meter.arc .upgrade,
+#inspect .sockets .module.category .energy-meter.arc .upgrade-icon {
+  background-color: rgba(121, 190, 232, 0.6);
+}
+
+#inspect .sockets .module.category .energy-meter.void .affinity,
+#inspect .sockets .module.category .energy-meter.void .upgrade,
+#inspect .sockets .module.category .energy-meter.void .upgrade-icon {
+  background-color: rgba(169, 120, 198, 0.6);
 }
 
 

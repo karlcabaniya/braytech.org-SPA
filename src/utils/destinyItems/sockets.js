@@ -32,6 +32,10 @@ export const defaultPlugs = [
   1390587439,
 ];
 
+const unknownFunction = [
+  2513659710, // found in armor 2.0 masterwork plugs
+];
+
 const DEFAULT_MASTERWORK_PLUG = 23239861010;
 
 // used in displaying the modded segments on item stats
@@ -184,7 +188,25 @@ function buildDefinedSocket(item, definitionSocket, index) {
         [
           // build the default plug
           buildPlug(definitionSocket, { plugItemHash: DEFAULT_MASTERWORK_PLUG }),
-          ...reusablePlugs.filter((reusablePlug) => definitionItem.itemType === enums.DestinyItemType.Weapon ? reusablePlug.definition.investmentStats?.[0]?.value === 10 : true),
+          ...reusablePlugs.filter((reusablePlug) =>
+            // is it a weapon
+            definitionItem.itemType === enums.DestinyItemType.Weapon
+              ? // okay just give me masterwork plugs with a stat value of 10
+                reusablePlug.definition.investmentStats?.[0]?.value === 10
+              : // is it armor
+              definitionItem.itemType === enums.DestinyItemType.Armor
+              ? // it's armor, but does it have a modern energy capacity
+                reusablePlug.definition.plug?.energyCapacity?.capacityValue
+                ? // okay just give me masterwork plugs with a stat value of 10
+                  reusablePlug.definition.plug.energyCapacity.capacityValue === 10 &&
+                  // and plugs with "AvailableIfSocketContainsMatchingPlugCategory" availability
+                  // not the ones used to change masterwork affinity
+                  reusablePlug.definition.plug.plugAvailability === 2
+                : // it's not modern armor
+                  true
+              : // it's not a weapon or armor
+                true
+          ),
         ]
       : // i was wrong, do nothing.
         reusablePlugs) ||
@@ -377,7 +399,12 @@ function buildPlug(definitionSocket, plug, plugObjectivesData) {
 function filterReusablePlug(reusablePlug) {
   // const itemCategoryHashes = reusablePlug.definition.itemCategoryHashes || [];
 
-  return reusablePlug.definition;
+  return (
+    // has a definition
+    reusablePlug.definition &&
+    // what the hell is it
+    !unknownFunction.includes(reusablePlug.definition.hash)
+  );
   //!itemCategoryHashes.includes(GHOST_MOD_CATEGORY)
   // !defaultPlugs.includes(reusablePlug.definition.hash) &&
   // !itemCategoryHashes.includes(MASTERWORK_MOD_CATEGORY) &&

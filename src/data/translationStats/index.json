@@ -1,86 +1,112 @@
 {
   "de": {
     "translated": 706,
-    "notTranslated": 27,
-    "added": [],
+    "notTranslated": 28,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 733,
+    "translated": 734,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "en": {
-    "translated": 733,
+    "translated": 734,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 733,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "es": {
     "translated": 733,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 110,
-    "added": [],
+    "notTranslated": 111,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "it": {
     "translated": 714,
-    "notTranslated": 19,
-    "added": [],
+    "notTranslated": 20,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 131,
-    "added": [],
+    "notTranslated": 132,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 219,
-    "added": [],
+    "notTranslated": 220,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 731,
-    "added": [],
+    "notTranslated": 732,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "pt-br": {
     "translated": 707,
-    "notTranslated": 26,
-    "added": [],
+    "notTranslated": 27,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "ru": {
-    "translated": 722,
-    "notTranslated": 11,
-    "added": [],
+    "translated": 733,
+    "notTranslated": 1,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 487,
-    "notTranslated": 246,
-    "added": [],
+    "notTranslated": 247,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 384,
-    "added": [],
+    "notTranslated": 385,
+    "added": [
+      "Unused"
+    ],
     "removed": []
   }
 }

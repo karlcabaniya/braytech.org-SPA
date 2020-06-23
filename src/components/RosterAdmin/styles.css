@@ -32,7 +32,7 @@
 }
 
 .list.roster.admin .row:not(.header) > ul .col.actions .button.primed {
-  background-color: rgb(220, 81, 59);
+  background-color: #dc513b;
 }
 
 @media screen and (max-width: 1359px) {
