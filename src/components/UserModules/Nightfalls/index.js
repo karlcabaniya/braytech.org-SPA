@@ -94,10 +94,10 @@ function Nightfalls(props) {
             </div>
           )}
           <h4>{t('Triumphs')}</h4>
-          {enums.nightfalls[definitionNightfall.hash]?.triumphs.length ? (
+          {enums.nightfalls[definitionNightfall.hash]?.records.length ? (
             <>
               <ul className='list record-items'>
-                <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[definitionNightfall.hash].triumphs} ordered showInvisible />
+                <Records selfLinkFrom='/this-week' hashes={enums.nightfalls[definitionNightfall.hash].records} ordered showInvisible />
               </ul>
             </>
           ) : (

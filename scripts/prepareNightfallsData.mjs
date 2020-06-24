@@ -10,7 +10,7 @@ async function run() {
       sort: 1,
       triumphs: [3340846443, 4267516859],
       items: [],
-      collectibles: [3036030066, 1463718189, 529107462, 529107460, 529107463],
+      collectibles: [3036030066, 1463718189, 529107462, 529107463, 529107460],
       ordealHashes: [1358381368, 1358381370, 1358381371, 1358381373],
       affectsSpeedEmblemObjective: true,
     },
@@ -91,7 +91,7 @@ async function run() {
       sort: 10,
       triumphs: [1329556468, 413743786],
       items: [],
-      collectibles: [1602518767, 3046699982],
+      collectibles: [1602518767, 3046699982, 324144031],
       ordealHashes: [],
       affectsSpeedEmblemObjective: true,
     },
@@ -212,13 +212,21 @@ ${_.orderBy(Object.keys(nightfalls), [(n) => manifest.DestinyActivityDefinition[
 
     return ` ${hash}: {     // ${manifest.DestinyActivityDefinition[n].displayProperties.name}
     sort: ${i + 1},
-    triumphs: [${nightfalls[n].triumphs.map((hash) => hash).join(', ')}],
-    items: [${nightfalls[n].items.map((hash) => hash).join(', ')}],
-    collectibles: [${nightfalls[n].collectibles.map((hash) => hash).join(', ')}],
-    ordealHashes: [${ordeals
+    records: [
+      ${nightfalls[n].triumphs.map((hash) => `${hash}, // ${manifest.DestinyRecordDefinition[hash].displayProperties.name}`).join('\n')}
+    ],
+    items: [
+      ${nightfalls[n].items.map((hash) => `${hash}, // ${manifest.DestinyInventoryItemDefinition[hash].displayProperties.name}`).join('\n')}
+    ],
+    collectibles: [
+      ${nightfalls[n].collectibles.map((hash) => `${hash}, // ${manifest.DestinyCollectibleDefinition[hash].displayProperties.name}`).join('\n')}
+    ],
+    ordealHashes: [
+      ${ordeals
       .filter((o) => o.displayProperties.description === manifest.DestinyActivityDefinition[hash].displayProperties.name.replace('Nightfall: ', ''))
-      .map((h) => h.hash)
-      .join(', ')}],
+      .map((h) => `${h.hash}, // ${manifest.DestinyActivityDefinition[h.hash].displayProperties.name}`)
+      .join('\n')}
+    ],
     grandmasterHash: ${grandmaster || false},
     affectsSpeedEmblemObjective: ${Boolean(nightfalls[n].affectsSpeedEmblemObjective)}
   }`;

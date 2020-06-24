@@ -586,69 +586,149 @@ export const nightfalls = {
   3145298904: {
     // Nightfall: The Arms Dealer
     sort: 1,
-    triumphs: [3340846443, 4267516859],
+    records: [
+      3340846443, // The Arms Dealer
+      4267516859, // Trash the Thresher
+    ],
     items: [],
-    collectibles: [3036030066, 1463718189, 529107462, 529107460, 529107463],
-    ordealHashes: [1358381368, 1358381370, 1358381371, 1358381372, 1358381373],
+    collectibles: [
+      3036030066, // Tilt Fuse
+      1463718189, // The Arms Dealer
+      529107462, // Outlawed and Unsanctioned
+      529107463, // No More Flame Turrets
+      529107460, // A Flare for the Dramatic
+    ],
+    ordealHashes: [
+      1358381368, // Nightfall: The Ordeal: Adept
+      1358381370, // Nightfall: The Ordeal: Legend
+      1358381371, // Nightfall: The Ordeal: Hero
+      1358381372, // Nightfall: The Ordeal: Grandmaster
+      1358381373, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 3726640183,
     affectsSpeedEmblemObjective: true,
   },
   1391780798: {
     // Nightfall: Broodhold
     sort: 2,
-    triumphs: [3042714868, 4156350130],
+    records: [
+      3042714868, // Broodhold
+      4156350130, // Broodhold
+    ],
     items: [],
     collectibles: [],
-    ordealHashes: [135872552, 135872553, 135872554, 135872558, 135872559],
+    ordealHashes: [
+      135872552, // Nightfall: The Ordeal: Legend
+      135872553, // Nightfall: The Ordeal: Hero
+      135872554, // Nightfall: The Ordeal: Adept
+      135872558, // Nightfall: The Ordeal: Grandmaster
+      135872559, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 3879949581,
     affectsSpeedEmblemObjective: false,
   },
   3034843176: {
     // Nightfall: The Corrupted
     sort: 3,
-    triumphs: [3951275509, 3641166665],
+    records: [
+      3951275509, // The Corrupted
+      3641166665, // Relic Rumble
+    ],
     items: [],
-    collectibles: [1099984904, 1194959231, 2471867868],
-    ordealHashes: [245243704, 245243705, 245243706, 245243710, 245243711],
+    collectibles: [
+      1099984904, // Horror's Least
+      1194959231, // The Corrupted
+      2471867868, // Sedia's Curse
+    ],
+    ordealHashes: [
+      245243704, // Nightfall: The Ordeal: Legend
+      245243705, // Nightfall: The Ordeal: Hero
+      245243706, // Nightfall: The Ordeal: Adept
+      245243710, // Nightfall: The Ordeal: Grandmaster
+      245243711, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 3354105309,
     affectsSpeedEmblemObjective: true,
   },
   1282886582: {
     // Nightfall: Exodus Crash
     sort: 4,
-    triumphs: [1526865549, 2140068897],
+    records: [
+      1526865549, // Exodus Crash
+      2140068897, // Faster than Lightning
+    ],
     items: [],
-    collectibles: [3036030067, 1463718187, 3800348612, 3800348613, 3800348614],
-    ordealHashes: [68611392, 68611393, 68611394, 68611398, 68611399],
+    collectibles: [
+      3036030067, // Impact Velocity
+      1463718187, // Exodus Crash
+      3800348612, // Operation Piccolo
+      3800348613, // Better Failsafe Than Sorry
+      3800348614, // Operation… Oboe?
+    ],
+    ordealHashes: [
+      68611392, // Nightfall: The Ordeal: Legend
+      68611393, // Nightfall: The Ordeal: Hero
+      68611394, // Nightfall: The Ordeal: Adept
+      68611398, // Nightfall: The Ordeal: Grandmaster
+      68611399, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 54961125,
     affectsSpeedEmblemObjective: true,
   },
   629542775: {
     // Nightfall: The Festering Core
     sort: 5,
-    triumphs: [],
+    records: [],
     items: [],
     collectibles: [],
-    ordealHashes: [766116576, 766116577, 766116580, 766116582, 766116583],
+    ordealHashes: [
+      766116576, // Nightfall: The Ordeal: Grandmaster766116577, // Nightfall: The Ordeal: Master
+      766116580, // Nightfall: The Ordeal: Adept
+      766116582, // Nightfall: The Ordeal: Legend
+      766116583, // Nightfall: The Ordeal: Hero
+    ],
     grandmasterHash: 3455414851,
     affectsSpeedEmblemObjective: false,
   },
   936308438: {
     // Nightfall: A Garden World
     sort: 6,
-    triumphs: [2692332187, 1398454187],
+    records: [
+      2692332187, // A Garden World
+      1398454187, // The Quickening
+    ],
     items: [],
-    collectibles: [2448009818, 2206107773, 2428465606, 2428465607, 2428465604],
-    ordealHashes: [1002842615, 2533203704, 2533203706, 2533203707, 2533203708, 2533203709],
+    collectibles: [
+      2448009818, // Universal Wavefunction
+      2206107773, // Master Gardener
+      2428465606, // Pulling Out the Roots
+      2428465607, // Blast from the Past
+      2428465604, // Odysseus's Offspring
+    ],
+    ordealHashes: [
+      1002842615, // Nightfall: The Ordeal: A Garden World
+      2533203704, // Nightfall: The Ordeal: Adept
+      2533203706, // Nightfall: The Ordeal: Legend
+      2533203707, // Nightfall: The Ordeal: Hero
+      2533203708, // Nightfall: The Ordeal: Grandmaster
+      2533203709, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 1002842615,
     affectsSpeedEmblemObjective: true,
   },
   3701132453: {
     // Nightfall: The Hollowed Lair
     sort: 7,
-    triumphs: [3450793480, 3847579126],
+    records: [
+      3450793480, // The Hollowed Lair
+      3847579126, // Arc Avoidance
+    ],
     items: [],
-    collectibles: [1074861258, 943388586, 2624212091],
+    collectibles: [
+      1074861258, // Mindbender's Ambition
+      943388586, // The Hollowed Lair
+      2624212091, // Another's Vengeance
+    ],
     ordealHashes: [],
     grandmasterHash: false,
     affectsSpeedEmblemObjective: true,
@@ -656,98 +736,225 @@ export const nightfalls = {
   1034003646: {
     // Nightfall: The Insight Terminus
     sort: 8,
-    triumphs: [599303591, 3399168111],
+    records: [
+      599303591, // Capture Completionist
+      3399168111, // The Insight Terminus
+    ],
     items: [],
-    collectibles: [1186314105, 2132755465, 2527097458],
-    ordealHashes: [3200108048, 3200108049, 3200108052, 3200108054, 3200108055],
+    collectibles: [
+      1186314105, // The Long Goodbye
+      2132755465, // Insight Terminus
+      2527097458, // Technocrat's Doom
+    ],
+    ordealHashes: [
+      3200108048, // Nightfall: The Ordeal: Grandmaster
+      3200108049, // Nightfall: The Ordeal: Master
+      3200108052, // Nightfall: The Ordeal: Adept
+      3200108054, // Nightfall: The Ordeal: Legend
+      3200108055, // Nightfall: The Ordeal: Hero
+    ],
     grandmasterHash: 2694576755,
     affectsSpeedEmblemObjective: true,
   },
   4259769141: {
     // Nightfall: The Inverted Spire
     sort: 9,
-    triumphs: [3973165904, 1498229894],
+    records: [
+      3973165904, // The Inverted Spire
+      1498229894, // The Floor Is Lava
+    ],
     items: [],
-    collectibles: [1718922261, 1463718185, 2089218579, 2089218578, 2089218577],
-    ordealHashes: [1801803624, 1801803625, 1801803627, 1801803630],
+    collectibles: [
+      1718922261, // Trichromatica
+      1463718185, // The Inverted Spire
+      2089218579, // Unconventional Research
+      2089218578, // A Mind Forever Changing
+      2089218577, // Operation Radiolarian Cascade
+    ],
+    ordealHashes: [
+      1801803624, // Nightfall: The Ordeal: Hero
+      1801803625, // Nightfall: The Ordeal: Legend
+      1801803627, // Nightfall: The Ordeal: Adept
+      1801803630, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: false,
     affectsSpeedEmblemObjective: true,
   },
   3372160277: {
     // Nightfall: Lake of Shadows
     sort: 10,
-    triumphs: [1329556468, 413743786],
+    records: [
+      1329556468, // Lake of Shadows
+      413743786, // Tether Time
+    ],
     items: [],
-    collectibles: [1602518767, 3046699982],
-    ordealHashes: [1302909042, 1302909043, 1302909044, 1302909045, 1302909047],
+    collectibles: [
+      1602518767, // The Militia's Birthright
+      3046699982, // Lake of Shadows
+      324144031, // Tainted Water
+    ],
+    ordealHashes: [
+      1302909042, // Nightfall: The Ordeal: Master
+      1302909043, // Nightfall: The Ordeal: Grandmaster
+      1302909044, // Nightfall: The Ordeal: Hero
+      1302909045, // Nightfall: The Ordeal: Legend
+      1302909047, // Nightfall: The Ordeal: Adept
+    ],
     grandmasterHash: 3919254032,
     affectsSpeedEmblemObjective: true,
   },
   3289589202: {
     // Nightfall: The Pyramidion
     sort: 11,
-    triumphs: [1060780635, 1142177491],
+    records: [
+      1060780635, // The Pyramidion
+      1142177491, // Siege Engine
+    ],
     items: [],
-    collectibles: [1152758802, 1463718182, 3333524758, 3333524759, 3333524756],
-    ordealHashes: [3265488360, 3265488362, 3265488363, 3265488365],
+    collectibles: [
+      1152758802, // Silicon Neuroma
+      1463718182, // The Pyramidion
+      3333524758, // Operation Intrepid
+      3333524759, // Spiraling into the Infinite
+      3333524756, // An Inscrutable Amygdaloid Eigenstate
+    ],
+    ordealHashes: [
+      3265488360, // Nightfall: The Ordeal: Adept
+      3265488362, // Nightfall: The Ordeal: Legend
+      3265488363, // Nightfall: The Ordeal: Hero
+      3265488365, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: false,
     affectsSpeedEmblemObjective: true,
   },
   3280234344: {
     // Nightfall: Savathûn's Song
     sort: 12,
-    triumphs: [2099501667, 1442950315],
+    records: [
+      2099501667, // Savathûn's Song
+      1442950315, // The Best Defense
+    ],
     items: [],
-    collectibles: [1333654061, 1463718186, 1083244622, 1083244623, 1083244620],
-    ordealHashes: [3849697856, 3849697858, 3849697859, 3849697860, 3849697861],
+    collectibles: [
+      1333654061, // Duty Bound
+      1463718186, // Savathûn's Song
+      1083244622, // Search and Rescue
+      1083244623, // Watcher from Beyond
+      1083244620, // Praxic Fire
+    ],
+    ordealHashes: [
+      3849697856, // Nightfall: The Ordeal: Adept
+      3849697858, // Nightfall: The Ordeal: Legend
+      3849697859, // Nightfall: The Ordeal: Hero
+      3849697860, // Nightfall: The Ordeal: Grandmaster
+      3849697861, // Nightfall: The Ordeal: Master
+    ],
     grandmasterHash: 2168858559,
     affectsSpeedEmblemObjective: true,
   },
   3856436847: {
     // Nightfall: The Scarlet Keep
     sort: 13,
-    triumphs: [],
+    records: [],
     items: [],
     collectibles: [],
-    ordealHashes: [887176537, 887176540, 887176542, 887176543],
+    ordealHashes: [
+      887176537, // Nightfall: The Ordeal: Master
+      887176540, // Nightfall: The Ordeal: Adept
+      887176542, // Nightfall: The Ordeal: Legend
+      887176543, // Nightfall: The Ordeal: Hero
+    ],
     grandmasterHash: false,
     affectsSpeedEmblemObjective: false,
   },
   522318687: {
     // Nightfall: Strange Terrain
     sort: 14,
-    triumphs: [165166474, 1871570556],
+    records: [
+      165166474, // Strange Terrain
+      1871570556, // Don't Take Five
+    ],
     items: [],
-    collectibles: [1534387877, 2256440525, 1165552016, 1165552017, 1165552018],
-    ordealHashes: [13813394, 3883876600, 3883876601, 3883876605, 3883876606, 3883876607],
+    collectibles: [
+      1534387877, // BrayTech Osprey
+      2256440525, // Strange Terrain
+      1165552016, // Maleficarum Interrupted
+      1165552017, // Purifying Light
+      1165552018, // Bane of Nokris
+    ],
+    ordealHashes: [
+      13813394, // Nightfall: The Ordeal: Strange Terrain
+      3883876600, // Nightfall: The Ordeal: Master
+      3883876601, // Nightfall: The Ordeal: Grandmaster
+      3883876605, // Nightfall: The Ordeal: Adept
+      3883876606, // Nightfall: The Ordeal: Hero
+      3883876607, // Nightfall: The Ordeal: Legend
+    ],
     grandmasterHash: 13813394,
     affectsSpeedEmblemObjective: true,
   },
   3718330161: {
     // Nightfall: Tree of Probabilities    sort: 15,
-    triumphs: [2282894388, 3636866482],
+    records: [
+      2282894388, // Tree of Probabilities
+      3636866482, // Laser Dodger
+    ],
     items: [],
-    collectibles: [1279318110, 1463718184, 3810498719, 3810498718, 3810498717],
-    ordealHashes: [2660931442, 2660931443, 2660931444, 2660931445, 2660931447],
+    collectibles: [
+      1279318110, // D.F.A.
+      1463718184, // Tree of Probabilities
+      3810498719, // Valus Intrigue
+      3810498718, // No More Lasers
+      3810498717, // A Forest of Red
+    ],
+    ordealHashes: [
+      2660931442, // Nightfall: The Ordeal: Master
+      2660931443, // Nightfall: The Ordeal: Grandmaster
+      2660931444, // Nightfall: The Ordeal: Hero
+      2660931445, // Nightfall: The Ordeal: Legend
+      2660931447, // Nightfall: The Ordeal: Adept
+    ],
     grandmasterHash: 2023667984,
     affectsSpeedEmblemObjective: true,
   },
   3108813009: {
     // Nightfall: Warden of Nothing
     sort: 16,
-    triumphs: [2836924866, 1469598452],
+    records: [
+      2836924866, // Warden of Nothing
+      1469598452, // Solar Dance
+    ],
     items: [],
-    collectibles: [1279318101, 3525223396, 2034160145],
-    ordealHashes: [380956400, 380956401, 380956405, 380956406, 380956407],
+    collectibles: [
+      1279318101, // Warden's Law
+      3525223396, // Warden of Nothing
+      2034160145, // Collapse of the Elders
+    ],
+    ordealHashes: [
+      380956400, // Nightfall: The Ordeal: Master
+      380956401, // Nightfall: The Ordeal: Grandmaster
+      380956405, // Nightfall: The Ordeal: Adept
+      380956406, // Nightfall: The Ordeal: Hero
+      380956407, // Nightfall: The Ordeal: Legend
+    ],
     grandmasterHash: 3597372938,
     affectsSpeedEmblemObjective: true,
   },
   272852450: {
     // Nightfall: Will of the Thousands
     sort: 17,
-    triumphs: [1039797865, 3013611925],
+    records: [
+      1039797865, // Will of the Thousands
+      3013611925, // Three and Out
+    ],
     items: [],
-    collectibles: [2466440635, 2256440524, 1489018579, 1489018578, 1489018577],
+    collectibles: [
+      2466440635, // Worm God Incarnation
+      2256440524, // Will of the Thousands
+      1489018579, // Giantfall
+      1489018578, // Feast of Worms
+      1489018577, // Death to the Deathless
+    ],
     ordealHashes: [],
     grandmasterHash: false,
     affectsSpeedEmblemObjective: true,
