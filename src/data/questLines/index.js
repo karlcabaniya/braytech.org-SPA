@@ -345,6 +345,26 @@ export const rewardsQuestLineOverridesShadowkeep = [
       },
     ],
   },
+  // A Good Match
+  {
+    itemHash: 3566017743,
+    rewards: [
+      {
+        itemHash: 4001063065, // Tommy's Matchbook Catalyst
+        quantity: 1,
+      },
+    ],
+  },
+  // The Bank Job
+  {
+    itemHash: 2300040094,
+    rewards: [
+      {
+        itemHash: 2888418988, // Witherhoard Catalyst
+        quantity: 1,
+      },
+    ],
+  },
 ];
 
 export const setDataQuestLineOverrides = {
