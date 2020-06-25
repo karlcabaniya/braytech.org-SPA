@@ -28,5 +28,15 @@
     "displayProperties": {
       "description": "Aumenta la experiencia de tu Guardián"
     }
+  },
+  "23239861010": {
+    "displayProperties": {
+      "description": "Ninguna obra maestra seleccionada",
+      "name": "Ranura de Obra Maestra vacía"
+    },
+    "itemTypeDisplayName": "Modificador de arma",
+    "inventory": {
+      "tierTypeName": "Común"
+    }
   }
 }
