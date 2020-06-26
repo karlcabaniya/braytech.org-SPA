@@ -71,7 +71,7 @@ async function run() {
     1034003646: {
       // Nightfall: The Insight Terminus
       sort: 8,
-      triumphs: [599303591, 3399168111],
+      triumphs: [3399168111, 599303591],
       items: [],
       collectibles: [1186314105, 2132755465, 2527097458],
       ordealHashes: [3200108049, 3200108052, 3200108054, 3200108055],

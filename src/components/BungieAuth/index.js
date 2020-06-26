@@ -246,7 +246,7 @@ class BungieAuth extends React.Component {
                 <div className='text'>
                   <div className='displayName'>{memberships.bungieNetUser.displayName}</div>
                   <div className='firstAccess'>
-                    <time datetime={memberships.bungieNetUser.firstAccess}>{formatTime(memberships.bungieNetUser.firstAccess, 'DD/MM/YYYY')}</time>
+                    <time title={memberships.bungieNetUser.firstAccess}>{formatTime(memberships.bungieNetUser.firstAccess, 'DD/MM/YYYY')}</time>
                   </div>
                 </div>
               </div>

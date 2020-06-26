@@ -737,8 +737,8 @@ export const nightfalls = {
     // Nightfall: The Insight Terminus
     sort: 8,
     records: [
-      599303591, // Capture Completionist
       3399168111, // The Insight Terminus
+      599303591, // Capture Completionist
     ],
     items: [],
     collectibles: [

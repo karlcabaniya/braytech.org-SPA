@@ -31,12 +31,12 @@
   },
   "23239861010": {
     "displayProperties": {
-      "description": "No masterwork currently selected.",
-      "name": "Empty Masterwork Socket"
+      "description": "Ninguna obra maestra seleccionada",
+      "name": "Ranura de Obra Maestra vacía"
     },
-    "itemTypeDisplayName": "Weapon Mod",
+    "itemTypeDisplayName": "Modificador de arma",
     "inventory": {
-      "tierTypeName": "Common"
+      "tierTypeName": "Común"
     }
   }
 }
