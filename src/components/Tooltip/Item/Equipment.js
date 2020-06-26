@@ -9,7 +9,7 @@ import { stringToIcons } from '../../../utils/destinyUtils';
 import { damageTypeToAsset, ammoTypeToAsset, breakerTypeToIcon, energyTypeToAsset, energyStatToType } from '../../../utils/destinyConverters';
 import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats } from '../../../utils/destinyItems/utils';
 import { statsMs } from '../../../utils/destinyItems/stats';
-import lightcapToSeason from  '../../../data/d2-additional-info/lightcap-to-season.json';
+import lightcapToSeason from '../../../data/d2-additional-info/lightcap-to-season.json';
 import ObservedImage from '../../ObservedImage';
 
 const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex }) => {
@@ -76,10 +76,12 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
             </div>
             {energy ? (
               <div className='big-value energy'>
-                <div className={cx('value', definitionEnergy.string)}>
-                  <div className='icon'>{definitionEnergy.icon}</div> {energy.energyCapacity}
+                <div className='stat'>
+                  <div className={cx('value', definitionEnergy.string)}>
+                    <div className='icon'>{definitionEnergy.icon}</div> {energy.energyCapacity}
+                  </div>
+                  <div className='text'>{i18n.t('Energy')}</div>
                 </div>
-                <div className='text'>{i18n.t('Energy')}</div>
               </div>
             ) : null}
           </div>

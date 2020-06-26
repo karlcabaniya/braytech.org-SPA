@@ -418,8 +418,6 @@
 
 #tooltip .frame.mod .big-value {
   padding-top: 14px;
-  display: grid;
-  gap: 6px;
 }
 
 #tooltip .big-value .stat {
