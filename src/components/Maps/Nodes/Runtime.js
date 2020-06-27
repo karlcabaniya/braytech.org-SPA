@@ -36,7 +36,7 @@ class Runtime extends React.Component {
   }
 
   render() {
-    const map = maps[this.props.id].map;
+    const map = maps[this.props.destinationId].map;
 
     const viewWidth = 1920;
     const viewHeight = 1080;
@@ -44,7 +44,7 @@ class Runtime extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
-    return this.state.nodes?.[this.props.id].map((node, i) => {
+    return this.state.nodes?.[this.props.destinationId].map((node, i) => {
       if (node.availability && node.availability.now !== undefined && !node.availability.now) return null;
 
       const selected = node.nodeHash && this.props.selected.nodeHash === node.nodeHash;
@@ -84,7 +84,7 @@ class Runtime extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
   };

@@ -19,7 +19,7 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
 
   const jsx = (
     <div className='wrapper'>
-      <div className={cx({ tooltip: tooltip.hash })} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
+      <div data-tooltip={tooltip.hash && true} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
         <div className='icon'>{icon}</div>
       </div>
       {marker.selected ? (
@@ -52,7 +52,7 @@ export const text = (classNames = [], name) =>
 export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
   const jsx = (
     <div className='wrapper'>
-      <div className='icon tooltip' data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
+      <div className='icon' data-tooltip data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
         <div className='patrol-boss'>
           <span className='destiny-raid' />
         </div>
@@ -82,7 +82,7 @@ export const iconPortal = {
     className: 'icon-marker native portal',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-type='maps' data-hash='1'>
+        <div className='icon' data-tooltip data-type='maps' data-hash='1'>
           <Maps.Portal />
         </div>
       </div>
@@ -92,7 +92,7 @@ export const iconPortal = {
     className: 'icon-marker native portal',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-type='maps' data-hash='2'>
+        <div className='icon' data-tooltip data-type='maps' data-hash='2'>
           <Maps.Portal />
         </div>
       </div>
@@ -102,7 +102,7 @@ export const iconPortal = {
     className: 'icon-marker native portal',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-type='maps' data-hash='3'>
+        <div className='icon' data-tooltip data-type='maps' data-hash='3'>
           <Maps.Portal />
         </div>
       </div>
@@ -112,7 +112,7 @@ export const iconPortal = {
     className: 'icon-marker native portal',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-type='maps' data-hash='15'>
+        <div className='icon' data-tooltip data-type='maps' data-hash='15'>
           <Maps.Portal />
         </div>
       </div>
@@ -125,7 +125,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='1019949956' data-playlist='1506080581' data-type='activity'>
           <Maps.ForgeIgnition />
         </div>
       </div>
@@ -135,7 +135,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='1483179969' data-playlist='957727787' data-type='activity'>
           <Maps.ForgeIgnition />
         </div>
       </div>
@@ -145,7 +145,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='1878615566' data-playlist='2656947700' data-type='activity'>
           <Maps.ForgeIgnition />
         </div>
       </div>
@@ -155,7 +155,7 @@ export const iconForgeIgnition = {
     className: 'icon-marker native forge',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='10898844' data-playlist='1434072700' data-type='activity'>
           <Maps.ForgeIgnition />
         </div>
       </div>
@@ -168,7 +168,7 @@ export const iconDungeon = {
     className: 'icon-marker native dungeon',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='2032534090' data-mode='608898761' data-playlist='2032534090' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='2032534090' data-mode='608898761' data-playlist='2032534090' data-type='activity'>
           <Maps.Dungeon />
         </div>
       </div>
@@ -178,7 +178,7 @@ export const iconDungeon = {
     className: 'icon-marker native dungeon',
     html: ReactDOMServer.renderToString(
       <div className='wrapper'>
-        <div className='icon tooltip' data-context='maps' data-hash='1375089621' data-mode='608898761' data-playlist='1375089621' data-type='activity'>
+        <div className='icon' data-tooltip data-context='maps' data-hash='1375089621' data-mode='608898761' data-playlist='1375089621' data-type='activity'>
           <Maps.Dungeon />
         </div>
       </div>

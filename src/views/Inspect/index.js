@@ -119,8 +119,10 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
             return (
               <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
                 {socket.plugOptions.map((plug, p) => {
+                  const active = plug.definition.hash === socket.plug.definition?.hash;
+                
                   return (
-                    <div key={p} className={cx('plug', 'tooltip', { active: plug.definition.hash === socket.plug.definition?.hash })} data-hash={plug.definition.hash} data-style='ui'>
+                    <div key={p} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-style='ui'>
                       <div className='icon'>
                         <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                       </div>
@@ -136,7 +138,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
 
             return (
               <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
-                <div className={cx('plug', 'tooltip', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
                   <div className='icon'>
                     <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
                     {socket.plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{socket.plug.definition.plug.energyCost.energyCost}</div> : null}
@@ -152,7 +154,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
               const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
 
               return (
-                <div key={p} className={cx('plug', 'tooltip', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-hash={plug.definition.hash}>
+                <div key={p} className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-tooltip='mouse' data-hash={plug.definition.hash}>
                   <div className='icon'>
                     <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                     {plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{plug.definition.plug.energyCost.energyCost}</div> : null}
@@ -304,7 +306,7 @@ class Inspect extends React.Component {
       <>
         <div className='view' id='inspect'>
           <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
-          <div className={cx('wrap', { uniform: !(displayTaxonomy || displayCommonality) })}>
+          <div className='wrap'>
             <div className='module header'>
               <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
               <div className='text'>
@@ -370,7 +372,7 @@ class Inspect extends React.Component {
               </div>
             ) : null}
             {displayStatsOrIntrinsic ? (
-              <div className='module'>
+              <div className={cx('module')}>
                 {displayStats ? (
                   <div className='module stats'>
                     <div className='module-name'>{definitionItem.itemType === enums.DestinyItemType.Armor ? t('Armor stats') : t('Weapon stats')}</div>
@@ -436,7 +438,7 @@ class Inspect extends React.Component {
               </div>
             ) : null}
             {displaySockets ? (
-              <div className='module sockets perks'>
+              <div className={cx('module', 'sockets', 'perks', { double: !(displayTaxonomy || displayCommonality) })}>
                 {preparedSockets
                   .filter((socketCategory) => socketCategory.category.categoryStyle !== enums.DestinySocketCategoryStyle.LargePerk)
                   .map((socketCategory, c) => (

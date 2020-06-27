@@ -164,8 +164,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS', });
     },
   };
 }

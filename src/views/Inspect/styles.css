@@ -8,6 +8,7 @@
   row-gap: 3rem;
   align-content: start;
   --rarity-height: 100px;
+  --plug-size: 64px;
 }
 
 #inspect .foundry {
@@ -95,6 +96,11 @@
   row-gap: 2rem;
   column-gap: 3rem;
   align-content: start;
+}
+
+
+#inspect .module.double {
+  grid-column: span 2;
 }
 
 #inspect .module-name {
@@ -344,7 +350,7 @@
 
 #inspect .sockets .module.category .category-sockets {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 64px);
+  grid-template-columns: repeat(auto-fill, var(--plug-size));
   gap: 20px;
 }
 
@@ -363,7 +369,7 @@
 #inspect .sockets .module.category .category-sockets .socket {
   position: relative;
   display: grid;
-  grid-template-rows: repeat(auto-fill, 64px);
+  grid-template-rows: repeat(auto-fill, var(--plug-size));
   gap: 10px;
 }
 
@@ -386,7 +392,7 @@
   position: absolute;
   left: 0px;
   bottom: -10px;
-  width: 64px;
+  width: var(--plug-size);
   height: 4px;
   background-color: rgb(255 255 255 / 0.3);
   pointer-events: none;
@@ -396,13 +402,13 @@
   margin: 10px 0 0;
   grid-column: 1/-1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 64px);
+  grid-template-columns: repeat(auto-fill, var(--plug-size));
   gap: 10px;
 }
 
 #inspect .sockets .module.category .category-sockets .socket.columned {
   --socket-columns: 2;
-  grid-template-columns: repeat(var(--socket-columns), 64px);
+  grid-template-columns: repeat(var(--socket-columns), var(--plug-size));
   grid-column: span var(--socket-columns);
   justify-content: space-between;
 }
@@ -425,7 +431,7 @@
 
 #inspect .sockets .module.category .category-sockets .socket .plug .icon {
   position: relative;
-  height: 64px;
+  height: var(--plug-size);
 }
 
 #inspect .sockets .module.category .category-sockets .socket .plug .icon .energy-cost {
@@ -509,12 +515,13 @@
 
 #inspect .sockets .module.category.intrinsic .category-sockets,
 #inspect .sockets .module.category.intrinsic .category-sockets .socket {
+  display: block;
   grid-template-columns: unset;
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug {
   display: grid;
-  grid-template-columns: 64px 1fr;
+  grid-template-columns: var(--plug-size) 1fr;
   column-gap: 16px;
 }
 
@@ -540,13 +547,13 @@
   grid-column: -1/1;
   width: 100%;
   display: grid;
-  grid-template-columns: 64px auto;
+  grid-template-columns: var(--plug-size) auto;
   gap: 10px;
 }
 
 #inspect .sockets .module.category .energy-meter .affinity {
-  width: 64px;
-  height: 64px;
+  width: var(--plug-size);
+  height: var(--plug-size);
 }
 
 #inspect .sockets .module.category .energy-meter .affinity .plug {
@@ -686,10 +693,6 @@
   gap: 1rem;
 }
 
-#inspect .module.screenshot.double {
-  grid-column: span 2;
-}
-
 #inspect .module.screenshot .frame {
   position: relative;
   padding-bottom: 56.25%;
@@ -732,6 +735,7 @@
 
   #inspect {
     row-gap: 2rem;
+    --plug-size: 48px;
   }
 
   #inspect .wrap,
@@ -765,8 +769,9 @@
   }
   
   #inspect .module.header .text .name {
-    font-size: 30px;
-    margin: -3px 0 7px -2px;
+    font-size: 28px;
+    line-height: 30px;
+    margin: -4px 0 7px -2px;
   }
   
   #inspect .module.header .text .type {
@@ -774,9 +779,8 @@
     line-height: 1;
   }
   
-  #inspect .module.header .text .description {
-    font-size: 14px;
-    letter-spacing: 0.5px;
+  #inspect .module.header .flair {
+    font-size: 16px;
   }
 
   #inspect .module.stats .stat {
@@ -785,11 +789,13 @@
   
   #inspect .module.lore,
   #inspect .module.screenshot,
-  #inspect .module.screenshot.double {
+  #inspect .module.double {
     grid-column: unset;
   }
 
-
+  #inspect .module.lore .text {
+    font-size: 14px;
+  }
 
 
 }

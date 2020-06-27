@@ -14,7 +14,6 @@ import UI from './UI';
 class Tooltip extends React.Component {
   state = {
     hash: false,
-    table: undefined,
     type: undefined,
     data: {},
   };
@@ -36,10 +35,9 @@ class Tooltip extends React.Component {
 
   doSetState = (e) => {
     this.currentTarget = e.currentTarget;
-
+console.log('hello')
     this.setState({
       hash: e.currentTarget.dataset.hash,
-      table: e.currentTarget.dataset.table,
       type: e.currentTarget.dataset.type,
       data: {
         ...e.currentTarget.dataset,
@@ -50,7 +48,6 @@ class Tooltip extends React.Component {
   resetState = () => {
     this.setState({
       hash: false,
-      table: undefined,
       type: undefined,
       data: {},
     });
@@ -85,7 +82,7 @@ class Tooltip extends React.Component {
   };
 
   helper_windowMouseMove = (e) => {
-    if (!this.helper_checkIfTargetExists()) {
+    if (this.currentTarget?.dataset.tooltip === 'mouse' && !this.helper_checkIfTargetExists()) {
       this.resetState();
     }
 
@@ -179,16 +176,41 @@ class Tooltip extends React.Component {
     this.resetState();
   };
 
-  bind_Tooltip = () => {
-    this.ref_tooltip.current.addEventListener('pointerup', this.helper_tooltipPointerUp);
+  helper_tooltipTouchStart = (e) => {
+    this.touchPosition = {
+      x: e.changedTouches[0].clientX,
+      y: e.changedTouches[0].clientY,
+    };
   };
 
-  componentDidUpdate(p) {
+  helper_tooltipTouchEnd = (e) => {
+    e.preventDefault();
+
+    const drag = e?.changedTouches?.length
+      ? // there are changed touches so we'll do some math and check if there's movement
+        !(e.changedTouches[0].clientX - this.touchPosition.x === 0 && e.changedTouches[0].clientY - this.touchPosition.y === 0)
+      : // no changed touches -> proceed
+        false;
+
+    if (!drag) {
+      this.resetState();
+    }
+  };
+
+  bind_Tooltip = () => {
+    // this.ref_tooltip.current.addEventListener('pointerup', this.helper_tooltipPointerUp);
+    this.ref_tooltip.current.addEventListener('touchstart', this.helper_tooltipTouchStart);
+    this.ref_tooltip.current.addEventListener('touchend', this.helper_tooltipTouchEnd);
+  };
+
+  componentDidUpdate(p, s) {
     if (this.props.tooltips.bindTime !== p.tooltips.bindTime) {
+      console.log('bind time change');
       this.bind_TooltipItem();
     }
 
     if (this.props.location && p.location.pathname !== this.props.location.pathname) {
+      console.log('pathname change');
       this.bind_TooltipItem(true);
     }
 
@@ -199,6 +221,8 @@ class Tooltip extends React.Component {
     if (this.state.hash) {
       this.bind_Tooltip();
     }
+
+    console.log(s, this.state)
   }
 
   componentDidMount() {
@@ -225,7 +249,7 @@ class Tooltip extends React.Component {
     }
 
     return (
-      <div ref={this.ref_tooltip} id='tooltip' className={cx({ visible: this.state.hash, toggle: this.state.data.toggle })}>
+      <div ref={this.ref_tooltip} id='tooltip' className={cx({ visible: this.state.hash })}>
         {this.state.hash ? (
           <TooltipErrorBoundary>
             <Tooltip {...this.state.data} />

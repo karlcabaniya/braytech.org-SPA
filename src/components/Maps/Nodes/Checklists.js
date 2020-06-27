@@ -36,10 +36,22 @@ class Checklists extends React.Component {
       this.generateChecklists();
     }
 
-    if (this.mounted && s.lists !== this.state.lists) {
+    if (this.mounted && (p !== this.props || s.lists !== this.state.lists || p.lists !== this.props.lists || p.selected !== this.props.selected || p.highlight !== this.props.highlight)) {
       this.props.rebindTooltips();
     }
   }
+
+  // shouldComponentUpdate(p, s) {
+  //   if (p.member.updated !== this.props.member.updated) {
+  //     return true;
+  //   }
+
+  //   if (p.member.characterId !== this.props.member.characterId) {
+  //     return true;
+  //   }
+
+  //   return false;
+  // }
 
   generateChecklists = () => {
     const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
@@ -84,8 +96,10 @@ class Checklists extends React.Component {
   };
 
   render() {
-    const map = maps[this.props.id].map;
+    const map = maps[this.props.destinationId].map;
 
+    console.log('checklists render')
+    
     const viewWidth = 1920;
     const viewHeight = 1080;
 
@@ -98,7 +112,7 @@ class Checklists extends React.Component {
       if (!visible || !list.items) return null;
 
       return list.items
-        .filter((node) => node.destinationHash === maps[this.props.id].destination.hash)
+        .filter((node) => node.destinationHash === maps[this.props.destinationId].destination.hash)
         .filter((node) => (node.invisible && !this.props.settings.maps.debug ? false : true))
         .map((node, i) => {
           const highlight = this.props.highlight && +this.props.highlight === (node.checklistHash || node.recordHash);
@@ -164,8 +178,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS', });
     },
   };
 }

@@ -18,17 +18,13 @@ class Destinations extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(p, s) {}
-
   render() {
-    const { id, visible } = this.props;
-
     return (
-      <div className={cx('control', 'destinations', { visible })}>
+      <div className={cx('control', 'destinations', { visible: this.props.visible })}>
         <ul className='list'>
           {destinations.map(d => {
-            const definitionActivity = manifest.DestinyActivityDefinition[maps[d.id].destination.activityHash];
-            const definitionDestintion = manifest.DestinyDestinationDefinition[maps[d.id].destination.hash];
+            const definitionActivity = manifest.DestinyActivityDefinition[maps[d.destinationId].destination.activityHash];
+            const definitionDestintion = manifest.DestinyDestinationDefinition[maps[d.destinationId].destination.hash];
 
             const placeHash = definitionActivity?.placeHash || definitionDestintion?.placeHash;
             const definitionPlace = placeHash && manifest.DestinyPlaceDefinition[placeHash];
@@ -49,11 +45,11 @@ class Destinations extends React.Component {
             }, []).join(', ')
 
             return (
-              <li key={maps[d.id].destination.id} className={cx('linked', { active: maps[d.id].destination.id === id })}>
+              <li key={maps[d.destinationId].destination.id} className={cx('linked', { active: maps[d.destinationId].destination.id === this.props.destinationId })}>
                 <div className='text'>
                   <div className='name'>{string}</div>
                 </div>
-                <Link to={`/maps/${maps[d.id].destination.id}`} onClick={this.props.handler}></Link>
+                <Link to={`/maps/${maps[d.destinationId].destination.id}`} onClick={this.props.handler}></Link>
               </li>
             );
             

@@ -114,7 +114,7 @@ class Maps extends React.Component {
     }
 
     // Prepare to define viewport based on props i.e. route params
-    const resolved = resolveDestination(p.params.map).id;
+    const resolved = resolveDestination(p.params.map).destinationId;
 
     let center = getMapCenter(resolved);
     let zoom = 0;
@@ -170,7 +170,9 @@ class Maps extends React.Component {
       this.setDestination(this.props.params.map);
     }
 
-    if (s.ui.inspect !== this.state.ui.inspect) {
+    console.log(s.ui.inspect.destinations !== this.state.ui.inspect.destinations, s.ui.inspect.characters !== this.state.ui.inspect.characters, s.ui.inspect.inspect !== this.state.ui.inspect.inspect)
+
+    if (s.ui.inspect.destinations !== this.state.ui.inspect.destinations || s.ui.inspect.characters !== this.state.ui.inspect.characters || s.ui.inspect.inspect !== this.state.ui.inspect.inspect) {
       this.props.rebindTooltips();
     }
   }
@@ -182,7 +184,7 @@ class Maps extends React.Component {
       this.setState((p) => ({
         viewport: {
           ...p.viewport,
-          center: getMapCenter(resolved.id),
+          center: getMapCenter(resolved.destinationId),
         },
       }));
     }
@@ -198,14 +200,16 @@ class Maps extends React.Component {
   };
 
   handler_showInspect = (props) => (e) => {
-    this.setState((p) => ({
-      ui: {
-        ...p.ui,
-        inspect: {
-          ...props,
+    if (this.props.viewport.width > 600) {
+      this.setState((p) => ({
+        ui: {
+          ...p.ui,
+          inspect: {
+            ...props,
+          },
         },
-      },
-    }));
+      }));
+    }
   };
 
   handler_zoomIncrease = (e) => {
@@ -228,9 +232,9 @@ class Maps extends React.Component {
 
   handler_toggleDestinationsList = (e) => {
     const href = e.target.href;
-    const id = resolveDestination(this.props.params.map).id;
+    const destinationId = resolveDestination(this.props.params.map).destinationId;
 
-    if (href.includes(id)) {
+    if (href.includes(destinationId)) {
       this.setState((p) => {
         if (p.ui.destinations) {
           return {
@@ -310,7 +314,9 @@ class Maps extends React.Component {
           },
         };
       });
+
       this.props.changeCharacterId({ membershipType: member.membershipType, membershipId: member.membershipId, characterId });
+
       ls.set('setting.profile', { membershipType: member.membershipType, membershipId: member.membershipId, characterId });
     }
   };
@@ -338,7 +344,7 @@ class Maps extends React.Component {
   handler_map_mouseDown = (e) => {
     if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
-    const destination = resolveDestination(this.props.params.map).id;
+    const destination = resolveDestination(this.props.params.map).destinationId;
 
     const map = maps[destination].map;
 
@@ -368,7 +374,7 @@ class Maps extends React.Component {
 
   handler_map_viewportChanged = (viewport) => {
     // if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
-    if (typeof viewport.zoom === 'number') this.setState(p => ({ viewport: { ...p.viewport, zoom: viewport.zoom } }));
+    if (typeof viewport.zoom === 'number') this.setState((p) => ({ viewport: { ...p.viewport, zoom: viewport.zoom } }));
   };
 
   handler_map_viewportChange = (e) => {
@@ -381,7 +387,7 @@ class Maps extends React.Component {
     const { member, viewport, settings, params } = this.props;
 
     const destination = resolveDestination(params.map);
-    const map = maps[destination.id].map;
+    const map = maps[destination.destinationId].map;
     const bounds = [
       [0, 0],
       [map.height, map.width],
@@ -439,7 +445,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
     changeCharacterId: (payload) => {
       dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload });

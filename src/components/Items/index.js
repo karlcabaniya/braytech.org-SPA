@@ -82,7 +82,6 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
           key={i}
           className={cx(
             {
-              tooltip: !disableTooltip,
               linked: true,
               masterworked,
               tracked,
@@ -92,6 +91,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
             },
             `item-type-${definitionItem.itemType || 0}`
           )}
+          data-tooltip={!disableTooltip}
           data-hash={item.itemHash}
           data-instanceid={item.itemInstanceId}
           data-state={item.state}

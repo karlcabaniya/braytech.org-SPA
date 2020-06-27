@@ -10,7 +10,7 @@ import { checklists, checkup } from './checklists';
 import { Maps } from '../svg';
 
 export function resolveDestination(value) {
-  const destinationById = value && destinations.find((d) => d.id === value);
+  const destinationById = value && destinations.find((d) => d.destinationId === value);
   const destinationByHash = value && destinations.find((d) => d.destinationHash === +value);
 
   if (destinationById) {
@@ -118,10 +118,10 @@ export function cartographer(search) {
   return aggregate;
 }
 
-export function getMapCenter(id) {
-  if (!director[id]) return [0, 0];
+export function getMapCenter(destinationId) {
+  if (!director[destinationId]) return [0, 0];
 
-  const map = director[id].map;
+  const map = director[destinationId].map;
 
   const centerYOffset = -(map.center && map.center.y) || 0;
   const centerXOffset = (map.center && map.center.x) || 0;
@@ -133,48 +133,48 @@ export function getMapCenter(id) {
 
 export const destinations = [
   {
-    id: 'fields-of-glass',
+    destinationId: 'fields-of-glass',
     destinationHash: 1993421442,
   },
   {
-    id: 'edz',
+    destinationId: 'edz',
     destinationHash: 1199524104,
     default: true,
   },
   {
-    id: 'tower',
+    destinationId: 'tower',
     destinationHash: 333456177,
   },
   {
-    id: 'the-farm',
+    destinationId: 'the-farm',
     destinationHash: 4188263703,
   },
   {
-    id: 'the-moon',
+    destinationId: 'the-moon',
     destinationHash: 290444260,
   },
   {
-    id: 'hellas-basin',
+    destinationId: 'hellas-basin',
     destinationHash: 308080871,
   },
   {
-    id: 'echo-mesa',
+    destinationId: 'echo-mesa',
     destinationHash: 2218917881,
   },
   {
-    id: 'new-pacific-arcology',
+    destinationId: 'new-pacific-arcology',
     destinationHash: 2388758973,
   },
   {
-    id: 'arcadian-valley',
+    destinationId: 'arcadian-valley',
     destinationHash: 126924919,
   },
   {
-    id: 'tangled-shore',
+    destinationId: 'tangled-shore',
     destinationHash: 359854275,
   },
   {
-    id: 'dreaming-city',
+    destinationId: 'dreaming-city',
     destinationHash: 2779202173,
   },
 ];

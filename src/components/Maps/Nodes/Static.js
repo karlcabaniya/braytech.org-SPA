@@ -19,7 +19,7 @@ class Static extends React.Component {
   }
 
   shouldComponentUpdate(p, s) {
-    if (p.id !== this.props.id) {
+    if (p.destinationId !== this.props.destinationId) {
       return true;
     }
 
@@ -31,8 +31,8 @@ class Static extends React.Component {
   }
 
   render() {
-    const map = maps[this.props.id].map;
-    const destination = maps[this.props.id].destination;
+    const map = maps[this.props.destinationId].map;
+    const destination = maps[this.props.destinationId].destination;
 
     const viewWidth = 1920;
     const viewHeight = 1080;
@@ -40,7 +40,7 @@ class Static extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
-    return maps[this.props.id].map.bubbles.map((bubble, b) =>
+    return maps[this.props.destinationId].map.bubbles.map((bubble, b) =>
       bubble.nodes.map((node, n) => {
         const markerOffsetX = mapXOffset + viewWidth / 2;
         const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
@@ -61,7 +61,7 @@ class Static extends React.Component {
 
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'title') {
-          const definitionDestination = maps[this.props.id].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.id].destination.hash];
+          const definitionDestination = maps[this.props.destinationId].destination.hash && manifest.DestinyDestinationDefinition[maps[this.props.destinationId].destination.hash];
           const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find((b) => b.hash === bubble.hash);
           const definitionName = definitionBubble && definitionBubble.displayProperties?.name !== '' && definitionBubble.displayProperties.name;
 

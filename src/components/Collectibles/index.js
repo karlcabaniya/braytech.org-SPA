@@ -131,9 +131,10 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={definitionCollectible.hash}
-                    className={cx('redacted', 'tooltip', {
+                    className={cx('redacted', {
                       highlight: highlight === definitionCollectible.hash,
                     })}
+                    data-tooltip
                     data-hash='343'
                   >
                     <div className='icon'>
@@ -241,7 +242,7 @@ class Collectibles extends React.Component {
                   className={cx('redacted', {
                     highlight: highlight === definitionCollectible.hash,
                   })}
-                  data-tooltip={mouseTooltips ? 'mouse' : true}
+                  data-tooltip
                   data-hash='343'
                 >
                   <div className='icon'>

@@ -152,7 +152,7 @@ function PresentationNode({ settings, member, ...props }) {
       </div>
       <div className='collectibles'>
         <ul className={cx('list', 'tertiary', 'collection-items', { sets: primaryHash === '1605042242' })}>
-          <Collectibles node={definitionTertiary.hash} highlight={quaternaryHash} inspect selfLinkFrom={props.location.pathname} />
+          <Collectibles node={definitionTertiary.hash} highlight={quaternaryHash} inspect selfLinkFrom={props.location.pathname} mouseTooltips />
         </ul>
       </div>
     </div>

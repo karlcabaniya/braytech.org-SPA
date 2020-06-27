@@ -21,7 +21,7 @@ class Layers extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    this.prepareLayers(this.props.id);
+    this.prepareLayers(this.props.destinationId);
   }
 
   componentWillUnmount() {
@@ -41,7 +41,7 @@ class Layers extends React.Component {
   loadLayers = async (target) => {
     try {
       const layers = await Promise.all(
-        maps[target.id].map.layers
+        maps[target.destinationId].map.layers
           .filter((layer) => layer.type !== 'background')
           .map(async (layer) => {
             if (layer.nodes) {
@@ -121,7 +121,7 @@ class Layers extends React.Component {
 
   prepareLayers = async (destination) => {
     try {
-      // await this.loadLayers(this.props.id);
+      // await this.loadLayers(this.props.destinationId);
 
       // if (this.mounted) {
       //   this.setState({ loading: false });
@@ -153,7 +153,7 @@ class Layers extends React.Component {
     if (this.state.loading || this.state.error) {
       return null;
     } else {
-      const map = maps[this.props.id].map;
+      const map = maps[this.props.destinationId].map;
 
       const viewWidth = 1920;
       const viewHeight = 1080;
@@ -239,8 +239,8 @@ class BackgroundLayer extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(pP, pS) {
-    if (pP.id !== this.props.id) {
+  componentDidUpdate(p) {
+    if (p.destinationId !== this.props.destinationId) {
       this.init();
     }
   }
@@ -318,7 +318,7 @@ class BackgroundLayer extends React.Component {
 
       const layers = this.state.layers.map((layer) => ({
         ...layer,
-        ...maps[this.props.id].map.layers.find((l) => l.id === layer.id),
+        ...maps[this.props.destinationId].map.layers.find((l) => l.id === layer.id),
       }));
 
       const blobs = (layers.filter((l) => l.blob).length < 2 && (await this.load(layers))) || layers;
@@ -342,13 +342,13 @@ class BackgroundLayer extends React.Component {
   };
 
   render() {
-    const map = maps[this.props.id].map;
+    const map = maps[this.props.destinationId].map;
 
     if (this.state.loading || this.state.error) {
       return map.layers
         .filter((layer) => layer.type === 'background')
         .map((l) => {
-          return <img key={`${this.props.id}_${l.id}`} alt={l.id} className={cx('layer-background', `layer-${l.id}`, { 'interaction-none': true })} />;
+          return <img key={`${this.props.destinationId}_${l.id}`} alt={l.id} className={cx('layer-background', `layer-${l.id}`, { 'interaction-none': true })} />;
         });
     } else {
       return map.layers
@@ -356,7 +356,7 @@ class BackgroundLayer extends React.Component {
         .map((l) => {
           const layer = this.state.layers.find((layer) => layer.id === l.id);
 
-          return <img key={`${this.props.id}_${l.id}`} alt={l.id} src={layer.tinted} className={cx('layer-background', `layer-${l.id}`, 'dl', { 'interaction-none': true })} />;
+          return <img key={`${this.props.destinationId}_${l.id}`} alt={l.id} src={layer.tinted} className={cx('layer-background', `layer-${l.id}`, 'dl', { 'interaction-none': true })} />;
         });
     }
   }

@@ -50,7 +50,7 @@ class Speciality extends React.Component {
   }
 
   render() {
-    const map = maps[this.props.id].map;
+    const map = maps[this.props.destinationId].map;
 
     const viewWidth = 1920;
     const viewHeight = 1080;
