@@ -147,6 +147,7 @@
 
 #inspect .module.header .text .name {
   margin: 0 0 14px -2px;
+  word-break: break-all;
   font-family: var(--font-text);
   font-size: 48px;
   font-weight: 500;
@@ -538,7 +539,7 @@
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description p {
@@ -788,6 +789,14 @@
   #inspect .module.stats .stat {
     grid-template-columns: minmax(100px, 140px) auto;
   }
+
+  #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .name {
+    font-size: 16px;
+  }
+  
+  #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description {
+    font-size: 14px;
+  }
   
   #inspect .module.lore,
   #inspect .module.screenshot,
@@ -799,5 +808,14 @@
     font-size: 14px;
   }
 
+}
+
+@media (orientation: portrait) {
+
+  #inspect .sockets .module.category .category-sockets .socket.columned {
+    --socket-columns: 1 !important;
+    grid-template-columns: inherit;
+    justify-content: unset;
+  }
 
 }
