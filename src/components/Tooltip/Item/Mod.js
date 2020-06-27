@@ -101,7 +101,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
             <div className={cx('value', { negative: stat.value < 0 })}>{stat.value > 0 && '+'}{stat.value}</div>
           </div>
         ))}
-        <div className='info'>{t('Investmesnt stats are interpolated when applied to items, and as such, these values are a guide.')}</div>
+        <div className='info'>{t('Investment stats are interpolated when applied to items, and as such, these values are a guide.')}</div>
       </div>
     );
   }
