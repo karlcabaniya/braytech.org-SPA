@@ -536,7 +536,7 @@
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description p {
