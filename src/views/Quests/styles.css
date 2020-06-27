@@ -200,6 +200,11 @@
   font-size: 14px;
 }
 
+#quests .list.bounties li::before,
+#quests .list.bounties li::after {
+  z-index: unset;
+}
+
 #quests .list.bounties > li:not(.header) > ul > li {
   padding: 6px 0;
 }
@@ -270,6 +275,17 @@
 
 #quests .list.bounties > li > ul > .bounty-item .list.inventory-items li.tracked::before {
   box-shadow: inset 0 0 0 2px #b5fc73;
+}
+
+#quests .list.bounties > li > ul > .bounty-item .list.inventory-items li .icon {
+  position: unset;
+  padding-bottom: unset;
+}
+
+#quests .list.bounties > li > ul > .bounty-item .list.inventory-items li .icon .image {
+  position: unset;
+  width: 48px;
+  height: 48px;
 }
 
 #quests .list.bounties > li > ul > .bounty-text .name {
