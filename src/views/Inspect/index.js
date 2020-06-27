@@ -23,6 +23,37 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats, getOrnamen
 
 import './styles.css';
 
+function RecoilStat({ value }) {
+  // A value from 100 to -100 where positive is right and negative is left
+  // See https://imgur.com/LKwWUNV
+  const direction = Math.sin((value + 5) * ((2 * Math.PI) / 20)) * (100 - value) * (Math.PI / 180);
+
+  const x = Math.sin(direction);
+  const y = Math.cos(direction);
+
+  const spread = 0.75;
+  const xSpreadMore = Math.sin(direction + direction * spread);
+  const ySpreadMore = Math.cos(direction + direction * spread);
+  const xSpreadLess = Math.sin(direction - direction * spread);
+  const ySpreadLess = Math.cos(direction - direction * spread);
+
+  return (
+    <svg height="14" viewBox="0 0 2 1">
+      <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" />
+      {Math.abs(direction) > 0.1 ? (
+        <path
+          d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${
+            1 + xSpreadLess
+          },${1 - ySpreadLess} Z`}
+          fill="#FFF"
+        />
+      ) : (
+        <line x1={1 - x} y1={1 + y} x2={1 + x} y2={1 - y} stroke="white" strokeWidth="0.1" />
+      )}
+    </svg>
+  );
+}
+
 function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwork, ...props }) {
   const [socketState, setSocketState] = useState([]);
   const dispatch = useDispatch();
@@ -402,6 +433,18 @@ class Inspect extends React.Component {
 
                       if (masterworkValue) {
                         segments.push([masterworkValue, 'masterwork']);
+                      }
+
+                      if (stat.statHash === 2715839340) {
+                        return (
+                          <div key={stat.statHash} className='stat'>
+                            <div className='name'>{stat.displayProperties.name}</div>
+                            <div className='value'>
+                              <div className='text'>{stat.value}</div>
+                              <RecoilStat value={stat.value} />
+                            </div>
+                          </div>
+                        );
                       }
 
                       return (
