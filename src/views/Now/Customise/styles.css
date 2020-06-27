@@ -89,7 +89,7 @@
 }
 
 #now.customise .button.remove:hover {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #now.customise .modules-selector {

@@ -1,5 +1,5 @@
 #tooltip .frame.exotic .header {
-  background-color: hsla(var(--exotic), 0.9);
+  background-color: hsla(var(--tier-exotic), 0.9);
 }
 
 #tooltip .frame.exotic .black {
@@ -390,7 +390,7 @@
 }
 
 #tooltip .frame.exotic .sockets .category .socket .plug.intrinsic .text .name {
-  color: hsla(var(--exotic), 1);
+  color: hsla(var(--tier-exotic), 1);
 }
 
 #tooltip .sockets.one {
@@ -463,6 +463,33 @@
 
 #tooltip .big-value.masterwork {
   color: #ecbc4f;
+}
+
+#tooltip .frame .investment {
+  padding: 16px 16px 12px;
+  display: grid;
+  gap: 10px;
+}
+
+#tooltip .frame .investment .stat {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  font-size: 14px;
+}
+
+#tooltip .frame .investment .stat .value {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 14px;
+  color: var(--progress);
+}
+
+#tooltip .frame .investment .stat .value.negative {
+  color: var(--error);
+}
+
+#tooltip .frame .investment .info {
+  margin: 2px 0 0;
 }
 
 #tooltip .frame .emblem {

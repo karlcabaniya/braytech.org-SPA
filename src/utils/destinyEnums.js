@@ -164,21 +164,31 @@ export const DestinyInventoryBucket = {
   ClanBanners: 4292445962,
 };
 
+const ENERGY_CAPACITY_SOLAR = 2018193158;
+const ENERGY_CAPACITY_ARC = 3625423501;
+const ENERGY_CAPACITY_VOID = 16120457;
+const ENERGY_COST_SOLAR = 3344745325;
+const ENERGY_COST_ARC = 3779394102;
+const ENERGY_COST_VOID = 2399985800;
+const ENERGY_COST_ANY = 3578062600;
+
+export const energyCostsStatHashes = [ENERGY_COST_SOLAR, ENERGY_COST_ARC, ENERGY_COST_VOID, ENERGY_COST_ANY];
+
 export const energyStats = {
   solar: [
-    2018193158, // capacity
-    3344745325, // cost
+    ENERGY_CAPACITY_SOLAR,
+    ENERGY_COST_SOLAR,
   ],
   arc: [
-    3625423501, // capacity
-    3779394102, // cost
+    ENERGY_CAPACITY_ARC,
+    ENERGY_COST_ARC,
   ],
   void: [
-    16120457, // capacity
-    2399985800, // cost
+    ENERGY_CAPACITY_VOID,
+    ENERGY_COST_VOID,
   ],
   any: [
-    3578062600, // cost
+    ENERGY_COST_ANY,
   ],
 };
 

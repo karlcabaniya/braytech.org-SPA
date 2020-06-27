@@ -48,7 +48,7 @@
 
 #inspect .item-rarity.exotic,
 #inspect .item-rarity.exotic::before {
-  background: linear-gradient(to right, hsla(var(--exotic), 0.6), hsla(var(--exotic), 0.2) 30%, hsla(var(--exotic), 0.1));
+  background: linear-gradient(to right, hsla(var(--tier-exotic), 0.6), hsla(var(--tier-exotic), 0.2) 30%, hsla(var(--tier-exotic), 0.1));
 }
 
 #inspect .item-rarity.legendary,
@@ -614,7 +614,7 @@
 }
 
 #inspect .sockets .module.category .energy-meter .upgrade .unused.debt {
-  color: #dc513b;
+  color: var(--error);
 }
 
 #inspect .sockets .module.category .energy-meter .tiers {
@@ -640,7 +640,7 @@
 }
 
 #inspect .sockets .module.category .energy-meter .tiers .tier.used.debt {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #inspect .sockets .module.category .energy-meter .affinity,

@@ -142,7 +142,7 @@
 }
 
 #notification-overlay.error .background .border-top {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #notification-overlay .sticky-nav {
@@ -294,7 +294,7 @@
 }
 
 #notification-bar.error .background .border-top .inner {
-  background-color: #dc513b;
+  background-color: var(--error);
   animation: animation-bar-error var(--timeout) linear 0s 1 forwards;
 }
 
@@ -302,7 +302,7 @@
   0%, 60% {
     width: 100%;
     opacity: 1;
-    box-shadow: 0 0 60px 10px #dc513b;
+    box-shadow: 0 0 60px 10px var(--error);
   }
   90% {
     opacity: 0.4;

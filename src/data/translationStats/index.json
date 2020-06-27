@@ -1,86 +1,112 @@
 {
   "de": {
     "translated": 732,
-    "notTranslated": 2,
-    "added": [],
+    "notTranslated": 3,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 734,
+    "translated": 735,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "en": {
-    "translated": 734,
+    "translated": 735,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 734,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "es": {
     "translated": 734,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 111,
-    "added": [],
+    "notTranslated": 112,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "it": {
     "translated": 714,
-    "notTranslated": 20,
-    "added": [],
+    "notTranslated": 21,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 132,
-    "added": [],
+    "notTranslated": 133,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 220,
-    "added": [],
+    "notTranslated": 221,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 732,
-    "added": [],
+    "notTranslated": 733,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "pt-br": {
     "translated": 707,
-    "notTranslated": 27,
-    "added": [],
+    "notTranslated": 28,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "ru": {
     "translated": 734,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 487,
-    "notTranslated": 247,
-    "added": [],
+    "notTranslated": 248,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 385,
-    "added": [],
+    "notTranslated": 386,
+    "added": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ],
     "removed": []
   }
 }

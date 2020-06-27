@@ -4,6 +4,7 @@ import cx from 'classnames';
 import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { energyTypeToAsset } from '../../../utils/destinyConverters';
+import { energyCostsStatHashes } from '../../../utils/destinyEnums';
 import ObservedImage from '../../ObservedImage';
 
 const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
@@ -15,8 +16,14 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   // source string
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
 
+  // is it a masterwork?
+  const probablyMasterworkPlug = definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork');
+
   // perks
   const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash]?.isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
+
+  // investment stats
+  const investmentStats = !probablyMasterworkPlug && definitionItem.investmentStats?.length ? definitionItem.investmentStats.filter(stat => !energyCostsStatHashes.includes(stat.statTypeHash)) : [];
 
   // energy cost
   const energyCost = definitionItem.plug.energyCost;
@@ -24,9 +31,6 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
 
   // vendor costs
   const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
-
-  // is it a masterwork?
-  const probablyMasterworkPlug = definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork');
 
   const blocks = [];
 
@@ -86,7 +90,23 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
     );
   }
 
-  if ((description && !perks.length && sourceString) || (perks.length && sourceString)) blocks.push(<div className='line' />);
+  if ((description && !perks.length && investmentStats.length) || (perks.length && investmentStats.length)) blocks.push(<div className='line' />);
+
+  if (investmentStats.length) {
+    blocks.push(
+      <div className='investment'>
+        {investmentStats.map((stat, s) => (
+          <div key={s} className='stat'>
+            <div className='name'>{manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name}</div>
+            <div className={cx('value', { negative: stat.value < 0 })}>{stat.value > 0 && '+'}{stat.value}</div>
+          </div>
+        ))}
+        <div className='info'>{t('Investmesnt stats are interpolated when applied to items, and as such, these values are a guide.')}</div>
+      </div>
+    );
+  }
+
+  if ((description && !investmentStats.length && sourceString) || (perks.length && sourceString) || (investmentStats.length && sourceString)) blocks.push(<div className='line' />);
 
   if (sourceString) {
     blocks.push(

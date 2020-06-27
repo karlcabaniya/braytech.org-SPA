@@ -89,7 +89,7 @@
 }
 
 #this-week.customise .button.remove:hover {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #this-week.customise .modules-selector {
