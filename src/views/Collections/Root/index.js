@@ -138,9 +138,9 @@ class Root extends React.Component {
           className={cx('badge', 'linked', {
             'badge-semi': semiComplete,
             'badge-complete': fullComplete === 3,
-            tooltip: viewport.width > 600,
             expired: hasVaultedChild,
           })}
+          data-tooltip='mouse'
           data-hash={definitionBadge.hash}
           data-type='collections-badge'
         >
@@ -175,7 +175,7 @@ class Root extends React.Component {
               </div>
               <div className='recently-discovered'>
                 <ul className='list collection-items'>
-                  <Collectibles selfLinkFrom='/collections' showCompleted hashes={profileCollectibles.recentCollectibleHashes.slice().reverse()} />
+                  <Collectibles hashes={profileCollectibles.recentCollectibleHashes.slice().reverse()} selfLinkFrom='/collections' showCompleted mouseTooltips />
                 </ul>
               </div>
             </>
@@ -205,8 +205,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
   };
 }

@@ -21,13 +21,9 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
 } */
 
-#tooltip.toggle {
-  position: absolute;
-  pointer-events: unset;
-}
-
 #tooltip.visible {
   opacity: 1;
+  pointer-events: unset;
 }
 
 #tooltip .wrapper {

@@ -86,7 +86,7 @@ class Collectibles extends React.Component {
   }
 
   render() {
-    const { settings, lists, member, viewport, selfLinkFrom, forceTooltip, inspect, showCompleted, showInvisible } = this.props;
+    const { settings, lists, member, viewport, selfLinkFrom, inspect, showCompleted, showInvisible, mouseTooltips } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
@@ -99,6 +99,7 @@ class Collectibles extends React.Component {
     if (this.props.node) {
       const tertiaryDefinition = manifest.DestinyPresentationNodeDefinition[this.props.node];
 
+      // Collection Nodes with Nodes for Sets
       if (tertiaryDefinition.children.presentationNodes.length > 0) {
         tertiaryDefinition.children.presentationNodes.forEach((node, n) => {
           const definitionNode = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
@@ -146,7 +147,7 @@ class Collectibles extends React.Component {
                 ),
               });
             } else {
-              const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
+              const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
               set.push({
                 hash: definitionCollectible.hash,
@@ -212,7 +213,9 @@ class Collectibles extends React.Component {
             </li>
           );
         });
-      } else {
+      }
+      // Collection Nodes with Collectibles
+      else {
         tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
@@ -235,9 +238,10 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx('redacted', 'tooltip', {
+                  className={cx('redacted', {
                     highlight: highlight === definitionCollectible.hash,
                   })}
+                  data-tooltip={mouseTooltips ? 'mouse' : true}
                   data-hash='343'
                 >
                   <div className='icon'>
@@ -254,7 +258,7 @@ class Collectibles extends React.Component {
             const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
             const energyAsset = definitionItem?.plug?.energyCost?.energyTypeHash && energyTypeToAsset(definitionItem.plug.energyCost.energyTypeHash);
 
-            const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
+            const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
             collectiblesOutput.push({
               hash: definitionCollectible.hash,
@@ -262,12 +266,13 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx('tooltip', energyAsset?.string !== 'any' && energyAsset?.string, {
+                  className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                     selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
                     expired: !suppressVaultWarning && isVaultedCollectible,
                   })}
+                  data-tooltip={mouseTooltips ? 'mouse' : true}
                   data-hash={definitionCollectible.itemHash}
                   onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                 >
@@ -323,7 +328,7 @@ class Collectibles extends React.Component {
 
         const link = selfLinkCollectible(definitionCollectible.hash);
 
-        const isVaultedCollectible= !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
+        const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
         collectiblesOutput.push({
           hash: definitionCollectible.hash,
@@ -331,12 +336,12 @@ class Collectibles extends React.Component {
             <li
               key={definitionCollectible.hash}
               className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
-                tooltip: viewport.width <= 600 && link && selfLinkFrom && !forceTooltip ? false : true,
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
                 selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
                 expired: !suppressVaultWarning && isVaultedCollectible,
               })}
+              data-tooltip={mouseTooltips ? 'mouse' : true}
               data-hash={definitionCollectible.itemHash}
               onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
             >
@@ -388,7 +393,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
     addToList: (payload) => (e) => {
       dispatch({ type: 'ADD_TO_LIST', payload });
