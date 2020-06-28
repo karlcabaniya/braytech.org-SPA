@@ -30,8 +30,8 @@
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #dc513b;
-  box-shadow: 0 0 60px 10px #dc513b;
+  background-color: var(--error);
+  box-shadow: 0 0 60px 10px var(--error);
 }
 
 #postmaster-capacity .background .acrylic {

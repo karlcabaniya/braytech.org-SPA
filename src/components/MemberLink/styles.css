@@ -478,7 +478,7 @@
 }
 
 #member-overlay.error .background .border-top {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #member-overlay.error .wrapper-inner {

@@ -1,112 +1,140 @@
 {
   "de": {
-    "translated": 706,
-    "notTranslated": 28,
+    "translated": 732,
+    "notTranslated": 3,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "debug": {
-    "translated": 734,
+    "translated": 735,
     "notTranslated": 0,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "en": {
-    "translated": 734,
+    "translated": 735,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "es-mx": {
-    "translated": 733,
+    "translated": 734,
     "notTranslated": 1,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "es": {
-    "translated": 733,
+    "translated": 734,
     "notTranslated": 1,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 111,
+    "notTranslated": 112,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "it": {
     "translated": 714,
-    "notTranslated": 20,
+    "notTranslated": 21,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 132,
+    "notTranslated": 133,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 220,
+    "notTranslated": 221,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 732,
+    "notTranslated": 733,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "pt-br": {
     "translated": 707,
-    "notTranslated": 27,
+    "notTranslated": 28,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "ru": {
-    "translated": 733,
+    "translated": 734,
     "notTranslated": 1,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "zh-chs": {
     "translated": 487,
-    "notTranslated": 247,
+    "notTranslated": 248,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 385,
+    "notTranslated": 386,
     "added": [
-      "Unused"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ],
-    "removed": []
+    "removed": [
+      "Investmesnt stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
   }
 }

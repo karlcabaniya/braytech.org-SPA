@@ -48,7 +48,7 @@
 
 #inspect .item-rarity.exotic,
 #inspect .item-rarity.exotic::before {
-  background: linear-gradient(to right, hsla(var(--exotic), 0.6), hsla(var(--exotic), 0.2) 30%, hsla(var(--exotic), 0.1));
+  background: linear-gradient(to right, hsla(var(--tier-exotic), 0.6), hsla(var(--tier-exotic), 0.2) 30%, hsla(var(--tier-exotic), 0.1));
 }
 
 #inspect .item-rarity.legendary,
@@ -147,6 +147,7 @@
 
 #inspect .module.header .text .name {
   margin: 0 0 14px -2px;
+  word-break: break-all;
   font-family: var(--font-text);
   font-size: 48px;
   font-weight: 500;
@@ -334,7 +335,9 @@
   padding: 0 7px;
 }
 
-
+#inspect .module.stats .stat .value svg {
+  margin: 0 0 0 6px;
+}
 
 
 
@@ -614,7 +617,7 @@
 }
 
 #inspect .sockets .module.category .energy-meter .upgrade .unused.debt {
-  color: #dc513b;
+  color: var(--error);
 }
 
 #inspect .sockets .module.category .energy-meter .tiers {
@@ -640,7 +643,7 @@
 }
 
 #inspect .sockets .module.category .energy-meter .tiers .tier.used.debt {
-  background-color: #dc513b;
+  background-color: var(--error);
 }
 
 #inspect .sockets .module.category .energy-meter .affinity,
@@ -786,6 +789,14 @@
   #inspect .module.stats .stat {
     grid-template-columns: minmax(100px, 140px) auto;
   }
+
+  #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .name {
+    font-size: 16px;
+  }
+  
+  #inspect .sockets .module.category.intrinsic .category-sockets .socket .plug .text .description {
+    font-size: 14px;
+  }
   
   #inspect .module.lore,
   #inspect .module.screenshot,
@@ -797,5 +808,14 @@
     font-size: 14px;
   }
 
+}
+
+@media (orientation: portrait) {
+
+  #inspect .sockets .module.category .category-sockets .socket.columned {
+    --socket-columns: 1 !important;
+    grid-template-columns: inherit;
+    justify-content: unset;
+  }
 
 }

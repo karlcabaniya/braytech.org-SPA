@@ -156,12 +156,13 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={c}
-                    className={cx('item', 'tooltip', {
+                    className={cx('item', {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                       selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
                       expired: !suppressVaultWarning && isVaultedCollectible,
                     })}
+                    data-tooltip={mouseTooltips ? 'mouse' : true}
                     data-hash={definitionCollectible.itemHash}
                     onClick={settings.developer.lists ? this.props.addToList({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
                   >
