@@ -123,7 +123,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
     blocks.push(
       <div className='kill-tracker'>
         <div className='text'>
-          <div>{masterwork.objective.typeDesc}</div>
+          <div>{masterwork.objective.description}</div>
           <div>{masterwork.objective.progress.toLocaleString()}</div>
         </div>
       </div>
