@@ -23,197 +23,6 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats, getOrnamen
 
 import './styles.css';
 
-function RecoilStat({ value }) {
-  // A value from 100 to -100 where positive is right and negative is left
-  // See https://imgur.com/LKwWUNV
-  const direction = Math.sin((value + 5) * ((2 * Math.PI) / 20)) * (100 - value) * (Math.PI / 180);
-
-  const x = Math.sin(direction);
-  const y = Math.cos(direction);
-
-  const spread = 0.75;
-  const xSpreadMore = Math.sin(direction + direction * spread);
-  const ySpreadMore = Math.cos(direction + direction * spread);
-  const xSpreadLess = Math.sin(direction - direction * spread);
-  const ySpreadLess = Math.cos(direction - direction * spread);
-
-  return (
-    <svg height="14" viewBox="0 0 2 1">
-      <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" />
-      {Math.abs(direction) > 0.1 ? (
-        <path
-          d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${
-            1 + xSpreadLess
-          },${1 - ySpreadLess} Z`}
-          fill="#FFF"
-        />
-      ) : (
-        <line x1={1 - x} y1={1 + y} x2={1 + x} y2={1 - y} stroke="white" strokeWidth="0.1" />
-      )}
-    </svg>
-  );
-}
-
-function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwork, ...props }) {
-  const [socketState, setSocketState] = useState([]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(rebind());
-  }, [dispatch, socketState]);
-
-  const toggleSocket = (socketIndex) => (e) => {
-    if (socketState.indexOf(socketIndex) > -1) {
-      setSocketState([...socketState.filter((i) => i !== socketIndex)]);
-    } else {
-      setSocketState([
-        //...socketState,
-        socketIndex,
-      ]);
-    }
-  };
-
-  const socketsToMap = sockets.filter((socket) => socket.socketDefinition.defaultVisible).filter((socket) => !socket.isTracker);
-  const expandedSocket = socketsToMap.find((socket) => socketState.indexOf(socket.socketIndex) > -1);
-
-  const isIntrinsic = category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
-  const isEnergyMeter = category.categoryStyle === enums.DestinySocketCategoryStyle.EnergyMeter;
-  const isPerks = category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable;
-  const isMods = category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable;
-
-  return (
-    <div className={cx('module', 'category', { mods: isMods, intrinsic: isIntrinsic, perks: isPerks && !isEnergyMeter, 'energy-meter': isEnergyMeter })}>
-      <div className='module-name'>{category.displayProperties.name}</div>
-      <div className='category-sockets'>
-        {socketsToMap.map((socket, s) => {
-          // intrinsics
-          if (isIntrinsic) {
-            return (
-              <div key={s} className='socket intrinsic'>
-                {socket.plugOptions.map((plug, p) => {
-                  return (
-                    <div key={p} className='plug active'>
-                      <div className='icon'>
-                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                      </div>
-                      <div className='text'>
-                        <div className='name'>{plug.definition.displayProperties.name}</div>
-                        <BungieText className='description' value={plug.definition.displayProperties.description} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          } // armor tier
-          else if (isEnergyMeter) {
-            const { energyTypeHash, capacityValue, usedValue } = masterwork?.energy || {};
-            const energyAsset = energyTypeToAsset(energyTypeHash);
-            const masterworkTiers = Array(10)
-              .fill('disabled')
-              .fill('unused', 0, capacityValue || 0)
-              .fill('used', 0, usedValue || 0);
-
-            // console.log(socket.plug.definition.plug);
-
-            return (
-              <div key={s} className={cx('energy-meter', energyAsset.string)}>
-                <div key={s} className='socket affinity'>
-                  <div className={cx('plug', 'tooltip', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
-                    {energyAsset.char}
-                  </div>
-                </div>
-                <div className='masterwork'>
-                  <div className='upgrade'>
-                    <div className='capacity'>
-                      <div className='value'>{capacityValue || 0}</div>
-                      <div className='text'>{t('Energy')}</div>
-                    </div>
-                    {capacityValue ? (
-                      <div className={cx('unused', { debt: capacityValue - usedValue < 0 })}>
-                        <div className='text'>{t('Unused')}</div>
-                        <div className='value'>{capacityValue - usedValue}</div>
-                      </div>
-                    ) : null}
-                  </div>
-                  <div className='upgrade-icon'></div>
-                  <div className='masterwork tiers'>
-                    {masterworkTiers.map((state, tier) => (
-                      <div key={tier} className={cx('tier', state, { debt: state === 'used' && tier >= capacityValue })} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            );
-          } // perks
-          else if (isPerks) {
-            return (
-              <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
-                {socket.plugOptions.map((plug, p) => {
-                  const active = plug.definition.hash === socket.plug.definition?.hash;
-                
-                  return (
-                    <div key={p} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-style='ui'>
-                      <div className='icon'>
-                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                      </div>
-                      <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          } // mods
-          else {
-            const energyAsset = socket.plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(socket.plug.definition.plug.energyCost.energyTypeHash);
-
-            return (
-              <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
-                <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
-                  <div className='icon'>
-                    <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
-                    {socket.plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{socket.plug.definition.plug.energyCost.energyCost}</div> : null}
-                  </div>
-                </div>
-              </div>
-            );
-          }
-        })}
-        {expandedSocket ? (
-          <div className='socket options'>
-            {expandedSocket.plugOptions.map((plug, p) => {
-              const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
-
-              return (
-                <div key={p} className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-tooltip='mouse' data-hash={plug.definition.hash}>
-                  <div className='icon'>
-                    <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
-                    {plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{plug.definition.plug.energyCost.energyCost}</div> : null}
-                  </div>
-                  <Link to={socketsUrl(itemHash, itemSockets, selected, expandedSocket.socketIndex, plug.definition.hash)} onClick={toggleSocket(expandedSocket.socketIndex)} />
-                </div>
-              );
-            })}
-          </div>
-        ) : null}
-      </div>
-    </div>
-  );
-}
-
-function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
-  const socketsString = sockets.map((socket, s) => {
-    // replace with plugHash at appropriate socket index
-    if (socket.socketIndex === socketIndex) return plugHash;
-
-    // return current or null
-    return selectedSockets?.[s] || '';
-  });
-
-  // create string
-  return `/inspect/${itemHash}?sockets=${socketsString.join('/')}`;
-}
-
 class Inspect extends React.Component {
   state = {
     from: undefined,
@@ -235,74 +44,36 @@ class Inspect extends React.Component {
     this.props.rebindTooltips();
   }
 
+  handler_pointerOver = (socketIndex, plugHash) => e => {
+    console.log(socketIndex, plugHash);
+
+    // this.setState({
+    //   sockets: [
+    //     {
+    //       socketIndex,
+    //       plugHash
+    //     }
+    //   ]
+    // });
+  }
+
+  handler_pointerOut = e => {
+    // this.setState({
+    //   sockets: []
+    // });
+  }
+
   render() {
     const { settings, member, location } = this.props;
 
     const query = queryString.parse(location.search);
-    const selectedSockets = query.sockets?.split('/').map((socketHash) => Number(socketHash) || '');
+    const urlSockets = selectedSockets(query.sockets?.split('/'));
 
-    const item = {
-      itemHash: this.props.match.params.hash,
-      itemInstanceId: false,
-      itemComponents: false,
-      showHiddenStats: true,
-      showDefaultSockets: true,
-    };
+    const item = createItem(this.props.match.params.hash, urlSockets);
+
+    // console.log(item);
 
     const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
-
-    item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
-
-    // process sockets
-    item.sockets = sockets(item);
-
-    // adjust sockets according to user selection
-    if (item.sockets.sockets) {
-      item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
-        const selectedPlugHash = selectedSockets?.[s] || 0;
-
-        // if user has selected a plug
-        if (selectedPlugHash > 0) {
-          // set active plug as primary plug
-          socket.plug = (selectedPlugHash && socket.plugOptions.find((plugOption) => selectedPlugHash === plugOption.definition.hash)) || socket.plug;
-
-          return socket;
-        }
-
-        return socket;
-      });
-
-      const ornamentSocket = getOrnamentSocket(item.sockets);
-      if (ornamentSocket?.plug?.definition?.screenshot) {
-        item.screenshot = ornamentSocket.plug.definition.screenshot && ornamentSocket.plug.definition.screenshot !== '' && ornamentSocket.plug.definition.screenshot;
-      }
-    }
-
-    // stats and masterwork as per usual
-    item.stats = stats(item);
-    item.masterwork = masterwork(item);
-
-    item.primaryStat = (definitionItem.itemType === 2 || definitionItem.itemType === 3) &&
-      definitionItem.stats &&
-      !definitionItem.stats.disablePrimaryStatDisplay &&
-      definitionItem.stats.primaryBaseStatHash && {
-        hash: definitionItem.stats.primaryBaseStatHash,
-        displayProperties: manifest.DestinyStatDefinition[definitionItem.stats.primaryBaseStatHash].displayProperties,
-        value: 950,
-      };
-
-    if (item.primaryStat && item.itemComponents && item.itemComponents.instance?.primaryStat) {
-      item.primaryStat.value = item.itemComponents.instance.primaryStat.value;
-    } else if (item.primaryStat && member && member.data) {
-      let character = member.data.profile.characters.data.find((characrer) => characrer.characterId === member.characterId);
-
-      item.primaryStat.value = Math.floor((942 / 973) * character.light);
-    }
-
-    console.log(item);
-
-    // weapon damage type
-    const damageTypeHash = definitionItem.itemType === enums.DestinyItemType.Weapon && (item.itemComponents?.instance ? item.itemComponents.instance.damageTypeHash : definitionItem.defaultDamageTypeHash);
 
     const preparedSockets = item.sockets?.socketCategories?.reduce((sockets, socketCategory) => {
       // console.log(sockets, socketCategory)
@@ -330,8 +101,6 @@ class Inspect extends React.Component {
     const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
     const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
     const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
-
-    // console.log(JSON.stringify(manifest.DestinyInventoryItemDefinition[2323986101]))
 
     return (
       <>
@@ -474,7 +243,7 @@ class Inspect extends React.Component {
                     {preparedSockets
                       .filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1)
                       .map((socketCategory, c) => (
-                        <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={selectedSockets} />
+                        <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} />
                       ))}
                   </div>
                 ) : null}
@@ -485,7 +254,7 @@ class Inspect extends React.Component {
                 {preparedSockets
                   .filter((socketCategory) => socketCategory.category.categoryStyle !== enums.DestinySocketCategoryStyle.LargePerk)
                   .map((socketCategory, c) => (
-                    <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={selectedSockets} masterwork={item.masterwork} />
+                    <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} masterwork={item.masterwork} handler_pointerOver={this.handler_pointerOver} handler_pointerOut={this.handler_pointerOut} />
                   ))}
               </div>
             ) : null}
@@ -539,3 +308,255 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(Inspect);
+
+function RecoilStat({ value }) {
+  // A value from 100 to -100 where positive is right and negative is left
+  // See https://imgur.com/LKwWUNV
+  const direction = Math.sin((value + 5) * ((2 * Math.PI) / 20)) * (100 - value) * (Math.PI / 180);
+
+  const x = Math.sin(direction);
+  const y = Math.cos(direction);
+
+  const spread = 0.75;
+  const xSpreadMore = Math.sin(direction + direction * spread);
+  const ySpreadMore = Math.cos(direction + direction * spread);
+  const xSpreadLess = Math.sin(direction - direction * spread);
+  const ySpreadLess = Math.cos(direction - direction * spread);
+
+  return (
+    <svg height="14" viewBox="0 0 2 1">
+      <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" />
+      {Math.abs(direction) > 0.1 ? (
+        <path
+          d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${
+            1 + xSpreadLess
+          },${1 - ySpreadLess} Z`}
+          fill="#FFF"
+        />
+      ) : (
+        <line x1={1 - x} y1={1 + y} x2={1 + x} y2={1 - y} stroke="white" strokeWidth="0.1" />
+      )}
+    </svg>
+  );
+}
+
+function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwork, ...props }) {
+  const [socketState, setSocketState] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(rebind());
+  }, [dispatch, socketState]);
+
+  const toggleSocket = (socketIndex) => (e) => {
+    if (socketState.indexOf(socketIndex) > -1) {
+      setSocketState([...socketState.filter((i) => i !== socketIndex)]);
+    } else {
+      setSocketState([
+        //...socketState,
+        socketIndex,
+      ]);
+    }
+  };
+
+  const socketsToMap = sockets.filter((socket) => socket.socketDefinition.defaultVisible).filter((socket) => !socket.isTracker);
+  const expandedSocket = socketsToMap.find((socket) => socketState.indexOf(socket.socketIndex) > -1);
+
+  const isIntrinsic = category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
+  const isEnergyMeter = category.categoryStyle === enums.DestinySocketCategoryStyle.EnergyMeter;
+  const isPerks = category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable;
+  const isMods = category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable;
+
+  return (
+    <div className={cx('module', 'category', { mods: isMods, intrinsic: isIntrinsic, perks: isPerks && !isEnergyMeter, 'energy-meter': isEnergyMeter })}>
+      <div className='module-name'>{category.displayProperties.name}</div>
+      <div className='category-sockets'>
+        {socketsToMap.map((socket, s) => {
+          // intrinsics
+          if (isIntrinsic) {
+            return (
+              <div key={s} className='socket intrinsic'>
+                {socket.plugOptions.map((plug, p) => {
+                  return (
+                    <div key={p} className='plug active'>
+                      <div className='icon'>
+                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                      </div>
+                      <div className='text'>
+                        <div className='name'>{plug.definition.displayProperties.name}</div>
+                        <BungieText className='description' value={plug.definition.displayProperties.description} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          } // armor tier
+          else if (isEnergyMeter) {
+            const { energyTypeHash, capacityValue, usedValue } = masterwork?.energy || {};
+            const energyAsset = energyTypeToAsset(energyTypeHash);
+            const masterworkTiers = Array(10)
+              .fill('disabled')
+              .fill('unused', 0, capacityValue || 0)
+              .fill('used', 0, usedValue || 0);
+
+            // console.log(socket.plug.definition.plug);
+
+            return (
+              <div key={s} className={cx('energy-meter', energyAsset.string)}>
+                <div key={s} className='socket affinity'>
+                  <div className={cx('plug', 'tooltip', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                    {energyAsset.char}
+                  </div>
+                </div>
+                <div className='masterwork'>
+                  <div className='upgrade'>
+                    <div className='capacity'>
+                      <div className='value'>{capacityValue || 0}</div>
+                      <div className='text'>{t('Energy')}</div>
+                    </div>
+                    {capacityValue ? (
+                      <div className={cx('unused', { debt: capacityValue - usedValue < 0 })}>
+                        <div className='text'>{t('Unused')}</div>
+                        <div className='value'>{capacityValue - usedValue}</div>
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className='upgrade-icon'></div>
+                  <div className='masterwork tiers'>
+                    {masterworkTiers.map((state, tier) => (
+                      <div key={tier} className={cx('tier', state, { debt: state === 'used' && tier >= capacityValue })} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          } // perks
+          else if (isPerks) {
+            return (
+              <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
+                {socket.plugOptions.map((plug, p) => {
+                  const active = plug.definition.hash === socket.plug.definition?.hash;
+                
+                  return (
+                    <div key={p} onPointerOver={props.handler_pointerOver(socket.socketIndex, plug.definition.hash)} onPointerOut={props.handler_pointerOut} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-style='ui'>
+                      <div className='icon'>
+                        <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                      </div>
+                      <Link to={socketsUrl(itemHash, itemSockets, selected, socket.socketIndex, plug.definition.hash)} />
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          } // mods
+          else {
+            const energyAsset = socket.plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(socket.plug.definition.plug.energyCost.energyTypeHash);
+
+            return (
+              <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
+                <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                  <div className='icon'>
+                    <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
+                    {socket.plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{socket.plug.definition.plug.energyCost.energyCost}</div> : null}
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        })}
+        {expandedSocket ? (
+          <div className='socket options'>
+            {expandedSocket.plugOptions.map((plug, p) => {
+              const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
+
+              return (
+                <div key={p} className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-tooltip='mouse' data-hash={plug.definition.hash}>
+                  <div className='icon'>
+                    <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
+                    {plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{plug.definition.plug.energyCost.energyCost}</div> : null}
+                  </div>
+                  <Link to={socketsUrl(itemHash, itemSockets, selected, expandedSocket.socketIndex, plug.definition.hash)} onClick={toggleSocket(expandedSocket.socketIndex)} />
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
+  const socketsString = sockets.map((socket, s) => {
+    // replace with plugHash at appropriate socket index
+    if (socket.socketIndex === socketIndex) return plugHash;
+
+    // return current or null
+    return selectedSockets?.[s] || '';
+  });
+
+  // create string
+  return `/inspect/${itemHash}?sockets=${socketsString.join('/')}`;
+}
+
+function selectedSockets(query = [], hover = []) {
+  if (query.length && hover.length) {
+    return query.map((value, v) => {
+      const hoverPerk = hover.find(h => h.socketIndex === v)
+      
+      if (hoverPerk) {
+        return hoverPerk.plugHash;
+      }
+      
+      return Number(value) || '';
+    });
+  }
+
+  return query.map((value) => Number(value) || '');
+}
+
+function createItem(itemHash, selectedSockets = []) {
+  const item = {
+    itemHash,
+    itemInstanceId: false,
+    itemComponents: false,
+    showHiddenStats: true,
+    showDefaultSockets: true,
+  };
+
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+  item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
+
+  // process sockets
+  item.sockets = sockets(item);
+
+  // adjust sockets according to user selection
+  if (item.sockets.sockets) {    
+    item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
+      const selectedPlugHash = selectedSockets[s] || 0;
+
+      // if user has selected a plug
+      if (selectedPlugHash > 0) {
+        // set active plug as primary plug
+        socket.plug = (selectedPlugHash && socket.plugOptions.find((plugOption) => selectedPlugHash === plugOption.definition.hash)) || socket.plug;
+
+        return socket;
+      }
+
+      return socket;
+    });
+
+    const ornamentSocket = getOrnamentSocket(item.sockets);
+    if (ornamentSocket?.plug?.definition?.screenshot) {
+      item.screenshot = ornamentSocket.plug.definition.screenshot && ornamentSocket.plug.definition.screenshot !== '' && ornamentSocket.plug.definition.screenshot;
+    }
+  }
+
+  // stats and masterwork as per usual
+  item.stats = stats(item);
+  item.masterwork = masterwork(item);
+
+  return item;
+}
