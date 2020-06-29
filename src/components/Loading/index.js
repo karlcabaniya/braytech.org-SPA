@@ -1,5 +1,7 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withTranslation } from 'react-i18next';
 import cx from 'classnames';
 
 import packageJSON from '../../../package.json';
@@ -151,6 +153,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-AppLoading = connect(null, mapDispatchToProps)(AppLoading);
+AppLoading = compose(
+  withTranslation(),
+  connect(null, mapDispatchToProps))
+  (AppLoading);
 
 export { AppLoading, SuspenseLoading };

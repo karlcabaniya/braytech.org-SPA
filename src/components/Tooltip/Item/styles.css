@@ -263,37 +263,30 @@
 }
 
 #tooltip .stats {
-  padding: 14px 16px 6px;
-}
-
-#tooltip .stats:first-child {
-  border-top: none;
+  padding: 14px 16px;
+  display: grid;
+  gap: 8px;
 }
 
 #tooltip .stats .stat {
-  display: flex;
-  align-items: center;
-  line-height: 1.6;
-  margin: 0 0 8px;
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: 16px;
+  align-content: center;
 }
 
 #tooltip .stats .stat .name {
   color: rgba(255, 255, 255, 0.6);
-  padding: 0 16px 0 0;
-  flex-basis: 45%;
-  height: 16px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  text-align: right;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 #tooltip .stats .stat .value {
-  flex-basis: 55%;
-  height: 16px;
   position: relative;
-  color: #fff;
+  height: 16px;
   display: flex;
-  align-items: center;
 }
 
 #tooltip .stats .stat .value.bar {
@@ -307,14 +300,15 @@
   height: 100%;
   display: grid;
   align-content: center;
+  color: #ffffff;
   font-size: 12px;
   opacity: 0.6;
 }
 
 #tooltip .stats .stat .value .bar {
+  position: relative;
   height: 100%;
   background-color: #fff;
-  position: relative;
 }
 
 #tooltip .stats .stat .value .bar::before {
@@ -338,6 +332,10 @@
 
 #tooltip .stats .stat .value .bar.modded {
   background-color: #4ac362;
+}
+
+#tooltip .stats .stat .value .text {
+  color: #ffffff;
 }
 
 #tooltip .stats .stat .value .text.masterwork {
