@@ -10,7 +10,7 @@ import { Map } from 'react-leaflet';
 import maps from '../../data/maps';
 
 import * as ls from '../../utils/localStorage';
-import { resolveDestination, getMapCenter } from '../../utils/maps';
+import { resolveMap, getMapCenter } from '../../utils/maps';
 import { checklists, checkup } from '../../utils/checklists';
 
 import { Layers, BackgroundLayer } from './Layers';
@@ -114,7 +114,7 @@ class Maps extends React.Component {
     }
 
     // Prepare to define viewport based on props i.e. route params
-    const resolved = resolveDestination(p.params.map).destinationId;
+    const resolved = resolveMap(p.params.map).destinationId;
 
     let center = getMapCenter(resolved);
     let zoom = 0;
@@ -178,7 +178,7 @@ class Maps extends React.Component {
   }
 
   setDestination = (destination) => {
-    const resolved = resolveDestination(destination);
+    const resolved = resolveMap(destination);
 
     if (this.mounted) {
       this.setState((p) => ({
@@ -232,7 +232,7 @@ class Maps extends React.Component {
 
   handler_toggleDestinationsList = (e) => {
     const href = e.target.href;
-    const destinationId = resolveDestination(this.props.params.map).destinationId;
+    const destinationId = resolveMap(this.props.params.map).destinationId;
 
     if (href.includes(destinationId)) {
       this.setState((p) => {
@@ -344,7 +344,7 @@ class Maps extends React.Component {
   handler_map_mouseDown = (e) => {
     if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
-    const destination = resolveDestination(this.props.params.map).destinationId;
+    const destination = resolveMap(this.props.params.map).destinationId;
 
     const map = maps[destination].map;
 
@@ -386,7 +386,7 @@ class Maps extends React.Component {
   render() {
     const { member, viewport, settings, params } = this.props;
 
-    const destination = resolveDestination(params.map);
+    const destination = resolveMap(params.map);
     const map = maps[destination.destinationId].map;
     const bounds = [
       [0, 0],

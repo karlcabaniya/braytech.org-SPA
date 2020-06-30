@@ -1,6 +1,9 @@
 {
   "director": {
     "type": "special",
+    "destination": {
+      "id": "director"
+    },
     "map": {
       "width": 1920,
       "height": 1080,
@@ -675,6 +678,7 @@
     }
   },
   "fields-of-glass": {
+    "type": "map",
     "destination": {
       "hash": 1993421442,
       "name": "Fields of Glass",
@@ -875,6 +879,7 @@
     }
   },
   "hellas-basin": {
+    "type": "map",
     "destination": {
       "hash": 308080871,
       "name": "Hellas Basin",
@@ -1072,6 +1077,7 @@
     }
   },
   "echo-mesa": {
+    "type": "map",
     "destination": {
       "hash": 2218917881,
       "name": "Echo Mesa",
@@ -1300,6 +1306,7 @@
     }
   },
   "new-pacific-arcology": {
+    "type": "map",
     "destination": {
       "hash": 2388758973,
       "name": "New Pacific Arcology",
@@ -1488,6 +1495,7 @@
     }
   },
   "tangled-shore": {
+    "type": "map",
     "destination": {
       "hash": 359854275,
       "name": "The Tangled Shore",
@@ -1811,6 +1819,7 @@
     }
   },
   "arcadian-valley": {
+    "type": "map",
     "destination": {
       "hash": 126924919,
       "name": "Arcadian Valley",
@@ -2535,6 +2544,7 @@
     }
   },
   "dreaming-city": {
+    "type": "map",
     "destination": {
       "hash": 2779202173,
       "name": "The Dreaming City",
@@ -2895,6 +2905,7 @@
     }
   },
   "edz": {
+    "type": "map",
     "destination": {
       "hash": 1199524104,
       "name": "European Dead Zone",
@@ -3475,6 +3486,7 @@
     }
   },
   "the-farm": {
+    "type": "map",
     "destination": {
       "hash": 4188263703,
       "name": "The Farm",
@@ -3530,6 +3542,7 @@
     }
   },
   "the-moon": {
+    "type": "map",
     "destination": {
       "hash": 290444260,
       "name": "The Moon",
@@ -3787,6 +3800,7 @@
     }
   },
   "tower": {
+    "type": "map",
     "destination": {
       "hash": 333456177,
       "activityHash": 1502633527,

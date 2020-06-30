@@ -96,6 +96,8 @@ class Checklists extends React.Component {
   };
 
   render() {
+    if (maps[this.props.destinationId].type !== 'map') return null;
+
     const map = maps[this.props.destinationId].map;
 
     // console.log('checklists render')
