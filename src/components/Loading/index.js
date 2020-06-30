@@ -22,25 +22,6 @@ function SuspenseLoading(props) {
   );
 }
 
-//   componentDidUpdate(p) {
-//     if (p.state !== this.props.state) {
-//       const state = this.props.state;
-
-//       if (this.loadingStates[state.code] && (this.loadingStates[state.code].isError || this.loadingStates[state.code].shh)) {
-//         this.props.pushNotification({
-//           error: true,
-//           date: new Date().toISOString(),
-//           expiry: 86400000,
-//           displayProperties: {
-//             ...(this.loadingStates[state.code] && this.loadingStates[state.code].displayProperties),
-//             prompt: true,
-//           },
-//           javascript: state.detail,
-//         });
-//       }
-//     }
-//   }
-
 function AppLoading({ state, ...props }) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
