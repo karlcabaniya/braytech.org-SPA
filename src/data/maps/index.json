@@ -1,5 +1,6 @@
 {
   "director": {
+    "type": "special",
     "map": {
       "width": 1920,
       "height": 1080,

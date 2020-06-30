@@ -170,7 +170,7 @@ class Maps extends React.Component {
       this.setDestination(this.props.params.map);
     }
 
-    console.log(s.ui.inspect.destinations !== this.state.ui.inspect.destinations, s.ui.inspect.characters !== this.state.ui.inspect.characters, s.ui.inspect.inspect !== this.state.ui.inspect.inspect)
+    // console.log(s.ui.inspect.destinations !== this.state.ui.inspect.destinations, s.ui.inspect.characters !== this.state.ui.inspect.characters, s.ui.inspect.inspect !== this.state.ui.inspect.inspect)
 
     if (s.ui.inspect.destinations !== this.state.ui.inspect.destinations || s.ui.inspect.characters !== this.state.ui.inspect.characters || s.ui.inspect.inspect !== this.state.ui.inspect.inspect) {
       this.props.rebindTooltips();
@@ -412,22 +412,6 @@ class Maps extends React.Component {
           <Destinations {...destination} visible={this.state.ui.destinations} handler={this.handler_toggleDestinationsList} />
           <DataLayers {...destination} lists={this.state.ui.layers.checklists} handler={this.handler_toggleLayer} />
         </div>
-        {/* {viewport.width > 6000 ? (
-          <div className='control zoom visible'>
-            <ul className='list'>
-              <li className={cx('linked', { disabled: this.state.zoom === 2 })} onClick={this.handler_zoomIncrease}>
-                <div className='text'>
-                  <i className='segoe-uniE1091' />
-                </div>
-              </li>
-              <li className={cx('linked', { disabled: this.state.zoom === -2 })} onClick={this.handler_zoomDecrease}>
-                <div className='text'>
-                  <i className='segoe-uniE1081' />
-                </div>
-              </li>
-            </ul>
-          </div>
-        ) : null} */}
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );

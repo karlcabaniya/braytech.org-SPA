@@ -40,6 +40,8 @@ class Static extends React.Component {
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
 
+    if (!maps[this.props.destinationId].map.bubbles) return null;
+
     return maps[this.props.destinationId].map.bubbles.map((bubble, b) =>
       bubble.nodes.map((node, n) => {
         const markerOffsetX = mapXOffset + viewWidth / 2;

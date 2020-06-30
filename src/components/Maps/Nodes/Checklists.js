@@ -98,7 +98,7 @@ class Checklists extends React.Component {
   render() {
     const map = maps[this.props.destinationId].map;
 
-    console.log('checklists render')
+    // console.log('checklists render')
     
     const viewWidth = 1920;
     const viewHeight = 1080;

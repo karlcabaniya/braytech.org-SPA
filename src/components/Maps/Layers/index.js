@@ -208,7 +208,6 @@ class Layers extends React.Component {
     }
   }
 }
-
 class BackgroundLayer extends React.Component {
   constructor(props) {
     super(props);
