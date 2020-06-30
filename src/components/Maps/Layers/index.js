@@ -313,12 +313,16 @@ class BackgroundLayer extends React.Component {
 
   init = async () => {
     try {
+      if (!maps[this.props.destinationId].map.layers.filter(l => l.type === 'background').length) return;
+
       this.setState({ loading: true, error: false });
 
       const layers = this.state.layers.map((layer) => ({
         ...layer,
         ...maps[this.props.destinationId].map.layers.find((l) => l.id === layer.id),
       }));
+
+      // console.log(layers)
 
       const blobs = (layers.filter((l) => l.blob).length < 2 && (await this.load(layers))) || layers;
       const tinted = blobs && (await this.tint(blobs));
@@ -332,7 +336,7 @@ class BackgroundLayer extends React.Component {
         }));
       }
 
-      // console.log('background layers composited');
+      console.log('background layers composited');
     } catch (e) {
       console.log(e);
 

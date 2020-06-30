@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
+import { neverProfileLinks } from '../utils/destinyUtils';
+
 function BuildProfileLink(props) {
   const { to, className, children, component, member, onClick, isActive, exact } = props;
   const LinkComponent = component || Link;
@@ -42,13 +44,8 @@ export const ProfileNavLink = BuildProfileNavLink;
 
 // https://reacttraining.com/react-router/web/api/NavLink/isactive-func
 
-
-
 // //.filter((v) => (perViewRouteVisibility[utils.pathSubDir(location)] ? (!v.hidden ? perViewRouteVisibility[utils.pathSubDir(location)].indexOf(v.path) > -1 : true) : true))
 
 // const perViewRouteVisibility = {
 //   maps: ['/checklists', '/maps', '/quests', '/settings'],
 // };
-
-
-export const neverProfileLinks = ['/maps', '/vaulted'];

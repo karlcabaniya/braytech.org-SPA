@@ -9,7 +9,6 @@ import { Map } from 'react-leaflet';
 
 import maps from '../../data/maps';
 
-import * as ls from '../../utils/localStorage';
 import { resolveMap, getMapCenter } from '../../utils/maps';
 import { checklists, checkup } from '../../utils/checklists';
 
@@ -23,7 +22,7 @@ import Speciality from './Nodes/Speciality';
 import Characters from './Controls/Characters';
 import Destinations from './Controls/Destinations';
 import Inspect from './Controls/Inspect';
-import DataLayers from './Controls/DataLayers';
+// import DataLayers from './Controls/DataLayers';
 
 import './styles.css';
 
@@ -35,7 +34,6 @@ class Maps extends React.Component {
     viewport: undefined,
     ui: {
       destinations: false,
-      characters: false,
       layers: {
         checklists: [
           {
@@ -279,48 +277,6 @@ class Maps extends React.Component {
     }));
   };
 
-  handler_changeCharacterId = (e) => {
-    const characterId = e.currentTarget.dataset.characterid;
-
-    const { member } = this.props;
-
-    if (member.characterId === characterId) {
-      this.setState((p) => {
-        if (p.ui.characters) {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              characters: false,
-            },
-          };
-        } else {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              characters: true,
-            },
-          };
-        }
-      });
-    } else {
-      this.setState((p) => {
-        return {
-          ...p,
-          ui: {
-            ...p.ui,
-            characters: false,
-          },
-        };
-      });
-
-      this.props.changeCharacterId({ membershipType: member.membershipType, membershipId: member.membershipId, characterId });
-
-      ls.set('setting.profile', { membershipType: member.membershipType, membershipId: member.membershipId, characterId });
-    }
-  };
-
   handler_map_layersReady = () => {
     this.setState({ loading: false });
   };
@@ -384,7 +340,7 @@ class Maps extends React.Component {
   };
 
   render() {
-    const { member, viewport, settings, params } = this.props;
+    const { viewport, settings, params } = this.props;
 
     const destination = resolveMap(params.map);
     const map = maps[destination.destinationId].map;
@@ -399,18 +355,22 @@ class Maps extends React.Component {
           <BackgroundLayer {...destination} />
         </div>
         <Map center={this.state.viewport.center} zoom={this.state.viewport.zoom} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
+          {/* the Maps */}
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
+          {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
           <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Checklists... */}
           <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
           <Runtime {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Latent memory fragments on Mars, etc. */}
           <Speciality {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
-          {/* <CharacterActivities {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />
         <div className='controls left'>
-          <Characters visible={this.state.ui.characters} handler={this.handler_changeCharacterId} />
+          <Characters />
           <Destinations {...destination} visible={this.state.ui.destinations} handler={this.handler_toggleDestinationsList} />
-          <DataLayers {...destination} lists={this.state.ui.layers.checklists} handler={this.handler_toggleLayer} />
+          {/* <DataLayers {...destination} lists={this.state.ui.layers.checklists} handler={this.handler_toggleLayer} /> */}
         </div>
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
@@ -421,7 +381,6 @@ class Maps extends React.Component {
 function mapStateToProps(state) {
   return {
     settings: state.settings,
-    member: state.member,
     viewport: state.viewport,
   };
 }
@@ -430,9 +389,6 @@ function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
       dispatch({ type: 'REBIND_TOOLTIPS' });
-    },
-    changeCharacterId: (payload) => {
-      dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload });
     },
     setScrollbars: (payload) => {
       dispatch({ type: 'SET_SCROLLBARS', payload });
