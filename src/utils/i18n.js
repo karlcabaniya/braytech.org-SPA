@@ -52,6 +52,8 @@ i18next.setCurrentLanguage = setCurrentLanguage;
 
 export default i18next;
 
+export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
+
 export function getLanguageInfo(code) {
   switch (code) {
     case 'debug':
@@ -133,8 +135,6 @@ export function getLanguageInfo(code) {
       return { code: code };
   }
 }
-
-export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
 
 const durationKeys = {
   months: {

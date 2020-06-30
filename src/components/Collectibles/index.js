@@ -131,7 +131,7 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={definitionCollectible.hash}
-                    className={cx('redacted', {
+                    className={cx('linked', 'redacted', {
                       highlight: highlight === definitionCollectible.hash,
                     })}
                     data-tooltip
@@ -156,7 +156,7 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={c}
-                    className={cx('item', {
+                    className={cx('linked', 'item', {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                       selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
@@ -240,7 +240,7 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx('redacted', {
+                  className={cx('linked', 'redacted', {
                     highlight: highlight === definitionCollectible.hash,
                   })}
                   data-tooltip
@@ -268,7 +268,7 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
+                  className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                     selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
@@ -337,7 +337,7 @@ class Collectibles extends React.Component {
           element: (
             <li
               key={definitionCollectible.hash}
-              className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
+              className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
                 selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
