@@ -8,7 +8,9 @@ import { destinations } from '../../../../utils/maps';
 import maps from '../../../../data/maps';
 
 class Destinations extends React.Component {
-  state = {};
+  state = {
+    expanded: false,
+  };
 
   componentDidMount() {
     this.mounted = true;
@@ -18,9 +20,17 @@ class Destinations extends React.Component {
     this.mounted = false;
   }
 
+  handler_onClick = (e) => {
+    if (this.state.expanded) {
+      this.setState({ expanded: false });
+    } else {
+      this.setState({ expanded: true });
+    }
+  };
+
   render() {
     return (
-      <div className={cx('control', 'destinations', { visible: this.props.visible })}>
+      <div className={cx('control', 'destinations', { visible: this.state.expanded })}>
         <ul className='list'>
           {destinations
             //.filter((d) => d.type === 'map')
@@ -46,7 +56,7 @@ class Destinations extends React.Component {
                   <div className='text'>
                     <div className='name'>{string || desto.destinationId}</div>
                   </div>
-                  <Link to={`/maps/${maps[desto.destinationId].destination.id}`} onClick={this.props.handler}></Link>
+                  <Link to={`/maps/${maps[desto.destinationId].destination.id}`} onClick={this.handler_onClick}></Link>
                 </li>
               );
             })}

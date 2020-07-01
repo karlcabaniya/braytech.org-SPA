@@ -53,6 +53,8 @@ class Scene extends Component {
     error: false,
   };
 
+  ref_mount = React.createRef();
+
   componentDidMount() {
     this.scene();
   }
@@ -62,7 +64,7 @@ class Scene extends Component {
 
     this.stop();
 
-    this.mount.removeChild(this.renderer.domElement);
+    this.ref_mount.current.removeChild(this.renderer.domElement);
   }
 
   scene = async () => {
@@ -102,7 +104,7 @@ class Scene extends Component {
 
     this.scene.add(this.group);
 
-    this.mount.appendChild(this.renderer.domElement);
+    this.ref_mount.current.appendChild(this.renderer.domElement);
 
     window.addEventListener('resize', this.handleResize, false);
 
@@ -182,8 +184,8 @@ class Scene extends Component {
   };
 
   handleResize = () => {
-    const width = this.mount.clientWidth;
-    const height = this.mount.clientHeight;
+    const width = this.ref_mount.current.clientWidth;
+    const height = this.ref_mount.current.clientHeight;
 
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
@@ -228,15 +230,10 @@ class Scene extends Component {
     const { loading, error } = this.state;
 
     return (
-      <div className='scene'>
+      <>
         {/* {loading ? <Spinner /> : null} */}
-        <div
-          className='render'
-          ref={(mount) => {
-            this.mount = mount;
-          }}
-        />
-      </div>
+        <div className='render' ref={this.ref_mount} />
+      </>
     );
   }
 }

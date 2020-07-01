@@ -1,14 +1,79 @@
 {
   "director": {
-    "type": "special",
+    "type": "graph",
     "destination": {
       "id": "director"
     },
     "map": {
       "width": 1920,
       "height": 1080,
-      "zoom": 0,
+      "center": {
+        "x": 0,
+        "y": 0
+      },
       "layers": [
+        {
+          "id": "map",
+          "type": "map",
+          "x": -320,
+          "y": -180,
+          "width": 2560,
+          "height": 1440,
+          "image": "/static/images/extracts/maps/director/background/01e3-00001306.jpg",
+          "opacity": 0.5
+        },
+        {
+          "id": "earth",
+          "x": 0,
+          "y": -180,
+          "width": 320,
+          "height": 320,
+          "scale": 0.96,
+          "nodes": [
+            {
+              "type": "model",
+              "y": 2,
+              "width": 320,
+              "height": 320,
+              "image": "/static/images/extracts/maps/director/earth/render_1542208405700.png",
+              "textures": {
+                "map": {
+                  "width": 648,
+                  "height": 324,
+                  "opacity": 4,
+                  "image": "/static/images/extracts/maps/director/earth/01a3-00000743_1.png"
+                },
+                "overlay": {
+                  "width": 345,
+                  "height": 345,
+                  "repeat": {
+                    "s": 2,
+                    "t": 1
+                  },
+                  "image": "/static/images/extracts/maps/director/earth/01a3-00000836_1.png"
+                }
+              },
+              "light": "top",
+              "speed": -0.3
+            },
+            {
+              "id": "glow",
+              "x": 2,
+              "y": 34,
+              "width": 960,
+              "height": 800,
+              "image": "/static/images/extracts/maps/director/earth/01a3-000003B6_1.png"
+            },
+            {
+              "id": "outline",
+              "x": 0,
+              "y": 0,
+              "width": 640,
+              "height": 640,
+              "image": "/static/images/extracts/maps/director/earth/01a3-000003B8_1.png"
+            }
+          ]
+        },
         {
           "id": "io",
           "x": 139,
@@ -67,59 +132,6 @@
               "width": 320,
               "height": 320,
               "image": "/static/images/extracts/maps/director/io/01a3-000003BC_1.png"
-            }
-          ]
-        },
-        {
-          "id": "earth",
-          "x": 810,
-          "y": 454,
-          "width": 320,
-          "height": 320,
-          "scale": 0.96,
-          "page": "earth",
-          "nodes": [
-            {
-              "type": "model",
-              "y": 2,
-              "width": 320,
-              "height": 320,
-              "image": "/static/images/extracts/maps/director/earth/render_1542208405700.png",
-              "textures": {
-                "map": {
-                  "width": 648,
-                  "height": 324,
-                  "opacity": 4,
-                  "image": "/static/images/extracts/maps/director/earth/01a3-00000743_1.png"
-                },
-                "overlay": {
-                  "width": 345,
-                  "height": 345,
-                  "repeat": {
-                    "s": 2,
-                    "t": 1
-                  },
-                  "image": "/static/images/extracts/maps/director/earth/01a3-00000836_1.png"
-                }
-              },
-              "light": "top",
-              "speed": -0.3
-            },
-            {
-              "id": "glow",
-              "x": 2,
-              "y": 34,
-              "width": 960,
-              "height": 800,
-              "image": "/static/images/extracts/maps/director/earth/01a3-000003B6_1.png"
-            },
-            {
-              "id": "outline",
-              "x": 0,
-              "y": 0,
-              "width": 640,
-              "height": 640,
-              "image": "/static/images/extracts/maps/director/earth/01a3-000003B8_1.png"
             }
           ]
         },
@@ -392,24 +404,6 @@
           ]
         },
         {
-          "id": "dreaming-city-placeholder",
-          "x": 1576,
-          "y": 330,
-          "width": 178,
-          "height": 178,
-          "visible": false,
-          "nodes": [
-            {
-              "id": "outline",
-              "x": 0,
-              "y": 0,
-              "width": 212,
-              "height": 212,
-              "image": "/static/images/extracts/maps/director/dreaming-city-placeholder/01e3-000012a7.png"
-            }
-          ]
-        },
-        {
           "id": "dreaming-city",
           "x": 1621,
           "y": 420,
@@ -466,67 +460,6 @@
               "height": 850,
               "opacity": 0.6,
               "image": "/static/images/extracts/maps/director/tangled-shore-clouds/01e3-000012f2.png"
-            }
-          ]
-        },
-        {
-          "id": "tangled-shore-placeholder",
-          "x": 1429,
-          "y": 601,
-          "width": 138,
-          "height": 138,
-          "visible": false,
-          "nodes": [
-            {
-              "id": "outer-background",
-              "class": "rotate-left",
-              "x": 8,
-              "y": 3,
-              "width": 560,
-              "height": 556,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01e3-000012f3.png"
-            },
-            {
-              "id": "inner-background",
-              "class": "rotate-right",
-              "x": 0,
-              "y": 0,
-              "width": 117,
-              "height": 117,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01a3-00001d8f.png"
-            },
-            {
-              "id": "inner-overlay",
-              "class": "rotate-left",
-              "x": 0,
-              "y": 0,
-              "width": 272,
-              "height": 270,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01a3-00001d91.png"
-            },
-            {
-              "id": "inner-icon",
-              "x": 0,
-              "y": 0,
-              "width": 87,
-              "height": 87,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01a3-00001d89.png"
-            },
-            {
-              "id": "debris-a",
-              "x": 68,
-              "y": -100,
-              "width": 342,
-              "height": 242,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01e3-000012eb.png"
-            },
-            {
-              "id": "debris-b",
-              "x": 7,
-              "y": -135,
-              "width": 613,
-              "height": 192,
-              "image": "/static/images/extracts/maps/director/tangled-shore-placeholder/01e3-000012e8.png"
             }
           ]
         },

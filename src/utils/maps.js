@@ -132,10 +132,10 @@ export function getMapCenter(destinationId) {
 }
 
 export const destinations = [
-  {
-    type: 'special',
-    destinationId: 'director',
-  },
+  // {
+  //   type: 'graph',
+  //   destinationId: 'director',
+  // },
   {
     type: 'map',
     destinationId: 'fields-of-glass',
