@@ -51,7 +51,6 @@ class Checklists extends React.Component {
   componentDidMount() {
     this.mounted = true;
 
-    console.log('%cbinding', "color:lime")
     this.props.rebindTooltips();
   }
 
@@ -59,50 +58,12 @@ class Checklists extends React.Component {
     this.mounted = false;
   }
 
-  componentDidUpdate(p, s) {
-
-    Object.entries(this.props).forEach(([key, val]) =>
-      p[key] !== val && console.log(`%cProp '${key}' changed`, "color:yellow")
-    );
-    if (this.state) {
-      Object.entries(this.state).forEach(([key, val]) =>
-        s[key] !== val && console.log(`%cState '${key}' changed`, "color:yellow")
-      );
-    }
-    
+  componentDidUpdate(p) {
     if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
-      console.log('hello')
       this.setLists();
     }
-
-    if (this.mounted && (s.lists !== this.state.lists || p.selected !== this.props.selected || p.highlight !== this.props.highlight)) {
-      this.props.rebindTooltips();
-      console.log('%crebinding', "color:lime")
-    }
-
-    console.log(`selected: `, p.selected === this.props.selected)
-
-    console.log('-----------')
-  }
-
-  shouldComponentUpdate(p, s) {
-    if (p.member.updated !== this.props.member.updated) {
-      return true;
-    }
-
-    if (p.member.characterId !== this.props.member.characterId) {
-      return true;
-    }
-
-    if (p.selected !== this.props.selected) {
-      return true;
-    }
-
-    if (p.highlight !== this.props.highlight) {
-      return true;
-    }
-
-    return false;
+    
+    this.props.rebindTooltips();
   }
 
   setLists = () => {
@@ -127,8 +88,6 @@ class Checklists extends React.Component {
     if (maps[this.props.destinationId].type !== 'map') return null;
 
     const map = maps[this.props.destinationId].map;
-
-    console.log('checklists render');
 
     const viewWidth = 1920;
     const viewHeight = 1080;
@@ -202,7 +161,6 @@ class Checklists extends React.Component {
 function mapStateToProps(state) {
   return {
     settings: state.settings,
-    viewport: state.viewport,
     member: state.member,
   };
 }
