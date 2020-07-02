@@ -37,8 +37,12 @@ function Vendor(props) {
     async function request() {
       const response = await getVendor(member.membershipType, member.membershipId, member.characterId, props.vendorHash);
 
-      if (mounted) {
-        setData({ loading: false, error: false, response });
+      if (mounted && response?.ErrorCode === 1) {
+        setData({ loading: false, error: false, response: response.Response });
+      } else if (mounted && response?.ErrorCode) {
+        setData({ loading: false, error: response.Message });
+      } else {
+        setData({ loading: false, error: true });
       }
     }
 
@@ -116,7 +120,7 @@ function Vendor(props) {
       {destinationString ? <div className='destination'>{destinationString}</div> : null}
       <div className='buffer'>
         {data.loading ? (
-          <div className='loading'>
+          <div className='waiting'>
             <Spinner />
           </div>
         ) : data.response ? (
@@ -134,9 +138,9 @@ function Vendor(props) {
               return null;
             }
           })
-        ) : (
-          <div className='info'>{t('Auth.Suggestion.Subtle')}</div>
-        )}
+        ) : data.error && typeof data.error === 'string' ? (
+          <div className='info'>{data.error === 'auth' ? t('Auth.Suggestion.Subtle') : data.error}</div>
+        ) : null}
       </div>
     </div>
   );

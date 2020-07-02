@@ -209,6 +209,11 @@
   grid-template-columns: repeat(auto-fill, 64px);
 }
 
+.map-omega .control.inspector.vendor .buffer .waiting {
+  display: grid;
+  justify-content: center;
+}
+
 .map-omega .control.inspector.vendor .buffer .info {
   text-align: center;
 }

@@ -63,11 +63,11 @@ class Runtime extends React.Component {
         const offsetY = markerOffsetY + point.y;
 
         if (node.nodeType === 'patrol-boss') {
-          const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon });
+          const icon = marker.icon({ hash: node.nodeHash, type: 'maps' }, ['patrol-boss', node.screenshot ? 'has-screenshot' : ''], { icon: node.icon, selected });
 
           return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
         } else if (node.nodeType === 'vendor') {
-          const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor' });
+          const icon = marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor', node.screenshot ? 'has-screenshot' : ''], { icon: 'vendor', selected: this.props.selected.vendorHash === node.vendorHash });
 
           return <Marker key={i} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' onClick={this.props.handler({ vendorHash: node.vendorHash })} />;
         } else if (node.nodeType === 'portal') {

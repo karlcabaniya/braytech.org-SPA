@@ -34,10 +34,16 @@ class VendorSpiderMaterials extends React.Component {
     }
   }
 
-  getVendor = async hash => {
-    const { member } = this.props;
-
-    const response = await bungie.GetVendor(member.membershipType, member.membershipId, member.characterId, hash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
+  getVendor = async vendorHash => {
+    const response = await bungie.GetVendor({
+      params: {
+        membershipType: this.props.member.membershipType,
+        membershipId: this.props.member.membershipId,
+        characterId: this.props.member.characterId,
+        vendorHash,
+        components: [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','),
+      }
+    });
 
     if (response && response.ErrorCode === 1 && response.Response) {
       this.setState({

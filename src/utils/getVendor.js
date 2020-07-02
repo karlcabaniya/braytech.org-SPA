@@ -23,17 +23,24 @@ async function getVendor(membershipType, membershipId, characterId, vendorHash) 
   ];
   
   try {
-    const response = await bungie.GetVendor(membershipType, membershipId, characterId, vendorHash, components.join(','));
+    const response = await bungie.GetVendor({
+      params: {
+        membershipType,
+        membershipId,
+        characterId,
+        vendorHash,
+        components: components.join(','),
+      },
+      errors: {
+        hide: true
+      }
+    });
 
-    if (response && response.ErrorCode === 1 && response.Response) {
-      return response.Response;
-    }
-    
-    throw new Error(response);
+    return response;
   } catch(e) {
     console.log(e);
 
-    return false;
+    return e;
   }
     
 }

@@ -1,86 +1,117 @@
 {
   "de": {
     "translated": 732,
-    "notTranslated": 3,
-    "added": [],
+    "notTranslated": 4,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 735,
+    "translated": 736,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "en": {
-    "translated": 735,
+    "translated": 736,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 735,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "es": {
     "translated": 735,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 112,
-    "added": [],
+    "notTranslated": 113,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "it": {
     "translated": 714,
-    "notTranslated": 21,
-    "added": [],
+    "notTranslated": 22,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "ja": {
     "translated": 602,
-    "notTranslated": 133,
-    "added": [],
+    "notTranslated": 134,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 221,
-    "added": [],
+    "notTranslated": 222,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 733,
-    "added": [],
-    "removed": []
+    "notTranslated": 734,
+    "added": [
+      "Auth.Error.Reason",
+      "Auth.Error.Resolution",
+      "Auth.Suggestion.Subtle"
+    ],
+    "removed": [
+      "Some features of Braytech require your written permission to activate, generally to protect your privacy.",
+      "To use this feature, please tell Bungie that you approve. No personal information is shared by doing so—only an authentication code with which you may interact with more API endpoints."
+    ]
   },
   "pt-br": {
     "translated": 707,
-    "notTranslated": 28,
-    "added": [],
+    "notTranslated": 29,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "ru": {
     "translated": 735,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 1,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 508,
-    "notTranslated": 227,
-    "added": [],
+    "notTranslated": 228,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 386,
-    "added": [],
+    "notTranslated": 387,
+    "added": [
+      "Auth.Suggestion.Subtle"
+    ],
     "removed": []
   }
 }

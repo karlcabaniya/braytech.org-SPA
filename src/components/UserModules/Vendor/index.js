@@ -38,7 +38,15 @@ class Vendor extends React.Component {
   }
 
   getVendor = async (vendorHash = 672118013) => {
-    const response = await bungie.GetVendor(this.props.member.membershipType, this.props.member.membershipId, this.props.member.characterId, vendorHash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
+    const response = await bungie.GetVendor({
+      params: {
+        membershipType: this.props.member.membershipType,
+        membershipId: this.props.member.membershipId,
+        characterId: this.props.member.characterId,
+        vendorHash,
+        components: [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','),
+      }
+    });
 
     if (response && response.ErrorCode === 1 && response.Response) {
       if (this.mounted) {
