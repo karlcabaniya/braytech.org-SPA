@@ -84,6 +84,8 @@ function findChecklistItems(search) {
 }
 
 export function cartographer(search) {
+  if (!search) return {};
+
   const state = store.getState();
 
   const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
@@ -194,7 +196,7 @@ export const destinations = [
   },
 ];
 
-export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash }) {
+export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash, vendorHash }) {
   if (checklistHash) {
     return {
       key: 'checklistHash',
@@ -214,6 +216,11 @@ export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash
     return {
       key: 'activityHash',
       value: activityHash,
+    };
+  } else if (vendorHash) {
+    return {
+      key: 'vendorHash',
+      value: vendorHash,
     };
   }
 }

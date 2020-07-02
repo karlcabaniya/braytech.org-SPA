@@ -1,8 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
 import cx from 'classnames';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
 
 import { t, BungieText, unavailableString } from '../../../../utils/i18n';
 import manifest from '../../../../utils/manifest';
@@ -10,7 +9,7 @@ import { cartographer, findNodeType, locationStrings, screenshotFilename } from 
 import ObservedImage from '../../../ObservedImage';
 import Records from '../../../Records';
 import Button from '../../../UI/Button';
-import { Maps } from '../../../../svg';
+import { Maps, Tooltips } from '../../../../svg';
 
 import ProposeChanges from './ProposeChanges';
 
@@ -19,8 +18,6 @@ import './styles.css';
 function unify(props) {
   const type = findNodeType(props);
   const node = cartographer(type);
-
-  console.log(node);
 
   if (type.key === 'checklistHash' || type.key === 'recordHash') {
     const { destinationString, withinString } = locationStrings(node);
@@ -78,6 +75,14 @@ function unify(props) {
       destinationString,
       withinString,
     };
+  } else if (type.key === 'vendorHash') {
+    const { destinationString, withinString } = locationStrings(node);
+
+    return {
+      ...node,
+      destinationString,
+      withinString,
+    };
   } else {
     return {
       displayProperties: {},
@@ -88,10 +93,110 @@ function unify(props) {
   }
 }
 
-function Inspect(props) {
+function Node(props) {
+  const location = useLocation();
+  const unified = unify(props);
+
+  return (
+    <div className='wrapper'>
+      <div className='screenshot'>
+        {unified.screenshot ? (
+          <ObservedImage src={unified.screenshot}>
+            {unified.extended?.screenshot?.highlight ? (
+              <div className='highlight' style={{ left: `${unified.extended.screenshot.highlight.x}%`, top: `${unified.extended.screenshot.highlight.y}%` }}>
+                <Maps.ScreenshotHighlight />
+              </div>
+            ) : null}
+          </ObservedImage>
+        ) : (
+          <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
+        )}
+      </div>
+      {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
+      {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
+      <div className='header'>
+        {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
+        <div className='type'>{unified.type?.name}</div>
+        <div className='name'>{unified.displayProperties?.name}</div>
+        {unified.displayProperties?.description ? <BungieText className='description' value={unified.displayProperties.description} /> : null}
+      </div>
+      {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
+      {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
+      {unified.extended?.video ? (
+        <div className='video'>
+          <div className='text'>{t('This node has an associated video')}</div>
+          <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
+            <div className='text'>{t('View Video')}</div>
+          </a>
+        </div>
+      ) : null}
+      <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
+        {unified.extended?.instructions ? (
+          <>
+            <h4>{t('Instructions')}</h4>
+            <BungieText className='description instructions' value={unified.extended.instructions} />
+          </>
+        ) : null}
+        {unified.related?.records.length ? (
+          <>
+            <h4>{t('Triumphs')}</h4>
+            <ul className='list record-items'>
+              <Records selfLinkFrom={location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showCompleted showInvisible />
+            </ul>
+          </>
+        ) : null}
+      </div>
+      <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
+    </div>
+  );
+}
+
+function Vendor(props) {
   const unified = unify(props);
 
   console.log(unified);
+
+  const definitionVendor = manifest.DestinyVendorDefinition[props.vendorHash];
+
+  const name = definitionVendor.displayProperties?.name || t('Unknown');
+  const subTitle = definitionVendor.displayProperties?.subtitle;
+  const description = definitionVendor.displayProperties?.description;
+
+  return (
+    <div className='wrapper'>
+      {unified.screenshot ? (
+        <div className='screenshot'>
+          <ObservedImage src={unified.screenshot} />
+        </div>
+      ) : null}
+      <div className='header'>
+        <div className='icon'>
+          <Tooltips.Vendor />
+        </div>
+        <div className='type'>{subTitle}</div>
+        <div className='name'>{name}</div>
+        {description ? <BungieText className='description' value={description} /> : null}
+      </div>
+      {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
+      {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
+      <div className='buffer'></div>
+    </div>
+  );
+}
+
+function Inspect(props) {
+  if (props.vendorHash) {
+    return (
+      <div className='control inspector acrylic'>
+        <div className='close'>
+          <Button action={props.handler}>
+            <i className='segoe-uniE8BB' />
+          </Button>
+        </div>
+        <Vendor {...props} />
+      </div>
+    );
+  }
 
   return (
     <div className='control inspector acrylic'>
@@ -100,74 +205,9 @@ function Inspect(props) {
           <i className='segoe-uniE8BB' />
         </Button>
       </div>
-      <div className='wrapper'>
-        <div className='screenshot'>
-          {unified.screenshot ? (
-            <ObservedImage src={unified.screenshot}>
-              {unified.extended?.screenshot?.highlight ? (
-                <div className='highlight' style={{ left: `${unified.extended.screenshot.highlight.x}%`, top: `${unified.extended.screenshot.highlight.y}%` }}>
-                  <Maps.ScreenshotHighlight />
-                </div>
-              ) : null}
-            </ObservedImage>
-          ) : (
-            <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
-          )}
-        </div>
-        {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
-        {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
-        <div className='header'>
-          {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
-          <div className='type'>{unified.type?.name}</div>
-          <div className='name'>{unified.displayProperties?.name}</div>
-          {unified.displayProperties?.description ? <BungieText className='description' source={unified.displayProperties.description} /> : null}
-        </div>
-        {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
-        {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
-        {unified.extended?.video ? (
-          <div className='video'>
-            <div className='text'>{t('This node has an associated video')}</div>
-            <a className='button' rel='noreferrer noopener' href={unified.extended.video} target='_blank'>
-              <div className='text'>{t('View Video')}</div>
-            </a>
-          </div>
-        ) : null}
-        <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
-          {unified.extended?.instructions ? (
-            <>
-              <h4>{t('Instructions')}</h4>
-              <BungieText className='description instructions' source={unified.extended.instructions} />
-            </>
-          ) : null}
-          {unified.related?.records.length ? (
-            <>
-              <h4>{t('Triumphs')}</h4>
-              <ul className='list record-items'>
-                <Records selfLinkFrom={props.location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showCompleted showInvisible />
-              </ul>
-            </>
-          ) : null}
-        </div>
-        <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
-      </div>
+      <Node {...props} />
     </div>
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    settings: state.settings,
-    member: state.member,
-    viewport: state.viewport,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', });
-    },
-  };
-}
-
-export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(Inspect);
+export default Inspect;
