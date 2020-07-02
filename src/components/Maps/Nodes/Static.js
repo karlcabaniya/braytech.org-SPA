@@ -23,7 +23,7 @@ class Static extends React.Component {
       return true;
     }
 
-    if (p.selected.nodeHash !== this.props.selected.nodeHash) {
+    if (p.selected.nodeHash !== this.props.selected.nodeHash || p.selected.vendorHash !== this.props.selected.vendorHash) {
       return true;
     }
 
@@ -73,7 +73,7 @@ class Static extends React.Component {
 
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'vendor' && node.vendorHash !== 2190858386) {
-          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor' })} zIndexOffset='-1000' onClick={this.props.handler({ vendorHash: node.vendorHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor', selected: node.vendorHash === this.props.selected.vendorHash })} zIndexOffset='-1000' onClick={this.props.handler({ vendorHash: node.vendorHash })} />;
         } else if (node.type === 'fast-travel') {
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'portal') {

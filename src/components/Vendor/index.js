@@ -2,24 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { groupBy } from 'lodash';
 
-import { t } from '../../../utils/i18n';
-import manifest from '../../../utils/manifest';
-import * as bungie from '../../../utils/bungie';
-import Items from '../../../components/Items';
-import Spinner from '../../../components/UI/Spinner';
-import { NoAuth, DiffProfile } from '../../../components/BungieAuth';
+import { t } from '../../utils/i18n';
+import manifest from '../../utils/manifest';
+import getVendor from '../../utils/getVendor';
+import Items from '../../components/Items';
+import Spinner from '../../components/UI/Spinner';
+import { NoAuth, DiffProfile } from '../../components/BungieAuth';
 
 import './styles.css';
 
 class Vendor extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      data: false,
-    };
-  }
+  state = {
+    loading: true,
+    data: false,
+  };
 
   componentDidMount() {
     this.mounted = true;
@@ -38,13 +34,13 @@ class Vendor extends React.Component {
   }
 
   getVendor = async (vendorHash = 672118013) => {
-    const response = await bungie.GetVendor(this.props.member.membershipType, this.props.member.membershipId, this.props.member.characterId, vendorHash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
+    const response = await getVendor(this.props.member.membershipType, this.props.member.membershipId, this.props.member.characterId, vendorHash);
 
-    if (response && response.ErrorCode === 1 && response.Response) {
+    if (response) {
       if (this.mounted) {
         this.setState({
           loading: false,
-          data: response.Response,
+          data: response,
         });
       }
     } else {
@@ -71,15 +67,7 @@ class Vendor extends React.Component {
     const definitionVendor = manifest.DestinyVendorDefinition[vendorHash];
 
     if (auth && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId) && this.state.loading) {
-      return (
-        <div className='user-module vendor'>
-          <div className='sub-header'>
-            <div>{t('Vendor')}</div>
-          </div>
-          <h3>{definitionVendor.displayProperties.name}</h3>
-          <Spinner />
-        </div>
-      );
+      return <Spinner />;
     }
 
     const groupedSales = groupBy(
@@ -89,7 +77,7 @@ class Vendor extends React.Component {
               const sale = this.state.data.sales.data[key];
 
               // if it's one of those nonsense categories such as redeeming tokens, omit
-              if (definitionVendor.displayCategories?.[definitionVendor.itemList?.[sale.vendorItemIndex]?.displayCategoryIndex]?.displayCategoryHash === 3960628832) return false;
+              if (definitionVendor.displayCategories?.[definitionVendor.itemList?.[sale.vendorItemIndex].displayCategoryIndex].displayCategoryHash === 3960628832) return false;
 
               return true;
             })
@@ -106,30 +94,20 @@ class Vendor extends React.Component {
       (sale) => sale.displayCategoryIndex
     );
 
-    if (vendorHash === 2398407866) console.log(groupedSales);
-
-    return (
-      <div className='user-module vendor'>
-        <div className='sub-header'>
-          <div>{t('Vendor')}</div>
-        </div>
-        <h3>{definitionVendor.displayProperties.name}</h3>
-        {definitionVendor.displayCategories.map((category, c) => {
-          if (groupedSales[category.index]) {
-            return (
-              <React.Fragment key={c}>
-                <h4>{category.displayProperties.name}</h4>
-                <ul className='list inventory-items'>
-                  <Items items={groupedSales[category.index]} />
-                </ul>
-              </React.Fragment>
-            );
-          } else {
-            return null;
-          }
-        })}
-      </div>
-    );
+    return definitionVendor.displayCategories.map((category, c) => {
+      if (groupedSales[category.index]) {
+        return (
+          <React.Fragment key={c}>
+            <h4>{category.displayProperties.name}</h4>
+            <ul className='list inventory-items'>
+              <Items items={groupedSales[category.index]} />
+            </ul>
+          </React.Fragment>
+        );
+      } else {
+        return null;
+      }
+    });
   }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
 import cx from 'classnames';
 
@@ -9,9 +8,10 @@ import { cartographer, findNodeType, locationStrings, screenshotFilename } from 
 import ObservedImage from '../../../ObservedImage';
 import Records from '../../../Records';
 import Button from '../../../UI/Button';
-import { Maps, Tooltips } from '../../../../svg';
+import { Maps } from '../../../../svg';
 
 import ProposeChanges from './ProposeChanges';
+import Vendor from './Vendor';
 
 import './styles.css';
 
@@ -72,14 +72,6 @@ function unify(props) {
       },
       screenshot: `https://www.bungie.net${definitionActivity.pgcrImage}`,
       activityLightLevel: definitionActivity.activityLightLevel,
-      destinationString,
-      withinString,
-    };
-  } else if (type.key === 'vendorHash') {
-    const { destinationString, withinString } = locationStrings(node);
-
-    return {
-      ...node,
       destinationString,
       withinString,
     };
@@ -151,43 +143,10 @@ function Node(props) {
   );
 }
 
-function Vendor(props) {
-  const unified = unify(props);
-
-  console.log(unified);
-
-  const definitionVendor = manifest.DestinyVendorDefinition[props.vendorHash];
-
-  const name = definitionVendor.displayProperties?.name || t('Unknown');
-  const subTitle = definitionVendor.displayProperties?.subtitle;
-  const description = definitionVendor.displayProperties?.description;
-
-  return (
-    <div className='wrapper'>
-      {unified.screenshot ? (
-        <div className='screenshot'>
-          <ObservedImage src={unified.screenshot} />
-        </div>
-      ) : null}
-      <div className='header'>
-        <div className='icon'>
-          <Tooltips.Vendor />
-        </div>
-        <div className='type'>{subTitle}</div>
-        <div className='name'>{name}</div>
-        {description ? <BungieText className='description' value={description} /> : null}
-      </div>
-      {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
-      {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
-      <div className='buffer'></div>
-    </div>
-  );
-}
-
 function Inspect(props) {
   if (props.vendorHash) {
     return (
-      <div className='control inspector acrylic'>
+      <div className='control inspector vendor acrylic'>
         <div className='close'>
           <Button action={props.handler}>
             <i className='segoe-uniE8BB' />
