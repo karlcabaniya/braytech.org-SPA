@@ -8,7 +8,7 @@ import { Maps } from '../../../../svg';
 import maps from '../../../../data/maps';
 import * as marker from '../../markers';
 
-import World from '../../../Three/World/Scene';
+// import World from '../../../Three/World/Scene';
 
 function Director() {
   console.log('render director :<');

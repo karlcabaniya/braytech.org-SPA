@@ -34,8 +34,10 @@ class Tooltip extends React.Component {
   currentTarget = null;
 
   doSetState = (e) => {
+    // console.log(this.currentTarget, e.currentTarget, this.currentTarget === e.currentTarget, e.currentTarget.dataset, this.state);
+
     this.currentTarget = e.currentTarget;
-    // console.log('hello')
+    
     this.setState({
       hash: e.currentTarget.dataset.hash,
       type: e.currentTarget.dataset.type,
@@ -126,7 +128,7 @@ class Tooltip extends React.Component {
     }
   };
 
-  helper_targetPointerOver = (e) => {
+  helper_targetPointerEnter = (e) => {
     // this handler is for mice only
     if (e.pointerType === 'touch') {
       return;
@@ -141,7 +143,7 @@ class Tooltip extends React.Component {
     }
   };
 
-  helper_targetPointerOut = (e) => {
+  helper_targetPointerLeave = (e) => {
     // this handler is for mice only
     if (e.pointerType === 'touch') {
       return;
@@ -165,8 +167,8 @@ class Tooltip extends React.Component {
       // touch
       target.addEventListener('pointerup', this.helper_targetPointerUp);
       // mice
-      target.addEventListener('pointerover', this.helper_targetPointerOver);
-      target.addEventListener('pointerout', this.helper_targetPointerOut);
+      target.addEventListener('pointerenter', this.helper_targetPointerEnter);
+      target.addEventListener('pointerleave', this.helper_targetPointerLeave);
     });
   };
 

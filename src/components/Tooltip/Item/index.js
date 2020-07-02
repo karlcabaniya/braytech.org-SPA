@@ -190,7 +190,7 @@ function Item(props) {
                 <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
               </div>
             ) : null}
-            {woolworths[item.type] ? <Meat {...props.member} {...item} /> : <Default {...props.member} {...item} />}
+            {woolworths[item.type] ? <Meat {...item} /> : <Default {...item} />}
           </div>
         </div>
       </div>

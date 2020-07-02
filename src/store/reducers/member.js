@@ -10,8 +10,53 @@ const defaultState = {
   prevData: false,
   loading: false,
   stale: false,
-  error: false
+  error: false,
 };
+
+function getCharacterId(state, data) {
+  return (
+    // use specified characterId
+    state.characterId ||
+    // get a fallback characterId
+    data.profile.characters.data?.[0]?.characterId ||
+    // got nothin'
+    false
+  );
+}
+
+function getMemberDataShape(data) {
+  return {
+    profile: data.profile.Response,
+    groups: {
+      // deliver the groups response unprepared
+      ...data.groups.Response,
+      // mold the group data into something more appealing
+      clan: data.groups.Response?.results?.[0] && {
+        // adjust the shape
+        ...data.groups.Response.results[0].group,
+        self: data.groups.Response.results[0].member,
+      },
+    },
+    milestones: data.milestones.Response,
+    currencies: {
+      // all the ? helps to ensure that no matter what the sprea won't break
+      ...data.profile.Response?.profileInventory?.data?.items?.reduce(
+        (consumables, consumable) => ({
+          ...consumables,
+          [consumable.itemHash]: consumable,
+        }),
+        {}
+      ),
+      ...data.profile.Response?.profileCurrencies?.data?.items?.reduce(
+        (currencies, currency) => ({
+          ...currencies,
+          [currency.itemHash]: currency,
+        }),
+        {}
+      ),
+    },
+  };
+}
 
 // Wrapper function for loadMember that lets it run asynchronously, but
 // means we don't have to add `async` to our reducer (which is bad)
@@ -26,14 +71,14 @@ function loadMemberAndReset(membershipType, membershipId, characterId) {
     prevData: false,
     loading: true,
     error: false,
-    stale: false
+    stale: false,
   };
 }
 
 async function loadMember(membershipType, membershipId, characterId) {
   // Note: while calling store.dispatch from within a reducer is an anti-pattern,
   // calling one asynchronously (eg as a result of a fetch) is just fine.
-  
+
   try {
     const data = await getMember(membershipType, membershipId);
 
@@ -47,42 +92,31 @@ async function loadMember(membershipType, membershipId, characterId) {
     // console.log('member reducer', data);
 
     if (!data.profile.ErrorCode || data.profile.ErrorCode !== 1) {
-        
       store.dispatch({ type: 'MEMBER_LOAD_ERROR', payload: { membershipId, membershipType, error: { ...data.profile } } });
 
       if (data.profile.ErrorCode) {
         throw {
-          ...data.profile
-        }
+          ...data.profile,
+        };
       } else {
         throw Error('BUNGIE');
       }
     }
 
     // Requested characterId was not found -> maybe it's been deleted
-    if (data.profile && characterId && !data.profile.Response.characters.data.filter(c => c.characterId === characterId).length) {
+    if (data.profile && characterId && !data.profile.Response.characters.data.filter((c) => c.characterId === characterId).length) {
       store.dispatch({
         type: 'MEMBER_LOAD_ERROR',
         payload: {
           membershipId,
           membershipType,
           characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
-          data: {
-            profile: data.profile.Response,
-            groups: {
-              ...data.groups.Response,
-              clan: data.groups.Response?.results?.[0] && {
-                ...data.groups.Response?.results?.[0].group,
-                self: data.groups.Response?.results?.[0].member
-              }
-            },
-            milestones: data.milestones.Response
-          },
+          data: getMemberDataShape(data),
           error: {
             ErrorCode: 'character_unavailable',
-            recoverable: true
-          }
-        }
+            recoverable: true,
+          },
+        },
       });
 
       return;
@@ -94,33 +128,21 @@ async function loadMember(membershipType, membershipId, characterId) {
         membershipId,
         membershipType,
         characterId,
-        data: {
-          profile: data.profile.Response,
-          groups: {
-            ...data.groups.Response,
-            clan: data.groups.Response?.results?.[0] && {
-              ...data.groups.Response.results[0].group,
-              self: data.groups.Response.results[0].member
-            }
-          },
-          milestones: data.milestones.Response
-        }
-      }
+        data: getMemberDataShape(data),
+      },
     });
 
     voluspa.PostMember({ membershipId, membershipType });
-
   } catch (error) {
-
     store.dispatch({ type: 'MEMBER_LOAD_ERROR', payload: { membershipId, membershipType, error } });
-    
+
     return;
   }
 }
 
 export default function memberReducer(state = defaultState, action) {
   const now = new Date().getTime();
-  
+
   // if (process.env.NODE_ENV === 'development') console.log(action);
 
   if (!action.payload) return state;
@@ -163,7 +185,7 @@ export default function memberReducer(state = defaultState, action) {
       return {
         ...state,
         characterId,
-        error: false
+        error: false,
       };
     case 'MEMBER_LOAD_ERROR':
       return {
@@ -171,27 +193,27 @@ export default function memberReducer(state = defaultState, action) {
         characterId,
         data,
         loading: false,
-        error
+        error,
       };
     case 'MEMBER_LOADED':
       return {
         ...state,
-        characterId: state.characterId ? state.characterId : data.profile.characters.data.length && data.profile.characters.data[0].characterId ? data.profile.characters.data[0].characterId : false,
+        characterId: getCharacterId(state, data),
         data: { ...state.data, ...data },
         prevData: state.data,
         loading: false,
         stale: false,
-        updated: now
+        updated: now,
       };
     case 'MEMBER_LOADING':
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     case 'MEMBER_IS_STALE':
       return {
         ...state,
-        stale: true
+        stale: true,
       };
     default:
       return state;

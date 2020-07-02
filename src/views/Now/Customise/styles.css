@@ -59,6 +59,8 @@
   display: grid;
   grid-template-columns: auto min-content;
   row-gap: 6px;
+  white-space: unset;
+  overflow: unset;
 }
 
 #now.customise .group.user .module .text .description {

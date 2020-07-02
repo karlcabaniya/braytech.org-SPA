@@ -1,10 +1,8 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { groupBy } from 'lodash';
-import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as bungie from '../../../utils/bungie';
 import Items from '../../../components/Items';
@@ -19,14 +17,18 @@ class Vendor extends React.Component {
 
     this.state = {
       loading: true,
-      data: false
+      data: false,
     };
   }
 
   componentDidMount() {
-    const { vendorHash = 672118013 } = this.props;
+    this.mounted = true;
 
-    this.getVendor(vendorHash);
+    this.getVendor(this.props.vendorHash);
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   componentDidUpdate(p, s) {
@@ -35,38 +37,40 @@ class Vendor extends React.Component {
     }
   }
 
-  getVendor = async hash => {
-    const { member } = this.props;
-
-    const response = await bungie.GetVendor(member.membershipType, member.membershipId, member.characterId, hash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
+  getVendor = async (vendorHash = 672118013) => {
+    const response = await bungie.GetVendor(this.props.member.membershipType, this.props.member.membershipId, this.props.member.characterId, vendorHash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
 
     if (response && response.ErrorCode === 1 && response.Response) {
-      this.setState({
-        loading: false,
-        data: response.Response
-      });
+      if (this.mounted) {
+        this.setState({
+          loading: false,
+          data: response.Response,
+        });
+      }
     } else {
-      this.setState(p => ({
-        ...p,
-        loading: false
-      }));
+      if (this.mounted) {
+        this.setState((state) => ({
+          ...state,
+          loading: false,
+        }));
+      }
     }
   };
 
   render() {
-    const { t, member, auth, vendorHash = 672118013 } = this.props;
+    const { member, auth, vendorHash = 672118013 } = this.props;
 
     if (!auth) {
       return <NoAuth inline />;
     }
 
-    if (auth && !auth.destinyMemberships.find(m => m.membershipId === member.membershipId)) {
+    if (auth && !auth.destinyMemberships.find((m) => m.membershipId === member.membershipId)) {
       return <DiffProfile inline />;
     }
 
     const definitionVendor = manifest.DestinyVendorDefinition[vendorHash];
 
-    if (auth && auth.destinyMemberships.find(m => m.membershipId === member.membershipId) && this.state.loading) {
+    if (auth && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId) && this.state.loading) {
       return (
         <div className='user-module vendor'>
           <div className='sub-header'>
@@ -78,19 +82,31 @@ class Vendor extends React.Component {
       );
     }
 
-    const items = [];
+    const groupedSales = groupBy(
+      this.state.data
+        ? Object.keys(this.state.data.sales.data)
+            .filter((key) => {
+              const sale = this.state.data.sales.data[key];
 
-    if (this.state.data) {
-      Object.values(this.state.data.sales.data).forEach(sale => {
-        items.push({
-          vendorHash: definitionVendor.hash,
-          ...sale,
-          ...((sale.vendorItemIndex !== undefined && definitionVendor && definitionVendor.itemList && definitionVendor.itemList[sale.vendorItemIndex]) || {})
-        });
-      });
-    }
+              // if it's one of those nonsense categories such as redeeming tokens, omit
+              if (definitionVendor.displayCategories?.[definitionVendor.itemList?.[sale.vendorItemIndex].displayCategoryIndex].displayCategoryHash === 3960628832) return false;
 
-    const itemsGrouped = groupBy(items, i => i.displayCategoryIndex);
+              return true;
+            })
+            .map((key) => {
+              const sale = this.state.data.sales.data[key];
+
+              return {
+                vendorHash: definitionVendor.hash,
+                ...sale,
+                ...((sale.vendorItemIndex !== undefined && definitionVendor.itemList?.[sale.vendorItemIndex]) || {}),
+              };
+            })
+        : [],
+      (sale) => sale.displayCategoryIndex
+    );
+
+    if (vendorHash === 2398407866) console.log(groupedSales);
 
     return (
       <div className='user-module vendor'>
@@ -99,12 +115,12 @@ class Vendor extends React.Component {
         </div>
         <h3>{definitionVendor.displayProperties.name}</h3>
         {definitionVendor.displayCategories.map((category, c) => {
-          if (itemsGrouped[category.index]) {
+          if (groupedSales[category.index]) {
             return (
               <React.Fragment key={c}>
                 <h4>{category.displayProperties.name}</h4>
                 <ul className='list inventory-items'>
-                  <Items items={itemsGrouped[category.index]} />
+                  <Items items={groupedSales[category.index]} />
                 </ul>
               </React.Fragment>
             );
@@ -117,19 +133,19 @@ class Vendor extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
-    auth: state.auth
+    auth: state.auth,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS' });
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(Vendor);
+export default connect(mapStateToProps, mapDispatchToProps)(Vendor);

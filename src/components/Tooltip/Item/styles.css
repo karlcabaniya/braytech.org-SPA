@@ -656,3 +656,87 @@
 #tooltip .trials-passage .sockets {
   padding: 0 0 16px;
 }
+
+
+
+
+#tooltip .frame .rewards {
+  padding: 8px 16px 16px;
+  font-size: 14px;
+}
+
+#tooltip .frame .rewards > div {
+  content: 'REWARDS:';
+  display: block;
+  margin: 0 0 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--progress);
+}
+
+#tooltip .frame .rewards ul li {
+  display: flex;
+  align-items: center;
+  margin: 0 0 8px;
+}
+
+#tooltip .frame .rewards ul li:last-child {
+  margin: 0;
+}
+
+#tooltip .frame .rewards ul li .icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin: 0 10px 0 0;
+}
+
+
+
+#tooltip .frame .vendor-costs {
+  padding: 14px 16px;
+}
+
+#tooltip .frame .vendor-costs ul {
+  display: grid;
+  row-gap: 10px;
+}
+
+#tooltip .frame .vendor-costs ul li ul {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+#tooltip .frame .vendor-costs ul li ul li {
+  height: 20px;
+  display: grid;
+  align-items: center;
+}
+
+#tooltip .frame .vendor-costs ul li ul li:first-child {
+  grid-template-columns: 20px auto;
+  column-gap: 6px;
+}
+
+#tooltip .frame .vendor-costs ul li ul li .icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+#tooltip .frame .vendor-costs ul li ul li .text span {
+  position: relative;
+  margin: 0 12px 0 0;
+  color: var(--progress);
+}
+
+#tooltip .frame .vendor-costs ul li ul li .text span::after {
+  content: ' / ';
+  position: absolute;
+  right: -11px;
+  white-space: pre-wrap;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}

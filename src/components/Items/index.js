@@ -5,7 +5,7 @@ import { orderBy } from 'lodash';
 import cx from 'classnames';
 
 import manifest from '../../utils/manifest';
-import * as enums from '../../utils/destinyEnums';
+import { DestinyItemType, enumerateVendorItemStatus, enumerateItemState } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
 import itemComponents from '../../utils/destinyItems/itemComponents';
 import { sockets } from '../../utils/destinyItems/sockets';
@@ -64,11 +64,11 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
     item.stats = stats(item);
     item.masterwork = masterwork(item);
 
-    const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enums.enumerateVendorItemStatus(item.saleStatus);
+    const vendorItemStatus = item.unavailable === undefined && item.saleStatus && enumerateVendorItemStatus(item.saleStatus);
 
-    const masterworked = enums.enumerateItemState(item.state).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
-    const locked = enums.enumerateItemState(item.state).Locked;
-    const tracked = enums.enumerateItemState(item.state).Tracked;
+    const masterworked = enumerateItemState(item.state).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((s) => s.value > 9).length : item.masterwork?.stats?.filter((s) => s.value >= 9).length));
+    const locked = enumerateItemState(item.state).Locked;
+    const tracked = enumerateItemState(item.state).Tracked;
 
     const ornamentSocket = item.sockets && getOrnamentSocket(item.sockets);
 
