@@ -4,9 +4,7 @@ import cx from 'classnames';
 import manifest from '../../../utils/manifest';
 import ObservedImage from '../../ObservedImage';
 
-const Emblem = (props) => {
-  const { itemHash, sockets } = props;
-
+const Emblem = ({ itemHash, sockets, ...props }) => {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
   // source string

@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
 import { t, duration, timestampToDifference } from '../../../utils/i18n';
@@ -40,7 +40,10 @@ const hideScreenshotBuckets = [
 
 const forcedScreenshotTraits = ['ornament'];
 
-function Item(props) {
+export default function Item(props) {
+  const viewport = useSelector((state) => state.viewport);
+  const member = useSelector((state) => state.member);
+
   const definitionItem = manifest.DestinyInventoryItemDefinition[props.hash];
 
   const item = {
@@ -95,8 +98,8 @@ function Item(props) {
     }
   }
 
-  // item.itemState = itemState(item, props.member);
-  item.itemComponents = itemComponents(item, props.member);
+  // item.itemState = itemState(item, member);
+  item.itemComponents = itemComponents(item, member);
   item.sockets = sockets(item);
   item.stats = stats(item);
   item.masterwork = masterwork(item);
@@ -113,8 +116,8 @@ function Item(props) {
 
   if (item.primaryStat && item.itemComponents && item.itemComponents.instance?.primaryStat) {
     item.primaryStat.value = item.itemComponents.instance.primaryStat.value;
-  } else if (item.primaryStat && props.member?.data) {
-    const character = props.member.data.profile.characters.data.find((character) => character.characterId === props.member.characterId);
+  } else if (item.primaryStat && member?.data) {
+    const character = member.data.profile.characters.data.find((character) => character.characterId === member.characterId);
 
     // item.primaryStat.value = Math.floor((942 / 973) * character.light);
     item.primaryStat.value = character.light;
@@ -150,7 +153,7 @@ function Item(props) {
 
   const showScreenshot =
     // if viewport is less than 601, item has a screenshot, and hideScreenshotBuckets does not mind this item
-    (props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
+    (viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
     (item.screenshot &&
       // if item is one of these fellas, force show screenshot always
       (definitionItem.traitIds?.filter((id) => forcedScreenshotTraits.filter((trait) => id.includes(trait)).length).length || definitionItem.plug?.plugCategoryIdentifier?.includes('armor_skins')));
@@ -198,12 +201,33 @@ function Item(props) {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-    viewport: state.viewport,
-    tooltips: state.tooltips,
-  };
-}
+export function VendorCosts({ costs, ...props }) {
+  const member = useSelector((state) => state.member);
 
-export default connect(mapStateToProps)(Item);
+  return (
+    <div className='vendor-costs'>
+      <ul>
+        {costs.map((cost, c) => {
+          const icon = manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon;
+
+          return (
+            <li key={c}>
+              <ul>
+                <li>
+                  {icon && <ObservedImage className='image icon' src={`https://www.bungie.net${icon}`} />}
+                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
+                </li>
+                <li>
+                  <div className='text'>
+                    {member.data?.currencies[cost.itemHash] ? <span>{member.data.currencies[cost.itemHash].quantity.toLocaleString()}</span> : null}
+                    {cost.quantity.toLocaleString()}
+                  </div>
+                </li>
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}

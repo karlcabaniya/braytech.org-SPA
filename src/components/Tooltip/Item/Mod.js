@@ -7,6 +7,8 @@ import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import { energyCostsStatHashes } from '../../../utils/destinyEnums';
 import ObservedImage from '../../ObservedImage';
 
+import { VendorCosts } from './';
+
 const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
@@ -30,7 +32,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const energyType = energyCost && energyTypeToAsset(energyCost.energyTypeHash);
 
   // vendor costs
-  const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
 
   const blocks = [];
 
@@ -121,23 +123,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
 
   // vendor costs
   if (vendorCosts?.length) {
-    blocks.push(
-      <div className='vendor-costs'>
-        <ul>
-          {vendorCosts.map((cost, c) => (
-            <li key={c}>
-              <ul>
-                <li>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon}`} />
-                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
-                </li>
-                <li>{cost.quantity.toLocaleString()}</li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    blocks.push(<VendorCosts costs={vendorCosts} />);
   }
 
   return blocks.map((block, b) => <React.Fragment key={b}>{block}</React.Fragment>);

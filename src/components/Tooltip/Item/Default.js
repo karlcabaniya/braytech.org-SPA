@@ -7,7 +7,9 @@ import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
 import { getRewardsQuestLine } from '../../QuestLine';
 
-const Default = ({ itemHash, itemComponents, quantity, vendorHash, vendorItemIndex, ...props }) => {
+import { VendorCosts } from './';
+
+export default function Default({ itemHash, itemComponents, quantity, vendorHash, vendorItemIndex, ...props }) {
   const member = useSelector((state) => state.member);
   const character = member.data?.profile.characters.data?.find((character) => character.characterId === props.characterId);
 
@@ -60,7 +62,7 @@ const Default = ({ itemHash, itemComponents, quantity, vendorHash, vendorItemInd
     }) || [];
 
   // vendor costs
-  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
 
   const blocks = [];
 
@@ -124,34 +126,8 @@ const Default = ({ itemHash, itemComponents, quantity, vendorHash, vendorItemInd
 
   // vendor costs
   if (vendorCosts?.length) {
-    blocks.push(
-      <div className='vendor-costs'>
-        <ul>
-          {vendorCosts.map((cost, c) => {
-            const icon = manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon;
-
-            return (
-              <li key={c}>
-                <ul>
-                  <li>
-                    {icon && <ObservedImage className='image icon' src={`https://www.bungie.net${icon}`} />}
-                    <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
-                  </li>
-                  <li>
-                    <div className='text'>
-                      {member.data?.currencies[cost.itemHash] ? <span>{member.data.currencies[cost.itemHash].quantity.toLocaleString()}</span> : null}{cost.quantity.toLocaleString()}
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+    blocks.push(<VendorCosts costs={vendorCosts} />);
   }
-console.log(member)
+
   return blocks.map((block, i) => <React.Fragment key={i}>{block}</React.Fragment>);
 };
-
-export default Default;

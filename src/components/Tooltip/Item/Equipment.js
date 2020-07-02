@@ -12,6 +12,8 @@ import { statsMs } from '../../../utils/destinyItems/stats';
 import lightcapToSeason from '../../../data/d2-additional-info/lightcap-to-season.json';
 import ObservedImage from '../../ObservedImage';
 
+import { VendorCosts } from './';
+
 const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, masterwork, vendorHash, vendorItemIndex }) => {
   // definition of item
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
@@ -26,7 +28,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
 
   // vendor costs
-  const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
 
   // weapon damage type
   const damageTypeHash = itemComponents?.instance?.damageTypeHash ? itemComponents.instance.damageTypeHash : definitionItem.itemType === enums.DestinyItemType.Weapon && definitionItem.damageTypeHashes?.[0] ? definitionItem.damageTypeHashes[0] : false;
@@ -266,23 +268,7 @@ const Equipment = ({ itemHash, itemComponents, primaryStat, stats, sockets, mast
 
   // vendor costs
   if (vendorCosts?.length) {
-    blocks.push(
-      <div className='vendor-costs'>
-        <ul>
-          {vendorCosts.map((cost, c) => (
-            <li key={c}>
-              <ul>
-                <li>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon}`} />
-                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
-                </li>
-                <li>{cost.quantity.toLocaleString()}</li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    blocks.push(<VendorCosts costs={vendorCosts} />);
   }
 
   return blocks.map((b, i) => <React.Fragment key={i}>{b}</React.Fragment>);
