@@ -393,6 +393,17 @@
   box-shadow: inset 0 0 0 2px rgb(209, 209, 209);
 }
 
+#quests .list.quests li .list.inventory-items li .icon {
+  position: unset;
+  padding-bottom: unset;
+}
+
+#quests .list.quests li .list.inventory-items li .icon .image {
+  position: unset;
+  width: 72px;
+  height: 72px;
+}
+
 #quests .list.quests li .text .name {
   font-size: 16px;
   margin: 0 0 6px;
@@ -500,6 +511,11 @@
   #quests .list.quests li {
     grid-template-columns: 64px auto;
   }
+
+  #quests .list.quests li .list.inventory-items li .icon .image {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 @media screen and (max-width: 1280px) {
@@ -530,6 +546,11 @@
 
   #quests .list.quests li {
     grid-template-columns: 48px auto;
+  }
+
+  #quests .list.quests li .list.inventory-items li .icon .image {
+    width: 48px;
+    height: 48px;
   }
 
   #quests .filter.description .preview {

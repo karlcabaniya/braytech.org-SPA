@@ -264,6 +264,7 @@
   "Founded": "Gegründet",
   "Free for all": "Frei für alle",
   "Frequently Asked Questions": "Häufig gestellte Fragen",
+  "#####Fresh out of stock.": "🌐",
   "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._": "In der _Einstellungs_ Ansicht kannst du verschiedene Dinge ausprobieren. Beginne mit _Serviceworker updaten_. Warte einen Moment und du solltest aufgefordert werden die Seite neu zu laden.\n\nFalls dies fehlschlägt, kannst du versuchen die Anwendung zu aktualisieren, indem du _Neu laden_ tippst. Wenn das Problem weiterhin besteht, nutze bitte _Serviceworker verwerfen_.\n\n_Für Eingeweihte: Braytech verwendet einen Serviceworker und die stellen sich gelentlich ein wenig an._",
   "Gahlran encounter: each Guardian may only shoot one of _the real_ Gahlran's hands once during only one of his hand raises.": "Gahlran-Begegnung: Jeder Hüter darf nur einmal auf eine der echten Gahlran-Hände schießen, wenn nur eine seiner Handerhöhungen ausgeführt wird.",
   "Gambit": "Gambit",

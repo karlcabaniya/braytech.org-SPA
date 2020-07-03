@@ -4,17 +4,17 @@ import cx from 'classnames';
 
 import { t, duration, timestampToDifference } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import * as converters from '../../../utils/destinyConverters';
-import * as enums from '../../../utils/destinyEnums';
+import { itemRarityToString } from '../../../utils/destinyConverters';
+import { DestinyItemType, trialsPassages, enumerateItemState } from '../../../utils/destinyEnums';
 import { isContentVaulted } from '../../../utils/destinyUtils';
+import ObservedImage from '../../ObservedImage';
+import { Common } from '../../../svg';
+
 import itemComponents from '../../../utils/destinyItems/itemComponents';
 import sockets from '../../../utils/destinyItems/sockets';
 import stats from '../../../utils/destinyItems/stats';
 import masterwork from '../../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../../utils/destinyItems/utils';
-import ObservedImage from '../../ObservedImage';
-import Spinner from '../../UI/Spinner';
-import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -53,8 +53,10 @@ export default function Item(props) {
     itemState: +props.state || 0,
     quantity: +props.quantity || 1,
     vendorHash: props.vendorhash,
-    vendorItemIndex: props.vendoritemindex,
-    rarity: converters.itemRarityToString(definitionItem?.inventory?.tierType),
+    vendorItemIndex: props.vendoritemindex && +props.vendoritemindex,
+    vendorSaleStatus: props.vendorsalestatus && +props.vendorsalestatus,
+    failureIndexes: props.failureindexes && JSON.parse(props.failureindexes),
+    rarity: itemRarityToString(definitionItem?.inventory?.tierType),
     type: null,
     style: props.style,
   };
@@ -85,15 +87,15 @@ export default function Item(props) {
   }
 
   if (definitionItem?.inventory) {
-    if (definitionItem.itemType === enums.DestinyItemType.Armor || definitionItem.itemType === enums.DestinyItemType.Weapon || definitionItem.itemType === enums.DestinyItemType.Ship || definitionItem.itemType === enums.DestinyItemType.Vehicle || definitionItem.itemType === enums.DestinyItemType.Ghost || definitionItem.itemType === enums.DestinyItemType.SeasonArtifact) {
+    if (definitionItem.itemType === DestinyItemType.Armor || definitionItem.itemType === DestinyItemType.Weapon || definitionItem.itemType === DestinyItemType.Ship || definitionItem.itemType === DestinyItemType.Vehicle || definitionItem.itemType === DestinyItemType.Ghost || definitionItem.itemType === DestinyItemType.SeasonArtifact) {
       item.type = 'equipment';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Emblem) {
+    } else if (definitionItem.itemType === DestinyItemType.Emblem) {
       item.type = 'emblem';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Mod) {
+    } else if (definitionItem.itemType === DestinyItemType.Mod) {
       item.type = 'mod';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Subclass) {
+    } else if (definitionItem.itemType === DestinyItemType.Subclass) {
       item.type = 'sub-class';
-    } else if (enums.trialsPassages.indexOf(definitionItem.hash) > -1) {
+    } else if (trialsPassages.indexOf(definitionItem.hash) > -1) {
       item.type = 'trials-passage';
     }
   }
@@ -134,6 +136,16 @@ export default function Item(props) {
     );
   }
 
+  if (item.failureIndexes?.length && item.vendorHash && item.vendorSaleStatus > 0) {
+    item.failureIndexes.forEach(index => {
+      const failureString = manifest.DestinyVendorDefinition[item.vendorHash]?.failureStrings?.[index];
+
+      if (failureString && failureString !== '') {
+        importantText.push(failureString);
+      }      
+    });
+  }
+
   if (!item.itemComponents && props.uninstanced) {
     importantText.push(t('Collections roll'));
   }
@@ -148,8 +160,8 @@ export default function Item(props) {
     }
   }
 
-  const masterworked = enums.enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
-  const locked = enums.enumerateItemState(item.itemState).Locked;
+  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const locked = enumerateItemState(item.itemState).Locked;
 
   const showScreenshot =
     // if viewport is less than 601, item has a screenshot, and hideScreenshotBuckets does not mind this item

@@ -95,10 +95,11 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
           data-hash={item.itemHash}
           data-instanceid={item.itemInstanceId}
           data-state={item.state}
+          data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
           data-vendorhash={item.vendorHash}
           data-vendoritemindex={item.vendorItemIndex}
-          data-vendorstatus={item.saleStatus}
-          data-quantity={item.quantity && item.quantity > 1 ? item.quantity : null}
+          data-vendorsalestatus={item.saleStatus}
+          data-failureindexes={item.failureIndexes && JSON.stringify(item.failureIndexes)}
           onClick={handler ? handler(item) : undefined}
         >
           <div className='icon'>

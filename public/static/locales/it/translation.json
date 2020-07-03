@@ -264,6 +264,7 @@
   "Founded": "Fondato in",
   "Free for all": "Tutti contro tutti",
   "Frequently Asked Questions": "Domande Frequenti",
+  "#####Fresh out of stock.": "🌐",
   "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._": "Dalla sezione _Impostazioni_ puoi provare una varietà di cose. Inizia con _Aggiorna service worker_. Aspetta qualche secondo e ti verrà chiesto di riavviare.\n\nSe ciò fallisce puoi provare a ricaricare l'app con _Ricarica_. Se il problema persiste allora selezione _Scarta service worker_.\n\n_Per i più tecnici, Braytech usa un service worker e a volte non funzionano._",
   "Gahlran encounter: each Guardian may only shoot one of _the real_ Gahlran's hands once during only one of his hand raises.": "Incontro di Gahlran: ogni Guardiano può sparare solo a una _vera_ mano di Gahlran solo una volta per fase di danno.",
   "Gambit": "Azzardo",

@@ -1,164 +1,112 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 8,
+    "notTranslated": 9,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 739,
+    "translated": 740,
     "notTranslated": 0,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 739,
+    "translated": 740,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 734,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 734,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 117,
+    "notTranslated": 118,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 713,
-    "notTranslated": 26,
+    "notTranslated": 27,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 138,
+    "notTranslated": 139,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 225,
+    "notTranslated": 226,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 737,
+    "notTranslated": 738,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 33,
+    "notTranslated": 34,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 734,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 508,
-    "notTranslated": 231,
+    "notTranslated": 232,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 390,
+    "notTranslated": 391,
     "added": [
-      "UserModules.Challenges.RewardsRemaining",
-      "UserModules.Challenges.ShowAllRewards",
-      "UserModules.Challenges.ShowPinnacleRewards"
+      "Fresh out of stock."
     ],
-    "removed": [
-      "UserModules.Challenges.PinnacleRewardsRemaining"
-    ]
+    "removed": []
   }
 }

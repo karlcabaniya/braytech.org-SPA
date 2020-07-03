@@ -170,7 +170,7 @@
 
 .list.inventory-items li.unavailable::before {
   background-color: rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 2px #4d4d4d;
 }
 
 .list.inventory-items li.unavailable:hover::before {

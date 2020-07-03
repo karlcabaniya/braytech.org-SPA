@@ -23,7 +23,7 @@ function Vendor(props) {
     let mounted = true;
 
     if (mounted) {
-      setData({ loading: true });
+      setData({ loading: true, error: false, response: null });
     }
 
     return () => {
@@ -42,14 +42,14 @@ function Vendor(props) {
       } else if (mounted && response?.ErrorCode) {
         setData({ loading: false, error: response.Message });
       } else {
-        setData({ loading: false, error: true });
+        setData({ loading: false, error: true, response: null });
       }
     }
 
     if (auth && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId)) {
       request();
     } else {
-      setData({ loading: false, error: 'auth' });
+      setData({ loading: false, error: 'auth', response: null });
     }
 
     return () => {
@@ -59,7 +59,7 @@ function Vendor(props) {
 
   useEffect(() => {
     dispatch(rebind());
-  }, [dispatch, data.loading]);
+  }, [dispatch, data.response]);
 
   console.log(member, auth, data);
 
@@ -93,8 +93,8 @@ function Vendor(props) {
 
             return {
               vendorHash: definitionVendor.hash,
-              ...sale,
               ...((sale.vendorItemIndex !== undefined && definitionVendor.itemList?.[sale.vendorItemIndex]) || {}),
+              ...sale,
             };
           })
       : [],
@@ -124,20 +124,24 @@ function Vendor(props) {
             <Spinner />
           </div>
         ) : data.response ? (
-          definitionVendor.displayCategories.map((category, c) => {
-            if (groupedSales[category.index]) {
-              return (
-                <React.Fragment key={c}>
-                  <h4>{category.displayProperties.name}</h4>
-                  <ul className='list inventory-items'>
-                    <Items items={groupedSales[category.index]} />
-                  </ul>
-                </React.Fragment>
-              );
-            } else {
-              return null;
-            }
-          })
+          definitionVendor.displayCategories.filter((category) => groupedSales[category.index]).length ? (
+            definitionVendor.displayCategories.map((category, c) => {
+              if (groupedSales[category.index]) {
+                return (
+                  <React.Fragment key={c}>
+                    <h4>{category.displayProperties.name}</h4>
+                    <ul className='list inventory-items'>
+                      <Items items={groupedSales[category.index]} />
+                    </ul>
+                  </React.Fragment>
+                );
+              } else {
+                return null;
+              }
+            })
+          ) : (
+            <div className='info'>{t('Fresh out of stock.')}</div>
+          )
         ) : data.error && typeof data.error === 'string' ? (
           <div className='info'>{data.error === 'auth' ? t('Auth.Suggestion.Subtle') : data.error}</div>
         ) : null}
