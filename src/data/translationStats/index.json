@@ -1,153 +1,164 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 6,
+    "notTranslated": 8,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "debug": {
-    "translated": 737,
+    "translated": 739,
     "notTranslated": 0,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "en": {
-    "translated": 737,
+    "translated": 739,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 734,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "es": {
     "translated": 734,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 115,
+    "notTranslated": 117,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "it": {
     "translated": 713,
-    "notTranslated": 24,
+    "notTranslated": 26,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 136,
+    "notTranslated": 138,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 223,
+    "notTranslated": 225,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 735,
+    "notTranslated": 737,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 31,
+    "notTranslated": 33,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "ru": {
     "translated": 734,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "zh-chs": {
     "translated": 508,
-    "notTranslated": 229,
+    "notTranslated": 231,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 388,
+    "notTranslated": 390,
     "added": [
-      "UserModules.Challenges.NoChallenges",
-      "UserModules.Challenges.PinnacleRewardsRemaining"
+      "UserModules.Challenges.RewardsRemaining",
+      "UserModules.Challenges.ShowAllRewards",
+      "UserModules.Challenges.ShowPinnacleRewards"
     ],
     "removed": [
-      "It seems your Guardian has smashed all of their challenges this week."
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ]
   }
 }
