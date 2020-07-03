@@ -92,20 +92,35 @@
 
 .user-module.challenges .state {
   margin: 0 0 2rem;
+  position: sticky;
+  top: 3rem;
+  z-index: 5;
+  backdrop-filter: blur(12px);
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 38px auto 38px;
+  gap: 16px;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.05);
   font-size: 16px;
 }
 
 .user-module.challenges .state .rewards {
-  padding: 0 1rem;
+  position: relative;
   height: 38px;
-  display: grid;
-  align-items: center;
-  background-color: rgba(82, 47, 101, 0.2);
-  border-top: 2px solid rgba(82, 47, 101, 0.4);
+}
+
+.user-module.challenges .state .rewards .button {
+  position: absolute;
+  top: 0;
+  width: max-content;
+}
+
+.user-module.challenges .state .rewards.pinnacle .button {
+  background-color: rgba(82, 47, 101, 0.3);
+}
+
+.user-module.challenges .state .info {
+  text-align: center;
 }
 
 @media screen and (max-width: 1440px) {
@@ -134,5 +149,25 @@
   .user-module.challenges .no-challenges {
     padding: 1rem 0;
     text-align: unset;
+  }
+
+  .user-module.challenges .state {
+    top: 2rem;
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    font-size: 16px;
+  }
+  
+  .user-module.challenges .state .rewards .button {
+    position: unset;
+  }
+
+  .user-module.challenges .state .info {
+    padding: 0 1rem 0 0;
   }
 }

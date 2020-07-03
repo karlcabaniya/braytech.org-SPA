@@ -62,12 +62,11 @@
 
 .list.inventory-items li .locked {
   position: absolute;
-  right: 10%;
-  bottom: 10%;
+  right: 8%;
+  bottom: 8%;
   width: 16%;
   z-index: 4;
   line-height: 0;
-  opacity: 0.8;
 }
 
 .list.inventory-items li .completed svg,
