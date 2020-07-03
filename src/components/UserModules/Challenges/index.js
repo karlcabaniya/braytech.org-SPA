@@ -118,14 +118,25 @@ function Challenges() {
 
   // console.log(challenges);
 
+  const challengesCompleted = !challenges.filter((activity) => activity.objectives.filter((objective) => !objective.complete).length).length;
+  const rewardsPinnacles = challenges.filter((activity) => activity.objectives.filter((objective) => !objective.complete && manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.filter((reward) => reward.itemHash === 73143230).length).length);
+
+  console.log(rewardsPinnacles)
+
   return (
     <div className='user-module challenges'>
       <div className='sub-header'>
         <div>{t('Challenges')}</div>
       </div>
-      <ul>
-        {challenges.filter((a) => a.objectives.filter((o) => !o.complete).length).length ? (
-          challenges
+      <div className='state'>
+        <div className='rewards'>
+          {t('UserModules.Challenges.PinnacleRewardsRemaining', { rewardsRemaining: rewardsPinnacles.length })}
+        </div>
+        <div className='settings'></div>
+      </div>
+      {!challengesCompleted ? (
+        <ul>
+          {challenges
             .filter((a) => a.objectives.filter((o) => !o.complete).length)
             .map((challenge, i) => {
               const override = getOverrides(challenge.objectives[0]?.objectiveHash, challenge.activityHash);
@@ -149,13 +160,13 @@ function Challenges() {
                       <>
                         <h4>{t('Available activities')}</h4>
                         <ul className='list activities'>
-                          {activities.map((activityHash, i) => {
+                          {activities.map((activityHash, a) => {
                             const definitionActivity = manifest.DestinyActivityDefinition[activityHash];
 
                             const name = isNightfallOrdeal(activityHash) ? definitionActivity.originalDisplayProperties.description : definitionActivity.originalDisplayProperties?.name.replace('Nightmare Hunt: ', '') || definitionActivity.displayProperties.name;
 
                             return (
-                              <li key={i} className='linked tooltip' data-type='activity' data-hash={definitionActivity.hash} data-mode={definitionActivity.directActivityModeHash}>
+                              <li key={a} className='linked tooltip' data-type='activity' data-hash={definitionActivity.hash} data-mode={definitionActivity.directActivityModeHash}>
                                 <div className='name'>{name}</div>
                               </li>
                             );
@@ -166,7 +177,7 @@ function Challenges() {
                   </div>
                   <div className={cx('challenges', { completed: !challenge.objectives.filter((o) => !o.complete).length })}>
                     {challenge.objectives.map((objective, o) => {
-                      const rewards = manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((c) => c.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
+                      const rewards = manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
 
                       return (
                         <div key={o} className={cx('challenge', { completed: objective.complete })}>
@@ -177,18 +188,20 @@ function Challenges() {
                             <ProgressBar key={o} {...objective} />
                             {/* <p>{objective.objectiveHash}</p> */}
                           </div>
-                          {rewards.length ? <div className={cx('rewards', { pinnacle: rewards.filter((r) => r.itemHash === 73143230).length })}>{rewards.map((r) => manifest.DestinyInventoryItemDefinition[r.itemHash]?.displayProperties.name).join(', ')}</div> : null}
+                          {rewards.length ? <div className={cx('rewards', { pinnacle: rewards.filter((reward) => reward.itemHash === 73143230).length })}>{rewards.map((reward) => manifest.DestinyInventoryItemDefinition[reward.itemHash]?.displayProperties.name).join(', ')}</div> : null}
                         </div>
                       );
                     })}
                   </div>
                 </li>
               );
-            })
-        ) : (
-          <div className='info'>{t('It seems your Guardian has smashed all of their challenges this week.')}</div>
-        )}
-      </ul>
+            })}
+        </ul>
+      ) : (
+        <div className='no-challenges'>
+          <div className='info'>{t('UserModules.Challenges.NoChallenges')}</div>
+        </div>
+      )}
     </div>
   );
 }

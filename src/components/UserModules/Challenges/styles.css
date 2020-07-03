@@ -84,6 +84,30 @@
   grid-template-columns: 1fr;
 }
 
+
+.user-module.challenges .no-challenges {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.user-module.challenges .state {
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 16px;
+}
+
+.user-module.challenges .state .rewards {
+  padding: 0 1rem;
+  height: 38px;
+  display: grid;
+  align-items: center;
+  background-color: rgba(82, 47, 101, 0.2);
+  border-top: 2px solid rgba(82, 47, 101, 0.4);
+}
+
 @media screen and (max-width: 1440px) {
   .user-module.challenges > ul {
     grid-template-columns: 1fr;
@@ -105,5 +129,10 @@
 
   .user-module.challenges ul li .activity .text .description {
     font-size: 14px;
+  }
+
+  .user-module.challenges .no-challenges {
+    padding: 1rem 0;
+    text-align: unset;
   }
 }
