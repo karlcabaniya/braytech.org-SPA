@@ -106,8 +106,8 @@ class Vendor extends React.Component {
 
               return {
                 vendorHash: definitionVendor.hash,
-                ...sale,
                 ...((sale.vendorItemIndex !== undefined && definitionVendor.itemList?.[sale.vendorItemIndex]) || {}),
+                ...sale,
               };
             })
         : [],
