@@ -1,117 +1,153 @@
 {
   "de": {
-    "translated": 732,
-    "notTranslated": 4,
+    "translated": 731,
+    "notTranslated": 6,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "debug": {
-    "translated": 736,
+    "translated": 737,
     "notTranslated": 0,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "en": {
-    "translated": 736,
+    "translated": 737,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "es-mx": {
-    "translated": 735,
-    "notTranslated": 1,
+    "translated": 734,
+    "notTranslated": 3,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "es": {
-    "translated": 735,
-    "notTranslated": 1,
+    "translated": 734,
+    "notTranslated": 3,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "fr": {
-    "translated": 623,
-    "notTranslated": 113,
+    "translated": 622,
+    "notTranslated": 115,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "it": {
-    "translated": 714,
-    "notTranslated": 22,
+    "translated": 713,
+    "notTranslated": 24,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "ja": {
-    "translated": 602,
-    "notTranslated": 134,
+    "translated": 601,
+    "notTranslated": 136,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 222,
+    "notTranslated": 223,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 734,
+    "notTranslated": 735,
     "added": [
-      "Auth.Error.Reason",
-      "Auth.Error.Resolution",
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
     "removed": [
-      "Some features of Braytech require your written permission to activate, generally to protect your privacy.",
-      "To use this feature, please tell Bungie that you approve. No personal information is shared by doing so—only an authentication code with which you may interact with more API endpoints."
+      "It seems your Guardian has smashed all of their challenges this week."
     ]
   },
   "pt-br": {
-    "translated": 707,
-    "notTranslated": 29,
+    "translated": 706,
+    "notTranslated": 31,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "ru": {
-    "translated": 735,
-    "notTranslated": 1,
+    "translated": 734,
+    "notTranslated": 3,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "zh-chs": {
     "translated": 508,
-    "notTranslated": 228,
+    "notTranslated": 229,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 387,
+    "notTranslated": 388,
     "added": [
-      "Auth.Suggestion.Subtle"
+      "UserModules.Challenges.NoChallenges",
+      "UserModules.Challenges.PinnacleRewardsRemaining"
     ],
-    "removed": []
+    "removed": [
+      "It seems your Guardian has smashed all of their challenges this week."
+    ]
   }
 }
