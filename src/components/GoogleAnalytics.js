@@ -11,7 +11,7 @@ class GoogleAnalytics extends React.Component {
 
   componentDidUpdate({ location: prevLocation }) {
     const {
-      location: { pathname, search }
+      location: { pathname, search },
     } = this.props;
 
     const isDifferentPathname = pathname !== prevLocation.pathname;
@@ -27,13 +27,13 @@ class GoogleAnalytics extends React.Component {
     const { location } = window;
 
     ReactGA.set({
-      page: removeMemberIds(page),
-      location: `${location.origin}${removeMemberIds(page)}`,
+      ...this.props.options,
+      page,
+      location: `${location.origin}${page}`,
       appName: 'Braytech',
       appVersion: packageJSON.version,
-      ...this.props.options
     });
-    ReactGA.pageview(page);
+    ReactGA.pageview(removeMemberIds(page));
   }
 
   render() {
@@ -47,7 +47,8 @@ const init = (options = {}) => {
   if (isGAEnabled) {
     ReactGA.initialize(process.env.REACT_APP_BETA ? process.env.REACT_APP_GA_TRACKING_ID_BETA : process.env.REACT_APP_GA_TRACKING_ID, {
       debug: process.env.REACT_APP_GA_DEBUG === 'true',
-      ...options
+      // debug: true,
+      ...options,
     });
   }
 
@@ -56,5 +57,5 @@ const init = (options = {}) => {
 
 export default {
   GoogleAnalytics,
-  init
+  init,
 };
