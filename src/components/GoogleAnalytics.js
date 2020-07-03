@@ -29,8 +29,8 @@ class GoogleAnalytics extends React.Component {
     console.log(page, `${location.origin}${page}`)
 
     ReactGA.set({
-      page: removeMemberIds(page),
-      location: `${location.origin}${page}`,
+      page,
+      location: removeMemberIds(`${location.origin}${page}`),
       appName: 'Braytech',
       appVersion: packageJSON.version,
       ...this.props.options

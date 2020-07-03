@@ -122,8 +122,6 @@ function Challenges() {
       }
     }, []);
 
-  console.log(state);
-
   const challengesCompleted = !challenges.filter((activity) => activity.objectives.filter((objective) => !objective.complete).length).length;
   const challengesFiltered = state.filterRewards
     ? challenges
