@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGA from 'react-ga';
 
 import packageJSON from '../../package.json';
+import { removeMemberIds } from '../utils/paths';
 
 class GoogleAnalytics extends React.Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class GoogleAnalytics extends React.Component {
     const {
       location: { pathname, search }
     } = this.props;
+
     const isDifferentPathname = pathname !== prevLocation.pathname;
     const isDifferentSearch = search !== prevLocation.search;
 
@@ -23,8 +25,11 @@ class GoogleAnalytics extends React.Component {
   logPageChange(pathname, search = '') {
     const page = pathname + search;
     const { location } = window;
+
+    console.log(page, `${location.origin}${page}`)
+
     ReactGA.set({
-      page,
+      page: removeMemberIds(page),
       location: `${location.origin}${page}`,
       appName: 'Braytech',
       appVersion: packageJSON.version,
