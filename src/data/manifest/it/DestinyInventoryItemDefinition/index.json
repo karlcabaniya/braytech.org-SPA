@@ -27,10 +27,11 @@
   "23239861010": {
     "displayProperties": {
       "description": "Nessuna prodigio attualmente selezionato.",
-      "name": "Alloggiamento Prodigio Vuoto",
+      "name": "Alloggiamento Prodigio Vuoto"
     },
     "itemTypeDisplayName": "Modifica Arma",
     "inventory": {
-      "tierTypeName": "Comune",
+      "tierTypeName": "Comune"
     }
+  }
 }

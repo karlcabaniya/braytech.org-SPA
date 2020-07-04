@@ -154,7 +154,7 @@
   .user-module.challenges .state {
     top: 2rem;
     margin: 0 0 2rem;
-    grid-template-columns: min-content 150px;
+    grid-template-columns: min-content 130px;
     gap: 16px;
     justify-content: space-between;
     align-items: center;
