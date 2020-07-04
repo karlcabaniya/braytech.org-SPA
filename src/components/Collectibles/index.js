@@ -86,7 +86,7 @@ class Collectibles extends React.Component {
   }
 
   render() {
-    const { settings, lists, member, viewport, selfLinkFrom, inspect, showCompleted, showInvisible, mouseTooltips } = this.props;
+    const { settings, lists, member, selfLinkFrom, inspect, showCompleted, showInvisible, mouseTooltips } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
@@ -387,7 +387,6 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     member: state.member,
-    viewport: state.viewport,
     lists: state.lists,
   };
 }

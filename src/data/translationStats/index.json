@@ -1,111 +1,163 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 9,
+    "notTranslated": 14,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 740,
+    "translated": 745,
     "notTranslated": 0,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "en": {
-    "translated": 740,
+    "translated": 745,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 734,
-    "notTranslated": 6,
+    "notTranslated": 11,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "es": {
     "translated": 734,
-    "notTranslated": 6,
+    "notTranslated": 11,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 118,
+    "notTranslated": 123,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "it": {
     "translated": 713,
-    "notTranslated": 27,
+    "notTranslated": 32,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 139,
+    "notTranslated": 144,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 226,
+    "notTranslated": 231,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 738,
+    "notTranslated": 743,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 34,
+    "notTranslated": 39,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "ru": {
     "translated": 734,
-    "notTranslated": 6,
+    "notTranslated": 11,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "zh-chs": {
-    "translated": 508,
-    "notTranslated": 232,
+    "translated": 521,
+    "notTranslated": 224,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 391,
+    "notTranslated": 396,
     "added": [
-      "Fresh out of stock."
+      "Indexed DB",
+      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
+      "Vendor.FailureStrings.NoFunds",
+      "Vendor.FailureStrings.NoInventorySpace",
+      "Vendor.FailureStrings.UniquenessViolation"
     ],
     "removed": []
   }

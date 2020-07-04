@@ -55,7 +55,7 @@ async function run() {
       sort: 6,
       triumphs: [2692332187, 1398454187],
       items: [],
-      collectibles: [2448009818, 2206107773, 2428465606, 2428465607, 2428465604],
+      collectibles: [2448009818, 2206107773, 1463718183, 2428465606, 2428465607, 2428465604],
       ordealHashes: [2533203704, 2533203706, 2533203707, 2533203709],
       affectsSpeedEmblemObjective: true,
     },

@@ -2065,7 +2065,13 @@
     "recordHash": 242464658,
     "screenshot": "/static/images/screenshots/lore/pariahs-refuge_the-awoken-of-the-reef_242464658.jpg",
     "extended": {
-      "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8"
+      "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 51
+        }
+      }
     }
   },
   "305": {
@@ -2075,7 +2081,13 @@
       "description": "Atop the bookcases."
     },
     "extended": {
-      "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M"
+      "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 42
+        }
+      }
     }
   },
   "306": {

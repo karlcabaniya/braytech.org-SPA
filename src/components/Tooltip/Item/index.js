@@ -145,8 +145,12 @@ export default function Item(props) {
       }
     });
   } else if (item.failureIndexes?.length === 0 && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
-    if (enumerateVendorItemStatus(item.vendorSaleStatus).UniquenessViolation && 1 == 2) {
-      importantText.push(t('Can only hold one at a time'));
+    if (enumerateVendorItemStatus(item.vendorSaleStatus).UniquenessViolation) {
+      importantText.push(t('Vendor.FailureStrings.UniquenessViolation'));
+    } else if (enumerateVendorItemStatus(item.vendorSaleStatus).NoFunds) {
+      importantText.push(t('Vendor.FailureStrings.NoFunds'));
+    } else if (enumerateVendorItemStatus(item.vendorSaleStatus).NoInventorySpace) {
+      importantText.push(t('Vendor.FailureStrings.NoInventorySpace'));
     } else {
       Object.keys(enumerateVendorItemStatus(item.vendorSaleStatus))
         .filter((key) => enumerateVendorItemStatus(item.vendorSaleStatus)[key])
