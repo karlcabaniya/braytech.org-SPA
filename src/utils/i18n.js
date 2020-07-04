@@ -78,12 +78,12 @@ export function getLanguageInfo(code) {
       };
     case 'es':
       return {
-        name: 'Español',
+        name: 'Español (España)',
         code: code,
       };
     case 'es-mx':
       return {
-        name: 'Español mexicano',
+        name: 'Español (Latinoamérica)',
         code: code,
       };
     case 'fr':
