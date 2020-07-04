@@ -12,7 +12,9 @@ import { commonality, isContentVaulted } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
 import { removeMemberIds } from '../../utils/paths';
+
 import catalystTriumphIcons from '../../data/d2-additional-info/catalyst-triumph-icons.json';
+
 import { ProfileLink } from '../../components/ProfileLink';
 import Collectibles from '../../components/Collectibles';
 import ProgressBar from '../UI/ProgressBar';
@@ -244,11 +246,11 @@ class Records extends React.Component {
       // console.log(definitionRecord.displayProperties.name);
 
       const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
+      const recordData = recordScope === 1 ? characterRecords?.[member.characterId]?.records[definitionRecord.hash] : profileRecords?.[definitionRecord.hash];
 
       // if (definitionRecord.intervalInfo.intervalObjectives.length)
 
-      // console.log(recordData);
+      // if (definitionRecord.hash === 3996842932) console.log(recordData, enumerateRecordState(recordData.state));
 
       const recordState = {
         distance: 0,
@@ -496,7 +498,7 @@ class Records extends React.Component {
               className={cx({
                 linked: link && true,
                 highlight: highlight === definitionRecord.hash,
-                completed: enumeratedState.RecordRedeemed,
+                completed: enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
                 unredeemed: !enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
                 tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted,
                 'no-description': !description,

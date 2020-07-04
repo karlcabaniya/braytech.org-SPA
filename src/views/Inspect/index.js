@@ -405,7 +405,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
             return (
               <div key={s} className={cx('energy-meter', energyAsset.string)}>
                 <div key={s} className='socket affinity'>
-                  <div className={cx('plug', 'tooltip', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                  <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
                     {energyAsset.char}
                   </div>
                 </div>

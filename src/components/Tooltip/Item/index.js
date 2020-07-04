@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { t, duration, timestampToDifference } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { itemRarityToString } from '../../../utils/destinyConverters';
-import { DestinyItemType, trialsPassages, enumerateItemState } from '../../../utils/destinyEnums';
+import { DestinyItemType, trialsPassages, enumerateItemState, enumerateVendorItemStatus } from '../../../utils/destinyEnums';
 import { isContentVaulted } from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
 import { Common } from '../../../svg';
@@ -136,14 +136,25 @@ export default function Item(props) {
     );
   }
 
-  if (item.failureIndexes?.length && item.vendorHash && item.vendorSaleStatus > 0) {
-    item.failureIndexes.forEach(index => {
+  if (item.failureIndexes?.length && item.vendorHash && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
+    item.failureIndexes.forEach((index) => {
       const failureString = manifest.DestinyVendorDefinition[item.vendorHash]?.failureStrings?.[index];
 
       if (failureString && failureString !== '') {
         importantText.push(failureString);
-      }      
+      }
     });
+  } else if (item.failureIndexes?.length === 0 && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
+    if (enumerateVendorItemStatus(item.vendorSaleStatus).UniquenessViolation && 1 == 2) {
+      importantText.push(t('Can only hold one at a time'));
+    } else {
+      Object.keys(enumerateVendorItemStatus(item.vendorSaleStatus))
+        .filter((key) => enumerateVendorItemStatus(item.vendorSaleStatus)[key])
+        .map((key) => key)
+        .forEach((key) => {
+          importantText.push(key);
+        });
+    }
   }
 
   if (!item.itemComponents && props.uninstanced) {

@@ -51,6 +51,14 @@ function AppLoading({ state, ...props }) {
         description: t('Something went wrong while trying to download the item manifest from Bungie.\n\nPlease reload the app and try again.'),
       },
     },
+    error_indexedDb: {
+      isError: true,
+      status: t('Fatal error'),
+      displayProperties: {
+        name: t('Indexed DB'),
+        description: t('Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.'),
+      },
+    },
     error_maintenance: {
       shh: true,
       status: ' ',
@@ -104,7 +112,7 @@ function AppLoading({ state, ...props }) {
     }
 
     return () => {};
-  }, [state]);
+  }, [state.code]);
 
   if (state.code) {
     const status = loadingStates[state.code]?.status || loadingStates.else.status;

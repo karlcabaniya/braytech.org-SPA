@@ -11,7 +11,7 @@ import { VendorCosts } from './';
 
 export default function Default({ itemHash, itemComponents, quantity, vendorHash, vendorItemIndex, ...props }) {
   const member = useSelector((state) => state.member);
-  const character = member.data?.profile.characters.data?.find((character) => character.characterId === props.characterId);
+  const character = member.data.profile?.characters.data?.find((character) => character.characterId === props.characterId);
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
