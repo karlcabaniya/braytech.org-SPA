@@ -1148,5 +1148,10 @@
     "date": "2020-07-03T05:34:19.833Z",
     "version": "2.27.0",
     "content": "- added vendor inventories to _Maps_!\n- improved _Challenges_ module for the _Now_ view"
+  },
+  {
+    "date": "2020-07-05T09:18:15.208Z",
+    "version": "2.27.5",
+    "content": "- various improvements\n- vendors improvments, both to _Maps_ view and _Now_ view modules\n- added more screenshots to maps\n- added a more helpful error notification for users who dare attempt to view in firefox private browsing mode\n- _Inspect_ view improvements"
   }
 ]

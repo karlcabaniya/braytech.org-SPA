@@ -369,6 +369,7 @@
 
 #inspect .sockets .module.category.energy-meter .category-sockets {
   grid-template-columns: 1fr;
+  gap: 10px;
 }
 
 #inspect .sockets .module.category .category-sockets .socket {
@@ -422,21 +423,29 @@
   position: relative;
 }
 
-#inspect .sockets .module.category .category-sockets .socket .plug.solar .image {
-  background-color: var(--energy-solar);
-}
-
-#inspect .sockets .module.category .category-sockets .socket .plug.arc .image {
-  background-color: var(--energy-arc);
-}
-
-#inspect .sockets .module.category .category-sockets .socket .plug.void .image {
-  background-color: var(--energy-void);
-}
-
 #inspect .sockets .module.category .category-sockets .socket .plug .icon {
   position: relative;
   height: var(--plug-size);
+}
+
+#inspect .sockets .module.category .category-sockets .socket.options .plug .icon .image.dl {
+  opacity: 0.4;
+}
+
+#inspect .sockets .module.category .category-sockets .socket.options .plug.obtained .icon .image.dl {
+  opacity: 1;
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.solar .icon .image {
+  background-color: var(--energy-solar);
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.arc .icon .image {
+  background-color: var(--energy-arc);
+}
+
+#inspect .sockets .module.category .category-sockets .socket .plug.void .icon .image {
+  background-color: var(--energy-void);
 }
 
 #inspect .sockets .module.category .category-sockets .socket .plug .icon .energy-cost {

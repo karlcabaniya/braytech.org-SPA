@@ -109,8 +109,8 @@ class Collectibles extends React.Component {
           definitionNode.children.collectibles.forEach((collectible, c) => {
             const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-            const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[characterId].collectibles[collectible.collectibleHash];
-            const state = scope?.state || 0;
+            const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+            const state = data?.state || 0;
 
             if (
               (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
@@ -221,8 +221,8 @@ class Collectibles extends React.Component {
         tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const scope = profileCollectibles?.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles?.[characterId].collectibles[collectible.collectibleHash];
-          const state = scope?.state || 0;
+          const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+          const state = data?.state || 0;
 
           if (
             (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
@@ -315,8 +315,8 @@ class Collectibles extends React.Component {
 
         if (!definitionCollectible) return null;
 
-        const scope = profileCollectibles?.collectibles[hash] ? profileCollectibles.collectibles[hash] : characterCollectibles?.[characterId].collectibles[hash];
-        const state = scope?.state || 0;
+        const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+        const state = data?.state || 0;
 
         if (
           (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles

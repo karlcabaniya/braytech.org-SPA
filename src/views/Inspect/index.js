@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { compose } from 'redux';
-import { connect, useDispatch } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useParams, Link } from 'react-router-dom';
 import cx from 'classnames';
 import queryString from 'query-string';
 
 import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { rebind } from '../../store/actions/tooltips';
-import * as enums from '../../utils/destinyEnums';
-import { commonality } from '../../utils/destinyUtils';
+import { DestinyTierType, DestinyItemType, DestinySocketCategoryStyle, enumerateCollectibleState } from '../../utils/destinyEnums';
+import { getCollectibleState, commonality } from '../../utils/destinyUtils';
 import { damageTypeToAsset, energyTypeToAsset, breakerTypeToIcon, itemRarityToString, ammoTypeToAsset } from '../../utils/destinyConverters';
 import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
@@ -23,28 +22,16 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats, getOrnamen
 
 import './styles.css';
 
-class Inspect extends React.Component {
-  state = {
-    from: undefined,
-  };
+function Inspect() {
+  const member = useSelector((state) => state.member);
+  const location = useLocation();
+  const params = useParams();
 
-  static getDerivedStateFromProps(p, s) {
-    if (s.from) {
-      return null;
-    }
+  const [state, setState] = useState({
+    from: location.state?.from || (member.characterId && `/${member.membershipType}/${member.membershipId}/${member.characterId}/collections`) || '/collections',
+  });
 
-    return {
-      from: p.location.state?.from || (p.member.characterId && `/${p.member.membershipType}/${p.member.membershipId}/${p.member.characterId}/collections`) || '/collections',
-    };
-  }
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-
-    this.props.rebindTooltips();
-  }
-
-  handler_pointerOver = (socketIndex, plugHash) => e => {
+  const handler_pointerOver = (socketIndex, plugHash) => (e) => {
     console.log(socketIndex, plugHash);
 
     // this.setState({
@@ -55,259 +42,241 @@ class Inspect extends React.Component {
     //     }
     //   ]
     // });
-  }
+  };
+  // console.log(item);
 
-  handler_pointerOut = e => {
+  const handler_pointerOut = (e) => {
     // this.setState({
     //   sockets: []
     // });
-  }
+  };
 
-  render() {
-    const { settings, member, location } = this.props;
+  const query = queryString.parse(location.search);
+  const urlSockets = selectedSockets(query.sockets?.split('/'));
 
-    const query = queryString.parse(location.search);
-    const urlSockets = selectedSockets(query.sockets?.split('/'));
+  const item = createItem(params.hash, urlSockets);
 
-    const item = createItem(this.props.match.params.hash, urlSockets);
+  // console.log(item);
 
-    // console.log(item);
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-    const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+  const preparedSockets = item.sockets?.socketCategories?.reduce((sockets, socketCategory) => {
+    // console.log(sockets, socketCategory)
 
-    const preparedSockets = item.sockets?.socketCategories?.reduce((sockets, socketCategory) => {
-      // console.log(sockets, socketCategory)
+    // if it's a mod and we've already processed a mod socket before
+    const modCategoryIndex = sockets.findIndex((category) => category.category.categoryStyle === 2);
 
-      // if it's a mod and we've already processed a mod socket before
-      const modCategoryIndex = sockets.findIndex((category) => category.category.categoryStyle === 2);
+    if (modCategoryIndex > -1) {
+      sockets[modCategoryIndex].sockets.push(...socketCategory.sockets);
 
-      if (modCategoryIndex > -1) {
-        sockets[modCategoryIndex].sockets.push(...socketCategory.sockets);
+      return sockets;
+    } else {
+      return [...sockets, socketCategory];
+    }
+  }, []);
 
-        return sockets;
-      } else {
-        return [...sockets, socketCategory];
-      }
-    }, []);
+  const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, DestinySocketCategoryStyle.EnergyMeter);
 
-    const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, enums.DestinySocketCategoryStyle.EnergyMeter);
+  const powerCap = definitionItem.inventory.tierType === DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 
-    const powerCap = definitionItem.inventory.tierType === enums.DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
+  const definitionLore = manifest.DestinyLoreDefinition[definitionItem.loreHash];
 
-    const definitionLore = manifest.DestinyLoreDefinition[definitionItem.loreHash];
+  const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
+  const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
+  const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
+  const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
+  const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
 
-    const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
-    const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
-    const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
-    const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
-    const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
-
-    return (
-      <>
-        <div className='view' id='inspect'>
-          <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
-          <div className='wrap'>
-            <div className='module header'>
-              <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
-              <div className='text'>
-                <div className='name'>{definitionItem.displayProperties.name}</div>
-                <div className='type'>{definitionItem.itemTypeDisplayName}</div>
-              </div>
-              <BungieText className='flair' value={definitionItem.displayProperties.description} />
+  return (
+    <>
+      <div className='view' id='inspect'>
+        <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
+        <div className='wrap'>
+          <div className='module header'>
+            <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
+            <div className='text'>
+              <div className='name'>{definitionItem.displayProperties.name}</div>
+              <div className='type'>{definitionItem.itemTypeDisplayName}</div>
             </div>
-            {displayTaxonomy || displayCommonality ? (
-              <div className='module'>
-                {displayTaxonomy ? (
-                  <div className='module taxonomy'>
-                    <div className='module-name'>{t('Basic characteristics')}</div>
-                    {powerCap ? (
-                      <div className='term power-cap'>
-                        <div className='icon' />
-                        <div className='text'>
-                          <div className='name'>{powerCap}</div>
-                          <div className='type'>{t('Power limit')}</div>
-                        </div>
-                      </div>
-                    ) : null}
-                    {definitionItem.equippingBlock?.ammoType ? (
-                      <div className='term ammo-type'>
-                        <div className='icon'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).icon}</div>
-                        <div className='text'>
-                          <div className='name'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).string}</div>
-                          <div className='type'>{t('Ammo type')}</div>
-                        </div>
-                      </div>
-                    ) : null}
-                    {definitionItem.breakerType > 0 ? (
-                      <div className='term breaker-type'>
-                        <div className='icon'>{breakerTypeToIcon(definitionItem.breakerTypeHash)}</div>
-                        <div className='text'>
-                          <div className='name'>{manifest.DestinyBreakerTypeDefinition[definitionItem.breakerTypeHash].displayProperties.name}</div>
-                          <div className='type'>{t('Breaker type')}</div>
-                        </div>
-                      </div>
-                    ) : null}
-                    {definitionItem.defaultDamageTypeHash ? (
-                      <div className='term damage-type'>
-                        <div className={cx('icon', damageTypeToAsset(definitionItem.defaultDamageTypeHash).string)}>{damageTypeToAsset(definitionItem.defaultDamageTypeHash).char}</div>
-                        <div className='text'>
-                          <div className='name'>{manifest.DestinyDamageTypeDefinition[definitionItem.defaultDamageTypeHash].displayProperties.name}</div>
-                          <div className='type'>{t('Energy affinity')}</div>
-                        </div>
-                      </div>
-                    ) : null}
-                  </div>
-                ) : null}
-                {definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash] ? (
-                  <div className='module commonality'>
-                    <div className='module-name'>{t('Commonality')}</div>
-                    <div>
-                      <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionItem.collectibleHash}>
-                        {commonality(manifest.statistics.collections[definitionItem.collectibleHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+            <BungieText className='flair' value={definitionItem.displayProperties.description} />
+          </div>
+          {displayTaxonomy || displayCommonality ? (
+            <div className='module'>
+              {displayTaxonomy ? (
+                <div className='module taxonomy'>
+                  <div className='module-name'>{t('Basic characteristics')}</div>
+                  {powerCap ? (
+                    <div className='term power-cap'>
+                      <div className='icon' />
+                      <div className='text'>
+                        <div className='name'>{powerCap}</div>
+                        <div className='type'>{t('Power limit')}</div>
                       </div>
                     </div>
-                    <div className='info'>{t("The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.")}</div>
+                  ) : null}
+                  {definitionItem.equippingBlock?.ammoType ? (
+                    <div className='term ammo-type'>
+                      <div className='icon'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).icon}</div>
+                      <div className='text'>
+                        <div className='name'>{ammoTypeToAsset(definitionItem.equippingBlock.ammoType).string}</div>
+                        <div className='type'>{t('Ammo type')}</div>
+                      </div>
+                    </div>
+                  ) : null}
+                  {definitionItem.breakerType > 0 ? (
+                    <div className='term breaker-type'>
+                      <div className='icon'>{breakerTypeToIcon(definitionItem.breakerTypeHash)}</div>
+                      <div className='text'>
+                        <div className='name'>{manifest.DestinyBreakerTypeDefinition[definitionItem.breakerTypeHash].displayProperties.name}</div>
+                        <div className='type'>{t('Breaker type')}</div>
+                      </div>
+                    </div>
+                  ) : null}
+                  {definitionItem.defaultDamageTypeHash ? (
+                    <div className='term damage-type'>
+                      <div className={cx('icon', damageTypeToAsset(definitionItem.defaultDamageTypeHash).string)}>{damageTypeToAsset(definitionItem.defaultDamageTypeHash).char}</div>
+                      <div className='text'>
+                        <div className='name'>{manifest.DestinyDamageTypeDefinition[definitionItem.defaultDamageTypeHash].displayProperties.name}</div>
+                        <div className='type'>{t('Energy affinity')}</div>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+              {definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash] ? (
+                <div className='module commonality'>
+                  <div className='module-name'>{t('Commonality')}</div>
+                  <div>
+                    <div className='value tooltip' data-hash='commonality' data-type='braytech' data-related={definitionItem.collectibleHash}>
+                      {commonality(manifest.statistics.collections[definitionItem.collectibleHash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                    </div>
                   </div>
-                ) : null}
-              </div>
-            ) : null}
-            {displayStatsOrIntrinsic ? (
-              <div className={cx('module')}>
-                {displayStats ? (
-                  <div className='module stats'>
-                    <div className='module-name'>{definitionItem.itemType === enums.DestinyItemType.Armor ? t('Armor stats') : t('Weapon stats')}</div>
-                    {item.stats.map((stat) => {
-                      // map through stats
+                  <div className='info'>{t("The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.")}</div>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          {displayStatsOrIntrinsic ? (
+            <div className={cx('module')}>
+              {displayStats ? (
+                <div className='module stats'>
+                  <div className='module-name'>{definitionItem.itemType === DestinyItemType.Armor ? t('Armor stats') : t('Weapon stats')}</div>
+                  {item.stats.map((stat) => {
+                    // map through stats
 
-                      const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [stat.statHash]);
+                    const armor2MasterworkValue = armor2MasterworkSockets && getSumOfArmorStats(armor2MasterworkSockets, [stat.statHash]);
 
-                      const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, stat);
-                      const masterworkValue = (item.masterwork && item.masterwork.stats?.find((m) => m.hash === stat.statHash) && item.masterwork.stats?.find((m) => m.hash === stat.statHash).value) || armor2MasterworkValue || 0;
+                    const moddedValue = item.sockets && item.sockets.sockets && getModdedStatValue(item.sockets, stat);
+                    const masterworkValue = (item.masterwork && item.masterwork.stats?.find((m) => m.hash === stat.statHash) && item.masterwork.stats?.find((m) => m.hash === stat.statHash).value) || armor2MasterworkValue || 0;
 
-                      let baseBar = stat.value;
+                    let baseBar = stat.value;
 
-                      if (moddedValue) {
-                        baseBar -= moddedValue;
-                      }
+                    if (moddedValue) {
+                      baseBar -= moddedValue;
+                    }
 
-                      if (masterworkValue) {
-                        baseBar -= masterworkValue;
-                      }
+                    if (masterworkValue) {
+                      baseBar -= masterworkValue;
+                    }
 
-                      const segments = [[baseBar]];
+                    const segments = [[baseBar]];
 
-                      if (moddedValue) {
-                        segments.push([moddedValue, 'modded']);
-                      }
+                    if (moddedValue) {
+                      segments.push([moddedValue, 'modded']);
+                    }
 
-                      if (masterworkValue) {
-                        segments.push([masterworkValue, 'masterwork']);
-                      }
+                    if (masterworkValue) {
+                      segments.push([masterworkValue, 'masterwork']);
+                    }
 
-                      if (stat.statHash === 2715839340) {
-                        return (
-                          <div key={stat.statHash} className='stat'>
-                            <div className='name'>{stat.displayProperties.name}</div>
-                            <div className='value'>
-                              <div className={cx('text', { modded: moddedValue !== 0 })}>{stat.value}</div>
-                              <RecoilStat value={stat.value} />
-                            </div>
-                          </div>
-                        );
-                      }
-
+                    if (stat.statHash === 2715839340) {
                       return (
                         <div key={stat.statHash} className='stat'>
-                          <div className='name'>{stat.statHash === -1000 ? t('Total') : stat.displayProperties.name}</div>
-                          <div className={cx('value', { bar: stat.bar })}>
-                            {stat.bar ? (
-                              <>
-                                {segments.map(([value, className], i) => (
-                                  <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / stat.maximumValue)))}%` }} />
-                                ))}
-                                <div className='int'>{stat.value}</div>
-                              </>
-                            ) : (
-                              <div className={cx('text', { masterwork: masterworkValue !== 0, modded: moddedValue !== 0 })}>
-                                {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
-                              </div>
-                            )}
+                          <div className='name'>{stat.displayProperties.name}</div>
+                          <div className='value'>
+                            <div className={cx('text', { modded: moddedValue !== 0 })}>{stat.value}</div>
+                            <RecoilStat value={stat.value} />
                           </div>
                         </div>
                       );
-                    })}
-                  </div>
-                ) : null}
-                {displaySockets ? (
-                  <div className='module sockets'>
-                    {preparedSockets
-                      .filter((socketCategory) => socketCategory.category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1)
-                      .map((socketCategory, c) => (
-                        <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} />
-                      ))}
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
-            {displaySockets ? (
-              <div className={cx('module', 'sockets', 'perks', { double: !(displayTaxonomy || displayCommonality) })}>
-                {preparedSockets
-                  .filter((socketCategory) => socketCategory.category.categoryStyle !== enums.DestinySocketCategoryStyle.LargePerk)
-                  .map((socketCategory, c) => (
-                    <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} masterwork={item.masterwork} handler_pointerOver={this.handler_pointerOver} handler_pointerOut={this.handler_pointerOut} />
-                  ))}
-              </div>
-            ) : null}
-            {definitionLore ? (
-              <div className='module lore'>
-                <div className='module-name'>{t('Lore')}</div>
-                <BungieText className='text' value={definitionLore.displayProperties.description} />
-              </div>
-            ) : null}
-            {item.screenshot ? (
-              <div className={cx('module', 'screenshot', { double: !definitionLore })}>
-                <div className='module-name'>{t('Screenshot')}</div>
-                <div className='frame'>
-                  <ObservedImage src={`https://www.bungie.net${item.screenshot}`} />
+                    }
+
+                    return (
+                      <div key={stat.statHash} className='stat'>
+                        <div className='name'>{stat.statHash === -1000 ? t('Total') : stat.displayProperties.name}</div>
+                        <div className={cx('value', { bar: stat.bar })}>
+                          {stat.bar ? (
+                            <>
+                              {segments.map(([value, className], i) => (
+                                <div key={i} className={cx('bar', className)} data-value={value} style={{ width: `${Math.min(100, Math.floor(100 * (value / stat.maximumValue)))}%` }} />
+                              ))}
+                              <div className='int'>{stat.value}</div>
+                            </>
+                          ) : (
+                            <div className={cx('text', { masterwork: masterworkValue !== 0, modded: moddedValue !== 0 })}>
+                              {stat.value} {statsMs.includes(stat.statHash) && 'ms'}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+              ) : null}
+              {displaySockets ? (
+                <div className='module sockets'>
+                  {preparedSockets
+                    .filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1)
+                    .map((socketCategory, c) => (
+                      <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} />
+                    ))}
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+          {displaySockets ? (
+            <div className={cx('module', 'sockets', 'perks', { double: !(displayTaxonomy || displayCommonality) })}>
+              {preparedSockets
+                .filter((socketCategory) => socketCategory.category.categoryStyle !== DestinySocketCategoryStyle.LargePerk)
+                .map((socketCategory, c) => (
+                  <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} masterwork={item.masterwork} handler_pointerOver={handler_pointerOver} handler_pointerOut={handler_pointerOut} />
+                ))}
+            </div>
+          ) : null}
+          {definitionLore ? (
+            <div className='module lore'>
+              <div className='module-name'>{t('Lore')}</div>
+              <BungieText className='text' value={definitionLore.displayProperties.description} />
+            </div>
+          ) : null}
+          {item.screenshot ? (
+            <div className={cx('module', 'screenshot', { double: !definitionLore })}>
+              <div className='module-name'>{t('Screenshot')}</div>
+              <div className='frame'>
+                <ObservedImage src={`https://www.bungie.net${item.screenshot}`} />
               </div>
-            ) : null}
-          </div>
+            </div>
+          ) : null}
         </div>
-        <div className='sticky-nav'>
-          <div className='wrapper'>
-            <div />
-            <ul>
-              <li>
-                <Link className='button' to={this.state.from}>
-                  <DestinyKey type='dismiss' />
-                  {t('Dismiss')}
-                </Link>
-              </li>
-            </ul>
-          </div>
+      </div>
+      <div className='sticky-nav'>
+        <div className='wrapper'>
+          <div />
+          <ul>
+            <li>
+              <Link className='button' to={state.from}>
+                <DestinyKey type='dismiss' />
+                {t('Dismiss')}
+              </Link>
+            </li>
+          </ul>
         </div>
-      </>
-    );
-  }
+      </div>
+    </>
+  );
 }
 
-function mapStateToProps(state) {
-  return {
-    settings: state.settings,
-    member: state.member,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', });
-    },
-  };
-}
-
-export default compose(connect(mapStateToProps, mapDispatchToProps), withRouter)(Inspect);
+export default Inspect;
 
 function RecoilStat({ value }) {
   // A value from 100 to -100 where positive is right and negative is left
@@ -324,28 +293,21 @@ function RecoilStat({ value }) {
   const ySpreadLess = Math.cos(direction - direction * spread);
 
   return (
-    <svg height="12" viewBox="0 0 2 1">
+    <svg height='12' viewBox='0 0 2 1'>
       {/* <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" /> */}
-      <rect width="2" height="1" fill="rgba(255, 255, 255, 0.2)" />
-      {Math.abs(direction) > 0.1 ? (
-        <path
-          d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${
-            1 + xSpreadLess
-          },${1 - ySpreadLess} Z`}
-          fill="#FFF"
-        />
-      ) : (
-        <line x1={1 - x} y1={1 + y} x2={1 + x} y2={1 - y} stroke="white" strokeWidth="0.1" />
-      )}
+      <rect width='2' height='1' fill='rgba(255, 255, 255, 0.2)' />
+      {Math.abs(direction) > 0.1 ? <path d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${1 + xSpreadLess},${1 - ySpreadLess} Z`} fill='#FFF' /> : <line x1={1 - x} y1={1 + y} x2={1 + x} y2={1 - y} stroke='white' strokeWidth='0.1' />}
     </svg>
   );
 }
 
 function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwork, ...props }) {
-  const [socketState, setSocketState] = useState([]);
+  const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
+  const [socketState, setSocketState] = useState([]);
 
   useEffect(() => {
+    // runs on init for each socket. unsure how to fix cleanly
     dispatch(rebind());
   }, [dispatch, socketState]);
 
@@ -363,10 +325,10 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
   const socketsToMap = sockets.filter((socket) => socket.socketDefinition.defaultVisible).filter((socket) => !socket.isTracker);
   const expandedSocket = socketsToMap.find((socket) => socketState.indexOf(socket.socketIndex) > -1);
 
-  const isIntrinsic = category.categoryStyle === enums.DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
-  const isEnergyMeter = category.categoryStyle === enums.DestinySocketCategoryStyle.EnergyMeter;
-  const isPerks = category.categoryStyle !== enums.DestinySocketCategoryStyle.Consumable;
-  const isMods = category.categoryStyle === enums.DestinySocketCategoryStyle.Consumable;
+  const isIntrinsic = category.categoryStyle === DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
+  const isEnergyMeter = category.categoryStyle === DestinySocketCategoryStyle.EnergyMeter;
+  const isPerks = category.categoryStyle !== DestinySocketCategoryStyle.Consumable;
+  const isMods = category.categoryStyle === DestinySocketCategoryStyle.Consumable;
 
   return (
     <div className={cx('module', 'category', { mods: isMods, intrinsic: isIntrinsic, perks: isPerks && !isEnergyMeter, 'energy-meter': isEnergyMeter })}>
@@ -404,7 +366,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
             // console.log(socket.plug.definition.plug);
 
             return (
-              <div key={s} className={cx('energy-meter', energyAsset.string)}>
+              <div key={s} className={cx('energy-meter', energyAsset.string, 'socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
                 <div key={s} className='socket affinity'>
                   <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
                     {energyAsset.char}
@@ -438,7 +400,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
               <div key={s} className={cx('socket', { intrinsic: socket.isIntrinsic, columned: category.categoryStyle !== 2 && socket.plugOptions.length > 7 })} style={{ '--socket-columns': Math.ceil(socket.plugOptions.length / 6) }}>
                 {socket.plugOptions.map((plug, p) => {
                   const active = plug.definition.hash === socket.plug.definition?.hash;
-                
+
                   return (
                     <div key={p} onPointerOver={props.handler_pointerOver(socket.socketIndex, plug.definition.hash)} onPointerOut={props.handler_pointerOut} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-style='ui'>
                       <div className='icon'>
@@ -471,10 +433,19 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
             {expandedSocket.plugOptions.map((plug, p) => {
               const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
 
-              console.log(plug.definition.collectibleHash)
+              const collectibleState = getCollectibleState(member, plug.definition.collectibleHash);
 
               return (
-                <div key={p} className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-tooltip='mouse' data-hash={plug.definition.hash}>
+                <div
+                  key={p}
+                  className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, {
+                    // masterworked: plug.stats && Object.keys(plug.stats).filter((key) => plug.stats[key] > 9).length,
+                    obtained: collectibleState && member.data ? !enumerateCollectibleState(collectibleState).NotAcquired : true,
+                    active: plug.definition.hash === expandedSocket.plug.definition?.hash,
+                  })}
+                  data-tooltip='mouse'
+                  data-hash={plug.definition.hash}
+                >
                   <div className='icon'>
                     <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                     {plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{plug.definition.plug.energyCost.energyCost}</div> : null}
@@ -506,12 +477,12 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
 function selectedSockets(query = [], hover = []) {
   if (query.length && hover.length) {
     return query.map((value, v) => {
-      const hoverPerk = hover.find(h => h.socketIndex === v)
-      
+      const hoverPerk = hover.find((h) => h.socketIndex === v);
+
       if (hoverPerk) {
         return hoverPerk.plugHash;
       }
-      
+
       return Number(value) || '';
     });
   }
@@ -536,7 +507,7 @@ function createItem(itemHash, selectedSockets = []) {
   item.sockets = sockets(item);
 
   // adjust sockets according to user selection
-  if (item.sockets.sockets) {    
+  if (item.sockets.sockets) {
     item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
       const selectedPlugHash = selectedSockets[s] || 0;
 
