@@ -7,6 +7,7 @@ const history = ls.get('settings') || {
     three: false,
     threeDebug: false,
     threeShadows: false,
+    gay: false,
   },
   itemVisibility: {
     hideCompletedRecords: false,

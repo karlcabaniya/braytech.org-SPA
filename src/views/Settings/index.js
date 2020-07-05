@@ -246,6 +246,10 @@ class Settings extends React.Component {
                   </li>
                 </>
               ) : null}
+              <li onClick={this.handler_toggle('visual.gay')}>
+                <Checkbox linked checked={settings.visual.gay} text={t('Enable ✨')} />
+                <BraytechText className='info' value={t('Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation.')} />
+              </li>
             </ul>
             <div className='sub-header sub'>
               <div>{t('Developer')}</div>

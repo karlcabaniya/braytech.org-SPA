@@ -119,8 +119,15 @@
   background-color: rgba(82, 47, 101, 0.3);
 }
 
+.user-module.challenges .state .remaining {
+  display: grid;
+}
+
 .user-module.challenges .state .remaining .info {
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 1440px) {
@@ -154,7 +161,7 @@
   .user-module.challenges .state {
     top: 2rem;
     margin: 0 0 2rem;
-    grid-template-columns: min-content 130px;
+    grid-template-columns: min-content auto;
     gap: 16px;
     justify-content: space-between;
     align-items: center;
@@ -168,9 +175,7 @@
 
   .user-module.challenges .state .remaining .info {
     padding: 0 1rem 0 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     text-align: right;
   }
+  
 }

@@ -55,7 +55,7 @@ function AppLoading({ state, ...props }) {
       isError: true,
       status: t('Fatal error'),
       displayProperties: {
-        name: t('Indexed DB'),
+        name: 'Indexed DB',
         description: t('Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.'),
       },
     },

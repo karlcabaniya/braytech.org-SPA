@@ -315,7 +315,7 @@ class App extends React.Component {
     if (this.state.status.code !== 'ready') {
       // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
       return (
-        <div className={cx('wrapper', this.props.theme.active)}>
+        <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay })}>
           <React.Suspense fallback={<SuspenseLoading full />}>
             <AppLoading state={this.state.status} />
             <NotificationLink />
@@ -328,7 +328,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Route
           render={(route) => (
-            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationLink />
               <NotificationProgress />

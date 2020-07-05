@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import * as enums from '../../../utils/destinyEnums';
+import { rebind } from '../../../store/actions/tooltips';
+import { nightfalls, nightmareHunts } from '../../../utils/destinyEnums';
+
 import ProgressBar from '../../UI/ProgressBar';
 import Button from '../../UI/Button';
+
 import { recallMissions } from '../LunasRecall';
 
 import './styles.css';
@@ -52,8 +55,8 @@ function getOverrides(objectiveHash, activityHash) {
 }
 
 const isLunasRecall = (activityHash) => recallMissions.indexOf(activityHash) > -1;
-const isNightmareHunt = (activityHash) => enums.nightmareHunts.find((n) => n.activities.indexOf(activityHash) > -1);
-const isNightfallOrdeal = (activityHash) => Object.values(enums.nightfalls).find((n) => n.ordealHashes.indexOf(activityHash) > -1);
+const isNightmareHunt = (activityHash) => nightmareHunts.find((n) => n.activities.indexOf(activityHash) > -1);
+const isNightfallOrdeal = (activityHash) => Object.values(nightfalls).find((n) => n.ordealHashes.indexOf(activityHash) > -1);
 const isDungeon = (activityHash) => manifest.DestinyActivityDefinition[activityHash]?.activityTypeHash === 608898761;
 const isRaid = (activityHash) => manifest.DestinyActivityDefinition[activityHash]?.activityTypeHash === 2043403989;
 
@@ -69,12 +72,19 @@ function getActivities(activities) {
 
 function Challenges() {
   const member = useSelector((state) => state.member);
-  const characterActivities = member.data.profile.characterActivities.data;
+  const dispatch = useDispatch();
   const [state, setState] = useState({ filterRewards: false });
+
+  useEffect(() => {
+    // runs on init for each socket. unsure how to fix cleanly
+    dispatch(rebind());
+  }, [dispatch, state]);
 
   function handler_togglePinnacleFilter() {
     setState({ filterRewards: !state.filterRewards });
   }
+
+  const characterActivities = member.data.profile.characterActivities.data;
 
   // console.log(groupBy(characterActivities[member.characterId].availableActivities.filter(a => a.challenges), a => a.challenges[0].objective.objectiveHash))
 
