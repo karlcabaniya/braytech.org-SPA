@@ -195,6 +195,8 @@ class App extends React.Component {
         this.setState({ status: { code: 'error_fetchingManifest', detail: e } });
       } else if (e.message === 'maintenance') {
         this.setState({ status: { code: 'error_maintenance', detail: e } });
+      } else if (e.name === 'OpenFailedError') {
+        this.setState({ status: { code: 'error_indexedDb', detail: e } });
       } else {
         this.setState({ status: { code: 'error_setUpManifest', detail: e } });
       }

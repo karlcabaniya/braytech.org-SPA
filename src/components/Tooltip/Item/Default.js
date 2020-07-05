@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { t, duration, timestampToDuration, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
@@ -6,10 +7,11 @@ import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
 import { getRewardsQuestLine } from '../../QuestLine';
 
-const Default = (props) => {
-  const { itemHash, itemComponents, quantity, vendorHash, vendorItemIndex } = props;
-  const characters = props.data.profile?.characters.data;
-  const character = characters?.find((character) => character.characterId === props.characterId);
+import { VendorCosts } from './';
+
+export default function Default({ itemHash, itemComponents, quantity, vendorHash, vendorItemIndex, ...props }) {
+  const member = useSelector((state) => state.member);
+  const character = member.data.profile?.characters.data?.find((character) => character.characterId === props.characterId);
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
@@ -60,7 +62,7 @@ const Default = (props) => {
     }) || [];
 
   // vendor costs
-  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
 
   const blocks = [];
 
@@ -124,26 +126,8 @@ const Default = (props) => {
 
   // vendor costs
   if (vendorCosts?.length) {
-    blocks.push(
-      <div className='vendor-costs'>
-        <ul>
-          {vendorCosts.map((cost, c) => (
-            <li key={c}>
-              <ul>
-                <li>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon}`} />
-                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
-                </li>
-                <li>{cost.quantity.toLocaleString()}</li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    blocks.push(<VendorCosts costs={vendorCosts} />);
   }
 
   return blocks.map((block, i) => <React.Fragment key={i}>{block}</React.Fragment>);
 };
-
-export default Default;

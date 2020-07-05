@@ -52,6 +52,8 @@ i18next.setCurrentLanguage = setCurrentLanguage;
 
 export default i18next;
 
+export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
+
 export function getLanguageInfo(code) {
   switch (code) {
     case 'debug':
@@ -76,12 +78,12 @@ export function getLanguageInfo(code) {
       };
     case 'es':
       return {
-        name: 'Español',
+        name: 'Español (España)',
         code: code,
       };
     case 'es-mx':
       return {
-        name: 'Español mexicano',
+        name: 'Español (Latinoamérica)',
         code: code,
       };
     case 'fr':
@@ -133,8 +135,6 @@ export function getLanguageInfo(code) {
       return { code: code };
   }
 }
-
-export const t = (key, options) => i18next.t(key, options || { skipInterpolation: true });
 
 const durationKeys = {
   months: {

@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.26.17",
+  "version": "2.27.5",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -9,18 +9,15 @@
     "analyze": "node scripts/analyzeBundle.js",
     "translations": "node scripts/extractTranslations2.js --stats --delete-unused",
     "checklists": "node --experimental-modules --experimental-json-modules scripts/checklists/prepare.mjs",
-    "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs",
-    "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",
-    "eververse": "node --experimental-modules scripts/prepareEververseData.mjs",
     "records": "node --experimental-modules scripts/prepareUnobtainableRecords.mjs",
-    "chalice-data": "node --experimental-modules scripts/prepareChaliceData.mjs",
-    "chalice-runes": "node --experimental-modules scripts/prepareChaliceRunes.mjs"
+    "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",
+    "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs"
   },
   "dependencies": {
     "classnames": "^2.2.6",
     "dexie": "^3.0.1",
     "html2canvas": "^1.0.0-rc.5",
-    "i18next": "^19.5.1",
+    "i18next": "^19.5.4",
     "i18next-xhr-backend": "^3.2.2",
     "intersection-observer": "^0.11.0",
     "leaflet": "^1.6.0",
@@ -38,14 +35,14 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "three": "^0.118.1",
+    "three": "^0.118.3",
     "three-orbitcontrols": "^2.110.3",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.3",
-    "@babel/core": "^7.10.3",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.3",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "chalk": "^4.1.0",
     "entities": "^2.0.3",
     "find-in-files": "^0.5.0",

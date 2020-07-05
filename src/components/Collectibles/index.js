@@ -86,7 +86,7 @@ class Collectibles extends React.Component {
   }
 
   render() {
-    const { settings, lists, member, viewport, selfLinkFrom, inspect, showCompleted, showInvisible, mouseTooltips } = this.props;
+    const { settings, lists, member, selfLinkFrom, inspect, showCompleted, showInvisible, mouseTooltips } = this.props;
     const highlight = +this.props.match?.params.quinary || +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
     const collectiblesRequested = this.props.hashes?.filter((h) => h);
@@ -109,8 +109,8 @@ class Collectibles extends React.Component {
           definitionNode.children.collectibles.forEach((collectible, c) => {
             const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-            const scope = profileCollectibles.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles[characterId].collectibles[collectible.collectibleHash];
-            const state = scope?.state || 0;
+            const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+            const state = data?.state || 0;
 
             if (
               (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
@@ -131,7 +131,7 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={definitionCollectible.hash}
-                    className={cx('redacted', {
+                    className={cx('linked', 'redacted', {
                       highlight: highlight === definitionCollectible.hash,
                     })}
                     data-tooltip
@@ -156,7 +156,7 @@ class Collectibles extends React.Component {
                 element: (
                   <li
                     key={c}
-                    className={cx('item', {
+                    className={cx('linked', 'item', {
                       completed: !enumerateCollectibleState(state).NotAcquired && !enumerateCollectibleState(state).Invisible,
                       highlight: highlight === definitionCollectible.hash,
                       selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
@@ -221,8 +221,8 @@ class Collectibles extends React.Component {
         tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const scope = profileCollectibles?.collectibles[collectible.collectibleHash] ? profileCollectibles.collectibles[collectible.collectibleHash] : characterCollectibles?.[characterId].collectibles[collectible.collectibleHash];
-          const state = scope?.state || 0;
+          const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+          const state = data?.state || 0;
 
           if (
             (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
@@ -240,7 +240,7 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx('redacted', {
+                  className={cx('linked', 'redacted', {
                     highlight: highlight === definitionCollectible.hash,
                   })}
                   data-tooltip
@@ -268,7 +268,7 @@ class Collectibles extends React.Component {
                 <li
                   key={c}
                   ref={ref}
-                  className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
+                  className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
                     completed: !enumerateCollectibleState(state).NotAcquired,
                     highlight: highlight === definitionCollectible.hash,
                     selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
@@ -315,8 +315,8 @@ class Collectibles extends React.Component {
 
         if (!definitionCollectible) return null;
 
-        const scope = profileCollectibles?.collectibles[hash] ? profileCollectibles.collectibles[hash] : characterCollectibles?.[characterId].collectibles[hash];
-        const state = scope?.state || 0;
+        const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+        const state = data?.state || 0;
 
         if (
           (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
@@ -337,7 +337,7 @@ class Collectibles extends React.Component {
           element: (
             <li
               key={definitionCollectible.hash}
-              className={cx(energyAsset?.string !== 'any' && energyAsset?.string, {
+              className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
                 linked: link && selfLinkFrom,
                 completed: !enumerateCollectibleState(state).NotAcquired,
                 selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
@@ -387,7 +387,6 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     member: state.member,
-    viewport: state.viewport,
     lists: state.lists,
   };
 }

@@ -28,9 +28,9 @@ function navLinkBountiesIsActive(match, location) {
 
   if (pathname === '/quests' || pathname.indexOf('/quests/bounties') > -1) {
     return true;
-  } else {
-    return false;
   }
+
+  return false;
 }
 
 function navLinkQuestsAllIsActive(match, location) {
@@ -38,9 +38,9 @@ function navLinkQuestsAllIsActive(match, location) {
 
   if (pathname.indexOf('/quests/all') > -1) {
     return true;
-  } else {
-    return false;
   }
+
+  return false;
 }
 
 const filters = ['bounties', 'all', 'new-light', 'expansion', 'seasonal', 'playlists', 'exotics', 'past'];

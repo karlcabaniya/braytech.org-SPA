@@ -38,7 +38,7 @@ class SeasonCountdown extends React.Component {
     if (this.mounted) {
       this.calculateTime();
       
-      this.interval = setInterval(this.calculateTime, 1000)
+      this.interval = setInterval(this.calculateTime, 60000)
     };
   }
 

@@ -1,11 +1,6 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 
-import manifest from '../../utils/manifest';
-
-import Scene from '../../components/Three/Inspect/Scene';
+import Scene from '../../components/Three/World/Scene';
 
 import './styles.css';
 
@@ -26,7 +21,6 @@ class TestThree extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
 
     return (
       <div className='view' id='three'>
@@ -36,8 +30,4 @@ class TestThree extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {};
-}
-
-export default compose(connect(mapStateToProps), withTranslation())(TestThree);
+export default TestThree;

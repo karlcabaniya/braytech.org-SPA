@@ -2065,7 +2065,13 @@
     "recordHash": 242464658,
     "screenshot": "/static/images/screenshots/lore/pariahs-refuge_the-awoken-of-the-reef_242464658.jpg",
     "extended": {
-      "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8"
+      "video": "https://www.youtube.com/watch?v=bhp-XpxfcT8",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 51
+        }
+      }
     }
   },
   "305": {
@@ -2075,7 +2081,13 @@
       "description": "Atop the bookcases."
     },
     "extended": {
-      "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M"
+      "video": "https://www.youtube.com/watch?v=4mPNjIFmC1M",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 42
+        }
+      }
     }
   },
   "306": {
@@ -2350,7 +2362,8 @@
     "recordHash": 2121305070,
     "extended": {
       "video": "https://www.youtube.com/watch?v=MSXtYGx3gnk"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/high-plains_ghost-stories_2121305070.jpg"
   },
   "350": {
     "recordHash": 2121305069,
@@ -2433,7 +2446,8 @@
     "recordHash": 2154860342,
     "extended": {
       "video": "https://www.youtube.com/watch?v=XAtGKq61HSo&t=0s&index=48&list=PLuGZAFj5iqHdbkxy71FaEvHkP1s0XfBEe"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/spiders-safehouse_ghost-stories_2154860342.jpg"
   },
   "362": {
     "recordHash": 276019960,
@@ -2507,7 +2521,8 @@
     "recordHash": 276019952,
     "extended": {
       "video": "https://youtu.be/kbIcfJn97NI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/high-plains_the-awoken-of-the-reef_276019952.jpg"
   },
   "371": {
     "recordHash": 259242246,
@@ -2519,8 +2534,15 @@
   "372": {
     "recordHash": 259242247,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=ccFHY15fh-Q"
-    }
+      "video": "https://www.youtube.com/watch?v=ccFHY15fh-Q",
+      "screenshot": {
+        "highlight": {
+          "x": 58.5,
+          "y": 58.5
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/lore/trappers-cave_the-awoken-of-the-reef_259242247.jpg"
   },
   "373": {
     "recordHash": 259242244,
@@ -2572,19 +2594,22 @@
     "recordHash": 3448739526,
     "extended": {
       "video": "https://www.youtube.com/watch?v=_KI0xerg2AY"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/high-plains_the-forsaken-prince_3448739526.jpg"
   },
   "380": {
     "recordHash": 3448739521,
     "extended": {
       "video": "https://www.youtube.com/watch?v=kkoJUJuXGkI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/high-plains_the-forsaken-prince_3448739521.jpg"
   },
   "381": {
     "recordHash": 3448739520,
     "extended": {
       "video": "https://www.youtube.com/watch?v=uDy4OjD0pNk"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/high-plains_the-forsaken-prince_3448739520.jpg"
   },
   "382": {
     "recordHash": 3448739522,
@@ -2620,7 +2645,8 @@
     "recordHash": 3431961946,
     "extended": {
       "video": "https://www.youtube.com/watch?v=OHpHJpX5El8"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/trappers-cave_the-forsaken-prince_3431961946.jpg"
   },
   "388": {
     "recordHash": 3431961947,
@@ -3283,6 +3309,70 @@
   "490": {
     "checklistHash": 3255812950,
     "screenshot": "/static/images/screenshots/feline-friends/rheasilvia_feline-friends_9_3255812950.jpg",
+    "extended": {}
+  },
+  "491": {
+    "vendorHash": 765357505,
+    "screenshot": "/static/images/screenshots/vendors/vendors_saint-14-2.jpg"
+  },
+  "492": {
+    "checklistHash": 847545115,
+    "screenshot": "/static/images/screenshots/region-chests/thieves-landing_region-chests_81.jpg",
+    "extended": {}
+  },
+  "493": {
+    "checklistHash": 3817650588,
+    "screenshot": "/static/images/screenshots/region-chests/thieves-landing_region-chests_82.jpg",
+    "extended": {}
+  },
+  "494": {
+    "checklistHash": 3311088557,
+    "screenshot": "/static/images/screenshots/region-chests/thieves-landing_region-chests_83.jpg",
+    "extended": {}
+  },
+  "495": {
+    "checklistHash": 1640978814,
+    "screenshot": "/static/images/screenshots/region-chests/thieves-landing_region-chests_84.jpg",
+    "extended": {}
+  },
+  "496": {
+    "checklistHash": 858668439,
+    "screenshot": "/static/images/screenshots/region-chests/four-horn-gulch_region-chests_95.jpg",
+    "extended": {}
+  },
+  "497": {
+    "checklistHash": 2449085400,
+    "screenshot": "/static/images/screenshots/region-chests/four-horn-gulch_region-chests_96.jpg",
+    "extended": {}
+  },
+  "498": {
+    "checklistHash": 3283298249,
+    "screenshot": "/static/images/screenshots/region-chests/four-horn-gulch_region-chests_97.jpg",
+    "extended": {}
+  },
+  "499": {
+    "checklistHash": 3612414514,
+    "screenshot": "/static/images/screenshots/region-chests/four-horn-gulch_region-chests_98.jpg",
+    "extended": {}
+  },
+  "500": {
+    "checklistHash": 1997430677,
+    "screenshot": "/static/images/screenshots/region-chests/high-plains_region-chests_99.jpg",
+    "extended": {}
+  },
+  "501": {
+    "checklistHash": 4232901662,
+    "screenshot": "/static/images/screenshots/lost-sectors/thieves-landing_lost-sectors_kingship-dock.jpg",
+    "extended": {}
+  },
+  "502": {
+    "checklistHash": 1616620401,
+    "screenshot": "/static/images/screenshots/lost-sectors/thieves-landing_lost-sectors_the-empty-tank.jpg",
+    "extended": {}
+  },
+  "503": {
+    "checklistHash": 1134123378,
+    "screenshot": "/static/images/screenshots/lost-sectors/four-horn-gulch_lost-sectors_trappers-cave.jpg",
     "extended": {}
   }
 }

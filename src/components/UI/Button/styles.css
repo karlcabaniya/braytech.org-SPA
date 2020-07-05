@@ -85,6 +85,9 @@
 
 .button .text {
   padding: 0 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .button.disabled,

@@ -98,7 +98,7 @@ class Events extends React.Component {
               </div>
             </div>
           </div>
-          <div className='module'>
+          {/* <div className='module'>
             <h4>{t('Collectibles')}</h4>
             <ul className='list inventory-items'>
               <Items items={season10items.filter(i => {
@@ -111,11 +111,11 @@ class Events extends React.Component {
                 }
               })} />
             </ul>
-          </div>
+          </div> */}
           <div className='module'>
             <h4>{t('Records')}</h4>
             <ul className='list record-items'>
-              <Records selfLinkFrom='/this-week' hashes={[945314810]} ordered />
+              <Records selfLinkFrom='/this-week' hashes={[1430747933]} ordered />
             </ul>
           </div>
         </div>

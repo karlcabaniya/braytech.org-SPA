@@ -1,6 +1,7 @@
 import React from 'react';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
@@ -12,7 +13,7 @@ import './styles.css';
 
 class CharacterEmblem extends React.Component {
   render() {
-    const { member, onboarding, characterSelect, responsive } = this.props;
+    const { location, member, onboarding, characterSelect, responsive } = this.props;
 
     if (member.data && !onboarding && !characterSelect) {
       const clan = member.data.groups.clan;
@@ -22,9 +23,9 @@ class CharacterEmblem extends React.Component {
 
       const characterId = this.props.characterId || member.characterId;
 
-      const character = characters.find(c => c.characterId === characterId);
+      const character = characters.find((c) => c.characterId === characterId);
 
-      const emblem = characterEquipment[character.characterId].items.find(i => i.bucketHash === 4274335291);
+      const emblem = characterEquipment[character.characterId].items.find((i) => i.bucketHash === 4274335291);
       const metricImages = emblem?.metricHash && utils.metricImages(emblem.metricHash);
 
       return (
@@ -32,7 +33,7 @@ class CharacterEmblem extends React.Component {
           <div className='wrapper'>
             <ObservedImage
               className={cx('image', 'emblem', {
-                missing: !character.emblemBackgroundPath
+                missing: !character.emblemBackgroundPath,
               })}
               src={`https://www.bungie.net${character.emblemBackgroundPath ? character.emblemBackgroundPath : `/img/misc/missing_icon_d2.png`}`}
             />
@@ -59,8 +60,10 @@ class CharacterEmblem extends React.Component {
           <div className='wrapper'>
             <div className='abs'>
               <div className='text'>{t('Select a character')}</div>
-              <div className='icon'><i className='segoe-uniE0AB' /></div>
-              <Link to={{ pathname: '/character-select', state: { from: { pathname: '/maps' } } }} />
+              <div className='icon'>
+                <i className='segoe-uniE0AB' />
+              </div>
+              <Link to={{ pathname: '/character-select', state: { from: { pathname: location.pathname } } }} />
             </div>
           </div>
         </div>
@@ -71,8 +74,10 @@ class CharacterEmblem extends React.Component {
           <div className='wrapper'>
             <div className='abs'>
               <div className='text'>{t('Change profile')}</div>
-              <div className='icon'><i className='segoe-uniE0AB' /></div>
-              <Link to={{ pathname: '/character-select', state: { from: { pathname: '/maps' } } }} />
+              <div className='icon'>
+                <i className='segoe-uniE0AB' />
+              </div>
+              <Link to={{ pathname: '/character-select', state: { from: { pathname: location.pathname } } }} />
             </div>
           </div>
         </div>
@@ -83,10 +88,10 @@ class CharacterEmblem extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    member: state.member
+    member: state.member,
   };
 }
 
-export default connect(mapStateToProps)(CharacterEmblem);
+export default compose(withRouter, connect(mapStateToProps))(CharacterEmblem);

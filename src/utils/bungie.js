@@ -270,8 +270,9 @@ export const EditGroupMembership = async (groupId, membershipType, membershipId,
     method: 'post'
   });
 
-export const GetVendor = async (membershipType, membershipId, characterId, vendorHash, components) =>
-  apiRequest(`/Platform/Destiny2/${membershipType}/Profile/${membershipId}/Character/${characterId}/Vendors/${vendorHash}/?components=${components}`, {
+export const GetVendor = async (options) =>
+  apiRequest(`/Platform/Destiny2/${options.params.membershipType}/Profile/${options.params.membershipId}/Character/${options.params.characterId}/Vendors/${options.params.vendorHash}/?components=${options.params.components}`, {
+    ...options,
     withAuth: true
   });
 

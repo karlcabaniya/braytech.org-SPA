@@ -105,7 +105,7 @@
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "tierTypeName": "Leggendario"
+      "tierTypeName": "Leggenda"
     }
   },
   "braytech_red_rune": {
@@ -116,7 +116,7 @@
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "tierTypeName": "Leggendario"
+      "tierTypeName": "Leggenda"
     }
   },
   "braytech_green_rune": {
@@ -127,7 +127,7 @@
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "tierTypeName": "Leggendario"
+      "tierTypeName": "Leggenda"
     }
   },
   "braytech_blue_rune": {
@@ -138,7 +138,7 @@
     "itemTypeDisplayName": "Materiale",
     "itemTypeAndTierDisplayName": "Materiale Leggendario",
     "inventory": {
-      "tierTypeName": "Leggendario"
+      "tierTypeName": "Leggenda"
     }
   },
   "braytech_no_rune": {

@@ -7,6 +7,8 @@ import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import { energyCostsStatHashes } from '../../../utils/destinyEnums';
 import ObservedImage from '../../ObservedImage';
 
+import { VendorCosts } from './';
+
 const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
@@ -23,14 +25,14 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash]?.isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
 
   // investment stats
-  const investmentStats = !probablyMasterworkPlug && definitionItem.investmentStats?.length ? definitionItem.investmentStats.filter(stat => !energyCostsStatHashes.includes(stat.statTypeHash)) : [];
+  const investmentStats = !probablyMasterworkPlug && definitionItem.investmentStats?.length ? definitionItem.investmentStats.filter((stat) => !energyCostsStatHashes.includes(stat.statTypeHash) && manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name !== '' && stat.value !== 0) : [];
 
   // energy cost
   const energyCost = definitionItem.plug.energyCost;
   const energyType = energyCost && energyTypeToAsset(energyCost.energyTypeHash);
 
   // vendor costs
-  const vendorCosts = vendorHash && vendorItemIndex && manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies;
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
 
   const blocks = [];
 
@@ -69,23 +71,21 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   if (perks.length) {
     blocks.push(
       <div className='sockets perks'>
-        {perks
-          .map((perk) => {
-            const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];
+        {perks.map((perk) => {
+          const definitionPerk = manifest.DestinySandboxPerkDefinition[perk.perkHash];
 
-            return (
-              <div key={perk.perkHash} className='socket'>
-                <div className={cx('plug', { enabled: true })}>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} />
-                  <div className='text'>
-                    <div className='name'>{definitionPerk.displayProperties?.name}</div>
-                    <BungieText className='description' value={definitionPerk.displayProperties?.description} />
-                  </div>
+          return (
+            <div key={perk.perkHash} className='socket'>
+              <div className={cx('plug', { enabled: true })}>
+                <ObservedImage className='image icon' src={`https://www.bungie.net${definitionPerk.displayProperties?.icon || `/img/misc/missing_icon_d2.png`}`} />
+                <div className='text'>
+                  <div className='name'>{definitionPerk.displayProperties?.name}</div>
+                  <BungieText className='description' value={definitionPerk.displayProperties?.description} />
                 </div>
               </div>
-            );
-          })
-          .filter((c) => c)}
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -98,7 +98,10 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
         {investmentStats.map((stat, s) => (
           <div key={s} className='stat'>
             <div className='name'>{manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name}</div>
-            <div className={cx('value', { negative: stat.value < 0 })}>{stat.value > 0 && '+'}{stat.value}</div>
+            <div className={cx('value', { negative: stat.value < 0 })}>
+              {stat.value > 0 && '+'}
+              {stat.value}
+            </div>
           </div>
         ))}
         <div className='info'>{t('Investment stats are interpolated when applied to items, and as such, these values are a guide.')}</div>
@@ -120,26 +123,10 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
 
   // vendor costs
   if (vendorCosts?.length) {
-    blocks.push(
-      <div className='vendor-costs'>
-        <ul>
-          {vendorCosts.map((cost, c) => (
-            <li key={c}>
-              <ul>
-                <li>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon}`} />
-                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
-                </li>
-                <li>{cost.quantity.toLocaleString()}</li>
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+    blocks.push(<VendorCosts costs={vendorCosts} />);
   }
 
-  return blocks.map((b, i) => <React.Fragment key={i}>{b}</React.Fragment>);
+  return blocks.map((block, b) => <React.Fragment key={b}>{block}</React.Fragment>);
 };
 
 export default Mod;

@@ -8,7 +8,9 @@ import { destinations } from '../../../../utils/maps';
 import maps from '../../../../data/maps';
 
 class Destinations extends React.Component {
-  state = {};
+  state = {
+    expanded: false,
+  };
 
   componentDidMount() {
     this.mounted = true;
@@ -18,42 +20,46 @@ class Destinations extends React.Component {
     this.mounted = false;
   }
 
+  handler_onClick = (e) => {
+    if (this.state.expanded) {
+      this.setState({ expanded: false });
+    } else {
+      this.setState({ expanded: true });
+    }
+  };
+
   render() {
     return (
-      <div className={cx('control', 'destinations', { visible: this.props.visible })}>
+      <div className={cx('control', 'destinations', { visible: this.state.expanded })}>
         <ul className='list'>
-          {destinations.map(d => {
-            const definitionActivity = manifest.DestinyActivityDefinition[maps[d.destinationId].destination.activityHash];
-            const definitionDestintion = manifest.DestinyDestinationDefinition[maps[d.destinationId].destination.hash];
+          {destinations
+            //.filter((d) => d.type === 'map')
+            .map((desto, d) => {
+              const definitionActivity = manifest.DestinyActivityDefinition[maps[desto.destinationId].destination.activityHash];
+              const definitionDestintion = manifest.DestinyDestinationDefinition[maps[desto.destinationId].destination.hash];
 
-            const placeHash = definitionActivity?.placeHash || definitionDestintion?.placeHash;
-            const definitionPlace = placeHash && manifest.DestinyPlaceDefinition[placeHash];
+              const placeHash = definitionActivity?.placeHash || definitionDestintion?.placeHash;
+              const definitionPlace = placeHash && manifest.DestinyPlaceDefinition[placeHash];
 
-            const string = [
-              definitionActivity?.displayProperties?.name,
-              definitionDestintion?.displayProperties?.name,
-              definitionPlace?.displayProperties?.name,
-            ].reduce((array, string) => {
-              if (string && array.indexOf(string) < 0) {
-                return [
-                  ...array,
-                  string
-                ];
-              } else {
-                return array;
-              }
-            }, []).join(', ')
+              const string = [definitionActivity?.displayProperties?.name, definitionDestintion?.displayProperties?.name, definitionPlace?.displayProperties?.name]
+                .reduce((array, string) => {
+                  if (string && array.indexOf(string) < 0) {
+                    return [...array, string];
+                  } else {
+                    return array;
+                  }
+                }, [])
+                .join(', ');
 
-            return (
-              <li key={maps[d.destinationId].destination.id} className={cx('linked', { active: maps[d.destinationId].destination.id === this.props.destinationId })}>
-                <div className='text'>
-                  <div className='name'>{string}</div>
-                </div>
-                <Link to={`/maps/${maps[d.destinationId].destination.id}`} onClick={this.props.handler}></Link>
-              </li>
-            );
-            
-          })}
+              return (
+                <li key={d} className={cx('linked', { active: maps[desto.destinationId].destination.id === this.props.destinationId })}>
+                  <div className='text'>
+                    <div className='name'>{string || desto.destinationId}</div>
+                  </div>
+                  <Link to={`/maps/${maps[desto.destinationId].destination.id}`} onClick={this.handler_onClick}></Link>
+                </li>
+              );
+            })}
         </ul>
       </div>
     );

@@ -711,6 +711,7 @@ export const nightfalls = {
     collectibles: [
       2448009818, // Universal Wavefunction
       2206107773, // Master Gardener
+      1463718183, // A Garden World
       2428465606, // Pulling Out the Roots
       2428465607, // Blast from the Past
       2428465604, // Odysseus's Offspring

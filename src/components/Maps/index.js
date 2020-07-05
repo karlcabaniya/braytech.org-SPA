@@ -9,8 +9,7 @@ import { Map } from 'react-leaflet';
 
 import maps from '../../data/maps';
 
-import * as ls from '../../utils/localStorage';
-import { resolveDestination, getMapCenter } from '../../utils/maps';
+import { resolveMap, getMapCenter } from '../../utils/maps';
 import { checklists, checkup } from '../../utils/checklists';
 
 import { Layers, BackgroundLayer } from './Layers';
@@ -19,11 +18,12 @@ import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
 import Speciality from './Nodes/Speciality';
+import Graphs from './Graphs';
 
 import Characters from './Controls/Characters';
 import Destinations from './Controls/Destinations';
 import Inspect from './Controls/Inspect';
-import DataLayers from './Controls/DataLayers';
+// import DataLayers from './Controls/DataLayers';
 
 import './styles.css';
 
@@ -34,72 +34,6 @@ class Maps extends React.Component {
     error: false,
     viewport: undefined,
     ui: {
-      destinations: false,
-      characters: false,
-      layers: {
-        checklists: [
-          {
-            checklistId: 365218222,
-            visible: true,
-          },
-          {
-            checklistId: 655926402,
-            visible: true,
-          },
-          {
-            checklistId: 1297424116,
-            visible: true,
-          },
-          {
-            checklistId: 1420597821,
-            visible: true,
-          },
-          {
-            checklistId: 1697465175,
-            visible: true,
-          },
-          {
-            checklistId: 1912364094,
-            visible: true,
-          },
-          {
-            checklistId: 2360931290,
-            visible: true,
-          },
-          {
-            checklistId: 2474271317,
-            visible: true,
-          },
-          {
-            checklistId: 2609997025,
-            visible: true,
-          },
-          {
-            checklistId: 2726513366,
-            visible: true,
-          },
-          {
-            checklistId: 2955980198,
-            visible: true,
-          },
-          {
-            checklistId: 3142056444,
-            visible: true,
-          },
-          {
-            checklistId: 3305936921,
-            visible: true,
-          },
-          {
-            checklistId: 4178338182,
-            visible: true,
-          },
-          {
-            checklistId: 4285512244,
-            visible: true,
-          },
-        ],
-      },
       // inspect: {
       //   recordHash: 3431961939
       // },
@@ -114,7 +48,7 @@ class Maps extends React.Component {
     }
 
     // Prepare to define viewport based on props i.e. route params
-    const resolved = resolveDestination(p.params.map).destinationId;
+    const resolved = resolveMap(p.params.map).destinationId;
 
     let center = getMapCenter(resolved);
     let zoom = 0;
@@ -157,11 +91,13 @@ class Maps extends React.Component {
     this.mounted = true;
 
     window.scrollTo(0, 0);
+
     this.props.setScrollbars('dark');
   }
 
   componentWillUnmount() {
     this.mounted = false;
+
     this.props.setScrollbars();
   }
 
@@ -170,20 +106,18 @@ class Maps extends React.Component {
       this.setDestination(this.props.params.map);
     }
 
-    console.log(s.ui.inspect.destinations !== this.state.ui.inspect.destinations, s.ui.inspect.characters !== this.state.ui.inspect.characters, s.ui.inspect.inspect !== this.state.ui.inspect.inspect)
-
-    if (s.ui.inspect.destinations !== this.state.ui.inspect.destinations || s.ui.inspect.characters !== this.state.ui.inspect.characters || s.ui.inspect.inspect !== this.state.ui.inspect.inspect) {
+    if (s.ui.inspect.inspect !== this.state.ui.inspect.inspect) {
       this.props.rebindTooltips();
     }
   }
 
   setDestination = (destination) => {
-    const resolved = resolveDestination(destination);
+    const resolved = resolveMap(destination);
 
     if (this.mounted) {
-      this.setState((p) => ({
+      this.setState((state) => ({
         viewport: {
-          ...p.viewport,
+          ...state.viewport,
           center: getMapCenter(resolved.destinationId),
         },
       }));
@@ -191,9 +125,9 @@ class Maps extends React.Component {
   };
 
   handler_hideInspect = (e) => {
-    this.setState((p) => ({
+    this.setState((state) => ({
       ui: {
-        ...p.ui,
+        ...state.ui,
         inspect: false,
       },
     }));
@@ -201,9 +135,9 @@ class Maps extends React.Component {
 
   handler_showInspect = (props) => (e) => {
     if (this.props.viewport.width > 600) {
-      this.setState((p) => ({
+      this.setState((state) => ({
         ui: {
-          ...p.ui,
+          ...state.ui,
           inspect: {
             ...props,
           },
@@ -230,97 +164,6 @@ class Maps extends React.Component {
     }));
   };
 
-  handler_toggleDestinationsList = (e) => {
-    const href = e.target.href;
-    const destinationId = resolveDestination(this.props.params.map).destinationId;
-
-    if (href.includes(destinationId)) {
-      this.setState((p) => {
-        if (p.ui.destinations) {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              destinations: false,
-            },
-          };
-        } else {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              destinations: true,
-            },
-          };
-        }
-      });
-    } else {
-      this.setState((p) => {
-        return {
-          ...p,
-          ui: {
-            ...p.ui,
-            destinations: false,
-          },
-        };
-      });
-    }
-  };
-
-  handler_toggleLayer = (layer) => (e) => {
-    this.setState((p) => ({
-      ui: {
-        ...p.ui,
-        layers: {
-          ...p.ui.layers,
-          ...layer,
-        },
-      },
-    }));
-  };
-
-  handler_changeCharacterId = (e) => {
-    const characterId = e.currentTarget.dataset.characterid;
-
-    const { member } = this.props;
-
-    if (member.characterId === characterId) {
-      this.setState((p) => {
-        if (p.ui.characters) {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              characters: false,
-            },
-          };
-        } else {
-          return {
-            ...p,
-            ui: {
-              ...p.ui,
-              characters: true,
-            },
-          };
-        }
-      });
-    } else {
-      this.setState((p) => {
-        return {
-          ...p,
-          ui: {
-            ...p.ui,
-            characters: false,
-          },
-        };
-      });
-
-      this.props.changeCharacterId({ membershipType: member.membershipType, membershipId: member.membershipId, characterId });
-
-      ls.set('setting.profile', { membershipType: member.membershipType, membershipId: member.membershipId, characterId });
-    }
-  };
-
   handler_map_layersReady = () => {
     this.setState({ loading: false });
   };
@@ -344,7 +187,7 @@ class Maps extends React.Component {
   handler_map_mouseDown = (e) => {
     if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
-    const destination = resolveDestination(this.props.params.map).destinationId;
+    const destination = resolveMap(this.props.params.map).destinationId;
 
     const map = maps[destination].map;
 
@@ -384,9 +227,9 @@ class Maps extends React.Component {
   };
 
   render() {
-    const { member, viewport, settings, params } = this.props;
+    const { viewport, settings, params } = this.props;
 
-    const destination = resolveDestination(params.map);
+    const destination = resolveMap(params.map);
     const map = maps[destination.destinationId].map;
     const bounds = [
       [0, 0],
@@ -399,35 +242,25 @@ class Maps extends React.Component {
           <BackgroundLayer {...destination} />
         </div>
         <Map center={this.state.viewport.center} zoom={this.state.viewport.zoom} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
+          {/* the Maps */}
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
+          {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
           <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
-          <Checklists {...destination} lists={this.state.ui.layers.checklists} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Checklists... */}
+          <Checklists {...destination} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
           <Runtime {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          {/* Latent memory fragments on Mars, etc. */}
           <Speciality {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
-          {/* <CharacterActivities {...destination} /> */}
+          {/* Unique graphs */}
+          <Graphs {...destination} />
         </Map>
         <Loading loaded={this.state.loaded} />
         <div className='controls left'>
-          <Characters visible={this.state.ui.characters} handler={this.handler_changeCharacterId} />
-          <Destinations {...destination} visible={this.state.ui.destinations} handler={this.handler_toggleDestinationsList} />
-          <DataLayers {...destination} lists={this.state.ui.layers.checklists} handler={this.handler_toggleLayer} />
+          <Characters />
+          <Destinations {...destination} />
+          {/* <DataLayers {...destination} /> */}
         </div>
-        {/* {viewport.width > 6000 ? (
-          <div className='control zoom visible'>
-            <ul className='list'>
-              <li className={cx('linked', { disabled: this.state.zoom === 2 })} onClick={this.handler_zoomIncrease}>
-                <div className='text'>
-                  <i className='segoe-uniE1091' />
-                </div>
-              </li>
-              <li className={cx('linked', { disabled: this.state.zoom === -2 })} onClick={this.handler_zoomDecrease}>
-                <div className='text'>
-                  <i className='segoe-uniE1081' />
-                </div>
-              </li>
-            </ul>
-          </div>
-        ) : null} */}
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );
@@ -437,7 +270,6 @@ class Maps extends React.Component {
 function mapStateToProps(state) {
   return {
     settings: state.settings,
-    member: state.member,
     viewport: state.viewport,
   };
 }
@@ -446,9 +278,6 @@ function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
       dispatch({ type: 'REBIND_TOOLTIPS' });
-    },
-    changeCharacterId: (payload) => {
-      dispatch({ type: 'MEMBER_CHARACTER_SELECT', payload });
     },
     setScrollbars: (payload) => {
       dispatch({ type: 'SET_SCROLLBARS', payload });

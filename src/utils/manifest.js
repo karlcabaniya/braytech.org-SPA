@@ -32,6 +32,7 @@ import DestinyHistoricalStatsDefinition_EN from '../data/manifest/en/DestinyHist
 
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
 import DestinyInventoryItemDefinition_IT from '../data/manifest/it/DestinyInventoryItemDefinition/';
+import DestinyInventoryItemDefinition_RU from '../data/manifest/ru/DestinyInventoryItemDefinition/';
 
 const customs = {
   de: {},
@@ -74,6 +75,7 @@ const customs = {
     BraytechMaps: BraytechMaps_RU,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU,
     DestinyDestinationDefinition: DestinyDestinationDefinition_RU,
+    DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_RU,
   },
   'zh-chs': {},
   'zh-cht': {},

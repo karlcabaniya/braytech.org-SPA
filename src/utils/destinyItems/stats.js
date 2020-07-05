@@ -39,9 +39,6 @@ export const statWhiteList = [
   2523465841, // Velocity
   4043523819, // Impact
   1240592695, // Range
-  // 2837207746, // Swing Speed (swords)
-  // 2762071195, // Efficiency (swords)
-  // 209426660, // Defense (swords)
   209426660, // Guard Resistance (swords)
   2762071195, // Guard Efficiency (swords)
   3736848092, // Guard Endurance (swords)
@@ -53,7 +50,7 @@ export const statWhiteList = [
   2961396640, // Charge Time
   447667954, // Draw Time
   3871231066, // Magazine
-  925767036, // Ammo Capacity
+  // 925767036, // Ammo Capacity
   ...armorStats,
   -1000, // Total
 ];
@@ -65,7 +62,6 @@ export const statWhiteListSwords = [
   209426660, // Guard Resistance (swords)
   2762071195, // Guard Efficiency (swords)
   3736848092, // Guard Endurance (swords)
-  925767036, // Ammo Capacity
 ];
 
 /**

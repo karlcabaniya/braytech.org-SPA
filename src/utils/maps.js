@@ -9,7 +9,7 @@ import { withinString } from './i18n';
 import { checklists, checkup } from './checklists';
 import { Maps } from '../svg';
 
-export function resolveDestination(value) {
+export function resolveMap(value) {
   const destinationById = value && destinations.find((d) => d.destinationId === value);
   const destinationByHash = value && destinations.find((d) => d.destinationHash === +value);
 
@@ -84,6 +84,8 @@ function findChecklistItems(search) {
 }
 
 export function cartographer(search) {
+  if (!search) return {};
+
   const state = store.getState();
 
   const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
@@ -132,54 +134,69 @@ export function getMapCenter(destinationId) {
 }
 
 export const destinations = [
+  // {
+  //   type: 'graph',
+  //   destinationId: 'director',
+  // },
   {
+    type: 'map',
     destinationId: 'fields-of-glass',
     destinationHash: 1993421442,
   },
   {
+    type: 'map',
     destinationId: 'edz',
     destinationHash: 1199524104,
     default: true,
   },
   {
+    type: 'map',
     destinationId: 'tower',
     destinationHash: 333456177,
   },
   {
+    type: 'map',
     destinationId: 'the-farm',
     destinationHash: 4188263703,
   },
   {
+    type: 'map',
     destinationId: 'the-moon',
     destinationHash: 290444260,
   },
   {
+    type: 'map',
     destinationId: 'hellas-basin',
     destinationHash: 308080871,
   },
   {
+    type: 'map',
     destinationId: 'echo-mesa',
     destinationHash: 2218917881,
   },
   {
+    type: 'map',
     destinationId: 'new-pacific-arcology',
     destinationHash: 2388758973,
   },
   {
+    type: 'map',
     destinationId: 'arcadian-valley',
     destinationHash: 126924919,
   },
   {
+    type: 'map',
     destinationId: 'tangled-shore',
     destinationHash: 359854275,
   },
   {
+    type: 'map',
     destinationId: 'dreaming-city',
     destinationHash: 2779202173,
   },
 ];
 
-export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash }) {
+export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash, vendorHash }) {
   if (checklistHash) {
     return {
       key: 'checklistHash',
@@ -199,6 +216,11 @@ export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash
     return {
       key: 'activityHash',
       value: activityHash,
+    };
+  } else if (vendorHash) {
+    return {
+      key: 'vendorHash',
+      value: vendorHash,
     };
   }
 }

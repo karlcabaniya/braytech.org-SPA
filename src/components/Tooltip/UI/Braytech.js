@@ -3,9 +3,7 @@ import React from 'react';
 import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
-const Braytech = (props) => {
-  const { itemHash, relatedHash } = props;
-
+function Braytech({ itemHash, relatedHash, ...props }) {
   const definition = manifest.BraytechDefinition[itemHash];
 
   // description
@@ -28,6 +26,6 @@ const Braytech = (props) => {
       ) : null}
     </>
   );
-};
+}
 
 export default Braytech;

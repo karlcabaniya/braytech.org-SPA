@@ -7,6 +7,8 @@ import * as enums from './destinyEnums';
 import { D2SeasonInfo, D2CalculatedSeason } from '../data/d2-additional-info/d2-season-info.ts';
 import * as SVG from '../svg';
 
+export const neverProfileLinks = ['/maps', '/vaulted'];
+
 export const isProfileRoute = (location) => {
   // if (location.pathname.indexOf('inventory') > -1) {
   //   return false;
@@ -190,6 +192,26 @@ export function progressionSeasonRank(member) {
   }
 
   return progression;
+}
+
+export function getCollectibleState(member, collectibleHash) {
+  if (!member?.data) {
+    return 4;
+  }
+
+  const characterId = member.characterId;
+  const characterCollectibles = member.data.profile?.characterCollectibles.data;
+  const profileCollectibles = member.data.profile?.profileCollectibles.data;
+
+  const definitionCollectible = manifest.DestinyCollectibleDefinition[collectibleHash];
+
+  const data = definitionCollectible?.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible?.hash] : profileCollectibles.collectibles[definitionCollectible?.hash];
+  
+  if (data) {
+    return data.state || 0;
+  }
+
+  return 4;
 }
 
 export const gameVersion = (versionsOwned, versionHash) => {

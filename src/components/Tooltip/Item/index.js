@@ -1,20 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
 import { t, duration, timestampToDifference } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import * as converters from '../../../utils/destinyConverters';
-import * as enums from '../../../utils/destinyEnums';
+import { itemRarityToString } from '../../../utils/destinyConverters';
+import { DestinyItemType, trialsPassages, enumerateItemState, enumerateVendorItemStatus } from '../../../utils/destinyEnums';
 import { isContentVaulted } from '../../../utils/destinyUtils';
+import ObservedImage from '../../ObservedImage';
+import { Common } from '../../../svg';
+
 import itemComponents from '../../../utils/destinyItems/itemComponents';
 import sockets from '../../../utils/destinyItems/sockets';
 import stats from '../../../utils/destinyItems/stats';
 import masterwork from '../../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../../utils/destinyItems/utils';
-import ObservedImage from '../../ObservedImage';
-import Spinner from '../../UI/Spinner';
-import { Common } from '../../../svg';
 
 import './styles.css';
 
@@ -40,7 +40,10 @@ const hideScreenshotBuckets = [
 
 const forcedScreenshotTraits = ['ornament'];
 
-function Item(props) {
+export default function Item(props) {
+  const viewport = useSelector((state) => state.viewport);
+  const member = useSelector((state) => state.member);
+
   const definitionItem = manifest.DestinyInventoryItemDefinition[props.hash];
 
   const item = {
@@ -50,8 +53,10 @@ function Item(props) {
     itemState: +props.state || 0,
     quantity: +props.quantity || 1,
     vendorHash: props.vendorhash,
-    vendorItemIndex: props.vendoritemindex,
-    rarity: converters.itemRarityToString(definitionItem?.inventory?.tierType),
+    vendorItemIndex: props.vendoritemindex && +props.vendoritemindex,
+    vendorSaleStatus: props.vendorsalestatus && +props.vendorsalestatus,
+    failureIndexes: props.failureindexes && JSON.parse(props.failureindexes),
+    rarity: itemRarityToString(definitionItem?.inventory?.tierType),
     type: null,
     style: props.style,
   };
@@ -82,21 +87,21 @@ function Item(props) {
   }
 
   if (definitionItem?.inventory) {
-    if (definitionItem.itemType === enums.DestinyItemType.Armor || definitionItem.itemType === enums.DestinyItemType.Weapon || definitionItem.itemType === enums.DestinyItemType.Ship || definitionItem.itemType === enums.DestinyItemType.Vehicle || definitionItem.itemType === enums.DestinyItemType.Ghost || definitionItem.itemType === enums.DestinyItemType.SeasonArtifact) {
+    if (definitionItem.itemType === DestinyItemType.Armor || definitionItem.itemType === DestinyItemType.Weapon || definitionItem.itemType === DestinyItemType.Ship || definitionItem.itemType === DestinyItemType.Vehicle || definitionItem.itemType === DestinyItemType.Ghost || definitionItem.itemType === DestinyItemType.SeasonArtifact) {
       item.type = 'equipment';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Emblem) {
+    } else if (definitionItem.itemType === DestinyItemType.Emblem) {
       item.type = 'emblem';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Mod) {
+    } else if (definitionItem.itemType === DestinyItemType.Mod) {
       item.type = 'mod';
-    } else if (definitionItem.itemType === enums.DestinyItemType.Subclass) {
+    } else if (definitionItem.itemType === DestinyItemType.Subclass) {
       item.type = 'sub-class';
-    } else if (enums.trialsPassages.indexOf(definitionItem.hash) > -1) {
+    } else if (trialsPassages.indexOf(definitionItem.hash) > -1) {
       item.type = 'trials-passage';
     }
   }
 
-  // item.itemState = itemState(item, props.member);
-  item.itemComponents = itemComponents(item, props.member);
+  // item.itemState = itemState(item, member);
+  item.itemComponents = itemComponents(item, member);
   item.sockets = sockets(item);
   item.stats = stats(item);
   item.masterwork = masterwork(item);
@@ -113,8 +118,8 @@ function Item(props) {
 
   if (item.primaryStat && item.itemComponents && item.itemComponents.instance?.primaryStat) {
     item.primaryStat.value = item.itemComponents.instance.primaryStat.value;
-  } else if (item.primaryStat && props.member?.data) {
-    const character = props.member.data.profile.characters.data.find((character) => character.characterId === props.member.characterId);
+  } else if (item.primaryStat && member?.data) {
+    const character = member.data.profile.characters.data.find((character) => character.characterId === member.characterId);
 
     // item.primaryStat.value = Math.floor((942 / 973) * character.light);
     item.primaryStat.value = character.light;
@@ -131,6 +136,31 @@ function Item(props) {
     );
   }
 
+  if (item.failureIndexes?.length && item.vendorHash && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
+    item.failureIndexes.forEach((index) => {
+      const failureString = manifest.DestinyVendorDefinition[item.vendorHash]?.failureStrings?.[index];
+
+      if (failureString && failureString !== '') {
+        importantText.push(failureString);
+      }
+    });
+  } else if (item.failureIndexes?.length === 0 && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
+    if (enumerateVendorItemStatus(item.vendorSaleStatus).UniquenessViolation) {
+      importantText.push(t('Vendor.FailureStrings.UniquenessViolation'));
+    } else if (enumerateVendorItemStatus(item.vendorSaleStatus).NoFunds) {
+      importantText.push(t('Vendor.FailureStrings.NoFunds'));
+    } else if (enumerateVendorItemStatus(item.vendorSaleStatus).NoInventorySpace) {
+      importantText.push(t('Vendor.FailureStrings.NoInventorySpace'));
+    } else {
+      Object.keys(enumerateVendorItemStatus(item.vendorSaleStatus))
+        .filter((key) => enumerateVendorItemStatus(item.vendorSaleStatus)[key])
+        .map((key) => key)
+        .forEach((key) => {
+          importantText.push(key);
+        });
+    }
+  }
+
   if (!item.itemComponents && props.uninstanced) {
     importantText.push(t('Collections roll'));
   }
@@ -145,12 +175,12 @@ function Item(props) {
     }
   }
 
-  const masterworked = enums.enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === enums.DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
-  const locked = enums.enumerateItemState(item.itemState).Locked;
+  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const locked = enumerateItemState(item.itemState).Locked;
 
   const showScreenshot =
     // if viewport is less than 601, item has a screenshot, and hideScreenshotBuckets does not mind this item
-    (props.viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
+    (viewport.width <= 600 && item.screenshot && !(definitionItem && definitionItem.inventory && hideScreenshotBuckets.includes(definitionItem.inventory.bucketTypeHash))) ||
     (item.screenshot &&
       // if item is one of these fellas, force show screenshot always
       (definitionItem.traitIds?.filter((id) => forcedScreenshotTraits.filter((trait) => id.includes(trait)).length).length || definitionItem.plug?.plugCategoryIdentifier?.includes('armor_skins')));
@@ -190,7 +220,7 @@ function Item(props) {
                 <ObservedImage className='image' src={`https://www.bungie.net${item.screenshot}`} />
               </div>
             ) : null}
-            {woolworths[item.type] ? <Meat {...props.member} {...item} /> : <Default {...props.member} {...item} />}
+            {woolworths[item.type] ? <Meat {...item} /> : <Default {...item} />}
           </div>
         </div>
       </div>
@@ -198,12 +228,33 @@ function Item(props) {
   );
 }
 
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-    viewport: state.viewport,
-    tooltips: state.tooltips,
-  };
-}
+export function VendorCosts({ costs, ...props }) {
+  const member = useSelector((state) => state.member);
 
-export default connect(mapStateToProps)(Item);
+  return (
+    <div className='vendor-costs'>
+      <ul>
+        {costs.map((cost, c) => {
+          const icon = manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon;
+
+          return (
+            <li key={c}>
+              <ul>
+                <li>
+                  {icon && <ObservedImage className='image icon' src={`https://www.bungie.net${icon}`} />}
+                  <div className='text'>{manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.name}</div>
+                </li>
+                <li>
+                  <div className='text'>
+                    {member.data?.currencies[cost.itemHash] ? <span>{member.data.currencies[cost.itemHash].quantity.toLocaleString()}</span> : null}
+                    {cost.quantity.toLocaleString()}
+                  </div>
+                </li>
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}

@@ -127,6 +127,7 @@ button {
   font-size: 1rem;
   -webkit-appearance: none;
   border: none;
+  border-radius: unset;
   padding: 0;
   margin: 0;
   height: 2rem;

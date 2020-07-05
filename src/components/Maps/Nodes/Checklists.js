@@ -8,84 +8,73 @@ import maps from '../../../data/maps';
 
 import * as marker from '../markers';
 
+function generateLists() {
+  const manifestLists = [365218222, 1297424116, 1697465175, 1912364094, 2360931290, 2609997025, 2726513366, 2955980198, 3142056444, 4178338182];
+  const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
+
+  return [...manifestLists, ...recordLists].map((checklistId, l) => {
+    const checklist = checklists[checklistId]();
+
+    const useRecordHash = recordLists.includes(checklistId);
+
+    return {
+      ...checklist,
+      tooltipType: checklistId === 4178338182 ? 'activity' : useRecordHash ? 'record' : 'checklist',
+      items: checklist.items.map((i) => {
+        const node = useRecordHash ? cartographer({ key: 'recordHash', value: i.recordHash }) : cartographer({ key: 'checklistHash', value: i.checklistHash });
+
+        return {
+          ...i,
+          tooltipHash: checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
+          screenshot: checklistId === 2955980198 || Boolean(node?.screenshot),
+        };
+      }),
+    };
+  });
+}
+
 class Checklists extends React.Component {
-  state = {};
+  state = {
+    lists: [],
+  };
 
   static getDerivedStateFromProps(p, s) {
-    if (!s.lists) {
-      return {
-        lists: p.lists,
-      };
+    if (s.lists.length) {
+      return null;
     }
 
-    return null;
+    return {
+      lists: generateLists(),
+    };
   }
 
   componentDidMount() {
     this.mounted = true;
 
-    this.generateChecklists();
+    this.props.rebindTooltips();
   }
 
   componentWillUnmount() {
     this.mounted = false;
   }
 
-  componentDidUpdate(p, s) {
+  componentDidUpdate(p) {
     if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
-      this.generateChecklists();
+      this.setLists();
     }
-
-    if (this.mounted && (p !== this.props || s.lists !== this.state.lists || p.lists !== this.props.lists || p.selected !== this.props.selected || p.highlight !== this.props.highlight)) {
-      this.props.rebindTooltips();
-    }
+    
+    this.props.rebindTooltips();
   }
 
-  // shouldComponentUpdate(p, s) {
-  //   if (p.member.updated !== this.props.member.updated) {
-  //     return true;
-  //   }
-
-  //   if (p.member.characterId !== this.props.member.characterId) {
-  //     return true;
-  //   }
-
-  //   return false;
-  // }
-
-  generateChecklists = () => {
-    const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
-
-    const lists = this.state.lists.map((list, l) => {
-      const checklist = checklists[list.checklistId]();
-
-      const useRecordHash = recordLists.indexOf(list.checklistId) > -1;
-
-      return {
-        ...checklist,
-        tooltipType: list.checklistId === 4178338182 ? 'activity' : useRecordHash ? 'record' : 'checklist',
-        items: checklist.items.map((i) => {
-          const node = useRecordHash ? cartographer({ key: 'recordHash', value: i.recordHash }) : cartographer({ key: 'checklistHash', value: i.checklistHash });
-
-          return {
-            ...i,
-            tooltipHash: list.checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
-            screenshot: list.checklistId === 2955980198 || Boolean(node?.screenshot),
-          };
-        }),
-      };
-    });
-
-    // console.log(lists);
-
+  setLists = () => {
     this.setState({
-      lists,
+      lists: generateLists(),
     });
   };
 
   handler_markerMouseOver = (e) => {
     return;
-    
+
     if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
     const dataset = e.target?._icon?.children?.[0]?.children?.[0]?.dataset;
@@ -96,18 +85,19 @@ class Checklists extends React.Component {
   };
 
   render() {
+    if (maps[this.props.destinationId].type !== 'map') return null;
+
     const map = maps[this.props.destinationId].map;
 
-    console.log('checklists render')
-    
     const viewWidth = 1920;
     const viewHeight = 1080;
 
-    const mapYOffset = -(map.height - viewHeight) / 2;
     const mapXOffset = (map.width - viewWidth) / 2;
+    const mapYOffset = -(map.height - viewHeight) / 2;
 
     return this.state.lists.map((list, l) => {
-      const visible = this.props.lists.find((l) => l.checklistId === list.checklistId);
+      // const visible = this.props.lists.find((l) => l.checklistId === list.checklistId);
+      const visible = true;
 
       if (!visible || !list.items) return null;
 
@@ -129,8 +119,8 @@ class Checklists extends React.Component {
 
           if (node.map.points.length) {
             return node.map.points.map((point) => {
-              const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
               const markerOffsetX = mapXOffset + viewWidth / 2;
+              const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 
               if (!point.x || !point.y) {
                 console.warn(node);
@@ -138,8 +128,8 @@ class Checklists extends React.Component {
                 return null;
               }
 
-              const offsetY = markerOffsetY + point.y;
               const offsetX = markerOffsetX + point.x;
+              const offsetY = markerOffsetY + point.y;
 
               // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
@@ -149,11 +139,11 @@ class Checklists extends React.Component {
               return <Marker key={`${node.checklistHash || node.recordHash}-${i}`} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.maps.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
             });
           } else if (this.props.settings.maps.debug) {
-            const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
             const markerOffsetX = mapXOffset + viewWidth / 2;
+            const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 
-            const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
             const offsetX = markerOffsetX + (i + 1) * 50 - map.width / 2;
+            const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
 
             // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
@@ -172,14 +162,13 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     member: state.member,
-    viewport: state.viewport,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', });
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
   };
 }

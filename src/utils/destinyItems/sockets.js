@@ -5,31 +5,25 @@ import * as enums from '../destinyEnums';
 
 import * as utils from './utils';
 
-/**
- * These are the utilities that deal with Sockets and Plugs on items. Sockets and Plugs
- * are how perks, mods, and many other things are implemented on items.
- *
- * This is called from within d2-item-factory.service.ts
- */
-
-/**
- * Plugs to hide from plug options (if not socketed)
- * removes the "Default Ornament" plug, "Default Shader" and "Rework Masterwork"
- * TODO: with AWA we may want to put some of these back
- */
 export const defaultPlugs = [
-  // Default ornament
+  // default ornament
   2931483505,
   1959648454,
   702981643,
-  // Rework Masterwork
+  // rework Masterwork
   39869035,
   1961001474,
   3612467353,
-  // Default Shader
+  // default masterwork
+  23239861010,
+  // default Shader
   4248210736,
-  // Default Transmat Effect (SpawnFX)
+  // default Transmat Effect (SpawnFX)
   1390587439,
+  // empty mod socket
+  481675395,
+  1659393211,
+  2655746324,
 ];
 
 const unknownFunction = [
@@ -173,9 +167,11 @@ function buildDefinedSocket(item, definitionSocket, index) {
     (definitionSocket.reusablePlugItems || [])
       .concat(reusablePlugItems)
       .concat(randomizedPlugs)
+      // remove duplicates
       .filter((obj, index, plugs) => {
         return plugs.map((mapObj) => mapObj.plugItemHash).indexOf(obj.plugItemHash) === index;
       })
+      // build actual plug items
       .map((reusablePlug) => buildPlug(definitionSocket, reusablePlug))
   );
 
@@ -226,25 +222,34 @@ function buildDefinedSocket(item, definitionSocket, index) {
         // got nothin'
         undefined
     ) || false;
+  
+  const plugOptions = processedPlugs.reduce((plugOptions, reusablePlug) => {
+    // plug approved, carry on
+    if (filterReusablePlug(reusablePlug)) {
+      // push default plugs to start of socket
+      if (defaultPlugs.includes(reusablePlug.definition.hash)) {
+        // avoid duplicates
+        if (plugOptions.filter(p => p.definition.hash === reusablePlug.definition.hash).length) return plugOptions;
+          
+        return [reusablePlug, ...plugOptions];
+      }
 
-  const plugOptions = plugItem ? [plugItem] : [];
-
-  if (processedPlugs.length) {
-    processedPlugs.forEach((reusablePlug) => {
-      if (filterReusablePlug(reusablePlug)) {
-        if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
-          // Use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
-          plugOptions.shift();
-          plugOptions.push(plugItem);
-        } else {
-          // API Bugfix: Filter out intrinsic perks past the first: https://github.com/Bungie-net/api/issues/927
-          if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
-            plugOptions.push(reusablePlug);
-          }
+      // the currently socketed plug
+      if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
+        // use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
+        // slice off the first index - equivalent to .shift()
+        return [...plugOptions.slice(1), plugItem];
+      } else {
+        // filter out intrinsic perks past the first
+        if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
+          return [...plugOptions, reusablePlug];
         }
       }
-    });
-  }
+    }
+
+    // no changes to make
+    return plugOptions;
+  }, plugItem ? [plugItem] : [])
 
   const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter((hash) => modItemCategoryHashes.includes(hash)).length > 0);

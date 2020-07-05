@@ -7,9 +7,6 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  /* background-image: url('/tiger_release_final_20191210_015420.png');
-  background-size: cover;
-  background-position: center top; */
 }
 
 .scene .render {

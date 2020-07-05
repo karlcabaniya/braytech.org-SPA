@@ -23,7 +23,7 @@ class Static extends React.Component {
       return true;
     }
 
-    if (p.selected.nodeHash !== this.props.selected.nodeHash) {
+    if (p.selected.nodeHash !== this.props.selected.nodeHash || p.selected.vendorHash !== this.props.selected.vendorHash) {
       return true;
     }
 
@@ -39,6 +39,8 @@ class Static extends React.Component {
 
     const mapXOffset = (map.width - viewWidth) / 2;
     const mapYOffset = -(map.height - viewHeight) / 2;
+
+    if (!maps[this.props.destinationId].map.bubbles) return null;
 
     return maps[this.props.destinationId].map.bubbles.map((bubble, b) =>
       bubble.nodes.map((node, n) => {
@@ -71,7 +73,7 @@ class Static extends React.Component {
 
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={icon} zIndexOffset='-1000' />;
         } else if (node.type === 'vendor' && node.vendorHash !== 2190858386) {
-          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor' })} zIndexOffset='-1000' />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.vendorHash, type: 'vendor' }, ['native', 'vendor'], { icon: 'vendor', selected: node.vendorHash === this.props.selected.vendorHash })} zIndexOffset='-1000' onClick={this.props.handler({ vendorHash: node.vendorHash })} />;
         } else if (node.type === 'fast-travel') {
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconFastTravel} zIndexOffset='-1000' />;
         } else if (node.type === 'portal') {
@@ -79,7 +81,7 @@ class Static extends React.Component {
         } else if (node.type === 'ascendant-challenge') {
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.icon({ hash: node.nodeHash, type: 'maps' }, ['native', 'ascendant-challenge'], { icon: 'ascendant-challenge', selected })} zIndexOffset='-1000' onClick={this.props.handler({ nodeHash: node.nodeHash })} />;
         } else if (node.type === 'forge') {
-          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
+          return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconForgeIgnition[node.playlistHash]} zIndexOffset='-1000' />;
         } else if (node.type === 'dungeon') {
           return <Marker key={`${b}-${n}`} position={[offsetY, offsetX]} icon={marker.iconDungeon[node.activityHash]} zIndexOffset='-1000' onClick={this.props.handler({ activityHash: node.activityHash })} />;
         } else {

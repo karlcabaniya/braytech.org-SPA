@@ -49,6 +49,7 @@ const hydrateObjectives = (member, objectives) => {
 
 export default (member, array) => {
   const nodes = {
+    director: [],
     tower: [],
     edz: [],
     'the-farm': [],

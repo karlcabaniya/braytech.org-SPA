@@ -5,7 +5,7 @@ import cx from 'classnames';
 import { fromNow } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { removeMemberIds } from '../../../utils/paths';
-import * as utils from '../../../utils/destinyUtils';
+import { neverProfileLinks, lastPlayerActivity, metricImages } from '../../../utils/destinyUtils';
 import { classHashToString, displayValue, raceHashToString } from '../../../utils/destinyConverters';
 import Button from '../../../components/UI/Button';
 import ObservedImage from '../../ObservedImage';
@@ -20,15 +20,14 @@ class Characters extends React.Component {
     const characterActivities = member.data.profile.characterActivities;
     const characterEquipment = member.data.profile.characterEquipment.data;
 
-    const lastActivities = utils.lastPlayerActivity({ profile: { characters, characterActivities } });
+    const lastActivities = lastPlayerActivity({ profile: { characters, characterActivities } });
 
-    const publicPaths = ['/maps', '/legend'];
     const goto = removeMemberIds((location && location.state?.from?.pathname) || '/now');
 
     return (
       <div className={cx('characters-list', { responsive: viewport.width < 1024, mini })}>
-        {characters.data.map(character => {
-          const lastActivity = lastActivities.find(a => a.characterId === character.characterId);
+        {characters.data.map((character) => {
+          const lastActivity = lastActivities.find((a) => a.characterId === character.characterId);
 
           const state = (
             <>
@@ -37,10 +36,10 @@ class Characters extends React.Component {
             </>
           );
 
-          const to = !publicPaths.includes(goto) ? `/${member.membershipType}/${member.membershipId}/${character.characterId}${goto}` : goto;
+          const to = !neverProfileLinks.filter((path) => goto.indexOf(path) > -1).length ? `/${member.membershipType}/${member.membershipId}/${character.characterId}${goto}` : goto;
 
-          const emblem = characterEquipment[character.characterId].items.find(i => i.bucketHash === 4274335291);
-          const metricImages = emblem?.metricHash && utils.metricImages(emblem.metricHash);
+          const emblem = characterEquipment[character.characterId].items.find((i) => i.bucketHash === 4274335291);
+          const metric = emblem?.metricHash && metricImages(emblem.metricHash);
 
           const emblemPath = mini ? character.emblemPath : character.emblemBackgroundPath;
 
@@ -49,17 +48,17 @@ class Characters extends React.Component {
               <Button className='linked' anchor to={to} action={this.props.onClickCharacter(character.characterId)}>
                 <ObservedImage
                   className={cx('image', 'emblem', {
-                    missing: !emblemPath
+                    missing: !emblemPath,
                   })}
                   src={`https://www.bungie.net${emblemPath || '/img/misc/missing_icon_d2.png'}`}
                 />
-                {!mini && metricImages ? (
+                {!mini && metric ? (
                   <div className='metric'>
                     <div className='progress'>{displayValue(emblem.metricObjective.progress, emblem.metricObjective.objectiveHash)}</div>
                     <div className={cx('gonfalon', { complete: emblem.metricObjective.complete })}>
-                      <ObservedImage className='image banner' src={`https://www.bungie.net${metricImages.banner}`} />
-                      <ObservedImage className='image trait' src={`https://www.bungie.net${metricImages.trait}`} />
-                      <ObservedImage className='image metric' src={`https://www.bungie.net${metricImages.metric}`} />
+                      <ObservedImage className='image banner' src={`https://www.bungie.net${metric.banner}`} />
+                      <ObservedImage className='image trait' src={`https://www.bungie.net${metric.trait}`} />
+                      <ObservedImage className='image metric' src={`https://www.bungie.net${metric.metric}`} />
                       <ObservedImage className='image banner complete' src='/static/images/extracts/ui/metrics/01E3-10F0.png' />
                     </div>
                   </div>
@@ -85,9 +84,9 @@ class Characters extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
-    viewport: state.viewport
+    viewport: state.viewport,
   };
 }
 

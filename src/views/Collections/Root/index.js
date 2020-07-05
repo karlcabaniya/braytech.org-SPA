@@ -19,7 +19,7 @@ class Root extends React.Component {
   }
 
   render() {
-    const { settings, member, viewport } = this.props;
+    const { settings, member } = this.props;
 
     const characterCollectibles = member.data.profile.characterCollectibles.data;
     const profileCollectibles = member.data.profile.profileCollectibles.data;
@@ -199,7 +199,6 @@ function mapStateToProps(state) {
   return {
     settings: state.settings,
     member: state.member,
-    viewport: state.viewport,
   };
 }
 

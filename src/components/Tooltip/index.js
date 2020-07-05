@@ -34,8 +34,10 @@ class Tooltip extends React.Component {
   currentTarget = null;
 
   doSetState = (e) => {
+    // console.log(this.currentTarget, e.currentTarget, this.currentTarget === e.currentTarget, e.currentTarget.dataset, this.state);
+
     this.currentTarget = e.currentTarget;
-console.log('hello')
+    
     this.setState({
       hash: e.currentTarget.dataset.hash,
       type: e.currentTarget.dataset.type,
@@ -90,7 +92,7 @@ console.log('hello')
     const tooltipWidth = 440;
     const tooltipHeight = this.state.hash ? this.ref_tooltip.current.clientHeight : 0;
     const scrollbarAllowance = 24;
-    
+
     let x = e.clientX;
     let y = e.clientY - (tooltipHeight >= 320 ? 140 : 0);
 
@@ -112,7 +114,7 @@ console.log('hello')
   };
 
   helper_targetPointerUp = (e) => {
-    console.log('pointer up', e.pointerType, e);
+    // console.log('pointer up', e.pointerType, e);
 
     // skip tooltip and follow a link maybe
     if (e.currentTarget.dataset.tooltip === 'mouse' && e.pointerType === 'touch') {
@@ -126,13 +128,13 @@ console.log('hello')
     }
   };
 
-  helper_targetPointerOver = (e) => {
+  helper_targetPointerEnter = (e) => {
     // this handler is for mice only
     if (e.pointerType === 'touch') {
       return;
     }
 
-    console.log('pointer over', e.pointerType, e);
+    // console.log('pointer over', e.pointerType, e);
 
     if (e.currentTarget.dataset.hash) {
       this.doSetState(e);
@@ -141,13 +143,13 @@ console.log('hello')
     }
   };
 
-  helper_targetPointerOut = (e) => {
+  helper_targetPointerLeave = (e) => {
     // this handler is for mice only
     if (e.pointerType === 'touch') {
       return;
     }
 
-    console.log('pointer out', e.pointerType, e);
+    // console.log('pointer out', e.pointerType, e);
 
     window.cancelAnimationFrame(this.rAF);
 
@@ -165,13 +167,13 @@ console.log('hello')
       // touch
       target.addEventListener('pointerup', this.helper_targetPointerUp);
       // mice
-      target.addEventListener('pointerover', this.helper_targetPointerOver);
-      target.addEventListener('pointerout', this.helper_targetPointerOut);
+      target.addEventListener('pointerenter', this.helper_targetPointerEnter);
+      target.addEventListener('pointerleave', this.helper_targetPointerLeave);
     });
   };
 
   helper_tooltipPointerUp = (e) => {
-    console.log('pointer up (tooltip)', e.pointerType, e);
+    // console.log('pointer up (tooltip)', e.pointerType, e);
 
     this.resetState();
   };
@@ -205,12 +207,12 @@ console.log('hello')
 
   componentDidUpdate(p, s) {
     if (this.props.tooltips.bindTime !== p.tooltips.bindTime) {
-      console.log('bind time change');
+      // console.log('bind time change');
       this.bind_TooltipItem();
     }
 
     if (this.props.location && p.location.pathname !== this.props.location.pathname) {
-      console.log('pathname change');
+      // console.log('pathname change');
       this.bind_TooltipItem(true);
     }
 
@@ -222,7 +224,7 @@ console.log('hello')
       this.bind_Tooltip();
     }
 
-    console.log(s, this.state)
+    // console.log(s, this.state)
   }
 
   componentDidMount() {

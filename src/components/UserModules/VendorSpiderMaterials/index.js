@@ -18,7 +18,7 @@ class VendorSpiderMaterials extends React.Component {
 
     this.state = {
       loading: true,
-      data: false
+      data: false,
     };
   }
 
@@ -34,20 +34,26 @@ class VendorSpiderMaterials extends React.Component {
     }
   }
 
-  getVendor = async hash => {
-    const { member } = this.props;
-
-    const response = await bungie.GetVendor(member.membershipType, member.membershipId, member.characterId, hash, [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','));
+  getVendor = async (vendorHash) => {
+    const response = await bungie.GetVendor({
+      params: {
+        membershipType: this.props.member.membershipType,
+        membershipId: this.props.member.membershipId,
+        characterId: this.props.member.characterId,
+        vendorHash,
+        components: [400, 402, 300, 301, 304, 305, 306, 307, 308, 600].join(','),
+      },
+    });
 
     if (response && response.ErrorCode === 1 && response.Response) {
       this.setState({
         loading: false,
-        data: response.Response
+        data: response.Response,
       });
     } else {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        loading: false
+        loading: false,
       }));
     }
   };
@@ -59,13 +65,13 @@ class VendorSpiderMaterials extends React.Component {
       return <NoAuth inline />;
     }
 
-    if (auth && !auth.destinyMemberships.find(m => m.membershipId === member.membershipId)) {
+    if (auth && !auth.destinyMemberships.find((m) => m.membershipId === member.membershipId)) {
       return <DiffProfile inline />;
     }
 
     const definitionVendor = manifest.DestinyVendorDefinition[vendorHash];
 
-    if (auth && auth.destinyMemberships.find(m => m.membershipId === member.membershipId) && this.state.loading) {
+    if (auth && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId) && this.state.loading) {
       return (
         <div className='user-module vendor'>
           <div className='sub-header'>
@@ -80,16 +86,16 @@ class VendorSpiderMaterials extends React.Component {
     const items = [];
 
     if (this.state.data) {
-      Object.values(this.state.data.sales.data).forEach(sale => {
+      Object.values(this.state.data.sales.data).forEach((sale) => {
         items.push({
           vendorHash: definitionVendor.hash,
+          ...((sale.vendorItemIndex !== undefined && definitionVendor && definitionVendor.itemList && definitionVendor.itemList[sale.vendorItemIndex]) || {}),
           ...sale,
-          ...((sale.vendorItemIndex !== undefined && definitionVendor && definitionVendor.itemList && definitionVendor.itemList[sale.vendorItemIndex]) || {})
         });
       });
     }
 
-    const itemsGrouped = groupBy(items, i => i.displayCategoryIndex);
+    const itemsGrouped = groupBy(items, (i) => i.displayCategoryIndex);
 
     return (
       <div className='user-module vendor'>
@@ -99,41 +105,41 @@ class VendorSpiderMaterials extends React.Component {
         <h3>{definitionVendor.displayProperties.name}</h3>
         {definitionVendor.displayCategories.map((category, c) => {
           if (itemsGrouped[category.index] && category.identifier === 'category_materials_exchange') {
-              return (
-                <React.Fragment key={c}>
-                  <h4>{category.displayProperties.name}</h4>
-                  <ul className='list special'>
-                    {itemsGrouped[category.index].map((item, i) => (
-                      <li key={i}>
-                        <ul>
-                          <li>
-                            <ul className='list inventory-items'>
-                              <Items items={[item]} />
-                            </ul>
-                          </li>
-                          <li>{manifest.DestinyInventoryItemDefinition[item.itemHash]?.displayProperties?.name}</li>
-                          <li>
-                            <ul>
-                              {item.costs.map((cost, t) => (
-                                <li key={t}>
-                                  <ul>
-                                    <li>{cost.quantity.toLocaleString()}</li>
-                                    <li>
-                                      <ul className='list inventory-items'>
-                                        <Items items={[cost]} hideQuantity />
-                                      </ul>
-                                    </li>
-                                  </ul>
-                                </li>
-                              ))}
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
-                </React.Fragment>
-              );
+            return (
+              <React.Fragment key={c}>
+                <h4>{category.displayProperties.name}</h4>
+                <ul className='list special'>
+                  {itemsGrouped[category.index].map((item, i) => (
+                    <li key={i}>
+                      <ul>
+                        <li>
+                          <ul className='list inventory-items'>
+                            <Items items={[item]} />
+                          </ul>
+                        </li>
+                        <li>{manifest.DestinyInventoryItemDefinition[item.itemHash]?.displayProperties?.name}</li>
+                        <li>
+                          <ul>
+                            {item.costs.map((cost, t) => (
+                              <li key={t}>
+                                <ul>
+                                  <li>{cost.quantity.toLocaleString()}</li>
+                                  <li>
+                                    <ul className='list inventory-items'>
+                                      <Items items={[cost]} hideQuantity />
+                                    </ul>
+                                  </li>
+                                </ul>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </React.Fragment>
+            );
           } else {
             return null;
           }
@@ -146,15 +152,15 @@ class VendorSpiderMaterials extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    auth: state.auth
+    auth: state.auth,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
+    rebindTooltips: (value) => {
       dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    }
+    },
   };
 }
 
