@@ -273,7 +273,7 @@ class Records extends React.Component {
 
         recordState.objectives = definitionRecord.objectiveHashes
           .filter((hash) => {
-            const data = recordData && recordData.objectives.find((objective) => objective.objectiveHash === hash);
+            const data = recordData?.objectives.find((objective) => objective.objectiveHash === hash);
             const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
             if (data && data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
@@ -498,7 +498,7 @@ class Records extends React.Component {
               className={cx({
                 linked: link && true,
                 highlight: highlight === definitionRecord.hash,
-                completed: enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
+                completed: enumeratedState.RecordRedeemed,
                 unredeemed: !enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
                 tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted,
                 'no-description': !description,

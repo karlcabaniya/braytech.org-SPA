@@ -41,7 +41,7 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
   };
 }
 
-function Items({ member, items, handler, disableTooltip, order, noBorder, showQuantity, hideQuantity, asPanels, placeholders = 0, showHash, selfLinkFrom, inspect }) {
+function Items({ member, items, handler, tooltips, order, noBorder, showQuantity, hideQuantity, asPanels, placeholders = 0, showHash, selfLinkFrom, inspect }) {
   const location = useLocation();
 
   if (!items || !items.length) {
@@ -91,7 +91,7 @@ function Items({ member, items, handler, disableTooltip, order, noBorder, showQu
             },
             `item-type-${definitionItem.itemType || 0}`
           )}
-          data-tooltip={!disableTooltip}
+          data-tooltip={tooltips !== undefined ? tooltips : true}
           data-hash={item.itemHash}
           data-instanceid={item.itemInstanceId}
           data-state={item.state}

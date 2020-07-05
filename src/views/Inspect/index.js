@@ -209,7 +209,7 @@ class Inspect extends React.Component {
                           <div key={stat.statHash} className='stat'>
                             <div className='name'>{stat.displayProperties.name}</div>
                             <div className='value'>
-                              <div className='text'>{stat.value}</div>
+                              <div className={cx('text', { modded: moddedValue !== 0 })}>{stat.value}</div>
                               <RecoilStat value={stat.value} />
                             </div>
                           </div>
@@ -301,8 +301,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS', });
     },
   };
 }
@@ -324,8 +324,9 @@ function RecoilStat({ value }) {
   const ySpreadLess = Math.cos(direction - direction * spread);
 
   return (
-    <svg height="14" viewBox="0 0 2 1">
-      <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" />
+    <svg height="12" viewBox="0 0 2 1">
+      {/* <circle r={1} cx={1} cy={1} fill="rgba(255, 255, 255, 0.2)" /> */}
+      <rect width="2" height="1" fill="rgba(255, 255, 255, 0.2)" />
       {Math.abs(direction) > 0.1 ? (
         <path
           d={`M1,1 L${1 + xSpreadMore},${1 - ySpreadMore} A1,1 0 0,${direction < 0 ? '1' : '0'} ${
@@ -469,6 +470,8 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
           <div className='socket options'>
             {expandedSocket.plugOptions.map((plug, p) => {
               const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
+
+              console.log(plug.definition.collectibleHash)
 
               return (
                 <div key={p} className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, { active: plug.definition.hash === expandedSocket.plug.definition?.hash })} data-tooltip='mouse' data-hash={plug.definition.hash}>

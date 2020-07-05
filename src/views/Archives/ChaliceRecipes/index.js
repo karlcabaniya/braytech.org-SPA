@@ -1,10 +1,9 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { flattenDepth, groupBy } from 'lodash';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import * as enums from '../../../utils/destinyEnums';
 import ObservedImage from '../../../components/ObservedImage';
@@ -36,7 +35,7 @@ function breakUpRuneAbbreviations(combo) {
 
 function initialClassType(member) {
   if (member.data?.profile?.characters?.data?.length) {
-    const character = member.data.profile.characters.data.find(c => c.characterId === member.characterId);
+    const character = member.data.profile.characters.data.find((c) => c.characterId === member.characterId);
 
     return character.classType || 0;
   }
@@ -44,7 +43,7 @@ function initialClassType(member) {
   return 0;
 }
 
-const RefinedChaliceCombos = ChaliceCombos.filter(c => {
+const RefinedChaliceCombos = ChaliceCombos.filter((c) => {
   if (c.combo[0].length === 1 && c.combo[1].length === 1 && ['braytech_purple_rune', 'braytech_red_rune', 'braytech_green_rune', 'braytech_blue_rune'].includes(c.combo[1][0]) && c.combo[2].length === 0) {
     return true;
   } else {
@@ -56,23 +55,23 @@ const armorSetNameMap = {
   'Tangled Web': {
     0: 3110922166,
     1: 3986530602,
-    2: 2983784769
+    2: 2983784769,
   },
   'Exodus Down': {
     0: 3952745158,
     1: 3476818394,
-    2: 4139791855
+    2: 4139791855,
   },
   Opulent: {
     0: 3760158863,
     1: 327169819,
-    2: 2551808106
+    2: 2551808106,
   },
   'Reverie Dawn': {
     0: 3952745160,
     1: 3476818388,
-    2: 4139791841
-  }
+    2: 4139791841,
+  },
 };
 
 class ChaliceRecipes extends React.Component {
@@ -83,93 +82,93 @@ class ChaliceRecipes extends React.Component {
       slots: {
         slot1: false,
         slot2: false,
-        slot3: false
+        slot3: false,
       },
       slotsPanelOpen: false,
       matches: [],
-      armorClassType: initialClassType(this.props.member)
+      armorClassType: initialClassType(this.props.member),
     };
 
     this.ref_chaliceUI = React.createRef();
   }
 
-  handler_toggleSlotsPanel = slot => e => {
+  handler_toggleSlotsPanel = (slot) => (e) => {
     if (this.state.slotsPanelOpen === slot) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        slotsPanelOpen: false
+        slotsPanelOpen: false,
       }));
     } else {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        slotsPanelOpen: slot
+        slotsPanelOpen: slot,
       }));
     }
 
     this.props.rebindTooltips();
   };
 
-  handler_filterClassType = e => {
-    this.setState(p => ({
-      armorClassType: p.armorClassType < 2 ? p.armorClassType + 1 : 0
+  handler_filterClassType = (e) => {
+    this.setState((p) => ({
+      armorClassType: p.armorClassType < 2 ? p.armorClassType + 1 : 0,
     }));
   };
 
-  hanlder_resetState = e => {
+  hanlder_resetState = (e) => {
     this.setState((prevState, props) => {
       let change = {
         slots: {
           slot1: false,
           slot2: false,
-          slot3: false
+          slot3: false,
         },
-        slotsPanelOpen: false
+        slotsPanelOpen: false,
       };
       return { ...prevState, ...change };
     });
   };
 
-  handler_rewardItemClick = item => e => {
+  handler_rewardItemClick = (item) => (e) => {
     console.log(item);
 
     if (!item || !item.combo) {
       return;
     }
 
-    this.setState(p => ({
+    this.setState((p) => ({
       ...p,
       slots: {
         slot1: item.combo[0]?.[0] || false,
         slot2: item.combo[1]?.[0] || false,
-        slot3: item.combo[2]?.[0] || false
+        slot3: item.combo[2]?.[0] || false,
       },
-      slotsPanelOpen: false
+      slotsPanelOpen: false,
     }));
 
     window.scrollTo({
-      top: this.ref_chaliceUI.current.offsetTop + this.ref_chaliceUI.current.offsetHeight / 2 - window.innerHeight / 2
+      top: this.ref_chaliceUI.current.offsetTop + this.ref_chaliceUI.current.offsetHeight / 2 - window.innerHeight / 2,
     });
   };
 
-  handler_runeItemClick = item => e => {
-    this.setState(p => ({
+  handler_runeItemClick = (item) => (e) => {
+    this.setState((p) => ({
       ...p,
       slots: {
         ...p.slots,
-        [item.slot]: item.hash === 'braytech_remove_rune' ? false : item.hash
+        [item.slot]: item.hash === 'braytech_remove_rune' ? false : item.hash,
       },
-      slotsPanelOpen: false
+      slotsPanelOpen: false,
     }));
 
     window.scrollTo({
-      top: this.ref_chaliceUI.current.offsetTop + this.ref_chaliceUI.current.offsetHeight / 2 - window.innerHeight / 2
+      top: this.ref_chaliceUI.current.offsetTop + this.ref_chaliceUI.current.offsetHeight / 2 - window.innerHeight / 2,
     });
   };
 
   checkForCombo = () => {
     const { slot1, slot2, slot3 } = this.state.slots;
 
-    const matches = ChaliceCombos.filter(m => {
+    const matches = ChaliceCombos.filter((m) => {
       const combo1 = m.combo[0];
       const combo2 = breakUpRuneAbbreviations(m.combo[1]);
       const combo3 = breakUpRuneAbbreviations(m.combo[2]);
@@ -188,7 +187,7 @@ class ChaliceRecipes extends React.Component {
     });
 
     console.log(matches);
-    matches.forEach(m => {
+    matches.forEach((m) => {
       if (m.items.length) {
         const definitionItem = manifest.DestinyInventoryItemDefinition[m.items[0]];
         console.log(definitionItem.displayProperties.name);
@@ -197,8 +196,8 @@ class ChaliceRecipes extends React.Component {
       }
     });
 
-    this.setState(p => ({
-      matches
+    this.setState((p) => ({
+      matches,
     }));
 
     this.props.rebindTooltips();
@@ -217,8 +216,6 @@ class ChaliceRecipes extends React.Component {
   }
 
   render() {
-    const { t, viewport } = this.props;
-
     return (
       <>
         <div className='view chalice-of-opulence' id='archives'>
@@ -233,7 +230,7 @@ class ChaliceRecipes extends React.Component {
             <div className='content'>
               <div className='module'>
                 <div className='frame' ref={this.ref_chaliceUI}>
-                  <div className={cx('flair', { active: Object.values(this.state.slots).filter(s => s).length > 2 })}>
+                  <div className={cx('flair', { active: Object.values(this.state.slots).filter((s) => s).length > 2 })}>
                     <ObservedImage className='image padding corner' src='/static/images/extracts/ui/01E3-00000700.png' />
                     <ObservedImage className='image padding corner active' src='/static/images/extracts/ui/01E3-00000700-A.png' />
                     <ObservedImage className='image leviathan' src='/static/images/extracts/ui/01E3-00000702.png' />
@@ -258,14 +255,7 @@ class ChaliceRecipes extends React.Component {
                         }
 
                         const activePlug = (
-                          <li
-                            className={cx({
-                              tooltip: viewport.width >= 1024,
-                              linked: true
-                            })}
-                            data-hash={hash}
-                            onClick={this.handler_toggleSlotsPanel(key)}
-                          >
+                          <li className='linked' data-tooltip='mouse' data-hash={hash} onClick={this.handler_toggleSlotsPanel(key)}>
                             <div className='icon'>
                               <ObservedImage src={definitionActivePlug.displayProperties.localIcon ? `${definitionActivePlug.displayProperties.icon}` : `https://www.bungie.net${definitionActivePlug.displayProperties.icon}`} />
                             </div>
@@ -306,10 +296,10 @@ class ChaliceRecipes extends React.Component {
                                         <ul className='list' key={i}>
                                           <li
                                             className={cx({
-                                              tooltip: true,
                                               linked: true,
-                                              active: this.state.slots[key] === hash
+                                              active: this.state.slots[key] === hash,
                                             })}
+                                            data-tooltip
                                             data-hash={hash}
                                             onClick={this.handler_runeItemClick({ slot: key, hash })}
                                           >
@@ -323,7 +313,7 @@ class ChaliceRecipes extends React.Component {
                                           <li
                                             className={cx('apply', {
                                               linked: true,
-                                              active: this.state.slots[key] === hash
+                                              active: this.state.slots[key] === hash,
                                             })}
                                             onClick={this.handler_runeItemClick({ slot: key, hash })}
                                           >
@@ -352,7 +342,7 @@ class ChaliceRecipes extends React.Component {
                     <ul className='list inventory-items'>
                       <Items
                         items={this.state.matches.reduce((a, v) => {
-                          return [...a, ...v.items.filter(hash => (this.state.armorClassType > -1 && manifest.DestinyInventoryItemDefinition[hash].classType < 3 && manifest.DestinyInventoryItemDefinition[hash].classType === this.state.armorClassType) || manifest.DestinyInventoryItemDefinition[hash].classType > 2 || this.state.armorClassType < 0).map(hash => ({ combo: v.combo, itemHash: hash }))];
+                          return [...a, ...v.items.filter((hash) => (this.state.armorClassType > -1 && manifest.DestinyInventoryItemDefinition[hash].classType < 3 && manifest.DestinyInventoryItemDefinition[hash].classType === this.state.armorClassType) || manifest.DestinyInventoryItemDefinition[hash].classType > 2 || this.state.armorClassType < 0).map((hash) => ({ combo: v.combo, itemHash: hash }))];
                         }, [])}
                         handler={this.handler_rewardItemClick}
                       />
@@ -368,19 +358,19 @@ class ChaliceRecipes extends React.Component {
                     </div>
                     <ul className='list inventory-items'>
                       <Items
-                        items={RefinedChaliceCombos.filter(c => c.itemType === 3).reduce((a, v) => {
-                          return [...a, ...v.items.map(hash => ({ combo: v.combo, itemHash: hash }))];
+                        items={RefinedChaliceCombos.filter((c) => c.itemType === 3).reduce((a, v) => {
+                          return [...a, ...v.items.map((hash) => ({ combo: v.combo, itemHash: hash }))];
                         }, [])}
                         handler={this.handler_rewardItemClick}
-                        disableTooltip={viewport.width <= 1024}
+                        tooltips='mouse'
                       />
                     </ul>
                   </div>
                   <div className='armor'>
                     {Object.entries(
                       groupBy(
-                        RefinedChaliceCombos.filter(c => c.itemType !== 3),
-                        c => c.armorSetName
+                        RefinedChaliceCombos.filter((c) => c.itemType !== 3),
+                        (c) => c.armorSetName
                       )
                     ).map(([setName, combos], i) => {
                       return (
@@ -391,15 +381,15 @@ class ChaliceRecipes extends React.Component {
                           <ul className='list inventory-items'>
                             <Items
                               items={combos
-                                .map(c => ({
+                                .map((c) => ({
                                   ...c,
-                                  items: c.items.filter(hash => (this.state.armorClassType > -1 && manifest.DestinyInventoryItemDefinition[hash].classType < 3 && manifest.DestinyInventoryItemDefinition[hash].classType === this.state.armorClassType) || manifest.DestinyInventoryItemDefinition[hash].classType > 2 || this.state.armorClassType < 0)
+                                  items: c.items.filter((hash) => (this.state.armorClassType > -1 && manifest.DestinyInventoryItemDefinition[hash].classType < 3 && manifest.DestinyInventoryItemDefinition[hash].classType === this.state.armorClassType) || manifest.DestinyInventoryItemDefinition[hash].classType > 2 || this.state.armorClassType < 0),
                                 }))
                                 .reduce((a, v) => {
-                                  return [...a, ...v.items.map(hash => ({ combo: v.combo, itemHash: hash }))];
+                                  return [...a, ...v.items.map((hash) => ({ combo: v.combo, itemHash: hash }))];
                                 }, [])}
                               handler={this.handler_rewardItemClick}
-                              disableTooltip={viewport.width <= 1024}
+                              tooltips='mouse'
                             />
                           </ul>
                         </React.Fragment>
@@ -416,7 +406,7 @@ class ChaliceRecipes extends React.Component {
             <div />
             <ul>
               <li>
-                {viewport.width <= 1024 && this.state.slotsPanelOpen ? (
+                {this.props.viewport.width <= 1024 && this.state.slotsPanelOpen ? (
                   <Button action={this.handler_toggleSlotsPanel(this.state.slotsPanelOpen)}>
                     <DestinyKey type='dismiss' /> {t('Dismiss')}
                   </Button>
@@ -431,7 +421,7 @@ class ChaliceRecipes extends React.Component {
                       ) : (
                         <>
                           <i className='segoe-uniE16E' />
-                          {Object.values(manifest.DestinyClassDefinition).find(i => i.classType === this.state.armorClassType).displayProperties.name}
+                          {Object.values(manifest.DestinyClassDefinition).find((i) => i.classType === this.state.armorClassType).displayProperties.name}
                         </>
                       )}
                     </Button>
@@ -450,23 +440,22 @@ class ChaliceRecipes extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     viewport: state.viewport,
-    tooltips: state.tooltips
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: value => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
-    pushInstance: value => {
+    pushInstance: (value) => {
       dispatch({ type: 'PUSH_INSTANCE', payload: value });
-    }
+    },
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), withTranslation())(ChaliceRecipes);
+export default connect(mapStateToProps, mapDispatchToProps)(ChaliceRecipes);

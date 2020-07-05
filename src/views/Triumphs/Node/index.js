@@ -110,7 +110,7 @@ class PresentationNode extends React.Component {
           }
         }
 
-        const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed && !enumerateRecordState(record.state).ObjectiveNotCompleted).length;
+        const secondaryProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed).length;
         const secondaryTotal = settings.itemVisibility.hideInvisibleRecords ? states.filter((record) => !enumerateRecordState(record.state).Invisible).length : states.length;
 
         if (secondaryTotal === 0) {

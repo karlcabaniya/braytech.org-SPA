@@ -52,7 +52,7 @@
 }
 
 #collections .sidebar .recently-discovered .list li::after {
-  transform: scale(var(--scale-large)) translateZ(0);
+  transform: scale(var(--ui-scale-2)) translateZ(0);
 }
 
 #collections .sidebar .recently-discovered .list li:hover::after {

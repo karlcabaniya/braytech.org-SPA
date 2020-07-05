@@ -336,6 +336,8 @@
 }
 
 #inspect .module.stats .stat .value svg {
+  position: relative;
+  top: 1px;
   margin: 0 0 0 6px;
 }
 
