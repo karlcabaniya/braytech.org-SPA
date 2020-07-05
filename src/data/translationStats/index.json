@@ -2,25 +2,13 @@
   "de": {
     "translated": 731,
     "notTranslated": 14,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 745,
     "notTranslated": 0,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -30,135 +18,69 @@
     "removed": []
   },
   "es-mx": {
-    "translated": 734,
-    "notTranslated": 11,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "translated": 745,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "es": {
-    "translated": 734,
-    "notTranslated": 11,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "translated": 745,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "fr": {
     "translated": 622,
     "notTranslated": 123,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "it": {
-    "translated": 713,
-    "notTranslated": 32,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "translated": 745,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "ja": {
     "translated": 601,
     "notTranslated": 144,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "ko": {
     "translated": 514,
     "notTranslated": 231,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 743,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "pt-br": {
     "translated": 706,
     "notTranslated": 39,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "ru": {
     "translated": 734,
     "notTranslated": 11,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-chs": {
-    "translated": 521,
-    "notTranslated": 224,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "translated": 540,
+    "notTranslated": 205,
+    "added": [],
     "removed": []
   },
   "zh-cht": {
     "translated": 349,
     "notTranslated": 396,
-    "added": [
-      "Indexed DB",
-      "Something went wrong while trying to access browser storage.\n\nSome browsers disallow access to _Indexed DB_ when browsing in private modes.\n\nPlease reload the app and try again.",
-      "Vendor.FailureStrings.NoFunds",
-      "Vendor.FailureStrings.NoInventorySpace",
-      "Vendor.FailureStrings.UniquenessViolation"
-    ],
+    "added": [],
     "removed": []
   }
 }
