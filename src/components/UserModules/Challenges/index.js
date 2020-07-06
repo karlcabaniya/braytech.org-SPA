@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
+import { get, set } from '../../../utils/localStorage';
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { rebind } from '../../../store/actions/tooltips';
@@ -16,7 +17,7 @@ import './styles.css';
 
 const groups = [
   [
-    2498962144, // Nightfall: The Ordeal with a team score above 100,000.
+    2498962144, // Nightfall: The Ordeal with a team score above 100,000
     2443315975, // Nightfall: The Ordeal activities completion
   ],
   [
@@ -73,7 +74,7 @@ function getActivities(activities) {
 function Challenges() {
   const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
-  const [state, setState] = useState({ filterRewards: false });
+  const [state, setState] = useState({ filterRewards: get('setting.modules.challenges')?.filterRewards || false });
 
   useEffect(() => {
     // runs on init for each socket. unsure how to fix cleanly
@@ -81,7 +82,12 @@ function Challenges() {
   }, [dispatch, state]);
 
   function handler_togglePinnacleFilter() {
-    setState({ filterRewards: !state.filterRewards });
+    const change = {
+      filterRewards: !state.filterRewards
+    };
+    
+    set('setting.modules.challenges', change)
+    setState(change);
   }
 
   const characterActivities = member.data.profile.characterActivities.data;
