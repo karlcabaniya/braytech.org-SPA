@@ -37,7 +37,7 @@ class Tooltip extends React.Component {
     // console.log(this.currentTarget, e.currentTarget, this.currentTarget === e.currentTarget, e.currentTarget.dataset, this.state);
 
     this.currentTarget = e.currentTarget;
-    
+
     this.setState({
       hash: e.currentTarget.dataset.hash,
       type: e.currentTarget.dataset.type,
@@ -54,7 +54,7 @@ class Tooltip extends React.Component {
       data: {},
     });
 
-    this.target = null;
+    this.currentTarget = null;
 
     this.touchPosition = {
       x: 0,
@@ -75,8 +75,8 @@ class Tooltip extends React.Component {
     window.requestAnimationFrame(this.helper_tooltipPositionUpdate);
   };
 
-  helper_checkIfTargetExists = () => {
-    if (document.body.contains(this.currentTarget)) {
+  helper_checkIfTargetExists = (target) => {
+    if (document.body.contains(target)) {
       return true;
     }
 
@@ -84,7 +84,7 @@ class Tooltip extends React.Component {
   };
 
   helper_windowMouseMove = (e) => {
-    if (this.currentTarget?.dataset.tooltip === 'mouse' && !this.helper_checkIfTargetExists()) {
+    if (this.currentTarget?.dataset.tooltip === 'mouse' && !this.helper_checkIfTargetExists(this.currentTarget)) {
       this.resetState();
     }
 
@@ -157,7 +157,14 @@ class Tooltip extends React.Component {
   };
 
   bind_TooltipItem = (reset) => {
-    if (reset || !this.helper_checkIfTargetExists()) {
+    // checks if the current target exists and resets
+    // as far as i can tell, this is entirely for map's inspect ui to get rid of tooltips
+    // once the inspect ui is active, by rebinding tooltips due to a rerender of the tooltip item
+    // that was clicked (gains a selected node outline)
+    // i hate it
+    if (reset || (this.currentTarget && !this.helper_checkIfTargetExists(this.currentTarget))) {
+      // if (reset) {
+      console.log('yep', this.currentTarget);
       this.resetState();
     }
 
@@ -170,12 +177,6 @@ class Tooltip extends React.Component {
       target.addEventListener('pointerenter', this.helper_targetPointerEnter);
       target.addEventListener('pointerleave', this.helper_targetPointerLeave);
     });
-  };
-
-  helper_tooltipPointerUp = (e) => {
-    // console.log('pointer up (tooltip)', e.pointerType, e);
-
-    this.resetState();
   };
 
   helper_tooltipTouchStart = (e) => {
@@ -200,19 +201,16 @@ class Tooltip extends React.Component {
   };
 
   bind_Tooltip = () => {
-    // this.ref_tooltip.current.addEventListener('pointerup', this.helper_tooltipPointerUp);
     this.ref_tooltip.current.addEventListener('touchstart', this.helper_tooltipTouchStart);
     this.ref_tooltip.current.addEventListener('touchend', this.helper_tooltipTouchEnd);
   };
 
   componentDidUpdate(p, s) {
     if (this.props.tooltips.bindTime !== p.tooltips.bindTime) {
-      // console.log('bind time change');
       this.bind_TooltipItem();
     }
 
     if (this.props.location && p.location.pathname !== this.props.location.pathname) {
-      // console.log('pathname change');
       this.bind_TooltipItem(true);
     }
 
@@ -220,11 +218,11 @@ class Tooltip extends React.Component {
       this.bind_TooltipItem();
     }
 
-    if (this.state.hash) {
-      this.bind_Tooltip();
-    }
-
-    // console.log(s, this.state)
+    // i do not know what this was for.
+    // if (this.state.hash) {
+    //   console.log('why???')
+    //   this.bind_Tooltip();
+    // }
   }
 
   componentDidMount() {
@@ -278,7 +276,7 @@ class TooltipErrorBoundary extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     tooltips: state.tooltips,
