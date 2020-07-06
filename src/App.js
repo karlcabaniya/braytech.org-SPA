@@ -7,7 +7,7 @@ import i18n from './utils/i18n';
 import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
-import * as ls from './utils/localStorage';
+import ls from './utils/localStorage';
 import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 

@@ -1,3 +1,10 @@
+export default {
+  get,
+  set,
+  del,
+  update
+}
+
 export function get(key) {
   try {
     return JSON.parse(window.localStorage.getItem(key));

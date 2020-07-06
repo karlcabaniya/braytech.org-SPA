@@ -2,7 +2,7 @@ import React from 'react';
 import { debounce } from 'lodash';
 import { withTranslation } from 'react-i18next';
 
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 import * as bungie from '../../utils/bungie';
 import Spinner from '../../components/UI/Spinner';
 

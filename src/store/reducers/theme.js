@@ -1,6 +1,6 @@
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 
-const user = ls.get('setting.theme') ? ls.get('setting.theme') : false;
+const user = ls.get('setting.theme') || false;
 const prefersDark = getSystemPreference();
 
 const initial = {

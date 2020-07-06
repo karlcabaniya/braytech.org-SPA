@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 import * as enums from '../../utils/destinyEnums';
 import Spinner from '../../components/UI/Spinner';
 import { BungieAuthMini } from '../../components/BungieAuth';

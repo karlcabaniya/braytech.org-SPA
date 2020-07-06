@@ -1,4 +1,4 @@
-import * as ls from './localStorage';
+import ls from './localStorage';
 import * as bungie from './bungie';
 import * as responseUtils from './responseUtils';
 import manifest from './manifest';

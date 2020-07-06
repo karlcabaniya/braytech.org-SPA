@@ -1,4 +1,4 @@
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 
 const history = ls.get('history.tips') || [];
 

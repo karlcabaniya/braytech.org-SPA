@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import i18n, { t, BraytechText, getLanguageInfo } from '../../utils/i18n';
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 import { BungieAuth } from '../../components/BungieAuth';
 import Checkbox from '../../components/UI/Checkbox';
 import Button from '../../components/UI/Button';

@@ -5,7 +5,7 @@ import backend from 'i18next-xhr-backend';
 import { initReactI18next } from 'react-i18next';
 import moment from 'moment';
 
-import * as ls from './localStorage';
+import ls from './localStorage';
 import { stringToIcons } from './destinyUtils';
 import { linkHelper, wrapEnergy, noParagraphs } from './markdown';
 

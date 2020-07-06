@@ -1,6 +1,6 @@
 import Dexie from 'dexie';
 
-import * as ls from './localStorage';
+import ls from './localStorage';
 import dexie from './dexie';
 
 export default function runOnceTasks() {

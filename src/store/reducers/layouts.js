@@ -1,6 +1,6 @@
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 
-const lsState = ls.get('setting.layouts') ? ls.get('setting.layouts') : {};
+const lsState = ls.get('setting.layouts') || {};
 export const defaultState = {
   now: {
     groups: [

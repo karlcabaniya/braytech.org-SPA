@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
-import { get, set } from '../../../utils/localStorage';
+import ls from '../../../utils/localStorage';
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { rebind } from '../../../store/actions/tooltips';
@@ -74,7 +74,7 @@ function getActivities(activities) {
 function Challenges() {
   const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
-  const [state, setState] = useState({ filterRewards: get('setting.modules.challenges')?.filterRewards || false });
+  const [state, setState] = useState({ filterRewards: ls.get('setting.modules.challenges')?.filterRewards || false });
 
   useEffect(() => {
     // runs on init for each socket. unsure how to fix cleanly
@@ -85,8 +85,8 @@ function Challenges() {
     const change = {
       filterRewards: !state.filterRewards
     };
-    
-    set('setting.modules.challenges', change)
+
+    ls.set('setting.modules.challenges', change)
     setState(change);
   }
 
