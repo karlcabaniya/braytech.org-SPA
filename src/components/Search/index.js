@@ -207,7 +207,7 @@ class Search extends React.Component {
     } else if (!database && table === 'DestinyCollectibleDefinition') {
       display = (
         <ul className='list collection-items'>
-          <Collectibles selfLinkFrom='/collections' hashes={results.map((e) => e.hash)} ordered />
+          <Collectibles selfLinkFrom='/collections' hashes={results.map((e) => e.hash)} ordered mouseTooltips />
         </ul>
       );
     } else if (resultsRenderFunction) {
@@ -239,8 +239,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS', });
     },
   };
 }

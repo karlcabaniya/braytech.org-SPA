@@ -1,10 +1,23 @@
-var localStorage = window.localStorage;
+export default {
+  get,
+  set,
+  del,
+  update
+}
+
+export function get(key) {
+  try {
+    return JSON.parse(window.localStorage.getItem(key));
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 export function set(key, value) {
   value = JSON.stringify(value);
 
   try {
-    localStorage.setItem(key, value);
+    window.localStorage.setItem(key, value);
   } catch (e) {
     console.log(e);
   }
@@ -12,36 +25,17 @@ export function set(key, value) {
 
 export function del(key) {
   try {
-    localStorage.removeItem(key);
+    window.localStorage.removeItem(key);
   } catch (e) {
     console.log(e);
   }
 }
-
-export function get(key) {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-// function objectsAreSame(x, y) {
-//   var objectsAreSame = true;
-//   for (var propertyName in x) {
-//      if(x[propertyName] !== y[propertyName]) {
-//         objectsAreSame = false;
-//         break;
-//      }
-//   }
-//   return objectsAreSame;
-// }
 
 export function update(key, value, unique, limit) {
   var json = null;
 
   try {
-    json = localStorage.getItem(key);
+    json = window.localStorage.getItem(key);
   } catch (e) {
     console.log(e);
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import i18n, { t, BraytechText, getLanguageInfo } from '../../utils/i18n';
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 import { BungieAuth } from '../../components/BungieAuth';
 import Checkbox from '../../components/UI/Checkbox';
 import Button from '../../components/UI/Button';
@@ -246,6 +246,10 @@ class Settings extends React.Component {
                   </li>
                 </>
               ) : null}
+              <li onClick={this.handler_toggle('visual.gay')}>
+                <Checkbox linked checked={settings.visual.gay} text={t('Enable ✨')} />
+                <BraytechText className='info' value={t('Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation.')} />
+              </li>
             </ul>
             <div className='sub-header sub'>
               <div>{t('Developer')}</div>

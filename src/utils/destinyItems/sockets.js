@@ -2,6 +2,7 @@ import { compact, orderBy } from 'lodash';
 
 import manifest from '../manifest';
 import * as enums from '../destinyEnums';
+// import seasons from '../../data/d2-additional-info/seasons.json';
 
 import * as utils from './utils';
 
@@ -11,9 +12,10 @@ export const defaultPlugs = [
   1959648454,
   702981643,
   // rework Masterwork
-  39869035,
-  1961001474,
-  3612467353,
+  236077174,
+  // 39869035, // Rework Armor
+  // 1961001474, // Rework Weapon
+  // 3612467353, // Rework Weapon
   // default masterwork
   23239861010,
   // default Shader
@@ -222,34 +224,37 @@ function buildDefinedSocket(item, definitionSocket, index) {
         // got nothin'
         undefined
     ) || false;
-  
-  const plugOptions = processedPlugs.reduce((plugOptions, reusablePlug) => {
-    // plug approved, carry on
-    if (filterReusablePlug(reusablePlug)) {
-      // push default plugs to start of socket
-      if (defaultPlugs.includes(reusablePlug.definition.hash)) {
-        // avoid duplicates
-        if (plugOptions.filter(p => p.definition.hash === reusablePlug.definition.hash).length) return plugOptions;
-          
-        return [reusablePlug, ...plugOptions];
-      }
 
-      // the currently socketed plug
-      if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
-        // use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
-        // slice off the first index - equivalent to .shift()
-        return [...plugOptions.slice(1), plugItem];
-      } else {
-        // filter out intrinsic perks past the first
-        if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
-          return [...plugOptions, reusablePlug];
+  const plugOptions = processedPlugs.reduce(
+    (plugOptions, reusablePlug) => {
+      // plug approved, carry on
+      if (filterReusablePlug(reusablePlug)) {
+        // push default plugs to start of socket
+        if (defaultPlugs.includes(reusablePlug.definition.hash)) {
+          // avoid duplicates
+          if (plugOptions.filter((p) => p.definition.hash === reusablePlug.definition.hash).length) return plugOptions;
+
+          return [reusablePlug, ...plugOptions];
+        }
+
+        // the currently socketed plug
+        if (plugItem && reusablePlug.definition.hash === plugItem.definition.hash) {
+          // use the inserted plug we built earlier in this position, rather than the one we build from reusablePlugs.
+          // slice off the first index - equivalent to .shift()
+          return [...plugOptions.slice(1), plugItem];
+        } else {
+          // filter out intrinsic perks past the first
+          if (!reusablePlug.definition.itemCategoryHashes || !reusablePlug.definition.itemCategoryHashes.includes(INTRINSIC_PLUG_CATEGORY)) {
+            return [...plugOptions, reusablePlug];
+          }
         }
       }
-    }
 
-    // no changes to make
-    return plugOptions;
-  }, plugItem ? [plugItem] : [])
+      // no changes to make
+      return plugOptions;
+    },
+    plugItem ? [plugItem] : []
+  );
 
   const isIntrinsic = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.includes(2237038328));
   const isMod = plugItem && Boolean(plugItem.definition.itemCategoryHashes?.filter((hash) => modItemCategoryHashes.includes(hash)).length > 0);
@@ -258,6 +263,8 @@ function buildDefinedSocket(item, definitionSocket, index) {
   const isSpawnFX = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('spawnfx'));
   const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork') || plugItem.definition.hash === DEFAULT_MASTERWORK_PLUG);
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
+
+  // if (isOrnament) plugOptions.sort((a, b) => (seasons[a.definition.hash] || 99) - (seasons[b.definition.hash] || 99));
 
   return {
     socketIndex: index,

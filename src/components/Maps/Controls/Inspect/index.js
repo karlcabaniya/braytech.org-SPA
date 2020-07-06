@@ -104,14 +104,14 @@ function Node(props) {
           <div className='info'>{process.env.NODE_ENV === 'development' ? unified.screenshotFilename || t('Screenshot unavailable') : t('Screenshot unavailable')}</div>
         )}
       </div>
-      {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
-      {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
       <div className='header'>
         {unified.checklist?.checklistIcon || unified.icon ? <div className='icon'>{unified.checklist?.checklistIcon || unified.icon}</div> : null}
         <div className='type'>{unified.type?.name}</div>
         <div className='name'>{unified.displayProperties?.name}</div>
         {unified.displayProperties?.description ? <BungieText className='description' value={unified.displayProperties.description} /> : null}
       </div>
+      {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
+      {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
       {unified.withinString ? <div className='within'>{unified.withinString}</div> : null}
       {unified.destinationString ? <div className='destination'>{unified.destinationString}</div> : null}
       {unified.extended?.video ? (

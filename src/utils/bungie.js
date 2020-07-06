@@ -1,5 +1,5 @@
 import store from '../store';
-import * as ls from './localStorage';
+import ls from './localStorage';
 
 // Bungie API access convenience methods
 

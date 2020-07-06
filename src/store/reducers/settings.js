@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import * as ls from '../../utils/localStorage';
+import ls from '../../utils/localStorage';
 
 const history = ls.get('settings') || {
   visual: {
@@ -7,6 +7,7 @@ const history = ls.get('settings') || {
     three: false,
     threeDebug: false,
     threeShadows: false,
+    gay: false,
   },
   itemVisibility: {
     hideCompletedRecords: false,

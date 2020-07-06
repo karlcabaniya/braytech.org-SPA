@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.27.5",
+  "version": "2.27.9",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -27,7 +27,7 @@
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
-    "react-ga": "^3.0.0",
+    "react-ga": "^3.1.1",
     "react-i18next": "^11.7.0",
     "react-leaflet": "^2.7.0",
     "react-markdown": "^4.3.1",

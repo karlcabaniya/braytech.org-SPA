@@ -31,6 +31,12 @@ function Inspect() {
     from: location.state?.from || (member.characterId && `/${member.membershipType}/${member.membershipId}/${member.characterId}/collections`) || '/collections',
   });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    return () => { };
+  }, [])
+
   const handler_pointerOver = (socketIndex, plugHash) => (e) => {
     console.log(socketIndex, plugHash);
 
