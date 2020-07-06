@@ -217,11 +217,10 @@ class Tooltip extends React.Component {
       this.bind_TooltipItem();
     }
 
-    // i do not know what this was for.
-    // if (this.state.hash) {
-    //   console.log('why???')
-    //   this.bind_Tooltip();
-    // }
+    // binds handlers for touch when tooltip is up
+    if (this.state.hash) {
+      this.bind_Tooltip();
+    }
   }
 
   componentDidMount() {

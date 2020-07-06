@@ -19,7 +19,7 @@ export default function Default({ itemHash, itemComponents, quantity, vendorHash
   const description = definitionItem.displayProperties && definitionItem.displayProperties.description !== '' && definitionItem.displayProperties.description;
 
   // source string
-  const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
+  const sourceString = manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash]?.sourceString;
 
   // flair string
   const flair = definitionItem.displaySource && definitionItem.displaySource !== '' && definitionItem.displaySource;

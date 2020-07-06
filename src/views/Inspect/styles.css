@@ -237,15 +237,26 @@
   color: var(--energy-void);
 }
 
-#inspect .module.commonality {
+#inspect .module.commonality,
+#inspect .module.source {
   grid-auto-flow: row;
   gap: 1rem;
 }
 
-#inspect .module.commonality .value {
+#inspect .module.commonality .value,
+#inspect .module.source .value {
   display: inline-block;
   font-size: 36px;
   line-height: 28px;
+}
+
+#inspect .module.source {
+  gap: 8px;
+}
+
+#inspect .module.source .value {
+  font-size: 20px;
+  line-height: 1.4;
 }
 
 

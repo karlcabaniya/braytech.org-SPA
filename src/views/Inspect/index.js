@@ -33,9 +33,9 @@ function Inspect() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    return () => { };
-  }, [])
+
+    return () => {};
+  }, []);
 
   const handler_pointerOver = (socketIndex, plugHash) => (e) => {
     console.log(socketIndex, plugHash);
@@ -89,6 +89,7 @@ function Inspect() {
 
   const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
   const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
+  const displaySource = manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash]?.sourceString?.replace('Source: ','');
   const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
   const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
   const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
@@ -106,7 +107,7 @@ function Inspect() {
             </div>
             <BungieText className='flair' value={definitionItem.displayProperties.description} />
           </div>
-          {displayTaxonomy || displayCommonality ? (
+          {displayTaxonomy || displayCommonality || displaySource ? (
             <div className='module'>
               {displayTaxonomy ? (
                 <div className='module taxonomy'>
@@ -158,6 +159,12 @@ function Inspect() {
                     </div>
                   </div>
                   <div className='info'>{t("The collectible's rarity represented as a percentage of players who are indexed by VOLUSPA who've collected it.")}</div>
+                </div>
+              ) : null}
+              {displaySource ? (
+                <div className='module source'>
+                  <div className='module-name'>{t('Source')}</div>
+                  <div className='value'>{displaySource}</div>
                 </div>
               ) : null}
             </div>
