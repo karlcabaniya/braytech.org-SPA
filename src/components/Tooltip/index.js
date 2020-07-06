@@ -164,7 +164,6 @@ class Tooltip extends React.Component {
     // i hate it
     if (reset || (this.currentTarget && !this.helper_checkIfTargetExists(this.currentTarget))) {
       // if (reset) {
-      console.log('yep', this.currentTarget);
       this.resetState();
     }
 

@@ -379,7 +379,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 }
 
 .wrapper.gay-it-up #header.profile-header .characters .list li .progress-bar .bar .fill {
-  background: linear-gradient(90deg, #a42f31, #de9938, #f1df4c, #a2c85e, #84b8e0, #802c8a, #a42f31);
+  background: linear-gradient(90deg, #56381a, #a42f31, #de9938, #f1df4c, #a2c85e, #84b8e0, #802c8a, #201f1f, #56381a);
   background-size: 400%;
   animation: animation-wave 10s linear infinite;
 }

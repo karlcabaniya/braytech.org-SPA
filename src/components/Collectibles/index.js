@@ -109,7 +109,7 @@ class Collectibles extends React.Component {
           definitionNode.children.collectibles.forEach((collectible, c) => {
             const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-            const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+            const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
             const state = data?.state || 0;
 
             if (
@@ -221,7 +221,7 @@ class Collectibles extends React.Component {
         tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
           const state = data?.state || 0;
 
           if (
@@ -315,7 +315,7 @@ class Collectibles extends React.Component {
 
         if (!definitionCollectible) return null;
 
-        const data = definitionCollectible.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible.hash] : profileCollectibles.collectibles[definitionCollectible.hash];
+        const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
         const state = data?.state || 0;
 
         if (

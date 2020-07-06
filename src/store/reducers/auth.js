@@ -1,6 +1,6 @@
 import ls from '../../utils/localStorage';
 
-const defaultState = ls.get('setting.auth') || {};
+const defaultState = ls.get('setting.auth') || false;
 
 export default function reducer(state = defaultState, action) {
   switch (action.type) {

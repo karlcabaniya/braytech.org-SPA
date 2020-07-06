@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { Redirect, Link, withRouter } from 'react-router-dom';
-import { debounce } from 'lodash';
 import cx from 'classnames';
 import Markdown from 'react-markdown';
 import queryString from 'query-string';
