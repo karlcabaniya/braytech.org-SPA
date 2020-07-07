@@ -53,16 +53,43 @@
 
 .map-omega .control.inspector .screenshot .highlight {
   position: absolute;
-  width: 10%;
-  height: 17.86%;
+  width: 15%;
+  height: 26.787%;
   transform: translate(-50%, -50%);
   opacity: 1;
   pointer-events: none;
 }
 
+.map-omega .control.inspector .screenshot .highlight svg {
+  overflow: visible;
+}
+
 .map-omega .control.inspector .screenshot .highlight circle {
   transform-origin: center center;
   animation: maps-rotate-linear 20s linear infinite;
+}
+
+.map-omega .control.inspector .screenshot .highlight circle:first-child {
+  animation: maps-screenshot-highlight 2s linear infinite reverse;
+}
+
+@keyframes maps-screenshot-highlight {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1) rotate(45deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(2) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 .map-omega .control.inspector .screenshot .info {

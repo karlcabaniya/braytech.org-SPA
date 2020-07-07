@@ -2381,7 +2381,13 @@
   "352": {
     "recordHash": 2121305067,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=hFPrgIbq_aE"
+      "video": "https://www.youtube.com/watch?v=hFPrgIbq_aE",
+      "screenshot": {
+        "highlight": {
+          "x": 19.5,
+          "y": 29
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_ghost-stories_2121305067.jpg"
   },
@@ -2436,14 +2442,26 @@
   "359": {
     "recordHash": 2154860340,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=RmR5yuJx9RI"
+      "video": "https://www.youtube.com/watch?v=RmR5yuJx9RI",
+      "screenshot": {
+        "highlight": {
+          "x": 55,
+          "y": 76
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/kingship-dock_ghost-stories_2154860340.jpg"
   },
   "360": {
     "recordHash": 2154860343,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=QbnplKKe8ds"
+      "video": "https://www.youtube.com/watch?v=QbnplKKe8ds",
+      "screenshot": {
+        "highlight": {
+          "x": 52.25,
+          "y": 79
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/the-cobble_ghost-stories_2154860343.jpg"
   },
@@ -2552,7 +2570,13 @@
   "373": {
     "recordHash": 259242244,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=uPRb-GUm-zw"
+      "video": "https://www.youtube.com/watch?v=uPRb-GUm-zw",
+      "screenshot": {
+        "highlight": {
+          "x": 50.5,
+          "y": 73
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/the-boil_the-awoken-of-the-reef_259242244.jpg"
   },
@@ -2572,14 +2596,26 @@
   "376": {
     "recordHash": 259242243,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=XbbnMuSkvg4"
+      "video": "https://www.youtube.com/watch?v=XbbnMuSkvg4",
+      "screenshot": {
+        "highlight": {
+          "x": 38.5,
+          "y": 54
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_the-awoken-of-the-reef_259242243.jpg"
   },
   "377": {
     "recordHash": 259242240,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=Qyo93M16-00"
+      "video": "https://www.youtube.com/watch?v=Qyo93M16-00",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 50.5
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/the-cobble_the-awoken-of-the-reef_259242240.jpg"
   },
@@ -2623,14 +2659,26 @@
   "382": {
     "recordHash": 3448739522,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=8-LW3qUjzGg"
+      "video": "https://www.youtube.com/watch?v=8-LW3qUjzGg",
+      "screenshot": {
+        "highlight": {
+          "x": 51.5,
+          "y": 65
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/shipyard-awo-43_the-forsaken-prince_3448739522.jpg"
   },
   "383": {
     "recordHash": 3448739532,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=T9NNr8N79tg"
+      "video": "https://www.youtube.com/watch?v=T9NNr8N79tg",
+      "screenshot": {
+        "highlight": {
+          "x": 41.5,
+          "y": 50
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_the-forsaken-prince_3448739532.jpg"
   },
@@ -2644,14 +2692,26 @@
   "385": {
     "recordHash": 3431961940,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=tbEMqye3pK0"
+      "video": "https://www.youtube.com/watch?v=tbEMqye3pK0",
+      "screenshot": {
+        "highlight": {
+          "x": 43.5,
+          "y": 62
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/sorikss-cut_the-forsaken-prince_3431961940.jpg"
   },
   "386": {
     "recordHash": 3431961941,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=GvHzK_lxpl8"
+      "video": "https://www.youtube.com/watch?v=GvHzK_lxpl8",
+      "screenshot": {
+        "highlight": {
+          "x": 73,
+          "y": 77
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/kingship-dock_the-forsaken-prince_3431961941.jpg"
   },
@@ -2665,14 +2725,26 @@
   "388": {
     "recordHash": 3431961947,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=XCz-a6pnW2U"
+      "video": "https://www.youtube.com/watch?v=XCz-a6pnW2U",
+      "screenshot": {
+        "highlight": {
+          "x": 68,
+          "y": 46
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/the-cobble_the-forsaken-prince_3431961947.jpg"
   },
   "389": {
     "recordHash": 3415184383,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o"
+      "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o",
+      "screenshot": {
+        "highlight": {
+          "x": 61.5,
+          "y": 52
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/lore/the-cobble_the-forsaken-prince_3415184383.jpg"
   },
@@ -3404,12 +3476,24 @@
   "506": {
     "checklistHash": 3649605808,
     "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_87.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 47,
+          "y": 38.5
+        }
+      }}
   },
   "507": {
     "checklistHash": 3197493071,
     "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_88.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 69,
+          "y": 54
+        }
+      }}
   },
   "508": {
     "checklistHash": 3944676206,
@@ -3434,7 +3518,13 @@
   "512": {
     "checklistHash": 2921806047,
     "screenshot": "/static/images/screenshots/region-chests/sorikss-cut_region-chests_93.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 40.5,
+          "y": 44
+        }
+      }}
   },
   "513": {
     "checklistHash": 1875856732,
