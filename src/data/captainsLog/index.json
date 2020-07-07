@@ -1153,5 +1153,10 @@
     "date": "2020-07-05T09:18:15.208Z",
     "version": "2.27.5",
     "content": "- various improvements\n- vendors improvments, both to _Maps_ view and _Now_ view modules\n- added more screenshots to maps\n- added a more helpful error notification for users who dare attempt to view in firefox private browsing mode\n- _Inspect_ view improvements"
+  },
+  {
+    "date": "2020-07-07T06:44:22.202Z",
+    "version": "2.27.12",
+    "content": "- lots of changes there's always lots of changes this thing is my life like come on become a patron"
   }
 ]

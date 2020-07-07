@@ -167,8 +167,8 @@ function Challenges() {
         <div>{t('Challenges')}</div>
       </div>
       <div className='state'>
-        <div className={cx('rewards', { pinnacle: !state.filterRewards })}>
-          <Button text={state.filterRewards ? t('UserModules.Challenges.ShowAllRewards') : t('UserModules.Challenges.ShowPinnacleRewards')} action={handler_togglePinnacleFilter} />
+        <div className={cx('rewards', { pinnacle: state.filterRewards })}>
+          <Button text={state.filterRewards ? t('UserModules.Challenges.ShowPinnacleRewards') : t('UserModules.Challenges.ShowAllRewards')} action={handler_togglePinnacleFilter} />
         </div>
         <div className='remaining'>
           <div className='info'>{t('UserModules.Challenges.RewardsRemaining', { rewardsRemaining })}</div>
