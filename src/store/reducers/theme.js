@@ -1,12 +1,11 @@
 import ls from '../../utils/localStorage';
 
 const user = ls.get('setting.theme') || false;
-const prefersDark = getSystemPreference();
 
 const initial = {
-  system: prefersDark ? 'dark' : 'light',
+  system: getSystemPreference() ? 'dark' : 'light',
   user,
-  active: !user ? prefersDark ? 'dark' : 'light' : user
+  active: !user ? (getSystemPreference() ? 'dark' : 'light') : user,
 };
 
 function getSystemPreference() {
@@ -14,45 +13,39 @@ function getSystemPreference() {
 }
 
 function updateScrollbars(theme) {
-  const root = document.documentElement;
-
   if (theme === 'dark') {
-    root.style.setProperty('--scrollbar-track', '#202020');
-    root.style.setProperty('--scrollbar-draggy', '#414141');
-    root.style.setProperty('--body-background', '#111111');
+    document.documentElement.style.setProperty('--scrollbar-track', '#202020');
+    document.documentElement.style.setProperty('--scrollbar-draggy', '#414141');
+    document.documentElement.style.setProperty('--body-background', '#111111');
   } else {
-    root.style.setProperty('--scrollbar-track', '#afafaf');
-    root.style.setProperty('--scrollbar-draggy', '#cacaca');
-    root.style.setProperty('--body-background', '#9e9e9e');
+    document.documentElement.style.setProperty('--scrollbar-track', '#afafaf');
+    document.documentElement.style.setProperty('--scrollbar-draggy', '#cacaca');
+    document.documentElement.style.setProperty('--body-background', '#9e9e9e');
   }
 }
 
 export default function reducer(state = initial, action) {
-  const prefersDark = getSystemPreference();
-  const user = action.payload === 'system' ? false : action.payload;
-  const active = !user ? prefersDark ? 'dark' : 'light' : user;
-  const root = document.documentElement;
+  if (action.type === 'SET_THEME') {
+    const user = action.payload === 'system' ? false : action.payload;
+    const active = !user ? (getSystemPreference() ? 'dark' : 'light') : user;
 
-  switch (action.type) {
-    case 'SET_THEME':
+    ls.set('setting.theme', user);
 
-      ls.set('setting.theme', user);
+    updateScrollbars(active);
 
-      updateScrollbars(active);
+    return {
+      system: getSystemPreference() ? 'dark' : 'light',
+      user,
+      active,
+    };
+  } else if (action.type === 'SET_SCROLLBARS') {
+    updateScrollbars(action.payload || state.user || state.system);
 
-      return {
-        system: prefersDark ? 'dark' : 'light',
-        user,
-        active
-      };
-    case 'SET_SCROLLBARS':
-      updateScrollbars(action.payload);
+    return state;
+  } else {
+    // set initial
+    if (!document.documentElement.style.getPropertyValue('--scrollbar-track')) updateScrollbars(state.active);
 
-      return state;
-    default:
-      // set initial
-      if (!root.style.getPropertyValue('--scrollbar-track')) updateScrollbars(state.active);
-
-      return state;
+    return state;
   }
 }
