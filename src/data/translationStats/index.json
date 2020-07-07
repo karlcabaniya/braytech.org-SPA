@@ -1,153 +1,86 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 15,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 16,
+    "added": [],
+    "removed": []
   },
   "debug": {
-    "translated": 746,
-    "notTranslated": 0,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
-  },
-  "en": {
-    "translated": 746,
+    "translated": 747,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Indexed DB"
-    ]
+    "removed": []
+  },
+  "en": {
+    "translated": 747,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es-mx": {
-    "translated": 744,
-    "notTranslated": 2,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "translated": 747,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es": {
-    "translated": 744,
-    "notTranslated": 2,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "translated": 747,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 124,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 125,
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 744,
-    "notTranslated": 2,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 3,
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 145,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 146,
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 232,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 233,
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 744,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 745,
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 40,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 41,
+    "added": [],
+    "removed": []
   },
   "ru": {
-    "translated": 744,
-    "notTranslated": 2,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "translated": 746,
+    "notTranslated": 1,
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
-    "translated": 540,
-    "notTranslated": 206,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "translated": 563,
+    "notTranslated": 184,
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 397,
-    "added": [
-      "Enable ✨",
-      "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation."
-    ],
-    "removed": [
-      "Indexed DB"
-    ]
+    "notTranslated": 398,
+    "added": [],
+    "removed": []
   }
 }
