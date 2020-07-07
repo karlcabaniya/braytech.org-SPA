@@ -2369,7 +2369,8 @@
     "recordHash": 2121305069,
     "extended": {
       "video": "https://www.youtube.com/watch?v=FBkQiqJ_Z9I"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/shipyard-awo-43_ghost-stories_2121305069.jpg"
   },
   "351": {
     "recordHash": 2121305068,
@@ -2381,7 +2382,8 @@
     "recordHash": 2121305067,
     "extended": {
       "video": "https://www.youtube.com/watch?v=hFPrgIbq_aE"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_ghost-stories_2121305067.jpg"
   },
   "353": {
     "recordHash": 2104527485,
@@ -2428,19 +2430,22 @@
     "recordHash": 2154860341,
     "extended": {
       "video": "https://www.youtube.com/watch?v=PsX6OvtS4QI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/wolfship-turbine_ghost-stories_2154860341.jpg"
   },
   "359": {
     "recordHash": 2154860340,
     "extended": {
       "video": "https://www.youtube.com/watch?v=RmR5yuJx9RI"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/kingship-dock_ghost-stories_2154860340.jpg"
   },
   "360": {
     "recordHash": 2154860343,
     "extended": {
       "video": "https://www.youtube.com/watch?v=QbnplKKe8ds"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-cobble_ghost-stories_2154860343.jpg"
   },
   "361": {
     "recordHash": 2154860342,
@@ -2548,13 +2553,15 @@
     "recordHash": 259242244,
     "extended": {
       "video": "https://www.youtube.com/watch?v=uPRb-GUm-zw"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-boil_the-awoken-of-the-reef_259242244.jpg"
   },
   "374": {
     "recordHash": 259242245,
     "extended": {
       "video": "https://www.youtube.com/watch?v=aixHi_0o110"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/shipyard-awo-43_the-awoken-of-the-reef_259242245.jpg"
   },
   "375": {
     "recordHash": 259242242,
@@ -2566,13 +2573,15 @@
     "recordHash": 259242243,
     "extended": {
       "video": "https://www.youtube.com/watch?v=XbbnMuSkvg4"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_the-awoken-of-the-reef_259242243.jpg"
   },
   "377": {
     "recordHash": 259242240,
     "extended": {
       "video": "https://www.youtube.com/watch?v=Qyo93M16-00"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-cobble_the-awoken-of-the-reef_259242240.jpg"
   },
   "378": {
     "displayProperties": {
@@ -2615,31 +2624,36 @@
     "recordHash": 3448739522,
     "extended": {
       "video": "https://www.youtube.com/watch?v=8-LW3qUjzGg"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/shipyard-awo-43_the-forsaken-prince_3448739522.jpg"
   },
   "383": {
     "recordHash": 3448739532,
     "extended": {
       "video": "https://www.youtube.com/watch?v=T9NNr8N79tg"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/hall-of-the-exalted_the-forsaken-prince_3448739532.jpg"
   },
   "384": {
     "recordHash": 3431961943,
     "extended": {
       "video": "https://www.youtube.com/watch?v=2xIHd-XZlUk"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/sorikss-cut_the-forsaken-prince_3431961943.jpg"
   },
   "385": {
     "recordHash": 3431961940,
     "extended": {
       "video": "https://www.youtube.com/watch?v=tbEMqye3pK0"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/sorikss-cut_the-forsaken-prince_3431961940.jpg"
   },
   "386": {
     "recordHash": 3431961941,
     "extended": {
       "video": "https://www.youtube.com/watch?v=GvHzK_lxpl8"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/kingship-dock_the-forsaken-prince_3431961941.jpg"
   },
   "387": {
     "recordHash": 3431961946,
@@ -2652,13 +2666,15 @@
     "recordHash": 3431961947,
     "extended": {
       "video": "https://www.youtube.com/watch?v=XCz-a6pnW2U"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-cobble_the-forsaken-prince_3431961947.jpg"
   },
   "389": {
     "recordHash": 3415184383,
     "extended": {
       "video": "https://www.youtube.com/watch?v=Tkxi6DXiD7o"
-    }
+    },
+    "screenshot": "/static/images/screenshots/lore/the-cobble_the-forsaken-prince_3415184383.jpg"
   },
   "390": {
     "checklistHash": 2754290383,
@@ -3373,6 +3389,66 @@
   "503": {
     "checklistHash": 1134123378,
     "screenshot": "/static/images/screenshots/lost-sectors/four-horn-gulch_lost-sectors_trappers-cave.jpg",
+    "extended": {}
+  },
+  "504": {
+    "checklistHash": 341637691,
+    "screenshot": "/static/images/screenshots/region-chests/the-cobble_region-chests_85.jpg",
+    "extended": {}
+  },
+  "505": {
+    "checklistHash": 3694727100,
+    "screenshot": "/static/images/screenshots/region-chests/the-cobble_region-chests_86.jpg",
+    "extended": {}
+  },
+  "506": {
+    "checklistHash": 3649605808,
+    "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_87.jpg",
+    "extended": {}
+  },
+  "507": {
+    "checklistHash": 3197493071,
+    "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_88.jpg",
+    "extended": {}
+  },
+  "508": {
+    "checklistHash": 3944676206,
+    "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_89.jpg",
+    "extended": {}
+  },
+  "509": {
+    "checklistHash": 3778887197,
+    "screenshot": "/static/images/screenshots/region-chests/jetsam-of-saturn_region-chests_90.jpg",
+    "extended": {}
+  },
+  "510": {
+    "checklistHash": 1678213457,
+    "screenshot": "/static/images/screenshots/region-chests/sorikss-cut_region-chests_91.jpg",
+    "extended": {}
+  },
+  "511": {
+    "checklistHash": 2827363902,
+    "screenshot": "/static/images/screenshots/region-chests/sorikss-cut_region-chests_92.jpg",
+    "extended": {}
+  },
+  "512": {
+    "checklistHash": 2921806047,
+    "screenshot": "/static/images/screenshots/region-chests/sorikss-cut_region-chests_93.jpg",
+    "extended": {}
+  },
+  "513": {
+    "checklistHash": 1875856732,
+    "screenshot": "/static/images/screenshots/region-chests/sorikss-cut_region-chests_94.jpg",
+    "extended": {}
+  },
+  "514": {
+    "checklistHash": 592877507,
+    "screenshot": "/static/images/screenshots/lost-sectors/jetsam-of-saturn_lost-sectors_shipyard-awo-43.jpg",
+    "extended": {}
+  },
+  "515": {
+    "checklistHash": 2693451640,
+    "screenshot": "/static/images/screenshots/lost-sectors/sorikss-cut_lost-sectors_wolfship-turbine.jpg",
     "extended": {}
   }
 }
