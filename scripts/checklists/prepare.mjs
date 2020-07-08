@@ -62,6 +62,8 @@ const checklists = [
   2360931290, // ghostScans
   2955980198, // latentMemories
   1912364094, // jadeRabbits
+  2137293116, // Savathûn's Eyes
+  530600409, // Calcified Light
 ];
 
 const presentationNodes = [
@@ -265,6 +267,26 @@ async function run() {
       },
       extended: (Object.keys(extended).length && extended) || undefined,
     };
+
+    if (checklistId === 2137293116 || checklistId === 530600409) {
+      changes.destinationHash = 111111111;
+      changes.bubbleHash = 111111111;
+      
+      changes.name = checklistItem.displayProperties.name;
+      
+      if (checklistId === 530600409) {
+        if (itemNumber > 0 && itemNumber < 11) {
+          changes.destinationHash = 2218917881;
+        } else if (itemNumber > 15 && itemNumber < 21) {
+          changes.destinationHash = 2388758973;
+        } else if (itemNumber > 10 && itemNumber < 16) {
+          changes.destinationHash = 1993421442;
+        } else if (itemNumber > 20 && itemNumber < 26) {
+          changes.destinationHash = 308080871;
+        }
+
+      }
+    }
 
     const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
 

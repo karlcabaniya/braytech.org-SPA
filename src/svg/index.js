@@ -31,6 +31,8 @@ import { ReactComponent as MapsCorruptedEgg } from './maps/corrupted-egg.svg';
 import { ReactComponent as MapsAhamkaraBones } from './maps/ahamkara-bones.svg';
 import { ReactComponent as MapsFelineFriend } from './maps/feline-friend.svg';
 import { ReactComponent as MapsJadeRabbit } from './maps/jade-rabbit.svg';
+import { ReactComponent as MapsCalcifiedFragment } from './maps/calcified-fragment.svg';
+import { ReactComponent as MapsSavathunsEye } from './maps/savathuns-eye.svg';
 import { ReactComponent as MapsRecord } from './maps/record.svg';
 import { ReactComponent as MapsDungeon } from './maps/dungeon.svg';
 import { ReactComponent as MapsForgeIgnition } from './maps/forge-ignition.svg';
@@ -240,6 +242,8 @@ const Maps = {
   AhamkaraBones: MapsAhamkaraBones,
   FelineFriend: MapsFelineFriend,
   JadeRabbit: MapsJadeRabbit,
+  CalcifiedFragment: MapsCalcifiedFragment,
+  SavathunsEye: MapsSavathunsEye,
   Record: MapsRecord,
   Dungeon: MapsDungeon,
   ForgeIgnition: MapsForgeIgnition,

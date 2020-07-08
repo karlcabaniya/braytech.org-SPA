@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 364.99 364.99">
+  <polygon points="182.5 182.5 111.52 253.47 0 182.5 111.52 111.52 182.5 182.5" style="fill:var(--fill-color);opacity:0.6"/>
+  <polygon points="182.5 182.5 253.47 253.47 364.99 182.5 253.47 111.52 182.5 182.5" style="fill:var(--fill-color);opacity:0.85"/>
+  <polygon points="182.5 182.5 111.52 111.52 182.5 0 253.47 111.52 182.5 182.5" style="fill:var(--fill-color);opacity:0.4"/>
+  <polygon points="182.5 182.5 111.52 253.47 182.5 364.99 253.47 253.47 182.5 182.5" style="fill:var(--fill-color)"/>
+</svg>

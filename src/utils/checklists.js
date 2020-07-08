@@ -601,6 +601,68 @@ export const checklists = {
       presentationNodeHash: 2474271317,
       ...options,
     }),
+  // Savathûn's Eyes
+  2137293116: (options) =>
+    numberedChecklist(t('Eye'), {
+      checklistId: 2137293116,
+      items: checklistItems(2137293116),
+      itemLocation: (i) => {
+        const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
+        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+
+        const destinationName = definitionDestination?.displayProperties.name;
+        const bubbleName = definitionBubble?.displayProperties.name;
+
+        return [bubbleName, destinationName].filter((s) => s).join(', ');
+      },
+      itemLocationExt: (i) => {
+        const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
+        const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
+        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+
+        const destinationName = definitionDestination?.displayProperties.name;
+        const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
+        const bubbleName = definitionBubble?.displayProperties.name;
+
+        return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+      },
+      checklistItemName: t("Eye of Savathûn"),
+      checklistItemName_plural: t("Savathûn's Eyes"),
+      checklistIcon: <Maps.SavathunsEye />,
+      checklistProgressDescription: t('Eyes popped'),
+      ...options,
+    }),
+  // Calcified Light
+  530600409: (options) =>
+    numberedChecklist(t('Fragment'), {
+      checklistId: 530600409,
+      items: checklistItems(530600409),
+      itemLocation: (i) => {
+        const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
+        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+
+        const destinationName = definitionDestination?.displayProperties.name;
+        const bubbleName = definitionBubble?.displayProperties.name;
+
+        return [bubbleName, destinationName].filter((s) => s).join(', ');
+      },
+      itemLocationExt: (i) => {
+        const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
+        const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
+        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+
+        const destinationName = definitionDestination?.displayProperties.name;
+        const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
+        const bubbleName = definitionBubble?.displayProperties.name;
+
+        return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
+      },
+      checklistItemName: t("Calcified fragment"),
+      checklistItemName_plural: t("Calcified fragments"),
+      checklistIcon: <Maps.CalcifiedFragment />,
+      checklistProgressDescription: t('Fragments collected'),
+      ...options,
+    }),
 };
 
 export default checklists;
