@@ -328,5 +328,16 @@
       "description": "_The Destiny Content Vault (DCV) is a new content model being implemented in Year 4 of Destiny 2. Each year we will cycle some destination and activity content out of the game (and into the DCV) to make room for new experiences._\n\n_Unvaulting starts in D2 Year 4, with the Cosmodrome coming back, as well as its three Strikes and the return of the Vault of Glass Raid._\n\nBraytech, through the perseverance of fellow Guardians and my own sheer will, have collected data and crafted interfaces that permit you to more easily prepare for coming changes.\n\nVisit the _Content Vault_ via the _Views_ or _More_ menus. Suppress Vault Warnings through the _Settings_ view.",
       "prompt": true
     }
+  },
+  {
+    "id": "xknz9ppgytk6kdvy1k1ya",
+    "date": "2020-07-08T08:51:31.535Z",
+    "expiry": 259200000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Checklists + Maps",
+      "description": "Oh, hello... Just writing to let you know that I've just added two new checklists, one with co-ordinates and screenshots.\n\nStay tuned for the second, as I require sustenance and to use the bathroom and to play the game.\n\nThank you, kindly. Patreon?",
+      "prompt": true
+    }
   }
 ]

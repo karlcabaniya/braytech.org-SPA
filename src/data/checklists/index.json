@@ -569,135 +569,195 @@
       "bubbleHash": 111111111,
       "checklistHash": 2734936466,
       "map": {
-        "points": [{"x":-327,"y":176.5}]
-      },
-      "name": "Calcified Light #1"
+        "points": [
+          {
+            "x": -327,
+            "y": 176.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 1392537851,
       "map": {
-        "points": [{"x":-252,"y":86.5}]
-      },
-      "name": "Calcified Light #2"
+        "points": [
+          {
+            "x": -252,
+            "y": 86.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 2788131516,
       "map": {
-        "points": [{"x":-120,"y":368.5}]
-      },
-      "name": "Calcified Light #3"
+        "points": [
+          {
+            "x": -120,
+            "y": 368.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 2146614917,
       "map": {
-        "points": [{"x":-80.5,"y":-363}]
-      },
-      "name": "Calcified Light #4"
+        "points": [
+          {
+            "x": -80.5,
+            "y": -363
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 131130486,
       "map": {
-        "points": [{"x":299,"y":219}]
-      },
-      "name": "Calcified Light #5"
+        "points": [
+          {
+            "x": 299,
+            "y": 219
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 2775521455,
       "map": {
-        "points": [{"x":458,"y":143}]
-      },
-      "name": "Calcified Light #6"
+        "points": [
+          {
+            "x": 458,
+            "y": 143
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 689507776,
       "map": {
-        "points": [{"x":-212,"y":-460.5}]
-      },
-      "name": "Calcified Light #7"
+        "points": [
+          {
+            "x": -212,
+            "y": -460.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3685431097,
       "map": {
-        "points": [{"x":-469.5,"y":-296.5}]
-      },
-      "name": "Calcified Light #8"
+        "points": [
+          {
+            "x": -469.5,
+            "y": -296.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 337892602,
       "map": {
-        "points": [{"x":371.5,"y":-10.5}]
-      },
-      "name": "Calcified Light #9"
+        "points": [
+          {
+            "x": 371.5,
+            "y": -10.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3597403984,
       "map": {
-        "points": [{"x":325,"y":147.5}]
-      },
-      "name": "Calcified Light #10"
+        "points": [
+          {
+            "x": 325,
+            "y": 147.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 1993421442,
       "bubbleHash": 111111111,
       "checklistHash": 3290821247,
       "map": {
-        "points": [{"x":53.5,"y":92}]
-      },
-      "name": "Calcified Light #11"
+        "points": [
+          {
+            "x": 53.5,
+            "y": 92
+          }
+        ]
+      }
     },
     {
       "destinationHash": 1993421442,
       "bubbleHash": 111111111,
       "checklistHash": 1852178502,
       "map": {
-        "points": [{"x":11,"y":121.5}]
-      },
-      "name": "Calcified Light #12"
+        "points": [
+          {
+            "x": 11,
+            "y": 121.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 1993421442,
       "bubbleHash": 111111111,
       "checklistHash": 3418105365,
       "map": {
-        "points": [{"x":-40.5,"y":46.5}]
-      },
-      "name": "Calcified Light #13"
+        "points": [
+          {
+            "x": -40.5,
+            "y": 46.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 1993421442,
       "bubbleHash": 111111111,
       "checklistHash": 2542133964,
       "map": {
-        "points": [{"x":-139,"y":-20}]
-      },
-      "name": "Calcified Light #14"
+        "points": [
+          {
+            "x": -139,
+            "y": -20
+          }
+        ]
+      }
     },
     {
       "destinationHash": 1993421442,
       "bubbleHash": 111111111,
       "checklistHash": 3048198923,
       "map": {
-        "points": [{"x":51,"y":-254}]
-      },
-      "name": "Calcified Light #15"
+        "points": [
+          {
+            "x": 51,
+            "y": -254
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2388758973,
@@ -705,91 +765,129 @@
       "checklistHash": 1316684194,
       "map": {
         "points": [
-          {"x":-324.75,"y":257}
+          {
+            "x": -324.75,
+            "y": 257
+          }
         ]
-      },
-      "name": "Calcified Light #16"
+      }
     },
     {
       "destinationHash": 2388758973,
       "bubbleHash": 111111111,
       "checklistHash": 2521723457,
       "map": {
-        "points": [{"x":-203.75,"y":215.5}]
-      },
-      "name": "Calcified Light #17"
+        "points": [
+          {
+            "x": -203.75,
+            "y": 215.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2388758973,
       "bubbleHash": 111111111,
       "checklistHash": 2765815160,
       "map": {
-        "points": [{"x":-18.25,"y":-64.75}]
-      },
-      "name": "Calcified Light #18"
+        "points": [
+          {
+            "x": -18.25,
+            "y": -64.75
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2388758973,
       "bubbleHash": 111111111,
       "checklistHash": 144041735,
       "map": {
-        "points": [{"x":215.5,"y":-84.25}]
-      },
-      "name": "Calcified Light #19"
+        "points": [
+          {
+            "x": 215.5,
+            "y": -84.25
+          }
+        ]
+      }
     },
     {
       "destinationHash": 2388758973,
       "bubbleHash": 111111111,
       "checklistHash": 3739934627,
       "map": {
-        "points": [{"x":247.5,"y":-21.75}]
-      },
-      "name": "Calcified Light #20"
+        "points": [
+          {
+            "x": 247.5,
+            "y": -21.75
+          }
+        ]
+      }
     },
     {
       "destinationHash": 308080871,
       "bubbleHash": 111111111,
       "checklistHash": 612917828,
       "map": {
-        "points": [{"x":-50.75,"y":122.5}]
-      },
-      "name": "Calcified Light #21"
+        "points": [
+          {
+            "x": -50.75,
+            "y": 122.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 308080871,
       "bubbleHash": 111111111,
       "checklistHash": 117820249,
       "map": {
-        "points": [{"x":152,"y":248.75}]
-      },
-      "name": "Calcified Light #22"
+        "points": [
+          {
+            "x": 152,
+            "y": 248.75
+          }
+        ]
+      }
     },
     {
       "destinationHash": 308080871,
       "bubbleHash": 111111111,
       "checklistHash": 3646663834,
       "map": {
-        "points": [{"x":92.5,"y":173.5}]
-      },
-      "name": "Calcified Light #23"
+        "points": [
+          {
+            "x": 92.5,
+            "y": 173.5
+          }
+        ]
+      }
     },
     {
       "destinationHash": 308080871,
       "bubbleHash": 111111111,
       "checklistHash": 1959650263,
       "map": {
-        "points": [{"x":-21.5,"y":-271}]
-      },
-      "name": "Calcified Light #24"
+        "points": [
+          {
+            "x": -21.5,
+            "y": -271
+          }
+        ]
+      }
     },
     {
       "destinationHash": 308080871,
       "bubbleHash": 111111111,
       "checklistHash": 1711923208,
       "map": {
-        "points": [{"x":138.5,"y":-261.75}]
-      },
-      "name": "Calcified Light #25"
+        "points": [
+          {
+            "x": 138.5,
+            "y": -261.75
+          }
+        ]
+      }
     }
   ],
   "655926402": [

@@ -261,31 +261,35 @@ export function screenshotFilename(node) {
   const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (checklistItem?.map?.bubbleHash || checklistItem?.extended?.bubbleHash || checklistItem?.bubbleHash));
 
   if (node.checklist?.checklistId === 2360931290 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-scans_${checklistItem.displayProperties.number}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-scans_${checklistItem.displayProperties.number}`;
   } else if (node.checklist?.checklistId === 1697465175 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_region-chests_${checklistItem.displayProperties.number}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_region-chests_${checklistItem.displayProperties.number}`;
   } else if (node.checklist?.checklistId === 3142056444 && checklistItem?.displayProperties.name) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lost-sectors_${checklistItem.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lost-sectors_${checklistItem.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}`;
   } else if (node.checklist?.checklistId === 365218222 && checklistItem?.displayProperties.name) {
-    return `sleeper-nodes_${checklistItem.displayProperties.name.toLowerCase().replace(' ', '')}.png`;
+    return `sleeper-nodes_${checklistItem.displayProperties.name.toLowerCase().replace(' ', '')}`;
   } else if (node.checklist?.checklistId === 1420597821 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-stories_${checklistItem.recordHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-stories_${checklistItem.recordHash}`;
   } else if (node.checklist?.checklistId === 655926402 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-forsaken-prince_${checklistItem.recordHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-forsaken-prince_${checklistItem.recordHash}`;
   } else if (node.checklist?.checklistId === 3305936921 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-awoken-of-the-reef_${checklistItem.recordHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-awoken-of-the-reef_${checklistItem.recordHash}`;
   } else if (node.checklist?.checklistId === 4285512244 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lunas-lost_${checklistItem.recordHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lunas-lost_${checklistItem.recordHash}`;
   } else if (node.checklist?.checklistId === 2474271317 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_necrotic-cyphers_${checklistItem.recordHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_necrotic-cyphers_${checklistItem.recordHash}`;
   } else if (node.checklist?.checklistId === 1912364094 && checklistItem.checklistHash) {
-    return `jade-rabbits_${checklistItem.checklistHash}.png`;
+    return `jade-rabbits_${checklistItem.checklistHash}`;
   } else if (node.checklist?.checklistId === 1297424116 && checklistItem.checklistHash) {
-    return `ahamkara-bones_${checklistItem.checklistHash}.png`;
+    return `ahamkara-bones_${checklistItem.checklistHash}`;
   } else if (node.checklist?.checklistId === 2609997025 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_corrupted-eggs_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_corrupted-eggs_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
   } else if (node.checklist?.checklistId === 2726513366 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_feline-friends_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}.png`;
+    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_feline-friends_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
+  }  else if (node.checklist?.checklistId === 530600409 && checklistItem.checklistHash) {
+    return `${checklistItem.checklistHash}`;
+  } else if (node.checklist?.checklistId === 2137293116 && checklistItem.checklistHash) {
+    return `${checklistItem.checklistHash}`;
   }
 
   return undefined;
