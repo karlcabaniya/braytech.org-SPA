@@ -1,86 +1,167 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 16,
-    "added": [],
-    "removed": []
+    "notTranslated": 24,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "debug": {
-    "translated": 747,
+    "translated": 755,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "en": {
-    "translated": 747,
+    "translated": 755,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "es-mx": {
     "translated": 747,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 8,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "es": {
     "translated": 747,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 8,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 125,
-    "added": [],
-    "removed": []
+    "notTranslated": 133,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "it": {
     "translated": 744,
-    "notTranslated": 3,
-    "added": [],
-    "removed": []
+    "notTranslated": 11,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 146,
-    "added": [],
-    "removed": []
+    "notTranslated": 154,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 233,
-    "added": [],
-    "removed": []
+    "notTranslated": 241,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 745,
-    "added": [],
-    "removed": []
+    "notTranslated": 753,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 41,
-    "added": [],
-    "removed": []
+    "notTranslated": 49,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "ru": {
-    "translated": 746,
-    "notTranslated": 1,
-    "added": [],
-    "removed": []
+    "translated": 747,
+    "notTranslated": 8,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "zh-chs": {
     "translated": 563,
-    "notTranslated": 184,
-    "added": [],
-    "removed": []
+    "notTranslated": 192,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 398,
-    "added": [],
-    "removed": []
+    "notTranslated": 406,
+    "added": [
+      "Checklists.CalcifiedLight.Prefix",
+      "Checklists.SavathunsEyes.Prefix"
+    ],
+    "removed": [
+      "Eye",
+      "Fragment"
+    ]
   }
 }

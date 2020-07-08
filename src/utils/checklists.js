@@ -603,7 +603,7 @@ export const checklists = {
     }),
   // Savathûn's Eyes
   2137293116: (options) =>
-    numberedChecklist(t('Eye'), {
+    numberedChecklist(t('Checklists.SavathunsEyes.Prefix'), {
       checklistId: 2137293116,
       items: checklistItems(2137293116),
       itemLocation: (i) => {
@@ -626,15 +626,15 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
       },
-      checklistItemName: t("Eye of Savathûn"),
-      checklistItemName_plural: t("Savathûn's Eyes"),
+      checklistItemName: t('Checklists.SavathunsEyes.ItemName'),
+      checklistItemName_plural: t('Checklists.SavathunsEyes.ItemName_plural'),
       checklistIcon: <Maps.SavathunsEye />,
-      checklistProgressDescription: t('Eyes popped'),
+      checklistProgressDescription: t('Checklists.SavathunsEyes.ProgressDescription'),
       ...options,
     }),
   // Calcified Light
   530600409: (options) =>
-    numberedChecklist(t('Fragment'), {
+    numberedChecklist(t('Checklists.CalcifiedLight.Prefix'), {
       checklistId: 530600409,
       items: checklistItems(530600409),
       itemLocation: (i) => {
@@ -657,10 +657,11 @@ export const checklists = {
 
         return [bubbleName, destinationName, placeName].filter((s) => s).join(', ');
       },
-      checklistItemName: t("Calcified fragment"),
-      checklistItemName_plural: t("Calcified fragments"),
+      checklistName: manifest.DestinyChecklistDefinition[530600409].displayProperties.name,
+      checklistItemName: t('Checklists.CalcifiedLight.ItemName'),
+      checklistItemName_plural: t('Checklists.CalcifiedLight.ItemName_plural'),
       checklistIcon: <Maps.CalcifiedFragment />,
-      checklistProgressDescription: t('Fragments collected'),
+      checklistProgressDescription: t('Checklists.CalcifiedLight.ProgressDescription'),
       ...options,
     }),
 };
@@ -727,6 +728,7 @@ function checklist(options = {}) {
 
   return {
     checklistId: options.checklistId,
+    checklistName: options.checklistName || options.checklistItemName_plural,
     checklistItemName: options.checklistItemName,
     checklistItemName_plural: options.checklistItemName_plural,
     checklistIcon: options.checklistIcon,

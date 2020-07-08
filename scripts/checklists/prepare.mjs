@@ -25,160 +25,6 @@ Object.keys(lowlinesDump).forEach((key) => {
   });
 });
 
-const temp = [
-  {
-    "ChecklistHash": 2734936466,
-    "Name": "Calcified Light #1",
-    "Location": "Io 4",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=228"
-  },
-  {
-    "ChecklistHash": 1392537851,
-    "Name": "Calcified Light #2",
-    "Location": "Io 5",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=258"
-  },
-  {
-    "ChecklistHash": 2788131516,
-    "Name": "Calcified Light #3",
-    "Location": "Io 6",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=290"
-  },
-  {
-    "ChecklistHash": 2146614917,
-    "Name": "Calcified Light #4",
-    "Location": "Io 3",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=214"
-  },
-  {
-    "ChecklistHash": 131130486,
-    "Name": "Calcified Light #5",
-    "Location": "Io 9",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=345"
-  },
-  {
-    "ChecklistHash": 2775521455,
-    "Name": "Calcified Light #6",
-    "Location": "Io 8",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=330"
-  },
-  {
-    "ChecklistHash": 689507776,
-    "Name": "Calcified Light #7",
-    "Location": "Io 2",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=184"
-  },
-  {
-    "ChecklistHash": 3685431097,
-    "Name": "Calcified Light #8",
-    "Location": "Io 1",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=146"
-  },
-  {
-    "ChecklistHash": 337892602,
-    "Name": "Calcified Light #9",
-    "Location": "Io 7",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=316"
-  },
-  {
-    "ChecklistHash": 3597403984,
-    "Name": "Calcified Light #10",
-    "Location": "Io 10",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=354"
-  },
-  {
-    "ChecklistHash": 3290821247,
-    "Name": "Calcified Light #11",
-    "Location": "Mercury 1",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=460"
-  },
-  {
-    "ChecklistHash": 1852178502,
-    "Name": "Calcified Light #12",
-    "Location": "Mercury 2",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=476"
-  },
-  {
-    "ChecklistHash": 3418105365,
-    "Name": "Calcified Light #13",
-    "Location": "Mercury 3",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=488"
-  },
-  {
-    "ChecklistHash": 2542133964,
-    "Name": "Calcified Light #14",
-    "Location": "Mercury 4",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=500"
-  },
-  {
-    "ChecklistHash": 3048198923,
-    "Name": "Calcified Light #15",
-    "Location": "Mercury 5",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=516"
-  },
-  {
-    "ChecklistHash": 1316684194,
-    "Name": "Calcified Light #16",
-    "Location": "Titan 1",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=5"
-  },
-  {
-    "ChecklistHash": 2521723457,
-    "Name": "Calcified Light #17",
-    "Location": "Titan 2",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=41"
-  },
-  {
-    "ChecklistHash": 2765815160,
-    "Name": "Calcified Light #18",
-    "Location": "Titan 3",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=54"
-  },
-  {
-    "ChecklistHash": 144041735,
-    "Name": "Calcified Light #19",
-    "Location": "Titan 4",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=76"
-  },
-  {
-    "ChecklistHash": 3739934627,
-    "Name": "Calcified Light #20",
-    "Location": "Titan 5",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=90"
-  },
-  {
-    "ChecklistHash": 612917828,
-    "Name": "Calcified Light #21",
-    "Location": "Mars 3",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=413"
-  },
-  {
-    "ChecklistHash": 117820249,
-    "Name": "Calcified Light #22",
-    "Location": "Mars 5",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=451"
-  },
-  {
-    "ChecklistHash": 3646663834,
-    "Name": "Calcified Light #23",
-    "Location": "Mars 4",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=432"
-  },
-  {
-    "ChecklistHash": 1959650263,
-    "Name": "Calcified Light #24",
-    "Location": "Mars 2",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=392"
-  },
-  {
-    "ChecklistHash": 1711923208,
-    "Name": "Calcified Light #25",
-    "Location": "Mars 1",
-    "video": "https://youtu.be/PjKIlA0S0Ao?t=374"
-  }
-]
-
-
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
 // with https://docs.google.com/spreadsheets/d/1qgZtT1qbUFjyV8-ni73m6UCHTcuLmuLBx-zn_B7NFkY/edit#gid=1808601275
@@ -421,9 +267,11 @@ async function run() {
       },
       extended: (Object.keys(extended).length && extended) || undefined,
     };
-//     if (checklistId === 530600409) {
-//   delete changes.extended.video
-// }
+
+    if (checklistId === 530600409) {
+      // delete changes.extended.video
+    }
+
     if (checklistId === 2137293116) {
       changes.destinationHash = 111111111;
       changes.bubbleHash = 111111111;

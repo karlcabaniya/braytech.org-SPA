@@ -35,7 +35,7 @@ const ChecklistItem = (props) => {
   );
 };
 
-const Checklist = ({ settings, headless, completedItems, checklistCharacterBound, checklistItemName_plural, checklistProgressDescription, ...props }) => {
+const Checklist = ({ settings, headless, completedItems, checklistCharacterBound, checklistName, checklistProgressDescription, ...props }) => {
   const items = settings.itemVisibility.hideCompletedChecklistItems ? props.items.filter((item) => !item.completed).filter((item) => !item.extended?.unavailable) : props.items.filter((item) => item.completed || (!item.completed && !item.extended?.unavailable));
   const totalItems = props.items.filter((item) => item.completed || (!item.completed && !item.extended?.unavailable)).length;
 
@@ -59,7 +59,7 @@ const Checklist = ({ settings, headless, completedItems, checklistCharacterBound
     return (
       <>
         <div className='module-header'>
-          <div className='sub-name'>{checklistItemName_plural}</div>
+          <div className='sub-name'>{checklistName}</div>
           {checklistCharacterBound ? (
             <div className='tooltip' data-hash='character_bound' data-type='braytech'>
               <i className='segoe-uniE902' />
