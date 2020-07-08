@@ -365,6 +365,16 @@ export const rewardsQuestLineOverridesShadowkeep = [
       },
     ],
   },
+  // Growth
+  {
+    itemHash: 1960684907,
+    rewards: [
+      {
+        itemHash: 1363238943, // Ruinous Effigy
+        quantity: 1,
+      },
+    ],
+  },
 ];
 
 export const setDataQuestLineOverrides = {

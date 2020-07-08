@@ -274,6 +274,10 @@
   width: 32px;
 }
 
+.map-omega .leaflet-container .icon-marker.forge {
+  cursor: default;
+}
+
 .map-omega .leaflet-container .icon-marker.forge .wrapper .icon {
   width: 160px;
 }

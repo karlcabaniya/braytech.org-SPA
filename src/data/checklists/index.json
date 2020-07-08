@@ -830,12 +830,7 @@
       "checklistHash": 1370818869,
       "recordHash": 1859033170,
       "map": {
-        "points": [
-          {
-            "x": 141,
-            "y": 527
-          }
-        ],
+        "points": [],
         "in": "strike"
       }
     },
@@ -859,12 +854,7 @@
       "checklistHash": 1370818867,
       "recordHash": 1859033172,
       "map": {
-        "points": [
-          {
-            "x": 141,
-            "y": 496
-          }
-        ],
+        "points": [],
         "in": "strike"
       }
     },
@@ -5434,12 +5424,7 @@
       "checklistHash": 1118029880,
       "recordHash": 2974117604,
       "map": {
-        "points": [
-          {
-            "x": 174,
-            "y": 546
-          }
-        ],
+        "points": [],
         "in": "strike"
       }
     },
@@ -5450,12 +5435,7 @@
       "checklistHash": 1118029883,
       "recordHash": 2974117604,
       "map": {
-        "points": [
-          {
-            "x": 173,
-            "y": 508
-          }
-        ],
+        "points": [],
         "in": "strike"
       }
     },
