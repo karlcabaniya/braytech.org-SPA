@@ -3216,182 +3216,282 @@
   ],
   "2137293116": [
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 2072438451,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -335,
+            "y": 45
+          }
+        ]
       },
       "name": "Savathûn's Eye #1"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3703724330,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -89,
+            "y": 154
+          }
+        ]
       },
       "name": "Savathûn's Eye #2"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3332761129,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -538,
+            "y": -180
+          }
+        ]
       },
       "name": "Savathûn's Eye #3"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 2757904728,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -232,
+            "y": -394
+          }
+        ]
       },
       "name": "Savathûn's Eye #4"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 1666177511,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 30,
+            "y": -649
+          }
+        ]
       },
       "name": "Savathûn's Eye #5"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3984721006,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -339,
+            "y": -45
+          }
+        ]
       },
       "name": "Savathûn's Eye #6"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 337284605,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 434,
+            "y": 162
+          }
+        ]
       },
       "name": "Savathûn's Eye #7"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3116478764,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 557,
+            "y": 114
+          }
+        ]
       },
       "name": "Savathûn's Eye #8"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 1502064235,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 273.5,
+            "y": 373.5
+          }
+        ]
       },
       "name": "Savathûn's Eye #9"
     },
     {
-      "destinationHash": 111111111,
+      "destinationHash": 2218917881,
       "bubbleHash": 111111111,
       "checklistHash": 3522149605,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 208,
+            "y": 589.5
+          }
+        ]
       },
       "name": "Savathûn's Eye #10"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 498965462,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -33,
+            "y": 117
+          }
+        ]
       },
       "name": "Savathûn's Eye #11"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 3885687055,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -33,
+            "y": -228.5
+          }
+        ]
       },
       "name": "Savathûn's Eye #12"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 2533169312,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -104,
+            "y": -75
+          }
+        ]
       },
       "name": "Savathûn's Eye #13"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 2531256337,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": -493,
+            "y": -178
+          }
+        ]
       },
       "name": "Savathûn's Eye #14"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 1614302450,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 506.5,
+            "y": -124
+          }
+        ]
       },
       "name": "Savathûn's Eye #15"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 3945017947,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 201,
+            "y": -59
+          }
+        ]
       },
       "name": "Savathûn's Eye #16"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 2843152028,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 32.5,
+            "y": -112
+          }
+        ]
       },
       "name": "Savathûn's Eye #17"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 3854005997,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 106.5,
+            "y": -224
+          }
+        ]
       },
       "name": "Savathûn's Eye #18"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 1653626078,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 16.5,
+            "y": -167.5
+          }
+        ]
       },
       "name": "Savathûn's Eye #19"
     },
     {
-      "destinationHash": 111111111,
-      "bubbleHash": 111111111,
+      "destinationHash": 1993421442,
+      "bubbleHash": 2822410613,
       "checklistHash": 3586865806,
       "map": {
-        "points": []
+        "points": [
+          {
+            "x": 113.5,
+            "y": -164
+          }
+        ]
       },
       "name": "Savathûn's Eye #20"
     },

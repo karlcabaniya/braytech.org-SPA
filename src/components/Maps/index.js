@@ -23,6 +23,7 @@ import Graphs from './Graphs';
 import Characters from './Controls/Characters';
 import Destinations from './Controls/Destinations';
 import Inspect from './Controls/Inspect';
+import Surveyor from './Controls/Surveyor';
 // import DataLayers from './Controls/DataLayers';
 
 import './styles.css';
@@ -34,11 +35,11 @@ class Maps extends React.Component {
     error: false,
     viewport: undefined,
     ui: {
-      // inspect: {
-      //   recordHash: 3431961939
-      // },
       inspect: false,
     },
+    debug: {
+      clicked: {}
+    }
   };
 
   static getDerivedStateFromProps(p, s) {
@@ -106,9 +107,9 @@ class Maps extends React.Component {
       this.setDestination(this.props.params.map);
     }
 
-    if (s.ui.inspect.inspect !== this.state.ui.inspect.inspect) {
-      this.props.rebindTooltips();
-    }
+    // if (s.ui.inspect !== this.state.ui.inspect) {
+    //   this.props.rebindTooltips();
+    // }
   }
 
   setDestination = (destination) => {
@@ -187,9 +188,9 @@ class Maps extends React.Component {
   handler_map_mouseDown = (e) => {
     if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
 
-    const destination = resolveMap(this.props.params.map).destinationId;
+    const destination = resolveMap(this.props.params.map);
 
-    const map = maps[destination].map;
+    const map = maps[destination.destinationId].map;
 
     let originalX, originalY;
 
@@ -211,8 +212,17 @@ class Maps extends React.Component {
       originalY = offsetY - midpointY;
     }
 
-    console.log(JSON.stringify({ map: { x: originalX, y: originalY } }));
     console.log(JSON.stringify({ x: originalX, y: originalY }));
+
+    this.setState({
+      debug: {
+        clicked: {
+          x: originalX,
+          y: originalY,
+          destinationHash: destination.destinationHash
+        }
+      }
+    });
   };
 
   handler_map_viewportChanged = (viewport) => {
@@ -259,6 +269,7 @@ class Maps extends React.Component {
         <div className='controls left'>
           <Characters />
           <Destinations {...destination} />
+          {viewport.width > 600 && settings.maps.debug && <Surveyor {...this.state.debug} />}
           {/* <DataLayers {...destination} /> */}
         </div>
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}

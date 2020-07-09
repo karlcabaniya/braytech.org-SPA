@@ -25,6 +25,9 @@ Object.keys(lowlinesDump).forEach((key) => {
   });
 });
 
+const temp = {"498965462":{"x":-33,"y":117,"destinationHash":1993421442},"1614302450":{"x":506.5,"y":-124,"destinationHash":1993421442},"1653626078":{"x":16.5,"y":-167.5,"destinationHash":1993421442},"2531256337":{"x":-493,"y":-178,"destinationHash":1993421442},"2533169312":{"x":-104,"y":-75,"destinationHash":1993421442},"2843152028":{"x":32.5,"y":-112,"destinationHash":1993421442},"3586865806":{"x":113.5,"y":-164,"destinationHash":1993421442},"3854005997":{"x":106.5,"y":-224,"destinationHash":1993421442},"3885687055":{"x":-33,"y":-228.5,"destinationHash":1993421442},"3945017947":{"x":201,"y":-59,"destinationHash":1993421442}};
+//{"498965462":{"x":-33,"y":117,"destinationHash":1993421442},"1614302450":{"x":506.5,"y":-124,"destinationHash":1993421442},"1653626078":{"x":16.5,"y":-167.5,"destinationHash":1993421442},"2531256337":{"x":-493,"y":-178,"destinationHash":1993421442},"2533169312":{"x":-104,"y":-75,"destinationHash":1993421442},"2843152028":{"x":32.5,"y":-112,"destinationHash":1993421442},"3586865806":{"x":113.5,"y":-164,"destinationHash":1993421442},"3854005997":{"x":106.5,"y":-224,"destinationHash":1993421442},"3885687055":{"x":-33,"y":-228.5,"destinationHash":1993421442},"3945017947":{"x":201,"y":-59,"destinationHash":1993421442}}
+
 // For when the mappings generated from lowlines' data don't have a
 // bubbleHash but do have a bubbleId. Inferred by cross-referencing
 // with https://docs.google.com/spreadsheets/d/1qgZtT1qbUFjyV8-ni73m6UCHTcuLmuLBx-zn_B7NFkY/edit#gid=1808601275
@@ -273,8 +276,21 @@ async function run() {
     }
 
     if (checklistId === 2137293116) {
-      changes.destinationHash = 111111111;
+      if (!changes.map.points.length) {
+      changes.destinationHash = (temp[checklistItem.hash] && temp[checklistItem.hash].destinationHash) || 111111111;
       changes.bubbleHash = 111111111;
+        changes.map.points = (temp[checklistItem.hash] && temp[checklistItem.hash].x && [
+          {
+            x: temp[checklistItem.hash].x,
+            y: temp[checklistItem.hash].y
+          }
+        ]) || [];
+      }
+
+      if (itemNumber > 10 && itemNumber < 21) {
+        changes.destinationHash = 1993421442;
+        changes.bubbleHash = 2822410613;
+      }
       
       changes.name = checklistItem.displayProperties.name;
 
