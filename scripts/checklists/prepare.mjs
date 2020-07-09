@@ -581,9 +581,9 @@ async function run() {
       extended: (Object.keys(extended).length && extended) || undefined,
     };
 
-    if (checklistId === 530600409) {
-      // delete changes.extended.video
-    }
+    // if (checklistId === 2137293116) {
+    //   delete changes.extended.video
+    // }
 
     if (checklistId === 2137293116) {
       // if (!changes.map.points.length) {
@@ -597,21 +597,21 @@ async function run() {
       //   ]) || [];
       // }
 
-      if (itemNumber > 40 && itemNumber < 46) {
-        changes.destinationHash = undefined;
-        changes.bubbleHash = undefined;
-        changes.activityHash = 4148187374;
-      }
+      // if (itemNumber > 40 && itemNumber < 46) {
+      //   changes.destinationHash = undefined;
+      //   changes.bubbleHash = undefined;
+      //   changes.activityHash = 4148187374;
+      // }
 
-      if (itemNumber > 45 && itemNumber < 51) {
-        changes.destinationHash = undefined;
-        changes.bubbleHash = undefined;
-        changes.activityHash = 74501540;
-      }
+      // if (itemNumber > 45 && itemNumber < 51) {
+      //   changes.destinationHash = undefined;
+      //   changes.bubbleHash = undefined;
+      //   changes.activityHash = 74501540;
+      // }
       
       changes.name = checklistItem.displayProperties.name;
       
-      changes.extended = { video: temp2.find(t => t.ChecklistHash === checklistItem.hash).video }
+      // changes.extended = { video: temp2.find(t => t.ChecklistHash === checklistItem.hash).video }
       
       // if (checklistId === 5306004096969) {
       //   if (itemNumber > 0 && itemNumber < 11) {

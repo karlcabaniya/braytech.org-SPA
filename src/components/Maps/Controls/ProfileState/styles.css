@@ -1,0 +1,14 @@
+.map-omega .control.profile-state {
+  position: absolute;
+  left: calc(100% + 1rem);
+  pointer-events: none;
+}
+
+.map-omega .control.profile-state .wrapper {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.map-omega .control.profile-state .wrapper.spin {
+  opacity: 1;
+}

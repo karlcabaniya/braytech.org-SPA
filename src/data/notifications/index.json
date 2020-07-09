@@ -339,5 +339,24 @@
       "description": "Oh, hello... Just writing to let you know that I've just added two new checklists, one with co-ordinates and screenshots.\n\nStay tuned for the second, as I require sustenance and to use the bathroom and to play the game.\n\nThank you, kindly. Patreon?",
       "prompt": true
     }
+  },
+  {
+    "id": "o9kxyk3g4nxcoxtn1ljlc",
+    "date": "2020-07-09T14:37:46.883Z",
+    "expiry": 259200000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Checklists + Maps",
+      "description": "Screenshots and time stamped videos have been attached to both of the new checklists' items, except those found within _Prophecy_ and _The Whisper_ as I have yet to run them.",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "text": "Thank you, Tom",
+        "type": "agreement",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
   }
 ]

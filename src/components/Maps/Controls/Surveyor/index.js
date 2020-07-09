@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
-import { t } from '../../../../utils/i18n';
-import manifest from '../../../../utils/manifest';
 import checklists from '../../../../utils/checklists';
-import { cartographer, findNodeType, locationStrings, screenshotFilename } from '../../../../utils/maps';
-import { Maps } from '../../../../svg';
+import { cartographer } from '../../../../utils/maps';
 
 import './styles.css';
-import { Handler } from 'leaflet';
 
 const manifestLists = [365218222, 1297424116, 1697465175, 1912364094, 2360931290, 2609997025, 2726513366, 2955980198, 3142056444, 4178338182, 2137293116, 530600409];
 const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];

@@ -21,6 +21,7 @@ import Speciality from './Nodes/Speciality';
 import Graphs from './Graphs';
 
 import Characters from './Controls/Characters';
+import ProfileState from './Controls/ProfileState';
 import Destinations from './Controls/Destinations';
 import Inspect from './Controls/Inspect';
 import Surveyor from './Controls/Surveyor';
@@ -267,6 +268,7 @@ class Maps extends React.Component {
         </Map>
         <Loading loaded={this.state.loaded} />
         <div className='controls left'>
+          <ProfileState />
           <Characters />
           <Destinations {...destination} />
           {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}

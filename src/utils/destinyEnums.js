@@ -398,7 +398,7 @@ export const sealImages = {
   1473677990: '0912-0CDD.png', // Conqueror
   1617497214: '0912-0F4C.png', // Flawless
   1673689807: '0912-0CDD.png', // Conqueror
-  952001576: '0560-00007495.png', // Moments of Triumph 2020
+  952001576: 'mmxx.png', // Moments of Triumph 2020
   2699827342: '0966-105D.png', // Arrivals
 };
 
