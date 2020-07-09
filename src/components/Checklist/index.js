@@ -14,17 +14,7 @@ const ChecklistItem = (props) => {
 
   return (
     <li className={cx({ completed })}>
-      <Checkbox
-        checked={completed}
-        children={
-          <>
-            <div className='name'>
-              {name}
-              {suffix ? ` ${suffix}` : null}
-            </div>
-          </>
-        }
-      />
+      <Checkbox checked={completed} children={<div className='name'>{name + (suffix ? ` ${suffix}` : '')}</div>} />
       <div className='location'>{location}</div>
       {destinationHash && (
         <Link className='button' to={`/maps/${destinationHash}/${mapHash}`}>

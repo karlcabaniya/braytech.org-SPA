@@ -269,7 +269,7 @@ class Maps extends React.Component {
         <div className='controls left'>
           <Characters />
           <Destinations {...destination} />
-          {viewport.width > 600 && settings.maps.debug && <Surveyor {...this.state.debug} />}
+          {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}
           {/* <DataLayers {...destination} /> */}
         </div>
         {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
