@@ -146,12 +146,12 @@
 }
 
 #inspect .module.header .text .name {
-  margin: 0 0 14px -2px;
+  margin: -5px 0 10px -2px;
   word-break: break-all;
   font-family: var(--font-text);
   font-size: 48px;
   font-weight: 500;
-  line-height: 38px;
+  line-height: 48px;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
 }
@@ -840,4 +840,95 @@
     justify-content: unset;
   }
 
+}
+
+
+
+#inspect .module .emblem {
+  width: 100%;
+  max-width: 474px;
+  user-select: none;
+}
+
+
+#inspect .module .emblem .wrapper {
+  position: relative;
+  height: unset;
+  max-width: unset;
+  padding-bottom: calc(96 / 474 * 100%);
+  color: #ffffff;
+}
+
+#inspect .module .emblem .wrapper .image.secondary-icon {
+  background-size: cover;
+}
+
+#inspect .module .emblem .wrapper .display-name {
+  position: absolute;
+  left: 20%;
+  top: 14%;
+  z-index: 4;
+  font-size: 27px;
+}
+
+#inspect .module .emblem .wrapper .light {
+  position: absolute;
+  right: 12px;
+  top: 13px;
+  z-index: 4;
+  font-size: 38px;
+  font-weight: 500;
+  font-family: var(--font-text);
+  line-height: 34px;
+  color: #e5d163;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#inspect .module .emblem .wrapper .light::before {
+  content: 'l';
+  position: absolute;
+  top: 4px;
+  left: -16px;
+  font-family: 'Braytech' !important;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  #inspect .module .emblem {
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(96 / 474 * 100%);
+  }
+
+  #inspect .module .emblem .wrapper .image.secondary-icon.missing {
+    width: calc(96 / 474 * 100% - 37px);
+    height: calc(100% - 35px);
+    top: 14px;
+    left: 14px;
+  }
+
+  #inspect .module .emblem .wrapper .displayName {
+    left: 20%;
+    top: 14%;
+    font-size: 18px;
+  }
+
+  #inspect .module .emblem .wrapper .light {
+    top: 10%;
+    right: 2%;
+    font-size: 26px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  #inspect .module .emblem .wrapper .light::before {
+    font-size: 11px;
+    left: -12px;
+  }
 }

@@ -47,21 +47,21 @@
 }
 
 .profile-search .results .list li.linked .icon.destiny-platform_xbox {
-  background-color: #4CAF50;
+  background-color: var(--platform-xbox);
 }
 
 .profile-search .results .list li.linked .icon.destiny-platform_playstation {
-  background-color: #3F51B5;
+  background-color: var(--platform-playstation);
 }
 
 .profile-search .results .list li.linked .icon.destiny-platform_steam {
-  background-color: #165b83;
+  background-color: var(--platform-steam);
 }
 
 .profile-search .results .list li.linked .icon.destiny-platform_battlenet {
-  background-color: #009ae4;
+  background-color: var(--platform-blizzard);
 }
 
 .profile-search .results .list li.linked .icon.destiny-platform_stadia {
-  background-color: #da2b48;
+  background-color: var(--platform-stadia);
 }

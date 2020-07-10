@@ -16,6 +16,11 @@
   --error: #dc513b;
   --ui-scale-1: 1.017;
   --ui-scale-2: 1.05;
+  --platform-xbox: #4CAF50;
+  --platform-playstation: #3F51B5;
+  --platform-steam: #165b83;
+  --platform-blizzard: #009ae4;
+  --platform-stadia: #da2b48;
 }
 
 #root .main {
@@ -31,7 +36,7 @@
 }
 
 #root > .wrapper {
-  background-color: #9e9e9e;
+  background-color: var(--body-background);
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -51,10 +56,6 @@
     border-radius: 0px;
   }
 
-}
-
-#root > .wrapper.dark {
-  background-color: #111111;
 }
 
 #root > .wrapper.dark #footer {

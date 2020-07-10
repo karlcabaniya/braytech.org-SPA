@@ -10,8 +10,8 @@ import { rebind } from '../../store/actions/tooltips';
 import { DestinyTierType, DestinyItemType, DestinySocketCategoryStyle, enumerateCollectibleState } from '../../utils/destinyEnums';
 import { getCollectibleState, commonality } from '../../utils/destinyUtils';
 import { damageTypeToAsset, energyTypeToAsset, breakerTypeToIcon, itemRarityToString, ammoTypeToAsset } from '../../utils/destinyConverters';
-import ObservedImage from '../../components/ObservedImage';
 import { DestinyKey } from '../../components/UI/Button';
+import ObservedImage from '../../components/ObservedImage';
 
 import { sockets } from '../../utils/destinyItems/sockets';
 import { stats, statsMs } from '../../utils/destinyItems/stats';
@@ -22,7 +22,7 @@ import { getSocketsWithStyle, getModdedStatValue, getSumOfArmorStats, getOrnamen
 
 import './styles.css';
 
-function Inspect() {
+export default function Inspect() {
   const member = useSelector((state) => state.member);
   const location = useLocation();
   const params = useParams();
@@ -270,6 +270,11 @@ function Inspect() {
               </div>
             </div>
           ) : null}
+          {definitionItem.itemType === DestinyItemType.Emblem ? (
+            <div className='module'>
+              <Emblem itemHash={definitionItem.hash} />
+            </div>
+          ) : null}
         </div>
       </div>
       <div className='sticky-nav'>
@@ -289,7 +294,79 @@ function Inspect() {
   );
 }
 
-export default Inspect;
+function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
+  const socketsString = sockets.map((socket, s) => {
+    // replace with plugHash at appropriate socket index
+    if (socket.socketIndex === socketIndex) return plugHash;
+
+    // return current or null
+    return selectedSockets?.[s] || '';
+  });
+
+  // create string
+  return `/inspect/${itemHash}?sockets=${socketsString.join('/')}`;
+}
+
+function selectedSockets(query = [], hover = []) {
+  if (query.length && hover.length) {
+    return query.map((value, v) => {
+      const hoverPerk = hover.find((h) => h.socketIndex === v);
+
+      if (hoverPerk) {
+        return hoverPerk.plugHash;
+      }
+
+      return Number(value) || '';
+    });
+  }
+
+  return query.map((value) => Number(value) || '');
+}
+
+function createItem(itemHash, selectedSockets = []) {
+  const item = {
+    itemHash,
+    itemInstanceId: false,
+    itemComponents: false,
+    showHiddenStats: true,
+    showDefaultSockets: true,
+  };
+
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+  item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
+
+  // process sockets
+  item.sockets = sockets(item);
+
+  // adjust sockets according to user selection
+  if (item.sockets.sockets) {
+    item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
+      const selectedPlugHash = selectedSockets[s] || 0;
+
+      // if user has selected a plug
+      if (selectedPlugHash > 0) {
+        // set active plug as primary plug
+        socket.plug = (selectedPlugHash && socket.plugOptions.find((plugOption) => selectedPlugHash === plugOption.definition.hash)) || socket.plug;
+
+        return socket;
+      }
+
+      return socket;
+    });
+
+    const ornamentSocket = getOrnamentSocket(item.sockets);
+    if (ornamentSocket?.plug?.definition?.screenshot) {
+      item.screenshot = ornamentSocket.plug.definition.screenshot && ornamentSocket.plug.definition.screenshot !== '' && ornamentSocket.plug.definition.screenshot;
+    }
+  }
+
+  // stats and masterwork as per usual
+  item.stats = stats(item);
+  item.masterwork = masterwork(item);
+
+  return item;
+}
 
 function RecoilStat({ value }) {
   // A value from 100 to -100 where positive is right and negative is left
@@ -474,76 +551,22 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
   );
 }
 
-function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
-  const socketsString = sockets.map((socket, s) => {
-    // replace with plugHash at appropriate socket index
-    if (socket.socketIndex === socketIndex) return plugHash;
+function Emblem({ itemHash, ...props }) {
+  const definitionEmblem = manifest.DestinyInventoryItemDefinition[itemHash];
+  
+  const displayName = useSelector((state) => state.member.data.profile?.profile.data.userInfo.displayName) || 'justrealmilk';
+  const light = useSelector((state) => state.member.data.profile?.characters.data[0].light) || '100';
 
-    // return current or null
-    return selectedSockets?.[s] || '';
-  });
-
-  // create string
-  return `/inspect/${itemHash}?sockets=${socketsString.join('/')}`;
-}
-
-function selectedSockets(query = [], hover = []) {
-  if (query.length && hover.length) {
-    return query.map((value, v) => {
-      const hoverPerk = hover.find((h) => h.socketIndex === v);
-
-      if (hoverPerk) {
-        return hoverPerk.plugHash;
-      }
-
-      return Number(value) || '';
-    });
-  }
-
-  return query.map((value) => Number(value) || '');
-}
-
-function createItem(itemHash, selectedSockets = []) {
-  const item = {
-    itemHash,
-    itemInstanceId: false,
-    itemComponents: false,
-    showHiddenStats: true,
-    showDefaultSockets: true,
-  };
-
-  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
-
-  item.screenshot = definitionItem.screenshot && definitionItem.screenshot !== '' && definitionItem.screenshot;
-
-  // process sockets
-  item.sockets = sockets(item);
-
-  // adjust sockets according to user selection
-  if (item.sockets.sockets) {
-    item.sockets.sockets = item.sockets.sockets.map((socket, s) => {
-      const selectedPlugHash = selectedSockets[s] || 0;
-
-      // if user has selected a plug
-      if (selectedPlugHash > 0) {
-        // set active plug as primary plug
-        socket.plug = (selectedPlugHash && socket.plugOptions.find((plugOption) => selectedPlugHash === plugOption.definition.hash)) || socket.plug;
-
-        return socket;
-      }
-
-      return socket;
-    });
-
-    const ornamentSocket = getOrnamentSocket(item.sockets);
-    if (ornamentSocket?.plug?.definition?.screenshot) {
-      item.screenshot = ornamentSocket.plug.definition.screenshot && ornamentSocket.plug.definition.screenshot !== '' && ornamentSocket.plug.definition.screenshot;
-    }
-  }
-
-  // stats and masterwork as per usual
-  item.stats = stats(item);
-  item.masterwork = masterwork(item);
-
-  return item;
+  return (
+    <div className='emblem'>
+      <div className='wrapper'>
+        <ObservedImage
+          className={cx('image', 'secondary-icon', { missing: !definitionEmblem.secondaryIcon, })}
+          src={`https://www.bungie.net${definitionEmblem.secondaryIcon ? definitionEmblem.secondaryIcon : `/img/misc/missing_icon_d2.png`}`}
+        />
+        <div className='display-name'>{displayName}</div>
+        <div className='light'>{light}</div>
+      </div>
+    </div>
+  );
 }

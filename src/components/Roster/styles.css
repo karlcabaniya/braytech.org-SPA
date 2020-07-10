@@ -167,23 +167,23 @@
 }
 
 .list.roster .row > ul .col.last-platform .icon.destiny-platform_xbox {
-  background-color: #4CAF50;
+  background-color: var(--platform-xbox);
 }
 
 .list.roster .row > ul .col.last-platform .icon.destiny-platform_playstation {
-  background-color: #3F51B5;
+  background-color: var(--platform-playstation);
 }
 
 .list.roster .row > ul .col.last-platform .icon.destiny-platform_steam {
-  background-color: #165b83;
+  background-color: var(--platform-steam);
 }
 
 .list.roster .row > ul .col.last-platform .icon.destiny-platform_battlenet {
-  background-color: #009ae4;
+  background-color: var(--platform-blizzard);
 }
 
 .list.roster .row > ul .col.last-platform .icon.destiny-platform_stadia {
-  background-color: #da2b48;
+  background-color: var(--platform-stadia);
 }
 
 .list.roster .row > ul .col.last-character .icon svg {
@@ -294,7 +294,7 @@
 
 @media screen and (max-width: 1280px) {
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px);
+    grid-template-columns: minmax(180px, 260px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px);
   }
 
   .list.roster .row > ul .col.weekly-xp {
@@ -304,7 +304,7 @@
 
 @media screen and (max-width: 768px) {
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px);
+    grid-template-columns: minmax(180px, 260px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px);
   }
 
   .list.roster .row > ul .col.valor,
@@ -318,7 +318,7 @@
 @media screen and (max-width: 767px) {
 
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px);
+    grid-template-columns: minmax(180px, 260px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px);
     grid-gap: 16px;
   }
 
