@@ -294,7 +294,7 @@
 
 @media screen and (max-width: 1280px) {
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px);
+    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px);
   }
 
   .list.roster .row > ul .col.weekly-xp {
@@ -304,7 +304,7 @@
 
 @media screen and (max-width: 768px) {
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px);
+    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px);
   }
 
   .list.roster .row > ul .col.valor,
@@ -318,7 +318,7 @@
 @media screen and (max-width: 767px) {
 
   .list.roster .row > ul {
-    grid-template-columns: minmax(180px, 270px) calc(38px * 3) minmax(120px, 400px);
+    grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px);
     grid-gap: 16px;
   }
 
