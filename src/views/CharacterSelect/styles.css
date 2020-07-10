@@ -75,11 +75,6 @@
   margin: 3rem 0 0;
 }
 
-#character-select.loading .profile-search .list li .icon,
-#character-select.loading .profile-search .list li .displayName {
-  transition: opacity 0.25ms;
-}
-
 #character-select .profile .user {
   display: grid;
   grid-gap: 3rem;
@@ -152,9 +147,16 @@
   pointer-events: none;
 }
 
+
+#character-select .list li .icon,
+#character-select .list li .displayName,
+#character-select .list li .cross-save {
+  transition: opacity 0.25s;
+}
+
 #character-select.loading .list li .icon,
 #character-select.loading .list li .displayName,
-#character-select.loading .profile .user {
+#character-select.loading .list li .cross-save {
   opacity: 0;
 }
 

@@ -17,7 +17,7 @@
   width: 100%;
   display: grid;
   grid-gap: 32px;
-  grid-template-columns: minmax(180px, 270px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) auto;
+  grid-template-columns: minmax(180px, 270px) minmax(30px, 50px) calc(38px * 3) minmax(120px, 400px) minmax(80px, 110px) minmax(80px, 110px) minmax(80px, 110px) auto;
 }
 
 .list.roster.admin .row > ul .col.actions {

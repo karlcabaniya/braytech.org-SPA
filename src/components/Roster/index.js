@@ -81,6 +81,8 @@ class Roster extends React.Component {
     const lastActivities = utils.lastPlayerActivity(m);
     const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [(a) => a.lastPlayed], ['desc'])[0];
 
+    const lastPlatform = m.destinyUserInfo.LastSeenDisplayNameType;
+
     const lastCharacter = !isPrivate ? m.profile.characters.data.find((c) => c.characterId === lastCharacterId) : false;
 
     const LastClassIcon = !isPrivate ? classHashToIcon(lastCharacter.classHash) : null;
@@ -108,10 +110,10 @@ class Roster extends React.Component {
     valorPoints = valorResets * totalValor + valorPoints;
     infamyPoints = infamyResets * totalInfamy + infamyPoints;
 
-    if (m.isOnline || m.destinyUserInfo?.membershipId === '4611686018449662397') {
-      // console.log(m);
-      // console.log(lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode);
-    }
+    // if (m.isOnline || m.destinyUserInfo?.membershipId === '4611686018449662397') {
+    //   // console.log(m);
+    //   // console.log(lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode);
+    // }
     
     return {
       sorts: {
@@ -120,6 +122,7 @@ class Roster extends React.Component {
         fireteamId: m.fireteamId,
         displayName: m.destinyUserInfo?.LastSeenDisplayName?.toLowerCase(),
         lastPlayed,
+        lastPlatform,
         lastCharacter,
         triumphScore,
         gloryPoints,
@@ -136,16 +139,17 @@ class Roster extends React.Component {
               <li className='col member'>
                 <MemberLink type={m.destinyUserInfo.membershipType} id={m.destinyUserInfo.membershipId} groupId={m.destinyUserInfo.groupId} displayName={m.destinyUserInfo.LastSeenDisplayName || m.destinyUserInfo.displayName} hideEmblemIcon={!m.isOnline} />
               </li>
+              <li className='col last-platform'>{<div className={cx('icon', `destiny-platform_${enums.platforms[lastPlatform]}`)} />}</li>
               {!isPrivate ? (
                 <>
-                  <li className='col last'>
+                  <li className='col last-character'>
                     <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                       <LastClassIcon />
                     </div>
                     <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 1000, max: lastCharacter.light >= 1010 })}>{lastCharacter.light}</div>
                     <div className='icon season-rank'>{seasonRank}</div>
                   </li>
-                  <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
+                  <li className={cx('col', 'last-activity', { display: m.isOnline && lastActivityString })}>
                     {m.isOnline && lastActivityString ? (
                       <div className='tooltip' data-type='activity' data-context='roster' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash} data-membershipid={m.destinyUserInfo?.membershipId}>
                         <div>
@@ -171,8 +175,8 @@ class Roster extends React.Component {
                 </>
               ) : (
                 <>
-                  <li className='col last'>–</li>
-                  <li className='col activity'>–</li>
+                  <li className='col last-character'>–</li>
+                  <li className='col last-activity'>–</li>
                   <li className='col triumph-score'>–</li>
                   <li className='col glory'>–</li>
                   <li className='col valor'>–</li>
@@ -288,7 +292,9 @@ class Roster extends React.Component {
 
     if (order.sort === 'display-name') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.displayName, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
-    } else if (order.sort === 'last') {
+    } else if (order.sort === 'last-platform') {
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastPlatform, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+    } else if (order.sort === 'last-character') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'triumph-score') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.triumphScore, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
@@ -315,11 +321,15 @@ class Roster extends React.Component {
                   <div className='full'>{t('Display name')}</div>
                   <div className='abbr'>{t('Name')}</div>
                 </li>
-                <li className={cx('col', 'last', { sort: this.state.order.sort === 'last', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last' })}>
+                <li className={cx('col', 'last-platform', { sort: this.state.order.sort === 'last-platform' })} onClick={this.handler_changeSortTo({ sort: 'last-platform' })}>
+                  <div className='full'>{t('Platform')}</div>
+                  <div className='abbr'>{t('Plat')}</div>
+                </li>
+                <li className={cx('col', 'last-character', { sort: this.state.order.sort === 'last-character', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last-character' })}>
                   <div className='full'>{t('Last character')}</div>
                   <div className='abbr'>{t('Char')}</div>
                 </li>
-                <li className={cx('col', 'activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo({})}>
+                <li className={cx('col', 'last-activity', { sort: !this.state.order.sort })} onClick={this.handler_changeSortTo({})}>
                   <div className='full'>{t('Last activity')}</div>
                   <div className='abbr'>{t('Activity')}</div>
                 </li>

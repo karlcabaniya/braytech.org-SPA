@@ -1,86 +1,114 @@
 {
   "de": {
     "translated": 731,
-    "notTranslated": 24,
+    "notTranslated": 26,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "debug": {
-    "translated": 755,
+    "translated": 757,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "en": {
-    "translated": 755,
+    "translated": 757,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "es-mx": {
     "translated": 755,
-    "notTranslated": 0,
+    "notTranslated": 2,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "es": {
     "translated": 755,
-    "notTranslated": 0,
+    "notTranslated": 2,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 133,
+    "notTranslated": 135,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "it": {
-    "translated": 744,
-    "notTranslated": 11,
+    "translated": 755,
+    "notTranslated": 2,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "ja": {
     "translated": 601,
-    "notTranslated": 154,
+    "notTranslated": 156,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 241,
+    "notTranslated": 243,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 753,
+    "notTranslated": 755,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "pt-br": {
     "translated": 706,
-    "notTranslated": 49,
+    "notTranslated": 51,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "ru": {
     "translated": 755,
-    "notTranslated": 0,
+    "notTranslated": 2,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "zh-chs": {
     "translated": 563,
-    "notTranslated": 192,
+    "notTranslated": 194,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 406,
+    "notTranslated": 408,
     "added": [],
-    "removed": []
+    "removed": [
+      "last-activity"
+    ]
   }
 }

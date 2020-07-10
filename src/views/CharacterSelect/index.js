@@ -94,7 +94,7 @@ class CharacterSelect extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     viewport: state.viewport,

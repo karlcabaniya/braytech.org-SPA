@@ -401,6 +401,8 @@ class RosterAdmin extends React.Component {
 
       const lastActivities = utils.lastPlayerActivity(m);
       const { characterId: lastCharacterId, lastPlayed, lastActivity, lastActivityString, lastMode } = orderBy(lastActivities, [(a) => a.lastPlayed], ['desc'])[0];
+      
+      const lastPlatform = m.destinyUserInfo.LastSeenDisplayNameType;
 
       const lastCharacter = !isPrivate ? m.profile.characters.data.find((c) => c.characterId === lastCharacterId) : false;
 
@@ -431,6 +433,7 @@ class RosterAdmin extends React.Component {
           displayName: m.destinyUserInfo?.LastSeenDisplayName?.toLowerCase(),
           joinDate: m.joinDate,
           lastPlayed,
+          lastPlatform,
           lastActivity,
           lastCharacter: !isPrivate ? lastCharacter : false,
           weeklyXp: (weeklyXp / characterIds.length) * 5000,
@@ -444,16 +447,17 @@ class RosterAdmin extends React.Component {
                 <li className='col member'>
                   <MemberLink type={m.destinyUserInfo.membershipType} id={m.destinyUserInfo.membershipId} groupId={m.destinyUserInfo.groupId} displayName={m.destinyUserInfo.LastSeenDisplayName || m.destinyUserInfo.displayName} hideEmblemIcon={!m.isOnline} />
                 </li>
+                <li className='col last-platform'>{<div className={cx('icon', `destiny-platform_${enums.platforms[lastPlatform]}`)} />}</li>
                 {!isPrivate ? (
                   <>
-                    <li className='col last'>
+                    <li className='col last-character'>
                       <div className={cx('icon', 'character', enums.classStrings[lastCharacter.classType])}>
                         <LastClassIcon />
                       </div>
                       <div className={cx('icon', 'light', { 'max-ish': lastCharacter.light >= 100, max: lastCharacter.light >= 1010 })}>{lastCharacter.light}</div>
                       <div className='icon season-rank'>{seasonRank}</div>
                     </li>
-                    <li className={cx('col', 'activity', { display: m.isOnline && lastActivityString })}>
+                    <li className={cx('col', 'last-activity', { display: m.isOnline && lastActivityString })}>
                       {m.isOnline && lastActivityString ? (
                         <div className='tooltip' data-type='activity' data-context='roster' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash} data-membershipid={m.destinyUserInfo?.membershipId}>
                           <div>
@@ -465,7 +469,7 @@ class RosterAdmin extends React.Component {
                         <div>{fromNow(lastPlayed, true)}</div>
                       )}
                     </li>
-                    <li className='col joinDate'>{!m.pending ? fromNow(m.joinDate, true) : null}</li>
+                    <li className='col join-date'>{!m.pending ? fromNow(m.joinDate, true) : null}</li>
                     <li className='col weeklyXp'>
                       <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                     </li>
@@ -476,9 +480,9 @@ class RosterAdmin extends React.Component {
                   </>
                 ) : (
                   <>
-                    <li className='col last'>–</li>
+                    <li className='col last-character'>–</li>
                     <li className='col activity'>–</li>
-                    <li className='col joinDate'>–</li>
+                    <li className='col join-date'>–</li>
                     <li className='col weeklyXp'>–</li>
                     <li className='col rank'>{m.memberType && groupMemberTypeToString(m.memberType)}</li>
                     <li className='col actions'>
@@ -506,7 +510,9 @@ class RosterAdmin extends React.Component {
 
     if (order.sort === 'display-name') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.displayName, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
-    } else if (order.sort === 'last') {
+    } else if (order.sort === 'last-platform') {
+      roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastPlatform, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
+    } else if (order.sort === 'last-character') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.lastCharacter.light, (m) => m.sorts.lastPlayed], ['asc', order.dir, order.dir]);
     } else if (order.sort === 'join-date') {
       roster = orderBy(roster, [(m) => m.sorts.private, (m) => m.sorts.joinDate, (m) => m.sorts.lastPlayed], ['asc', order.dir, 'desc']);
@@ -529,7 +535,11 @@ class RosterAdmin extends React.Component {
                   <div className='full'>{t('Display name')}</div>
                   <div className='abbr'>{t('Name')}</div>
                 </li>
-                <li className={cx('col', 'last', { sort: this.state.order.sort === 'last', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last' })}>
+                <li className={cx('col', 'last-platform', { sort: this.state.order.sort === 'last-platform' })} onClick={this.handler_changeSortTo({ sort: 'last-platform' })}>
+                  <div className='full'>{t('Platform')}</div>
+                  <div className='abbr'>{t('Plat')}</div>
+                </li>
+                <li className={cx('col', 'last-character', { sort: this.state.order.sort === 'last-character', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'last-character' })}>
                   <div className='full'>{t('Last character')}</div>
                   <div className='abbr'>{t('Char')}</div>
                 </li>
@@ -537,7 +547,7 @@ class RosterAdmin extends React.Component {
                   <div className='full'>{t('Last activity')}</div>
                   <div className='abbr'>{t('Activity')}</div>
                 </li>
-                <li className={cx('col', 'joinDate', { sort: this.state.order.sort === 'joinDate', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'join-date' })}>
+                <li className={cx('col', 'join-date', { sort: this.state.order.sort === 'join-date', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'join-date' })}>
                   <div className='full'>{t('Joined')}</div>
                   <div className='abbr'>{t('Jind')}</div>
                 </li>
