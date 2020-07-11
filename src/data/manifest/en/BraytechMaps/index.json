@@ -2589,9 +2589,19 @@
   },
   "375": {
     "recordHash": 259242242,
+    "displayProperties": {
+      "description": "Can be collected during the _Broodhold_ strike."
+    },
     "extended": {
-      "video": "https://www.youtube.com/watch?v=hE3pNCCza3w"
-    }
+      "video": "https://www.youtube.com/watch?v=hE3pNCCza3w",
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 33
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/lore/hellrise-canyon_the-awoken-of-the-reef_259242242.jpg"
   },
   "376": {
     "recordHash": 259242243,

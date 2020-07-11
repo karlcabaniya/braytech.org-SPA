@@ -268,7 +268,7 @@ class Maps extends React.Component {
         </Map>
         <Loading loaded={this.state.loaded} />
         <div className='controls left'>
-          <ProfileState />
+          {viewport.width > 600 ? <ProfileState /> : null}
           <Characters />
           <Destinations {...destination} />
           {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}
