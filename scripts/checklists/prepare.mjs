@@ -833,63 +833,63 @@ function getScreenshot(checklistId, checklistItem, number, name) {
   let screenshot = undefined;
 
   if (checklistId === 2360931290 && number) {
-    screenshot = searchScreenshots('ghost-scans', `ghost-scans_${number}.jpg`);
+    screenshot = searchScreenshots('checklists/ghost-scans', `ghost-scans_${number}.jpg`);
   }
 
   if (checklistId === 1697465175 && number) {
-    screenshot = searchScreenshots('region-chests', `region-chests_${number}.jpg`);
+    screenshot = searchScreenshots('checklists/region-chests', `region-chests_${number}.jpg`);
   }
 
   if (checklistId === 3142056444 && name) {
-    screenshot = searchScreenshots('lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
+    screenshot = searchScreenshots('checklists/lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
   }
 
   if (checklistId === 365218222 && name) {
-    screenshot = searchScreenshots('sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
-  }
-
-  if (checklistId === 1420597821 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('lore', `ghost-stories_${checklistItem.recordHash}.jpg`);
-  }
-
-  if (checklistId === 655926402 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('lore', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
-  }
-
-  if (checklistId === 3305936921 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('lore', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
-  }
-
-  if (checklistId === 4285512244 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('lore', `lunas-lost_${checklistItem.recordHash}.jpg`);
-  }
-
-  if (checklistId === 2474271317 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('lore', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
+    screenshot = searchScreenshots('checklists/sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
   }
 
   if (checklistId === 1912364094 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 530600409 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('calcified-light', `${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/calcified-light', `${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2137293116 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 1297424116 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2609997025 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2726513366 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+    screenshot = searchScreenshots('checklists/feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+  }
+
+  if (checklistId === 1420597821 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('records/ghost-stories', `ghost-stories_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 655926402 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('records/the-forsaken-prince', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 3305936921 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('records/the-awoken-of-the-reef', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 4285512244 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('records/lunas-lost', `lunas-lost_${checklistItem.recordHash}.jpg`);
+  }
+
+  if (checklistId === 2474271317 && checklistItem.recordHash) {
+    screenshot = searchScreenshots('records/inquisition-of-the-damned', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
   }
 
   return screenshot;

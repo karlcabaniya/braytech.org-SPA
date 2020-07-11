@@ -722,8 +722,9 @@ export function lastPlayerActivity(member) {
         if (
           definitionDestination?.displayProperties.name &&
           definitionActivity.displayProperties.name !== definitionDestination.displayProperties.name &&
-          // because titan is a fuck
-          definitionActivity.hash !== 4166562681
+          // because fuck
+          definitionActivity.hash !== 4166562681 &&
+          definitionActivity.hash !== 4159221189
         ) {
           lastActivityString = `${definitionDestination.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
         } else if (definitionDestination) {
