@@ -206,7 +206,7 @@ export function getCollectibleState(member, collectibleHash) {
   const definitionCollectible = manifest.DestinyCollectibleDefinition[collectibleHash];
 
   const data = definitionCollectible?.scope === 1 ? characterCollectibles[characterId].collectibles[definitionCollectible?.hash] : profileCollectibles.collectibles[definitionCollectible?.hash];
-  
+
   if (data) {
     return data.state || 0;
   }
@@ -706,13 +706,32 @@ export function lastPlayerActivity(member) {
 
     const definitionActivity = lastActivity.currentActivityHash && manifest.DestinyActivityDefinition[lastActivity.currentActivityHash];
     const definitionActivityMode = lastActivity.currentActivityModeHash && manifest.DestinyActivityModeDefinition[lastActivity.currentActivityModeHash];
-    const definitionPlace = definitionActivity.placeHash && manifest.DestinyPlaceDefinition[definitionActivity.placeHash];
-    const definitionPlaceOrbit = manifest.DestinyPlaceDefinition[2961497387];
+    const definitionPlace = manifest.DestinyPlaceDefinition[definitionActivity.placeHash];
+    const definitionDestination = manifest.DestinyDestinationDefinition[definitionActivity.destinationHash];
     const definitionActivityPlaylist = lastActivity.currentPlaylistActivityHash && manifest.DestinyActivityDefinition[lastActivity.currentPlaylistActivityHash];
 
     let lastActivityString = false;
     if (definitionActivity && !definitionActivity.redacted) {
-      if (definitionActivity.activityTypeHash === 400075666) {
+      if (enums.adventures.includes(definitionActivity.hash)) {
+        // Adventures
+
+        lastActivityString = `${t('Adventure')}: ${definitionActivity.displayProperties.name}`;
+      } else if (definitionActivityMode?.hash === 3497767639) {
+        // Explore
+
+        if (
+          definitionDestination?.displayProperties.name &&
+          definitionActivity.displayProperties.name !== definitionDestination.displayProperties.name &&
+          // because titan is a fuck
+          definitionActivity.hash !== 4166562681
+        ) {
+          lastActivityString = `${definitionDestination.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
+        } else if (definitionDestination) {
+          lastActivityString = `${definitionDestination.displayProperties.name}: ${definitionActivityMode.displayProperties.name}`;
+        } else {
+          lastActivityString = `${definitionActivityMode.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
+        }
+      } else if (definitionActivity.activityTypeHash === 400075666) {
         // Menagerie
 
         lastActivityString = `${definitionActivity.selectionScreenDisplayProperties?.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name}`;
@@ -752,14 +771,14 @@ export function lastPlayerActivity(member) {
         // Convert Raid: Prophecy -> Dungeon: Prophecy
 
         lastActivityString = `${manifest.DestinyActivityTypeDefinition[608898761].displayProperties.name}: ${definitionActivity.displayProperties.name}`;
-      } else if (definitionActivityMode && definitionActivity?.placeHash !== 2961497387) {
-        // Default
-
-        lastActivityString = `${definitionActivityMode.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
       } else if (definitionActivity.placeHash === 2961497387) {
         // Orbit
 
-        lastActivityString = definitionPlaceOrbit.displayProperties.name;
+        lastActivityString = manifest.DestinyPlaceDefinition[2961497387].displayProperties.name;
+      } else if (definitionActivityMode) {
+        // Default
+
+        lastActivityString = `${definitionActivityMode.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
       } else {
         lastActivityString = definitionActivity.displayProperties.name;
       }

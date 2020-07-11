@@ -4068,5 +4068,25 @@
     "extended": {
       "video": "https://youtu.be/JF0b_r488OM?t=1669"
     }
+  },
+  "591": {
+    "checklistHash": 3326352133,
+    "screenshot": "/static/images/screenshots/ghost-scans/spine-burrows_ghost-scans_27.jpg",
+    "extended": {}
+  },
+  "592": {
+    "checklistHash": 2033620375,
+    "screenshot": "/static/images/screenshots/ghost-scans/warmind-vault-jys-2_ghost-scans_30.jpg",
+    "extended": {}
+  },
+  "593": {
+    "checklistHash": 375526862,
+    "screenshot": "/static/images/screenshots/ghost-scans/warmind-vault-jys-2_ghost-scans_31.jpg",
+    "extended": {}
+  },
+  "594": {
+    "checklistHash": 3765685361,
+    "screenshot": "/static/images/screenshots/ghost-scans/warmind-vault-jys-2_ghost-scans_32.jpg",
+    "extended": {}
   }
 }
