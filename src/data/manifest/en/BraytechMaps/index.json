@@ -2946,7 +2946,14 @@
   "427": {
     "checklistHash": 635128104,
     "screenshot": "/static/images/screenshots/checklists/ghost-scans/spine-burrows_ghost-scans_28.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 53
+        }
+      }
+    }
   },
   "428": {
     "recordHash": 242464659,
@@ -4072,21 +4079,49 @@
   "591": {
     "checklistHash": 3326352133,
     "screenshot": "/static/images/screenshots/checklists/ghost-scans/spine-burrows_ghost-scans_27.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 62
+        }
+      }
+    }
   },
   "592": {
     "checklistHash": 2033620375,
     "screenshot": "/static/images/screenshots/checklists/ghost-scans/warmind-vault-jys-2_ghost-scans_30.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 62,
+          "y": 30
+        }
+      }
+    }
   },
   "593": {
     "checklistHash": 375526862,
     "screenshot": "/static/images/screenshots/checklists/ghost-scans/warmind-vault-jys-2_ghost-scans_31.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50.5,
+          "y": 58.5
+        }
+      }
+    }
   },
   "594": {
     "checklistHash": 3765685361,
     "screenshot": "/static/images/screenshots/checklists/ghost-scans/warmind-vault-jys-2_ghost-scans_32.jpg",
-    "extended": {}
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 50
+        }
+      }
+    }
   }
 }

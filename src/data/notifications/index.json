@@ -358,5 +358,25 @@
         "dismiss": true
       }
     ]
+  },
+  {
+    "id": "vw5ysl0k6h7xl0ym9mzwm",
+    "date": "2020-07-11T09:12:31.347Z",
+    "expiry": 604800000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "Sustenance",
+      "description": "Just a small note to remind you all that while I love building _Braytech_, it is my \\[only\\] source of income and I am currently dependant upon it (and it me).\n\nWhile others choose an ad-supported model, I've always believed that ads suck and that I'd rather die in a revive restricted zone.\n\nTo that end, should you find value in my work, I humbly request your support.",
+      "prompt": true
+    },
+    "actions": [
+      {
+        "type": "external",
+        "target": "https://www.patreon.com/braytech",
+        "text": "View Patreon",
+        "key": "accept",
+        "dismiss": true
+      }
+    ]
   }
 ]

@@ -4261,6 +4261,7 @@
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "activityHash": 622895925,
       "checklistHash": 2033620375,
       "map": {
         "points": [
@@ -4268,12 +4269,14 @@
             "x": 138,
             "y": 123
           }
-        ]
+        ],
+        "in": "activity"
       }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "activityHash": 622895925,
       "checklistHash": 375526862,
       "map": {
         "points": [
@@ -4281,12 +4284,14 @@
             "x": 116,
             "y": 143
           }
-        ]
+        ],
+        "in": "activity"
       }
     },
     {
       "destinationHash": 2218917881,
       "bubbleHash": 2160621994,
+      "activityHash": 622895925,
       "checklistHash": 3765685361,
       "map": {
         "points": [
@@ -4294,7 +4299,8 @@
             "x": 125,
             "y": 203
           }
-        ]
+        ],
+        "in": "activity"
       }
     },
     {
