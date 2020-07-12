@@ -26,7 +26,7 @@ class PatreonAssociation extends React.Component {
     loading: false,
     error: false,
     value: '',
-    valid: false
+    valid: false,
   };
 
   componentDidMount() {
@@ -39,23 +39,23 @@ class PatreonAssociation extends React.Component {
     this.mounted = false;
   }
 
-  handler_onSearchChange = e => {
+  handler_onSearchChange = (e) => {
     if (this.mounted) {
       this.setState({
         value: e.target.value,
-        valid: RegExpEmail.test(e.target.value)
+        valid: RegExpEmail.test(e.target.value),
       });
     }
   };
 
-  handler_onSubmit = e => {
+  handler_onSubmit = (e) => {
     e.preventDefault();
 
     this.setAssociation();
   };
 
   setAssociation = async () => {
-    const membershipIds = this.props.destinyMemberships.map(m => m.membershipId);
+    const membershipIds = this.props.destinyMemberships.map((m) => m.membershipId);
     const primaryMembershipId = this.props.primaryMembershipId;
     const email = this.state.value;
 
@@ -63,30 +63,61 @@ class PatreonAssociation extends React.Component {
 
     if (this.mounted) {
       this.setState({
-        loading: true
+        loading: true,
       });
     }
 
-    const response = await voluspa.PostPatreon({ membershipIds, primaryMembershipId, email });
+    try {
+      const response = await voluspa.PostPatreon({ membershipIds, primaryMembershipId, email });
 
-    if (this.mounted) {
-      this.setState(p => ({
-        loading: false,
-        value: response.ErrorCode === 1 && response.Response ? '' : p.value
-      }));
-    }
+      if (this.mounted) {
+        this.setState((state) => ({
+          loading: false,
+          value: response.ErrorCode === 1 ? '' : state.value,
+        }));
 
-    if (response.ErrorCode === 1 && response.Response) {
-      this.props.pushNotification({
-        date: new Date().toISOString(),
-        expiry: 86400000,
-        displayProperties: {
-          name: 'Braytech',
-          description: t('Thanks! Your email is now associated with your profiles'),
-          timeout: 10
+        if (response.ErrorCode === 1) {
+          this.props.pushNotification({
+            date: new Date().toISOString(),
+            expiry: 86400000,
+            displayProperties: {
+              name: 'Braytech',
+              description: t('Thanks! Your email is now associated with your profiles'),
+              timeout: 10,
+            },
+          });
+
+          this.props.handler();
+        } else if (response.ErrorCode !== 1) {
+          this.props.pushNotification({
+            error: true,
+            date: new Date().toISOString(),
+            expiry: 86400000,
+            displayProperties: {
+              name: 'VOLUSPA',
+              description: `${response.ErrorCode} ${response.ErrorStatus}`,
+              timeout: 30,
+            },
+          });
         }
-      });
-      this.props.handler();
+      }
+    } catch (e) {
+      if (this.mounted) {
+        this.setState({
+          loading: false,
+        });
+
+        this.props.pushNotification({
+          error: true,
+          date: new Date().toISOString(),
+          expiry: 86400000,
+          displayProperties: {
+            name: `HTTP error`,
+            description: `A network error occured. ${e.message}.`,
+            timeout: 4,
+          },
+        });
+      }
     }
   };
 
@@ -126,11 +157,11 @@ class BungieAuth extends React.Component {
       loading: true,
       memberships: false,
       error: false,
-      patreon: false
+      patreon: false,
     };
   }
 
-  getAccessTokens = async code => {
+  getAccessTokens = async (code) => {
     await bungie.GetOAuthAccessToken(`client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&grant_type=authorization_code&code=${code}`);
 
     if (this.mounted) {
@@ -138,7 +169,7 @@ class BungieAuth extends React.Component {
     }
   };
 
-  handleErrors = response => {
+  handleErrors = (response) => {
     if (response.error && response.error === 'invalid_grant') {
       this.props.resetAuth();
     }
@@ -149,47 +180,47 @@ class BungieAuth extends React.Component {
 
     if (this.mounted) {
       if (response && response.ErrorCode && response.ErrorCode === 1) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          memberships: response.Response
+          memberships: response.Response,
         }));
       } else if ((response && response.ErrorCode && response.ErrorCode !== 1) || (response && response.error)) {
         this.handleErrors(response);
 
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
           error: {
             ErrorCode: response.ErrorCode || response.error,
-            ErrorStatus: response.ErrorStatus || response.error_description
-          }
+            ErrorStatus: response.ErrorStatus || response.error_description,
+          },
         }));
       } else {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          error: true
+          error: true,
         }));
       }
     }
   };
 
-  handler_goToBungie = e => {
+  handler_goToBungie = (e) => {
     window.location = authUrl;
   };
 
-  handler_forget = e => {
+  handler_forget = (e) => {
     this.props.resetAuth();
 
     this.setState({
-      memberships: false
+      memberships: false,
     });
   };
 
-  handler_patreon = e => {
-    this.setState(p => ({
-      patreon: !p.patreon
+  handler_patreon = (e) => {
+    this.setState((p) => ({
+      patreon: !p.patreon,
     }));
   };
 
@@ -205,9 +236,9 @@ class BungieAuth extends React.Component {
     } else if (auth) {
       this.getMemberships();
     } else if (this.mounted) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        loading: false
+        loading: false,
       }));
     }
   }
@@ -253,7 +284,7 @@ class BungieAuth extends React.Component {
             <div className='memberships'>
               <h4>{t('Associated memberships')}</h4>
               <ul className='list'>
-                {memberships.destinyMemberships.map(m => {
+                {memberships.destinyMemberships.map((m) => {
                   return (
                     <li key={m.membershipId} className='linked'>
                       <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
@@ -265,7 +296,7 @@ class BungieAuth extends React.Component {
                       ) : null}
                       <Link
                         to='/character-select'
-                        onClick={e => {
+                        onClick={(e) => {
                           store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType: m.membershipType, membershipId: m.membershipId } });
                         }}
                       />
@@ -332,17 +363,17 @@ class BungieAuthMini extends React.Component {
     this.state = {
       loading: true,
       memberships: false,
-      error: false
+      error: false,
     };
   }
 
-  handleErrors = response => {
+  handleErrors = (response) => {
     if (response.error && response.error === 'invalid_grant') {
       this.props.resetAuth();
     }
   };
 
-  handler_goToBungie = e => {
+  handler_goToBungie = (e) => {
     window.location = authUrl;
   };
 
@@ -351,27 +382,27 @@ class BungieAuthMini extends React.Component {
 
     if (this.mounted) {
       if (response && response.ErrorCode === 1) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          memberships: response.Response
+          memberships: response.Response,
         }));
       } else if ((response && response.ErrorCode && response.ErrorCode !== 1) || (response && response.error)) {
         this.handleErrors(response);
 
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
           error: {
             ErrorCode: response.ErrorCode || response.error,
-            ErrorStatus: response.ErrorStatus || response.error_description
-          }
+            ErrorStatus: response.ErrorStatus || response.error_description,
+          },
         }));
       } else {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          error: true
+          error: true,
         }));
       }
     }
@@ -385,14 +416,14 @@ class BungieAuthMini extends React.Component {
     if (auth) {
       this.getMemberships();
     } else if (this.mounted) {
-      this.setState(p => ({
+      this.setState((p) => ({
         ...p,
-        loading: false
+        loading: false,
       }));
     }
   }
 
-  handler_loadMembership = membership => e => {
+  handler_loadMembership = (membership) => (e) => {
     window.scrollTo(0, 0);
 
     store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: membership });
@@ -413,7 +444,7 @@ class BungieAuthMini extends React.Component {
           <div className='bungie-auth'>
             <div className='memberships'>
               <ul className='list'>
-                {memberships.destinyMemberships.map(m => {
+                {memberships.destinyMemberships.map((m) => {
                   return (
                     <li key={m.membershipId} className='linked'>
                       <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
@@ -471,7 +502,7 @@ class BungieAuthMini extends React.Component {
 const authUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&response_type=code`;
 
 class BungieAuthButton extends React.Component {
-  handler_goToBungie = e => {
+  handler_goToBungie = (e) => {
     window.location = authUrl;
   };
 
@@ -488,7 +519,7 @@ class BungieAuthButton extends React.Component {
 }
 
 class NoAuth extends React.Component {
-  handler_goToBungie = e => {
+  handler_goToBungie = (e) => {
     window.location = authUrl;
   };
 
@@ -522,7 +553,7 @@ class DiffProfile extends React.Component {
     this.state = {
       loading: true,
       memberships: false,
-      error: false
+      error: false,
     };
   }
 
@@ -531,28 +562,28 @@ class DiffProfile extends React.Component {
 
     if (this.mounted) {
       if (response && response.ErrorCode === 1) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          memberships: response.Response
+          memberships: response.Response,
         }));
       } else if (response && response.ErrorCode !== 1) {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          error: response
+          error: response,
         }));
       } else {
-        this.setState(p => ({
+        this.setState((p) => ({
           ...p,
           loading: false,
-          error: true
+          error: true,
         }));
       }
     }
   };
 
-  handler_goToBungie = e => {
+  handler_goToBungie = (e) => {
     window.location = authUrl;
   };
 
@@ -629,7 +660,7 @@ class DiffProfile extends React.Component {
               ) : (
                 <div className='memberships'>
                   <ul className='list'>
-                    {memberships.destinyMemberships.map(m => {
+                    {memberships.destinyMemberships.map((m) => {
                       return (
                         <li key={m.membershipId} className='linked'>
                           <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
@@ -641,7 +672,7 @@ class DiffProfile extends React.Component {
                           ) : null}
                           <Link
                             to='/character-select'
-                            onClick={e => {
+                            onClick={(e) => {
                               store.dispatch({ type: 'MEMBER_LOAD_MEMBERSHIP', payload: { membershipType: m.membershipType, membershipId: m.membershipId } });
                             }}
                           />
@@ -662,21 +693,21 @@ class DiffProfile extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    auth: state.auth
+    auth: state.auth,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setAuth: value => {
+    setAuth: (value) => {
       dispatch({ type: 'SET_AUTH', payload: value });
     },
     resetAuth: () => {
       dispatch({ type: 'RESET_AUTH' });
     },
-    pushNotification: value => {
+    pushNotification: (value) => {
       dispatch({ type: 'PUSH_NOTIFICATION', payload: value });
-    }
+    },
   };
 }
 

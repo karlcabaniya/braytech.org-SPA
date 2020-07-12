@@ -724,7 +724,8 @@ export function lastPlayerActivity(member) {
           definitionActivity.displayProperties.name !== definitionDestination.displayProperties.name &&
           // because fuck
           definitionActivity.hash !== 4166562681 &&
-          definitionActivity.hash !== 4159221189
+          definitionActivity.hash !== 4159221189 &&
+          definitionActivity.hash !== 3966792859
         ) {
           lastActivityString = `${definitionDestination.displayProperties.name}: ${definitionActivity.displayProperties.name}`;
         } else if (definitionDestination) {

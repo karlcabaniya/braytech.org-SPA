@@ -1158,5 +1158,10 @@
     "date": "2020-07-07T06:44:22.202Z",
     "version": "2.27.12",
     "content": "- lots of changes there's always lots of changes this thing is my life like come on become a patron"
+  },
+  {
+    "date": "2020-07-12T07:35:36.335Z",
+    "version": "2.27.24",
+    "content": "- like, there's been a lot, but in this specific revision we have some changes to _Patreon association_ under the _Settings_ view and some checklists improvements.\n- also, screenshots are now 150% larger"
   }
 ]

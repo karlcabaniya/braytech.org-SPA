@@ -4,7 +4,7 @@
   right: 3rem;
   width: calc(100% - 310px - 9rem);
   max-height: calc(100vh - (3rem + 40px) - 3rem);
-  max-width: 640px;
+  max-width: 720px;
   z-index: 2;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
