@@ -118,7 +118,7 @@ function Vendor(props) {
       </div>
       {withinString ? <div className='within'>{withinString}</div> : null}
       {destinationString ? <div className='destination'>{destinationString}</div> : null}
-      <div className='buffer'>
+      <div className='buff'>
         {data.loading ? (
           <div className='waiting'>
             <Spinner />

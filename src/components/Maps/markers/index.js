@@ -19,7 +19,7 @@ export const icon = (tooltip = {}, classNames = [], marker = {}, text) => {
 
   const jsx = (
     <div className='wrapper'>
-      <div data-tooltip={tooltip.hash && true} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
+      <div data-tooltip={tooltip.hash && true} data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type} data-bubblehash={tooltip.bubbleHash}>
         <div className='icon'>{icon}</div>
       </div>
       {marker.selected ? (

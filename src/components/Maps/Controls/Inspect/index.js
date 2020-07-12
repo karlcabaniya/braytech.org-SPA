@@ -109,6 +109,20 @@ function Node(props) {
         <div className='type'>{unified.type?.name}</div>
         <div className='name'>{unified.displayProperties?.name}</div>
         {unified.displayProperties?.description ? <BungieText className='description' value={unified.displayProperties.description} /> : null}
+        {unified.extended?.enemies?.length ? (
+          <div className='entities'>
+            {unified.extended?.enemies?.length ? (
+              <div className='enemies'>
+                <div className='type'>{t('Enemies')}</div>
+                <ul>
+                  {unified.extended.enemies.map((enemy, e) => (
+                    <li key={e}>{manifest.DestinyEnemyRaceDefinition[enemy.enemyRaceHash].displayProperties.name}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
       {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
       {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
@@ -122,22 +136,24 @@ function Node(props) {
           </a>
         </div>
       ) : null}
-      <div className={cx({ buffer: unified.related?.records.length || unified.extended?.instructions })}>
-        {unified.extended?.instructions ? (
-          <>
-            <h4>{t('Instructions')}</h4>
-            <BungieText className='description instructions' value={unified.extended.instructions} />
-          </>
-        ) : null}
-        {unified.related?.records.length ? (
-          <>
-            <h4>{t('Triumphs')}</h4>
-            <ul className='list record-items'>
-              <Records selfLinkFrom={location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showCompleted showInvisible />
-            </ul>
-          </>
-        ) : null}
-      </div>
+      {unified.related?.records.length || unified.extended?.instructions ? (
+        <div className='buff'>
+          {unified.extended?.instructions ? (
+            <>
+              <h4>{t('Instructions')}</h4>
+              <BungieText className='description instructions' value={unified.extended.instructions} />
+            </>
+          ) : null}
+          {unified.related?.records.length ? (
+            <>
+              <h4>{t('Triumphs')}</h4>
+              <ul className='list record-items'>
+                <Records selfLinkFrom={location.pathname} hashes={unified.related.records.map((record) => record.recordHash)} ordered showCompleted showInvisible />
+              </ul>
+            </>
+          ) : null}
+        </div>
+      ) : null}
       <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
     </div>
   );

@@ -41,6 +41,7 @@ export const manifestTableNames = [
   'DestinyChecklistDefinition',
   'DestinyEnergyTypeDefinition',
   'DestinyPowerCapDefinition',
+  'DestinyEnemyRaceDefinition'
 ];
 
 export const platforms = {

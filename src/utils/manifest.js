@@ -28,6 +28,8 @@ import DestinyDestinationDefinition_ESMX from '../data/manifest/es-MX/DestinyDes
 import DestinyDestinationDefinition_IT from '../data/manifest/it/DestinyDestinationDefinition/';
 import DestinyDestinationDefinition_RU from '../data/manifest/ru/DestinyDestinationDefinition/';
 
+import DestinyEnemyRaceDefinition_EN from '../data/manifest/en/DestinyEnemyRaceDefinition/';
+
 import DestinyHistoricalStatsDefinition_EN from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
 
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
@@ -41,8 +43,9 @@ const customs = {
     BraytechMaps: BraytechMaps_EN,
     DestinyActivityDefinition: DestinyActivityDefinition_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
-    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
     DestinyClanBannerDefinition: DestinyClanBannerDefinition_EN,
+    DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
+    DestinyEnemyRaceDefinition: DestinyEnemyRaceDefinition_EN,
     DestinyHistoricalStatsDefinition: DestinyHistoricalStatsDefinition_EN,
     DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_EN,
   },
@@ -107,6 +110,7 @@ const manifest = {
 
     customsMerge(newManifest.DestinyActivityDefinition, customsMerge(customs.en.DestinyActivityDefinition, customs[lang].DestinyActivityDefinition));
     customsMerge(newManifest.DestinyDestinationDefinition, customsMerge(customs.en.DestinyDestinationDefinition, customs[lang].DestinyDestinationDefinition));
+    customsMerge(newManifest.DestinyEnemyRaceDefinition, customsMerge(customs.en.DestinyEnemyRaceDefinition, customs[lang].DestinyEnemyRaceDefinition));
     customsMerge(newManifest.DestinyHistoricalStatsDefinition, customsMerge(customs.en.DestinyHistoricalStatsDefinition, customs[lang].DestinyHistoricalStatsDefinition));
     customsMerge(newManifest.DestinyInventoryItemDefinition, customsMerge(customs.en.DestinyInventoryItemDefinition, customs[lang].DestinyInventoryItemDefinition));
 

@@ -703,22 +703,54 @@
   },
   "66": {
     "checklistHash": 2777193860,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_whispered-falls.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_whispered-falls.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "67": {
     "checklistHash": 3240560483,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_the-drain.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_the-drain.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "68": {
     "checklistHash": 3402131234,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_scavengers-den.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_scavengers-den.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "69": {
     "displayProperties": {
       "description": "The entrance to this lost sector is found firstly through the ceiling of this tiny volcano, secondly keep left and, ..."
     },
     "checklistHash": 815928620,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/winding-cove_lost-sectors_the-weep.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/winding-cove_lost-sectors_the-weep.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "70": {
     "checklistHash": 4091723403,
@@ -734,7 +766,25 @@
   },
   "73": {
     "checklistHash": 1850051473,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-gulch_lost-sectors_flooded-chasm.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-gulch_lost-sectors_flooded-chasm.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 546070638,
+          "faction": "red"
+        },
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ],
+      "screenshots": [
+        {
+          "bubbleHash": 3854937584,
+          "screenshot": "/static/images/screenshots/checklists/lost-sectors/firebase-hades_lost-sectors_excavation-site-xii.jpg"
+        }
+      ]
+    }
   },
   "74": {
     "checklistHash": 1505712119,
@@ -746,15 +796,39 @@
   },
   "76": {
     "checklistHash": 526088259,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_atrium.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_atrium.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "77": {
     "checklistHash": 2954440164,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_terminus-east.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_terminus-east.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "78": {
     "checklistHash": 1306638037,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_widows-walk.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_widows-walk.jpg",
+    "extended": {
+      "enemies": [
+        {
+          "enemyRaceHash": 1636291695,
+          "faction": "dusk"
+        }
+      ]
+    }
   },
   "79": {
     "checklistHash": 874424041,

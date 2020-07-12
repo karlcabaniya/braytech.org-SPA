@@ -25,6 +25,12 @@ class Checklist extends React.Component {
     }
 
     const node = cartographer({ key: 'checklistHash', value: checklistItem.checklistHash });
+
+    // if (this.props.bubblehash && node.map.points.find(point => point.bubbleHash === +this.props.bubblehash)) {
+    //   node.bubbleHash = +this.props.bubblehash;
+    //   node.screenshot = node.
+    // }
+
     const { destinationString, withinString } = locationStrings(node);
 
     return (

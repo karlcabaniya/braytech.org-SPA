@@ -144,9 +144,10 @@
 
 .map-omega .control.inspector .header .icon {
   position: absolute;
-  top: -20%;
   right: 2rem;
-  height: 140%;
+  top: 50%;
+  height: 192px;
+  transform: translateY(-50%);
   z-index: -1;
   --fill-color: white;
   opacity: 0.1;
@@ -171,6 +172,7 @@
 }
 
 .map-omega .control.inspector .header .description {
+  position: relative;
   margin: 10px 0 0;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
@@ -205,11 +207,12 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-.map-omega .control.inspector .buffer {
+.map-omega .control.inspector .buff {
   padding: 2rem;
 }
 
 .map-omega .control.inspector .description.instructions {
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -236,11 +239,21 @@
   grid-template-columns: repeat(auto-fill, 64px);
 }
 
-.map-omega .control.inspector.vendor .buffer .waiting {
+.map-omega .control.inspector.vendor .buff .waiting {
   display: grid;
   justify-content: center;
 }
 
-.map-omega .control.inspector.vendor .buffer .info {
+.map-omega .control.inspector.vendor .buff .info {
   text-align: center;
+}
+
+.map-omega .control.inspector .entities {
+  margin: 1rem 0 0;
+}
+
+.map-omega .control.inspector .entities ul {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
 }
