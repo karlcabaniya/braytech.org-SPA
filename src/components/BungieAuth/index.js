@@ -305,7 +305,7 @@ class BungieAuth extends React.Component {
                 })}
               </ul>
               <div className='info'>
-                <p>{t('These are the memberships that are currenty associated with your Bungie.net profile.')}</p>
+                <p>{t('These are the memberships that are currently associated with your Bungie.net profile.')}</p>
               </div>
             </div>
             <h4>{t('Authentication data')}</h4>

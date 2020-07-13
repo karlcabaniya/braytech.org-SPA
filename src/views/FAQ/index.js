@@ -46,7 +46,7 @@ class FAQ extends React.Component {
         k: 'api',
         i: 3,
         q: t("Clan Historical Stats don't match [other thing]"),
-        a: [<Markdown key='0' className='markdown' source={t("There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competititon.")} />]
+        a: [<Markdown key='0' className='markdown' source={t("There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition.")} />]
       }
     ];
 

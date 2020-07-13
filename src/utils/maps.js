@@ -106,10 +106,10 @@ export function cartographer(search) {
 
   const icon = dynamic?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
-  console.log(`definitionMaps`, definitionMaps);
-  console.log(`graph`, graph);
-  console.log(`checklist`, checklist);
-  console.log(`dynamic`, dynamic);
+  // console.log(`definitionMaps`, definitionMaps);
+  // console.log(`graph`, graph);
+  // console.log(`checklist`, checklist);
+  // console.log(`dynamic`, dynamic);
 
   const map = {
     ...(graph.map || {}),
@@ -134,7 +134,7 @@ export function cartographer(search) {
   //   // if search.bubbleHash is valid, use it
   //   (search.bubbleHash && map.points.find(point => point.bubbleHash === search.bubbleHash) && search.bubbleHash) || checklistItem?.bubbleHash || definitionMaps?.bubbleHash || graph?.bubbleHash;
 
-  const screenshot = map.points.find((point) => point.bubbleHash === search.bubbleHash)?.screenshot || definitionMaps?.screenshot;
+  const screenshot = map.points?.find((point) => point.bubbleHash === search.bubbleHash)?.screenshot || definitionMaps?.screenshot;
 
   const extended = {
     ...(checklistItem?.extended || {}),

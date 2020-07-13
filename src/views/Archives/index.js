@@ -51,7 +51,7 @@ function Archives() {
     },
     // {
     //   name: t('Eververse Season Overview'),
-    //   description: t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficieny."),
+    //   description: t("Details each of the current season's weekly Eververse store stock to allow the viewer assistance in maximising their Silver efficiency."),
     //   deployed: "2020-01-10T00:00:00.000Z",
     //   link: '/archives/eververse'
     // },
