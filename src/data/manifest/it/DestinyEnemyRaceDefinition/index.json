@@ -5,36 +5,43 @@
     },
     "factions": [
       {
+        "hash": "devils",
         "displayProperties": {
           "name": "Casato dei Diavoli"
         }
       },
       {
+        "hash": "judgement",
         "displayProperties": {
           "name": "Casato del Guidizio"
         }
       },
       {
+        "hash": "kings",
         "displayProperties": {
           "name": "Casato dei Re"
         }
       },
       {
+        "hash": "winter",
         "displayProperties": {
           "name": "Casato dell'Inverno"
         }
       },
       {
+        "hash": "wolves",
         "displayProperties": {
           "name": "Casato dei Lupi"
         }
       },
       {
+        "hash": "spider",
         "displayProperties": {
           "name": "Il Sindacato Criminale del Ragno"
         }
       },
       {
+        "hash": "dusk",
         "displayProperties": {
           "name": "Casato del Crepuscolo"
         }
@@ -47,6 +54,7 @@
     },
     "factions": [
       {
+        "hash": "red",
         "displayProperties": {
           "name": "Legione Rossa",
           "description": "La Legione Rossa è una Legione di Ccabal d'élite precedentemente guidata dall'Imperatore Cabal, Dominus Ghaul."
@@ -65,6 +73,7 @@
     },
     "factions": [
       {
+        "hash": "crota",
         "displayProperties": {
           "name": "Progenie di Crota"
         }
