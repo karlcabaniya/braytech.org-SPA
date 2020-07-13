@@ -1,8 +1,6 @@
 import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import { cloneDeep } from 'lodash';
+import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
 import cx from 'classnames';
 
 import { t, BungieText } from '../../utils/i18n';
@@ -10,9 +8,11 @@ import manifest from '../../utils/manifest';
 import { cartographer } from '../../utils/maps';
 import { stepsWithRecords, rewardsQuestLineOverrides, rewardsQuestLineOverridesShadowkeep, setDataQuestLineOverrides } from '../../data/questLines';
 import { removeMemberIds } from '../../utils/paths';
+
 import Records from '../Records/';
 import Items from '../Items';
 import ProgressBar from '../UI/ProgressBar';
+
 import { Views } from '../../svg';
 
 import './styles.css';
@@ -39,7 +39,7 @@ function questTrait(hash) {
   }
 }
 
-function questFilters(key) {
+export function questFilters(key) {
   if (key === 'bounties') {
     return {
       displayProperties: {
@@ -144,175 +144,175 @@ export function getRewardsQuestLine(definition, classType) {
   return rewards;
 }
 
-class QuestLine extends React.Component {
-  render() {
-    const { member, item } = this.props;
-    const characters = member.data.profile.characters.data;
-    const character = characters.find((character) => character.characterId === member.characterId);
-    const itemComponents = member.data.profile.itemComponents;
-    const characterUninstancedItemComponents = member.data.profile.characterUninstancedItemComponents[member.characterId].objectives.data;
+export function QuestLine({ item, ...props }) {
+  const member = useSelector((state) => state.member);
+  const location = useLocation();
+  const characters = member.data.profile.characters.data;
+  const character = characters.find((character) => character.characterId === member.characterId);
+  const itemComponents = member.data.profile.itemComponents;
+  const characterUninstancedItemComponents = member.data.profile.characterUninstancedItemComponents[member.characterId].objectives.data;
 
-    const definitionItem = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash] || manifest.DestinyInventoryItemDefinition[item.itemHash];
+  const definitionItem = manifest.DestinyInventoryItemDefinition[manifest.DestinyInventoryItemDefinition[item.itemHash]?.objectives?.questlineItemHash] || manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-    if (definitionItem) {
-      const questLine = cloneDeep(definitionItem);
+  if (definitionItem) {
+    const setData = getSetDataQuestLine(definitionItem);
 
-      const setData = getSetDataQuestLine(questLine);
+    let assumeCompleted = true;
+    const steps = setData?.map((step, s) => {
+      step.i = s + 1;
+      step.definitionStep = manifest.DestinyInventoryItemDefinition[step.itemHash];
+      step.completed = assumeCompleted;
 
-      let assumeCompleted = true;
-      const steps =
-        setData &&
-        setData.length &&
-        setData.map((s, i) => {
-          s.i = i + 1;
-          s.definitionStep = manifest.DestinyInventoryItemDefinition[s.itemHash];
-          s.completed = assumeCompleted;
+      if (step.itemHash === item.itemHash || setData.length === 1) {
+        assumeCompleted = false;
+        step.completed = false;
+        step.active = true;
+        step.itemInstanceId = item.itemInstanceId || null;
+      }
 
-          if (s.itemHash === item.itemHash || setData.length === 1) {
-            assumeCompleted = false;
-            s.completed = false;
-            s.active = true;
-            s.itemInstanceId = item.itemInstanceId || null;
-          }
+      let progressData =
+        item.itemInstanceId && itemComponents.objectives.data[item.itemInstanceId]
+          ? // profile instanced data is available
+            itemComponents.objectives.data[item.itemInstanceId].objectives
+          : characterUninstancedItemComponents?.[item.itemHash]
+          ? // character instanced data is available
+            characterUninstancedItemComponents[item.itemHash].objectives
+          : // nothing is available
+            false;
 
-          let progressData = item.itemInstanceId && itemComponents.objectives.data[item.itemInstanceId] ? itemComponents.objectives.data[item.itemInstanceId].objectives : characterUninstancedItemComponents && characterUninstancedItemComponents[item.itemHash] ? characterUninstancedItemComponents[item.itemHash].objectives : false;
-
-          let stepMatch = false;
-          if (progressData && s.definitionStep.objectives && s.definitionStep.objectives.objectiveHashes.length === progressData.length) {
-            progressData.forEach((o) => {
-              if (s.definitionStep.objectives.objectiveHashes.includes(o.objectiveHash)) {
-                stepMatch = true;
-              } else {
-                stepMatch = false;
-              }
-            });
-          }
-
-          if (stepMatch) {
-            s.progress = progressData;
-          } else if (assumeCompleted && s.definitionStep.objectives && s.definitionStep.objectives.objectiveHashes.length) {
-            s.progress = s.definitionStep.objectives.objectiveHashes.map((o) => {
-              let definitionObjective = manifest.DestinyObjectiveDefinition[o];
-
-              return {
-                complete: true,
-                progress: definitionObjective.completionValue,
-                completionValue: definitionObjective.completionValue,
-                objectiveHash: definitionObjective.hash,
-              };
-            });
+      let stepMatch = false;
+      if (progressData && step.definitionStep.objectives && step.definitionStep.objectives.objectiveHashes.length === progressData.length) {
+        progressData.forEach((o) => {
+          if (step.definitionStep.objectives.objectiveHashes.includes(o.objectiveHash)) {
+            stepMatch = true;
           } else {
-            s.progress = [];
+            stepMatch = false;
           }
-
-          return s;
         });
+      }
 
-      const questLineName = (questLine.setData?.questLineName && questLine.setData.questLineName !== '' && questLine.setData.questLineName) || questLine.displayProperties.name;
+      if (stepMatch) {
+        step.progress = progressData;
+      } else if (assumeCompleted && step.definitionStep.objectives && step.definitionStep.objectives.objectiveHashes.length) {
+        step.progress = step.definitionStep.objectives.objectiveHashes.map((o) => {
+          let definitionObjective = manifest.DestinyObjectiveDefinition[o];
 
-      const questLineDescription = questLine.displaySource && questLine.displaySource !== '' ? questLine.displaySource : questLine.displayProperties.description && questLine.displayProperties.description !== '' ? questLine.displayProperties.description : steps[0].definitionStep.displayProperties.description;
+          return {
+            complete: true,
+            progress: definitionObjective.completionValue,
+            completionValue: definitionObjective.completionValue,
+            objectiveHash: definitionObjective.hash,
+          };
+        });
+      } else {
+        step.progress = [];
+      }
 
-      const rewardsQuestLine = getRewardsQuestLine(questLine, character.classType);
+      return step;
+    });
 
-      const node = cartographer({ key: 'itemHash', value: definitionItem.hash });
+    const questLineName = (definitionItem.setData?.questLineName && definitionItem.setData.questLineName !== '' && definitionItem.setData.questLineName) || definitionItem.displayProperties.name;
 
-      return (
-        <div className='quest-line'>
-          <div className='module'>
-            <div className='summary'>
-              <div className='icon'>{questFilters(questTrait(definitionItem.hash)).displayProperties.icon}</div>
-              <div className='text'>
-                <div className='name'>{questLineName}</div>
-                {node.checklist?.items?.[0]?.recordHash ? (
-                  <div className='highlight'>
-                    <div className='text'>{t('This item has an associated map node')}</div>
-                    <Link className='button' to={`/maps/${node.destinationHash}/${node.checklist.items[0].recordHash}`}>
-                      <div className='text'>{t('View Map')}</div>
-                    </Link>
-                  </div>
-                ) : null}
-                <BungieText className='displaySource' value={questLineDescription} />
-                {rewardsQuestLine.length ? (
-                  <>
-                    <h4>{t('Rewards')}</h4>
-                    <ul className='list inventory-items'>
-                      <Items items={rewardsQuestLine} />
-                    </ul>
-                  </>
-                ) : null}
-              </div>
+    const questLineDescription =
+      definitionItem.displaySource && definitionItem.displaySource !== ''
+        ? // use displaySource if available
+          definitionItem.displaySource
+        : // otherwise use displayProperties description
+        definitionItem.displayProperties.description && definitionItem.displayProperties.description !== ''
+        ? definitionItem.displayProperties.description
+        : // else, use first step description
+          steps?.[0]?.definitionStep.displayProperties.description;
+
+    const rewardsQuestLine = getRewardsQuestLine(definitionItem, character.classType);
+
+    const node = cartographer({ key: 'itemHash', value: definitionItem.hash });
+
+    return (
+      <div className='quest-line'>
+        <div className='module'>
+          <div className='summary'>
+            <div className='icon'>{questFilters(questTrait(definitionItem.hash)).displayProperties.icon}</div>
+            <div className='text'>
+              <div className='name'>{questLineName}</div>
+              {node.checklist?.items?.[0]?.recordHash ? (
+                <div className='highlight'>
+                  <div className='text'>{t('This item has an associated map node')}</div>
+                  <Link className='button' to={`/maps/${node.destinationHash}/${node.checklist.items[0].recordHash}`}>
+                    <div className='text'>{t('View Map')}</div>
+                  </Link>
+                </div>
+              ) : null}
+              <BungieText className='display-source' value={questLineDescription} />
+              {rewardsQuestLine.length ? (
+                <>
+                  <h4>{t('Rewards')}</h4>
+                  <ul className='list inventory-items'>
+                    <Items items={rewardsQuestLine} />
+                  </ul>
+                </>
+              ) : null}
             </div>
           </div>
-          <div className='module'>
-            {steps ? (
-              <>
-                <h4>{t('Steps')}</h4>
-                <div className='steps'>
-                  {steps &&
-                    steps.length &&
-                    steps.map((step) => {
-                      const descriptionStep = step.definitionStep.displayProperties.description && step.definitionStep.displayProperties.description !== '' ? step.definitionStep.displayProperties.description : false;
-
-                      return (
-                        <div key={step.itemHash} className={cx('step', { completed: step.completed })}>
-                          <div className='header'>
-                            <div className='number'>{step.i}</div>
-                            <div className='name'>{step.definitionStep.displayProperties.name}</div>
-                          </div>
-                          {descriptionStep ? <BungieText className='description' value={descriptionStep} /> : null}
-                          {step.definitionStep.objectives?.objectiveHashes &&
-                          // no need to show objectives if there's only 1, it has no progressDescription, and a completionValue of 1
-                          !(step.definitionStep.objectives.objectiveHashes.length === 1 && step.definitionStep.objectives.objectiveHashes.filter((hash) => manifest.DestinyObjectiveDefinition[hash].progressDescription === '' && manifest.DestinyObjectiveDefinition[hash].completionValue === 1).length) ? (
-                            <div className='objectives'>
-                              {step.definitionStep.objectives.objectiveHashes.map((hash, h) => {
-                                const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
-
-                                const progress = {
-                                  complete: false,
-                                  progress: 0,
-                                  completionValue: definitionObjective.completionValue,
-                                  objectiveHash: definitionObjective.hash,
-                                  ...step.progress.find((o) => o.objectiveHash === definitionObjective.hash),
-                                };
-
-                                const relatedRecords = stepsWithRecords.filter((r) => r.objectiveHash === definitionObjective.hash).map((r) => r.recordHash);
-
-                                return (
-                                  <React.Fragment key={h}>
-                                    <ProgressBar {...progress} />
-                                    {relatedRecords && relatedRecords.length ? (
-                                      <ul className='list record-items'>
-                                        <Records selfLinkFrom={removeMemberIds(this.props.location.pathname)} showCompleted hashes={relatedRecords} />
-                                      </ul>
-                                    ) : null}
-                                  </React.Fragment>
-                                );
-                              })}
-                            </div>
-                          ) : null}
-                        </div>
-                      );
-                    })}
-                </div>
-              </>
-            ) : null}
-          </div>
         </div>
-      );
-    }
+        {steps?.length ? (
+          <div className='module'>
+            <h4>{t('Steps')}</h4>
+            <div className='steps'>
+              {steps &&
+                steps.length &&
+                steps.map((step) => {
+                  const description = step.definitionStep.displayProperties.description && step.definitionStep.displayProperties.description !== '' && step.definitionStep.displayProperties.description;
+                  const displaySource = step.definitionStep.displaySource && step.definitionStep.displaySource !== '' && definitionItem.displaySource !== step.definitionStep.displaySource && step.definitionStep.displaySource;
 
-    return null;
+                  return (
+                    <div key={step.itemHash} className={cx('step', { completed: step.completed })}>
+                      <div className='header'>
+                        <div className='number'>{step.i}</div>
+                        <div className='name'>{step.definitionStep.displayProperties.name}</div>
+                      </div>
+                      {description ? <BungieText className='description' value={description} /> : null}
+                      {step.definitionStep.objectives?.objectiveHashes &&
+                      // no need to show objectives if there's only 1, it has no progressDescription, and a completionValue of 1
+                      !(step.definitionStep.objectives.objectiveHashes.length === 1 && step.definitionStep.objectives.objectiveHashes.filter((hash) => manifest.DestinyObjectiveDefinition[hash].progressDescription === '' && manifest.DestinyObjectiveDefinition[hash].completionValue === 1).length) ? (
+                        <div className='objectives'>
+                          {step.definitionStep.objectives.objectiveHashes.map((hash, h) => {
+                            const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
+
+                            const progress = {
+                              complete: false,
+                              progress: 0,
+                              completionValue: definitionObjective.completionValue,
+                              objectiveHash: definitionObjective.hash,
+                              ...step.progress.find((o) => o.objectiveHash === definitionObjective.hash),
+                            };
+
+                            const relatedRecords = stepsWithRecords.filter((record) => record.objectiveHash === definitionObjective.hash).map((record) => record.recordHash);
+
+                            return (
+                              <React.Fragment key={h}>
+                                <ProgressBar {...progress} />
+                                {relatedRecords && relatedRecords.length ? (
+                                  <ul className='list record-items'>
+                                    <Records selfLinkFrom={removeMemberIds(location.pathname)} showCompleted hashes={relatedRecords} />
+                                  </ul>
+                                ) : null}
+                              </React.Fragment>
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                      {displaySource ? <BungieText className='display-source' value={displaySource} /> : null}
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    );
   }
+
+  return null;
 }
-
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-  };
-}
-
-QuestLine = compose(connect(mapStateToProps), withRouter)(QuestLine);
-
-export { QuestLine, questFilters };
 
 export default QuestLine;

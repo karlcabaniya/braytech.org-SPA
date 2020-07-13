@@ -53,7 +53,7 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.quest-line .displaySource {
+.quest-line .summary .display-source {
   font-size: 18px;
   font-style: italic;
   letter-spacing: 0.5px;
@@ -131,8 +131,18 @@
   align-content: center;
 }
 
-.quest-line .steps .step .description {
+.quest-line .steps .step .description,
+.quest-line .steps .step .display-source {
   max-width: 600px;
+}
+
+.quest-line .steps .step .display-source {
+  margin: 1rem 0 0;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .quest-line .steps .step .objectives {
@@ -187,12 +197,13 @@
   }
 
   .quest-line .summary > .icon {
-    right: -4.25rem;    
-    width: unset;
+    right: -2rem;
+    width: calc(100% - 3rem);
     height: 100%;
     min-height: 12rem;
     max-height: 17rem;
-  }
+    overflow: hidden;
+  }  
 
   .quest-line .summary > .icon svg {
     width: auto;
@@ -205,7 +216,7 @@
     margin: 0 0 1rem;
   }
 
-  .quest-line .displaySource {
+  .quest-line .display-source {
     font-size: 16px;
   }
 

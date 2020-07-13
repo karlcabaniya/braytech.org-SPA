@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import cx from 'classnames';
 
-import { pushNotification } from '../../store/actions/notifications';
+import actions from '../../store/actions';
 import packageJSON from '../../../package.json';
 import Spinner from '../../components/UI/Spinner';
 import { hiddenFooterRoutes } from '../../components/UI/Footer';
@@ -98,7 +98,7 @@ function AppLoading({ state, ...props }) {
   useEffect(() => {
     if (loadingStates[state.code]?.isError || loadingStates[state.code]?.shh) {
       dispatch(
-        pushNotification({
+        actions.notifications.push({
           error: true,
           date: new Date().toISOString(),
           expiry: 86400000,

@@ -5,7 +5,7 @@ import cx from 'classnames';
 import ls from '../../../utils/localStorage';
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { rebind } from '../../../store/actions/tooltips';
+import actions from '../../../store/actions';
 import { nightfalls, nightmareHunts } from '../../../utils/destinyEnums';
 
 import ProgressBar from '../../UI/ProgressBar';
@@ -78,7 +78,7 @@ function Challenges() {
 
   useEffect(() => {
     // runs on init for each socket. unsure how to fix cleanly
-    dispatch(rebind());
+    dispatch(actions.tooltips.rebind());
   }, [dispatch, state]);
 
   function handler_togglePinnacleFilter() {

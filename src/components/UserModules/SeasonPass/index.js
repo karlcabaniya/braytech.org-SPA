@@ -4,7 +4,7 @@ import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { rebind } from '../../../store/actions/tooltips';
+import actions from '../../../store/actions';
 import { classStrings, enumerateProgressionRewardItemState } from '../../../utils/destinyEnums';
 import { progressionSeasonRank } from '../../../utils/destinyUtils';
 import Button from '../../UI/Button';
@@ -57,7 +57,7 @@ function SeasonPass() {
   // rebind tooltips on state.seasonPassRewardsPage change
   useEffect(() => {
     // runs on init for each socket. unsure how to fix cleanly
-    dispatch(rebind());
+    dispatch(actions.tooltips.rebind());
   }, [dispatch, state.seasonPassRewardsPage]);
 
   function handler_seasonPassPrev(e) {

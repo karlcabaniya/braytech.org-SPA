@@ -6,7 +6,7 @@ import queryString from 'query-string';
 
 import { t, BungieText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
-import { rebind } from '../../store/actions/tooltips';
+import actions from '../../store/actions';
 import { DestinyTierType, DestinyItemType, DestinySocketCategoryStyle, enumerateCollectibleState } from '../../utils/destinyEnums';
 import { getCollectibleState, commonality } from '../../utils/destinyUtils';
 import { damageTypeToAsset, energyTypeToAsset, breakerTypeToIcon, itemRarityToString, ammoTypeToAsset } from '../../utils/destinyConverters';
@@ -398,7 +398,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
 
   useEffect(() => {
     // runs on init for each socket. unsure how to fix cleanly
-    dispatch(rebind());
+    dispatch(actions.tooltips.rebind());
   }, [dispatch, socketState]);
 
   const toggleSocket = (socketIndex) => (e) => {

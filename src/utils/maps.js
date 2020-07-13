@@ -130,11 +130,7 @@ export function cartographer(search) {
     });
   }
 
-  // const bubbleHash =
-  //   // if search.bubbleHash is valid, use it
-  //   (search.bubbleHash && map.points.find(point => point.bubbleHash === search.bubbleHash) && search.bubbleHash) || checklistItem?.bubbleHash || definitionMaps?.bubbleHash || graph?.bubbleHash;
-
-  const screenshot = map.points?.find((point) => point.bubbleHash === search.bubbleHash)?.screenshot || definitionMaps?.screenshot;
+  const screenshot = map.points?.find((point) => point.bubbleHash === search.bubbleHash)?.screenshot || dynamic?.screenshot || definitionMaps?.screenshot;
 
   const extended = {
     ...(checklistItem?.extended || {}),
@@ -307,36 +303,21 @@ export function screenshotFilename(node) {
   const definitionDestination = manifest.DestinyDestinationDefinition[checklistItem?.destinationHash];
   const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (checklistItem?.map?.bubbleHash || checklistItem?.extended?.bubbleHash || checklistItem?.bubbleHash));
 
-  if (node.checklist?.checklistId === 2360931290 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-scans_${checklistItem.displayProperties.number}`;
-  } else if (node.checklist?.checklistId === 1697465175 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_region-chests_${checklistItem.displayProperties.number}`;
-  } else if (node.checklist?.checklistId === 3142056444 && checklistItem?.displayProperties.name) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lost-sectors_${checklistItem.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}`;
-  } else if (node.checklist?.checklistId === 365218222 && checklistItem?.displayProperties.name) {
-    return `sleeper-nodes_${checklistItem.displayProperties.name.toLowerCase().replace(' ', '')}`;
-  } else if (node.checklist?.checklistId === 1420597821 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_ghost-stories_${checklistItem.recordHash}`;
-  } else if (node.checklist?.checklistId === 655926402 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-forsaken-prince_${checklistItem.recordHash}`;
-  } else if (node.checklist?.checklistId === 3305936921 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_the-awoken-of-the-reef_${checklistItem.recordHash}`;
-  } else if (node.checklist?.checklistId === 4285512244 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_lunas-lost_${checklistItem.recordHash}`;
-  } else if (node.checklist?.checklistId === 2474271317 && checklistItem.recordHash) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_necrotic-cyphers_${checklistItem.recordHash}`;
-  } else if (node.checklist?.checklistId === 1912364094 && checklistItem.checklistHash) {
-    return `jade-rabbits_${checklistItem.checklistHash}`;
-  } else if (node.checklist?.checklistId === 1297424116 && checklistItem.checklistHash) {
-    return `ahamkara-bones_${checklistItem.checklistHash}`;
-  } else if (node.checklist?.checklistId === 2609997025 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_corrupted-eggs_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
-  } else if (node.checklist?.checklistId === 2726513366 && checklistItem?.displayProperties.number) {
-    return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_feline-friends_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
-  } else if (node.checklist?.checklistId === 530600409 && checklistItem.checklistHash) {
-    return `${checklistItem.checklistHash}`;
-  } else if (node.checklist?.checklistId === 2137293116 && checklistItem.checklistHash) {
-    return `${checklistItem.checklistHash}`;
+  if (checklistItem.checklistHash) {
+    return `${(definitionBubble?.displayProperties.name || '')
+      .toLowerCase()
+      .replace(/ \| /g, ' ')
+      .replace(/(\||\?|'|:)/g, '')
+      .replace(/ /g, '-')}-${checklistItem.checklistHash}`;
+  } else if (checklistItem.recordHash) {
+    const definitionRecord = manifest.DestinyRecordDefinition[checklistItem.recordHash];
+    const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
+
+    return `${(definitionLore?.displayProperties.name || '')
+      .toLowerCase()
+      .replace(/ \| /g, ' ')
+      .replace(/(\||\?|'|:)/g, '')
+      .replace(/ /g, '-')}-${checklistItem.recordHash}`;
   }
 
   return undefined;

@@ -1163,5 +1163,10 @@
     "date": "2020-07-12T07:35:36.335Z",
     "version": "2.27.24",
     "content": "- like, there's been a lot, but in this specific revision we have some changes to _Patreon association_ under the _Settings_ view and some checklists improvements.\n- also, screenshots are now 150% larger"
+  },
+  {
+    "date": "2020-07-13T16:54:34.572Z",
+    "version": "2.27.28",
+    "content": "- improvements to _Maps_, _Content Vault_, _Quests_ details view"
   }
 ]

@@ -5,7 +5,7 @@ import { groupBy } from 'lodash';
 import { t, BungieText } from '../../../../utils/i18n';
 import manifest from '../../../../utils/manifest';
 import getVendor from '../../../../utils/getVendor';
-import { rebind } from '../../../../store/actions/tooltips';
+import actions from '../../../../store/actions';
 import { cartographer, findNodeType, locationStrings } from '../../../../utils/maps';
 import Items from '../../../Items';
 import ObservedImage from '../../../ObservedImage';
@@ -58,7 +58,7 @@ function Vendor(props) {
   }, [member, auth, props.vendorHash]);
 
   useEffect(() => {
-    dispatch(rebind());
+    dispatch(actions.tooltips.rebind());
   }, [dispatch, data.response]);
 
   console.log(member, auth, data);
