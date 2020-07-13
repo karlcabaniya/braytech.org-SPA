@@ -100,29 +100,77 @@ async function run() {
     //   `public/static/images/screenshots/checklists/lost-sectors/${checklistItem.hash}.jpg`
     // );
 
-    const screenshot = searchScreenshots('checklists/lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}`);
+    // const screenshot = searchScreenshots('public/static/images/screenshots/checklists/ghost-scans', `ghost-scans_${itemNumber}`);
 
-    if (screenshot) fs.renameSync(
-      screenshot,
-      `screenshots/checklists/lost-sectors/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
-    );
+    // if (screenshot) fs.renameSync(
+    //   screenshot,
+    //   `public/static/images/screenshots/checklists/lost-sectors/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
+    // );
+
+    const screenshot = searchScreenshots('public/static/images/screenshots/checklists/ghost-scans/', `ghost-scans_${itemNumber}`);
+
+    console.log(itemNumber, name)
+
+    if (screenshot) {
+      // fs.renameSync(
+      //   screenshot,
+      //   `screenshots/checklists/ghost-scans/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
+      // );
+    }
+
 
   }
 
-  const checklist = manifest.DestinyChecklistDefinition[3142056444];
+  const checklist = manifest.DestinyChecklistDefinition[2360931290];
 
   checklist.entries.forEach(entry => {
-    checklistItem(3142056444, entry);
+    checklistItem(2360931290, entry);
   });
 }
+
+// if (checklistId === 2360931290 && number) {
+//   return searchScreenshots('checklists/ghost-scans', `ghost-scans_${number}.jpg`);
+// }
+
+// if (checklistId === 1697465175 && number) {
+//   return searchScreenshots('checklists/region-chests', `region-chests_${number}.jpg`);
+// }
+
+// if (checklistId === 365218222 && name) {
+//   return searchScreenshots('checklists/sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
+// }
+
+// if (checklistId === 1912364094 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
+// }
+
+// if (checklistId === 530600409 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/calcified-light', `${checklistItem.checklistHash}.jpg`);
+// }
+
+// if (checklistId === 2137293116 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
+// }
+
+// if (checklistId === 1297424116 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
+// }
+
+// if (checklistId === 2609997025 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
+// }
+
+// if (checklistId === 2726513366 && checklistItem.checklistHash) {
+//   return searchScreenshots('checklists/feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+// }
 
 run();
 
 function searchScreenshots(path, pattern) {
-  const look = fromDir(`screenshots/${path}/`, pattern);
+  const look = fromDir(path, pattern);
 
   if (look && look.length === 1) {
-    return `screenshots/${path}/${look[0]}`;
+    return `${path}/${look[0]}`;
   }
 
   return undefined;

@@ -766,7 +766,7 @@
   },
   "73": {
     "checklistHash": 1850051473,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3861059923.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3854937584.jpg",
     "extended": {
       "enemies": [
         {
@@ -784,7 +784,7 @@
           "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3854937584.jpg"
         },
         {
-          "bubbleHash": 486266603,
+          "bubbleHash": 3861059923,
           "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3861059923.jpg"
         }
       ]
