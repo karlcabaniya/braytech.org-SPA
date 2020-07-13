@@ -25,312 +25,9 @@ Object.keys(lowlinesDump).forEach((key) => {
   });
 });
 
-const temp = {}
-const temp2 = [
-  {
-    "ChecklistHash": 2072438451,
-    "Name": "Savathûn's Eye #1",
-    "Location": "Io 5",
-    "video": "https://youtu.be/JF0b_r488OM?t=562"
-  },
-  {
-    "ChecklistHash": 3703724330,
-    "Name": "Savathûn's Eye #2",
-    "Location": "Io 6",
-    "video": "https://youtu.be/JF0b_r488OM?t=575"
-  },
-  {
-    "ChecklistHash": 3332761129,
-    "Name": "Savathûn's Eye #3",
-    "Location": "Io 7",
-    "video": "https://youtu.be/JF0b_r488OM?t=595"
-  },
-  {
-    "ChecklistHash": 2757904728,
-    "Name": "Savathûn's Eye #4",
-    "Location": "Io 9",
-    "video": "https://youtu.be/JF0b_r488OM?t=662"
-  },
-  {
-    "ChecklistHash": 1666177511,
-    "Name": "Savathûn's Eye #5",
-    "Location": "Io 10",
-    "video": "https://youtu.be/JF0b_r488OM?t=692"
-  },
-  {
-    "ChecklistHash": 3984721006,
-    "Name": "Savathûn's Eye #6",
-    "Location": "Io 8",
-    "video": "https://youtu.be/JF0b_r488OM?t=608"
-  },
-  {
-    "ChecklistHash": 337284605,
-    "Name": "Savathûn's Eye #7",
-    "Location": "Io 2",
-    "video": "https://youtu.be/JF0b_r488OM?t=487"
-  },
-  {
-    "ChecklistHash": 3116478764,
-    "Name": "Savathûn's Eye #8",
-    "Location": "Io 1",
-    "video": "https://youtu.be/JF0b_r488OM?t=436"
-  },
-  {
-    "ChecklistHash": 1502064235,
-    "Name": "Savathûn's Eye #9",
-    "Location": "Io 3",
-    "video": "https://youtu.be/JF0b_r488OM?t=512"
-  },
-  {
-    "ChecklistHash": 3522149605,
-    "Name": "Savathûn's Eye #10",
-    "Location": "Io 4",
-    "video": "https://youtu.be/JF0b_r488OM?t=536"
-  },
-  {
-    "ChecklistHash": 498965462,
-    "Name": "Savathûn's Eye #11",
-    "Location": "Mercury 3",
-    "video": "https://youtu.be/JF0b_r488OM?t=1200"
-  },
-  {
-    "ChecklistHash": 3885687055,
-    "Name": "Savathûn's Eye #12",
-    "Location": "Mercury 6",
-    "video": "https://youtu.be/JF0b_r488OM?t=1262"
-  },
-  {
-    "ChecklistHash": 2533169312,
-    "Name": "Savathûn's Eye #13",
-    "Location": "Mercury 5",
-    "video": "https://youtu.be/JF0b_r488OM?t=1244"
-  },
-  {
-    "ChecklistHash": 2531256337,
-    "Name": "Savathûn's Eye #14",
-    "Location": "Mercury 1",
-    "video": "https://youtu.be/JF0b_r488OM?t=1066"
-  },
-  {
-    "ChecklistHash": 1614302450,
-    "Name": "Savathûn's Eye #15",
-    "Location": "Mercury 2",
-    "video": "https://youtu.be/JF0b_r488OM?t=1179"
-  },
-  {
-    "ChecklistHash": 3945017947,
-    "Name": "Savathûn's Eye #16",
-    "Location": "Mercury 4",
-    "video": "https://youtu.be/JF0b_r488OM?t=1228"
-  },
-  {
-    "ChecklistHash": 2843152028,
-    "Name": "Savathûn's Eye #17",
-    "Location": "Mercury 9",
-    "video": "https://youtu.be/JF0b_r488OM?t=1320"
-  },
-  {
-    "ChecklistHash": 3854005997,
-    "Name": "Savathûn's Eye #18",
-    "Location": "Mercury 7",
-    "video": "https://youtu.be/JF0b_r488OM?t=1279"
-  },
-  {
-    "ChecklistHash": 1653626078,
-    "Name": "Savathûn's Eye #19",
-    "Location": "Mercury 10",
-    "video": "https://youtu.be/JF0b_r488OM?t=1337"
-  },
-  {
-    "ChecklistHash": 3586865806,
-    "Name": "Savathûn's Eye #20",
-    "Location": "Mercury 8",
-    "video": "https://youtu.be/JF0b_r488OM?t=1307"
-  },
-  {
-    "ChecklistHash": 1340167197,
-    "Name": "Savathûn's Eye #21",
-    "Location": "Titan 2",
-    "video": "https://youtu.be/JF0b_r488OM?t=752"
-  },
-  {
-    "ChecklistHash": 831982840,
-    "Name": "Savathûn's Eye #22",
-    "Location": "Titan 1",
-    "video": "https://youtu.be/JF0b_r488OM?t=735"
-  },
-  {
-    "ChecklistHash": 2505176711,
-    "Name": "Savathûn's Eye #23",
-    "Location": "Titan 4",
-    "video": "https://youtu.be/JF0b_r488OM?t=790"
-  },
-  {
-    "ChecklistHash": 4058357578,
-    "Name": "Savathûn's Eye #24",
-    "Location": "Titan 7",
-    "video": "https://youtu.be/JF0b_r488OM?t=885"
-  },
-  {
-    "ChecklistHash": 824584009,
-    "Name": "Savathûn's Eye #25",
-    "Location": "Titan 5",
-    "video": "https://youtu.be/JF0b_r488OM?t=827"
-  },
-  {
-    "ChecklistHash": 2932627380,
-    "Name": "Savathûn's Eye #26",
-    "Location": "Titan 6",
-    "video": "https://youtu.be/JF0b_r488OM?t=850"
-  },
-  {
-    "ChecklistHash": 3116898003,
-    "Name": "Savathûn's Eye #27",
-    "Location": "Titan 8",
-    "video": "https://youtu.be/JF0b_r488OM?t=905"
-  },
-  {
-    "ChecklistHash": 4213313478,
-    "Name": "Savathûn's Eye #28",
-    "Location": "Titan 3",
-    "video": "https://youtu.be/JF0b_r488OM?t=765"
-  },
-  {
-    "ChecklistHash": 1484273045,
-    "Name": "Savathûn's Eye #29",
-    "Location": "Titan 9",
-    "video": "https://youtu.be/JF0b_r488OM?t=931"
-  },
-  {
-    "ChecklistHash": 255717559,
-    "Name": "Savathûn's Eye #30",
-    "Location": "Titan 10",
-    "video": "https://youtu.be/JF0b_r488OM?t=1025"
-  },
-  {
-    "ChecklistHash": 414918248,
-    "Name": "Savathûn's Eye #31",
-    "Location": "Mars 2",
-    "video": "https://youtu.be/JF0b_r488OM?t=31"
-  },
-  {
-    "ChecklistHash": 1234362125,
-    "Name": "Savathûn's Eye #32",
-    "Location": "Mars 1",
-    "video": "https://youtu.be/JF0b_r488OM?t=6"
-  },
-  {
-    "ChecklistHash": 3503863934,
-    "Name": "Savathûn's Eye #33",
-    "Location": "Mars 5",
-    "video": "https://youtu.be/JF0b_r488OM?t=142"
-  },
-  {
-    "ChecklistHash": 1391560323,
-    "Name": "Savathûn's Eye #34",
-    "Location": "Mars 7",
-    "video": "https://youtu.be/JF0b_r488OM?t=217"
-  },
-  {
-    "ChecklistHash": 449188644,
-    "Name": "Savathûn's Eye #35",
-    "Location": "Mars 6",
-    "video": "https://youtu.be/JF0b_r488OM?t=193"
-  },
-  {
-    "ChecklistHash": 1751598777,
-    "Name": "Savathûn's Eye #36",
-    "Location": "Mars 8",
-    "video": "https://youtu.be/JF0b_r488OM?t=230"
-  },
-  {
-    "ChecklistHash": 2699027578,
-    "Name": "Savathûn's Eye #37",
-    "Location": "Mars 10",
-    "video": "https://youtu.be/JF0b_r488OM?t=366"
-  },
-  {
-    "ChecklistHash": 841689135,
-    "Name": "Savathûn's Eye #38",
-    "Location": "Mars 9",
-    "video": "https://youtu.be/JF0b_r488OM?t=290"
-  },
-  {
-    "ChecklistHash": 3050642752,
-    "Name": "Savathûn's Eye #39",
-    "Location": "Mars 4",
-    "video": "https://youtu.be/JF0b_r488OM?t=75"
-  },
-  {
-    "ChecklistHash": 3088081032,
-    "Name": "Savathûn's Eye #40",
-    "Location": "Mars 3",
-    "video": "https://youtu.be/JF0b_r488OM?t=50"
-  },
-  {
-    "ChecklistHash": 3335808087,
-    "Name": "Savathûn's Eye #41",
-    "Location": "Prophecy 1",
-    "video": ""
-  },
-  {
-    "ChecklistHash": 790360094,
-    "Name": "Savathûn's Eye #42",
-    "Location": "",
-    "video": ""
-  },
-  {
-    "ChecklistHash": 552283949,
-    "Name": "Savathûn's Eye #43",
-    "Location": "",
-    "video": ""
-  },
-  {
-    "ChecklistHash": 1989075652,
-    "Name": "Savathûn's Eye #44",
-    "Location": "",
-    "video": ""
-  },
-  {
-    "ChecklistHash": 821125155,
-    "Name": "Savathûn's Eye #45",
-    "Location": "",
-    "video": ""
-  },
-  {
-    "ChecklistHash": 727854362,
-    "Name": "Savathûn's Eye #46",
-    "Location": "Whisper 1",
-    "video": "https://youtu.be/JF0b_r488OM?t=1345"
-  },
-  {
-    "ChecklistHash": 1493978073,
-    "Name": "Savathûn's Eye #47",
-    "Location": "Whisper 2",
-    "video": "https://youtu.be/JF0b_r488OM?t=1396"
-  },
-  {
-    "ChecklistHash": 771754208,
-    "Name": "Savathûn's Eye #48",
-    "Location": "Whisper 4",
-    "video": "https://youtu.be/JF0b_r488OM?t=1496"
-  },
-  {
-    "ChecklistHash": 3131868239,
-    "Name": "Savathûn's Eye #49",
-    "Location": "Whisper 5",
-    "video": "https://youtu.be/JF0b_r488OM?t=1514"
-  },
-  {
-    "ChecklistHash": 4134574153,
-    "Name": "Savathûn's Eye #50",
-    "Location": "Whisper 3",
-    "video": "https://youtu.be/JF0b_r488OM?t=1457"
-  }
-]
+const temp = {};
 
-
-  //{ "414918248": { "x": 115.5, "y": 190.5, "destinationHash": 308080871 }, "449188644": { "x": -29.25, "y": -273.75, "destinationHash": 308080871 }, "841689135": { "x": -397.5, "y": 226.5, "destinationHash": 308080871 }, "1234362125": { "x": -3.5, "y": 76.5, "destinationHash": 308080871 }, "1391560323": { "x": 160, "y": -190.5, "destinationHash": 308080871 }, "1751598777": { "x": 263, "y": -276, "destinationHash": 308080871 }, "2699027578": { "x": -208.5, "y": -1011.5, "destinationHash": 308080871 }, "3050642752": { "x": 37.75, "y": 452.5, "destinationHash": 308080871 }, "3088081032": { "x": -91.5, "y": 273, "destinationHash": 308080871 }, "3503863934": { "x": -94.5, "y": 204.75, "destinationHash": 308080871 } }
+//{ "414918248": { "x": 115.5, "y": 190.5, "destinationHash": 308080871 }, "449188644": { "x": -29.25, "y": -273.75, "destinationHash": 308080871 }, "841689135": { "x": -397.5, "y": 226.5, "destinationHash": 308080871 }, "1234362125": { "x": -3.5, "y": 76.5, "destinationHash": 308080871 }, "1391560323": { "x": 160, "y": -190.5, "destinationHash": 308080871 }, "1751598777": { "x": 263, "y": -276, "destinationHash": 308080871 }, "2699027578": { "x": -208.5, "y": -1011.5, "destinationHash": 308080871 }, "3050642752": { "x": 37.75, "y": 452.5, "destinationHash": 308080871 }, "3088081032": { "x": -91.5, "y": 273, "destinationHash": 308080871 }, "3503863934": { "x": -94.5, "y": 204.75, "destinationHash": 308080871 } }
 
 //{ "255717559": { "x": 847.25, "y": 203.5, "destinationHash": 2388758973 }, "824584009": { "x": 73.5, "y": -17.5, "destinationHash": 2388758973 }, "831982840": { "x": -298.5, "y": 233.5, "destinationHash": 2388758973 }, "1340167197": { "x": -282, "y": 110, "destinationHash": 2388758973 }, "1484273045": { "x": 670, "y": -53, "destinationHash": 2388758973 }, "2505176711": { "x": -311, "y": 220.5, "destinationHash": 2388758973 }, "2932627380": { "x": 79.5, "y": 13.5, "destinationHash": 2388758973 }, "3116898003": { "x": 105, "y": 76, "destinationHash": 2388758973 }, "4058357578": { "x": 107, "y": 132, "destinationHash": 2388758973 }, "4213313478": { "x": -496.75, "y": 120, "destinationHash": 2388758973 } }
 
@@ -608,11 +305,11 @@ async function run() {
       //   changes.bubbleHash = undefined;
       //   changes.activityHash = 74501540;
       // }
-      
+
       changes.name = checklistItem.displayProperties.name;
-      
+
       // changes.extended = { video: temp2.find(t => t.ChecklistHash === checklistItem.hash).video }
-      
+
       // if (checklistId === 5306004096969) {
       //   if (itemNumber > 0 && itemNumber < 11) {
       //     changes.destinationHash = 2218917881;
@@ -629,17 +326,39 @@ async function run() {
       // }
     }
 
-    const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
+    const screenshots = getScreenshot(checklistId, changes, itemNumber, name);
 
-    if (checklistId === 3142056444) console.log(screenshot)
+    if ((screenshots && screenshots.length) || extended.video) {
+      const screenshot =
+        (screenshots &&
+          screenshots.length > 1 &&
+          screenshots.find((path) => {
+            const hashes = path.match(/([0-9]{4,})/g);
+            const bubbleHash = (hashes && hashes.length === 2 && +hashes[1]) || 0;
 
-    if (screenshot || extended.video) {
+            if (bubbleHash === changes.bubbleHash) return path;
+            else return false;
+          })) ||
+        screenshots[0];
+
       doJson({
         checklistHash: checklistItem.hash,
         displayProperties: addins && addins.displayProperties,
         screenshot,
         extended: {
           video: extended.video,
+          screenshots:
+            screenshots &&
+            screenshots.length > 1 &&
+            screenshots.map((path) => {
+              const hashes = path.match(/([0-9]{4,})/g);
+              const bubbleHash = (hashes && hashes.length === 2 && +hashes[1]) || 0;
+
+              return {
+                bubbleHash,
+                screenshot: path,
+              };
+            }),
         },
       });
     }
@@ -726,16 +445,16 @@ async function run() {
           extended: (Object.keys(extended).length && extended) || undefined,
         };
 
-        const screenshot = getScreenshot(presentationHash, changes);
+        const screenshots = getScreenshot(presentationHash, changes);
 
-        if (screenshot || extended.video) {
+        if ((screenshots && screenshots.length) || extended.video) {
           doJson({
             recordHash,
             displayProperties: addins && addins.displayProperties,
-            screenshot,
+            screenshot: screenshots[0],
             extended: {
               video: extended.video,
-            }
+            },
           });
         }
 
@@ -789,6 +508,8 @@ async function run() {
           ...BraytechMaps_EN[hash].extended,
         };
 
+        if (load.extended && load.extended.screenshots) extended.screenshots = load.extended.screenshots;
+
         BraytechMaps_EN[hash] = {
           ...BraytechMaps_EN[hash],
           screenshot: load.screenshot || BraytechMaps_EN[hash].screenshot,
@@ -841,7 +562,7 @@ function getScreenshot(checklistId, checklistItem, number, name) {
   }
 
   if (checklistId === 3142056444) {
-    return searchScreenshots('checklists/lost-sectors', `${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/lost-sectors', `${checklistItem.checklistHash}`);
   }
 
   if (checklistId === 365218222 && name) {
@@ -894,13 +615,13 @@ function getScreenshot(checklistId, checklistItem, number, name) {
 }
 
 function searchScreenshots(listName, pattern) {
-  const look = fromDir(`public/static/images/screenshots/${listName}/`, pattern);
+  const files = fromDir(`public/static/images/screenshots/${listName}/`, pattern);
 
-  if (look && look.length === 1) {
-    return `/static/images/screenshots/${listName}/${look[0]}`;
+  if (files && files.length) {
+    return files.map((file) => `/static/images/screenshots/${listName}/${file}`);
   }
 
-  return undefined;
+  return [];
 }
 
 function fromDir(startPath, filter) {

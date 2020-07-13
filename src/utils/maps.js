@@ -69,6 +69,7 @@ function findChecklistItems(search) {
     return {
       checklist,
       checklistItem:
+        // only if it's an exact match
         checklist?.items?.length < 2
           ? checklist.items.map(({ displayProperties, ...rest }) => ({
               ...rest,
@@ -78,46 +79,87 @@ function findChecklistItems(search) {
   }
 
   return {
-    checklist: undefined,
+    checklist: {},
     checklistItem: {},
   };
 }
 
 export function cartographer(search) {
-  if (!search) return {};
+  if (!search) return false;
 
+  // get profile data
   const state = store.getState();
 
-  const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
+  // maps core
   const graph = findGraph(search);
+  // BraytechMapsDefinition
+  const definitionMaps = manifest.BraytechMapsDefinition[search.value] || Object.values(manifest.BraytechMapsDefinition).find((definition) => definition[search.key] === +search.value);
+  // checklists
   const { checklist, checklistItem } = findChecklistItems(search);
+  // runtime
   const dynamic = runtime(state.member, true).find((node) => node[search.key] === +search.value && node.availability?.now);
 
+  // got nothing?
   if (!definitionMaps && !graph && !checklist?.items.length && !dynamic) {
     return false;
   }
 
   const icon = dynamic?.icon || (typeof definitionMaps?.icon === 'string' && iconsMap[definitionMaps.icon]);
 
-  // console.log(`definitionMaps`, definitionMaps);
-  // console.log(`graph`, graph);
-  // console.log(`checklist`, checklist);
-  // console.log(`dynamic`, dynamic);
+  console.log(`definitionMaps`, definitionMaps);
+  console.log(`graph`, graph);
+  console.log(`checklist`, checklist);
+  console.log(`dynamic`, dynamic);
 
-  const aggregate = {
-    ...graph,
-    ...(definitionMaps || {}),
-    checklist,
-    ...checklistItem,
-    ...(dynamic || {}),
-    extended: {
-      ...(checklistItem?.extended || {}),
-      ...(definitionMaps?.extended || {}),
-    },
-    icon,
+  const map = {
+    ...(graph.map || {}),
+    ...(checklistItem.map || {}),
+    ...(dynamic?.map || {}),
   };
 
-  return aggregate;
+  if (map.points?.length) {
+    map.points = map.points.map((point) => {
+      if (point.bubbleHash) {
+        return {
+          ...point,
+          screenshot: definitionMaps?.extended?.screenshots.find((screenshot) => screenshot.bubbleHash === point.bubbleHash)?.screenshot,
+        };
+      } else {
+        return point;
+      }
+    });
+  }
+
+  // const bubbleHash =
+  //   // if search.bubbleHash is valid, use it
+  //   (search.bubbleHash && map.points.find(point => point.bubbleHash === search.bubbleHash) && search.bubbleHash) || checklistItem?.bubbleHash || definitionMaps?.bubbleHash || graph?.bubbleHash;
+
+  const screenshot = map.points.find((point) => point.bubbleHash === search.bubbleHash)?.screenshot || definitionMaps?.screenshot;
+
+  const extended = {
+    ...(checklistItem?.extended || {}),
+    ...(definitionMaps?.extended || {}),
+  };
+
+  if (search.bubbleHash && checklist?.checklistId === 3142056444 && checklistItem?.extended?.bubbleHash && map.points.find((point) => point.bubbleHash === search.bubbleHash)?.bubbleHash) {
+    extended.bubbleHash = search.bubbleHash;
+  }
+
+  return {
+    // maps core
+    ...graph,
+    // BraytechMapsDefinition
+    ...(definitionMaps || {}),
+    // checklists
+    checklist,
+    ...checklistItem,
+    // runtime
+    ...(dynamic || {}),
+    map,
+    icon,
+    screenshot,
+    extended,
+  };
 }
 
 export function getMapCenter(destinationId) {
@@ -196,31 +238,36 @@ export const destinations = [
   },
 ];
 
-export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash, vendorHash }) {
+export function findNodeType({ checklistHash, recordHash, nodeHash, activityHash, vendorHash, ...rest }) {
   if (checklistHash) {
     return {
       key: 'checklistHash',
       value: checklistHash,
+      ...rest,
     };
   } else if (recordHash) {
     return {
       key: 'recordHash',
       value: recordHash,
+      ...rest,
     };
   } else if (nodeHash) {
     return {
       key: 'nodeHash',
       value: nodeHash,
+      ...rest,
     };
   } else if (activityHash) {
     return {
       key: 'activityHash',
       value: activityHash,
+      ...rest,
     };
   } else if (vendorHash) {
     return {
       key: 'vendorHash',
       value: vendorHash,
+      ...rest,
     };
   }
 }
@@ -286,7 +333,7 @@ export function screenshotFilename(node) {
     return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_corrupted-eggs_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
   } else if (node.checklist?.checklistId === 2726513366 && checklistItem?.displayProperties.number) {
     return `${definitionBubble?.displayProperties.name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}_feline-friends_${checklistItem.displayProperties.number}_${checklistItem.checklistHash}`;
-  }  else if (node.checklist?.checklistId === 530600409 && checklistItem.checklistHash) {
+  } else if (node.checklist?.checklistId === 530600409 && checklistItem.checklistHash) {
     return `${checklistItem.checklistHash}`;
   } else if (node.checklist?.checklistId === 2137293116 && checklistItem.checklistHash) {
     return `${checklistItem.checklistHash}`;

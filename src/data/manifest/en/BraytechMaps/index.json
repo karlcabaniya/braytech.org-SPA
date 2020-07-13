@@ -766,7 +766,7 @@
   },
   "73": {
     "checklistHash": 1850051473,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-gulch_lost-sectors_flooded-chasm.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3861059923.jpg",
     "extended": {
       "enemies": [
         {
@@ -781,7 +781,11 @@
       "screenshots": [
         {
           "bubbleHash": 3854937584,
-          "screenshot": "/static/images/screenshots/checklists/lost-sectors/firebase-hades_lost-sectors_excavation-site-xii.jpg"
+          "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3854937584.jpg"
+        },
+        {
+          "bubbleHash": 486266603,
+          "screenshot": "/static/images/screenshots/checklists/lost-sectors/flooded-chasm-1850051473-3861059923.jpg"
         }
       ]
     }
