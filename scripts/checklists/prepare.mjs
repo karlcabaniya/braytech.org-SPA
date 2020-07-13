@@ -554,43 +554,43 @@ function doJson(payload) {
 
 function getScreenshot(checklistId, checklistItem, number, name) {
   if (checklistId === 2360931290 && number) {
-    return searchScreenshots('checklists/ghost-scans', `ghost-scans_${number}.jpg`);
+    return searchScreenshots('checklists/ghost-scans', checklistItem.checklistHash);
   }
 
   if (checklistId === 1697465175 && number) {
-    return searchScreenshots('checklists/region-chests', `region-chests_${number}.jpg`);
+    return searchScreenshots('checklists/region-chests', checklistItem.checklistHash);
   }
 
   if (checklistId === 3142056444) {
-    return searchScreenshots('checklists/lost-sectors', `${checklistItem.checklistHash}`);
+    return searchScreenshots('checklists/lost-sectors', checklistItem.checklistHash);
   }
 
   if (checklistId === 365218222 && name) {
-    return searchScreenshots('checklists/sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
+    return searchScreenshots('checklists/sleeper-nodes', checklistItem.checklistHash);
   }
 
   if (checklistId === 1912364094 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/jade-rabbits', checklistItem.checklistHash);
   }
 
   if (checklistId === 530600409 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/calcified-light', `${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/calcified-light', checklistItem.checklistHash);
   }
 
   if (checklistId === 2137293116 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/savathuns-eyes', checklistItem.checklistHash);
   }
 
   if (checklistId === 1297424116 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/ahamkara-bones', checklistItem.checklistHash);
   }
 
   if (checklistId === 2609997025 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/corrupted-eggs', checklistItem.checklistHash);
   }
 
   if (checklistId === 2726513366 && checklistItem.checklistHash) {
-    return searchScreenshots('checklists/feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/feline-friends', checklistItem.checklistHash);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {

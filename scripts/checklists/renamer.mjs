@@ -37,21 +37,21 @@ const presentationNodes = [
 ];
 
 function mergeWithCustomizer(a, b) {
-  if (Array.isArray(a)) {
-    return a.concat(b);
+  if (Array.isArray(a) && b && Array.isArray(b)) {
+    return b.concat(a);
+  } else if (typeof a === 'string' && b && typeof b === 'string') {
+    return b;
+  } else if (typeof a === 'number' && b && typeof b === 'number') {
+    return b;
+  } else if (typeof a === 'object') {
+    return _.mergeWith(a, b, mergeWithCustomizer);
   }
 
   return a;
 }
 
-const customsMerge = (bungie, customs) => {
-  for (const key in customs) {
-    if (customs.hasOwnProperty(key) && bungie.hasOwnProperty(key)) {
-      bungie[key] = _.mergeWith(bungie[key], customs[key], mergeWithCustomizer);
-    }
-  }
-
-  return bungie;
+const customsMerge = (a, b) => {
+  return _.mergeWith(a, b, mergeWithCustomizer);
 };
 
 async function run() {
@@ -81,50 +81,46 @@ async function run() {
 
     const recordHash = existing.recordHash || undefined;
 
-    let name = bubbleName;
+    let name = bubbleName || (definitionDestination && definitionDestination.displayProperties.name) || '';
     if (manifest.DestinyChecklistDefinition[365218222].entries.find((h) => h.hash === checklistItem.hash)) {
       name = manifest.DestinyInventoryItemDefinition[checklistItem.itemHash].displayProperties.description.replace('CB.NAV/RUN.()', '');
     } else if (checklistItem.activityHash) {
       name = manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
-    } else if (recordHash) {
-      const definitionRecord = manifest.DestinyRecordDefinition[recordHash];
-      const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
-
-      if (definitionLore) name = definitionLore.displayProperties.name;
     }
+    // else if (recordHash) {
+    //   const definitionRecord = manifest.DestinyRecordDefinition[recordHash];
+    //   const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
 
-    
-    
-    // fs.renameSync(
-    //   `public/static/images/screenshots/checklists/lost-sectors/lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`,
-    //   `public/static/images/screenshots/checklists/lost-sectors/${checklistItem.hash}.jpg`
-    // );
+    //   if (definitionLore) name = definitionLore.displayProperties.name;
+    // }
 
-    // const screenshot = searchScreenshots('public/static/images/screenshots/checklists/ghost-scans', `ghost-scans_${itemNumber}`);
+    // if (checklistItem.hash === 2127236170) console.log(itemNumber, name)
+    // if (name === '') console.log(itemNumber)
+
+
+
+
+    const screenshot = searchScreenshots('screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/'/g, '').replace(/ /g, '-'));
+
+    if (screenshot) fs.renameSync(
+      screenshot,
+      `screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
+    );
+
+    // const screenshot = searchScreenshots('public/static/images/screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/'/g, '').replace(/ /g, '-'));
 
     // if (screenshot) fs.renameSync(
     //   screenshot,
-    //   `public/static/images/screenshots/checklists/lost-sectors/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
+    //   `public/static/images/screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
     // );
-
-    const screenshot = searchScreenshots('public/static/images/screenshots/checklists/ghost-scans/', `ghost-scans_${itemNumber}`);
-
-    console.log(itemNumber, name)
-
-    if (screenshot) {
-      // fs.renameSync(
-      //   screenshot,
-      //   `screenshots/checklists/ghost-scans/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
-      // );
-    }
 
 
   }
 
-  const checklist = manifest.DestinyChecklistDefinition[2360931290];
+  const checklist = manifest.DestinyChecklistDefinition[365218222];
 
   checklist.entries.forEach(entry => {
-    checklistItem(2360931290, entry);
+    checklistItem(365218222, entry);
   });
 }
 
