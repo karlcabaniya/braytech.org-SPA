@@ -594,23 +594,23 @@ function getScreenshot(checklistId, checklistItem, number, name) {
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {
-    return searchScreenshots('records/ghost-stories', `ghost-stories_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/ghost-stories', checklistItem.recordHash);
   }
 
   if (checklistId === 655926402 && checklistItem.recordHash) {
-    return searchScreenshots('records/the-forsaken-prince', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/the-forsaken-prince', checklistItem.recordHash);
   }
 
   if (checklistId === 3305936921 && checklistItem.recordHash) {
-    return searchScreenshots('records/the-awoken-of-the-reef', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/the-awoken-of-the-reef', checklistItem.recordHash);
   }
 
   if (checklistId === 4285512244 && checklistItem.recordHash) {
-    return searchScreenshots('records/lunas-lost', `lunas-lost_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/lunas-lost', checklistItem.recordHash);
   }
 
   if (checklistId === 2474271317 && checklistItem.recordHash) {
-    return searchScreenshots('records/inquisition-of-the-damned', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/inquisition-of-the-damned', checklistItem.recordHash);
   }
 }
 

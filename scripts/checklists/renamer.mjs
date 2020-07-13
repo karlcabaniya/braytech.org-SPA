@@ -12,7 +12,6 @@ import BraytechMaps_EN from '../../src/data/manifest/en/BraytechMaps/index.json'
 import DestinyActivityDefinition_EN from '../../src/data/manifest/en/DestinyActivityDefinition/index.json';
 import DestinyDestinationDefinition_EN from '../../src/data/manifest/en/DestinyDestinationDefinition/index.json';
 
-
 const checklists = [
   4178338182, // adventures
   1697465175, // regionChests
@@ -62,7 +61,7 @@ async function run() {
 
   function checklistItem(checklistId, checklistItem) {
     const existing = (data[checklistId] && data[checklistId].find((c) => c.checklistHash === checklistItem.hash)) || {};
-   
+
     const definitionDestination = manifest.DestinyDestinationDefinition[existing.destinationHash];
     const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
 
@@ -97,31 +96,91 @@ async function run() {
     // if (checklistItem.hash === 2127236170) console.log(itemNumber, name)
     // if (name === '') console.log(itemNumber)
 
+    const screenshot = searchScreenshots('screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/|/g, '').replace(/'/g, '').replace(/ /g, '-'));
 
+    if (screenshot) fs.renameSync(screenshot, `screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/|/g, '').replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`);
 
-
-    const screenshot = searchScreenshots('screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/'/g, '').replace(/ /g, '-'));
-
-    if (screenshot) fs.renameSync(
-      screenshot,
-      `screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
-    );
-
-    // const screenshot = searchScreenshots('public/static/images/screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/'/g, '').replace(/ /g, '-'));
+    // const screenshot = searchScreenshots('public/static/images/screenshots/checklists/sleeper-nodes', name.toLowerCase().replace(/|/g, '').replace(/'/g, '').replace(/ /g, '-'));
 
     // if (screenshot) fs.renameSync(
     //   screenshot,
-    //   `public/static/images/screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
+    //   `public/static/images/screenshots/checklists/sleeper-nodes/${name.toLowerCase().replace(/|/g, '').replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
     // );
-
-
   }
 
-  const checklist = manifest.DestinyChecklistDefinition[365218222];
+  function presentationItems(presentationHash, dropFirst = true) {
+    const root = manifest.DestinyPresentationNodeDefinition[presentationHash];
+    let recordHashes = root.children.records.map((r) => r.recordHash);
+    if (dropFirst) recordHashes = recordHashes.slice(1);
 
-  checklist.entries.forEach(entry => {
-    checklistItem(365218222, entry);
-  });
+    recordHashes.forEach((hash, itemNumber) => {
+      const existing = (data[presentationHash] && data[presentationHash].find((c) => c.recordHash === hash)) || {};
+
+      const definitionDestination = manifest.DestinyDestinationDefinition[existing.destinationHash];
+      const definitionPlace = definitionDestination && manifest.DestinyPlaceDefinition[definitionDestination.placeHash];
+
+      const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: existing.bubbleHash });
+      const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
+
+      const extendedDefinitionBubble = existing.extended && definitionDestination && _.find(definitionDestination.bubbles, { hash: existing.extended.bubbleHash });
+      const extendedBubbleName = extendedDefinitionBubble && extendedDefinitionBubble.displayProperties.name;
+
+      const points = (existing.map && existing.map.points) || [];
+
+      // let name = bubbleName || (definitionDestination && definitionDestination.displayProperties.name) || '';
+      // if (checklistItem.activityHash) {
+      //   name = manifest.DestinyActivityDefinition[checklistItem.activityHash].displayProperties.name;
+      // }
+
+      const definitionRecord = manifest.DestinyRecordDefinition[hash];
+      const definitionLore = manifest.DestinyLoreDefinition[definitionRecord.loreHash];
+
+      const name = definitionLore.displayProperties.name;
+
+      console.log(name);
+
+      const screenshot = searchScreenshots('screenshots/records/lunas-lost', hash);
+
+      if (screenshot) fs.renameSync(
+        screenshot,
+        `screenshots/records/lunas-lost/${
+          name.toLowerCase()
+            .replace(/ \| /g, ' ')
+            .replace(/(\||\?|'|:)/g, '')
+            .replace(/ /g, '-')
+        }-${hash}.png`
+      );
+
+      // const screenshot = searchScreenshots('public/static/images/screenshots/records/lunas-lost', hash);
+
+      // if (screenshot)
+      //   fs.renameSync(
+      //     screenshot,
+      //     `public/static/images/screenshots/records/lunas-lost/${name
+      //       .toLowerCase()
+      //       .replace(/ \| /g, ' ')
+      //       .replace(/(\||\?|'|:)/g, '')
+      //       .replace(/ /g, '-')}-${hash}.jpg`
+      //   );
+
+
+    });
+  }
+
+  const presentationNodes = [
+    1420597821, // ghostStories
+    3305936921, // awokenOfTheReef
+    655926402, // forsakenPrince
+    2474271317, // inquisitionOfTheDamned
+    4285512244, // lunasLost
+  ];
+
+  presentationItems(4285512244);
+
+  // const checklist = manifest.DestinyChecklistDefinition[365218222];
+  // checklist.entries.forEach(entry => {
+  //   checklistItem(365218222, entry);
+  // });
 }
 
 // if (checklistId === 2360931290 && number) {
