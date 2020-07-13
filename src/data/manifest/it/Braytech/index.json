@@ -99,7 +99,7 @@
   },
   "braytech_purple_rune": {
     "displayProperties": {
-      "description": "Una runa viola. Le rune viola includono; Runa della Gioia, Runa della Bestia, e Runa del Giubilo.",
+      "description": "Una runa viola. Le rune viola includono: Runa della Gioia, Runa della Bestia e Runa del Giubilo.",
       "name": "Runa Viola"
     },
     "itemTypeDisplayName": "Materiale",
@@ -110,7 +110,7 @@
   },
   "braytech_red_rune": {
     "displayProperties": {
-      "description": "Una runa rossa. Le rune rosse includono; Runa dell'Ambizione, Runa dell'Ingordigia, e Runa dell'Astuzia.",
+      "description": "Una runa rossa. Le rune rosse includono: Runa dell'Ambizione, Runa dell'Ingordigia e Runa dell'Astuzia.",
       "name": "Runa Rossa"
     },
     "itemTypeDisplayName": "Materiale",
@@ -121,7 +121,7 @@
   },
   "braytech_green_rune": {
     "displayProperties": {
-      "description": "Una runa verde. Rune verdi includono; Runa della Guerra, Runa dell'Orgoglio, e Runa del Desiderio.",
+      "description": "Una runa verde. Rune verdi includono: Runa della Guerra, Runa dell'Orgoglio e Runa del Desiderio.",
       "name": "Runa Verde"
     },
     "itemTypeDisplayName": "Materiale",
@@ -132,7 +132,7 @@
   },
   "braytech_blue_rune": {
     "displayProperties": {
-      "description": "Una runa blu. Rune blu includono; Runa dell'Eccesso, Runa della Ricchezza, e Runa del Piacere.",
+      "description": "Una runa blu. Rune blu includono: Runa dell'Eccesso, Runa della Ricchezza e Runa del Piacere.",
       "name": "Runa Blu"
     },
     "itemTypeDisplayName": "Materiale",
@@ -143,7 +143,7 @@
   },
   "braytech_no_rune": {
     "displayProperties": {
-      "description": "Inserisci un runa in questo slot",
+      "description": "Inserisci runa in questo slot",
       "name": "Slot vuoto"
     },
     "itemTypeDisplayName": "Action",
