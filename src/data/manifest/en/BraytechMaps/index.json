@@ -703,7 +703,7 @@
   },
   "66": {
     "checklistHash": 2777193860,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_whispered-falls.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/whispered-falls-2777193860.jpg",
     "extended": {
       "enemies": [
         {
@@ -715,7 +715,7 @@
   },
   "67": {
     "checklistHash": 3240560483,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_the-drain.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-drain-3240560483.jpg",
     "extended": {
       "enemies": [
         {
@@ -727,7 +727,7 @@
   },
   "68": {
     "checklistHash": 3402131234,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/outskirts_lost-sectors_scavengers-den.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/scavengers-den-3402131234.jpg",
     "extended": {
       "enemies": [
         {
@@ -742,7 +742,7 @@
       "description": "The entrance to this lost sector is found firstly through the ceiling of this tiny volcano, secondly keep left and, ..."
     },
     "checklistHash": 815928620,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/winding-cove_lost-sectors_the-weep.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-weep-815928620.jpg",
     "extended": {
       "enemies": [
         {
@@ -754,15 +754,15 @@
   },
   "70": {
     "checklistHash": 4091723403,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/firebase-hades_lost-sectors_the-pit.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-pit-4091723403.jpg"
   },
   "71": {
     "checklistHash": 2554253964,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/firebase-hades_lost-sectors_pathfinders-crash.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/pathfinders-crash-2554253964.jpg"
   },
   "72": {
     "checklistHash": 3850160541,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/firebase-hades_lost-sectors_excavation-site-xii.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/excavation-site-xii-3850160541.jpg"
   },
   "73": {
     "checklistHash": 1850051473,
@@ -788,15 +788,15 @@
   },
   "74": {
     "checklistHash": 1505712119,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sunken-isles_lost-sectors_skydock-iv.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/skydock-iv-1505712119.jpg"
   },
   "75": {
     "checklistHash": 245987256,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sunken-isles_lost-sectors_the-quarry.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-quarry-245987256.jpg"
   },
   "76": {
     "checklistHash": 526088259,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_atrium.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/atrium-526088259.jpg",
     "extended": {
       "enemies": [
         {
@@ -808,7 +808,7 @@
   },
   "77": {
     "checklistHash": 2954440164,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_terminus-east.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/terminus-east-2954440164.jpg",
     "extended": {
       "enemies": [
         {
@@ -820,7 +820,7 @@
   },
   "78": {
     "checklistHash": 1306638037,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trostland_lost-sectors_widows-walk.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/widows-walk-1306638037.jpg",
     "extended": {
       "enemies": [
         {
@@ -832,79 +832,79 @@
   },
   "79": {
     "checklistHash": 874424041,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-sludge_lost-sectors_cavern-of-souls.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/cavern-of-souls-874424041.jpg"
   },
   "80": {
     "checklistHash": 3010602390,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-sludge_lost-sectors_hallowed-grove.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/hallowed-grove-3010602390.jpg"
   },
   "81": {
     "checklistHash": 2508300599,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-sludge_lost-sectors_shaft-13.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/shaft-13-2508300599.jpg"
   },
   "82": {
     "checklistHash": 1719798656,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sirens-watch_lost-sectors_methane-flush.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/methane-flush-1719798656.jpg"
   },
   "83": {
     "checklistHash": 3267113018,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-rig_lost-sectors_ds-quarters-2.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/ds-quarters-2-3267113018.jpg"
   },
   "84": {
     "checklistHash": 3359286509,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-rig_lost-sectors_cargo-bay-3.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/cargo-bay-3-3359286509.jpg"
   },
   "85": {
     "checklistHash": 2485656913,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/exodus-black_lost-sectors_the-rift.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-rift-2485656913.jpg"
   },
   "86": {
     "checklistHash": 2248063191,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-cistern_lost-sectors_the-conflux.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-conflux-2248063191.jpg"
   },
   "87": {
     "checklistHash": 2069372641,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/artifacts-edge_lost-sectors_the-orrery.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-orrery-2069372641.jpg"
   },
   "88": {
     "checklistHash": 2806770339,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/glade-of-echoes_lost-sectors_the-carrion-pit.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-carrion-pit-2806770339.jpg"
   },
   "89": {
     "checklistHash": 3107552723,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/fields-of-glass_lost-sectors_pariahs-refuge.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/pariahs-refuge-3107552723.jpg"
   },
   "90": {
     "checklistHash": 3205937151,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/braytech-futurescape_lost-sectors_core-terminus.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/core-terminus-3205937151.jpg"
   },
   "91": {
     "checklistHash": 2025886454,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/glacial-drift_lost-sectors_maadim-subterrane.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/maadim-subterrane-2025886454.jpg"
   },
   "92": {
     "checklistHash": 486022069,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-strand_lost-sectors_aphelions-rest.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/aphelions-rest-486022069.jpg"
   },
   "93": {
     "checklistHash": 97924869,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/rheasilvia_lost-sectors_chamber-of-starlight.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/chamber-of-starlight-97924869.jpg"
   },
   "94": {
     "checklistHash": 1949102307,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/archers-line_lost-sectors_k1-logistics.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/k1-logistics-1949102307.jpg"
   },
   "95": {
     "checklistHash": 4102839450,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sorrows-harbor_lost-sectors_k1-revelation.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/k1-revelation-4102839450.jpg"
   },
   "96": {
     "checklistHash": 3978091702,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/hellmouth_lost-sectors_k1-crew-quarters.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/k1-crew-quarters-3978091702.jpg"
   },
   "97": {
     "checklistHash": 2955806106,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/anchor-of-light_lost-sectors_k1-communion.jpg"
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/k1-communion-2955806106.jpg"
   },
   "98": {
     "displayProperties": {
@@ -2879,17 +2879,17 @@
   },
   "399": {
     "checklistHash": 4137615299,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-rupture_lost-sectors_aphix-conduit.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/aphix-conduit-4137615299.jpg",
     "extended": {}
   },
   "400": {
     "checklistHash": 2270999908,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-rupture_lost-sectors_sanctum-of-bones.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sanctum-of-bones-2270999908.jpg",
     "extended": {}
   },
   "401": {
     "checklistHash": 3883378312,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/lost-oasis_lost-sectors_grove-of-ulan-tan.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/grove-of-ulan-tan-3883378312.jpg",
     "extended": {}
   },
   "402": {
@@ -3146,7 +3146,7 @@
   },
   "446": {
     "checklistHash": 925785517,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-tangle_lost-sectors_ancients-haunt.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/ancients-haunt-925785517.jpg",
     "extended": {}
   },
   "447": {
@@ -3275,7 +3275,7 @@
   },
   "463": {
     "checklistHash": 3360907267,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/divalian-mists_lost-sectors_bay-of-drowned-wishes.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/bay-of-drowned-wishes-3360907267.jpg",
     "extended": {}
   },
   "464": {
@@ -3541,17 +3541,17 @@
   },
   "501": {
     "checklistHash": 4232901662,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/thieves-landing_lost-sectors_kingship-dock.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/kingship-dock-4232901662.jpg",
     "extended": {}
   },
   "502": {
     "checklistHash": 1616620401,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/thieves-landing_lost-sectors_the-empty-tank.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/the-empty-tank-1616620401.jpg",
     "extended": {}
   },
   "503": {
     "checklistHash": 1134123378,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/four-horn-gulch_lost-sectors_trappers-cave.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/trappers-cave-1134123378.jpg",
     "extended": {}
   },
   "504": {
@@ -3627,12 +3627,12 @@
   },
   "514": {
     "checklistHash": 592877507,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/jetsam-of-saturn_lost-sectors_shipyard-awo-43.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/shipyard-awo-43-592877507.jpg",
     "extended": {}
   },
   "515": {
     "checklistHash": 2693451640,
-    "screenshot": "/static/images/screenshots/checklists/lost-sectors/sorikss-cut_lost-sectors_wolfship-turbine.jpg",
+    "screenshot": "/static/images/screenshots/checklists/lost-sectors/wolfship-turbine-2693451640.jpg",
     "extended": {}
   },
   "516": {

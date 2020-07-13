@@ -631,6 +631,8 @@ async function run() {
 
     const screenshot = getScreenshot(checklistId, changes, itemNumber, name);
 
+    if (checklistId === 3142056444) console.log(screenshot)
+
     if (screenshot || extended.video) {
       doJson({
         checklistHash: checklistItem.hash,
@@ -830,69 +832,65 @@ function doJson(payload) {
 }
 
 function getScreenshot(checklistId, checklistItem, number, name) {
-  let screenshot = undefined;
-
   if (checklistId === 2360931290 && number) {
-    screenshot = searchScreenshots('checklists/ghost-scans', `ghost-scans_${number}.jpg`);
+    return searchScreenshots('checklists/ghost-scans', `ghost-scans_${number}.jpg`);
   }
 
   if (checklistId === 1697465175 && number) {
-    screenshot = searchScreenshots('checklists/region-chests', `region-chests_${number}.jpg`);
+    return searchScreenshots('checklists/region-chests', `region-chests_${number}.jpg`);
   }
 
-  if (checklistId === 3142056444 && name) {
-    screenshot = searchScreenshots('checklists/lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
+  if (checklistId === 3142056444) {
+    return searchScreenshots('checklists/lost-sectors', `${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 365218222 && name) {
-    screenshot = searchScreenshots('checklists/sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
+    return searchScreenshots('checklists/sleeper-nodes', `sleeper-nodes_${name.toLowerCase().replace(' ', '')}.jpg`);
   }
 
   if (checklistId === 1912364094 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/jade-rabbits', `jade-rabbits_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 530600409 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/calcified-light', `${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/calcified-light', `${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2137293116 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/savathuns-eyes', `${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 1297424116 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/ahamkara-bones', `ahamkara-bones_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2609997025 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/corrupted-eggs', `corrupted-eggs_${number}_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 2726513366 && checklistItem.checklistHash) {
-    screenshot = searchScreenshots('checklists/feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
+    return searchScreenshots('checklists/feline-friends', `feline-friends_${number}_${checklistItem.checklistHash}.jpg`);
   }
 
   if (checklistId === 1420597821 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('records/ghost-stories', `ghost-stories_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/ghost-stories', `ghost-stories_${checklistItem.recordHash}.jpg`);
   }
 
   if (checklistId === 655926402 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('records/the-forsaken-prince', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/the-forsaken-prince', `the-forsaken-prince_${checklistItem.recordHash}.jpg`);
   }
 
   if (checklistId === 3305936921 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('records/the-awoken-of-the-reef', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/the-awoken-of-the-reef', `the-awoken-of-the-reef_${checklistItem.recordHash}.jpg`);
   }
 
   if (checklistId === 4285512244 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('records/lunas-lost', `lunas-lost_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/lunas-lost', `lunas-lost_${checklistItem.recordHash}.jpg`);
   }
 
   if (checklistId === 2474271317 && checklistItem.recordHash) {
-    screenshot = searchScreenshots('records/inquisition-of-the-damned', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
+    return searchScreenshots('records/inquisition-of-the-damned', `necrotic-cyphers_${checklistItem.recordHash}.jpg`);
   }
-
-  return screenshot;
 }
 
 function searchScreenshots(listName, pattern) {
