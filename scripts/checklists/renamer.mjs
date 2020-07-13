@@ -79,10 +79,6 @@ async function run() {
 
     const points = (existing.map && existing.map.points) || [];
 
-    if (checklistItem.hash === 1850051473) {
-      console.log(points)
-    }
-
     const recordHash = existing.recordHash || undefined;
 
     let name = bubbleName;
@@ -104,13 +100,11 @@ async function run() {
     //   `public/static/images/screenshots/checklists/lost-sectors/${checklistItem.hash}.jpg`
     // );
 
-    const screenshot = searchScreenshots('checklists/lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}.jpg`);
-
-    if (checklistItem.hash === 1850051473) console.log(screenshot)
+    const screenshot = searchScreenshots('checklists/lost-sectors', `lost-sectors_${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}`);
 
     if (screenshot) fs.renameSync(
-      `public${screenshot}`,
-      `public/static/images/screenshots/checklists/lost-sectors/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.jpg`
+      screenshot,
+      `screenshots/checklists/lost-sectors/${name.toLowerCase().replace(/'/g, '').replace(/ /g, '-')}-${checklistItem.hash}.png`
     );
 
   }
@@ -125,10 +119,10 @@ async function run() {
 run();
 
 function searchScreenshots(path, pattern) {
-  const look = fromDir(`public/static/images/screenshots/${path}/`, pattern);
+  const look = fromDir(`screenshots/${path}/`, pattern);
 
   if (look && look.length === 1) {
-    return `/static/images/screenshots/${path}/${look[0]}`;
+    return `screenshots/${path}/${look[0]}`;
   }
 
   return undefined;
