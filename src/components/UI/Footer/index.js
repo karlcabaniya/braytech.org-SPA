@@ -28,7 +28,7 @@ function Footer({ location, handler }) {
           </div>
           {manifest.statistics.scrapes?.last?.time ? (
             <div>
-              {t('VOLUSPA last indexed')} {fromNow(manifest.statistics.scrapes.last.time)}
+              {t('VOLUSPA last indexed')} {fromNow(manifest.statistics.scrapes.last.time, false, true)}
             </div>
           ) : null}
         </div>

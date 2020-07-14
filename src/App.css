@@ -14,6 +14,7 @@
   --tier-common-dark: 0, 0%, 7%;
   --progress: #5aa366;
   --error: #dc513b;
+  --ui-scale: var(--ui-scale-1);
   --ui-scale-1: 1.017;
   --ui-scale-2: 1.05;
   --platform-xbox: #4CAF50;
@@ -179,7 +180,7 @@ p:last-child {
   z-index: 3;
   pointer-events: none;
   box-shadow: 0 0 0 2px rgba(214, 214, 214, 0);
-  transform: scale(var(--ui-scale-1)) translateZ(0);
+  transform: scale(var(--ui-scale)) translateZ(0);
   transition: box-shadow 0.25s, transform 0.25s;
 }
 
@@ -295,9 +296,10 @@ button.square {
   height: 3rem;
   margin: 0 6px 0 0;
   justify-content: center;
+  --ui-scale: var(--ui-scale-2);
   font-size: 22px;
-  background-color: rgba(255, 255, 255, 0);
   color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0);
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.2);
   transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
 }
@@ -312,7 +314,7 @@ button.square::after {
   z-index: 3;
   pointer-events: none;
   box-shadow: 0 0 0 2px rgba(214, 214, 214, 0);
-  transform: scale(var(--ui-scale-1)) translateZ(0);
+  transform: scale(var(--ui-scale)) translateZ(0);
   transition: box-shadow 0.25s, transform 0.25s;
 }
 
@@ -348,7 +350,7 @@ button.square.active {
   z-index: 3;
   pointer-events: none;
   box-shadow: 0 0 0 2px rgba(214, 214, 214, 0);
-  transform: scale(var(--ui-scale-1)) translateZ(0);
+  transform: scale(var(--ui-scale)) translateZ(0);
   transition: color 0.25s, background-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 

@@ -46,6 +46,10 @@
   border-radius: 100%;
 }
 
+#trackers .node .entries .filters .list .linked::after {
+  --ui-scale: var(--ui-scale-2);
+}
+
 #trackers .node .entries .filters .list .linked {
   display: grid;
   justify-items: center;

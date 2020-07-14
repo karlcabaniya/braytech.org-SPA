@@ -186,12 +186,27 @@ function finalString(value) {
   return value.toLocaleString();
 }
 
-export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false } = {}) => {
+export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false, round = false } = {}) => {
   const string = [];
-
+if (days > 22) console.log(months, days, hours, minutes, seconds)
   const keys = abbreviated ? durationKeysAbr : durationKeys;
 
   if (relative) {
+    if (round) {
+      if (days > 16 && months > 0) {
+        months = months + 1;
+      }
+      if (hours > 12 && days > 0) {
+        days = days + 1;
+      }
+      if (minutes > 30 && hours > 0) {
+        hours = hours + 1;
+      }
+      if (seconds > 30 && minutes > 0) {
+        minutes = minutes + 1;
+      }
+    }
+
     if (months > 0) {
       string.push(months === 1 ? keys.months.single() : keys.months.plural(finalString(months)));
 
@@ -260,9 +275,11 @@ export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds
   return string.join(' ');
 };
 
-export const timestampToDifference = (timestamp, unit = 'seconds', start = moment()) => {
-  const end = moment(timestamp);
-  const difference = end.diff(start, unit);
+export const timestampToDifference = (timestamp, unit = 'seconds', start) => {
+  const a = moment(timestamp);
+  const b = moment(start);
+
+  const difference = a.diff(b, unit);
 
   return {
     [unit]: difference,
@@ -284,24 +301,6 @@ export const timestampToDuration = (timestamp, start = moment()) => {
   };
 };
 
-// export const xurInTown = () => {
-//   const momentBefore = moment();
-//         momentBefore.day(10);
-//         momentBefore.hour(2);
-//         momentBefore.minute(59);
-//         momentBefore.second(59);
-//   const momentAfter = moment();
-//         momentAfter.day(6);
-//         momentAfter.hour(3);
-//         momentAfter.minute(0);
-//         momentAfter.second(0);
-
-//   const isAfter = moment().tz('Australia/Brisbane').isAfter(momentAfter, 'second');
-//   const isBefore = moment().tz('Australia/Brisbane').isBefore(momentBefore, 'second');
-
-//   return isAfter && isBefore;
-// };
-
 export const unixTimestampToDuration = (seconds) => {
   const duration = moment.duration(seconds);
 
@@ -314,7 +313,7 @@ export const unixTimestampToDuration = (seconds) => {
     seconds: duration.get('seconds'),
     milliseconds: duration.get('milliseconds'),
   };
-};
+};                                     
 
 export const formatTime = (date = moment(), format) => {
   if (format === 'ISO8601') {
@@ -328,14 +327,12 @@ export const addTime = (date = moment(), value, unit = 'seconds') => {
   return moment(date).add(value, unit);
 };
 
-export const fromNow = (date, abbreviated, withoutSuffix) => {
-  if (abbreviated) {
-    return moment(date).locale('rel-abr').fromNow(withoutSuffix);
-  } else {
-    return moment(date)
-      .locale(['zh-chs', 'zh-cht'].indexOf(i18next.language) > -1 ? 'zh-cn' : i18next.language)
-      .fromNow(withoutSuffix);
-  }
+export const fromNow = (date, abbreviated, withSuffix) => {
+  const diff = timestampToDifference(new Date(), 'milliseconds', date);
+
+  if (withSuffix) return t('Language.Time.Relative.Past', { duration: duration(unixTimestampToDuration(diff.milliseconds), { relative: true, round: true, abbreviated }) });
+
+  return duration(unixTimestampToDuration(diff.milliseconds), { relative: true, round: true, abbreviated });
 };
 
 function escapeRegExp(text) {

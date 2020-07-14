@@ -4,27 +4,14 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import cx from 'classnames';
 
 import i18n from './utils/i18n';
+import ls from './utils/localStorage';
 import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
-import ls from './utils/localStorage';
 import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 
 import 'intersection-observer';
-
-import moment from 'moment';
-import 'moment/locale/de';
-import 'moment/locale/es';
-import 'moment/locale/fr';
-import 'moment/locale/it';
-import 'moment/locale/ja';
-import 'moment/locale/ko';
-import 'moment/locale/pl';
-import 'moment/locale/pt-br';
-import 'moment/locale/ru';
-import 'moment/locale/zh-cn';
-import 'moment/locale/zh-tw';
 
 import './Core.css';
 import './App.css';
@@ -135,36 +122,6 @@ class App extends React.Component {
     // Set initial profile to saved profile but may be overridden by URL
     const profile = ls.get('setting.profile');
     if (profile) this.props.setMemberByRoute(profile);
-
-    // #region Moment locale init
-    let momentLocale = this.currentLanguage;
-    if (this.currentLanguage === 'zh-chs') momentLocale = 'zh-cn';
-    if (this.currentLanguage === 'zh-cht') momentLocale = 'zh-tw';
-
-    moment.locale(momentLocale);
-
-    if (this.currentLanguage === 'en') {
-      moment.defineLocale('rel-abr', {
-        parentLocale: momentLocale,
-        relativeTime: {
-          future: 'in %s',
-          past: '%s ago',
-          s: 'now',
-          ss: '%ss',
-          m: '<1m',
-          mm: '%dm',
-          h: '1h',
-          hh: '%dh',
-          d: '1d',
-          dd: '%dd',
-          M: '1M',
-          MM: '%dM',
-          y: '1y',
-          yy: '%dy',
-        },
-      });
-    }
-    // #endregion
   }
 
   // Called on window resize and dispatches changes to redux

@@ -462,7 +462,7 @@ class RosterAdmin extends React.Component {
                         <div className='tooltip' data-type='activity' data-context='roster' data-hash={lastActivity.currentActivityHash} data-mode={lastActivity.currentActivityModeHash} data-playlist={lastActivity.currentPlaylistActivityHash} data-membershipid={m.destinyUserInfo?.membershipId}>
                           <div>
                             {lastActivityString}
-                            <span>{fromNow(lastPlayed, true, true)}</span>
+                            <span>{fromNow(lastPlayed, true)}</span>
                           </div>
                         </div>
                       ) : (

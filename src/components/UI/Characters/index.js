@@ -32,7 +32,7 @@ class Characters extends React.Component {
           const state = (
             <>
               <div className='activity'>{lastActivity.lastActivityString}</div>
-              <time>{fromNow(lastActivity.lastPlayed)}</time>
+              <time>{fromNow(lastActivity.lastPlayed, false, true)}</time>
             </>
           );
 

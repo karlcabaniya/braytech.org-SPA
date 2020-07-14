@@ -28,6 +28,7 @@
   justify-items: stretch;
   align-items: stretch;
   margin: 20px 0 calc(2rem + 24px);
+  --ui-scale: var(--ui-scale-2);
 }
 
 #collections .sidebar .recently-discovered .list li {
@@ -49,14 +50,6 @@
 
 #collections .sidebar .recently-discovered .list li::before {
   box-shadow: inset 0 0 0 2px #d6d6d6;
-}
-
-#collections .sidebar .recently-discovered .list li::after {
-  transform: scale(var(--ui-scale-2)) translateZ(0);
-}
-
-#collections .sidebar .recently-discovered .list li:hover::after {
-  transform: scale(1) translateZ(0);
 }
 
 #collections .sidebar .badges .list {
@@ -549,6 +542,7 @@
   margin: 0;
   font-size: 20px;
   height: 40px;
+  --ui-scale: var(--ui-scale-2);
 }
 
 #collections .node.badge .entries .filters .list .linked svg {

@@ -1,142 +1,112 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 47,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 48,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "debug": {
-    "translated": 760,
+    "translated": 761,
     "notTranslated": 0,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "en": {
-    "translated": 760,
+    "translated": 761,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 739,
-    "notTranslated": 21,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 22,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "es": {
     "translated": 739,
-    "notTranslated": 21,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 22,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "fr": {
     "translated": 608,
-    "notTranslated": 152,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 153,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "it": {
     "translated": 739,
-    "notTranslated": 21,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 22,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "ja": {
     "translated": 587,
-    "notTranslated": 173,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 174,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 246,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 247,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 758,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 759,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "pt-br": {
     "translated": 688,
-    "notTranslated": 72,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 73,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "ru": {
     "translated": 739,
-    "notTranslated": 21,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 22,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "zh-chs": {
     "translated": 558,
-    "notTranslated": 202,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 203,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 411,
-    "added": [],
-    "removed": [
-      "{{days}} Days",
-      "{{hours}} Hours",
-      "{{month}} Month"
-    ]
+    "notTranslated": 412,
+    "added": [
+      "Language.Time.Relative.Past"
+    ],
+    "removed": []
   }
 }

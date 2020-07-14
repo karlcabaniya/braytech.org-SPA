@@ -369,6 +369,7 @@
   "Language.Time.Months.Plural.Abbr": "{{months}} Mth",
   "Language.Time.Months.Singluar": "1 Month",
   "Language.Time.Months.Singluar.Abbr": "1 Mth",
+  "Language.Time.Relative.Past": "{{duration}} ago",
   "Language.Time.Seconds.Plural": "{{seconds}} Seconds",
   "Language.Time.Seconds.Plural.Abbr": "{{seconds}} Secs",
   "Language.Time.Seconds.Singluar": "1 Second",
