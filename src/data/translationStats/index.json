@@ -1,114 +1,142 @@
 {
   "de": {
-    "translated": 731,
-    "notTranslated": 26,
+    "translated": 713,
+    "notTranslated": 47,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "debug": {
-    "translated": 757,
+    "translated": 760,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "en": {
-    "translated": 757,
+    "translated": 760,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "es-mx": {
-    "translated": 755,
-    "notTranslated": 2,
+    "translated": 739,
+    "notTranslated": 21,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "es": {
-    "translated": 755,
-    "notTranslated": 2,
+    "translated": 739,
+    "notTranslated": 21,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "fr": {
-    "translated": 622,
-    "notTranslated": 135,
+    "translated": 608,
+    "notTranslated": 152,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "it": {
-    "translated": 755,
-    "notTranslated": 2,
+    "translated": 739,
+    "notTranslated": 21,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "ja": {
-    "translated": 601,
-    "notTranslated": 156,
+    "translated": 587,
+    "notTranslated": 173,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "ko": {
     "translated": 514,
-    "notTranslated": 243,
+    "notTranslated": 246,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 755,
+    "notTranslated": 758,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "pt-br": {
-    "translated": 706,
-    "notTranslated": 51,
+    "translated": 688,
+    "notTranslated": 72,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "ru": {
-    "translated": 755,
-    "notTranslated": 2,
+    "translated": 739,
+    "notTranslated": 21,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "zh-chs": {
-    "translated": 563,
-    "notTranslated": 194,
+    "translated": 558,
+    "notTranslated": 202,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 408,
+    "notTranslated": 411,
     "added": [],
     "removed": [
-      "last-activity"
+      "{{days}} Days",
+      "{{hours}} Hours",
+      "{{month}} Month"
     ]
   }
 }

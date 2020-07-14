@@ -138,47 +138,47 @@ export function getLanguageInfo(code) {
 
 const durationKeys = {
   months: {
-    single: t('1 Month'),
-    plural: (months) => t('{{months}} Months', { months }),
+    single: () => t('Language.Time.Months.Singluar'),
+    plural: (months) => t('Language.Time.Months.Plural', { months }),
   },
   days: {
-    single: t('1 Day'),
-    plural: (days) => t('{{days}} Days', { days }),
+    single: () => t('Language.Time.Days.Singluar'),
+    plural: (days) => t('Language.Time.Days.Plural', { days }),
   },
   hours: {
-    single: t('1 Hour'),
-    plural: (hours) => t('{{hours}} Hours', { hours }),
+    single: () => t('Language.Time.Hours.Singluar'),
+    plural: (hours) => t('Language.Time.Hours.Plural', { hours }),
   },
   minutes: {
-    single: t('1 Minute'),
-    plural: (minutes) => t('{{minutes}} Minutes', { minutes }),
+    single: () => t('Language.Time.Minutes.Singluar'),
+    plural: (minutes) => t('Language.Time.Minutes.Plural', { minutes }),
   },
   seconds: {
-    single: t('1 Second'),
-    plural: (seconds) => t('{{seconds}} Seconds', { seconds }),
+    single: () => t('Language.Time.Seconds.Singluar'),
+    plural: (seconds) => t('Language.Time.Seconds.Plural', { seconds }),
   },
 };
 
 const durationKeysAbr = {
   months: {
-    single: t('1 Mth'),
-    plural: (months) => t('{{months}} Mths', { months }),
+    single: () => t('Language.Time.Months.Singluar.Abbr'),
+    plural: (months) => t('Language.Time.Months.Plural.Abbr', { months }),
   },
   days: {
-    single: t('1 Day'),
-    plural: (days) => t('{{days}} Days', { days }),
+    single: () => t('Language.Time.Days.Singluar.Abbr'),
+    plural: (days) => t('Language.Time.Days.Plural.Abbr', { days }),
   },
   hours: {
-    single: t('1 Hr'),
-    plural: (hours) => t('{{hours}} Hrs', { hours }),
+    single: () => t('Language.Time.Hours.Singluar.Abbr'),
+    plural: (hours) => t('Language.Time.Hours.Plural.Abbr', { hours }),
   },
   minutes: {
-    single: t('1 Min'),
-    plural: (minutes) => t('{{minutes}} Mins', { minutes }),
+    single: () => t('Language.Time.Minutes.Singluar.Abbr'),
+    plural: (minutes) => t('Language.Time.Minutes.Plural.Abbr', { minutes }),
   },
   seconds: {
-    single: t('1 Sec'),
-    plural: (seconds) => t('{{seconds}} Secs', { seconds }),
+    single: () => t('Language.Time.Seconds.Singluar.Abbr'),
+    plural: (seconds) => t('Language.Time.Seconds.Plural.Abbr', { seconds }),
   },
 };
 
@@ -193,68 +193,68 @@ export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds
 
   if (relative) {
     if (months > 0) {
-      string.push(months === 1 ? keys.months.single : keys.months.plural(finalString(months)));
+      string.push(months === 1 ? keys.months.single() : keys.months.plural(finalString(months)));
 
       return string.join(' ');
     } else if (days > 0) {
-      string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+      string.push(days === 1 ? keys.days.single() : keys.days.plural(finalString(days)));
 
       return string.join(' ');
     } else if (days < 1 && hours > 0) {
-      string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+      string.push(hours === 1 ? keys.hours.single() : keys.hours.plural(finalString(hours)));
 
       return string.join(' ');
     } else if (days < 1 && hours < 1 && minutes > 0) {
-      string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+      string.push(minutes === 1 ? keys.minutes.single() : keys.minutes.plural(finalString(minutes)));
 
       return string.join(' ');
     } else {
-      string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
+      string.push(seconds === 1 ? keys.seconds.single() : keys.seconds.plural(finalString(seconds)));
 
       return string.join(' ');
     }
   }
 
   if (unit === 'days') {
-    string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+    string.push(days === 1 ? keys.days.single() : keys.days.plural(finalString(days)));
 
     return string.join(' ');
   }
 
   if (unit === 'hours') {
-    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+    string.push(hours === 1 ? keys.hours.single() : keys.hours.plural(finalString(hours)));
 
     return string.join(' ');
   }
 
   if (unit === 'minutes') {
-    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+    string.push(minutes === 1 ? keys.minutes.single() : keys.minutes.plural(finalString(minutes)));
 
     return string.join(' ');
   }
 
   if (months > 0) {
-    string.push(months === 1 ? keys.months.single : keys.months.plural(finalString(months)));
-    if (days > 0) string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
+    string.push(months === 1 ? keys.months.single() : keys.months.plural(finalString(months)));
+    if (days > 0) string.push(days === 1 ? keys.days.single() : keys.days.plural(finalString(days)));
   }
 
   if (days > 0 && months < 1) {
-    string.push(days === 1 ? keys.days.single : keys.days.plural(finalString(days)));
-    if (hours > 0) string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
+    string.push(days === 1 ? keys.days.single() : keys.days.plural(finalString(days)));
+    if (hours > 0) string.push(hours === 1 ? keys.hours.single() : keys.hours.plural(finalString(hours)));
   }
 
   if (days < 1 && hours > 0) {
-    string.push(hours === 1 ? keys.hours.single : keys.hours.plural(finalString(hours)));
-    if (minutes > 0) string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
+    string.push(hours === 1 ? keys.hours.single() : keys.hours.plural(finalString(hours)));
+    if (minutes > 0) string.push(minutes === 1 ? keys.minutes.single() : keys.minutes.plural(finalString(minutes)));
   }
 
   if (days < 1 && hours < 1 && minutes > 0) {
-    string.push(minutes === 1 ? keys.minutes.single : keys.minutes.plural(finalString(minutes)));
-    if (seconds > 0) string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
+    string.push(minutes === 1 ? keys.minutes.single() : keys.minutes.plural(finalString(minutes)));
+    if (seconds > 0) string.push(seconds === 1 ? keys.seconds.single() : keys.seconds.plural(finalString(seconds)));
   }
 
   if (days < 1 && hours < 1 && minutes < 1) {
-    string.push(seconds === 1 ? keys.seconds.single : keys.seconds.plural(finalString(seconds)));
+    string.push(seconds === 1 ? keys.seconds.single() : keys.seconds.plural(finalString(seconds)));
   }
 
   return string.join(' ');
