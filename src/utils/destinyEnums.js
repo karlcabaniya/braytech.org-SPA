@@ -1894,6 +1894,7 @@ export const DestinyContentVault = [
             1945987454, // Pacific Deception
             3368709535, // GENOTYPENULL-ZERO
             3816666661, // Activate ESCALATION
+            2292889986, // Return TYRANT++
             2770012883, // Groundswell Nullifier99
             2691646944, // Specter of the Gun
             2670498157, // Technological Singularity

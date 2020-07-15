@@ -9,8 +9,7 @@ import Checkbox from '../UI/Checkbox';
 
 import './styles.css';
 
-const ChecklistItem = (props) => {
-  const { completed, suffix, name, location, destinationHash, mapHash } = props;
+const ChecklistItem = ({ completed, suffix, name, location, destinationHash, mapHash }) => {
 
   return (
     <li className={cx({ completed })}>

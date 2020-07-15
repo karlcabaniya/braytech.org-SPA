@@ -1,112 +1,181 @@
 {
   "de": {
-    "translated": 713,
-    "notTranslated": 48,
+    "translated": 710,
+    "notTranslated": 50,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "debug": {
-    "translated": 761,
+    "translated": 760,
     "notTranslated": 0,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "en": {
-    "translated": 761,
+    "translated": 760,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "es-mx": {
-    "translated": 739,
-    "notTranslated": 22,
+    "translated": 758,
+    "notTranslated": 2,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "es": {
-    "translated": 739,
-    "notTranslated": 22,
+    "translated": 758,
+    "notTranslated": 2,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "fr": {
-    "translated": 608,
+    "translated": 607,
     "notTranslated": 153,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "it": {
-    "translated": 739,
-    "notTranslated": 22,
+    "translated": 758,
+    "notTranslated": 2,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "ja": {
-    "translated": 587,
+    "translated": 586,
     "notTranslated": 174,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "ko": {
-    "translated": 514,
+    "translated": 513,
     "notTranslated": 247,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 759,
+    "notTranslated": 758,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "pt-br": {
-    "translated": 688,
-    "notTranslated": 73,
+    "translated": 685,
+    "notTranslated": 75,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "ru": {
-    "translated": 739,
-    "notTranslated": 22,
+    "translated": 758,
+    "notTranslated": 2,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "zh-chs": {
-    "translated": 558,
-    "notTranslated": 203,
+    "translated": 555,
+    "notTranslated": 205,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   },
   "zh-cht": {
     "translated": 349,
-    "notTranslated": 412,
+    "notTranslated": 411,
     "added": [
-      "Language.Time.Relative.Past"
+      "This collectible will be added to the _Content Vault_ in {{duration}}",
+      "This record will be added to the _Content Vault_ in {{duration}}"
     ],
-    "removed": []
+    "removed": [
+      "Forsaken campaign",
+      "This collectible will be archived in {{duration}}",
+      "This record will be archived in {{duration}}"
+    ]
   }
 }

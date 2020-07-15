@@ -56,12 +56,16 @@
 }
 
 .presentation-node .list.primary li {
+  --ui-scale: var(--ui-scale-2);
   height: 72px;
 }
 
-.presentation-node .list.primary li .image.dl {
+.presentation-node .list.primary li .image {
   top: 12%;
   height: 76%;
+}
+
+.presentation-node .list.primary li .image.dl {
   opacity: 0.4;
 }
 

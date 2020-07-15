@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
-import { t, duration, timestampToDifference } from '../../../utils/i18n';
+import { t, duration, timestampToDifference, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { itemRarityToString } from '../../../utils/destinyConverters';
 import { DestinyItemType, trialsPassages, enumerateItemState, enumerateVendorItemStatus } from '../../../utils/destinyEnums';
@@ -130,9 +130,11 @@ export default function Item(props) {
   const isVaultedItem = isContentVaulted(definitionItem.collectibleHash);
   if (definitionItem.collectibleHash && isVaultedItem) {
     importantText.push(
-      t('This collectible will be archived in {{duration}}', {
-        duration: duration(timestampToDifference(`${isVaultedItem.releaseDate}T${isVaultedItem.resetTime}`, 'days'), { unit: 'days' }),
-      })
+      <BraytechText
+        value={t('This collectible will be added to the _Content Vault_ in {{duration}}', {
+          duration: duration(timestampToDifference(`${isVaultedItem.releaseDate}T${isVaultedItem.resetTime}`, 'days'), { unit: 'days' }),
+        })}
+      />
     );
   }
 
@@ -141,7 +143,7 @@ export default function Item(props) {
       const failureString = manifest.DestinyVendorDefinition[item.vendorHash]?.failureStrings?.[index];
 
       if (failureString && failureString !== '') {
-        importantText.push(failureString);
+        importantText.push(<BraytechText value={failureString} />);
       }
     });
   } else if (item.failureIndexes?.length === 0 && !enumerateVendorItemStatus(item.vendorSaleStatus).Success) {
@@ -162,7 +164,7 @@ export default function Item(props) {
   }
 
   if (!item.itemComponents && props.uninstanced) {
-    importantText.push(t('Collections roll'));
+    importantText.push(<BraytechText value={t('Collections roll')} />);
   }
 
   const Meat = item.type && woolworths[item.type];
@@ -210,7 +212,7 @@ export default function Item(props) {
           {importantText.length ? (
             <div className='highlight major'>
               {importantText.map((text, t) => (
-                <p key={t}>{text}</p>
+                <React.Fragment key={t}>{text}</React.Fragment>
               ))}
             </div>
           ) : null}

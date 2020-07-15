@@ -66,8 +66,11 @@ function ToggleCompletedLink() {
 }
 
 export default function Vaulted(props) {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    dispatch(actions.tooltips.rebind());
 
     return () => { };
   }, []);

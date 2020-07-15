@@ -188,7 +188,7 @@ function finalString(value) {
 
 export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false, round = false } = {}) => {
   const string = [];
-if (days > 22) console.log(months, days, hours, minutes, seconds)
+
   const keys = abbreviated ? durationKeysAbr : durationKeys;
 
   if (relative) {

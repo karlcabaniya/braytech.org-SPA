@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 
-import { t, duration, timestampToDifference } from '../../utils/i18n';
+import { t, duration, timestampToDifference, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { commonality, isContentVaulted } from '../../utils/destinyUtils';
 import { enumerateRecordState, associationsCollectionsBadges } from '../../utils/destinyEnums';
@@ -485,7 +485,7 @@ class Records extends React.Component {
 
         const description = recordDescription(definitionRecord.hash);
 
-        const isVaultedRecord= !suppressVaultWarning && isContentVaulted(definitionRecord.hash);
+        const isVaultedRecord = !suppressVaultWarning && isContentVaulted(definitionRecord.hash);
 
         recordsOutput.push({
           completed: enumeratedState.RecordRedeemed,
@@ -548,11 +548,12 @@ class Records extends React.Component {
                 </ul>
               ) : null}
               {!suppressVaultWarning && isVaultedRecord && (
-                <div className='highlight major'>
-                  {t('This record will be archived in {{duration}}', {
+                <BraytechText
+                  className='highlight major'
+                  value={t('This record will be added to the _Content Vault_ in {{duration}}', {
                     duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),
                   })}
-                </div>
+                />
               )}
               {!settings.developer.lists && link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
             </li>

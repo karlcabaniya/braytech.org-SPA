@@ -2453,8 +2453,15 @@
   "351": {
     "recordHash": 2121305068,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=GLYIUxgy3U8"
-    }
+      "video": "https://www.youtube.com/watch?v=GLYIUxgy3U8",
+      "screenshot": {
+        "highlight": {
+          "x": 49,
+          "y": 67
+        }
+      }
+    },
+    "screenshot": "/static/images/screenshots/records/ghost-stories/the-chosens-choice-2121305068.jpg"
   },
   "352": {
     "recordHash": 2121305067,

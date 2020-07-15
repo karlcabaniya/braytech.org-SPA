@@ -470,7 +470,7 @@ class RosterAdmin extends React.Component {
                       )}
                     </li>
                     <li className='col join-date'>{!m.pending ? fromNow(m.joinDate, true) : null}</li>
-                    <li className='col weeklyXp'>
+                    <li className='col weekly-xp'>
                       <span>{weeklyXp.toLocaleString()}</span> / {(characterIds.length * 5000).toLocaleString()}
                     </li>
                     <li className='col rank'>{m.memberType && groupMemberTypeToString(m.memberType)}</li>
@@ -481,9 +481,9 @@ class RosterAdmin extends React.Component {
                 ) : (
                   <>
                     <li className='col last-character'>–</li>
-                    <li className='col activity'>–</li>
+                    <li className='col last-activity'>–</li>
                     <li className='col join-date'>–</li>
-                    <li className='col weeklyXp'>–</li>
+                    <li className='col weekly-xp'>–</li>
                     <li className='col rank'>{m.memberType && groupMemberTypeToString(m.memberType)}</li>
                     <li className='col actions'>
                       <Actions m={m} softUpdate={this.softUpdate} available={isAdmin} />
@@ -551,7 +551,7 @@ class RosterAdmin extends React.Component {
                   <div className='full'>{t('Joined')}</div>
                   <div className='abbr'>{t('Jind')}</div>
                 </li>
-                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weeklyXp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'weekly-xp' })}>
+                <li className={cx('col', 'weekly-xp', { sort: this.state.order.sort === 'weekly-xp', asc: this.state.order.dir === 'asc' })} onClick={this.handler_changeSortTo({ sort: 'weekly-xp' })}>
                   <div className='full'>{t('Weekly Clan XP')}</div>
                   <div className='abbr'>{t('Clan XP')}</div>
                 </li>
