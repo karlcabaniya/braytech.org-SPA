@@ -781,3 +781,7 @@ div.highlight.major {
   line-height: 1.4;
   font-family: var(--font-text);
 }
+
+div.highlight p {
+  line-height: 1.4;
+}
