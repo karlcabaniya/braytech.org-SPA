@@ -77,9 +77,9 @@ class Settings extends React.Component {
         })
         .then(() => {
           if (registration.waiting) {
-            console.log('Service Worker: updated, registration.waiting === true');
+            console.log('Service Worker: updated, but is "waiting"');
           } else {
-            console.log('Service Worker: updated, but not waiting');
+            console.log('Service Worker: updated');
           }
           
           if (this.mounted) this.setState({ swUpdateAttempt: false });
