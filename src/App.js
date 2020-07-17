@@ -301,12 +301,13 @@ class App extends React.Component {
                   <Route path='/archives' component={ArchivesRoutes} />
 
                   <RedirectRoute path='/clan' />
-                  <RedirectRoute path='/collections/' />
+                  <RedirectRoute path='/collections' />
                   <RedirectRoute path='/triumphs' />
                   <RedirectRoute path='/trackers' />
                   <RedirectRoute path='/checklists' exact />
                   <RedirectRoute path='/this-week' />
                   <RedirectRoute path='/now' />
+                  <RedirectRoute path='/character' />
                   <RedirectRoute path='/quests' />
                   <RedirectRoute path='/reports' />
 

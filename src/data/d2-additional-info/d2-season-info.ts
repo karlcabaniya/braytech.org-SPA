@@ -182,7 +182,7 @@ export const D2SeasonInfo = {
     maxLevel: 50,
     maxPower: 1110, // TODO: Update on verification
     softCap: 1050, // TODO: Update on verification
-    releaseDate: '2020-09-22',
+    releaseDate: '2020-11-10',
     resetTime: '17:00:00Z',
     numWeeks: 13,
   },

@@ -2126,6 +2126,7 @@ export const DestinyContentVault = [
             1657525185, // Fallen Barrier
             557403582, // Fallen Repurposing
             2473783710, // Scourge of Nothing
+            4051063432, // Midnight Smith
           ],
           records: [],
         },

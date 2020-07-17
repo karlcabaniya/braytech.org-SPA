@@ -313,7 +313,7 @@ export const unixTimestampToDuration = (seconds) => {
     seconds: duration.get('seconds'),
     milliseconds: duration.get('milliseconds'),
   };
-};                                     
+};
 
 export const formatTime = (date = moment(), format) => {
   if (format === 'ISO8601') {
@@ -451,4 +451,30 @@ export function energyAffinity(string) {
   }
 
   return false;
+}
+
+const stringBeautifierMap = {
+  source: [
+    'Quelle: ', // de
+    'Source: ', // en
+    'Source: ', // fr
+    'Fuente: ', // es
+    'Fuente: ', // es-mx
+    'Fonte: ', // it
+    '入手方法: ', // ja
+    '출처: ', // ko
+    'Źródło: ', // pl
+    'Fonte: ', // pt-br
+    'Источник: ', // ru
+    '來源：', // zh-cht
+    '来源：', // zh-chs
+  ],
+};
+
+export function stringBeautifier(key, string) {
+  if (stringBeautifierMap[key]) {
+    return stringBeautifierMap[key].reduce((string, value) => string.replace(value, ''), string);
+  } else {
+    return string;
+  }
 }

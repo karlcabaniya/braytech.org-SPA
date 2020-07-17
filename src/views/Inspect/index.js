@@ -4,7 +4,7 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 import cx from 'classnames';
 import queryString from 'query-string';
 
-import { t, BungieText } from '../../utils/i18n';
+import { t, BungieText, stringBeautifier } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import actions from '../../store/actions';
 import { DestinyTierType, DestinyItemType, DestinySocketCategoryStyle, enumerateCollectibleState } from '../../utils/destinyEnums';
@@ -89,7 +89,7 @@ export default function Inspect() {
 
   const displayTaxonomy = powerCap || definitionItem.equippingBlock?.ammoType || definitionItem.breakerType > 0 || definitionItem.defaultDamageTypeHash;
   const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
-  const displaySource = manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash]?.sourceString?.replace('Source: ','');
+  const displaySource = manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash]?.sourceString && stringBeautifier('source', manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString);
   const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
   const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
   const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;

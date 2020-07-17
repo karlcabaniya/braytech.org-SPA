@@ -1,0 +1,57 @@
+#inventory {
+  padding: 4rem 3rem 3rem;
+  display: grid;
+  --item-icon-size: 48px;
+}
+
+#inventory .equipment {
+  display: grid;
+  grid-template-columns: repeat(3, calc(var(--item-icon-size) * 4 + 12px * 2));
+  gap: 3rem;
+  align-items: start;
+}
+
+#inventory .equipment .buckets {
+  display: grid;
+  gap: 2rem;
+}
+
+#inventory .equipment .bucket {
+  display: grid;
+  grid-template-columns: var(--item-icon-size) calc(var(--item-icon-size) * 3 + 12px);
+  gap: 12px;
+  align-items: start;
+}
+
+#inventory .equipment .bucket .list.inventory-items {
+  grid-template-columns: repeat(3, var(--item-icon-size));
+  grid-gap: 6px;
+}
+
+#inventory .equipment .bucket .list.inventory-items.equipped {
+  grid-template-columns: var(--item-icon-size);
+}
+
+@media screen and (max-width: 600px) {
+  #inventory {
+    padding: 3rem 2rem 2rem;
+    --item-icon-size: 48px;
+  }
+
+  #inventory .equipment {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  #inventory .equipment .buckets {
+    gap: 1rem;
+  }
+
+  #inventory .equipment .bucket {
+    grid-template-columns: var(--item-icon-size) auto;
+  }
+
+  #inventory .equipment .bucket .list.inventory-items {
+    grid-template-columns: repeat(auto-fill, var(--item-icon-size));
+  }
+}
