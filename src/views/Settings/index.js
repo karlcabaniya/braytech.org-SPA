@@ -69,17 +69,17 @@ class Settings extends React.Component {
   handler_swUpdate = () => {
     if (this.mounted) this.setState({ swUpdateAttempt: true });
 
-    navigator.serviceWorker.getRegistration('/').then(function (registration) {
+    navigator.serviceWorker.getRegistration('/').then((registration) => {
       registration
         .update()
-        .catch((err) => {
-          console.error('SW: Unable to update service worker.', err);
+        .catch((error) => {
+          console.error('Service Worker: unable to update service worker', error);
         })
         .then(() => {
           if (registration.waiting) {
-            console.log('SW: New content is available; please refresh. (from update)');
+            console.log('Service Worker: updated, registration.waiting === true');
           } else {
-            console.log('SW: Updated, but theres not a new worker waiting');
+            console.log('Service Worker: updated, but not waiting');
           }
           
           if (this.mounted) this.setState({ swUpdateAttempt: false });
@@ -90,8 +90,9 @@ class Settings extends React.Component {
   handler_swDump = () => {
     if (this.mounted) this.setState({ swUnregisterAttempt: true });
 
-    navigator.serviceWorker.getRegistration('/').then(function (registration) {
+    navigator.serviceWorker.getRegistration('/').then((registration) => {
       registration.unregister();
+
       console.log(registration);
     });
   };
