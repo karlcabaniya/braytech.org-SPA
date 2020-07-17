@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.27.33",
+  "version": "2.27.34",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -37,7 +37,7 @@
     "redux": "^4.0.5",
     "three": "^0.118.3",
     "three-orbitcontrols": "^2.110.3",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",

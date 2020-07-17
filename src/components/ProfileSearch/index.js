@@ -2,6 +2,7 @@ import React from 'react';
 import { debounce } from 'lodash';
 import { withTranslation } from 'react-i18next';
 
+import { t } from '../../utils/i18n';
 import ls from '../../utils/localStorage';
 import * as bungie from '../../utils/bungie';
 import Spinner from '../../components/UI/Spinner';
@@ -9,15 +10,11 @@ import Spinner from '../../components/UI/Spinner';
 import './styles.css';
 
 class ProfileSearch extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      results: false,
-      search: '',
-      searching: false
-    };
-  }
+  state = {
+    results: false,
+    search: '',
+    searching: false,
+  };
 
   componentDidMount() {
     this.mounted = true;
@@ -27,12 +24,15 @@ class ProfileSearch extends React.Component {
     this.mounted = false;
   }
 
-  onSearchChange = e => {
-    this.setState({ search: e.target.value });
-    this.searchForPlayers();
+  handler_onSearchChange = (e) => {
+    if (this.mounted) {
+      this.setState({ search: e.target.value });
+
+      this.searchForPlayers();
+    }
   };
 
-  onSearchKeyPress = e => {
+  handler_onSearchKeyPress = (e) => {
     // If they pressed enter, ignore the debounce and search right meow. MEOW, SON.
     if (e.key === 'Enter') this.searchForPlayers.flush();
   };
@@ -40,39 +40,53 @@ class ProfileSearch extends React.Component {
   // Debounced so that we don't make an API request for every single
   // keypress - only when they stop typing.
   searchForPlayers = debounce(async () => {
-    const displayName = this.state.search;
+    const { search } = this.state;
 
-    if (!displayName) return;
+    if (!search) return;
 
     this.setState({ searching: true });
 
     try {
-      const isSteamID64 = displayName.match(/\b\d{17}\b/);
-      const response = isSteamID64 ? await bungie.GetMembershipFromHardLinkedCredential({ params: { crType: 'SteamId', credential: displayName } }) : await bungie.SearchDestinyPlayer('-1', displayName);
+      const isSteamID64 = search.match(/\b\d{17}\b/);
+      const isMembershipId = search.match(/\b\d{19}\b/);
+      const response = isSteamID64
+        ? // is SteamID64
+          await bungie.GetMembershipFromHardLinkedCredential({ params: { crType: 'SteamId', credential: search } })
+        : isMembershipId
+        ? // is MembershipId
+          await bungie.GetMembershipDataById({ params: { membershipId: search, membershipType: '-1' } })
+        : // is display name
+          await bungie.SearchDestinyPlayer('-1', search);
+      // 4611686018430042660
 
       const results =
         isSteamID64 && response.ErrorCode === 1
-          ? [
+          ? // is SteamID64
+            [
               await bungie
                 .GetProfile({
                   params: {
                     membershipType: response.Response.membershipType,
                     membershipId: response.Response.membershipId,
-                    components: '100'
+                    components: '100',
                   },
                   errors: {
-                    hide: false
-                  }
+                    hide: false,
+                  },
                 })
-                .then(response => {
+                .then((response) => {
                   return {
                     displayName: response.Response.profile.data.userInfo.displayName,
                     membershipId: response.Response.profile.data.userInfo.membershipId,
-                    membershipType: response.Response.profile.data.userInfo.membershipType
+                    membershipType: response.Response.profile.data.userInfo.membershipType,
                   };
-                })
+                }),
             ]
-          : response.Response;
+          : isMembershipId && response.ErrorCode === 1
+          ? // is MembershipId
+            response.Response.destinyMemberships || false
+          : // is display name
+            response.Response;
 
       if (this.mounted) {
         if (results) {
@@ -84,8 +98,8 @@ class ProfileSearch extends React.Component {
     } catch (e) {
       // If we get an error here it's usually because somebody is being cheeky
       // (eg entering invalid search data), so log it only.
-      console.warn(`Error while searching for ${displayName}: ${e}`);
-      
+      console.warn(`Error while searching for ${search}: ${e}`);
+
       if (this.mounted) this.setState({ results: false, searching: false });
     }
   }, 500);
@@ -100,14 +114,13 @@ class ProfileSearch extends React.Component {
     if (results && results.length > 0) {
       return this.props.resultsListItems(results);
     } else if (results) {
-      return <li className='no-profiles'>{this.props.t('No profiles found')}</li>;
+      return <li className='no-profiles'>{t('No profiles found')}</li>;
     }
 
     return null;
   }
 
   render() {
-    const { t } = this.props;
     const { search, searching } = this.state;
 
     const history = ls.get('history.profiles') || [];
@@ -119,7 +132,7 @@ class ProfileSearch extends React.Component {
         </div>
         <div className='form'>
           <div className='field'>
-            <input onChange={this.onSearchChange} type='text' placeholder={t('insert gamertag or SteamId64')} spellCheck='false' value={search} onKeyPress={this.onSearchKeyPress} />
+            <input onChange={this.handler_onSearchChange} type='text' placeholder={t('insert gamertag or SteamId64')} spellCheck='false' value={search} onKeyPress={this.handler_onSearchKeyPress} />
           </div>
         </div>
 
@@ -140,4 +153,4 @@ class ProfileSearch extends React.Component {
   }
 }
 
-export default withTranslation()(ProfileSearch);
+export default ProfileSearch;

@@ -40,23 +40,6 @@ class Settings extends React.Component {
     }, 50);
   };
 
-  handler_swUpdate = () => {
-    if (this.mounted) this.setState({ swUpdateAttempt: true });
-
-    navigator.serviceWorker.getRegistration('/').then(function (registration) {
-      registration.update();
-    });
-  };
-
-  handler_swDump = () => {
-    if (this.mounted) this.setState({ swUnregisterAttempt: true });
-
-    navigator.serviceWorker.getRegistration('/').then(function (registration) {
-      registration.unregister();
-      console.log(registration);
-    });
-  };
-
   async componentDidMount() {
     this.mounted = true;
 
@@ -81,6 +64,34 @@ class Settings extends React.Component {
     }
 
     return false;
+  };
+
+  handler_swUpdate = () => {
+    if (this.mounted) this.setState({ swUpdateAttempt: true });
+
+    navigator.serviceWorker.getRegistration('/').then(function (registration) {
+      registration
+        .update()
+        .catch((err) => {
+          console.error('SW: Unable to update service worker.', err);
+        })
+        .then(() => {
+          if (registration.waiting) {
+            console.log('SW: New content is available; please refresh. (from update)');
+          } else {
+            console.log('SW: Updated, but theres not a new worker waiting');
+          }
+        });
+    });
+  };
+
+  handler_swDump = () => {
+    if (this.mounted) this.setState({ swUnregisterAttempt: true });
+
+    navigator.serviceWorker.getRegistration('/').then(function (registration) {
+      registration.unregister();
+      console.log(registration);
+    });
   };
 
   handler_setTheme = (theme) => (e) => {
