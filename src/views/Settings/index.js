@@ -81,6 +81,8 @@ class Settings extends React.Component {
           } else {
             console.log('SW: Updated, but theres not a new worker waiting');
           }
+          
+          if (this.mounted) this.setState({ swUpdateAttempt: false });
         });
     });
   };
