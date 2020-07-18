@@ -15,6 +15,21 @@ import { recallMissions } from '../LunasRecall';
 
 import './styles.css';
 
+const MILESTONE_FLASHPOINT = 463010297;
+const MILESTONE_VANGUARD_STRIKES = 1437935813;
+const MILESTONE_BOUNTIES_ZAVALA = 2709491520;
+const MILESTONE_BOUNTIES_BANSHEE44 = 3899487295;
+const MILESTONE_BOUNTIES_DRIFTER = 3802603984;
+
+const milestoneHashes = [
+  // MILESTONE_FLASHPOINT,
+  MILESTONE_BOUNTIES_ZAVALA,
+  MILESTONE_BOUNTIES_BANSHEE44,
+  MILESTONE_BOUNTIES_DRIFTER,
+  MILESTONE_VANGUARD_STRIKES,
+];
+
+// groups of objective hashes
 const groups = [
   [
     2498962144, // Nightfall: The Ordeal with a team score above 100,000
@@ -28,10 +43,29 @@ const groups = [
     3683641566, // Nightmare Hunt activities completion
     2190387136, // Nightmare Hunt on Master difficulty
   ],
+  [
+    4140117227, // Vanguard Service (Zavala)
+    2338381314, // Vanguard Service (Zavala) - Reward
+    1408783815, // Spare Parts (Banshee-44)
+    313458118, // Spare Parts (Banshee-44) - Reward
+    877997339, // Shady Schemes (The Drifter)
+    967175154, // Shady Schemes (The Drifter) - Reward
+  ],
 ];
 
-function getOverrides(objectiveHash, activityHash) {
-  if (objectiveHash === 3683641566) {
+function getOverrides({ objectiveHash, activityHash, milestoneHash, ...rest }) {
+  if (milestoneHash === 463010297) {
+    // Flashpoint
+
+    return undefined;
+  } else if (milestoneHash === MILESTONE_BOUNTIES_ZAVALA || milestoneHash === MILESTONE_BOUNTIES_BANSHEE44 || milestoneHash === MILESTONE_BOUNTIES_DRIFTER) {
+    // Flashpoint
+
+    return {
+      name: t('UserModules.Challenges.Overrides.VendorBounties.Name'),
+      description: t('UserModules.Challenges.Overrides.VendorBounties.Description'),
+    };
+  } else if (objectiveHash === 3683641566) {
     return {
       name: t('Nightmare Hunts'),
       description: t('Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian.'),
@@ -39,12 +73,13 @@ function getOverrides(objectiveHash, activityHash) {
   } else if (objectiveHash === 2443315975 || objectiveHash === 2498962144) {
     // Nightfall: The Ordeal
     return {
-      description: t('Undertake your most perilous albeit rewarding strikes yet, in the name of the Light, the Vanguard, and The Last City.'),
+      description: t('UserModules.Challenges.Overrides.Nightfalls.Description'),
     };
   } else if (objectiveHash === 1296970487) {
+    // Luna's Recall
     return {
       name: manifest.DestinyObjectiveDefinition[1296970487]?.displayProperties.name,
-      description: t('Retrace your steps and unravel the mystery of the Pyramid.'),
+      description: t('UserModules.Challenges.Overrides.LunasRecall.Name'),
     };
   } else if (objectiveHash === 3118376466 || objectiveHash === 1607758693) {
     // Crucible
@@ -52,6 +87,8 @@ function getOverrides(objectiveHash, activityHash) {
       name: manifest.DestinyPlaceDefinition[4088006058].displayProperties.name,
       description: manifest.DestinyPlaceDefinition[4088006058].displayProperties.description,
     };
+  } else {
+    return undefined;
   }
 }
 
@@ -83,51 +120,63 @@ function Challenges() {
 
   function handler_togglePinnacleFilter() {
     const change = {
-      filterRewards: !state.filterRewards
+      filterRewards: !state.filterRewards,
     };
 
-    ls.set('setting.modules.challenges', change)
+    ls.set('setting.modules.challenges', change);
     setState(change);
   }
 
   const characterActivities = member.data.profile.characterActivities.data;
+  const characterProgressions = member.data.profile.characterProgressions.data;
 
-  // console.log(groupBy(characterActivities[member.characterId].availableActivities.filter(a => a.challenges), a => a.challenges[0].objective.objectiveHash))
+  const objectives =
+    // get activities with challenges
+    characterActivities[member.characterId].availableActivities
+      .filter((a) => a.challenges)
+      // reduce the activities list into an array of objective objects
+      .reduce((a, v) => [...a, ...(v.challenges.filter((c) => !a.filter((b) => b.objectiveHash === c.objective.objectiveHash).length).map((c) => c.objective) || [])], []);
+  // milestone objective objects
+  const milestones = milestoneHashes.map((milestoneHash) => {
+    if (milestoneHash === MILESTONE_VANGUARD_STRIKES) {
+      const milestoneActivity = characterProgressions[member.characterId].milestones[milestoneHash]?.activities?.[0] || {};
+      const milestoneObjective = milestoneActivity?.challenges?.[0]?.objective || {};
 
-  const challenges = characterActivities[member.characterId].availableActivities
-    .filter((a) => a.challenges)
-    .reduce((a, v) => [...a, ...(v.challenges.filter((c) => !a.filter((b) => b.objectiveHash === c.objective.objectiveHash).length).map((c) => c.objective) || [])], [])
-    .reduce((a, v) => {
-      const group = groups.find((g) => g.indexOf(v.objectiveHash) > -1);
+      return {
+        ...milestoneActivity,
+        ...milestoneObjective,
+        milestoneHash,
+      };
+    } else {
+      return {
+        ...(characterProgressions[member.characterId].milestones[milestoneHash]?.availableQuests?.[0]?.status?.stepObjectives?.[0] || {}),
+        milestoneHash,
+      };
+    }
+  });
 
-      if (group) {
-        const indexOf = a.findIndex((g) => g.objectives.filter((h) => group.indexOf(h.objectiveHash) > -1).length);
+  // console.log(milestones);
 
-        if (indexOf > -1) {
-          a[indexOf].objectives = [...a[indexOf].objectives, v];
+  const challenges = [...milestones, ...objectives].reduce((a, v) => {
+    const group = groups.find((g) => g.indexOf(v.objectiveHash) > -1);
 
-          // potential to-do: this code only knows how to collate objectives
-          // currently, only nightfall: the ordeal has more than one objective and each activity has the same objectives
+    // this objective belongs to a group
+    if (group) {
+      const indexOf = a.findIndex((g) => g.objectives.filter((h) => group.indexOf(h.objectiveHash) > -1).length);
 
-          return a;
-        } else {
-          return [
-            ...a,
-            {
-              activityHash: v.activityHash,
-              activities: characterActivities[member.characterId].availableActivities
-                .filter((a) => a.challenges)
-                .filter((a) => a.challenges.filter((o) => o.objective.objectiveHash === v.objectiveHash).length)
-                .map((a) => a.activityHash),
-              objectives: [v],
-            },
-          ];
-        }
+      if (indexOf > -1) {
+        a[indexOf].objectives = [...a[indexOf].objectives, v];
+
+        // potential to-do: this code only knows how to collate objectives
+        // currently, only nightfall: the ordeal has more than one objective and each activity has the same objectives
+
+        return a;
       } else {
         return [
           ...a,
           {
             activityHash: v.activityHash,
+            milestoneHash: v.milestoneHash,
             activities: characterActivities[member.characterId].availableActivities
               .filter((a) => a.challenges)
               .filter((a) => a.challenges.filter((o) => o.objective.objectiveHash === v.objectiveHash).length)
@@ -136,7 +185,27 @@ function Challenges() {
           },
         ];
       }
-    }, []);
+    }
+    // a lone wolf
+    else {
+      return [
+        ...a,
+        {
+          activityHash: v.activityHash,
+          milestoneHash: v.milestoneHash,
+          activities: characterActivities[member.characterId].availableActivities
+            .filter((a) => a.challenges)
+            .filter((a) => a.challenges.filter((o) => o.objective.objectiveHash === v.objectiveHash).length)
+            .map((a) => a.activityHash),
+          objectives: [v],
+        },
+      ];
+    }
+  }, []);
+
+  // console.log(Object.values(characterProgressions[member.characterId].milestones).map((m) => ({ name: manifest.DestinyMilestoneDefinition[m.milestoneHash].displayProperties.name, ...m })));
+
+  // console.log(challenges);
 
   const challengesCompleted = !challenges.filter((activity) => activity.objectives.filter((objective) => !objective.complete).length).length;
   const challengesFiltered = state.filterRewards
@@ -151,13 +220,38 @@ function Challenges() {
   const rewardsRemaining = challengesFiltered.reduce(
     (rewards, activity) =>
       rewards +
-      activity.objectives.filter((objective) =>
-        !objective.complete && state.filterRewards
-          ? // pinnacles only
-            manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.filter((reward) => reward.itemHash === 73143230).length
-          : // any rewards
-            manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.length
-      ).length,
+      activity.objectives.filter((objective) => {
+        if (!objective.complete) {
+          // this is a milestone
+          if (manifest.DestinyMilestoneDefinition[activity.milestoneHash]?.quests) {
+            // pinnacles only
+            if (state.filterRewards) {
+              return manifest.DestinyInventoryItemDefinition[
+                // get questItemHash from first - and probably only - dumb quests object on the milestone definition
+                Object.values(manifest.DestinyMilestoneDefinition[activity.milestoneHash]?.quests)?.[0]?.questItemHash
+              ]?.value?.itemValue?.filter((reward) => reward.itemHash === 73143230).length;
+            }
+            // any rewards
+            else {
+              return manifest.DestinyInventoryItemDefinition[
+                // get questItemHash from first - and probably only - dumb quests object on the milestone definition
+                Object.values(manifest.DestinyMilestoneDefinition[activity.milestoneHash]?.quests)?.[0]?.questItemHash
+              ]?.value?.itemValue?.filter((reward) => reward.itemHash).length;
+            }
+          } else {
+            // pinnacles only
+            if (state.filterRewards) {
+              return manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.filter((reward) => reward.itemHash === 73143230).length;
+            }
+            // any rewards
+            else {
+              return manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.length;
+            }
+          }
+        }
+
+        return false;
+      }).length,
     0
   );
 
@@ -177,7 +271,7 @@ function Challenges() {
       {!challengesCompleted ? (
         <ul>
           {challengesFiltered.map((challenge, i) => {
-            const override = getOverrides(challenge.objectives[0]?.objectiveHash, challenge.activityHash);
+            const override = getOverrides({ ...challenge, objectiveHash: challenge.objectives[0]?.objectiveHash });
             const activities = getActivities(challenge.activities);
 
             const name = override?.name || manifest.DestinyActivityDefinition[challenge.activityHash].originalDisplayProperties?.name || manifest.DestinyActivityDefinition[challenge.activityHash].displayProperties.name;
@@ -218,7 +312,14 @@ function Challenges() {
                 </div>
                 <div className={cx('challenges', { completed: !objectives.filter((o) => !o.complete).length })}>
                   {objectives.map((objective, o) => {
-                    const rewards = manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
+                    const rewards = manifest.DestinyMilestoneDefinition[challenge.milestoneHash]?.quests
+                      ? // this is a milestone
+                        manifest.DestinyInventoryItemDefinition[
+                          // get questItemHash from first - and probably only - dumb quests object on the milestone definition
+                          Object.values(manifest.DestinyMilestoneDefinition[challenge.milestoneHash]?.quests)?.[0]?.questItemHash
+                        ]?.value?.itemValue?.filter((reward) => reward.itemHash)
+                      : // this is an activity
+                        manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards || [];
 
                     return (
                       <div key={o} className={cx('challenge', { completed: objective.complete })}>

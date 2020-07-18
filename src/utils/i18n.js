@@ -137,6 +137,10 @@ export function getLanguageInfo(code) {
 }
 
 const durationKeys = {
+  years: {
+    single: () => t('Language.Time.Years.Singluar'),
+    plural: (years) => t('Language.Time.Years.Plural', { years }),
+  },
   months: {
     single: () => t('Language.Time.Months.Singluar'),
     plural: (months) => t('Language.Time.Months.Plural', { months }),
@@ -160,6 +164,10 @@ const durationKeys = {
 };
 
 const durationKeysAbr = {
+  years: {
+    single: () => t('Language.Time.Years.Singluar.Abbr'),
+    plural: (years) => t('Language.Time.Years.Plural.Abbr', { years }),
+  },
   months: {
     single: () => t('Language.Time.Months.Singluar.Abbr'),
     plural: (months) => t('Language.Time.Months.Plural.Abbr', { months }),
@@ -186,13 +194,16 @@ function finalString(value) {
   return value.toLocaleString();
 }
 
-export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false, round = false } = {}) => {
+export const duration = ({ years = 0, months = 0, days = 0, hours = 0, minutes = 0, seconds = 0 }, { unit = undefined, relative = false, abbreviated = false, round = false } = {}) => {
   const string = [];
 
   const keys = abbreviated ? durationKeysAbr : durationKeys;
 
   if (relative) {
     if (round) {
+      if (months > 6 && years > 0) {
+        years = years + 1;
+      }
       if (days > 16 && months > 0) {
         months = months + 1;
       }
@@ -207,7 +218,11 @@ export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds
       }
     }
 
-    if (months > 0) {
+    if (years > 0) {
+      string.push(years === 1 ? keys.years.single() : keys.years.plural(finalString(years)));
+
+      return string.join(' ');
+    } else if (months > 0) {
       string.push(months === 1 ? keys.months.single() : keys.months.plural(finalString(months)));
 
       return string.join(' ');
@@ -246,6 +261,11 @@ export const duration = ({ months = 0, days = 0, hours = 0, minutes = 0, seconds
     string.push(minutes === 1 ? keys.minutes.single() : keys.minutes.plural(finalString(minutes)));
 
     return string.join(' ');
+  }
+
+  if (years > 0) {
+    string.push(years === 1 ? keys.years.single() : keys.years.plural(finalString(years)));
+    if (months > 0) string.push(months === 1 ? keys.months.single() : keys.months.plural(finalString(months)));
   }
 
   if (months > 0) {
