@@ -2,23 +2,13 @@
   "de": {
     "translated": 713,
     "notTranslated": 53,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 766,
     "notTranslated": 0,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -30,121 +20,68 @@
   "es-mx": {
     "translated": 760,
     "notTranslated": 6,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "es": {
     "translated": 760,
     "notTranslated": 6,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "fr": {
     "translated": 607,
     "notTranslated": 159,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "it": {
     "translated": 758,
     "notTranslated": 8,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "ja": {
     "translated": 586,
     "notTranslated": 180,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "ko": {
     "translated": 513,
     "notTranslated": 253,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 764,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "pt-br": {
     "translated": 685,
     "notTranslated": 81,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "added": [],
     "removed": []
   },
   "ru": {
-    "translated": 760,
-    "notTranslated": 6,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "translated": 766,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "zh-chs": {
-    "translated": 555,
-    "notTranslated": 211,
-    "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
-    ],
+    "translated": 561,
+    "notTranslated": 205,
+    "added": [],
     "removed": []
   },
   "zh-cht": {
-    "translated": 387,
-    "notTranslated": 379,
+    "translated": 555,
+    "notTranslated": 212,
     "added": [
-      "Language.Time.Years.Plural",
-      "Language.Time.Years.Plural.Abbr",
-      "Language.Time.Years.Singluar",
-      "Language.Time.Years.Singluar.Abbr"
+      "Customise"
     ],
     "removed": []
   }
