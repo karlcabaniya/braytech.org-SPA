@@ -17,16 +17,20 @@ import './styles.css';
 
 const MILESTONE_FLASHPOINT = 463010297;
 const MILESTONE_VANGUARD_STRIKES = 1437935813;
+const MILESTONE_GAMBIT = 3448738070;
 const MILESTONE_BOUNTIES_ZAVALA = 2709491520;
 const MILESTONE_BOUNTIES_BANSHEE44 = 3899487295;
 const MILESTONE_BOUNTIES_DRIFTER = 3802603984;
+const MILESTONE_BOUNTIES_SHAXX = 2594202463;
 
 const milestoneHashes = [
   // MILESTONE_FLASHPOINT,
+  // MILESTONE_VANGUARD_STRIKES,
+  // MILESTONE_GAMBIT,
   MILESTONE_BOUNTIES_ZAVALA,
   MILESTONE_BOUNTIES_BANSHEE44,
   MILESTONE_BOUNTIES_DRIFTER,
-  // MILESTONE_VANGUARD_STRIKES,
+  MILESTONE_BOUNTIES_SHAXX,
 ];
 
 // groups of objective hashes
@@ -50,6 +54,8 @@ const groups = [
     313458118, // Spare Parts (Banshee-44) - Reward
     877997339, // Shady Schemes (The Drifter)
     967175154, // Shady Schemes (The Drifter) - Reward
+    565013971, // Live-Fire Exercises (Shaxx)
+    4026431786, // Live-Fire Exercises (Shaxx) - Reward
   ],
 ];
 
