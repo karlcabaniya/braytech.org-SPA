@@ -26,7 +26,7 @@ const milestoneHashes = [
   MILESTONE_BOUNTIES_ZAVALA,
   MILESTONE_BOUNTIES_BANSHEE44,
   MILESTONE_BOUNTIES_DRIFTER,
-  MILESTONE_VANGUARD_STRIKES,
+  // MILESTONE_VANGUARD_STRIKES,
 ];
 
 // groups of objective hashes
@@ -137,23 +137,25 @@ function Challenges() {
       // reduce the activities list into an array of objective objects
       .reduce((a, v) => [...a, ...(v.challenges.filter((c) => !a.filter((b) => b.objectiveHash === c.objective.objectiveHash).length).map((c) => c.objective) || [])], []);
   // milestone objective objects
-  const milestones = milestoneHashes.map((milestoneHash) => {
-    if (milestoneHash === MILESTONE_VANGUARD_STRIKES) {
-      const milestoneActivity = characterProgressions[member.characterId].milestones[milestoneHash]?.activities?.[0] || {};
-      const milestoneObjective = milestoneActivity?.challenges?.[0]?.objective || {};
+  const milestones = milestoneHashes
+    .map((milestoneHash) => {
+      if (milestoneHash === MILESTONE_VANGUARD_STRIKES) {
+        const milestoneActivity = characterProgressions[member.characterId].milestones[milestoneHash]?.activities?.[0] || {};
+        const milestoneObjective = milestoneActivity?.challenges?.[0]?.objective || {};
 
-      return {
-        ...milestoneActivity,
-        ...milestoneObjective,
-        milestoneHash,
-      };
-    } else {
-      return {
-        ...(characterProgressions[member.characterId].milestones[milestoneHash]?.availableQuests?.[0]?.status?.stepObjectives?.[0] || {}),
-        milestoneHash,
-      };
-    }
-  });
+        return {
+          ...milestoneActivity,
+          ...milestoneObjective,
+          milestoneHash,
+        };
+      } else {
+        return {
+          ...(characterProgressions[member.characterId].milestones[milestoneHash]?.availableQuests?.[0]?.status?.stepObjectives?.[0] || {}),
+          milestoneHash,
+        };
+      }
+    })
+    .filter((milestone) => milestone.complete !== undefined);
 
   // console.log(milestones);
 
@@ -213,7 +215,24 @@ function Challenges() {
         // filter for incomplete
         .filter((activity) => activity.objectives.filter((objective) => !objective.complete).length)
         // filter for pinnacles
-        .filter((activity) => activity.objectives.filter((objective) => !objective.complete && manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.filter((reward) => reward.itemHash === 73143230).length).length)
+        .filter(
+          (activity) =>
+            activity.objectives.filter((objective) => {
+              if (!objective.complete) {
+                // this is a milestone
+                if (manifest.DestinyMilestoneDefinition[activity.milestoneHash]?.quests) {
+                  return manifest.DestinyInventoryItemDefinition[
+                    // get questItemHash from first - and probably only - dumb quests object on the milestone definition
+                    Object.values(manifest.DestinyMilestoneDefinition[activity.milestoneHash]?.quests)?.[0]?.questItemHash
+                  ]?.value?.itemValue?.filter((reward) => reward.itemHash === 73143230).length;
+                } else {
+                  return manifest.DestinyActivityDefinition[objective.activityHash].challenges?.find((challenge) => challenge.objectiveHash === objective.objectiveHash)?.dummyRewards.filter((reward) => reward.itemHash === 73143230).length;
+                }
+              }
+
+              return false;
+            }).length
+        )
     : challenges
         // filter for incomplete
         .filter((activity) => activity.objectives.filter((objective) => !objective.complete).length);
