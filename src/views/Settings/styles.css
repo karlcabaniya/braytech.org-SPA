@@ -43,10 +43,6 @@
   margin: 1rem 0 0;
 }
 
-#settings .check-box .check.ed::before {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
 #settings .buff {
   width: 100%;
   padding: 3rem;

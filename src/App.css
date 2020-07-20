@@ -240,6 +240,10 @@ p:last-child {
   color: rgba(255, 255, 255, 0.4);
 }
 
+.list.settings li .check-box .check.ed::before {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 input {
   appearance: none;
   border: none;

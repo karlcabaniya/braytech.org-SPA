@@ -1,86 +1,138 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 53,
-    "added": [],
-    "removed": []
+    "notTranslated": 54,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "debug": {
-    "translated": 766,
+    "translated": 767,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "en": {
-    "translated": 766,
+    "translated": 767,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 766,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 1,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "es": {
     "translated": 766,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 1,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "fr": {
     "translated": 607,
-    "notTranslated": 159,
-    "added": [],
-    "removed": []
+    "notTranslated": 160,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "it": {
     "translated": 758,
-    "notTranslated": 8,
-    "added": [],
-    "removed": []
+    "notTranslated": 9,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "ja": {
     "translated": 586,
-    "notTranslated": 180,
-    "added": [],
-    "removed": []
+    "notTranslated": 181,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "ko": {
     "translated": 513,
-    "notTranslated": 253,
-    "added": [],
-    "removed": []
+    "notTranslated": 254,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 764,
-    "added": [],
-    "removed": []
+    "notTranslated": 765,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "pt-br": {
     "translated": 685,
-    "notTranslated": 81,
-    "added": [],
-    "removed": []
+    "notTranslated": 82,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "ru": {
     "translated": 766,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "notTranslated": 1,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "zh-chs": {
     "translated": 561,
-    "notTranslated": 205,
-    "added": [],
-    "removed": []
+    "notTranslated": 206,
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   },
   "zh-cht": {
     "translated": 555,
     "notTranslated": 212,
-    "added": [],
-    "removed": []
+    "added": [
+      "Settings.Maps.Checklists.Info"
+    ],
+    "removed": [
+      "Maps.Settings.Checklists.Info"
+    ]
   }
 }

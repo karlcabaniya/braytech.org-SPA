@@ -1,4 +1,4 @@
-#dialog {
+.dialog {
   position: fixed;
   left: 0;
   top: 0;
@@ -12,12 +12,12 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#dialog .wrapper-outer {
+.dialog .wrapper-outer {
   position: relative;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
 }
 
-#dialog .background .border-top {
+.dialog .background .border-top {
   position: absolute;
   left: 0;
   top: 0;
@@ -28,7 +28,7 @@
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
-#dialog .background .acrylic {
+.dialog .background .acrylic {
   position: absolute;
   left: 0;
   top: 1rem;
@@ -51,7 +51,7 @@
 
 
 
-#dialog .wrapper-inner {
+.dialog .wrapper-inner {
   position: relative;
   padding: 1rem 0 0;
   margin: 0 auto;
@@ -59,15 +59,27 @@
   display: grid;
 }
 
-#dialog.full .wrapper-inner {
+.dialog.full .wrapper-inner {
   padding: 4rem 3rem 4rem;
   max-width: 1280px;
 }
 
-#dialog .wrapper-inner h3 {
-  font-size: 32px;
-  line-height: 1.1;
-  font-weight: 400;
+.dialog.full .wrapper-inner .header {
+  margin: 0 0 1rem;
+}
+
+.dialog.full .wrapper-inner .header .sub-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin: 0 0 6px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dialog.full .wrapper-inner .header .name {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 500;
 }
 
 
@@ -81,13 +93,13 @@
 
 
 
-#dialog .sticky-nav {
+.dialog .sticky-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-#dialog .sticky-nav-inner {
+.dialog .sticky-nav-inner {
   padding: 3rem;
   margin: 0 auto;
   max-width: 1280px;
@@ -97,21 +109,21 @@
   justify-content: space-between;
 }
 
-.wrapper.light #dialog .sticky-nav .destiny-key span {
+.wrapper.light .dialog .sticky-nav .destiny-key span {
   color: #333;
 }
 
-.wrapper.light #dialog .sticky-nav {
+.wrapper.light .dialog .sticky-nav {
   background-color: hsla(0, 0%, 3%, 0.8);
 }
 
-.wrapper.light #dialog .sticky-nav.ultra-black {
+.wrapper.light .dialog .sticky-nav.ultra-black {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 
 @media screen and (max-width: 600px) {
-  #dialog {
+  .dialog {
     display: block;
     overflow-y: scroll;
   }
@@ -123,8 +135,12 @@
 
 
 
-  #dialog .wrapper-inner {
+  .dialog .wrapper-inner {
     padding: 1rem 0 0;
+  }
+
+  .dialog.full .wrapper-inner {
+    padding: 3rem 2rem;
   }
 
 
@@ -135,9 +151,7 @@
 
 
 
-
-
-  #dialog .sticky-nav-inner {
+  .dialog .sticky-nav-inner {
     padding: 0 2rem;
     display: flex;
     align-items: center;

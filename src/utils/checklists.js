@@ -689,7 +689,25 @@ export const checklists = {
 
 export default checklists;
 
-const order = [2137293116, 530600409, 1697465175, 3142056444, 4178338182, 2360931290, 365218222, 2955980198, 2609997025, 1297424116, 2726513366, 1912364094, 1420597821, 3305936921, 655926402, 4285512244, 2474271317];
+const order = [
+  2137293116, // Savathûn's Eyes
+  530600409, // Calcified fragments
+  1697465175, // Region Chests
+  3142056444, // Lost Sectors
+  4178338182, // Adventures
+  2360931290, // Ghost Scans
+  365218222, // Sleeper Nodes
+  2955980198, // Latent Memory Fragments
+  2609997025, // Corrupted Eggs
+  1297424116, // Ahamkara Bones
+  2726513366, // Cat Statues
+  1912364094, // Jade Rabbits
+  1420597821, // Lore: Ghost Stories
+  3305936921, // Lore: The Awoken of the Reef
+  655926402, // Lore: The Forsaken Prince
+  4285512244, // Lore: Luna's Lost
+  2474271317, // Lore: Inquisition of the Damned
+];
 
 export function info() {
   return order.map((key) => {

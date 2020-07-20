@@ -13,7 +13,7 @@ function handler_reload() {
 
 export default function Dialog({ children, actions, ...props }) {
   return (
-    <div id='dialog' className={cx(props.type, { error: props.isError })}>
+    <div className={cx('dialog', props.type, { error: props.isError })}>
       <div className='wrapper-outer'>
         <div className='background'>
           <div className='border-top' />

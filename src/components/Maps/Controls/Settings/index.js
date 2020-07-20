@@ -54,11 +54,14 @@ export default function Settings() {
       <Button action={handler_toggleVisibility}></Button>
       {isVisible && (
         <Dialog type='full' actions={dialogActions}>
-          <div className='page-header'>
+          <div className='header'>
             <div className='sub-name'>{t('Maps')}</div>
             <div className='name'>{t('Settings')}</div>
           </div>
           <h4>{t('Checklists')}</h4>
+          <div className='info'>
+            <p>{t('Settings.Maps.Checklists.Info')}</p>
+          </div>
           <ul className='list settings'>
             {checklists.map(({ checklistId, checklistItemName_plural }, c) => (
               <li key={c} onClick={handler_toggle(`maps.checklists.${checklistId}`)}>

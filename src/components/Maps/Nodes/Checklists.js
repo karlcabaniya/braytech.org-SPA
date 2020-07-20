@@ -9,50 +9,76 @@ import maps from '../../../data/maps';
 
 import * as marker from '../markers';
 
-function generateLists(visibility) {
-  const manifestLists = [365218222, 1297424116, 1697465175, 1912364094, 2360931290, 2609997025, 2726513366, 2955980198, 3142056444, 4178338182, 2137293116, 530600409];
-  const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
+function generateLists({ checklists: visibility, noScreenshotHighlight }) {
+  const manifestLists = [
+    1697465175, // Region Chests
+    3142056444, // Lost Sectors
+    4178338182, // Adventures
+    2360931290, // Ghost Scans
+    365218222, // Sleeper Nodes
+    2955980198, // Latent Memory Fragments
+    2609997025, // Corrupted Eggs
+    1297424116, // Ahamkara Bones
+    2726513366, // Cat Statues
+    1912364094, // Jade Rabbits
+    2137293116, // Savathûn's Eyes
+    530600409, // Calcified fragments
+  ];
+  const recordLists = [
+    1420597821, // Lore: Ghost Stories
+    3305936921, // Lore: The Awoken of the Reef
+    655926402, // Lore: The Forsaken Prince
+    4285512244, // Lore: Luna's Lost
+    2474271317, // Lore: Inquisition of the Damned
+  ];
 
-  return [...manifestLists, ...recordLists].filter(checklistId => visibility[checklistId]).map((checklistId, l) => {
-    const checklist = checklists[checklistId]();
+  return [...manifestLists, ...recordLists]
+    .filter((checklistId) => visibility[checklistId])
+    .map((checklistId, l) => {
+      const checklist = checklists[checklistId]();
 
-    const useRecordHash = recordLists.includes(checklistId);
+      const useRecordHash = recordLists.includes(checklistId);
 
-    return {
-      ...checklist,
-      tooltipType: checklistId === 4178338182 ? 'activity' : useRecordHash ? 'record' : 'checklist',
-      items: checklist.items.map((i) => {
-        const node = useRecordHash ? cartographer({ key: 'recordHash', value: i.recordHash }) : cartographer({ key: 'checklistHash', value: i.checklistHash });
+      return {
+        ...checklist,
+        tooltipType: checklistId === 4178338182 ? 'activity' : useRecordHash ? 'record' : 'checklist',
+        items: checklist.items.map((i) => {
+          const node = noScreenshotHighlight ? useRecordHash ? cartographer({ key: 'recordHash', value: i.recordHash }) : cartographer({ key: 'checklistHash', value: i.checklistHash }) : undefined;
 
-        return {
-          ...i,
-          tooltipHash: checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
-          screenshot: checklistId === 2955980198 || Boolean(node?.screenshot),
-        };
-      }),
-    };
-  });
+          return {
+            ...i,
+            tooltipHash: checklistId === 4178338182 ? i.activityHash : useRecordHash ? i.recordHash : i.checklistHash,
+            screenshot: noScreenshotHighlight ? checklistId === 2955980198 || Boolean(node?.screenshot) : undefined,
+          };
+        }),
+      };
+    });
 }
 
 export default function Checklists(props) {
-  const settings = useSelector(state => state.settings);
-  const member = useSelector(state => state.member);
+  const settings = useSelector((state) => state.settings);
+  const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
   const [lists, setLists] = useState([]);
 
-  const checklistsVisibilityChange = Object.values(settings.maps.checklists).filter(checklistId => checklistId).length;
+  const checklistsVisibilityChange = Object.values(settings.maps.checklists).filter((checklistId) => checklistId).length;
 
   useEffect(() => {
-    setLists(generateLists(settings.maps.checklists));
+    setLists(generateLists(settings.maps));
 
+    return () => {};
+  }, [checklistsVisibilityChange, member.updated, member.characterId]);
+
+  useEffect(() => {
     dispatch(actions.tooltips.rebind());
 
     return () => {};
-  }, [checklistsVisibilityChange, member.updated, member.characterId])
+  }, [lists]);
 
 
 
-  
+
+
 
 
   if (maps[props.destinationId].type !== 'map') return null;
@@ -85,7 +111,7 @@ export default function Checklists(props) {
             : // check if recordHash item is selected
             props.selected.recordHash !== undefined && props.selected.recordHash === node.recordHash
             ? true
-              : false);
+            : false);
 
         if (node.map.points.length) {
           return node.map.points.map((point, p) => {
