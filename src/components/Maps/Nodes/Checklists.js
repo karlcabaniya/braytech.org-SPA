@@ -1,7 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Marker } from 'react-leaflet';
 
+import actions from '../../../store/actions';
 import checklists from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 import maps from '../../../data/maps';
@@ -33,144 +34,95 @@ function generateLists(visibility) {
   });
 }
 
-class Checklists extends React.Component {
-  state = {
-    lists: [],
-  };
+export default function Checklists(props) {
+  const settings = useSelector(state => state.settings);
+  const member = useSelector(state => state.member);
+  const dispatch = useDispatch();
+  const [lists, setLists] = useState([]);
 
-  static getDerivedStateFromProps(p, s) {
-    if (s.lists.length) {
-      return null;
-    }
+  const checklistsVisibilityChange = Object.values(settings.maps.checklists).filter(checklistId => checklistId).length;
 
-    return {
-      lists: generateLists(p.settings.maps.checklists),
-    };
-  }
+  useEffect(() => {
+    setLists(generateLists(settings.maps.checklists));
 
-  componentDidMount() {
-    this.mounted = true;
+    dispatch(actions.tooltips.rebind());
 
-    this.props.rebindTooltips();
-  }
+    return () => {};
+  }, [checklistsVisibilityChange, member.updated, member.characterId])
 
-  componentWillUnmount() {
-    this.mounted = false;
-  }
 
-  componentDidUpdate(p) {
-    if (this.mounted && (p.member.updated !== this.props.member.updated || p.member.characterId !== this.props.member.characterId)) {
-      this.setLists();
-    }
-    
-    this.props.rebindTooltips();
-  }
 
-  setLists = () => {
-    this.setState({
-      lists: generateLists(this.props.settings.maps.checklists),
-    });
-  };
+  
 
-  handler_markerMouseOver = (e) => {
-    return;
 
-    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
+  if (maps[props.destinationId].type !== 'map') return null;
 
-    const dataset = e.target?._icon?.children?.[0]?.children?.[0]?.dataset;
+  const map = maps[props.destinationId].map;
 
-    const node = dataset.hash && cartographer({ key: dataset.type === 'activity' ? 'activityHash' : dataset.type === 'record' ? 'recordHash' : 'checklistHash', value: dataset.hash });
+  const viewWidth = 1920;
+  const viewHeight = 1080;
 
-    console.log(node);
-  };
+  const mapXOffset = (map.width - viewWidth) / 2;
+  const mapYOffset = -(map.height - viewHeight) / 2;
 
-  render() {
-    if (maps[this.props.destinationId].type !== 'map') return null;
+  return lists.map((list, l) => {
+    // const visible = props.lists.find((l) => l.checklistId === list.checklistId);
+    const visible = true;
 
-    const map = maps[this.props.destinationId].map;
+    if (!visible || !list.items) return null;
 
-    const viewWidth = 1920;
-    const viewHeight = 1080;
-
-    const mapXOffset = (map.width - viewWidth) / 2;
-    const mapYOffset = -(map.height - viewHeight) / 2;
-
-    return this.state.lists.map((list, l) => {
-      // const visible = this.props.lists.find((l) => l.checklistId === list.checklistId);
-      const visible = true;
-
-      if (!visible || !list.items) return null;
-
-      return list.items
-        .filter((node) => node.destinationHash === maps[this.props.destinationId].destination.hash)
-        .filter((node) => (node.invisible && !this.props.settings.maps.debug ? false : true))
-        .map((node, n) => {
-          const highlight = this.props.highlight && +this.props.highlight === (node.checklistHash || node.recordHash);
-          const selected =
-            highlight ||
-            (this.props.selected.checklistHash // check if checklistHash item is selected
-              ? this.props.selected.checklistHash === node.checklistHash
-                ? true
-                : false
-              : // check if recordHash item is selected
-              this.props.selected.recordHash !== undefined && this.props.selected.recordHash === node.recordHash
+    return list.items
+      .filter((node) => node.destinationHash === maps[props.destinationId].destination.hash)
+      .filter((node) => (node.invisible && !settings.maps.debug ? false : true))
+      .map((node, n) => {
+        const highlight = props.highlight && +props.highlight === (node.checklistHash || node.recordHash);
+        const selected =
+          highlight ||
+          (props.selected.checklistHash // check if checklistHash item is selected
+            ? props.selected.checklistHash === node.checklistHash
               ? true
-                : false);
+              : false
+            : // check if recordHash item is selected
+            props.selected.recordHash !== undefined && props.selected.recordHash === node.recordHash
+            ? true
+              : false);
 
-          if (node.map.points.length) {
-            return node.map.points.map((point, p) => {
-              const markerOffsetX = mapXOffset + viewWidth / 2;
-              const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
-
-              if (!point.x || !point.y) {
-                console.warn(node);
-
-                return null;
-              }
-
-              const offsetX = markerOffsetX + point.x;
-              const offsetY = markerOffsetY + point.y;
-
-              // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
-
-              const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType, bubbleHash: point.bubbleHash }, [`checklistId-${list.checklistId}`, node.completed ? 'completed' : '', node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '', node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
-              // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
-
-              return <Marker key={p} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.maps.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash, bubbleHash: point.bubbleHash })} />;
-            });
-          } else if (this.props.settings.maps.debug) {
+        if (node.map.points.length) {
+          return node.map.points.map((point, p) => {
             const markerOffsetX = mapXOffset + viewWidth / 2;
             const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
 
-            const offsetX = markerOffsetX + (n + 1) * 50 - map.width / 2;
-            const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
+            if (!point.x || !point.y) {
+              console.warn(node);
+
+              return null;
+            }
+
+            const offsetX = markerOffsetX + point.x;
+            const offsetY = markerOffsetY + point.y;
 
             // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
 
-            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, ['error', node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
+            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType, bubbleHash: point.bubbleHash }, [`checklistId-${list.checklistId}`, node.completed ? 'completed' : '', node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '', node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
+            // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
 
-            return <Marker key={n} position={[offsetY, offsetX]} icon={icon} onMouseOver={(this.props.settings.maps.debug && this.handler_markerMouseOver) || null} onClick={this.props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
-          } else {
-            return null;
-          }
-        });
-    });
-  }
+            return <Marker key={p} position={[offsetY, offsetX]} icon={icon} onClick={props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash, bubbleHash: point.bubbleHash })} />;
+          });
+        } else if (settings.maps.debug) {
+          const markerOffsetX = mapXOffset + viewWidth / 2;
+          const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
+
+          const offsetX = markerOffsetX + (n + 1) * 50 - map.width / 2;
+          const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
+
+          // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
+
+          const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, ['error', node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
+
+          return <Marker key={n} position={[offsetY, offsetX]} icon={icon} onClick={props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
+        } else {
+          return null;
+        }
+      });
+  });
 }
-
-function mapStateToProps(state) {
-  return {
-    settings: state.settings,
-    member: state.member,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS' });
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Checklists);

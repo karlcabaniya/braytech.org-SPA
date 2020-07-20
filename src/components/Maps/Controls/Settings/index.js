@@ -35,7 +35,7 @@ export default function Settings() {
 
   const handler_toggle = (key) => (e) => {
     const path = key.split('.');
-console.log(path)
+
     dispatch(
       actions.settings.set({
         [path[0]]: {
@@ -48,8 +48,6 @@ console.log(path)
   };
 
   const checklists = info();
-
-  console.log(settings);
 
   return (
     <div className='control settings'>
