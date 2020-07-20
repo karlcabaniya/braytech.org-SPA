@@ -1,88 +1,86 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 53,
+    "notTranslated": 54,
     "added": [],
     "removed": []
   },
   "debug": {
-    "translated": 766,
+    "translated": 767,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "en": {
-    "translated": 766,
+    "translated": 767,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 760,
-    "notTranslated": 6,
+    "translated": 766,
+    "notTranslated": 1,
     "added": [],
     "removed": []
   },
   "es": {
-    "translated": 760,
-    "notTranslated": 6,
+    "translated": 766,
+    "notTranslated": 1,
     "added": [],
     "removed": []
   },
   "fr": {
     "translated": 607,
-    "notTranslated": 159,
+    "notTranslated": 160,
     "added": [],
     "removed": []
   },
   "it": {
     "translated": 758,
-    "notTranslated": 8,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "ja": {
     "translated": 586,
-    "notTranslated": 180,
+    "notTranslated": 181,
     "added": [],
     "removed": []
   },
   "ko": {
     "translated": 513,
-    "notTranslated": 253,
+    "notTranslated": 254,
     "added": [],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 764,
+    "notTranslated": 765,
     "added": [],
     "removed": []
   },
   "pt-br": {
     "translated": 685,
-    "notTranslated": 81,
+    "notTranslated": 82,
     "added": [],
     "removed": []
   },
   "ru": {
-    "translated": 766,
+    "translated": 767,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "zh-chs": {
     "translated": 561,
-    "notTranslated": 205,
+    "notTranslated": 206,
     "added": [],
     "removed": []
   },
   "zh-cht": {
     "translated": 555,
     "notTranslated": 212,
-    "added": [
-      "Customise"
-    ],
+    "added": [],
     "removed": []
   }
 }

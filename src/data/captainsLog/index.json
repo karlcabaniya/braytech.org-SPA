@@ -1168,5 +1168,10 @@
     "date": "2020-07-13T16:54:34.572Z",
     "version": "2.27.28",
     "content": "- improvements to _Maps_, _Content Vault_, _Quests_ details view"
+  },
+  {
+    "date": "2020-07-20T12:56:16.836Z",
+    "version": "2.27.43",
+    "content": "- improvements to _Maps_, added _Settings_ control to _Maps_"
   }
 ]

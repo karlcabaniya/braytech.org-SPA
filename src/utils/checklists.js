@@ -689,6 +689,40 @@ export const checklists = {
 
 export default checklists;
 
+const order = [
+  2137293116, // Savathûn's Eyes
+  530600409, // Calcified fragments
+  1697465175, // Region Chests
+  3142056444, // Lost Sectors
+  4178338182, // Adventures
+  2360931290, // Ghost Scans
+  365218222, // Sleeper Nodes
+  2955980198, // Latent Memory Fragments
+  2609997025, // Corrupted Eggs
+  1297424116, // Ahamkara Bones
+  2726513366, // Cat Statues
+  1912364094, // Jade Rabbits
+  1420597821, // Lore: Ghost Stories
+  3305936921, // Lore: The Awoken of the Reef
+  655926402, // Lore: The Forsaken Prince
+  4285512244, // Lore: Luna's Lost
+  2474271317, // Lore: Inquisition of the Damned
+];
+
+export function info() {
+  return order.map((key) => {
+    const { checklistId, checklistItemName, checklistItemName_plural, checklistIcon, checklistProgressDescription } = checklists[key]();
+
+    return {
+      checklistId,
+      checklistItemName,
+      checklistItemName_plural,
+      checklistIcon,
+      checklistProgressDescription,
+    };
+  });
+}
+
 export function checkup(item) {
   const checklistId = Object.keys(data).find((key) => data[key].find((entry) => entry[item.key] === parseInt(item.value, 10)));
   const checklistEntry = checklistId && data[checklistId].find((entry) => entry[item.key] === parseInt(item.value, 10));
@@ -715,7 +749,7 @@ function hydrateItems(options) {
       destinationName: manifest.DestinyDestinationDefinition[i.destinationHash]?.displayProperties.name,
       bubbleName: manifest.DestinyDestinationDefinition[i.destinationHash]?.bubbles.find((b) => b.hash === i.bubbleHash)?.displayProperties.name,
     },
-    completed: i.completed
+    completed: i.completed,
   }));
 }
 

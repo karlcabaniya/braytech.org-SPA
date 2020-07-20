@@ -96,6 +96,12 @@
   z-index: 2;
 }
 
+.map-omega .controls.left .coupled {
+  display: grid;
+  grid-template-columns: auto 38px;
+  gap: 3px;
+}
+
 .map-omega .control.characters {
   margin: 0 0 1rem;
   user-select: none;
