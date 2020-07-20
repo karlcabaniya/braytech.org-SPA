@@ -18,14 +18,14 @@
     "removed": []
   },
   "es-mx": {
-    "translated": 760,
-    "notTranslated": 6,
+    "translated": 766,
+    "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es": {
-    "translated": 760,
-    "notTranslated": 6,
+    "translated": 766,
+    "notTranslated": 0,
     "added": [],
     "removed": []
   },
@@ -80,9 +80,7 @@
   "zh-cht": {
     "translated": 555,
     "notTranslated": 212,
-    "added": [
-      "Customise"
-    ],
+    "added": [],
     "removed": []
   }
 }

@@ -8,11 +8,11 @@ import maps from '../../../data/maps';
 
 import * as marker from '../markers';
 
-function generateLists() {
+function generateLists(visibility) {
   const manifestLists = [365218222, 1297424116, 1697465175, 1912364094, 2360931290, 2609997025, 2726513366, 2955980198, 3142056444, 4178338182, 2137293116, 530600409];
   const recordLists = [1420597821, 3305936921, 655926402, 4285512244, 2474271317];
 
-  return [...manifestLists, ...recordLists].map((checklistId, l) => {
+  return [...manifestLists, ...recordLists].filter(checklistId => visibility[checklistId]).map((checklistId, l) => {
     const checklist = checklists[checklistId]();
 
     const useRecordHash = recordLists.includes(checklistId);
@@ -44,7 +44,7 @@ class Checklists extends React.Component {
     }
 
     return {
-      lists: generateLists(),
+      lists: generateLists(p.settings.maps.checklists),
     };
   }
 
@@ -68,7 +68,7 @@ class Checklists extends React.Component {
 
   setLists = () => {
     this.setState({
-      lists: generateLists(),
+      lists: generateLists(this.props.settings.maps.checklists),
     });
   };
 

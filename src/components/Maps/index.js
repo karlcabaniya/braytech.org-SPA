@@ -23,6 +23,7 @@ import Graphs from './Graphs';
 import Characters from './Controls/Characters';
 import ProfileState from './Controls/ProfileState';
 import Destinations from './Controls/Destinations';
+import Settings from './Controls/Settings';
 import Inspect from './Controls/Inspect';
 import Surveyor from './Controls/Surveyor';
 // import DataLayers from './Controls/DataLayers';
@@ -39,8 +40,8 @@ class Maps extends React.Component {
       inspect: false,
     },
     debug: {
-      clicked: {}
-    }
+      clicked: {},
+    },
   };
 
   static getDerivedStateFromProps(p, s) {
@@ -220,9 +221,9 @@ class Maps extends React.Component {
         clicked: {
           x: originalX,
           y: originalY,
-          destinationHash: destination.destinationHash
-        }
-      }
+          destinationHash: destination.destinationHash,
+        },
+      },
     });
   };
 
@@ -270,7 +271,10 @@ class Maps extends React.Component {
         <div className='controls left'>
           {viewport.width > 600 ? <ProfileState /> : null}
           <Characters />
-          <Destinations {...destination} />
+          <div className='coupled'>
+            <Destinations {...destination} />
+            <Settings />
+          </div>
           {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}
           {/* <DataLayers {...destination} /> */}
         </div>

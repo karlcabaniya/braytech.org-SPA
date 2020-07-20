@@ -689,6 +689,22 @@ export const checklists = {
 
 export default checklists;
 
+const order = [2137293116, 530600409, 1697465175, 3142056444, 4178338182, 2360931290, 365218222, 2955980198, 2609997025, 1297424116, 2726513366, 1912364094, 1420597821, 3305936921, 655926402, 4285512244, 2474271317];
+
+export function info() {
+  return order.map((key) => {
+    const { checklistId, checklistItemName, checklistItemName_plural, checklistIcon, checklistProgressDescription } = checklists[key]();
+
+    return {
+      checklistId,
+      checklistItemName,
+      checklistItemName_plural,
+      checklistIcon,
+      checklistProgressDescription,
+    };
+  });
+}
+
 export function checkup(item) {
   const checklistId = Object.keys(data).find((key) => data[key].find((entry) => entry[item.key] === parseInt(item.value, 10)));
   const checklistEntry = checklistId && data[checklistId].find((entry) => entry[item.key] === parseInt(item.value, 10));
@@ -715,7 +731,7 @@ function hydrateItems(options) {
       destinationName: manifest.DestinyDestinationDefinition[i.destinationHash]?.displayProperties.name,
       bubbleName: manifest.DestinyDestinationDefinition[i.destinationHash]?.bubbles.find((b) => b.hash === i.bubbleHash)?.displayProperties.name,
     },
-    completed: i.completed
+    completed: i.completed,
   }));
 }
 
