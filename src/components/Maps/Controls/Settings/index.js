@@ -12,7 +12,7 @@ import Dialog from '../../../UI/Dialog';
 import './styles.css';
 
 export default function Settings() {
-  const [isVisible, setVisible] = useState(true);
+  const [isVisible, setVisible] = useState(false);
 
   const handler_toggleVisibility = () => {
     if (isVisible) {
