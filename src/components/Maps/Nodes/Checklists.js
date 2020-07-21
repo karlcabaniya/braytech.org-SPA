@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Marker } from 'react-leaflet';
 
 import actions from '../../../store/actions';
-import checklists from '../../../utils/checklists';
+import { checklists } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 import maps from '../../../data/maps';
 

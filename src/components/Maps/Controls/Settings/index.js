@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import actions from '../../../../store/actions';
 import { t } from '../../../../utils/i18n';
-import { info } from '../../../../utils/checklists';
+import checklists from '../../../../utils/checklists';
 
 import Button from '../../../UI/Button';
 import Checkbox from '../../../UI/Checkbox';
@@ -47,7 +47,7 @@ export default function Settings() {
     );
   };
 
-  const checklists = info();
+  const lists = isVisible && checklists();
 
   return (
     <div className='control settings'>
@@ -63,9 +63,10 @@ export default function Settings() {
             <p>{t('Settings.Maps.Checklists.Info')}</p>
           </div>
           <ul className='list settings'>
-            {checklists.map(({ checklistId, checklistItemName_plural }, c) => (
+            {lists.map(({ checklistId, checklistItemName_plural, totalItems, completedItems }, c) => (
               <li key={c} onClick={handler_toggle(`maps.checklists.${checklistId}`)}>
                 <Checkbox linked checked={settings.maps.checklists?.[checklistId]} text={checklistItemName_plural} />
+                {/* <div className='info'>{completedItems}/{totalItems}</div> */}
               </li>
             ))}
           </ul>

@@ -109,20 +109,6 @@ function Node(props) {
         <div className='type'>{unified.type?.name}</div>
         <div className='name'>{unified.displayProperties?.name}</div>
         {unified.displayProperties?.description ? <BungieText className='description' value={unified.displayProperties.description} /> : null}
-        {unified.extended?.enemies?.length ? (
-          <div className='entities'>
-            {unified.extended?.enemies?.length ? (
-              <div className='enemies'>
-                <div className='type'>{t('Enemies')}</div>
-                <ul>
-                  {unified.extended.enemies.map((enemy, e) => (
-                    <li key={e}>{manifest.DestinyEnemyRaceDefinition[enemy.enemyRaceHash].displayProperties.name}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        ) : null}
       </div>
       {unified.extended?.unavailable ? <div className='highlight major'>{unavailableString(unified.extended.unavailable)}</div> : null}
       {unified.completed ? unified.checklist ? <div className='state'>{t('Discovered_singular')}</div> : <div className='state'>{t('Completed')}</div> : null}
@@ -136,8 +122,20 @@ function Node(props) {
           </a>
         </div>
       ) : null}
-      {unified.related?.records.length || unified.extended?.instructions ? (
+      {unified.extended?.enemies?.length || unified.related?.records.length || unified.extended?.instructions ? (
         <div className='buff'>
+          {unified.extended?.enemies?.length ? (
+            <>
+              <h4>{t('Enemies')}</h4>
+              <div className='enemies'>
+                <ul>
+                  {unified.extended.enemies.map((enemy, e) => (
+                    <li key={e}>{manifest.DestinyEnemyRaceDefinition[enemy.enemyRaceHash].displayProperties.name}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : null}
           {unified.extended?.instructions ? (
             <>
               <h4>{t('Instructions')}</h4>

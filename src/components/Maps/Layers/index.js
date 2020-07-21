@@ -336,7 +336,7 @@ class BackgroundLayer extends React.Component {
         }));
       }
 
-      console.log('background layers composited');
+      // console.log('background layers composited');
     } catch (e) {
       console.log(e);
 

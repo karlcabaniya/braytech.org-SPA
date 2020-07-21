@@ -248,12 +248,3 @@
   text-align: center;
 }
 
-.map-omega .control.inspector .entities {
-  margin: 1rem 0 0;
-}
-
-.map-omega .control.inspector .entities ul {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-}

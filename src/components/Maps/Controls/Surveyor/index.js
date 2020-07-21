@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
 
-import checklists from '../../../../utils/checklists';
+import { checklists } from '../../../../utils/checklists';
 import { cartographer } from '../../../../utils/maps';
 
 import './styles.css';
