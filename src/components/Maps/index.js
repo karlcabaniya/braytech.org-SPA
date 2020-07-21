@@ -36,9 +36,7 @@ class Maps extends React.Component {
     loaded: [],
     error: false,
     viewport: undefined,
-    ui: {
-      inspect: false,
-    },
+    inspect: false,
     debug: {
       clicked: {},
     },
@@ -109,9 +107,9 @@ class Maps extends React.Component {
       this.setDestination(this.props.params.map);
     }
 
-    // if (s.ui.inspect !== this.state.ui.inspect) {
-    //   this.props.rebindTooltips();
-    // }
+    if (s.inspect !== this.state.inspect) {
+      this.props.rebindTooltips();
+    }
   }
 
   setDestination = (destination) => {
@@ -128,24 +126,16 @@ class Maps extends React.Component {
   };
 
   handler_hideInspect = (e) => {
-    this.setState((state) => ({
-      ui: {
-        ...state.ui,
-        inspect: false,
-      },
-    }));
+    this.setState({
+      inspect: false,
+    });
   };
 
   handler_showInspect = (props) => (e) => {
     if (this.props.viewport.width > 600) {
-      this.setState((state) => ({
-        ui: {
-          ...state.ui,
-          inspect: {
-            ...props,
-          },
-        },
-      }));
+      this.setState({
+        inspect: props,
+      });
     }
   };
 
@@ -216,15 +206,15 @@ class Maps extends React.Component {
 
     console.log(JSON.stringify({ x: originalX, y: originalY }));
 
-    this.setState({
-      debug: {
-        clicked: {
-          x: originalX,
-          y: originalY,
-          destinationHash: destination.destinationHash,
-        },
-      },
-    });
+    // this.setState({
+    //   debug: {
+    //     clicked: {
+    //       x: originalX,
+    //       y: originalY,
+    //       destinationHash: destination.destinationHash,
+    //     },
+    //   },
+    // });
   };
 
   handler_map_viewportChanged = (viewport) => {
@@ -253,17 +243,35 @@ class Maps extends React.Component {
         <div className='leaflet-pane leaflet-background-pane tinted'>
           <BackgroundLayer {...destination} />
         </div>
-        <Map center={this.state.viewport.center} zoom={this.state.viewport.zoom} minZoom='-2' maxZoom='2' maxBounds={bounds} crs={L.CRS.Simple} attributionControl={false} zoomControl={false} zoomAnimation={false} onViewportChange={this.handler_map_viewportChange} onViewportChanged={this.handler_map_viewportChanged} onLayerAdd={this.handler_map_layerAdd} onMove={this.handler_map_move} onMoveEnd={this.handler_map_moveEnd} onZoomEnd={this.handler_map_zoomEnd} onMouseDown={this.handler_map_mouseDown}>
+        <Map
+          // hi
+          center={this.state.viewport.center}
+          zoom={this.state.viewport.zoom}
+          minZoom='-2'
+          maxZoom='2'
+          maxBounds={bounds}
+          crs={L.CRS.Simple}
+          attributionControl={false}
+          zoomControl={false}
+          zoomAnimation={false}
+          onViewportChange={this.handler_map_viewportChange}
+          onViewportChanged={this.handler_map_viewportChanged}
+          onLayerAdd={this.handler_map_layerAdd}
+          onMove={this.handler_map_move}
+          onMoveEnd={this.handler_map_moveEnd}
+          onZoomEnd={this.handler_map_zoomEnd}
+          onMouseDown={this.handler_map_mouseDown}
+        >
           {/* the Maps */}
           <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
           {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
-          <Static {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Static {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Checklists... */}
-          <Checklists {...destination} highlight={params.highlight} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Checklists {...destination} highlight={params.highlight} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
-          <Runtime {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Runtime {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Latent memory fragments on Mars, etc. */}
-          <Speciality {...destination} selected={this.state.ui.inspect} handler={this.handler_showInspect} />
+          <Speciality {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Unique graphs */}
           <Graphs {...destination} />
         </Map>
@@ -278,7 +286,7 @@ class Maps extends React.Component {
           {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}
           {/* <DataLayers {...destination} /> */}
         </div>
-        {viewport.width > 600 && this.state.ui.inspect ? <Inspect {...this.state.ui.inspect} handler={this.handler_hideInspect} /> : null}
+        {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );
   }
