@@ -194,11 +194,6 @@
       "description": "Attraverso il muro di mattoni in macerie."
     }
   },
-  "69": {
-    "displayProperties": {
-      "description": "L'ingresso a questo settore perduto si trova attraversando il soffitto di questo piccolo vulcano, poi tenete la sinistra e, ..."
-    }
-  },
   "98": {
     "displayProperties": {
       "description": "Custodito da un'Arpia Vex, questo oggetto giace nell'angolo di un ampio spazio prima di una svolta a sinistra con teletrasporto."
@@ -421,6 +416,11 @@
   "305": {
     "displayProperties": {
       "description": "In cima alle librerie."
+    }
+  },
+  "375": {
+    "displayProperties": {
+      "description": "Può essere ottenuto durante l'assalto _Rocca della Covata_"
     }
   },
   "378": {
