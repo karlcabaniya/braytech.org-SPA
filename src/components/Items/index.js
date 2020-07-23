@@ -8,7 +8,7 @@ import manifest from '../../utils/manifest';
 import { DestinyItemType, enumerateVendorItemStatus, enumerateItemState } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
 import itemComponents from '../../utils/destinyItems/itemComponents';
-import { sockets } from '../../utils/destinyItems/sockets';
+import { sockets, defaultPlugs } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
 import { masterwork } from '../../utils/destinyItems/masterwork';
 import { getOrnamentSocket } from '../../utils/destinyItems/utils';
@@ -26,9 +26,9 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
   if (!sockets?.length) {
     return {
       url: `/inspect/${itemHash}`,
-      sockets: ''
-    }
-  };
+      sockets: '',
+    };
+  }
 
   const socketsString = sockets.map((socket, s) => {
     return socket.plug?.definition?.hash || '';
@@ -37,7 +37,7 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
   // create strings
   return {
     url: `/inspect/${itemHash}?sockets=${socketsString.join('/')}`,
-    sockets: socketsString.join('/')
+    sockets: socketsString.join('/'),
   };
 }
 
@@ -72,7 +72,14 @@ function Items({ member, items, handler, tooltips, order, noBorder, showQuantity
 
     const ornamentSocket = item.sockets && getOrnamentSocket(item.sockets);
 
-    const icon = definitionItem.displayProperties.localIcon ? `${definitionItem.displayProperties.icon}` : ornamentSocket?.plug?.definition?.displayProperties?.icon ? `https://www.bungie.net${ornamentSocket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${definitionItem.displayProperties.icon}`;
+    const icon = definitionItem.displayProperties.localIcon
+      ? // local braytech icon
+        `${definitionItem.displayProperties.icon}`
+      : // active ornament and not a default plug
+      ornamentSocket?.plug?.definition?.displayProperties?.icon && !defaultPlugs.includes(ornamentSocket?.plug?.definition?.hash)
+      ? `https://www.bungie.net${ornamentSocket.plug.definition.displayProperties.icon}`
+      : // default
+        `https://www.bungie.net${definitionItem.displayProperties.icon}`;
 
     return {
       name: definitionItem.displayProperties.name,

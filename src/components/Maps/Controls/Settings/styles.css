@@ -21,7 +21,7 @@
   grid-template-columns: minmax(240px, 300px) minmax(240px, 300px);
 }
 
-.map-omega .control.settings .dialog .info {
+.map-omega .control.settings .dialog h4 ~ .info {
   margin: 0 0 1rem;
 }
 

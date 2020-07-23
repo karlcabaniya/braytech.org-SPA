@@ -37,6 +37,7 @@ import Settings from './views/Settings';
 import FAQ from './views/FAQ';
 import Vaulted from './views/Vaulted';
 import OOB from './views/OOB';
+import SolsticeOfHeroes from './views/SolsticeOfHeroes';
 
 import Read from './views/Read';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
@@ -324,6 +325,7 @@ class App extends React.Component {
                   <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                   <Route path='/faq' exact component={FAQ} />
                   <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
+                  <Route path='/solstice-of-heroes' exact component={SolsticeOfHeroes} />
 
                   <Route path='/oob' component={OOB} />
                   <Route path='/test' component={Test} />

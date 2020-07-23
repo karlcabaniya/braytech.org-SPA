@@ -687,8 +687,6 @@ export const checklists = {
     }),
 };
 
-export default checklists;
-
 const order = [
   2137293116, // Savathûn's Eyes
   530600409, // Calcified fragments
@@ -709,18 +707,8 @@ const order = [
   2474271317, // Lore: Inquisition of the Damned
 ];
 
-export function info() {
-  return order.map((key) => {
-    const { checklistId, checklistItemName, checklistItemName_plural, checklistIcon, checklistProgressDescription } = checklists[key]();
-
-    return {
-      checklistId,
-      checklistItemName,
-      checklistItemName_plural,
-      checklistIcon,
-      checklistProgressDescription,
-    };
-  });
+export default function allLists() {
+  return order.map((key) => checklists[key]());
 }
 
 export function checkup(item) {

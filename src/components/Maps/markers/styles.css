@@ -48,7 +48,7 @@
   width: 100%;
   height: 100%;
   padding: 14px 48px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 2px rgba(255, 255, 255, 0.05);
 }
 
 .map-omega .leaflet-container .text-marker.region .wrapper .name {
@@ -332,56 +332,27 @@
   animation-direction: reverse;
 }
 
-.map-omega .leaflet-container .widgets {
-  cursor: default;
-  transition: opacity 0.5s;
-}
 
-.map-omega.loading .leaflet-container .widgets {
-  opacity: 0;
-}
 
-.map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper {  
-  display: grid;
-  justify-items: center;
-  width: 200px;
-  transform: translate(-50%, 0);
-  font-family: 'Crimson Pro', serif;
-  font-size: 17px;
-  letter-spacing: 2px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: white;
-  --fill-color: white;
-  opacity: 0.3;
-  transition: opacity 0.5s;
-}
 
-.map-omega .leaflet-container .widgets.latent-memory-fragment:hover .wrapper {
-  opacity: 0.8;
-}
 
-.map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper .value {
-  font-size: 48px;
-  letter-spacing: 4px;
-}
 
-.map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper .name {
-  margin: 8px 0 14px;
-}
 
-.map-omega .leaflet-container .widgets.latent-memory-fragment .wrapper .icon {
-  width: 50px;
-  pointer-events: none;
-}
 
-.map-omega.zoom--1 .leaflet-container .widgets.latent-memory-fragment .wrapper {
-  transform: translate(-49%, -25%) scale(0.5);
-}
 
-.map-omega.zoom--2 .leaflet-container .widgets.latent-memory-fragment .wrapper {
-  transform: translate(-48%, -37.5%) scale(0.25);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes maps-rotate-sleep {
   0% {

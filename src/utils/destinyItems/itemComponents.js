@@ -1,7 +1,7 @@
 export function itemComponents(item, member) {
   let data = null;
 
-  if (!member.data) return null;
+  if (!member?.data) return null;
 
   // collects relevant instanced data for sockets and stats utils
   if (item.itemInstanceId && member.data?.profile.itemComponents?.instances?.data[item.itemInstanceId]) {

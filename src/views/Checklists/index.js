@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
-import checklists from '../../utils/checklists';
+import { checklists } from '../../utils/checklists';
 import ObservedImage from '../../components/ObservedImage';
 import Button from '../../components/UI/Button';
 import Checklist from '../../components/Checklist';

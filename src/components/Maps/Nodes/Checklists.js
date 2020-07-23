@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Marker } from 'react-leaflet';
 
 import actions from '../../../store/actions';
-import checklists from '../../../utils/checklists';
+import { checklists } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
 import maps from '../../../data/maps';
 
@@ -66,18 +66,21 @@ export default function Checklists(props) {
   useEffect(() => {
     setLists(generateLists(settings.maps));
 
+    // console.log('useEffect, setLists');
+
     return () => {};
   }, [checklistsVisibilityChange, member.updated, member.characterId]);
 
   useEffect(() => {
     dispatch(actions.tooltips.rebind());
 
+    // console.log('useEffect, tooltips rebind');
+
     return () => {};
   }, [lists]);
 
 
-
-
+  
 
 
 
@@ -92,10 +95,7 @@ export default function Checklists(props) {
   const mapYOffset = -(map.height - viewHeight) / 2;
 
   return lists.map((list, l) => {
-    // const visible = props.lists.find((l) => l.checklistId === list.checklistId);
-    const visible = true;
-
-    if (!visible || !list.items) return null;
+    if (!list.items) return null;
 
     return list.items
       .filter((node) => node.destinationHash === maps[props.destinationId].destination.hash)
@@ -127,10 +127,14 @@ export default function Checklists(props) {
             const offsetX = markerOffsetX + point.x;
             const offsetY = markerOffsetY + point.y;
 
-            // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
-
-            const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType, bubbleHash: point.bubbleHash }, [`checklistId-${list.checklistId}`, node.completed ? 'completed' : '', node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '', node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
-            // const icon = marker.text(['debug'], `${checklist.name}: ${node.name}`);
+            const icon = marker.icon(
+              // tooltip
+              { hash: node.tooltipHash, type: list.tooltipType, bubbleHash: point.bubbleHash },
+              // classnames
+              [`checklistId-${list.checklistId}`, node.completed ? 'completed' : '', node.bubbleHash && !Number.isInteger(node.bubbleHash) ? `error` : '', node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''],
+              // marker
+              { icon: list.checklistIcon, url: list.checklistImage, selected }
+            );
 
             return <Marker key={p} position={[offsetY, offsetX]} icon={icon} onClick={props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash, bubbleHash: point.bubbleHash })} />;
           });
@@ -141,9 +145,14 @@ export default function Checklists(props) {
           const offsetX = markerOffsetX + (n + 1) * 50 - map.width / 2;
           const offsetY = markerOffsetY + (l + 1) * 30 - map.height / 3;
 
-          // const text = checklist.checklistId === 3142056444 ? node.displayProperties.name : false;
-
-          const icon = marker.icon({ hash: node.tooltipHash, type: list.tooltipType }, ['error', node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''], { icon: list.checklistIcon, url: list.checklistImage, selected });
+          const icon = marker.icon(
+            // tooltip
+            { hash: node.tooltipHash, type: list.tooltipType },
+            // classnames
+            ['error', node.completed ? 'completed' : '', `checklistId-${list.checklistId}`, node.screenshot ? 'has-screenshot' : '', highlight ? 'highlight' : ''],
+            // marker
+            { icon: list.checklistIcon, url: list.checklistImage, selected }
+          );
 
           return <Marker key={n} position={[offsetY, offsetX]} icon={icon} onClick={props.handler({ checklistHash: node.checklistHash, recordHash: node.recordHash })} />;
         } else {
