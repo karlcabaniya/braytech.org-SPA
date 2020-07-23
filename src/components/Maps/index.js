@@ -244,7 +244,7 @@ class Maps extends React.Component {
           <BackgroundLayer {...destination} />
         </div>
         <Map
-          // hi
+          // Hello from Seattle
           center={this.state.viewport.center}
           zoom={this.state.viewport.zoom}
           minZoom='-2'
@@ -271,7 +271,7 @@ class Maps extends React.Component {
           {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
           <Runtime {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Latent memory fragments on Mars, etc. */}
-          <Speciality {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
+          <Speciality {...destination} handler={this.handler_showInspect} />
           {/* Unique graphs */}
           {/* <Graphs {...destination} /> */}
         </Map>
@@ -283,7 +283,7 @@ class Maps extends React.Component {
             <Destinations {...destination} />
             <Settings />
           </div>
-          {viewport.width > 600 && 1 === 2 && settings.maps.debug && <Surveyor {...this.state.debug} />}
+          {viewport.width > 600 && settings.maps.debug && <Surveyor {...this.state.debug} />}
           {/* <DataLayers {...destination} /> */}
         </div>
         {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
