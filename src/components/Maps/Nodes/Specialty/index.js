@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Marker } from 'react-leaflet';
 
 import { t } from '../../../../utils/i18n';
-import maps from '../../../data/maps';
+import maps from '../../../../data/maps';
 import { converter } from '../../markers';
 import { Maps } from '../../../../svg';
 
