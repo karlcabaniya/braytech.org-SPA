@@ -44,10 +44,10 @@ function Objectives({ itemHash }) {
 
   const member = useSelector((state) => state.member);
 
-  const inventory = member.data?.profile && [
-    ...member.data.profile?.profileInventory?.data.items, // non-instanced quest items, materials, etc.
-    ...member.data.profile?.characterInventories?.data[member.characterId].items, // non-equipped weapons etc
-    ...member.data.profile?.characterEquipment?.data[member.characterId].items, // equipped weapons etc
+  const inventory = member.data?.profile?.profileInventory?.data?.items && [
+    ...member.data.profile?.profileInventory?.data?.items, // non-instanced quest items, materials, etc.
+    ...member.data.profile?.characterInventories?.data?.[member.characterId].items, // non-equipped weapons etc
+    ...member.data.profile?.characterEquipment?.data?.[member.characterId].items, // equipped weapons etc
   ];
 
   const item = inventory?.find((item) => item.itemHash === itemHash);
