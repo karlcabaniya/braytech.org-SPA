@@ -6,39 +6,13 @@ import ReactGA from 'react-ga';
 
 import { t } from '../../../utils/i18n';
 import ObservedImage from '../../ObservedImage';
-import { Button, DestinyKey } from '../../UI/Button';
+import Dialog from '../../UI/Dialog';
+
 import { Common } from '../../../svg';
 
 import './styles.css';
 
-class NotificationLink extends React.Component {
-  componentDidMount() {
-    this.mounted = true;
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
-  }
-
-  handler_deactivateOverlay = (e) => {
-    e.stopPropagation();
-
-    const state = this.active?.[0];
-
-    if (this.mounted && state) {
-      if (state.displayProperties.timeout) {
-        this.clearTimeout();
-      }
-
-      this.props.popNotification(state.id);
-
-      ReactGA.event({
-        category: state.displayProperties.name || 'unknown',
-        action: 'dismiss',
-      });
-    }
-  };
-
+class NotificationService extends React.Component {
   setTimeout = (timeout) => {
     this.notificationTimeout = window.setTimeout(this.sunsetNotifcation, timeout * 1000);
   };
@@ -46,6 +20,23 @@ class NotificationLink extends React.Component {
   clearTimeout() {
     window.clearInterval(this.notificationTimeout);
   }
+
+  handler_deactivateOverlay = (e) => {
+    e.stopPropagation();
+
+    const state = this.active?.[0];
+
+    if (state.displayProperties.timeout) {
+      this.clearTimeout();
+    }
+
+    this.props.popNotification(state.id);
+
+    ReactGA.event({
+      category: state.displayProperties.name || 'unknown',
+      action: 'dismiss',
+    });
+  };
 
   handler_reload = (e) => {
     const state = this.active?.[0];
@@ -114,14 +105,12 @@ class NotificationLink extends React.Component {
         actions = [
           {
             type: 'reload',
-            text: t('Reload'),
-            key: 'modify',
+            handler: this.handler_reload,
           },
           {
             type: 'external',
             target: 'https://twitter.com/BungieHelp',
             text: t('Go to Twitter'),
-            key: 'accept',
             dismiss: false,
           },
         ];
@@ -131,8 +120,7 @@ class NotificationLink extends React.Component {
         actions = [
           {
             type: 'reload',
-            text: t('Reload'),
-            key: 'modify',
+            handler: this.handler_reload,
           },
         ];
       } else if (state && state.displayProperties?.image) {
@@ -141,13 +129,12 @@ class NotificationLink extends React.Component {
         icon = <Common.Info />;
       }
 
-      actions = [
+      const dialogActions = [
         ...actions,
         ...[
           {
             type: 'dismiss',
-            text: t('Dismiss'),
-            dismiss: true,
+            handler: this.handler_deactivateOverlay,
           },
         ].filter((action) =>
           // if an error
@@ -159,67 +146,17 @@ class NotificationLink extends React.Component {
 
       if (state && state.displayProperties?.prompt) {
         return (
-          <div id='notification-overlay' className={cx({ error: isError })}>
-            <div className='wrapper-outer'>
-              <div className='background'>
-                <div className='border-top' />
-                <div className='acrylic' />
-              </div>
-              <div className={cx('wrapper-inner', { 'has-image': state.displayProperties && state.displayProperties.image })}>
-                <div>
-                  <div className='icon'>{image ? <ObservedImage className='image' src={image} /> : icon ? icon : null}</div>
-                </div>
-                <div>
-                  <div className='text'>
-                    <div className='name'>{state.displayProperties && state.displayProperties.name ? state.displayProperties.name : 'Unknown'}</div>
-                    <div className='description'>{state.displayProperties && state.displayProperties.description ? <ReactMarkdown source={state.displayProperties.description} /> : 'Unknown'}</div>
-                  </div>
-                </div>
-              </div>
-              <div className='sticky-nav mini ultra-black'>
-                <div className='sticky-nav-inner'>
-                  <div />
-                  <ul>
-                    {actions.map((action, i) => {
-                      if (action.type === 'external') {
-                        return (
-                          <li key={i}>
-                            <a className='button' href={action.target} onClick={action.dismiss ? this.handler_deactivateOverlay : null} target='_blank' rel='noreferrer noopener'>
-                              <DestinyKey type={action.key || 'dismiss'} /> {action.text}
-                            </a>
-                          </li>
-                        );
-                      } else if (action.type === 'reload') {
-                        return (
-                          <li key={i}>
-                            <Button action={this.handler_reload}>
-                              <DestinyKey type={action.key || 'modify'} /> {action.text}
-                            </Button>
-                          </li>
-                        );
-                      } else if (action.type === 'agreement') {
-                        return (
-                          <li key={i}>
-                            <Button action={action.dismiss ? this.handler_deactivateOverlay : null}>
-                              <DestinyKey type={action.key || 'accept'} /> {action.text}
-                            </Button>
-                          </li>
-                        );
-                      } else {
-                        return (
-                          <li key={i}>
-                            <Button action={this.handler_deactivateOverlay}>
-                              <DestinyKey type={action.key || 'dismiss'} /> {action.text}
-                            </Button>
-                          </li>
-                        );
-                      }
-                    })}
-                  </ul>
-                </div>
+          <Dialog type='notification' isError={isError} actions={dialogActions}>
+            <div className={cx({ 'has-image': image })}>
+              <div className='icon'>{image ? <ObservedImage className='image' src={image} /> : icon ? icon : null}</div>
+            </div>
+            <div>
+              <div className='text'>
+                <div className='name'>{state.displayProperties && state.displayProperties.name ? state.displayProperties.name : 'Unknown'}</div>
+                <div className='description'>{state.displayProperties && state.displayProperties.description ? <ReactMarkdown source={state.displayProperties.description} /> : 'Unknown'}</div>
               </div>
             </div>
-          </div>
+          </Dialog>
         );
       } else {
         return (
@@ -261,7 +198,7 @@ class NotificationLink extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     notifications: state.notifications,
   };
@@ -269,10 +206,10 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    popNotification: (value) => {
-      dispatch({ type: 'POP_NOTIFICATION', payload: value });
+    popNotification: (payload) => {
+      dispatch({ type: 'POP_NOTIFICATION', payload });
     },
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotificationLink);
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationService);

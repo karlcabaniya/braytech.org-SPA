@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 
+import { t } from '../../../utils/i18n';
 import { Button, DestinyKey } from '../../UI/Button';
 
 import './styles.css';
@@ -24,36 +25,36 @@ export default function Dialog({ children, actions, ...props }) {
           <div className='sticky-nav-inner'>
             <div />
             <ul>
-              {actions.map((action, i) => {
+              {actions.map((action, a) => {
                 if (action.type === 'external') {
                   return (
-                    <li key={i}>
+                    <li key={a}>
                       <a className='button' href={action.target} onClick={action.handler || null} target='_blank' rel='noreferrer noopener'>
-                        <DestinyKey type={action.key || 'dismiss'} /> {action.text}
+                        <DestinyKey type={action.key || 'more'} /> {action.text || t('Open')}
                       </a>
                     </li>
                   );
                 } else if (action.type === 'reload') {
                   return (
-                    <li key={i}>
-                      <Button action={handler_reload}>
-                        <DestinyKey type={action.key || 'modify'} /> {action.text}
+                    <li key={a}>
+                      <Button action={action.handler || handler_reload}>
+                        <DestinyKey type={action.key || 'modify'} /> {action.text || t('Reload')}
                       </Button>
                     </li>
                   );
                 } else if (action.type === 'agreement') {
                   return (
-                    <li key={i}>
+                    <li key={a}>
                       <Button action={action.handler || null}>
-                        <DestinyKey type={action.key || 'accept'} /> {action.text}
+                        <DestinyKey type={action.key || 'accept'} /> {action.text || t('Accept')}
                       </Button>
                     </li>
                   );
                 } else if (action.type === 'dismiss') {
                   return (
-                    <li key={i}>
-                      <Button action={action.handler}>
-                        <DestinyKey type={action.key || 'dismiss'} /> {action.text}
+                    <li key={a}>
+                      <Button action={action.handler || null}>
+                        <DestinyKey type={action.key || 'dismiss'} /> {action.text || t('Dismiss')}
                       </Button>
                     </li>
                   );

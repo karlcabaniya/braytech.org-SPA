@@ -28,6 +28,10 @@
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
+.dialog.error .background .border-top {
+  background-color: var(--error);
+}
+
 .dialog .background .acrylic {
   position: absolute;
   left: 0;
@@ -85,6 +89,104 @@
 
 
 
+.dialog.notification .wrapper-inner {
+  grid-template-columns: 1fr 2fr;
+  padding: 1rem 0 0;
+  max-width: 1920px;
+}
+
+.dialog.notification .wrapper-inner > div:first-child {
+  display: grid;
+  justify-content: right;
+  background-image: linear-gradient(to right, rgba(140, 140, 140, 0), rgba(140, 140, 140, 0.2));
+}
+
+.dialog.notification.error .wrapper-inner > div:first-child {
+  background-image: linear-gradient(to right, rgba(220, 81, 59, 0), rgba(220, 81, 59, 0.2));
+}
+
+.dialog.notification .wrapper-inner div .icon {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  margin: 2rem;
+  pointer-events: none;
+}
+
+.dialog.notification .wrapper-inner .text .name {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 2rem;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  line-height: 1.6;
+}
+
+.dialog.notification .wrapper-inner .text .description {
+  padding: 1rem 2rem;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: calc(600px + 4rem);
+}
+
+.dialog.notification .wrapper-inner .text .description ul,
+.dialog.notification .wrapper-inner .text .description ol {
+  list-style-type: disc;
+  padding: 0 0 0 2rem;  
+  margin: 0 0 1rem;
+}
+
+.dialog.notification .wrapper-inner .text .description ol {
+  list-style-type: none;
+}
+
+.dialog.notification .wrapper-inner .text .description ul li,
+.dialog.notification .wrapper-inner .text .description ol li {
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+
+.dialog.notification .wrapper-inner .text .description ol {
+  counter-reset: list;
+}
+
+.dialog.notification .wrapper-inner .text .description ol li {
+  position: relative;
+  padding: 0 0 0 1rem;
+}
+
+.dialog.notification .wrapper-inner .text .description ol li::before {
+  counter-increment: list;
+  content: counter(list);
+  position: absolute;
+  left: -18px;
+}
+
+.dialog.notification .wrapper-inner .text .description h2 {
+  font-size: 18px;
+  margin: 20px 0 8px;
+}
+
+.dialog.notification .wrapper-inner div.has-image {
+  justify-content: unset;
+}
+
+.dialog.notification .wrapper-inner .has-image .icon {
+  margin: 0;
+  width: 100%;
+  height: unset;
+  padding-bottom: 56%;
+}
+
+.dialog.notification .wrapper-inner .has-image .icon .image {
+  background-size: cover;
+  background-position-x: right;
+}
+
+
+
+
+
 
 
 
@@ -135,8 +237,10 @@
 
 
 
-  .dialog .wrapper-inner {
+  .dialog .wrapper-inner,
+  .dialog.notification .wrapper-inner {
     padding: 1rem 0 0;
+    grid-template-columns: auto;
   }
 
   .dialog.full .wrapper-inner {
@@ -146,7 +250,26 @@
 
 
 
+  .dialog.notification .wrapper-inner div .icon {
+    display: none;
+  }
 
+  .dialog.notification .wrapper-inner.has-image div .icon {
+    padding-bottom: 20%;
+  }
+
+  .dialog.notification .wrapper-inner .text .name {
+    padding: 1.4rem 2rem 1rem;
+    font-size: 18px;
+  }
+  
+  .dialog.notification .wrapper-inner .text .description {
+    font-size: 14px;
+  }
+
+  .dialog.notification .wrapper-inner .has-image {
+    grid-template-columns: 1fr;
+  }
 
 
 

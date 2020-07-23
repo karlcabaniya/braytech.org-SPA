@@ -21,7 +21,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/UI/Header';
 import Tooltip from './components/Tooltip';
 import Footer from './components/UI/Footer';
-import NotificationLink from './components/Notifications/NotificationLink';
+import NotificationService from './components/Notifications/NotificationService';
 import NotificationProgress from './components/Notifications/NotificationProgress';
 import ServiceWorkerUpdate from './components/Notifications/ServiceWorkerUpdate';
 import RefreshService from './components/RefreshService';
@@ -272,15 +272,16 @@ class App extends React.Component {
 
     const ready = this.state.status.code === 'ready'; // this.state.status.code !== 'ready' || this.state.status.code === 'ready'
 
-    // throw new Error('jesus christ');
-
     return (
       <BrowserRouter>
         <Route
           render={(route) => (
             <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+              <Route component={GoogleAnalytics.GoogleAnalytics} />
+              
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
-              <NotificationLink />
+              <NotificationService />
+
               <React.Suspense fallback={<SuspenseLoading full />}>
                 {!ready ? (
                   <AppLoading state={this.state.status} />
@@ -289,7 +290,6 @@ class App extends React.Component {
                     <NotificationProgress />
 
                     <Tooltip {...route} />
-                    <Route component={GoogleAnalytics.GoogleAnalytics} />
 
                     <div className='main'>
                       <Route component={Header} />
