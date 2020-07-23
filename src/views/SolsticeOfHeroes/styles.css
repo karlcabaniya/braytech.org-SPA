@@ -1,0 +1,104 @@
+#solstice-of-heroes {
+  padding: 0;
+  display: grid;
+  margin: -40px auto 0;
+  width: 100%;
+}
+
+#solstice-of-heroes .module.head {
+  padding: calc(4rem + 40px) 3rem 3rem;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#solstice-of-heroes .module.head .page-header {
+  margin-bottom: 0rem;
+}
+
+#solstice-of-heroes .module.head .text {
+  font-size: 18px;
+  margin: 2rem 0 0;
+}
+
+#solstice-of-heroes .module.head .text p {
+  max-width: 550px;
+}
+
+#solstice-of-heroes .buff {
+  width: 100%;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3rem;
+}
+
+#solstice-of-heroes .sets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+#solstice-of-heroes .sets .inventory-items {
+  grid-template-columns: auto;
+}
+
+#solstice-of-heroes .sets .set h4 {
+  padding: 0 0 6px;
+  margin: 0 0 20px;
+  border-bottom: 2px solid rgb(255 255 255 / 0.1);
+}
+
+#solstice-of-heroes .sets .set > ul,
+#solstice-of-heroes .sets .set > ul > li {
+  display: grid;
+  column-gap: 1rem;
+  row-gap: 2rem;
+}
+
+#solstice-of-heroes .sets .set > ul > li {
+  grid-template-columns: 64px auto;
+  align-items: start;
+}
+
+#solstice-of-heroes .sets .set ul li .text .name {
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+#solstice-of-heroes .sets .set ul li .text .description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#solstice-of-heroes .sets .set ul li .objectives {
+  grid-column: 2/3;
+  margin: 18px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px) {
+  #solstice-of-heroes .module.head {
+    padding: calc(3rem + 40px) 2rem 2rem;
+  }
+
+  #solstice-of-heroes .buff {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  #solstice-of-heroes .sets {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+}

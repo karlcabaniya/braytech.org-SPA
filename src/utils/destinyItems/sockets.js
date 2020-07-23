@@ -22,6 +22,8 @@ export const defaultPlugs = [
   4248210736,
   // default Transmat Effect (SpawnFX)
   1390587439,
+  // remove armor glow
+  3807544519,
   // empty mod socket
   481675395,
   1659393211,
