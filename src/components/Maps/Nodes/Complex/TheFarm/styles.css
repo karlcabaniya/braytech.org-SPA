@@ -1,0 +1,11 @@
+.map-omega .leaflet-container .activity.the-farm {
+  
+}
+
+.map-omega .leaflet-container .activity.the-farm .wrapper .icon {
+  width: 160px;
+}
+
+.map-omega .leaflet-container .activity.the-farm .wrapper .icon g {
+  transform-origin: center center;
+}

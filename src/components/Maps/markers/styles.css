@@ -48,7 +48,7 @@
   width: 100%;
   height: 100%;
   padding: 14px 48px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 2px rgba(255, 255, 255, 0.05);
 }
 
 .map-omega .leaflet-container .text-marker.region .wrapper .name {
@@ -332,6 +332,138 @@
   animation-direction: reverse;
 }
 
+
+
+
+
+
+
+
+.map-omega .leaflet-container .icon-marker.the-farm .icon {
+  width: 272px;
+  height: 272px;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  transition: opacity 0.25s, transform 0.35s, filter 0.75s;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.big-spikes {
+  background-image: url('/static/images/extracts/maps/the-farm/big-spikes.png');
+  opacity: 0.2;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.onion-skin {
+  background-image: url('/static/images/extracts/maps/the-farm/onion-skin.png');
+  opacity: 0.4;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.leather {
+  background-image: url('/static/images/extracts/maps/the-farm/leather.png');
+  opacity: 0.75;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.outlines {
+  background-image: url('/static/images/extracts/maps/the-farm/outlines.png');
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.zigs-a,
+.map-omega .leaflet-container .icon-marker.the-farm .layer.zigs-b {
+  background-image: url('/static/images/extracts/maps/the-farm/zigs.png');
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.sand-patterns {
+  background-image: url('/static/images/extracts/maps/the-farm/sand-patterns.png');
+  opacity: 0.4;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .layer.symbol {
+  background-image: url('/static/images/extracts/maps/the-farm/symbol.png');
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .flippers {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.x.t,
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.x.b {
+  left: 50%;
+  top: 50%;
+  width: 98px;
+  height: 29px;
+  transform: translate(-50%, -95px);
+  background-image: url('/static/images/extracts/maps/the-farm/flipper-x.png');
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.x.b {
+  transform: rotate(180deg) translate(-50%, -66px);
+  transform-origin: left center;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.y.l,
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.y.r {
+  left: 50%;
+  top: 50%;
+  width: 32px;
+  height: 120px;
+  transform: translate(-89px, -50%);
+  background-image: url('/static/images/extracts/maps/the-farm/flipper-y.png');
+  opacity: 0.8;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm .flippers .layer.y.r {
+  transform: rotate(180deg) translate(-57px, -50%);
+  transform-origin: center top;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .layer.big-spikes {
+  opacity: 0.4;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .layer.leather {
+  opacity: 0.9;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .layer.onion-skin {
+  filter: saturate(3) hue-rotate(40deg);
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .layer.symbol {
+  opacity: 1;
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .flippers .layer.x.t {
+  transform: translate(-50%, -110px);
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .flippers .layer.x.b {
+  transform: rotate(180deg) translate(-50%, -80px);
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .flippers .layer.y.l {
+  transform: translate(-104px, -50%);
+}
+
+.map-omega .leaflet-container .icon-marker.the-farm:hover .flippers .layer.y.r {
+  transform: rotate(180deg) translate(-72px, -50%);
+}
+
+
+
+
+
 .map-omega .leaflet-container .widgets {
   cursor: default;
   transition: opacity 0.5s;
@@ -374,6 +506,17 @@
   width: 50px;
   pointer-events: none;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 .map-omega.zoom--1 .leaflet-container .widgets.latent-memory-fragment .wrapper {
   transform: translate(-49%, -25%) scale(0.5);

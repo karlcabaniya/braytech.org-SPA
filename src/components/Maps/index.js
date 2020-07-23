@@ -17,8 +17,8 @@ import Loading from './Loading';
 import Static from './Nodes/Static';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
-import Speciality from './Nodes/Speciality';
-import Graphs from './Graphs';
+import Speciality from './Nodes/Specialty';
+// import Graphs from './Graphs';
 
 import Characters from './Controls/Characters';
 import ProfileState from './Controls/ProfileState';
@@ -273,7 +273,7 @@ class Maps extends React.Component {
           {/* Latent memory fragments on Mars, etc. */}
           <Speciality {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
           {/* Unique graphs */}
-          <Graphs {...destination} />
+          {/* <Graphs {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />
         <div className='controls left'>

@@ -93,8 +93,8 @@ class RefreshService extends React.Component {
   };
 
   service = async () => {
-    // service is already asking for fresh data
-    if (this.props.refresh.loading) {
+    // service is already asking for fresh data OR the member reducer is handling something else
+    if (this.props.refresh.loading || this.props.member.loading) {
       return;
     }
 

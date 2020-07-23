@@ -15,7 +15,7 @@ import './styles.css';
 
 function activityType(hash, modeHash, playlistHash) {
   const definitionActivity = manifest.DestinyActivityDefinition[hash];
-  const definitionActivityMode = manifest.DestinyActivityModeDefinition[modeHash];
+  const definitionActivityMode = manifest.DestinyActivityModeDefinition[modeHash || definitionActivity?.directActivityModeHash];
   const definitionActivityModeParent = manifest.DestinyActivityModeDefinition[definitionActivityMode?.parentHashes?.[0]];
   const definitionActivityPlaylist = manifest.DestinyActivityDefinition[playlistHash];
   const definitionActivityType = manifest.DestinyActivityTypeDefinition[definitionActivityPlaylist?.activityTypeHash];
@@ -27,7 +27,7 @@ function activityType(hash, modeHash, playlistHash) {
 
   const defaults = {
     name: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.name ? definitionActivity.selectionScreenDisplayProperties.name : definitionActivity.displayProperties && definitionActivity.displayProperties.name ? definitionActivity.displayProperties.name : t('Unknown'),
-    mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
+    mode: definitionActivityMode?.displayProperties?.name,
     description: definitionActivity.selectionScreenDisplayProperties && definitionActivity.selectionScreenDisplayProperties.description ? definitionActivity.selectionScreenDisplayProperties.description : definitionActivity.displayProperties && definitionActivity.displayProperties.description ? definitionActivity.displayProperties.description : t('Unknown'),
     destination: [definitionBubble?.displayProperties.name, definitionDestination?.displayProperties.name, definitionPlace?.displayProperties.name] // remove falsey values
       .filter((string) => string)
@@ -222,7 +222,7 @@ function activityType(hash, modeHash, playlistHash) {
       destination: definitionPlace?.displayProperties.name,
       description: manifest.DestinyActivityTypeDefinition[3497767639].displayProperties.description,
       activityLightLevel: false,
-      mode: definitionActivityMode && definitionActivityMode.displayProperties && definitionActivityMode.displayProperties.name,
+      mode: definitionActivityMode?.displayProperties?.name,
       pgcrImage: false,
     };
   } // Orbit
