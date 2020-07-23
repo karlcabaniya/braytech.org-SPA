@@ -212,7 +212,7 @@ class App extends React.Component {
 
     if (process.env.NODE_ENV === 'development') this.availableLanguages.unshift('debug');
 
-    tmpManifest.statistics = (await this.startupRequests.voluspaStatistics) || {};
+    tmpManifest.statistics = (await this.startupRequests.voluspaStatistics).Response?.data || {};
 
     manifest.set(tmpManifest, this.currentLanguage);
 
@@ -270,18 +270,10 @@ class App extends React.Component {
       GoogleAnalytics.init();
     }
 
-    if (this.state.status.code !== 'ready') {
-      // if (this.state.status.code !== 'ready' || this.state.status.code === 'ready') {
-      return (
-        <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay })}>
-          <React.Suspense fallback={<SuspenseLoading full />}>
-            <AppLoading state={this.state.status} />
-            <NotificationLink />
-          </React.Suspense>
-        </div>
-      );
-    }
+    const ready = this.state.status.code === 'ready'; // this.state.status.code !== 'ready' || this.state.status.code === 'ready'
+
     // throw new Error('jesus christ');
+
     return (
       <BrowserRouter>
         <Route
@@ -289,58 +281,66 @@ class App extends React.Component {
             <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationLink />
-              <NotificationProgress />
+              <React.Suspense fallback={<SuspenseLoading full />}>
+                {!ready ? (
+                  <AppLoading state={this.state.status} />
+                ) : (
+                  <>
+                    <NotificationProgress />
 
-              <Tooltip {...route} />
-              <Route component={GoogleAnalytics.GoogleAnalytics} />
+                    <Tooltip {...route} />
+                    <Route component={GoogleAnalytics.GoogleAnalytics} />
 
-              <div className='main'>
-                <Route component={Header} />
+                    <div className='main'>
+                      <Route component={Header} />
 
-                <Switch>
-                  <Route path='/:membershipType([1|2|3|4|5])/:membershipId([0-9]+)/:characterId([0-9]+)?' component={ProfileRoutes} />
-                  <Route path='/archives' component={ArchivesRoutes} />
+                      <Switch>
+                        <Route path='/:membershipType([1|2|3|4|5])/:membershipId([0-9]+)/:characterId([0-9]+)?' component={ProfileRoutes} />
+                        <Route path='/archives' component={ArchivesRoutes} />
 
-                  <RedirectRoute path='/clan' />
-                  <RedirectRoute path='/collections' />
-                  <RedirectRoute path='/triumphs' />
-                  <RedirectRoute path='/trackers' />
-                  <RedirectRoute path='/checklists' exact />
-                  <RedirectRoute path='/this-week' />
-                  <RedirectRoute path='/now' />
-                  <RedirectRoute path='/character' />
-                  <RedirectRoute path='/quests' />
-                  <RedirectRoute path='/reports' />
+                        <RedirectRoute path='/clan' />
+                        <RedirectRoute path='/collections' />
+                        <RedirectRoute path='/triumphs' />
+                        <RedirectRoute path='/trackers' />
+                        <RedirectRoute path='/checklists' exact />
+                        <RedirectRoute path='/this-week' />
+                        <RedirectRoute path='/now' />
+                        <RedirectRoute path='/character' />
+                        <RedirectRoute path='/quests' />
+                        <RedirectRoute path='/reports' />
 
-                  <Route path='/character-select' exact component={CharacterSelect} />
+                        <Route path='/character-select' exact component={CharacterSelect} />
 
-                  <SuspenseRoute path='/maps/:map?/:highlight?' component={Maps} />
-                  <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
-                  <Route path='/pgcr/:instanceId?' exact component={PGCR} />
-                  <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
-                  <Route path='/read/:kind?/:hash?' exact component={Read} />
-                  <Route path='/compare/:object?' exact component={Compare} />
+                        <SuspenseRoute path='/maps/:map?/:highlight?' component={Maps} />
+                        <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
+                        <Route path='/pgcr/:instanceId?' exact component={PGCR} />
+                        <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
+                        <Route path='/read/:kind?/:hash?' exact component={Read} />
+                        <Route path='/compare/:object?' exact component={Compare} />
 
-                  <Route path='/commonality' exact component={Commonality} />
-                  <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
-                  <Route path='/faq' exact component={FAQ} />
-                  <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
-                  <Route path='/solstice-of-heroes' exact component={SolsticeOfHeroes} />
+                        <Route path='/commonality' exact component={Commonality} />
+                        <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
+                        <Route path='/faq' exact component={FAQ} />
+                        <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
+                        <Route path='/solstice-of-heroes' exact component={SolsticeOfHeroes} />
 
-                  <Route path='/oob' component={OOB} />
-                  <Route path='/test' component={Test} />
-                  <SuspenseRoute path='/three' exact component={TestThree} />
+                        <Route path='/oob' component={OOB} />
+                        <Route path='/test' component={Test} />
+                        <SuspenseRoute path='/three' exact component={TestThree} />
 
-                  <Route path='/' component={Index} />
-                </Switch>
-              </div>
+                        <Route path='/' component={Index} />
+                      </Switch>
+                    </div>
 
-              {/* Don't run the refresh service if we're currently selecting
-                a character, as the refresh will cause the member to
-                continually reload itself */}
-              <Route path='/character-select' children={(route) => !route.match && <RefreshService {...route} />} />
+                    {/* Don't run the refresh service if we're currently selecting
+                    a character, as the refresh will cause the member to
+                    continually reload itself */}
+                    <Route path='/character-select' children={(route) => !route.match && <RefreshService {...route} />} />
 
-              <Route component={Footer} />
+                    <Route component={Footer} />
+                  </>
+                )}
+              </React.Suspense>
             </div>
           )}
         />
