@@ -1,10 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import ReactMarkdown from 'react-markdown';
+import React, { useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 import ReactGA from 'react-ga';
+import ReactMarkdown from 'react-markdown';
 
 import { t } from '../../../utils/i18n';
+import actions from '../../../store/actions';
 import ObservedImage from '../../ObservedImage';
 import Dialog from '../../UI/Dialog';
 
@@ -12,204 +13,192 @@ import { Common } from '../../../svg';
 
 import './styles.css';
 
-class NotificationService extends React.Component {
-  setTimeout = (timeout) => {
-    this.notificationTimeout = window.setTimeout(this.sunsetNotifcation, timeout * 1000);
-  };
+export default function NotificationService() {
+  const dispatch = useDispatch();
+  // stores a static reference to the current timer
+  const notificationTimeout = useRef();
 
-  clearTimeout() {
-    window.clearInterval(this.notificationTimeout);
+  function setTimeout(timeout) {
+    notificationTimeout.current = window.setTimeout(sunsetNotifcation, timeout * 1000);
   }
 
-  handler_deactivateOverlay = (e) => {
+  function clearTimeout() {
+    window.clearInterval(notificationTimeout.current);
+  }
+
+  function sunsetNotifcation() {
+    if (notification?.displayProperties.timeout) {
+      dispatch(actions.notifications.pop(notification.id));
+    }
+  }
+
+  function handler_dismiss(e) {
     e.stopPropagation();
 
-    const state = this.active?.[0];
-
-    if (state.displayProperties.timeout) {
-      this.clearTimeout();
+    if (notification.displayProperties.timeout) {
+      clearTimeout();
     }
 
-    this.props.popNotification(state.id);
+    dispatch(actions.notifications.pop(notification.id));
 
     ReactGA.event({
-      category: state.displayProperties.name || 'unknown',
+      category: notification.displayProperties.name || 'unknown',
       action: 'dismiss',
     });
-  };
+  }
 
-  handler_reload = (e) => {
-    const state = this.active?.[0];
-
-    if (this.mounted && state) {
-      if (state.displayProperties.timeout) {
-        this.clearTimeout();
-      }
-
-      this.props.popNotification(state.id);
+  function handler_reload() {
+    if (notification?.displayProperties.timeout) {
+      clearTimeout();
     }
+
+    dispatch(actions.notifications.pop(notification.id));
 
     setTimeout(() => {
       window.location.reload();
     }, 50);
-  };
-
-  sunsetNotifcation = () => {
-    if (this.active && this.active.length ? this.active[0] : false) {
-      const state = this.active[0];
-
-      if (state.displayProperties.timeout) {
-        this.props.popNotification(state.id);
-      }
-    }
-  };
-
-  componentDidUpdate(p, s) {
-    if (this.active && this.active.length) {
-      const state = this.active[0];
-
-      if (state.displayProperties.timeout) {
-        this.clearTimeout();
-        this.setTimeout(state.displayProperties.timeout);
-      }
-    }
   }
 
-  render() {
-    const timeNow = new Date().getTime();
+  // time now in ms
+  const nowMs = new Date().getTime();
 
-    this.active = this.props.notifications?.objects.length
-      ? this.props.notifications.objects.filter((o) => {
-          const objDate = new Date(o.date).getTime();
+  // grabs all possible unexpried notifications
+  const notifications = useSelector((state) =>
+    state.notifications.objects.filter((notification) => {
+      const dateMs = new Date(notification.date).getTime();
 
-          if (objDate + o.expiry > timeNow) {
-            return true;
-          } else {
-            return false;
-          }
-        })
-      : [];
-
-    const remainingInline = this.active.filter((a) => !a.displayProperties.prompt).length - 1;
-
-    if (this.active.length ? this.active[0] : false) {
-      const state = this.active[0];
-
-      let isError,
-        image,
-        icon,
-        actions = state.actions || [];
-
-      if (state && state.error && state.javascript?.message === 'maintenance') {
-        icon = <Common.DOC />;
-        actions = [
-          {
-            type: 'reload',
-            handler: this.handler_reload,
-          },
-          {
-            type: 'external',
-            target: 'https://twitter.com/BungieHelp',
-            text: t('Go to Twitter'),
-            dismiss: false,
-          },
-        ];
-      } else if (state && state.error) {
-        isError = true;
-        icon = <Common.Error />;
-        actions = [
-          {
-            type: 'reload',
-            handler: this.handler_reload,
-          },
-        ];
-      } else if (state && state.displayProperties?.image) {
-        image = state.displayProperties.image;
+      if (dateMs + notification.expiry > nowMs) {
+        return true;
       } else {
-        icon = <Common.Info />;
+        return false;
       }
+    })
+  );
 
-      const dialogActions = [
-        ...actions,
-        ...[
-          {
-            type: 'dismiss',
-            handler: this.handler_deactivateOverlay,
-          },
-        ].filter((action) =>
-          // if an error
-          state.error || actions.filter((action) => action.type === 'agreement').length // if a forced agreement
-            ? action.type !== 'dismiss'
-            : true
-        ),
-      ].filter((action) => action);
+  // number of queued inline notifications
+  const remainingInline = notifications.filter((notification) => !notification.displayProperties.prompt).length - 1;
 
-      if (state && state.displayProperties?.prompt) {
-        return (
-          <Dialog type='notification' isError={isError} actions={dialogActions}>
-            <div className={cx({ 'has-image': image })}>
-              <div className='icon'>{image ? <ObservedImage className='image' src={image} /> : icon ? icon : null}</div>
+  // current notification
+  const notification = notifications[0];
+
+  // every time the notifification reference changes,
+  // check if the notification has a timeout (is of inline style)
+  // and set timeouts accordingly
+  useEffect(() => {
+    if (notification?.displayProperties.timeout) {
+      clearTimeout();
+      setTimeout(notification.displayProperties.timeout);
+    }
+
+    return () => {
+      clearTimeout();
+    };
+  }, [notification]);
+
+
+
+
+  if (notification) {
+    const postman = {
+      isError: false,
+      actions: notification.actions || [],
+      displayProperties: { ...notification.displayProperties } || {},
+    };
+
+    if (notification.error && notification.javascript?.message === 'maintenance') {
+      // very special notification for when the API reports maintenance
+      postman.actions = [
+        {
+          type: 'reload',
+          handler: handler_reload,
+        },
+        {
+          type: 'external',
+          target: 'https://twitter.com/BungieHelp',
+          text: t('Go to Twitter'),
+          dismiss: false,
+        },
+      ];
+      postman.displayProperties.icon = <Common.DOC />;
+    } else if (notification.error) {
+      // this is an error
+      postman.isError = true;
+      postman.actions = [
+        {
+          type: 'reload',
+          handler: handler_reload,
+        },
+      ];
+      postman.displayProperties.icon = <Common.Error />;
+    } else {
+      // general notification
+      postman.displayProperties.icon = <Common.Info />;
+    }
+
+    const dialogActions = [
+      ...postman.actions,
+      ...[
+        {
+          type: 'dismiss',
+          handler: handler_dismiss,
+        },
+      ].filter((action) =>
+        // if an error
+        notification.error || postman.actions.filter((action) => action.type === 'agreement').length // if a forced agreement
+          ? action.type !== 'dismiss'
+          : true
+      ),
+    ].filter((action) => action);
+
+    if (postman.displayProperties?.prompt) {
+      return (
+        <Dialog type='notification' isError={postman.isError} actions={dialogActions}>
+          <div className={cx({ 'has-image': postman.displayProperties.image })}>
+            <div className='icon'>{postman.displayProperties.image ? <ObservedImage className='image' src={postman.displayProperties.image} /> : postman.displayProperties.icon ? postman.displayProperties.icon : null}</div>
+          </div>
+          <div>
+            <div className='text'>
+              <div className='name'>{postman.displayProperties?.name ? postman.displayProperties.name : 'Unknown'}</div>
+              <div className='description'>{postman.displayProperties?.description ? <ReactMarkdown source={postman.displayProperties.description} /> : 'Unknown'}</div>
             </div>
-            <div>
-              <div className='text'>
-                <div className='name'>{state.displayProperties && state.displayProperties.name ? state.displayProperties.name : 'Unknown'}</div>
-                <div className='description'>{state.displayProperties && state.displayProperties.description ? <ReactMarkdown source={state.displayProperties.description} /> : 'Unknown'}</div>
+          </div>
+        </Dialog>
+      );
+    } else {
+      return (
+        <div key={notification.id} className={cx('toast', { error: postman.isError })} style={{ '--timeout': `${postman.displayProperties?.timeout || 4}s` }} onClick={handler_dismiss}>
+          <div className='wrapper-outer'>
+            <div className='background'>
+              <div className='border-top'>
+                <div className='inner' />
               </div>
+              <div className='acrylic' />
             </div>
-          </Dialog>
-        );
-      } else {
-        return (
-          <div key={state.id} id='notification-bar' className={cx({ error: isError })} style={{ '--timeout': `${state.displayProperties?.timeout || 4}s` }} onClick={this.handler_deactivateOverlay}>
-            <div className='wrapper-outer'>
-              <div className='background'>
-                <div className='border-top'>
-                  <div className='inner' />
+            <div className='wrapper-inner'>
+              <div>
+                <div className='icon'>
+                  <span className='destiny-ghost' />
                 </div>
-                <div className='acrylic' />
               </div>
-              <div className='wrapper-inner'>
-                <div>
-                  <div className='icon'>
-                    <span className='destiny-ghost' />
+              <div>
+                <div className='text'>
+                  <div className='name'>
+                    <p>{postman.displayProperties?.name ? postman.displayProperties.name : t('Unknown')}</p>
                   </div>
+                  <div className='description'>{postman.displayProperties?.description ? <ReactMarkdown source={postman.displayProperties.description} /> : <p>{t('Unknown')}</p>}</div>
                 </div>
-                <div>
-                  <div className='text'>
-                    <div className='name'>
-                      <p>{state.displayProperties && state.displayProperties.name ? state.displayProperties.name : t('Unknown')}</p>
-                    </div>
-                    <div className='description'>{state.displayProperties?.description ? <ReactMarkdown source={state.displayProperties.description} /> : <p>{t('Unknown')}</p>}</div>
+                {remainingInline > 0 ? (
+                  <div className='more'>
+                    <p>{t('And {{number}} more', { number: remainingInline })}</p>
                   </div>
-                  {remainingInline > 0 ? (
-                    <div className='more'>
-                      <p>{t('And {{number}} more', { number: remainingInline })}</p>
-                    </div>
-                  ) : null}
-                </div>
+                ) : null}
               </div>
             </div>
           </div>
-        );
-      }
-    } else {
-      return null;
+        </div>
+      );
     }
+  } else {
+    return null;
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    notifications: state.notifications,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    popNotification: (payload) => {
-      dispatch({ type: 'POP_NOTIFICATION', payload });
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(NotificationService);

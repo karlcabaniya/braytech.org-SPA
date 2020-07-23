@@ -1,9 +1,4 @@
-
-
-
-
-
-#notification-bar {
+.toast {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -16,16 +11,16 @@
   cursor: pointer;
 }
 
-#notification-bar:hover {
+.toast:hover {
   background-color: rgba(17, 17, 17, 0.4);
 }
 
-#notification-bar .wrapper-outer {
+.toast .wrapper-outer {
   position: relative;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
 }
 
-#notification-bar .background .border-top {
+.toast .background .border-top {
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +29,7 @@
   background-color: rgb(117, 117, 117);
 }
 
-#notification-bar .background .acrylic {
+.toast .background .acrylic {
   position: absolute;
   top: 6px;
   left: 0;
@@ -44,7 +39,7 @@
   backdrop-filter: blur(7px) brightness(1.2) saturate(1.2);
 }
 
-#notification-bar .background .border-top .inner {
+.toast .background .border-top .inner {
   position: absolute;
   top: 0;
   right: 0;
@@ -76,7 +71,7 @@
   }
 }
 
-#notification-bar.error .background .border-top .inner {
+.toast.error .background .border-top .inner {
   background-color: var(--error);
   animation: animation-bar-error var(--timeout) linear 0s 1 forwards;
 }
@@ -103,7 +98,7 @@
   }
 }
 
-#notification-bar .wrapper-inner {
+.toast .wrapper-inner {
   position: relative;
   padding: 3rem;
   margin: 0 auto;
@@ -115,12 +110,12 @@
   font-size: 14px;
 }
 
-#notification-bar .wrapper-inner > div:first-child {
+.toast .wrapper-inner > div:first-child {
   display: grid;
   justify-content: right;
 }
 
-#notification-bar .wrapper-inner div .icon {
+.toast .wrapper-inner div .icon {
   position: relative;
   margin: 18px 1rem;
   display: grid;
@@ -131,7 +126,7 @@
   font-size: 21px;
 }
 
-#notification-bar .wrapper-inner div .icon::before {
+.toast .wrapper-inner div .icon::before {
   content: ' ';
   position: absolute;
   top: 0;
@@ -143,7 +138,7 @@
   opacity: 0.2;
 }
 
-#notification-bar .wrapper-inner .text {
+.toast .wrapper-inner .text {
   padding: 24px 0 16px;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -152,23 +147,23 @@
   user-select: none;
 }
 
-#notification-bar .wrapper-inner .text .name {
+.toast .wrapper-inner .text .name {
   color: white;
   white-space: nowrap;
 }
 
-#notification-bar .wrapper-inner .text .description {
+.toast .wrapper-inner .text .description {
   position: relative;
   color: rgba(255, 255, 255, 0.6);
   max-width: calc(600px + 4rem);
 }
 
-#notification-bar .wrapper-inner .text .name p,
-#notification-bar .wrapper-inner .text .description p {
+.toast .wrapper-inner .text .name p,
+.toast .wrapper-inner .text .description p {
   line-height: 1.4;
 }
 
-#notification-bar .wrapper-inner .more {
+.toast .wrapper-inner .more {
   position: absolute;
   top: 24px;
   right: 3rem;
@@ -176,19 +171,19 @@
   font-size: 18px;
 }
 
-#notification-bar .wrapper-inner .text .description ul,
-#notification-bar .wrapper-inner .text .description ol {
+.toast .wrapper-inner .text .description ul,
+.toast .wrapper-inner .text .description ol {
   list-style-type: disc;
   padding: 0 0 0 2rem;  
   margin: 0 0 1rem;
 }
 
-#notification-bar .wrapper-inner .text .description ol {
+.toast .wrapper-inner .text .description ol {
   list-style-type: decimal;
 }
 
-#notification-bar .wrapper-inner .text .description ul li,
-#notification-bar .wrapper-inner .text .description ol li {
+.toast .wrapper-inner .text .description ul li,
+.toast .wrapper-inner .text .description ol li {
   line-height: 1.6;
   margin: 0 0 6px;
 }
@@ -197,38 +192,34 @@
 
 
 @media screen and (max-width: 600px) {
-  #notification-bar {
+  .toast {
     display: block;
     /* overflow-y: scroll; */
   }
 
-  #notification-bar .wrapper-inner {
+  .toast .wrapper-inner {
     grid-template-columns: min-content auto;
     padding: 0 2rem 1rem 0;
   }
 
-  #notification-overlay .wrapper-inner:not(.has-image) > div:first-child {
-    display: none;
-  }
-
-  #notification-bar .wrapper-inner div .icon {
+  .toast .wrapper-inner div .icon {
     margin: 18px 2rem 0 2rem;
   }
 
-  #notification-bar .wrapper-inner .text {
+  .toast .wrapper-inner .text {
     grid-template-columns: 1fr;
     grid-gap: 6px;
   }
 
-  #notification-bar .wrapper-inner .text .name {
+  .toast .wrapper-inner .text .name {
     font-size: 16px;
   }
   
-  #notification-bar .wrapper-inner .text .description {
+  .toast .wrapper-inner .text .description {
     font-size: 14px;
   }
 
-  #notification-bar .wrapper-inner .more {
+  .toast .wrapper-inner .more {
     right: 2rem;
     font-size: 16px;
   }

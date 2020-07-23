@@ -378,5 +378,16 @@
         "dismiss": true
       }
     ]
+  },
+  {
+    "id": "y2lhlox9helc4bqi84f0f",
+    "date": "2020-07-23T23:10:43.146Z",
+    "expiry": 604800000,
+    "showOnce": true,
+    "displayProperties": {
+      "name": "This is a test",
+      "description": "Hello user. Have a nice day!",
+      "prompt": true
+    }
   }
 ]
