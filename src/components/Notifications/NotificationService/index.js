@@ -23,7 +23,10 @@ export default function NotificationService() {
   
   // regularly check for dynamic notifications
   useEffect(() => {
-    serviceInterval.current = window.setInterval(pingVoluspa, 30 * 1000);
+    // run on initialisation
+    pingVoluspa();
+    // run every 5 minutes
+    serviceInterval.current = window.setInterval(pingVoluspa, 300 * 1000);
 
     return () => {
       window.clearInterval(serviceInterval.current);
