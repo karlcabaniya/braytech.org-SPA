@@ -20,7 +20,7 @@ export default function NotificationService() {
   const serviceInterval = useRef();
   // stores a static reference to the current timer
   const notificationTimeout = useRef();
-  
+
   // regularly check for dynamic notifications
   useEffect(() => {
     // run on initialisation
@@ -84,7 +84,7 @@ export default function NotificationService() {
 
     dispatch(actions.notifications.pop(notification.hash));
 
-    setTimeout(() => {
+    window.setTimeout(() => {
       window.location.reload();
     }, 50);
   }
@@ -106,7 +106,7 @@ export default function NotificationService() {
   );
 
   // trashed notifications
-  const trash = useSelector(state => state.notifications.trash)
+  const trash = useSelector((state) => state.notifications.trash);
 
   // number of queued inline notifications
   const remainingInline = notifications.filter((notification) => !notification.displayProperties.prompt).length - 1;
@@ -130,13 +130,21 @@ export default function NotificationService() {
 
 
 
+
+
+
   // console.log(trash, notifications)
 
-  
   if (notification) {
     const postman = {
       isError: false,
-      actions: notification.actions || [],
+      actions:
+        notification.actions?.map((action) =>
+          action.dismiss
+            ? // if dismiss, add dismiss handler
+              { ...action, handler: handler_dismiss }
+            : action
+        ) || [],
       displayProperties: { ...notification.displayProperties } || {},
     };
 
@@ -179,7 +187,11 @@ export default function NotificationService() {
         },
       ].filter((action) =>
         // if an error
-        notification.error || postman.actions.filter((action) => action.type === 'agreement').length // if a forced agreement
+        notification.error ||
+        // if a forced agreement
+        postman.actions.filter((action) => action.type === 'agreement').length ||
+        // already has a default dismiss
+        postman.actions.filter((action) => action.type === 'dismiss').length
           ? action.type !== 'dismiss'
           : true
       ),
