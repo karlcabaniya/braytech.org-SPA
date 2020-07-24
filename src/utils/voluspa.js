@@ -55,7 +55,7 @@ export async function GetStatistics() {
 
 export async function GetNotifications() {
   try {
-    const request = await fetch('https://voluspa.braytech.org/Statistics', defaults);
+    const request = await fetch('https://voluspa.braytech.org/Notifications', defaults);
 
     if (request.ok) {
       const response = await request.json();

@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 
 import { t } from '../../../utils/i18n';
 import actions from '../../../store/actions';
+import { GetNotifications } from '../../../utils/voluspa';
 import ObservedImage from '../../ObservedImage';
 import Dialog from '../../UI/Dialog';
 
@@ -15,20 +16,46 @@ import './styles.css';
 
 export default function NotificationService() {
   const dispatch = useDispatch();
+  // stores a static reference to the service interval
+  const serviceInterval = useRef();
   // stores a static reference to the current timer
   const notificationTimeout = useRef();
+  
+  // regularly check for dynamic notifications
+  useEffect(() => {
+    serviceInterval.current = window.setInterval(pingVoluspa, 60 * 1000);
+
+    return () => {
+      window.clearInterval(serviceInterval.current);
+    };
+  }, []);
 
   function setTimeout(timeout) {
     notificationTimeout.current = window.setTimeout(sunsetNotifcation, timeout * 1000);
   }
 
   function clearTimeout() {
-    window.clearInterval(notificationTimeout.current);
+    window.clearTimeout(notificationTimeout.current);
+  }
+
+  async function pingVoluspa() {
+    const response = await GetNotifications();
+
+    if (response?.ErrorCode === 1) {
+      response.Response.forEach(({ expiry, ...notification }) => {
+        dispatch(
+          actions.notifications.push({
+            ...notification,
+            expiry: expiry * 1000,
+          })
+        );
+      });
+    }
   }
 
   function sunsetNotifcation() {
     if (notification?.displayProperties.timeout) {
-      dispatch(actions.notifications.pop(notification.id));
+      dispatch(actions.notifications.pop(notification.hash));
     }
   }
 
@@ -39,7 +66,7 @@ export default function NotificationService() {
       clearTimeout();
     }
 
-    dispatch(actions.notifications.pop(notification.id));
+    dispatch(actions.notifications.pop(notification.hash));
 
     ReactGA.event({
       category: notification.displayProperties.name || 'unknown',
@@ -52,7 +79,7 @@ export default function NotificationService() {
       clearTimeout();
     }
 
-    dispatch(actions.notifications.pop(notification.id));
+    dispatch(actions.notifications.pop(notification.hash));
 
     setTimeout(() => {
       window.location.reload();
@@ -74,6 +101,9 @@ export default function NotificationService() {
       }
     })
   );
+
+  // trashed notifications
+  const trash = useSelector(state => state.notifications.trash)
 
   // number of queued inline notifications
   const remainingInline = notifications.filter((notification) => !notification.displayProperties.prompt).length - 1;
@@ -97,7 +127,9 @@ export default function NotificationService() {
 
 
 
+  console.log(trash, notifications)
 
+  
   if (notification) {
     const postman = {
       isError: false,
@@ -166,7 +198,7 @@ export default function NotificationService() {
       );
     } else {
       return (
-        <div key={notification.id} className={cx('toast', { error: postman.isError })} style={{ '--timeout': `${postman.displayProperties?.timeout || 4}s` }} onClick={handler_dismiss}>
+        <div key={notification.hash} className={cx('toast', { error: postman.isError })} style={{ '--timeout': `${postman.displayProperties?.timeout || 4}s` }} onClick={handler_dismiss}>
           <div className='wrapper-outer'>
             <div className='background'>
               <div className='border-top'>
