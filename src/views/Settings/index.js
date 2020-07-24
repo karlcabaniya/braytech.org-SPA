@@ -136,7 +136,7 @@ class Settings extends React.Component {
   };
 
   handler_resetNotificationsState = (e) => {
-    ls.set('history.notifications', []);
+    this.props.resetNotifications();
   };
 
   handler_reloadApp = (e) => {
@@ -370,6 +370,9 @@ function mapDispatchToProps(dispatch) {
     },
     resetLayouts: (value) => {
       dispatch({ type: 'RESET_LAYOUTS', payload: value });
+    },
+    resetNotifications: () => {
+      dispatch({ type: 'RESET_NOTIFICATIONS', });
     },
   };
 }
