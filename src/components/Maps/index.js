@@ -23,10 +23,10 @@ import Speciality from './Nodes/Specialty';
 import Characters from './Controls/Characters';
 import ProfileState from './Controls/ProfileState';
 import Destinations from './Controls/Destinations';
+import Zoom from './Controls/Zoom';
 import Settings from './Controls/Settings';
 import Inspect from './Controls/Inspect';
 import Surveyor from './Controls/Surveyor';
-// import DataLayers from './Controls/DataLayers';
 
 import './styles.css';
 
@@ -140,19 +140,19 @@ class Maps extends React.Component {
   };
 
   handler_zoomIncrease = (e) => {
-    this.setState((p) => ({
+    this.setState((state) => ({
       viewport: {
-        ...p.viewport,
-        zoom: p.viewport.zoom + 1,
+        ...state.viewport,
+        zoom: state.viewport.zoom + 1,
       },
     }));
   };
 
   handler_zoomDecrease = (e) => {
-    this.setState((p) => ({
+    this.setState((state) => ({
       viewport: {
-        ...p.viewport,
-        zoom: p.viewport.zoom - 1,
+        ...state.viewport,
+        zoom: state.viewport.zoom - 1,
       },
     }));
   };
@@ -276,6 +276,8 @@ class Maps extends React.Component {
           {/* <Graphs {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />
+        {viewport.width > 1024 ? <Zoom increase={this.handler_zoomIncrease} decrease={this.handler_zoomDecrease} /> : null}
+        {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
         <div className='controls left'>
           {viewport.width > 600 ? <ProfileState /> : null}
           <Characters />
@@ -284,9 +286,7 @@ class Maps extends React.Component {
             <Settings />
           </div>
           {viewport.width > 600 && settings.maps.debug && <Surveyor {...this.state.debug} />}
-          {/* <DataLayers {...destination} /> */}
         </div>
-        {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
       </div>
     );
   }

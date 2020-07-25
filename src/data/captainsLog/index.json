@@ -1173,5 +1173,15 @@
     "date": "2020-07-20T12:56:16.836Z",
     "version": "2.27.43",
     "content": "- improvements to _Maps_, added _Settings_ control to _Maps_"
+  },
+  {
+    "date": "2020-07-23T06:06:55.399Z",
+    "version": "2.27.47",
+    "content": "- made various things better\n- added _The Farm_ to _European Dead Zone_ on _Maps_\n- prep work for _Solstice of Heroes_"
+  },
+  {
+    "date": "2020-07-25T05:31:00.837Z",
+    "version": "2.27.57",
+    "content": "- added zoom controls back to _Maps_\n- did some stuff\n- added more settings to _Maps_ settings"
   }
 ]

@@ -39,6 +39,7 @@
 #root > .wrapper {
   background-color: var(--body-background);
   color: rgba(255, 255, 255, 0.8);
+  transition: background-color 1s;
 }
 
 @media (any-pointer: fine) {
@@ -48,7 +49,7 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track);
+    background-color: var(--scrollbar-track);
     border-radius: 0px;
   }
   
@@ -242,6 +243,20 @@ p:last-child {
 
 .list.settings li .check-box .check.ed::before {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.list.settings li .info {
+  margin: 10px 0 0;
+  max-width: 300px;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.4);
+  user-select: none;
+}
+
+.list.settings li .info p {
+  line-height: 1.4;
 }
 
 input {

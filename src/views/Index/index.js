@@ -18,7 +18,7 @@ class Index extends React.Component {
 
   logs = [...captainsLog].reverse();
 
-  supporters = manifest.statistics?.patrons && this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter((m) => manifest.statistics.patrons.alpha.indexOf(m) < 0)]);
+  supporters = manifest.statistics?.patrons && this.shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter((m) => manifest.statistics.patrons.alpha.indexOf(m) < 0)]).slice(0, 14);
 
   componentDidMount() {
     this.mounted = true;

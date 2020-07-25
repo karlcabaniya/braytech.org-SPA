@@ -18,19 +18,6 @@
   margin-bottom: 20px;
 }
 
-#settings .info {
-  margin: 10px 0 0;
-  max-width: 300px;
-  font-size: 12px;
-  font-style: italic;
-  letter-spacing: 0.5px;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-#settings .info p {
-  line-height: 1.4;
-}
-
 #settings .module .sub-header:not(:first-child) {
   margin: calc(2rem + 20px) 0 20px;
 }
@@ -54,6 +41,24 @@
 #settings .buff .module:first-child {
   grid-column: 1/3;
 }
+
+
+#settings .bungie-auth .info {
+  margin: 10px 0 0;
+  max-width: 300px;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#settings .bungie-auth .info p {
+  line-height: 1.4;
+}
+
+
+
+
 
 @media screen and (max-width: 1500px) {
   #settings .buff {
