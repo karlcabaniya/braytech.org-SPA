@@ -3,6 +3,7 @@
   grid-template-columns: 16px auto;
   align-items: center;
   gap: 8px;
+  user-select: none;
 }
 
 .check-box .check {

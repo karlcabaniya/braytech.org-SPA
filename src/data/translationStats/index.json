@@ -1,124 +1,111 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 62,
+    "notTranslated": 63,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 775,
+    "translated": 776,
     "notTranslated": 0,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "en": {
-    "translated": 775,
+    "translated": 776,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 773,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "es": {
     "translated": 773,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "fr": {
     "translated": 607,
-    "notTranslated": 168,
+    "notTranslated": 169,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "it": {
     "translated": 767,
-    "notTranslated": 8,
+    "notTranslated": 9,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ja": {
     "translated": 586,
-    "notTranslated": 189,
+    "notTranslated": 190,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ko": {
     "translated": 513,
-    "notTranslated": 262,
+    "notTranslated": 263,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 773,
+    "notTranslated": 774,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 685,
-    "notTranslated": 90,
+    "notTranslated": 91,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ru": {
     "translated": 773,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 563,
-    "notTranslated": 212,
+    "notTranslated": 213,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "zh-cht": {
     "translated": 641,
-    "notTranslated": 134,
+    "notTranslated": 135,
     "added": [
-      "Accept",
-      "Open"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   }

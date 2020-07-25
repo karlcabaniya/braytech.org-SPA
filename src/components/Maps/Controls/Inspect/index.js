@@ -122,20 +122,19 @@ function Node(props) {
           </a>
         </div>
       ) : null}
-      {unified.extended?.enemies?.length || unified.related?.records.length || unified.extended?.instructions ? (
+      {/* {unified.extended?.enemies?.length ? (
+        <div className='enemies'>
+          <h4>{t('Enemies')}</h4>
+          <ul>
+            {unified.extended.enemies.map((enemy, e) => (
+              <li key={e}>{manifest.DestinyEnemyRaceDefinition[enemy.enemyRaceHash].displayProperties.name}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null} */}
+      {unified.related?.records.length || unified.extended?.instructions ? (
         <div className='buff'>
-          {unified.extended?.enemies?.length ? (
-            <>
-              <h4>{t('Enemies')}</h4>
-              <div className='enemies'>
-                <ul>
-                  {unified.extended.enemies.map((enemy, e) => (
-                    <li key={e}>{manifest.DestinyEnemyRaceDefinition[enemy.enemyRaceHash].displayProperties.name}</li>
-                  ))}
-                </ul>
-              </div>
-            </>
-          ) : null}
+          
           {unified.extended?.instructions ? (
             <>
               <h4>{t('Instructions')}</h4>
