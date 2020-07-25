@@ -28,8 +28,13 @@ class Settings extends React.Component {
     };
   }
 
-  selectLanguage = (lang) => {
-    this.setState((state) => ({ ...state, language: { ...state.language, selected: lang } }));
+  selectLanguage = (lang) => (e) => {
+    this.setState((state) => ({
+      language: {
+        ...state.language,
+        selected: lang,
+      },
+    }));
   };
 
   saveAndRestart = () => {
@@ -81,7 +86,7 @@ class Settings extends React.Component {
           } else {
             console.log('Service Worker: updated');
           }
-          
+
           if (this.mounted) this.setState({ swUpdateAttempt: false });
         });
     });
@@ -136,7 +141,7 @@ class Settings extends React.Component {
   };
 
   handler_resetNotificationsState = (e) => {
-    ls.set('history.notifications', []);
+    this.props.resetNotifications();
   };
 
   handler_reloadApp = (e) => {
@@ -152,13 +157,8 @@ class Settings extends React.Component {
       const langInfo = getLanguageInfo(code);
 
       return (
-        <li
-          key={code}
-          onClick={() => {
-            this.selectLanguage(code);
-          }}
-        >
-          <Checkbox linked checked={this.state.language.selected === code}>
+        <li key={code}>
+          <Checkbox linked checked={this.state.language.selected === code} action={this.selectLanguage(code)}>
             <div className='text'>
               <div className='name'>{langInfo.name || langInfo.code}</div>
               <div className='coverage tooltip' data-hash='coverage' data-type='braytech'>
@@ -189,36 +189,36 @@ class Settings extends React.Component {
               <div>{t('Item visibility')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggle('itemVisibility.hideCompletedChecklistItems')}>
-                <Checkbox linked checked={settings.itemVisibility.hideCompletedChecklistItems} text={t('Hide completed checklist items')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideCompletedChecklistItems} text={t('Hide completed checklist items')} action={this.handler_toggle('itemVisibility.hideCompletedChecklistItems')} />
                 <BraytechText className='info' value={t('If a checklist item is completed, it will be hidden under Checklist view.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideCompletedRecords')}>
-                <Checkbox linked checked={settings.itemVisibility.hideCompletedRecords} text={t('Hide completed triumphs')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideCompletedRecords} text={t('Hide completed triumphs')} action={this.handler_toggle('itemVisibility.hideCompletedRecords')} />
                 <BraytechText className='info' value={t('If a triumph record is completed and redeemed, it will be hidden under Triumphs views.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideInvisibleRecords')}>
-                <Checkbox linked checked={settings.itemVisibility.hideInvisibleRecords} text={t('Hide invisible triumph records')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideInvisibleRecords} text={t('Hide invisible triumph records')} action={this.handler_toggle('itemVisibility.hideInvisibleRecords')} />
                 <BraytechText className='info' value={t('If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideUnobtainableRecords')}>
-                <Checkbox linked checked={settings.itemVisibility.hideUnobtainableRecords} text={t('Hide unobtainable triumph records')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideUnobtainableRecords} text={t('Hide unobtainable triumph records')} action={this.handler_toggle('itemVisibility.hideUnobtainableRecords')} />
                 <BraytechText className='info' value={t('Hides unobtainable records from view')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideDudRecords')}>
-                <Checkbox linked checked={settings.itemVisibility.hideDudRecords} text={t('Hide dud triumph records')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideDudRecords} text={t('Hide dud triumph records')} action={this.handler_toggle('itemVisibility.hideDudRecords')} />
                 <BraytechText className='info' value={t('Hides dud (empty or unused) records from view')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideCompletedCollectibles')}>
-                <Checkbox linked checked={settings.itemVisibility.hideCompletedCollectibles} text={t('Hide acquired collection items')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideCompletedCollectibles} text={t('Hide acquired collection items')} action={this.handler_toggle('itemVisibility.hideCompletedCollectibles')} />
                 <BraytechText className='info' value={t('If a collectible has been acquired, it will be hidden under Collections views.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.hideInvisibleCollectibles')}>
-                <Checkbox linked checked={settings.itemVisibility.hideInvisibleCollectibles} text={t('Hide invisible collection items')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.hideInvisibleCollectibles} text={t('Hide invisible collection items')} action={this.handler_toggle('itemVisibility.hideInvisibleCollectibles')} />
                 <BraytechText className='info' value={t('If the game specifies that you are unable to see a particular collectible, it will be hidden under Collections views.')} />
               </li>
-              <li onClick={this.handler_toggle('itemVisibility.suppressVaultWarnings')}>
-                <Checkbox linked checked={settings.itemVisibility.suppressVaultWarnings} text={t('Suppress Vault Warnings')} />
+              <li>
+                <Checkbox linked checked={settings.itemVisibility.suppressVaultWarnings} text={t('Suppress Vault Warnings')} action={this.handler_toggle('itemVisibility.suppressVaultWarnings')} />
                 <BraytechText className='info' value={t('Hide any warnings of whether a collectible or record is heading to the _Destiny Content Vault_.')} />
               </li>
             </ul>
@@ -228,40 +228,37 @@ class Settings extends React.Component {
               <div>{t('Theme')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_setTheme('light')}>
-                <Checkbox linked checked={this.props.theme.user === 'light'} text={t('Light')} />
+              <li>
+                <Checkbox linked checked={this.props.theme.user === 'light'} text={t('Light')} action={this.handler_setTheme('light')} />
               </li>
-              <li onClick={this.handler_setTheme('dark')}>
-                <Checkbox linked checked={this.props.theme.user === 'dark'} text={t('Dark')} />
+              <li>
+                <Checkbox linked checked={this.props.theme.user === 'dark'} text={t('Dark')} action={this.handler_setTheme('dark')} />
               </li>
-              <li onClick={this.handler_setTheme('system')}>
-                <Checkbox linked checked={!this.props.theme.user} text={t('Match system')} />
+              <li>
+                <Checkbox linked checked={!this.props.theme.user} text={t('Match system')} action={this.handler_setTheme('system')} />
               </li>
             </ul>
             <div className='sub-header sub'>
               <div>{t('Visual fidelity')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggle('visual.passiveAnimations')}>
-                <Checkbox linked checked={settings.visual.passiveAnimations} text={t('Enable passive animations')} />
+              <li>
+                <Checkbox linked checked={settings.visual.passiveAnimations} text={t('Enable passive animations')} action={this.handler_toggle('visual.passiveAnimations')} />
                 <BraytechText className='info' value={t('Controls most animations. Disabling passive animations may improve performance on low power devices.')} />
               </li>
-              <li onClick={this.handler_toggle('visual.three')}>
-                <Checkbox linked checked={settings.visual.three} text={t('Enable 3D models')} />
+              <li>
+                <Checkbox linked checked={settings.visual.three} text={t('Enable 3D models')} action={this.handler_toggle('visual.three')} />
                 <BraytechText className='info' value={t('Where applicable, use 3D models. Not recommended for phones or low power devices.')} />
               </li>
-              {settings.visual.three && 2 === 3 ? (
-                <>
-                  <li onClick={this.handler_toggle('visual.threeShadows')}>
-                    <Checkbox linked checked={settings.visual.threeShadows} text={t('Enable 3D model shadows')} />
-                    <div className='info'>
-                      <p>{t('3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.')}</p>
-                    </div>
-                  </li>
-                </>
-              ) : null}
-              <li onClick={this.handler_toggle('visual.gay')}>
-                <Checkbox linked checked={settings.visual.gay} text={t('Enable ✨')} />
+
+              <li>
+                <Checkbox linked checked={settings.visual.threeShadows} text={t('Enable 3D model shadows')} disabled={!settings.visual.three || 3 === 3} action={this.handler_toggle('visual.threeShadows')} />
+                <div className='info'>
+                  <p>{t('3D models will cast shadows upon themselves for a more realistic and true representation. Affects performance. Experimental.')}</p>
+                </div>
+              </li>
+              <li>
+                <Checkbox linked checked={settings.visual.gay} text={t('Enable ✨')} action={this.handler_toggle('visual.gay')} />
                 <BraytechText className='info' value={t('Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation.')} />
               </li>
             </ul>
@@ -269,32 +266,24 @@ class Settings extends React.Component {
               <div>{t('Developer')}</div>
             </div>
             <ul className='list settings'>
-              <li onClick={this.handler_toggle('visual.threeDebug')}>
-                <Checkbox linked checked={settings.visual.threeDebug} text={t('3D model debug mode')} />
+              <li>
+                <Checkbox linked checked={settings.visual.threeDebug} text={t('3D model debug mode')} action={this.handler_toggle('visual.threeDebug')} />
                 <BraytechText className='info' value={t('Displays extra information for debugging 3D models')} />
               </li>
-              <li onClick={this.handler_toggle('maps.debug')}>
-                <Checkbox linked checked={settings.maps.debug} text={t('Maps debug mode')} />
+              <li>
+                <Checkbox linked checked={settings.maps.debug} text={t('Maps debug mode')} action={this.handler_toggle('maps.debug')} />
                 <BraytechText className='info' value={t('Enable Maps debugging settings')} />
               </li>
-              {settings.maps.debug ? (
-                <>
-                  <li onClick={this.handler_toggle('maps.noScreenshotHighlight')}>
-                    <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Highlight nodes without screenshots')} />
-                    <div className='info'>
-                      <p>{t('Map nodes, such as region chests, which do not have an associated screenshot will be highlighted in order to assist users with contributing to maps data.')}</p>
-                    </div>
-                  </li>
-                  <li onClick={this.handler_toggle('maps.logDetails')}>
-                    <Checkbox linked checked={settings.maps.logDetails} text={t('Log node details')} />
-                    <div className='info'>
-                      <p>{t('Console.log details for the mouse-invoked node.')}</p>
-                    </div>
-                  </li>
-                </>
-              ) : null}
-              <li onClick={this.handler_toggle('developer.lists')}>
-                <Checkbox linked checked={settings.developer.lists} text={t('Enable lists')} />
+              <li>
+                <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Highlight nodes without screenshots')} disabled={!settings.maps.debug} action={this.handler_toggle('maps.noScreenshotHighlight')} />
+                <BraytechText className='info' value={t('Map nodes, such as region chests, which do not have an associated screenshot will be highlighted in order to assist users with contributing to maps data.')} />
+              </li>
+              <li>
+                <Checkbox linked checked={settings.maps.logDetails} text={t('Log node details')} disabled={!settings.maps.debug} action={this.handler_toggle('maps.logDetails')} />
+                <BraytechText className='info' value={t('Console.log details for the mouse-invoked node.')} />
+              </li>
+              <li>
+                <Checkbox linked checked={settings.developer.lists} text={t('Enable lists')} action={this.handler_toggle('developer.lists')} />
                 <BraytechText className='info' value={t('Enable developer lists by overriding links')} />
               </li>
             </ul>
@@ -370,6 +359,9 @@ function mapDispatchToProps(dispatch) {
     },
     resetLayouts: (value) => {
       dispatch({ type: 'RESET_LAYOUTS', payload: value });
+    },
+    resetNotifications: () => {
+      dispatch({ type: 'RESET_NOTIFICATIONS' });
     },
   };
 }

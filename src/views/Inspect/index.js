@@ -100,7 +100,9 @@ export default function Inspect() {
         <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
         <div className='wrap'>
           <div className='module header'>
-            <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
+            <div className='icon'>
+              {definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}
+            </div>
             <div className='text'>
               <div className='name'>{definitionItem.displayProperties.name}</div>
               <div className='type'>{definitionItem.itemTypeDisplayName}</div>

@@ -1,176 +1,111 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 60,
+    "notTranslated": 63,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 773,
+    "translated": 776,
     "notTranslated": 0,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "en": {
-    "translated": 773,
+    "translated": 776,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 767,
-    "notTranslated": 6,
+    "translated": 773,
+    "notTranslated": 3,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "es": {
-    "translated": 767,
-    "notTranslated": 6,
+    "translated": 773,
+    "notTranslated": 3,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "fr": {
     "translated": 607,
-    "notTranslated": 166,
+    "notTranslated": 169,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "it": {
     "translated": 767,
-    "notTranslated": 6,
+    "notTranslated": 9,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ja": {
     "translated": 586,
-    "notTranslated": 187,
+    "notTranslated": 190,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ko": {
     "translated": 513,
-    "notTranslated": 260,
+    "notTranslated": 263,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 771,
+    "notTranslated": 774,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 685,
-    "notTranslated": 88,
+    "notTranslated": 91,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "ru": {
-    "translated": 767,
-    "notTranslated": 6,
+    "translated": 773,
+    "notTranslated": 3,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 563,
-    "notTranslated": 210,
+    "notTranslated": 213,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   },
   "zh-cht": {
-    "translated": 591,
-    "notTranslated": 182,
+    "translated": 641,
+    "notTranslated": 135,
     "added": [
-      "Event",
-      "Event.SolsticeOfHeroes.ArmorTier.Magnificent",
-      "Event.SolsticeOfHeroes.ArmorTier.Majestic",
-      "Event.SolsticeOfHeroes.ArmorTier.Renewed",
-      "Event.SolsticeOfHeroes.Description",
-      "Event.SolsticeOfHeroes.Name"
+      "Settings.Maps.Developer.Info"
     ],
     "removed": []
   }

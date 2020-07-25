@@ -575,7 +575,7 @@
   },
   "37": {
     "displayProperties": {
-      "description": "In the back right room on the third floor of a damaged building."
+      "description": "In the rear of the damaged structure, on the third floor, in a room on the right."
     },
     "checklistHash": 1085712440,
     "screenshot": "/static/images/screenshots/checklists/region-chests/trostland-1085712440.jpg"
@@ -592,7 +592,15 @@
       "description": "Inside the causeway's ceiling."
     },
     "checklistHash": 2503906440,
-    "screenshot": "/static/images/screenshots/checklists/region-chests/the-sludge-2503906440.jpg"
+    "screenshot": "/static/images/screenshots/checklists/region-chests/the-sludge-2503906440.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 60,
+          "y": 40
+        }
+      }
+    }
   },
   "40": {
     "displayProperties": {

@@ -14,6 +14,12 @@ export default {
         payload,
       };
     },
+    pop: function (payload) {
+      return {
+        type: 'POP_NOTIFICATION',
+        payload,
+      };
+    },
   },
   tooltips: {
     rebind: function () {

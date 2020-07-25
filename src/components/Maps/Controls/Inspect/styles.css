@@ -44,7 +44,7 @@
 .map-omega .control.inspector .screenshot {
   position: relative;
   padding-bottom: 56%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .map-omega .control.inspector .screenshot .image {
@@ -139,7 +139,7 @@
 .map-omega .control.inspector .header {
   position: relative;
   padding: 1rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .map-omega .control.inspector .header .icon {
@@ -190,7 +190,7 @@
   line-height: 1.4;
   font-size: 14px;
   color: #f5eac4;
-  background-color: hsla(47, 90%, 83%, 0.1);
+  background-color: hsla(47, 90%, 83%, 0.2);
 }
 
 .map-omega .control.inspector .video {
