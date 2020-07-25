@@ -19,7 +19,7 @@ export function PostMember(payload) {
 
 export async function PostPatreon(payload) {
   try {
-    const request = fetch('https://voluspa.braytech.org/Patreon/Set', {
+    const request = await fetch('https://voluspa.braytech.org/Patreon/Set', {
       ...defaults,
       method: 'POST',
       body: JSON.stringify(payload),
