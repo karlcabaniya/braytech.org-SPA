@@ -96,7 +96,7 @@ class PresentationNode extends React.Component {
             }
 
             // skip those with the state of...
-            if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
+            if (settings.itemVisibility.hideInvisibleRecords && enumerateRecordState(recordData.state).Invisible) return false;
 
             return recordData;
           })
@@ -138,13 +138,18 @@ class PresentationNode extends React.Component {
         const scopeRecord = definitionRecord.scope || 0;
         const recordData = scopeRecord === 1 ? characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords[definitionRecord.hash];
 
+        // skip hardcoded duds
         if (settings.itemVisibility.hideDudRecords && duds.indexOf(record.recordHash) > -1) return false;
+
+        // skip hardcoded unobtainables
         if (recordData.intervalObjectives?.length) {
-          if (recordData.intervalsRedeemedCount === 0 && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          if (settings.itemVisibility.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return false;
         } else {
-          if (!enumerateRecordState(recordData.state).RecordRedeemed && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+          if (settings.itemVisibility.hideUnobtainableRecords && !enumerateRecordState(recordData.state).RecordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return false;
         }
-        if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return false;
+
+        // skip those with the state of... 
+        if (settings.itemVisibility.hideInvisibleRecords && enumerateRecordState(recordData.state).Invisible) return false;
 
         return true;
       })

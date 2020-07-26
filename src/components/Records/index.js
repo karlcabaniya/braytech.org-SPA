@@ -228,10 +228,10 @@ class Records extends React.Component {
   };
 
   render() {
-    const { settings, lists, hashes, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible } = this.props;
+    const { settings, lists, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible } = this.props;
     const highlight = +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
-    const recordsRequested = hashes;
+    const recordsRequested = this.props.hashes;
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
     const profileRecordsTracked = member.data.profile?.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
@@ -430,7 +430,10 @@ class Records extends React.Component {
       const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
       const enumeratedState = enumerateRecordState(enumerableState);
 
-      if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
+      // if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
+      //   return;
+      // }
+      if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Invisible) {
         return;
       }
 
@@ -455,11 +458,55 @@ class Records extends React.Component {
             >
               <div className='properties'>
                 <div className='icon'>
-                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                 </div>
                 <div className='text'>
                   <div className='name'>{t('Classified record')}</div>
                   <div className='description'>{t('This record is classified and may be revealed at a later time.')}</div>
+                </div>
+              </div>
+            </li>
+          ),
+        });
+      } else if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Obscured) {
+        recordsOutput.push({
+          completed: enumeratedState.RecordRedeemed,
+          progressDistance: recordState.distance,
+          hash: definitionRecord.hash,
+          element: (
+            <li
+              key={h}
+              ref={ref}
+              className={cx('redacted', {
+                highlight: highlight === definitionRecord.hash,
+              })}
+            >
+              <div className='properties'>
+                <div className='icon'>
+                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                </div>
+                <div className='text'>
+                  <div className='name'>{t('Secret Triumph')}</div>
+                  <div className='meta'>
+                    {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
+                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
+                    {manifest.statistics.triumphs ? (
+                      <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
+                        {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                      </div>
+                    ) : null}
+                    {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
+                      <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
+                        {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
+                      </div>
+                    ) : null}
+                    {recordState.score.value !== 0 ? (
+                      <div className='score tooltip' data-hash='score' data-type='braytech'>
+                        {recordState.intervals.length && recordState.score.progress !== recordState.score.value ? `${recordState.score.next}/${recordState.score.value}` : recordState.score.value}
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className='description'>{t('Triumphs.State.SecretTriumph')}</div>
                 </div>
               </div>
             </li>
@@ -515,7 +562,7 @@ class Records extends React.Component {
               ) : null}
               <div className='properties'>
                 <div className='icon'>
-                  <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${recordIcon(definitionRecord.hash)}`} />
+                  <ObservedImage className='image icon' src={`https://www.bungie.net${recordIcon(definitionRecord.hash)}`} />
                 </div>
                 <div className='text'>
                   <div className='name'>{definitionRecord.displayProperties.name}</div>

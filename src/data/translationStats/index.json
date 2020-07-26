@@ -1,112 +1,153 @@
 {
   "de": {
     "translated": 713,
-    "notTranslated": 63,
+    "notTranslated": 64,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "debug": {
-    "translated": 776,
+    "translated": 777,
     "notTranslated": 0,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "en": {
-    "translated": 776,
+    "translated": 777,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "es-mx": {
-    "translated": 773,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 2,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "es": {
-    "translated": 773,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 2,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "fr": {
-    "translated": 607,
-    "notTranslated": 169,
+    "translated": 638,
+    "notTranslated": 139,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "it": {
-    "translated": 767,
-    "notTranslated": 9,
+    "translated": 775,
+    "notTranslated": 2,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "ja": {
     "translated": 586,
-    "notTranslated": 190,
+    "notTranslated": 191,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "ko": {
     "translated": 513,
-    "notTranslated": 263,
+    "notTranslated": 264,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 774,
+    "notTranslated": 775,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "pt-br": {
     "translated": 685,
-    "notTranslated": 91,
+    "notTranslated": 92,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "ru": {
-    "translated": 773,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 2,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "zh-chs": {
-    "translated": 563,
-    "notTranslated": 213,
+    "translated": 585,
+    "notTranslated": 192,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   },
   "zh-cht": {
-    "translated": 641,
-    "notTranslated": 135,
+    "translated": 640,
+    "notTranslated": 137,
     "added": [
-      "Settings.Maps.Developer.Info"
+      "Secret Triumph",
+      "Triumphs.State.SecretTriumph"
     ],
-    "removed": []
+    "removed": [
+      "Enemies"
+    ]
   }
 }
