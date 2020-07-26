@@ -45,14 +45,18 @@ export default function NotificationService() {
     const response = await GetNotifications();
 
     if (response?.ErrorCode === 1) {
-      response.Response.forEach(({ expiry, ...notification }) => {
-        dispatch(
-          actions.notifications.push({
-            ...notification,
-            expiry: expiry * 1000,
-          })
-        );
-      });
+      response.Response
+        // filter based on release type
+        .filter((notification) => (notification.release === 'dev' ? (process.env.NODE_ENV === 'development') === 'true' : true))
+        .filter((notification) => (notification.release === 'beta' ? process.env.REACT_APP_BETA === 'true' : true))
+        .forEach(({ expiry, ...notification }) => {
+          dispatch(
+            actions.notifications.push({
+              ...notification,
+              expiry: expiry * 1000,
+            })
+          );
+        });
     }
   }
 
@@ -128,12 +132,11 @@ export default function NotificationService() {
     };
   }, [notification]);
 
-
-
-
-
-
   // console.log(trash, notifications)
+
+
+
+  
 
   if (notification) {
     const postman = {
