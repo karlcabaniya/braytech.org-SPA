@@ -7,12 +7,16 @@ import ReactMarkdown from 'react-markdown';
 import { t } from '../../../utils/i18n';
 import actions from '../../../store/actions';
 import { GetNotifications } from '../../../utils/voluspa';
+import packageJSON from '../../../../package.json';
+
 import ObservedImage from '../../ObservedImage';
 import Dialog from '../../UI/Dialog';
 
 import { Common } from '../../../svg';
 
 import './styles.css';
+
+const appVersion = +packageJSON.version.replace(/\./g, '');
 
 export default function NotificationService() {
   const dispatch = useDispatch();
@@ -47,8 +51,11 @@ export default function NotificationService() {
     if (response?.ErrorCode === 1) {
       response.Response
         // filter based on release type
-        .filter((notification) => (notification.release === 'dev' ? (process.env.NODE_ENV === 'development') === 'true' : true))
-        .filter((notification) => (notification.release === 'beta' ? process.env.REACT_APP_BETA === 'true' : true))
+        .filter((notification) => (notification.release.type === 'dev' ? process.env.NODE_ENV === 'development' : true))
+        .filter((notification) => (notification.release.type === 'beta' ? process.env.REACT_APP_BETA === 'true' : true))
+        // filter based on release version
+        .filter((notification) => (notification.release.version ? appVersion >= +notification.release.version.replace(/\./g, '') : true))
+        // dispatch!
         .forEach(({ expiry, ...notification }) => {
           dispatch(
             actions.notifications.push({
