@@ -180,6 +180,8 @@ function Challenges() {
 
         return a;
       } else {
+        const objectives = [v];
+
         return [
           ...a,
           {
@@ -189,13 +191,16 @@ function Challenges() {
               .filter((a) => a.challenges)
               .filter((a) => a.challenges.filter((o) => o.objective.objectiveHash === v.objectiveHash).length)
               .map((a) => a.activityHash),
-            objectives: [v],
+            objectives,
+            progress: objectives.reduce((sum, value) => sum + value.progress, 0) / objectives.reduce((sum, value) => sum + value.completionValue, 0) || 0,
           },
         ];
       }
     }
     // a lone wolf
     else {
+      const objectives = [v];
+
       return [
         ...a,
         {
@@ -205,7 +210,8 @@ function Challenges() {
             .filter((a) => a.challenges)
             .filter((a) => a.challenges.filter((o) => o.objective.objectiveHash === v.objectiveHash).length)
             .map((a) => a.activityHash),
-          objectives: [v],
+          objectives,
+          progress: objectives.reduce((sum, value) => sum + value.progress, 0) / objectives.reduce((sum, value) => sum + value.completionValue, 0) || 0,
         },
       ];
     }
@@ -279,6 +285,8 @@ function Challenges() {
       }).length,
     0
   );
+
+  challengesFiltered.sort((a, b) => b.progress - a.progress);
 
   return (
     <div className='user-module challenges'>

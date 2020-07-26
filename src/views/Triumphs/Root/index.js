@@ -9,12 +9,13 @@ import unobtainable from '../../../data/records/unobtainable';
 import { enumeratePresentationNodeState, enumerateRecordState, sealImages } from '../../../utils/destinyEnums';
 import { isChildOfNodeVaulted } from '../../../utils/destinyUtils';
 import { displayValue } from '../../../utils/destinyConverters';
+
 import { ProfileLink } from '../../../components/ProfileLink';
-import ObservedImage from '../../../components/ObservedImage';
 import { unredeemedRecords } from '../../../components/Records';
 import RecordsAlmost from '../../../components/RecordsAlmost';
 import RecordsTracked from '../../../components/RecordsTracked';
 import Search from '../../../components/Search';
+import ObservedImage from '../../../components/ObservedImage';
 
 function Root({ settings, member, ...props }) {
   const character = member.data.profile.characters.data.find((character) => character.characterId === member.characterId);
@@ -29,7 +30,7 @@ function Root({ settings, member, ...props }) {
   const sealNodes = [];
   const recordsStates = [];
 
-  // standard nodes
+  // primary nodes
   parent.children.presentationNodes.forEach((child) => {
     const definitionNode = manifest.DestinyPresentationNodeDefinition[child.presentationNodeHash];
     const states = [];
@@ -46,19 +47,24 @@ function Root({ settings, member, ...props }) {
 
         definitionNodeChildNodeChildNode.children.records.forEach((record) => {
           const definitionRecord = manifest.DestinyRecordDefinition[record.recordHash];
+
           const recordScope = definitionRecord.scope || 0;
           const recordData = recordScope === 1 ? characterRecords && characterRecords[member.characterId].records[definitionRecord.hash] : profileRecords && profileRecords[definitionRecord.hash];
 
           if (recordData) {
+            // skip hardcoded duds
             if (settings.itemVisibility.hideDudRecords && duds.indexOf(record.recordHash) > -1) return;
 
+            // skip hardcoded unobtainables
             if (recordData.intervalObjectives?.length) {
-              if (recordData.intervalsRedeemedCount === 0 && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (settings.itemVisibility.hideUnobtainableRecords && recordData.intervalsRedeemedCount === 0 && unobtainable.indexOf(record.recordHash) > -1) return;
             } else {
-              if (!enumerateRecordState(recordData.state).RecordRedeemed && settings.itemVisibility.hideUnobtainableRecords && unobtainable.indexOf(record.recordHash) > -1) return false;
+              if (settings.itemVisibility.hideUnobtainableRecords && !enumerateRecordState(recordData.state).RecordRedeemed && unobtainable.indexOf(record.recordHash) > -1) return;
             }
 
-            if (settings.itemVisibility.hideInvisibleRecords && (enumerateRecordState(recordData.state).Obscured || enumerateRecordState(recordData.state).Invisible)) return;
+            // skip those with the state of...
+            if (settings.itemVisibility.hideInvisibleRecords && enumerateRecordState(recordData.state).Invisible) return;
+            // if (settings.itemVisibility.hideInvisibleRecords && enumerateRecordState(recordData.state).Obscured) return;
 
             recordData.hash = definitionRecord.hash;
             recordData.scoreValue = (definitionRecord.completionInfo && definitionRecord.completionInfo.ScoreValue) || 0;
@@ -71,12 +77,12 @@ function Root({ settings, member, ...props }) {
     });
 
     const nodeProgress = states.filter((record) => enumerateRecordState(record.state).RecordRedeemed).length;
-    const nodeTotal = states.filter((record) => !enumerateRecordState(record.state).Invisible).length;
+    const nodeTotal = states.length;
 
     nodes.push(
       <li key={definitionNode.hash} className={cx('linked', { completed: nodeTotal > 0 && nodeProgress === nodeTotal })}>
         {nodeTotal && nodeProgress !== nodeTotal ? <div className='progress-bar-background' style={{ width: `${(nodeProgress / nodeTotal) * 100}%` }} /> : null}
-        <ObservedImage className={cx('image', 'icon')} src={`https://www.bungie.net${definitionNode.originalIcon}`} />
+        <ObservedImage className='image icon' src={`https://www.bungie.net${definitionNode.originalIcon}`} />
         <div className='displayProperties'>
           <div className='name'>{definitionNode.displayProperties.name}</div>
           {nodeTotal ? (
@@ -97,6 +103,7 @@ function Root({ settings, member, ...props }) {
 
     if (!definitionSeal || definitionSeal.redacted) {
       console.log(`Seal ${child.presentationNodeHash} is redacted or 404`);
+
       return;
     }
 
@@ -127,7 +134,7 @@ function Root({ settings, member, ...props }) {
           })}
         >
           {!isComplete ? <div className='progress-bar-background' style={{ width: `${(nodeProgress / nodeTotal) * 100}%` }} /> : null}
-          <ObservedImage className={cx('image', 'icon')} src={sealImages[definitionSeal.hash] ? `/static/images/extracts/badges/${sealImages[definitionSeal.hash]}` : `https://www.bungie.net${definitionSeal.displayProperties.icon}`} />
+          <ObservedImage className='image icon' src={sealImages[definitionSeal.hash] ? `/static/images/extracts/badges/${sealImages[definitionSeal.hash]}` : `https://www.bungie.net${definitionSeal.displayProperties.icon}`} />
           <div className='displayProperties'>
             <div className='name'>{sealTitle || definitionSeal.displayProperties.name}</div>
             {nodeTotal ? (
@@ -173,7 +180,7 @@ function Root({ settings, member, ...props }) {
         <div className='sub-header'>
           <div>{t('Triumphs')}</div>
           <div>
-            {recordsStates.filter((state) => !state.seal).filter((state) => enumerateRecordState(state.state).RecordRedeemed).length}/{recordsStates.filter((state) => !state.seal).filter((state) => !enumerateRecordState(state.state).Invisible).length}
+            {recordsStates.filter((state) => !state.seal).filter((state) => enumerateRecordState(state.state).RecordRedeemed).length}/{recordsStates.filter((state) => !state.seal).length}
           </div>
         </div>
         <ul className='list parents'>{nodes}</ul>

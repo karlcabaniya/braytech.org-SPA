@@ -21,6 +21,11 @@
   background-color: #141414;
 }
 
+.wrapper.service-worker-update #loading {
+  top: 60px;
+  height: calc(100% - 60px);
+}
+
 #loading .bg {
   position: absolute;
   left: 0;

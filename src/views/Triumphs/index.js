@@ -15,7 +15,10 @@ import SealNode from './SealNode/';
 import AlmostComplete from './AlmostComplete/';
 import Tracked from './Tracked/';
 import Unredeemed from './Unredeemed/';
-import DudDebug from './DudDebug/';
+
+import duds from '../../data/records/duds';
+import unobtainables from '../../data/records/unobtainable';
+import Records from '../../components/Records';
 
 class Triumphs extends React.Component {
   state = {
@@ -171,11 +174,40 @@ class Triumphs extends React.Component {
           </div>
         </>
       );
+    } else if (primaryHash === 'unobtainable-debug') {
+      return (
+        <>
+          <div className='view' id='triumphs'>
+            <div className='dud-debug'>
+              <ul className='list record-items'>
+                <Records hashes={unobtainables} showCompleted showInvisible />
+              </ul>
+            </div>
+          </div>
+          <div className='sticky-nav'>
+            <div className='wrapper'>
+              <div />
+              <ul>
+                <li>
+                  <ProfileLink className='button' to={backLinkPath}>
+                    <DestinyKey type='dismiss' />
+                    {t('Back')}
+                  </ProfileLink>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </>
+      );
     } else if (primaryHash === 'dud-debug') {
       return (
         <>
           <div className='view' id='triumphs'>
-            <DudDebug />
+            <div className='dud-debug'>
+              <ul className='list record-items'>
+                <Records hashes={duds} showCompleted showInvisible />
+              </ul>
+            </div>
           </div>
           <div className='sticky-nav'>
             <div className='wrapper'>

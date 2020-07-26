@@ -270,15 +270,22 @@ class App extends React.Component {
       GoogleAnalytics.init();
     }
 
-    const ready = this.state.status.code === 'ready'; // this.state.status.code !== 'ready' || this.state.status.code === 'ready'
+    const ready = this.state.status.code === 'ready';
 
     return (
       <BrowserRouter>
         <Route
           render={(route) => (
-            <div className={cx('wrapper', this.props.theme.active, { 'reduced-motion': !this.props.settings.visual.passiveAnimations, 'gay-it-up': this.props.settings.visual.gay, standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches })}>
+            <div
+              className={cx('wrapper', this.props.theme.active, {
+                'reduced-motion': !this.props.settings.visual.passiveAnimations,
+                'gay-it-up': this.props.settings.visual.gay,
+                standalone: window.matchMedia && window.matchMedia('(display-mode: standalone)').matches,
+                'service-worker-update': this.props.updateAvailable,
+              })}
+            >
               <Route component={GoogleAnalytics.GoogleAnalytics} />
-              
+
               <ServiceWorkerUpdate updateAvailable={this.props.updateAvailable} />
               <NotificationService />
 
