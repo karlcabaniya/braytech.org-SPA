@@ -1,5 +1,5 @@
 .map-omega .control.inspector {
-  position: fixed;
+  position: absolute;
   top: calc(3rem + 40px);
   right: 3rem;
   width: calc(100% - 310px - 9rem);

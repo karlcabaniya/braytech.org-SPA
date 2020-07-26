@@ -10,7 +10,7 @@ import { commonality, isContentVaulted } from '../../utils/destinyUtils';
 import { ProfileLink } from '../../components/ProfileLink';
 import ObservedImage from '../../components/ObservedImage';
 import { enumerateCollectibleState } from '../../utils/destinyEnums';
-import { energyStatToType, energyTypeToAsset } from '../../utils/destinyConverters';
+import { energyTypeToAsset } from '../../utils/destinyConverters';
 import { Common } from '../../svg';
 
 import './styles.css';
