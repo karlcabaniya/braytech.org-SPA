@@ -1,112 +1,114 @@
 {
   "de": {
-    "translated": 709,
+    "translated": 708,
     "notTranslated": 69,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "debug": {
-    "translated": 778,
-    "notTranslated": 0,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
-  },
-  "en": {
-    "translated": 778,
+    "translated": 777,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Seasonal Artifact"
+    ]
+  },
+  "en": {
+    "translated": 777,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "es-mx": {
-    "translated": 772,
+    "translated": 771,
     "notTranslated": 6,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "es": {
-    "translated": 772,
+    "translated": 771,
     "notTranslated": 6,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "fr": {
-    "translated": 635,
+    "translated": 634,
     "notTranslated": 143,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "it": {
-    "translated": 772,
+    "translated": 771,
     "notTranslated": 6,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "ja": {
-    "translated": 582,
+    "translated": 581,
     "notTranslated": 196,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "ko": {
-    "translated": 511,
+    "translated": 510,
     "notTranslated": 267,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 776,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "notTranslated": 775,
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "pt-br": {
-    "translated": 680,
+    "translated": 679,
     "notTranslated": 98,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "ru": {
-    "translated": 770,
+    "translated": 769,
     "notTranslated": 8,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "zh-chs": {
-    "translated": 581,
+    "translated": 580,
     "notTranslated": 197,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   },
   "zh-cht": {
-    "translated": 635,
+    "translated": 634,
     "notTranslated": 143,
-    "added": [
-      "Settings.Theme.Dark"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Seasonal Artifact"
+    ]
   }
 }

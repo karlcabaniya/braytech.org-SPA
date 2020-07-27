@@ -30,7 +30,7 @@ class AuthUpsell extends React.Component {
             <li>
               <div className='icon artifact' />
               <div className='text'>
-                <div className='name'>{t('Seasonal Artifact')}</div>
+                <div className='name'>{t('Seasonal artifact')}</div>
                 <div className='description'>
                   <p>{t('Review your unlocks and monitor your progress')}</p>
                 </div>
