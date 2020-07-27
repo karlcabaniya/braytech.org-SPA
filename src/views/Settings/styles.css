@@ -43,7 +43,7 @@
 }
 
 
-#settings .bungie-auth .info {
+#settings .info {
   margin: 10px 0 0;
   max-width: 300px;
   font-size: 12px;
@@ -52,7 +52,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-#settings .bungie-auth .info p {
+#settings .info p {
   line-height: 1.4;
 }
 

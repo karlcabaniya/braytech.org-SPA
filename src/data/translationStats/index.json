@@ -1,22 +1,22 @@
 {
   "de": {
-    "translated": 712,
-    "notTranslated": 65,
+    "translated": 709,
+    "notTranslated": 68,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "debug": {
     "translated": 777,
     "notTranslated": 0,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "en": {
@@ -24,117 +24,117 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "es-mx": {
-    "translated": 776,
-    "notTranslated": 1,
+    "translated": 772,
+    "notTranslated": 5,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "es": {
-    "translated": 776,
-    "notTranslated": 1,
+    "translated": 772,
+    "notTranslated": 5,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "fr": {
-    "translated": 637,
-    "notTranslated": 140,
+    "translated": 635,
+    "notTranslated": 142,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "it": {
-    "translated": 776,
-    "notTranslated": 1,
+    "translated": 772,
+    "notTranslated": 5,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "ja": {
-    "translated": 585,
-    "notTranslated": 192,
+    "translated": 582,
+    "notTranslated": 195,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "ko": {
-    "translated": 512,
-    "notTranslated": 265,
+    "translated": 511,
+    "notTranslated": 266,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 775,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "pt-br": {
-    "translated": 684,
-    "notTranslated": 93,
+    "translated": 680,
+    "notTranslated": 97,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "ru": {
-    "translated": 774,
-    "notTranslated": 3,
+    "translated": 770,
+    "notTranslated": 7,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "zh-chs": {
-    "translated": 584,
-    "notTranslated": 193,
+    "translated": 581,
+    "notTranslated": 196,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   },
   "zh-cht": {
-    "translated": 639,
-    "notTranslated": 138,
+    "translated": 635,
+    "notTranslated": 142,
     "added": [
-      "If a triumph record is secret, it will display as such under Triumphs views.\""
+      "Settings.Troubleshooting.UpdateServiceWorker.Description"
     ],
     "removed": [
-      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
     ]
   }
 }
