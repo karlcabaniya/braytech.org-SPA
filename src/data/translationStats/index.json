@@ -56,8 +56,16 @@
   "pl": {
     "translated": 2,
     "notTranslated": 775,
-    "added": [],
-    "removed": []
+    "added": [
+      "Notifications.PostmasterCapacityWarning.DescriptionAlmostFull",
+      "Notifications.PostmasterCapacityWarning.DescriptionFull",
+      "Notifications.PostmasterCapacityWarning.Name"
+    ],
+    "removed": [
+      "The Postmaster is almost out of space. If you do not retrieve your items, you will lose them forever!",
+      "The Postmaster is completely out of space. If you do not retrieve your items, you will lose them forever!",
+      "WARNING!"
+    ]
   },
   "pt-br": {
     "translated": 685,

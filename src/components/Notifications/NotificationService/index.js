@@ -83,8 +83,9 @@ export default function NotificationService() {
     dispatch(actions.notifications.pop(notification.hash));
 
     ReactGA.event({
-      category: notification.displayProperties.name || 'unknown',
-      action: 'dismiss',
+      label: notification.analytics?.label || undefined,
+      category: (notification.displayProperties?.prompt && notification.displayProperties.name) || 'Toast' || 'Unknown',
+      action: 'Dismiss',
     });
   }
 
@@ -117,7 +118,7 @@ export default function NotificationService() {
   );
 
   // trashed notifications
-  const trash = useSelector((state) => state.notifications.trash);
+  // const trash = useSelector((state) => state.notifications.trash);
 
   // number of queued inline notifications
   const remainingInline = notifications.filter((notification) => !notification.displayProperties.prompt).length - 1;
@@ -223,7 +224,7 @@ export default function NotificationService() {
       );
     } else {
       return (
-        <div key={notification.hash} className={cx('toast', { error: postman.isError })} style={{ '--timeout': `${postman.displayProperties?.timeout || 4}s` }} onClick={handler_dismiss}>
+        <div key={notification.hash} className={cx('toast', { error: postman.isError, 'no-timeout': !postman.displayProperties?.timeout })} style={{ '--timeout': `${postman.displayProperties?.timeout || 4}s` }} onClick={handler_dismiss}>
           <div className='wrapper-outer'>
             <div className='background'>
               <div className='border-top'>

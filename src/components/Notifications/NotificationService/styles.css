@@ -98,6 +98,10 @@
   }
 }
 
+.toast.no-timeout .background .border-top .inner {
+  animation-play-state: paused;
+}
+
 .toast .wrapper-inner {
   position: relative;
   padding: 3rem;
