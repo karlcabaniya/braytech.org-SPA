@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "Détails du nœud de journal",
   "Settings.Maps.NoScreenshotHighlight.Description": "Les nœuds de carte, tels que les coffres de région, qui n'ont pas de capture d'écran associée seront mis en évidence afin d'aider les utilisateurs à contribuer aux données des cartes.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Mettez en surbrillance les nœuds sans captures d'écran",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "Lumière",
   "Settings.Theme.SystemPreference": "Système de correspondance",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "Essayez de désenregistrer le service worker installé. En cas de succès, le rechargement de l'application permettra à un nouveau prestataire de services de prendre sa place.",

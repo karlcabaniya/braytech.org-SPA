@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "노드 상세 정보 기록",
   "Settings.Maps.NoScreenshotHighlight.Description": "연결된 스크린샷이 없는 지역 상자 등의 맵 노드는 지도 데이터 기여를 돕기 위해 강조 처리됩니다.",
   "Settings.Maps.NoScreenshotHighlight.Name": "스크린샷 없이 노드 강조",
+  "#####Settings.Theme.Dark": "🌐",
   "#####Settings.Theme.Light": "🌐",
   "#####Settings.Theme.SystemPreference": "🌐",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "설치된 서비스 워커를 등록 해제합니다. 성공하면, 앱을 다시 불러오면 새로운 서비스 워커가 설치될 수 있게 됩니다.",

@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "記錄節點詳細日誌",
   "Settings.Maps.NoScreenshotHighlight.Description": "沒有關聯截圖的地圖節點, 比如地區寶箱, 會被高亮以幫助用戶貢獻地圖數據.",
   "Settings.Maps.NoScreenshotHighlight.Name": "高亮無截圖的節點",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "亮",
   "Settings.Theme.SystemPreference": "匹配系統",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "嘗試註銷已啟用的後臺腳本.成功後重啟 app 將允許啟用新的後臺腳本.",

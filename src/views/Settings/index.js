@@ -232,7 +232,7 @@ class Settings extends React.Component {
                 <Checkbox linked checked={this.props.theme.user === 'light'} text={t('Settings.Theme.Light')} action={this.handler_setTheme('light')} />
               </li>
               <li>
-                <Checkbox linked checked={this.props.theme.user === 'dark'} text={t('Settings.Theme.Light')} action={this.handler_setTheme('dark')} />
+                <Checkbox linked checked={this.props.theme.user === 'dark'} text={t('Settings.Theme.Dark')} action={this.handler_setTheme('dark')} />
               </li>
               <li>
                 <Checkbox linked checked={!this.props.theme.user} text={t('Settings.Theme.SystemPreference')} action={this.handler_setTheme('system')} />

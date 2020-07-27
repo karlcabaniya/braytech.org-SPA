@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "Registrar detalhes de nódulos",
   "Settings.Maps.NoScreenshotHighlight.Description": "Nódulos de mapa, como baús regionais, que não tem uma screenshot associada serão realçados para ajudar jogadores que querem contribuir para informações do mapa.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Realçar nódulos sem screenshots",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "Luz",
   "Settings.Theme.SystemPreference": "Combinar com o Sistema",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "Tentar desregistrar o service worker instalado. Se obtiver sucesso, recarregar o app permitirá que um novo service worker tome o seu lugar.",

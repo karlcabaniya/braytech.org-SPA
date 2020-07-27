@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "记录节点详细日志",
   "Settings.Maps.NoScreenshotHighlight.Description": "没有关联截图的地图节点，比如地区宝箱，会被高亮以帮助贡献地图数据的用户。",
   "Settings.Maps.NoScreenshotHighlight.Name": "高亮无截图的节点",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "亮",
   "Settings.Theme.SystemPreference": "匹配系统",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "尝试注销已启用的后台脚本.成功后重启 app 将允许启用新的后台脚本.",

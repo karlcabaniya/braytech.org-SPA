@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "ノードの内容をlogに表示",
   "Settings.Maps.NoScreenshotHighlight.Description": "スクリーンショットが関連付けられていない地域のクレートなどのマップノードは、ユーザーがマップデータに貢献できるように強調表示されます。",
   "Settings.Maps.NoScreenshotHighlight.Name": "スクリーンショットのないノードをハイライトする",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "ライト",
   "Settings.Theme.SystemPreference": "システムに合わせる",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "インストールされているService Workerの登録を解除します。成功した場合、アプリを再起動すると、新しいService Workerが代わりに使用できます。",

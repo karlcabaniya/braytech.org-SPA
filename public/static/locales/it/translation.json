@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "Stampa dettagli dei nodi",
   "Settings.Maps.NoScreenshotHighlight.Description": "I nodi della mappa, come forzieri della regione, che non hanno uno screenshot saranno evidenziati per aiutare gli utenti a contribuire alla completezza delle mappe.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Evidenzia nodi senza screenshot",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "Chiaro",
   "Settings.Theme.SystemPreference": "Sistema",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "Prova a scartare il service worker installato. Se avvenuto con successo, ricaricare l'app permetterà a un nuovo service worker di rimpiazzarlo.",

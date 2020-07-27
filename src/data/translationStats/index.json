@@ -1,140 +1,112 @@
 {
   "de": {
     "translated": 709,
-    "notTranslated": 68,
+    "notTranslated": 69,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 777,
+    "translated": 778,
     "notTranslated": 0,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 777,
+    "translated": 778,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 772,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 772,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 635,
-    "notTranslated": 142,
+    "notTranslated": 143,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "it": {
     "translated": 772,
-    "notTranslated": 5,
+    "notTranslated": 6,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 582,
-    "notTranslated": 195,
+    "notTranslated": 196,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 511,
-    "notTranslated": 266,
+    "notTranslated": 267,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 775,
+    "notTranslated": 776,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 680,
-    "notTranslated": 97,
+    "notTranslated": 98,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "ru": {
     "translated": 770,
-    "notTranslated": 7,
+    "notTranslated": 8,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 581,
-    "notTranslated": 196,
+    "notTranslated": 197,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 635,
-    "notTranslated": 142,
+    "notTranslated": 143,
     "added": [
-      "Settings.Troubleshooting.UpdateServiceWorker.Description"
+      "Settings.Theme.Dark"
     ],
-    "removed": [
-      "\"Settings.Troubleshooting.UpdateServiceWorker.Description"
-    ]
+    "removed": []
   }
 }

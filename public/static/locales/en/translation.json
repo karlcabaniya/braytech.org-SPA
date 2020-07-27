@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "Log node details",
   "Settings.Maps.NoScreenshotHighlight.Description": "Map nodes, such as region chests, which do not have an associated screenshot will be highlighted in order to assist users with contributing to maps data.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Highlight nodes without screenshots",
+  "Settings.Theme.Dark": "Dark",
   "Settings.Theme.Light": "Light",
   "Settings.Theme.SystemPreference": "Match system",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "Attempt to unregister the installed service worker. If successful, reloading the app will allow a new service worker to take its place.",

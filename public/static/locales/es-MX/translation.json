@@ -594,6 +594,7 @@
   "Settings.Maps.LogDetails.Name": "Detalles del registro del nodo",
   "Settings.Maps.NoScreenshotHighlight.Description": "Los nodos de mapas, como los cofres de región, que no tengan una captura de pantalla asociada, se resaltarán para ayudar a los usuarios a que contribuyan a los datos de los mapas.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Destaca los nodos sin capturas",
+  "#####Settings.Theme.Dark": "🌐",
   "Settings.Theme.Light": "Claro",
   "Settings.Theme.SystemPreference": "Igual que el sistema",
   "Settings.Troubleshooting.DumpServiceWorker.Description": "Intenta dar de baja al service worker instalado. Si tiene éxito, recargar la aplicación permitirá que un nuevo service worker ocupe su lugar.",
