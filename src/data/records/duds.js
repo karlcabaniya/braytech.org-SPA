@@ -116,4 +116,6 @@ export default [
   4182231867, // Destinations: Curse of Osiris and Warmind
   3653101661, // Destinations: Curse of Osiris and Warmind
   1941459378, // Trace Rifle Mastery
+  1754815776, // Seal: Last Wish: World's First, Grants Title: Wishgranter
+  837071607,  // Seal: PvP Seasonal, Grants Title: Shaxx
 ];
