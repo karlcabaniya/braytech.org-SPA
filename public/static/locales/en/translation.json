@@ -602,7 +602,7 @@
   "Settings.Troubleshooting.UpdateServiceWorker.Name": "Update service worker",
   "Settings.VisualFidelity.Gay.Description": "Gay it up, bitch. Light up your life with fabulous, limited edition, ground-shattering, Braytech® exclusive! technological innovation.",
   "Settings.VisualFidelity.Gay.Name": "Enable ✨",
-  "Settings.VisualFidelity.PassiveAnimations.Description": "Settings.VisualFidelity.PassiveAnimations.Description",
+  "Settings.VisualFidelity.PassiveAnimations.Description": "Controls most animations. Disabling passive animations may improve performance on low power devices.",
   "Settings.VisualFidelity.PassiveAnimations.Name": "Enable passive animations",
   "Settings.VisualFidelity.Three.Description": "Where applicable, use 3D models. Not recommended for phones or low power devices.",
   "Settings.VisualFidelity.Three.Name": "Enable 3D models",
