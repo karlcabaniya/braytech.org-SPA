@@ -555,7 +555,7 @@
   "Selected vendor": "Selected vendor",
   "Set": "Set",
   "Settings": "Settings",
-  "Settings.Developer.Lists.Description": "Settings.Developer.Lists.Description",
+  "Settings.Developer.Lists.Description": "Enable developer lists by overriding links",
   "Settings.Developer.Lists.Name": "Enable lists",
   "Settings.ItemVisibility.HideCompletedChecklistItems.Description": "If a checklist item is completed, it will be hidden under Checklist view.",
   "Settings.ItemVisibility.HideCompletedChecklistItems.Name": "Hide completed checklist items",

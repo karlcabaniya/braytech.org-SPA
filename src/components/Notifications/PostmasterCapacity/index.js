@@ -10,12 +10,14 @@ export default function PostmasterCapacity() {
 
   const inventory = [
     ...(member.data.profile?.profileInventory.data?.items || []),
-    ...(member.data.profile?.characterInventories.data[member.characterId]?.items || [])
+    ...(member.data.profile?.characterInventories.data?.[member.characterId]?.items || [])
   ];
   const parcels = inventory.filter((i) => i.bucketHash === 215593132).length;
 
+  const skipDispatch = useSelector((state) => state.notifications.objects.filter((notification) => notification.hash === 'PostmasterCapacityWarning')).length;
+
   useEffect(() => {
-    if (parcels > 17) {
+    if (parcels > 17 && !skipDispatch) {
       dispatch(
         actions.notifications.push({
           hash: 'PostmasterCapacityWarning',
