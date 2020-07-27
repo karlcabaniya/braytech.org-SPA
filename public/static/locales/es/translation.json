@@ -589,7 +589,7 @@
   "Settings.Maps.Debug.Description": "Habilita la configuración de depuración de Mapas",
   "Settings.Maps.Debug.Name": "Modo depuración de Mapas",
   "Settings.Maps.Developer.Info": "Herramientas para ayudar a los desarrolladores cuando trabajen en _Mapas_",
-  "Settings.Maps.LogDetails.Description": "Habilita las listas de desarrolladores mediante la anulación de enlaces",
+  "Settings.Maps.LogDetails.Description": "Detalles de Console.log para el nodo llamado por el ratón",
   "Settings.Maps.LogDetails.Name": "Detalles del registro del nodo",
   "Settings.Maps.NoScreenshotHighlight.Description": "Los nodos de mapas, como los cofres de región, que no tengan una captura de pantalla asociada, se resaltarán para ayudar a los usuarios a que contribuyan a los datos de los mapas.",
   "Settings.Maps.NoScreenshotHighlight.Name": "Destaca los nodos sin capturas",
