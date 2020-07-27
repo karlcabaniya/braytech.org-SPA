@@ -40,10 +40,8 @@
   pointer-events: none;
 }
 
-.map-omega .control.characters > .list li,
-.map-omega .control.destinations > .list li,
 .map-omega .acrylic {
-  background-color: transparent;
+  background-color: transparent !important;
   backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
 }
 

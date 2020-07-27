@@ -61,7 +61,7 @@ export default function Settings() {
 
   return (
     <div className='control settings'>
-      <Button action={handler_toggleVisibility}></Button>
+      <Button className='acrylic' action={handler_toggleVisibility}></Button>
       {isVisible && (
         <Dialog type='full' actions={dialogActions}>
           <div className='header'>
@@ -86,15 +86,15 @@ export default function Settings() {
               <BraytechText className='info' value={t('Settings.Maps.Developer.Info')} />
               <ul className='list settings'>
                 <li>
-                  <Checkbox linked checked={settings.maps.debug} text={t('Settings.Maps.Debug.Name')} action={this.handler_toggle('maps.debug')} />
+                  <Checkbox linked checked={settings.maps.debug} text={t('Settings.Maps.Debug.Name')} action={handler_toggle('maps.debug')} />
                   <BraytechText className='info' value={t('Settings.Maps.Debug.Description')} />
                 </li>
                 <li>
-                  <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Settings.Maps.NoScreenshotHighlight.Name')} disabled={!settings.maps.debug} action={this.handler_toggle('maps.noScreenshotHighlight')} />
+                  <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Settings.Maps.NoScreenshotHighlight.Name')} disabled={!settings.maps.debug} action={handler_toggle('maps.noScreenshotHighlight')} />
                   <BraytechText className='info' value={t('Settings.Maps.NoScreenshotHighlight.Description')} />
                 </li>
                 <li>
-                  <Checkbox linked checked={settings.maps.logDetails} text={t('Settings.Maps.LogDetails.Name')} disabled={!settings.maps.debug} action={this.handler_toggle('maps.logDetails')} />
+                  <Checkbox linked checked={settings.maps.logDetails} text={t('Settings.Maps.LogDetails.Name')} disabled={!settings.maps.debug} action={handler_toggle('maps.logDetails')} />
                   <BraytechText className='info' value={t('Settings.Maps.LogDetails.Description')} />
                 </li>
               </ul>
