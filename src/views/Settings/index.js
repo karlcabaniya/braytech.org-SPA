@@ -199,7 +199,7 @@ class Settings extends React.Component {
               </li>
               <li>
                 <Checkbox linked checked={settings.itemVisibility.hideInvisibleRecords} text={t('Hide invisible triumph records')} action={this.handler_toggle('itemVisibility.hideInvisibleRecords')} />
-                <BraytechText className='info' value={t('If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views.')} />
+                <BraytechText className='info' value={t('If a triumph record is secret, it will display as such under Triumphs views."')} />
               </li>
               <li>
                 <Checkbox linked checked={settings.itemVisibility.hideUnobtainableRecords} text={t('Hide unobtainable triumph records')} action={this.handler_toggle('itemVisibility.hideUnobtainableRecords')} />
@@ -250,7 +250,6 @@ class Settings extends React.Component {
                 <Checkbox linked checked={settings.visual.three} text={t('Enable 3D models')} action={this.handler_toggle('visual.three')} />
                 <BraytechText className='info' value={t('Where applicable, use 3D models. Not recommended for phones or low power devices.')} />
               </li>
-
               <li>
                 <Checkbox linked checked={settings.visual.threeShadows} text={t('Enable 3D model shadows')} disabled={!settings.visual.three || 3 === 3} action={this.handler_toggle('visual.threeShadows')} />
                 <div className='info'>

@@ -1,94 +1,140 @@
 {
   "de": {
-    "translated": 713,
-    "notTranslated": 64,
-    "added": [],
-    "removed": []
+    "translated": 712,
+    "notTranslated": 65,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "debug": {
     "translated": 777,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "en": {
     "translated": 777,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "es-mx": {
-    "translated": 777,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 776,
+    "notTranslated": 1,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "es": {
-    "translated": 777,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 776,
+    "notTranslated": 1,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "fr": {
-    "translated": 638,
-    "notTranslated": 139,
-    "added": [],
-    "removed": []
+    "translated": 637,
+    "notTranslated": 140,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "it": {
-    "translated": 777,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 776,
+    "notTranslated": 1,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "ja": {
-    "translated": 586,
-    "notTranslated": 191,
-    "added": [],
-    "removed": []
+    "translated": 585,
+    "notTranslated": 192,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "ko": {
-    "translated": 513,
-    "notTranslated": 264,
-    "added": [],
-    "removed": []
+    "translated": 512,
+    "notTranslated": 265,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 775,
     "added": [
-      "Notifications.PostmasterCapacityWarning.DescriptionAlmostFull",
-      "Notifications.PostmasterCapacityWarning.DescriptionFull",
-      "Notifications.PostmasterCapacityWarning.Name"
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
     ],
     "removed": [
-      "The Postmaster is almost out of space. If you do not retrieve your items, you will lose them forever!",
-      "The Postmaster is completely out of space. If you do not retrieve your items, you will lose them forever!",
-      "WARNING!"
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
     ]
   },
   "pt-br": {
-    "translated": 685,
-    "notTranslated": 92,
-    "added": [],
-    "removed": []
+    "translated": 684,
+    "notTranslated": 93,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "ru": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [],
-    "removed": []
+    "translated": 774,
+    "notTranslated": 3,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "zh-chs": {
-    "translated": 585,
-    "notTranslated": 192,
-    "added": [],
-    "removed": []
+    "translated": 584,
+    "notTranslated": 193,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   },
   "zh-cht": {
-    "translated": 640,
-    "notTranslated": 137,
-    "added": [],
-    "removed": []
+    "translated": 639,
+    "notTranslated": 138,
+    "added": [
+      "If a triumph record is secret, it will display as such under Triumphs views.\""
+    ],
+    "removed": [
+      "If the game specifies that you are unable to see a particular triumph record, it will be hidden under Triumphs views."
+    ]
   }
 }

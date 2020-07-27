@@ -83,7 +83,7 @@ export default function NotificationService() {
     dispatch(actions.notifications.pop(notification.hash));
 
     ReactGA.event({
-      label: notification.analytics?.label || undefined,
+      label: notification.analytics?.label || (!notification.displayProperties?.prompt && notification.displayProperties.name) || undefined,
       category: (notification.displayProperties?.prompt && notification.displayProperties.name) || 'Toast' || 'Unknown',
       action: 'Dismiss',
     });
