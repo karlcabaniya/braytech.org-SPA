@@ -1,24 +1,18 @@
 {
   "de": {
-    "translated": 713,
-    "notTranslated": 64,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 708,
+    "notTranslated": 69,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "debug": {
     "translated": 777,
     "notTranslated": 0,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "en": {
@@ -26,128 +20,95 @@
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "es-mx": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 771,
+    "notTranslated": 6,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "es": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 771,
+    "notTranslated": 6,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "fr": {
-    "translated": 638,
-    "notTranslated": 139,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 634,
+    "notTranslated": 143,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "it": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 771,
+    "notTranslated": 6,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "ja": {
-    "translated": 586,
-    "notTranslated": 191,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 581,
+    "notTranslated": 196,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "ko": {
-    "translated": 513,
-    "notTranslated": 264,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 510,
+    "notTranslated": 267,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 775,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "pt-br": {
-    "translated": 685,
-    "notTranslated": 92,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 679,
+    "notTranslated": 98,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "ru": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 769,
+    "notTranslated": 8,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "zh-chs": {
-    "translated": 585,
-    "notTranslated": 192,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 580,
+    "notTranslated": 197,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   },
   "zh-cht": {
-    "translated": 640,
-    "notTranslated": 137,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 634,
+    "notTranslated": 143,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Seasonal Artifact"
     ]
   }
 }

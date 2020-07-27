@@ -129,7 +129,7 @@ class SeasonArtifact extends React.Component {
             </ul>
             <div className='text'>
               <div className='name'>{definitionEquipment.displayProperties.name}</div>
-              <div className='type'>{t('Seasonal Artifact')}</div>
+              <div className='type'>{t('Seasonal artifact')}</div>
             </div>
             <div className='description'>
               <p>{definitionEquipment.displayProperties.description}</p>

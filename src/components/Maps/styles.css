@@ -186,7 +186,7 @@
 }
 
 .map-omega .control.zoom {
-  position: fixed;
+  position: absolute;
   top: calc(3rem + 40px);
   right: 3rem;
   width: 38px;
