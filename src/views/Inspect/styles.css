@@ -811,7 +811,18 @@
 
   #inspect {
     row-gap: 2rem;
+    --rarity-height: 72px;
     --plug-size: 48px;
+  }
+
+  #inspect .item-rarity .lattice {
+    background-position: center bottom;
+    background-size: 320%;
+  }
+
+  #inspect .item-rarity .lattice::before {
+    mask-position: center bottom;
+    mask-size: 320%;
   }
 
   #inspect .wrap,
