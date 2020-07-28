@@ -451,7 +451,7 @@
   opacity: 0.4;
 }
 
-#inspect .sockets .module.category .category-sockets .socket.options .plug.obtained .icon .image.dl {
+#inspect .sockets .module.category .category-sockets .socket.options .plug.obtained:not(.unavailable) .icon .image.dl {
   opacity: 1;
 }
 

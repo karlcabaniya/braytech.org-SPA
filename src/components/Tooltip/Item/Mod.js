@@ -5,6 +5,7 @@ import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { energyTypeToAsset } from '../../../utils/destinyConverters';
 import { energyCostsStatHashes } from '../../../utils/destinyEnums';
+import { plugScaledStats } from '../../../utils/destinyItems/stats';
 import ObservedImage from '../../ObservedImage';
 
 import { VendorCosts } from './';
@@ -24,15 +25,23 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   // perks
   const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash]?.isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
 
-  // investment stats
-  const investmentStats = !probablyMasterworkPlug && definitionItem.investmentStats?.length ? definitionItem.investmentStats.filter((stat) => !energyCostsStatHashes.includes(stat.statTypeHash) && manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name !== '' && stat.value !== 0) : [];
+  // raw investment stats
+  const rawInvestmentStats = definitionItem.investmentStats?.length
+      ? // filter through investmentStats for stats that have a value and a name
+        definitionItem.investmentStats.filter((stat) => !energyCostsStatHashes.includes(stat.statTypeHash) && manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name !== '' && stat.value !== 0)
+      : // nothing to show
+      [];
+  // if investment stats to display, do some more work
+  const investmentStatsScaled = plugScaledStats({ itemHash: props.baseHash, plugItemHash: itemHash });
+  // combine raw investment stats with scaled values
+  const investmentStats = rawInvestmentStats.map(stat => ({ ...stat, value: investmentStatsScaled[stat.statTypeHash] || stat.value }));
 
   // energy cost
   const energyCost = definitionItem.plug.energyCost;
   const energyType = energyCost && energyTypeToAsset(energyCost.energyTypeHash);
 
   // vendor costs
-  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter(cost => cost.quantity > 0);
+  const vendorCosts = manifest.DestinyVendorDefinition[vendorHash]?.itemList[vendorItemIndex]?.currencies.filter((cost) => cost.quantity > 0);
 
   const blocks = [];
 
@@ -52,7 +61,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   if (probablyMasterworkPlug) {
     blocks.push(
       <div className='big-value masterwork'>
-        {definitionItem.investmentStats.map((stat, s) => (
+        {investmentStats.map((stat, s) => (
           <div key={s} className='stat'>
             <div className='value'>{stat.value}</div>
             <div className='text'>{manifest.DestinyStatDefinition[stat.statTypeHash]?.displayProperties.name}</div>
@@ -90,9 +99,9 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
     );
   }
 
-  if ((description && !perks.length && investmentStats.length) || (perks.length && investmentStats.length)) blocks.push(<div className='line' />);
+  if ((description && !perks.length && !probablyMasterworkPlug && investmentStats.length) || (perks.length && !probablyMasterworkPlug && investmentStats.length)) blocks.push(<div className='line' />);
 
-  if (investmentStats.length) {
+  if (!probablyMasterworkPlug && investmentStats.length) {
     blocks.push(
       <div className='investment'>
         {investmentStats.map((stat, s) => (
@@ -104,7 +113,6 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
             </div>
           </div>
         ))}
-        <div className='info'>{t('Investment stats are interpolated when applied to items, and as such, these values are a guide.')}</div>
       </div>
     );
   }

@@ -227,18 +227,23 @@ function buildPlugStats(plug, statsByHash, statDisplays) {
 
   for (const perkStat of plug.definition.investmentStats) {
     let value = perkStat.value || 0;
+
     const itemStat = statsByHash[perkStat.statTypeHash];
     const statDisplay = statDisplays[perkStat.statTypeHash];
+
     if (itemStat && statDisplay) {
       // This is a scaled stat, so we need to scale it in context of the original investment stat.
       // Figure out what the interpolated stat value would be without this perk's contribution, and
       // then take the difference between the total value and that to find the contribution.
       const valueWithoutPerk = interpolateStatValue(itemStat.investmentValue - value, statDisplay);
+
       value = itemStat.value - valueWithoutPerk;
     } else if (itemStat) {
       const valueWithoutPerk = Math.min(itemStat.investmentValue - value, itemStat.maximumValue);
+
       value = itemStat.value - valueWithoutPerk;
     }
+    
     stats[perkStat.statTypeHash] = value;
   }
 
@@ -400,6 +405,23 @@ function buildStatsFromMods(sockets, statGroupHash, statDisplays) {
   // investmentStats.push(totalStat(investmentStats));
 
   return investmentStats;
+}
+
+// shortcut to scaled investment stats for tooltips
+export function plugScaledStats(item) {
+  const definitionPlug = manifest.DestinyInventoryItemDefinition[item.plugItemHash];
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+  const definitionStatGroup = manifest.DestinyStatGroupDefinition[definitionItem?.stats?.statGroupHash];
+
+  if (!definitionPlug.investmentStats || !definitionItem?.investmentStats || !definitionItem.stats || !definitionStatGroup) return {};
+
+  const statDisplays = keyBy(definitionStatGroup.scaledStats, (s) => s.statHash);
+
+  const investmentStats = buildInvestmentStats(item, definitionItem.stats.statGroupHash, statDisplays) || [];
+
+  const statsByHash = keyBy(investmentStats, (s) => s.statHash);
+
+  return buildPlugStats({ definition: definitionPlug }, statsByHash, statDisplays);
 }
 
 /** Build the full list of stats for an item. If the item has no stats, this returns null. */

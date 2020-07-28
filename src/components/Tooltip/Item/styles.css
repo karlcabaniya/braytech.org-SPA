@@ -465,7 +465,7 @@
 }
 
 #tooltip .frame .investment {
-  padding: 16px 16px 12px;
+  padding: 16px;
   display: grid;
   gap: 10px;
 }
@@ -485,10 +485,6 @@
 
 #tooltip .frame .investment .stat .value.negative {
   color: var(--error);
-}
-
-#tooltip .frame .investment .info {
-  margin: 2px 0 0;
 }
 
 #tooltip .frame .emblem {

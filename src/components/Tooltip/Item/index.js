@@ -52,6 +52,7 @@ export default function Item(props) {
     itemComponents: null,
     itemState: +props.state || 0,
     quantity: +props.quantity || 1,
+    baseHash: +props.basehash || undefined,
     vendorHash: props.vendorhash,
     vendorItemIndex: props.vendoritemindex && +props.vendoritemindex,
     vendorSaleStatus: props.vendorsalestatus && +props.vendorsalestatus,
@@ -124,6 +125,8 @@ export default function Item(props) {
     // item.primaryStat.value = Math.floor((942 / 973) * character.light);
     item.primaryStat.value = character.light;
   }
+
+  // console.log(item)
 
   const importantText = [];
 
