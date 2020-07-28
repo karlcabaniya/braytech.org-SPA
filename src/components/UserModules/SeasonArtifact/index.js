@@ -5,7 +5,6 @@ import moment from 'moment';
 
 import { t, duration } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import { seasonalMods } from '../../../utils/destinyEnums';
 import Items from '../../Items';
 import ObservedImage from '../../ObservedImage';
 import ProgressBar from '../../UI/ProgressBar';
@@ -155,9 +154,7 @@ class SeasonArtifact extends React.Component {
                       {(characterArtifact.tiers[t]?.items || tier.items).map((item, i) => {
                         const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-                        const image = seasonalMods[equippedArtifact.itemHash] && seasonalMods[equippedArtifact.itemHash][item.itemHash] ? (!item.isActive ? seasonalMods[equippedArtifact.itemHash][item.itemHash].inactive : seasonalMods[equippedArtifact.itemHash][item.itemHash].active) : definitionItem && `https://www.bungie.net${definitionItem.displayProperties.icon}`;
-
-                        const energyCost = definitionItem && definitionItem.plug && definitionItem.plug.energyCost ? definitionItem.plug.energyCost.energyCost : 0;
+                        const energyCost = definitionItem?.plug?.energyCost?.energyCost || 0;
 
                         return (
                           <li
@@ -178,7 +175,7 @@ class SeasonArtifact extends React.Component {
                           >
                             <div className='icon'>
                               {!item.isActive ? <ObservedImage className='image background' src='/static/images/extracts/ui/artifact/01A3_12DB_00.png' /> : null}
-                              <ObservedImage src={image} />
+                              <ObservedImage src={`https://www.bungie.net${definitionItem?.displayProperties.icon}`} />
                               <div className='cost'>{energyCost}</div>
                             </div>
                           </li>

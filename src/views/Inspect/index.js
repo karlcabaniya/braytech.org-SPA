@@ -83,6 +83,8 @@ export default function Inspect() {
 
   const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, DestinySocketCategoryStyle.EnergyMeter);
 
+  const masterworked = definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length;
+
   const powerCap = definitionItem.inventory.tierType === DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 
   const definitionLore = manifest.DestinyLoreDefinition[definitionItem.loreHash];
@@ -97,10 +99,12 @@ export default function Inspect() {
   return (
     <>
       <div className='view' id='inspect'>
-        <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
+        <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType), { masterworked })}>
+          <ObservedImage src={`/static/images/extracts/ui/items/masterwork-header-wide.png`} />
+        </div>
         <div className='wrap'>
           <div className='module header'>
-            <div className='icon'>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
+            <div className={cx('icon', { masterworked, exotic: definitionItem.inventory.tierType === DestinyTierType.Exotic })}>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
             <div className='text'>
               <div className='name'>{definitionItem.displayProperties.name}</div>
               <div className='type'>{definitionItem.itemTypeDisplayName}</div>
@@ -526,7 +530,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
               // got a collectible hash? let's see if you own it
               const collectibleState = getCollectibleState(member, plug.definition.collectibleHash);
               // if weapon, checks if the masterwork plug options have matching investment stats
-              const mismatchedMasterwork = manifest.DestinyInventoryItemDefinition[itemHash].itemType === DestinyItemType.Weapon && expandedSocket.isMasterwork && plug.definition.investmentStats && plug.definition.investmentStats.filter((stat) => manifest.DestinyInventoryItemDefinition[itemHash].investmentStats?.filter((s) => s.statTypeHash === stat.statTypeHash).length && stat.value > 1).length !== plug.definition.investmentStats.length;
+              const mismatchedMasterwork = manifest.DestinyInventoryItemDefinition[itemHash].itemType === DestinyItemType.Weapon && expandedSocket.isMasterwork && plug.definition.investmentStats && plug.definition.investmentStats.filter((stat) => manifest.DestinyInventoryItemDefinition[itemHash].investmentStats?.filter((s) => s.statTypeHash === stat.statTypeHash).length && stat.value > 0).length !== plug.definition.investmentStats.length;
 
               const unavailable = mismatchedMasterwork;
 

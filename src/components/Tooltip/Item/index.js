@@ -196,7 +196,7 @@ export default function Item(props) {
         <div className='acrylic' />
         <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
           <div className='header'>
-            {masterworked ? <ObservedImage className='image bg' src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
+            {masterworked ? <ObservedImage className='image bg' src={item.rarity === 'exotic' ? `/static/images/extracts/ui/items/masterwork-header-exotic.png` : `/static/images/extracts/ui/items/masterwork-header.png`} /> : null}
             <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
