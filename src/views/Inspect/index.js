@@ -83,7 +83,7 @@ export default function Inspect() {
 
   const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, DestinySocketCategoryStyle.EnergyMeter);
 
-  const masterworked = definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length;
+  const masterworked = definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length;
 
   const powerCap = definitionItem.inventory.tierType === DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 
@@ -100,7 +100,7 @@ export default function Inspect() {
     <>
       <div className='view' id='inspect'>
         <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType), { masterworked })}>
-          <ObservedImage src={`/static/images/extracts/ui/items/masterwork-header-wide.png`} />
+          <div className='lattice' />
         </div>
         <div className='wrap'>
           <div className='module header'>

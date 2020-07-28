@@ -180,7 +180,7 @@ export default function Item(props) {
     }
   }
 
-  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length));
   const locked = enumerateItemState(item.itemState).Locked;
 
   const showScreenshot =
@@ -196,7 +196,7 @@ export default function Item(props) {
         <div className='acrylic' />
         <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
           <div className='header'>
-            {masterworked ? <ObservedImage className='image bg' src={item.rarity === 'exotic' ? `/static/images/extracts/ui/items/masterwork-header-exotic.png` : `/static/images/extracts/ui/items/masterwork-header.png`} /> : null}
+            <div className='lattice' />
             <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
