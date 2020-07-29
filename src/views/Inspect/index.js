@@ -83,7 +83,7 @@ export default function Inspect() {
 
   const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, DestinySocketCategoryStyle.EnergyMeter);
 
-  const masterworked = definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length;
+  const masterworked = (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length) || item.masterwork?.probably;
 
   const powerCap = definitionItem.inventory.tierType === DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 

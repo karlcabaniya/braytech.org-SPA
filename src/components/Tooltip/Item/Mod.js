@@ -20,7 +20,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
   const sourceString = definitionItem.collectibleHash ? manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash] && manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString : false;
 
   // is it a masterwork?
-  const probablyMasterworkPlug = definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('_masterwork');
+  const probablyMasterworkPlug = definitionItem.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || definitionItem.plug?.plugCategoryIdentifier?.endsWith('masterwork');
 
   // perks
   const perks = definitionItem.perks.filter((perk) => manifest.DestinySandboxPerkDefinition[perk.perkHash]?.isDisplayable && manifest.DestinySandboxPerkDefinition[perk.perkHash].displayProperties?.description !== description);
@@ -58,7 +58,7 @@ const Mod = ({ itemHash, vendorHash, vendorItemIndex, ...props }) => {
     );
   }
 
-  if (probablyMasterworkPlug) {
+  if (probablyMasterworkPlug && investmentStats.length) {
     blocks.push(
       <div className='big-value masterwork'>
         {investmentStats.map((stat, s) => (

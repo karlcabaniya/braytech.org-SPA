@@ -57,7 +57,9 @@ export default function Flashpoint() {
           <div className='sub-name'>{definitionMilestoneFlashpoint?.displayProperties?.name}</div>
           <div className='name'>{t('Unknown')}</div>
         </div>
-        <div className='info'>{t('Beep-boop?')}</div>
+        <div className='info'>
+          <p>{t('Beep-boop?')}</p>
+        </div>
       </div>
     );
   }
@@ -88,8 +90,10 @@ export default function Flashpoint() {
           </p>
         </div>
       ) : (
-        <div className='info'>{t('Beep-boop?')}</div>
-        )}
+        <div className='info'>
+          <p>{t('Beep-boop?')}</p>
+        </div>
+      )}
     </div>
   );
 }

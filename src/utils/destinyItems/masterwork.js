@@ -1,5 +1,5 @@
 import manifest from '../manifest';
-import * as enums from '../destinyEnums';
+import { DestinyItemType, enumerateItemState } from '../destinyEnums';
 
 /**
  * These are the utilities that deal with figuring out Masterwork info.
@@ -19,7 +19,7 @@ import * as enums from '../destinyEnums';
  * "type" of masterwork it is, what the kill tracker value is, etc. Exotic weapons can start having
  * kill trackers before they're masterworked.
  */
-export const masterwork = item => {
+export const masterwork = (item) => {
   if (!item.sockets) {
     return null;
   }
@@ -27,7 +27,7 @@ export const masterwork = item => {
   let masterworkInfo = null;
 
   // Pre-Forsaken Masterwork
-  if (enums.enumerateItemState(item.state).Masterworked) {
+  if (enumerateItemState(item.state).Masterworked) {
     masterworkInfo = buildMasterworkInfo(item.sockets);
   }
 
@@ -37,7 +37,7 @@ export const masterwork = item => {
   }
 
   return masterworkInfo;
-}
+};
 
 export default masterwork;
 
@@ -65,12 +65,9 @@ function buildForsakenKillTracker(item) {
     const definitionObjective = manifest.DestinyObjectiveDefinition[plugObjective.objectiveHash];
 
     return {
-      ...definitionObjective.displayProperties,
       description: definitionObjective.progressDescription,
       progress: plugObjective.progress,
-      type: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash)
-        ? 'crucible'
-        : 'vanguard'
+      type: [3244015567, 2285636663, 38912240].includes(killTrackerSocket.plug.definition.hash) ? 'crucible' : 'vanguard',
     };
   }
 
@@ -80,34 +77,34 @@ function buildForsakenKillTracker(item) {
 function buildForsakenMasterworkStats(item) {
   const index = item.sockets.sockets?.findIndex((socket) =>
     Boolean(
-      socket.plug?.definition?.plug &&
-        (socket.plug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') ||
-        socket.plug.definition.plug.plugCategoryIdentifier.endsWith('masterwork'))
+      socket.plug?.definition?.plug && // can haz plugs
+        (socket.plug.definition.plug.plugCategoryIdentifier.includes('masterworks.stat') || // or
+          socket.plug.definition.plug.plugCategoryIdentifier.endsWith('masterwork'))
     )
   );
 
   const socket = item.sockets.sockets?.[index];
 
-  if (socket?.plug?.definition?.investmentStats?.length) {
-    socket.isMasterwork = true;
+  console.log(item);
 
+  if (socket?.plug?.definition?.investmentStats?.length) {
     return {
       socketIndex: index,
-      stats: socket.plug.definition.investmentStats.map(stat => ({
-          hash: stat.statTypeHash,
-          value: socket.plug.stats
-            ? socket.plug.stats[stat.statTypeHash]
-            : (socket.plugOptions.find(plug => plug.definition.hash === socket.plug.definition.hash)?.stats[stat.statTypeHash]) || 0
-        })
-      ),
-      objective: {
-        type: 'vanguard',
-        ...socket.plug.definition.displayProperties
-      },
-      energy: {
+      stats: socket.plug.definition.investmentStats.map((stat) => ({
+        hash: stat.statTypeHash,
+        value: socket.plug.stats ? socket.plug.stats[stat.statTypeHash] : socket.plugOptions.find((plug) => plug.definition.hash === socket.plug.definition.hash)?.stats[stat.statTypeHash] || 0,
+      })),
+      energy: manifest.DestinyInventoryItemDefinition[item.itemHash]?.itemType === DestinyItemType.Armor && {
         usedValue: item.sockets.sockets.reduce((total, socket) => total + (socket.plug?.definition?.plug?.energyCost?.energyCost || 0), 0),
         ...socket.plug.definition.plug.energyCapacity,
-      }
+      },
+    };
+  }
+
+  if (socket && socket.plug?.definition?.itemType === DestinyItemType.Mod && socket.plug?.definition?.inventory?.tierType > 4) {
+    return {
+      socketIndex: index,
+      probably: true,
     };
   }
 
@@ -126,7 +123,7 @@ function buildMasterworkInfo(sockets) {
   }
 
   const plugObjective = socket.plug.plugObjectives[0];
-  
+
   const investmentStats = socket.plug.definition.investmentStats;
   if (!investmentStats || !investmentStats.length) {
     return null;
@@ -144,10 +141,10 @@ function buildMasterworkInfo(sockets) {
   socket.isMasterwork = true;
 
   // console.log(socket.plug.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible')
-  
+
   return {
     socketIndex: index,
-    stats: investmentStats.map(s => ({
+    stats: investmentStats.map((s) => ({
       hash: s.statTypeHash,
       value: socket.plug.stats[s.statTypeHash] || 0,
     })),
@@ -155,7 +152,7 @@ function buildMasterworkInfo(sockets) {
       progress: plugObjective.progress,
       typeName: socket.plug.definition.plug.plugCategoryHash === 2109207426 ? 'vanguard' : 'crucible',
       typeIcon: objectiveDef.displayProperties.icon,
-      typeDesc: objectiveDef.progressDescription
-    }
+      typeDesc: objectiveDef.progressDescription,
+    },
   };
 }
