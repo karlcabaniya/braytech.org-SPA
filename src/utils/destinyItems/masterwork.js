@@ -85,8 +85,6 @@ function buildForsakenMasterworkStats(item) {
 
   const socket = item.sockets.sockets?.[index];
 
-  console.log(item);
-
   if (socket?.plug?.definition?.investmentStats?.length) {
     return {
       socketIndex: index,

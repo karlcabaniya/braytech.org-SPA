@@ -393,6 +393,10 @@
   box-shadow: inset 0 0 0 2px rgb(209, 209, 209);
 }
 
+#quests .list.quests li .list.inventory-items li .quantity {
+  background-color: rgb(209, 209, 209);
+}
+
 #quests .list.quests li .list.inventory-items li .icon {
   position: unset;
   padding-bottom: unset;

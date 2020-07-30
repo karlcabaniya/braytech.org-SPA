@@ -24,7 +24,14 @@ function getCharacterId(state, data) {
   );
 }
 
-function getMemberDataShape(data) {
+function getMemberDataShape(characterId, data) {
+  const inventory = [
+    ...(data.profile.Response?.characterEquipment.data?.[characterId]?.items || []), // equipped weapons etc
+    ...(data.profile.Response?.profileInventory.data?.items || []), // non-instanced quest items, materials, etc.
+    ...(data.profile.Response?.characterInventories.data?.[characterId]?.items || []), // non-equipped weapons etc
+  ];
+  const profileCurrencies = data.profile.Response?.profileCurrencies?.data?.items || [];
+
   return {
     profile: data.profile.Response,
     groups: {
@@ -38,16 +45,16 @@ function getMemberDataShape(data) {
       },
     },
     milestones: data.milestones.Response,
+    inventory,
     currencies: {
-      // all the ? helps to ensure that no matter what the sprea won't break
-      ...data.profile.Response?.profileInventory?.data?.items?.reduce(
+      ...inventory.reduce(
         (consumables, consumable) => ({
           ...consumables,
           [consumable.itemHash]: consumable,
         }),
         {}
       ),
-      ...data.profile.Response?.profileCurrencies?.data?.items?.reduce(
+      ...profileCurrencies.reduce(
         (currencies, currency) => ({
           ...currencies,
           [currency.itemHash]: currency,
@@ -111,7 +118,7 @@ async function loadMember(membershipType, membershipId, characterId) {
           membershipId,
           membershipType,
           characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
-          data: getMemberDataShape(data),
+          data: getMemberDataShape(characterId, data),
           error: {
             ErrorCode: 'character_unavailable',
             recoverable: true,
@@ -128,7 +135,7 @@ async function loadMember(membershipType, membershipId, characterId) {
         membershipId,
         membershipType,
         characterId,
-        data: getMemberDataShape(data),
+        data: getMemberDataShape(characterId, data),
       },
     });
 
@@ -141,7 +148,7 @@ async function loadMember(membershipType, membershipId, characterId) {
 }
 
 export default function memberReducer(state = defaultState, action) {
-  const now = new Date().getTime();
+  const timeNowMs = new Date().getTime();
 
   // if (process.env.NODE_ENV === 'development') console.log(action);
 
@@ -153,7 +160,12 @@ export default function memberReducer(state = defaultState, action) {
   const membershipType = action.payload.membershipType && action.payload.membershipType.toString();
 
   if (action.type === 'MEMBER_SET_BY_PROFILE_ROUTE' || action.type === 'MEMBER_SET_CHARACTERID') {
-    const membershipLoadNeeded = (!state.data && !state.loading) || state.membershipId !== membershipId || state.membershipType !== membershipType;
+    const membershipLoadNeeded =
+      // no data and not yet loading anything
+      (!state.data && !state.loading) ||
+      // membership mismatch
+      state.membershipId !== membershipId ||
+      state.membershipType !== membershipType;
 
     // If our data doesn't exist and isn't currently loading, or if our
     // new membership ID / type doesn't match what we already have stored,
@@ -180,6 +192,8 @@ export default function memberReducer(state = defaultState, action) {
     return state;
   }
 
+  console.log(data);
+
   switch (action.type) {
     case 'MEMBER_CHARACTER_SELECT':
       return {
@@ -203,7 +217,7 @@ export default function memberReducer(state = defaultState, action) {
         prevData: state.data,
         loading: false,
         stale: false,
-        updated: now,
+        updated: timeNowMs,
       };
     case 'MEMBER_LOADING':
       return {

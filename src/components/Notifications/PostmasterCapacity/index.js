@@ -8,11 +8,7 @@ export default function PostmasterCapacity() {
   const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
 
-  const inventory = [
-    ...(member.data.profile?.profileInventory.data?.items || []),
-    ...(member.data.profile?.characterInventories.data?.[member.characterId]?.items || [])
-  ];
-  const parcels = inventory.filter((i) => i.bucketHash === 215593132).length;
+  const parcels = member.data.inventory.filter((i) => i.bucketHash === 215593132).length;
 
   const skipDispatch = useSelector((state) => state.notifications.objects.filter((notification) => notification.hash === 'PostmasterCapacityWarning')).length;
 
