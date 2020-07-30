@@ -23,6 +23,17 @@ const equipItem = (member) => (item) => async (e) => {
     });
 
     store.dispatch({ type: 'MEMBER_IS_STALE', payload: member });
+    store.dispatch({
+      type: 'PUSH_NOTIFICATION',
+      payload: {
+        date: new Date().toISOString(),
+        expiry: 86400000,
+        displayProperties: {
+          name: 'ty',
+          timeout: 4,
+        }
+      },
+    });
   } catch (e) {
     store.dispatch({
       type: 'PUSH_NOTIFICATION',
