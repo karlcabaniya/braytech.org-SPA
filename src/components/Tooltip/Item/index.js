@@ -236,14 +236,17 @@ export default function Item(props) {
 export function VendorCosts({ costs, ...props }) {
   const member = useSelector((state) => state.member);
 
+  // console.log(Object.values(member.data.currencies).map(c => ({ name: manifest.DestinyInventoryItemDefinition[c.itemHash].displayProperties.name, ...c })))
+
   return (
     <div className='vendor-costs'>
       <ul>
         {costs.map((cost, c) => {
           const icon = manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon;
+          const memberHas = member.data ? member.data.currencies[cost.itemHash]?.quantity || 0 : undefined;
 
           return (
-            <li key={c}>
+            <li key={c} className={cx({ 'not-enough-materials': memberHas < cost.quantity })}>
               <ul>
                 <li>
                   {icon && <ObservedImage className='image icon' src={`https://www.bungie.net${icon}`} />}
@@ -251,7 +254,7 @@ export function VendorCosts({ costs, ...props }) {
                 </li>
                 <li>
                   <div className='text'>
-                    {member.data?.currencies[cost.itemHash] ? <span>{member.data.currencies[cost.itemHash].quantity.toLocaleString()}</span> : null}
+                    {memberHas !== undefined ? <span>{memberHas.toLocaleString()}</span> : null}
                     {cost.quantity.toLocaleString()}
                   </div>
                 </li>

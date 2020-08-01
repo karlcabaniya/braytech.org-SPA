@@ -748,3 +748,8 @@
   color: rgba(255, 255, 255, 0.4);
   pointer-events: none;
 }
+
+#tooltip .frame .vendor-costs ul li.not-enough-materials ul li:first-child .text,
+#tooltip .frame .vendor-costs ul li.not-enough-materials ul li .text span {
+  color: var(--error);
+}

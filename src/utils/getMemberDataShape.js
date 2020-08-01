@@ -21,13 +21,15 @@ export default function getMemberDataShape(characterId, data) {
     milestones: data.milestones.Response,
     inventory,
     currencies: {
-      ...inventory.reduce(
-        (consumables, consumable) => ({
-          ...consumables,
-          [consumable.itemHash]: consumable,
-        }),
-        {}
-      ),
+      ...inventory
+        .filter((item) => item.bucketHash === 1469714392)
+        .reduce(
+          (consumables, consumable) => ({
+            ...consumables,
+            [consumable.itemHash]: consumable,
+          }),
+          {}
+        ),
       ...profileCurrencies.reduce(
         (currencies, currency) => ({
           ...currencies,
