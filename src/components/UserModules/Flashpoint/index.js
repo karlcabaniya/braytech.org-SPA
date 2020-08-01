@@ -81,7 +81,12 @@ export default function Flashpoint() {
         <div className='sub-name'>{definitionMilestoneFlashpoint.displayProperties && definitionMilestoneFlashpoint.displayProperties.name}</div>
         <div className='name'>{manifest.DestinyDestinationDefinition[destinationHash].displayProperties.name}</div>
       </div>
-      <ProgressBar {...objective} hideCheck />
+      {objective?.progress > 0 && (
+        <div className='objective'>
+          <ProgressBar {...objective} hideCheck />
+          <div className='percent'>{objective.progress}%</div>
+        </div>
+      )}
       {definitionFlashpointVendor?.displayProperties ? (
         <div className='text'>
           <p>{t('{{vendorName}} is waiting for you at {{destinationName}}.', { vendorName, destinationName: locationName })}</p>

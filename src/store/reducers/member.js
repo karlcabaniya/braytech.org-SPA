@@ -152,7 +152,7 @@ export default function memberReducer(state = defaultState, action) {
     return state;
   }
 
-  console.log(data);
+  // console.log(data);
 
   switch (action.type) {
     case 'MEMBER_CHARACTER_SELECT':
