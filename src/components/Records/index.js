@@ -231,7 +231,7 @@ class Records extends React.Component {
     const { settings, lists, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible } = this.props;
     const highlight = +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
-    const recordsRequested = this.props.hashes;
+    const recordsRequested = this.props.hashes || [];
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
     const profileRecordsTracked = member.data.profile?.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];

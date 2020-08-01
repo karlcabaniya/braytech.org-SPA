@@ -80,10 +80,13 @@
   }
 }
 
+.wrapper.reduced-motion .user-module.challenges ul li .challenge .rewards.pinnacle::before {
+  animation-play-state: paused;
+}
+
 #now .user-module.challenges .list.activities li {
   grid-template-columns: 1fr;
 }
-
 
 .user-module.challenges .no-challenges {
   padding: 2rem 0;
@@ -154,7 +157,7 @@
   }
 
   .user-module.challenges .no-challenges {
-    padding: 1rem 0;
+    padding: 0;
     text-align: unset;
   }
 

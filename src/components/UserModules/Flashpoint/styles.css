@@ -4,9 +4,8 @@
 
 .user-module.flashpoint .icon {
   position: absolute;
-  top: 0;
   right: 0;
-  height: 100%;
+  top: 0;
   width: 80%;
   pointer-events: none;
   opacity: 0.5;
@@ -25,6 +24,24 @@
   position: relative;
 }
 
+.user-module.flashpoint .progress-bar {
+  margin: 0 0 12px;
+  height: 3px;
+  --progress: rgba(255, 255, 255, 0.8);
+}
+
+.user-module.flashpoint .progress-bar .bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user-module.flashpoint .progress-bar .bar .text {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
-  
+
+  .user-module.flashpoint .icon {
+    height: 100%;
+  }
+
 }

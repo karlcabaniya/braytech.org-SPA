@@ -179,7 +179,7 @@ function buildDefinedSocket(item, definitionSocket, index) {
       .map((reusablePlug) => buildPlug(definitionSocket, reusablePlug))
   );
 
-  const probablyMasterworkSocket = reusablePlugs[0]?.definition?.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || reusablePlugs[0]?.definition?.plug?.plugCategoryIdentifier?.endsWith('_masterwork');
+  const probablyMasterworkSocket = reusablePlugs[0]?.definition?.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || reusablePlugs[0]?.definition?.plug?.plugCategoryIdentifier?.endsWith('masterwork');
 
   const processedPlugs =
     // see if it's a masterwork socket based on the plug options
@@ -263,7 +263,7 @@ function buildDefinedSocket(item, definitionSocket, index) {
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament);
   const isSpawnFX = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('spawnfx'));
-  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork') || plugItem.definition.hash === DEFAULT_MASTERWORK_PLUG);
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('masterwork') || plugItem.definition.hash === DEFAULT_MASTERWORK_PLUG);
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
   // if (isOrnament) plugOptions.sort((a, b) => (seasons[a.definition.hash] || 99) - (seasons[b.definition.hash] || 99));
@@ -366,7 +366,7 @@ function buildSocket(item, socket, definitionSocket, index, reusablePlugs, plugO
   const isShader = plugItem && Boolean(plugItem.definition.inventory?.bucketTypeHash === enums.DestinyInventoryBucket.Shaders);
   const isOrnament = plugItem && Boolean(plugItem.definition.itemSubType === enums.DestinyItemSubType.Ornament);
   const isSpawnFX = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('spawnfx'));
-  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('_masterwork') || plugItem.definition.hash === DEFAULT_MASTERWORK_PLUG);
+  const isMasterwork = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('masterworks.stat') || plugItem.definition.plug?.plugCategoryIdentifier?.endsWith('masterwork') || plugItem.definition.hash === DEFAULT_MASTERWORK_PLUG);
   const isTracker = plugItem && Boolean(plugItem.definition.plug?.plugCategoryIdentifier?.includes('trackers'));
 
   return {

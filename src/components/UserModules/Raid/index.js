@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { t, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
@@ -10,296 +10,299 @@ import Records from '../../Records';
 
 import './styles.css';
 
-class Raid extends React.Component {
-  render() {
-    const { member, raidKey = 'gos' } = this.props;
-    const milestones = member.data.milestones;
-    const characterActivities = member.data.profile.characterActivities.data;
+export default function Raid({ raidKey = 'gos', ...props }) {
+  const member = useSelector((state) => state.member);
+  const milestones = member.data.milestones;
+  const characterActivities = member.data.profile.characterActivities.data;
 
-    const data = {
-      gos: {
-        name: manifest.DestinyActivityDefinition[2659723068].displayProperties.name,
-        description: manifest.DestinyActivityDefinition[2659723068].displayProperties.description,
-        challenge: (characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068) && characterActivities[member.characterId].availableActivities.find(a => a.activityHash === 2659723068).modifierHashes) || [],
-        collectibles: [1988948484],
-        triumphs: [],
-        challenges: {
-          2095683347: {
-            description: t("Complete the Consecrated Mind encounter without killing any Cyclops that spawn in the Harpy boss's presence. Cyclops that spawn in other areas, and during the final sprint, can be killed."),
-            triumphs: [3281243931]
-          },
-          2472478405: {
-            description: t('Must always deposit 10 motes at any time during the Consecrated Mind encounter.'),
-            triumphs: [1661612473]
-          },
-          4080157289: {
-            description: t('During the Sanctified Mind encounter, bank 30 motes at each Vex relay. At each relay, all 30 motes must be deposited within 10 seconds of one another.'),
-            triumphs: [3167166053]
-          },
-          405180260: {
-            description: t('During the Consecrated Mind encounter, all players must refresh their Enlightened buff at approximately the same time. However, the team may be split up at different tethers.'),
-            triumphs: [1925300422]
-          }
-        }
-      },
-      cos: {
-        name: manifest.DestinyRecordDefinition[31686901]?.displayProperties.name || 'cos',
-        description: manifest.DestinyActivityDefinition[960175301].displayProperties.description,
-        challenge: manifest.DestinyVendorDefinition[3347378076].itemList
-          .map(item => {
-            if (manifest.DestinyVendorDefinition[3347378076].categories.find(c => c.categoryHash === 3151502845).vendorItemIndexes.includes(item.vendorItemIndex)) {
-              return item.itemHash;
-            } else {
-              return false;
-            }
-          })
-          .filter(t => manifest.statistics.bounties.hawthorne.includes(t)),
-        collectibles: [2329697053],
-        triumphs: [],
-        challenges: {
-          2459033425: {
-            name: manifest.DestinyInventoryItemDefinition[2459033425].displayProperties.name,
-            description: t("Ritual encounter: no more than two Guardians may have the Witch's Blessing buff at one time during The Hive Ritual."),
-            triumphs: [1575460004]
-          },
-          2459033426: {
-            name: manifest.DestinyInventoryItemDefinition[2459033426].displayProperties.name,
-            description: t("Deception encounter: break the Deception's shield 5 times during phase in which he is defeated i.e. a single phase."),
-            triumphs: [1575460003]
-          },
-          2459033427: {
-            name: manifest.DestinyInventoryItemDefinition[2459033427].displayProperties.name,
-            description: t("Gahlran encounter: each Guardian may only shoot one of _the real_ Gahlran's hands once during only one of his hand raises."),
-            triumphs: [1575460002]
-          }
-        }
-      },
-      sotp: {
-        name: manifest.DestinyActivityDefinition[548750096].displayProperties.name,
-        description: manifest.DestinyActivityDefinition[548750096].displayProperties.description,
-        challenge: manifest.DestinyVendorDefinition[3347378076].itemList
-          .map(item => {
-            if (manifest.DestinyVendorDefinition[3347378076].categories.find(c => c.categoryHash === 1750123300).vendorItemIndexes.includes(item.vendorItemIndex)) {
-              return item.itemHash;
-            } else {
-              return false;
-            }
-          })
-          .filter(t => manifest.statistics.bounties.hawthorne.includes(t)),
-        collectibles: [2220014607],
-        triumphs: [],
-        challenges: {
-          1381881897: {
-            name: manifest.DestinyInventoryItemDefinition[1381881897].displayProperties.name,
-            description: t('Insurrection Prime encounter: A Guardian may not shoot and break more than one shield generator per phase.'),
-            triumphs: [4162926221]
-          },
-          1348944144: {
-            name: manifest.DestinyInventoryItemDefinition[1348944144].displayProperties.name,
-            description: t('Botza District encounter: the map generator must not fall below half charge.'),
-            triumphs: [1804999028]
-          },
-          3415614992: {
-            name: manifest.DestinyInventoryItemDefinition[3415614992].displayProperties.name,
-            description: t('Vault Access encounter: Each Guardian must grab and deposit each Phase Radiance buff once (boss must be killed in 3 damage phases).'),
-            triumphs: [1428463716]
-          }
-        }
-      },
-      lw: {
-        name: manifest.DestinyPresentationNodeDefinition[1500485992].displayProperties.name,
-        description: manifest.DestinyActivityDefinition[1661734046].displayProperties.description,
-        challenge: manifest.DestinyVendorDefinition[3347378076].itemList
-          .map(item => {
-            if (manifest.DestinyVendorDefinition[3347378076].categories.find(c => c.categoryHash === 4097321267).vendorItemIndexes.includes(item.vendorItemIndex)) {
-              return item.itemHash;
-            } else {
-              return false;
-            }
-          })
-          .filter(t => manifest.statistics.bounties.hawthorne.includes(t)),
-        collectibles: [199171385],
-        triumphs: [],
-        challenges: {
-          1250327262: {
-            name: manifest.DestinyInventoryItemDefinition[1250327262].displayProperties.name,
-            description: t("Shuro Chi chase encounter: Guardians must not take damage from Shuro Chi's Arc Blast."),
-            triumphs: [2196415799]
-          },
-          3871581136: {
-            name: manifest.DestinyInventoryItemDefinition[3871581136].displayProperties.name,
-            description: t("Morgeth encounter: don't kill smol ogres, only kill big boi."),
-            triumphs: [1672792871]
-          },
-          1568895666: {
-            name: manifest.DestinyInventoryItemDefinition[1568895666].displayProperties.name,
-            description: t('Vault encounter: knights must be killed in the rooms they spawn in.'),
-            triumphs: [149192209]
-          },
-          4007940282: {
-            name: manifest.DestinyInventoryItemDefinition[4007940282].displayProperties.name,
-            description: t('Riven encounter: Guardians must not shoot the same eye twice.'),
-            triumphs: [3899933775]
-          },
-          2836954349: {
-            name: manifest.DestinyInventoryItemDefinition[2836954349].displayProperties.name,
-            description: t('Kalli encounter: Cleanse all nine plates, kill all nine Knights, and kill all Ogres before damaging Kalli.'),
-            triumphs: [2822000740]
-          }
-        }
-      },
-      levi: {
-        name: manifest.DestinyActivityDefinition[89727599].displayProperties.name,
-        description: manifest.DestinyActivityDefinition[89727599].displayProperties.description,
-        challenge: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].modifierHashes) || [],
-        phaseOrder: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].phaseHashes) || [],
-        phases: {
-          3847906370: {
-            icon: manifest.DestinyActivityModifierDefinition[871205855].displayProperties.icon
-          },
-          2188993306: {
-            icon: manifest.DestinyActivityModifierDefinition[3296085675].displayProperties.icon
-          },
-          1431486395: {
-            icon: manifest.DestinyActivityModifierDefinition[2863316929].displayProperties.icon
-          },
-          4231923662: {
-            icon: manifest.DestinyActivityModifierDefinition[2770077977].displayProperties.icon
-          }
+  const data = {
+    gos: {
+      name: manifest.DestinyActivityDefinition[2659723068].displayProperties.name,
+      description: manifest.DestinyActivityDefinition[2659723068].displayProperties.description,
+      challenge: (characterActivities[member.characterId].availableActivities.find((a) => a.activityHash === 2659723068) && characterActivities[member.characterId].availableActivities.find((a) => a.activityHash === 2659723068).modifierHashes) || [],
+      collectibles: [1988948484],
+      triumphs: [],
+      challenges: {
+        2095683347: {
+          description: t("Complete the Consecrated Mind encounter without killing any Cyclops that spawn in the Harpy boss's presence. Cyclops that spawn in other areas, and during the final sprint, can be killed."),
+          triumphs: [3281243931],
         },
-        challenges: {
-          871205855: {
-            name: t('The Pleasure Gardens'),
-            description: t('Each relic holder may only shoot one plant per phase.'),
-            collectibles: [3125541834]
-          },
-          3296085675: {
-            name: t('The Royal Pools'),
-            description: t('One Guardian must remain in the middle with their feet in the water during the entire encounter.'),
-            collectibles: [3125541835]
-          },
-          2863316929: {
-            name: t('The Gauntlet'),
-            description: t('Guardians cannot stand on the same plate more than once.'),
-            collectibles: [3125541833]
-          },
-          2770077977: {
-            name: t('The Throne'),
-            description: t('Burn all 4 plates at the same time for every damage phase. Do not fire before all plates are activated.'),
-            collectibles: [3125541832]
-          }
+        2472478405: {
+          description: t('Must always deposit 10 motes at any time during the Consecrated Mind encounter.'),
+          triumphs: [1661612473],
         },
-        collectibles: [199171389],
-        triumphs: []
-      }
-    };
+        4080157289: {
+          description: t('During the Sanctified Mind encounter, bank 30 motes at each Vex relay. At each relay, all 30 motes must be deposited within 10 seconds of one another.'),
+          triumphs: [3167166053],
+        },
+        405180260: {
+          description: t('During the Consecrated Mind encounter, all players must refresh their Enlightened buff at approximately the same time. However, the team may be split up at different tethers.'),
+          triumphs: [1925300422],
+        },
+      },
+    },
+    cos: {
+      name: manifest.DestinyRecordDefinition[31686901]?.displayProperties.name || 'cos',
+      description: manifest.DestinyActivityDefinition[960175301].displayProperties.description,
+      challenge: manifest.DestinyVendorDefinition[3347378076].itemList
+        .map((item) => {
+          if (manifest.DestinyVendorDefinition[3347378076].categories.find((c) => c.categoryHash === 3151502845).vendorItemIndexes.includes(item.vendorItemIndex)) {
+            return item.itemHash;
+          } else {
+            return false;
+          }
+        })
+        .filter((t) => manifest.statistics.bounties?.hawthorne?.includes(t)),
+      collectibles: [2329697053],
+      triumphs: [],
+      challenges: {
+        2459033425: {
+          name: manifest.DestinyInventoryItemDefinition[2459033425].displayProperties.name,
+          description: t("Ritual encounter: no more than two Guardians may have the Witch's Blessing buff at one time during The Hive Ritual."),
+          triumphs: [1575460004],
+        },
+        2459033426: {
+          name: manifest.DestinyInventoryItemDefinition[2459033426].displayProperties.name,
+          description: t("Deception encounter: break the Deception's shield 5 times during phase in which he is defeated i.e. a single phase."),
+          triumphs: [1575460003],
+        },
+        2459033427: {
+          name: manifest.DestinyInventoryItemDefinition[2459033427].displayProperties.name,
+          description: t("Gahlran encounter: each Guardian may only shoot one of _the real_ Gahlran's hands once during only one of his hand raises."),
+          triumphs: [1575460002],
+        },
+      },
+    },
+    sotp: {
+      name: manifest.DestinyActivityDefinition[548750096].displayProperties.name,
+      description: manifest.DestinyActivityDefinition[548750096].displayProperties.description,
+      challenge: manifest.DestinyVendorDefinition[3347378076].itemList
+        .map((item) => {
+          if (manifest.DestinyVendorDefinition[3347378076].categories.find((c) => c.categoryHash === 1750123300).vendorItemIndexes.includes(item.vendorItemIndex)) {
+            return item.itemHash;
+          } else {
+            return false;
+          }
+        })
+        .filter((t) => manifest.statistics.bounties?.hawthorne?.includes(t)),
+      collectibles: [2220014607],
+      triumphs: [],
+      challenges: {
+        1381881897: {
+          name: manifest.DestinyInventoryItemDefinition[1381881897].displayProperties.name,
+          description: t('Insurrection Prime encounter: A Guardian may not shoot and break more than one shield generator per phase.'),
+          triumphs: [4162926221],
+        },
+        1348944144: {
+          name: manifest.DestinyInventoryItemDefinition[1348944144].displayProperties.name,
+          description: t('Botza District encounter: the map generator must not fall below half charge.'),
+          triumphs: [1804999028],
+        },
+        3415614992: {
+          name: manifest.DestinyInventoryItemDefinition[3415614992].displayProperties.name,
+          description: t('Vault Access encounter: Each Guardian must grab and deposit each Phase Radiance buff once (boss must be killed in 3 damage phases).'),
+          triumphs: [1428463716],
+        },
+      },
+    },
+    lw: {
+      name: manifest.DestinyPresentationNodeDefinition[1500485992].displayProperties.name,
+      description: manifest.DestinyActivityDefinition[1661734046].displayProperties.description,
+      challenge: manifest.DestinyVendorDefinition[3347378076].itemList
+        .map((item) => {
+          if (manifest.DestinyVendorDefinition[3347378076].categories.find((c) => c.categoryHash === 4097321267).vendorItemIndexes.includes(item.vendorItemIndex)) {
+            return item.itemHash;
+          } else {
+            return false;
+          }
+        })
+        .filter((t) => manifest.statistics.bounties?.hawthorne?.includes(t)),
+      collectibles: [199171385],
+      triumphs: [],
+      challenges: {
+        1250327262: {
+          name: manifest.DestinyInventoryItemDefinition[1250327262].displayProperties.name,
+          description: t("Shuro Chi chase encounter: Guardians must not take damage from Shuro Chi's Arc Blast."),
+          triumphs: [2196415799],
+        },
+        3871581136: {
+          name: manifest.DestinyInventoryItemDefinition[3871581136].displayProperties.name,
+          description: t("Morgeth encounter: don't kill smol ogres, only kill big boi."),
+          triumphs: [1672792871],
+        },
+        1568895666: {
+          name: manifest.DestinyInventoryItemDefinition[1568895666].displayProperties.name,
+          description: t('Vault encounter: knights must be killed in the rooms they spawn in.'),
+          triumphs: [149192209],
+        },
+        4007940282: {
+          name: manifest.DestinyInventoryItemDefinition[4007940282].displayProperties.name,
+          description: t('Riven encounter: Guardians must not shoot the same eye twice.'),
+          triumphs: [3899933775],
+        },
+        2836954349: {
+          name: manifest.DestinyInventoryItemDefinition[2836954349].displayProperties.name,
+          description: t('Kalli encounter: Cleanse all nine plates, kill all nine Knights, and kill all Ogres before damaging Kalli.'),
+          triumphs: [2822000740],
+        },
+      },
+    },
+    levi: {
+      name: manifest.DestinyActivityDefinition[89727599].displayProperties.name,
+      description: manifest.DestinyActivityDefinition[89727599].displayProperties.description,
+      challenge: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].modifierHashes) || [],
+      phaseOrder: (milestones && milestones[3660836525]?.activities?.length && milestones[3660836525].activities[0].phaseHashes) || [],
+      phases: {
+        3847906370: {
+          icon: manifest.DestinyActivityModifierDefinition[871205855].displayProperties.icon,
+        },
+        2188993306: {
+          icon: manifest.DestinyActivityModifierDefinition[3296085675].displayProperties.icon,
+        },
+        1431486395: {
+          icon: manifest.DestinyActivityModifierDefinition[2863316929].displayProperties.icon,
+        },
+        4231923662: {
+          icon: manifest.DestinyActivityModifierDefinition[2770077977].displayProperties.icon,
+        },
+      },
+      challenges: {
+        871205855: {
+          name: t('The Pleasure Gardens'),
+          description: t('Each relic holder may only shoot one plant per phase.'),
+          collectibles: [3125541834],
+        },
+        3296085675: {
+          name: t('The Royal Pools'),
+          description: t('One Guardian must remain in the middle with their feet in the water during the entire encounter.'),
+          collectibles: [3125541835],
+        },
+        2863316929: {
+          name: t('The Gauntlet'),
+          description: t('Guardians cannot stand on the same plate more than once.'),
+          collectibles: [3125541833],
+        },
+        2770077977: {
+          name: t('The Throne'),
+          description: t('Burn all 4 plates at the same time for every damage phase. Do not fire before all plates are activated.'),
+          collectibles: [3125541832],
+        },
+      },
+      collectibles: [199171389],
+      triumphs: [],
+    },
+  };
 
-    const leviathanStyle = key => {
+  const leviathanStyle = (key) => {
+    const records = [...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].triumphs) || []), ...data[key].triumphs];
+    const collectibles = [...data[key].collectibles, ...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].collectibles) || [])];
 
-      const records = [...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].triumphs) || []), ...data[key].triumphs];
-      const collectibles = [...data[key].collectibles, ...((data[key].challenge.length && data[key].challenges[data[key].challenge[0]].collectibles) || [])];
-
-      return (
-        <div className='user-module raid'>
-          <div className='sub-header'>
-            <div>{t('Raid_singular')}</div>
-          </div>
-          <h3>{data[key].name}</h3>
-          <h4>{t('Challenge')}</h4>
-          <ul className='list modifiers'>
-            {data[key].challenge.map((challenge, c) => {
-              return (
-                <li key={c}>
-                  <div className='icon'>
-                    <ObservedImage className='image' src={`https://www.bungie.net${data[key].challenges[challenge].icon || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.icon)}`} />
-                  </div>
-                  <div className='text'>
-                    <div className='name'>{data[key].challenges[challenge].name || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.name)}</div>
-                    <BraytechText className='description' value={data[key].challenges[challenge].description} />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-          {data[key].phaseOrder?.length ? (
-            <>
-              <h4>{t('Rotation')}</h4>
-              <ul className='list modifiers condensed'>
-                {data[key].phaseOrder.map((phaseHash, p) => {
-                  return (
-                    <li key={p} className='tooltip' data-hash={phaseHash} data-type='modifier'>
-                      <div className='icon'>
-                        <ObservedImage className='image' src={`https://www.bungie.net${data[key].phases[phaseHash].icon}`} />
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-            </>
-          ) : null}
-          <h4>{t('Collectibles')}</h4>
-          <ul className='list collection-items'>
-            <Collectibles selfLinkFrom='/this-week' hashes={collectibles} />
-          </ul>
-          {records.length ? (
-            <>
-              <h4>{t('Triumphs')}</h4>
-              <ul className='list record-items'>
-                <Records selfLinkFrom='/this-week' hashes={records} ordered />
-              </ul>
-            </>
-          ) : null}
+    return (
+      <div className='user-module raid'>
+        <div className='sub-header'>
+          <div>{t('Raid_singular')}</div>
         </div>
-      );
-    };
-
-    const bountyStyle = key => {
-      return (
-        <div className='user-module raid'>
-          <div className='sub-header'>
-            <div>{t('Raid_singular')}</div>
-          </div>
-          <h3>{data[key].name}</h3>
-          <h4>{t('Challenge')}</h4>
-          <div className='challenge'>
-            <ul className='list inventory-items'>
-              <Items
-                items={data[key].challenge.map(c => {
-                  return {
-                    itemHash: c
-                  };
-                })}
-              />
+        <h3>{data[key].name}</h3>
+        <h4>{t('Challenge')}</h4>
+        <ul className='list modifiers'>
+          {data[key].challenge.map((challenge, c) => {
+            return (
+              <li key={c}>
+                <div className='icon'>
+                  <ObservedImage className='image' src={`https://www.bungie.net${data[key].challenges[challenge].icon || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.icon)}`} />
+                </div>
+                <div className='text'>
+                  <div className='name'>{data[key].challenges[challenge].name || (manifest.DestinyActivityModifierDefinition[challenge] && manifest.DestinyActivityModifierDefinition[challenge].displayProperties && manifest.DestinyActivityModifierDefinition[challenge].displayProperties.name)}</div>
+                  <BraytechText className='description' value={data[key].challenges[challenge].description} />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+        {data[key].phaseOrder?.length ? (
+          <>
+            <h4>{t('Rotation')}</h4>
+            <ul className='list modifiers condensed'>
+              {data[key].phaseOrder.map((phaseHash, p) => {
+                return (
+                  <li key={p} className='tooltip' data-hash={phaseHash} data-type='modifier'>
+                    <div className='icon'>
+                      <ObservedImage className='image' src={`https://www.bungie.net${data[key].phases[phaseHash].icon}`} />
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
-            <div className='text'>
-              <div className='name'>{data[key].challenges[data[key].challenge[0]].name}</div>
-              <BraytechText className='description' value={data[key].challenges[data[key].challenge[0]].description} />
-            </div>
+          </>
+        ) : null}
+        <h4>{t('Collectibles')}</h4>
+        <ul className='list collection-items'>
+          <Collectibles selfLinkFrom='/this-week' hashes={collectibles} />
+        </ul>
+        {records.length ? (
+          <>
+            <h4>{t('Triumphs')}</h4>
+            <ul className='list record-items'>
+              <Records selfLinkFrom='/this-week' hashes={records} ordered />
+            </ul>
+          </>
+        ) : null}
+      </div>
+    );
+  };
+
+  const bountyStyle = (key) => {
+    if (!data[key].challenge[0]) {
+      return (
+        <div className='user-module raid'>
+          <div className='sub-header'>
+            <div>{t('Raid_singular')}</div>
           </div>
-          <h4>{t('Collectibles')}</h4>
-          <ul className='list collection-items'>
-            <Collectibles selfLinkFrom='/this-week' hashes={data[key].collectibles} />
-          </ul>
-          <h4>{t('Triumphs')}</h4>
-          <ul className='list record-items'>
-            <Records selfLinkFrom='/this-week' hashes={data[key].challenges[data[key].challenge[0]].triumphs.concat(data[key].triumphs)} ordered />
-          </ul>
+          <h3>{data[key].name}</h3>
+          <div className='info'>
+            <p>{t('Beep-boop?')}</p>
+          </div>
         </div>
       );
-    };
-
-    if (['gos', 'levi'].includes(raidKey)) {
-      return leviathanStyle(raidKey);
-    } else {
-      return bountyStyle(raidKey);
     }
+
+    return (
+      <div className='user-module raid'>
+        <div className='sub-header'>
+          <div>{t('Raid_singular')}</div>
+        </div>
+        <h3>{data[key].name}</h3>
+        <h4>{t('Challenge')}</h4>
+        <div className='challenge'>
+          <ul className='list inventory-items'>
+            <Items
+              items={data[key].challenge.map((c) => {
+                return {
+                  itemHash: c,
+                };
+              })}
+            />
+          </ul>
+          <div className='text'>
+            <div className='name'>{data[key].challenges[data[key].challenge[0]].name}</div>
+            <BraytechText className='description' value={data[key].challenges[data[key].challenge[0]].description} />
+          </div>
+        </div>
+        <h4>{t('Collectibles')}</h4>
+        <ul className='list collection-items'>
+          <Collectibles selfLinkFrom='/this-week' hashes={data[key].collectibles} />
+        </ul>
+        <h4>{t('Triumphs')}</h4>
+        <ul className='list record-items'>
+          <Records selfLinkFrom='/this-week' hashes={data[key].challenges[data[key].challenge[0]].triumphs.concat(data[key].triumphs)} ordered />
+        </ul>
+      </div>
+    );
+  };
+
+  if (['gos', 'levi'].includes(raidKey)) {
+    return leviathanStyle(raidKey);
+  } else {
+    return bountyStyle(raidKey);
   }
 }
-
-function mapStateToProps(state, ownProps) {
-  return {
-    member: state.member
-  };
-}
-
-export default connect(mapStateToProps)(Raid);

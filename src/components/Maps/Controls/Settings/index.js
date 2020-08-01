@@ -61,7 +61,7 @@ export default function Settings() {
 
   return (
     <div className='control settings'>
-      <Button action={handler_toggleVisibility}></Button>
+      <Button className='acrylic' action={handler_toggleVisibility}></Button>
       {isVisible && (
         <Dialog type='full' actions={dialogActions}>
           <div className='header'>
@@ -86,16 +86,16 @@ export default function Settings() {
               <BraytechText className='info' value={t('Settings.Maps.Developer.Info')} />
               <ul className='list settings'>
                 <li>
-                  <Checkbox linked checked={settings.maps.debug} text={t('Maps debug mode')} action={handler_toggle('maps.debug')} />
-                  <BraytechText className='info' value={t('Enable Maps debugging settings')} />
+                  <Checkbox linked checked={settings.maps.debug} text={t('Settings.Maps.Debug.Name')} action={handler_toggle('maps.debug')} />
+                  <BraytechText className='info' value={t('Settings.Maps.Debug.Description')} />
                 </li>
                 <li>
-                  <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Highlight nodes without screenshots')} disabled={!settings.maps.debug} action={handler_toggle('maps.noScreenshotHighlight')} />
-                  <BraytechText className='info' value={t('Map nodes, such as region chests, which do not have an associated screenshot will be highlighted in order to assist users with contributing to maps data.')} />
+                  <Checkbox linked checked={settings.maps.noScreenshotHighlight} text={t('Settings.Maps.NoScreenshotHighlight.Name')} disabled={!settings.maps.debug} action={handler_toggle('maps.noScreenshotHighlight')} />
+                  <BraytechText className='info' value={t('Settings.Maps.NoScreenshotHighlight.Description')} />
                 </li>
                 <li>
-                  <Checkbox linked checked={settings.maps.logDetails} text={t('Log node details')} disabled={!settings.maps.debug} action={handler_toggle('maps.logDetails')} />
-                  <BraytechText className='info' value={t('Console.log details for the mouse-invoked node.')} />
+                  <Checkbox linked checked={settings.maps.logDetails} text={t('Settings.Maps.LogDetails.Name')} disabled={!settings.maps.debug} action={handler_toggle('maps.logDetails')} />
+                  <BraytechText className='info' value={t('Settings.Maps.LogDetails.Description')} />
                 </li>
               </ul>
             </div>

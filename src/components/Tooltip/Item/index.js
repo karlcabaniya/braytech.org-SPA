@@ -52,6 +52,7 @@ export default function Item(props) {
     itemComponents: null,
     itemState: +props.state || 0,
     quantity: +props.quantity || 1,
+    baseHash: +props.basehash || undefined,
     vendorHash: props.vendorhash,
     vendorItemIndex: props.vendoritemindex && +props.vendoritemindex,
     vendorSaleStatus: props.vendorsalestatus && +props.vendorsalestatus,
@@ -125,6 +126,8 @@ export default function Item(props) {
     item.primaryStat.value = character.light;
   }
 
+  // console.log(item)
+
   const importantText = [];
 
   const isVaultedItem = isContentVaulted(definitionItem.collectibleHash);
@@ -177,7 +180,7 @@ export default function Item(props) {
     }
   }
 
-  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.stats?.filter((stat) => stat.value >= 9).length));
+  const masterworked = enumerateItemState(item.itemState).Masterworked || (!item.itemInstanceId && (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length));
   const locked = enumerateItemState(item.itemState).Locked;
 
   const showScreenshot =
@@ -193,7 +196,7 @@ export default function Item(props) {
         <div className='acrylic' />
         <div className={cx('frame', 'item', item.style, item.type, item.rarity, { masterworked: masterworked })}>
           <div className='header'>
-            {masterworked ? <ObservedImage className='image bg' src={item.rarity === 'exotic' ? `/static/images/extracts/flair/01A3-00001DDC.PNG` : `/static/images/extracts/flair/01A3-00001DDE.PNG`} /> : null}
+            <div className='lattice' />
             <div className='name'>{definitionItem.displayProperties && definitionItem.displayProperties.name}</div>
             <div>
               {definitionItem.itemTypeDisplayName && definitionItem.itemTypeDisplayName !== '' ? <div className='kind'>{definitionItem.itemTypeDisplayName}</div> : null}
@@ -233,14 +236,17 @@ export default function Item(props) {
 export function VendorCosts({ costs, ...props }) {
   const member = useSelector((state) => state.member);
 
+  // console.log(Object.values(member.data.currencies).map(c => ({ name: manifest.DestinyInventoryItemDefinition[c.itemHash].displayProperties.name, ...c })))
+
   return (
     <div className='vendor-costs'>
       <ul>
         {costs.map((cost, c) => {
           const icon = manifest.DestinyInventoryItemDefinition[cost.itemHash]?.displayProperties.icon;
+          const memberHas = member.data ? member.data.currencies[cost.itemHash]?.quantity || 0 : undefined;
 
           return (
-            <li key={c}>
+            <li key={c} className={cx({ 'not-enough-materials': memberHas < cost.quantity })}>
               <ul>
                 <li>
                   {icon && <ObservedImage className='image icon' src={`https://www.bungie.net${icon}`} />}
@@ -248,7 +254,7 @@ export function VendorCosts({ costs, ...props }) {
                 </li>
                 <li>
                   <div className='text'>
-                    {member.data?.currencies[cost.itemHash] ? <span>{member.data.currencies[cost.itemHash].quantity.toLocaleString()}</span> : null}
+                    {memberHas !== undefined ? <span>{memberHas.toLocaleString()}</span> : null}
                     {cost.quantity.toLocaleString()}
                   </div>
                 </li>

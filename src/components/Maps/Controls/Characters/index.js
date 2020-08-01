@@ -41,16 +41,16 @@ class Characters extends React.Component {
           {this.props.member?.data ? (
             <>
               {this.props.member.data.profile.profile.data.characterIds.map((characterId, c) => (
-                <li key={c} className={cx('linked', { active: characterId === this.props.member.characterId })} onClick={this.handler_onClick(characterId)}>
+                <li key={c} className={cx('linked', 'acrylic', { active: characterId === this.props.member.characterId })} onClick={this.handler_onClick(characterId)}>
                   <CharacterEmblem characterId={characterId} />
                 </li>
               ))}
-              <li className='linked'>
+              <li className='linked acrylic'>
                 <CharacterEmblem characterSelect />
               </li>
             </>
           ) : (
-            <li className='linked active'>
+            <li className='linked acrylic active'>
               <CharacterEmblem onboarding />
             </li>
           )}
@@ -60,7 +60,7 @@ class Characters extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
   };

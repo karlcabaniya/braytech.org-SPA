@@ -1,5 +1,6 @@
 import store from '../';
 import getMember from '../../utils/getMember';
+import getMemberDataShape from '../../utils/getMemberDataShape';
 import * as voluspa from '../../utils/voluspa';
 
 const defaultState = {
@@ -22,40 +23,6 @@ function getCharacterId(state, data) {
     // got nothin'
     false
   );
-}
-
-function getMemberDataShape(data) {
-  return {
-    profile: data.profile.Response,
-    groups: {
-      // deliver the groups response unprepared
-      ...data.groups.Response,
-      // mold the group data into something more appealing
-      clan: data.groups.Response?.results?.[0] && {
-        // adjust the shape
-        ...data.groups.Response.results[0].group,
-        self: data.groups.Response.results[0].member,
-      },
-    },
-    milestones: data.milestones.Response,
-    currencies: {
-      // all the ? helps to ensure that no matter what the sprea won't break
-      ...data.profile.Response?.profileInventory?.data?.items?.reduce(
-        (consumables, consumable) => ({
-          ...consumables,
-          [consumable.itemHash]: consumable,
-        }),
-        {}
-      ),
-      ...data.profile.Response?.profileCurrencies?.data?.items?.reduce(
-        (currencies, currency) => ({
-          ...currencies,
-          [currency.itemHash]: currency,
-        }),
-        {}
-      ),
-    },
-  };
 }
 
 // Wrapper function for loadMember that lets it run asynchronously, but
@@ -111,7 +78,7 @@ async function loadMember(membershipType, membershipId, characterId) {
           membershipId,
           membershipType,
           characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
-          data: getMemberDataShape(data),
+          data: getMemberDataShape(characterId, data),
           error: {
             ErrorCode: 'character_unavailable',
             recoverable: true,
@@ -128,7 +95,7 @@ async function loadMember(membershipType, membershipId, characterId) {
         membershipId,
         membershipType,
         characterId,
-        data: getMemberDataShape(data),
+        data: getMemberDataShape(characterId, data),
       },
     });
 
@@ -141,7 +108,7 @@ async function loadMember(membershipType, membershipId, characterId) {
 }
 
 export default function memberReducer(state = defaultState, action) {
-  const now = new Date().getTime();
+  const timeNowMs = new Date().getTime();
 
   // if (process.env.NODE_ENV === 'development') console.log(action);
 
@@ -153,7 +120,12 @@ export default function memberReducer(state = defaultState, action) {
   const membershipType = action.payload.membershipType && action.payload.membershipType.toString();
 
   if (action.type === 'MEMBER_SET_BY_PROFILE_ROUTE' || action.type === 'MEMBER_SET_CHARACTERID') {
-    const membershipLoadNeeded = (!state.data && !state.loading) || state.membershipId !== membershipId || state.membershipType !== membershipType;
+    const membershipLoadNeeded =
+      // no data and not yet loading anything
+      (!state.data && !state.loading) ||
+      // membership mismatch
+      state.membershipId !== membershipId ||
+      state.membershipType !== membershipType;
 
     // If our data doesn't exist and isn't currently loading, or if our
     // new membership ID / type doesn't match what we already have stored,
@@ -180,6 +152,8 @@ export default function memberReducer(state = defaultState, action) {
     return state;
   }
 
+  console.log(data);
+
   switch (action.type) {
     case 'MEMBER_CHARACTER_SELECT':
       return {
@@ -203,7 +177,7 @@ export default function memberReducer(state = defaultState, action) {
         prevData: state.data,
         loading: false,
         stale: false,
-        updated: now,
+        updated: timeNowMs,
       };
     case 'MEMBER_LOADING':
       return {

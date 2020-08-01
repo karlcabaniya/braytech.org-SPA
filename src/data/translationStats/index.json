@@ -1,153 +1,114 @@
 {
   "de": {
-    "translated": 713,
-    "notTranslated": 64,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 708,
+    "notTranslated": 68,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "debug": {
-    "translated": 777,
-    "notTranslated": 0,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
-    "removed": [
-      "Enemies"
-    ]
-  },
-  "en": {
-    "translated": 777,
+    "translated": 776,
     "notTranslated": 0,
     "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+    ]
+  },
+  "en": {
+    "translated": 776,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "es-mx": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 776,
+    "notTranslated": 0,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "es": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 776,
+    "notTranslated": 0,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "fr": {
-    "translated": 638,
-    "notTranslated": 139,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 634,
+    "notTranslated": 142,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "it": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 770,
+    "notTranslated": 6,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "ja": {
-    "translated": 586,
-    "notTranslated": 191,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 581,
+    "notTranslated": 195,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "ko": {
-    "translated": 513,
-    "notTranslated": 264,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 510,
+    "notTranslated": 266,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 775,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "notTranslated": 774,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "pt-br": {
-    "translated": 685,
-    "notTranslated": 92,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 679,
+    "notTranslated": 97,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "ru": {
-    "translated": 775,
-    "notTranslated": 2,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 776,
+    "notTranslated": 0,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "zh-chs": {
-    "translated": 585,
-    "notTranslated": 192,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 580,
+    "notTranslated": 196,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   },
   "zh-cht": {
-    "translated": 640,
-    "notTranslated": 137,
-    "added": [
-      "Secret Triumph",
-      "Triumphs.State.SecretTriumph"
-    ],
+    "translated": 634,
+    "notTranslated": 142,
+    "added": [],
     "removed": [
-      "Enemies"
+      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
     ]
   }
 }

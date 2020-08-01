@@ -221,7 +221,6 @@ function Challenges() {
 
   // console.log(challenges);
 
-  const challengesCompleted = !challenges.filter((activity) => activity.objectives.filter((objective) => !objective.complete).length).length;
   const challengesFiltered = state.filterRewards
     ? challenges
         // filter for incomplete
@@ -301,7 +300,7 @@ function Challenges() {
           <div className='info'>{t('UserModules.Challenges.RewardsRemaining', { rewardsRemaining })}</div>
         </div>
       </div>
-      {!challengesCompleted ? (
+      {rewardsRemaining ? (
         <ul>
           {challengesFiltered.map((challenge, i) => {
             const override = getOverrides({ ...challenge, objectiveHash: challenge.objectives[0]?.objectiveHash });

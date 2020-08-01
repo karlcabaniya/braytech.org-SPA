@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 
 import manifest from '../../utils/manifest';
 import store from '../../store';
@@ -10,6 +10,7 @@ import Items from '../../components/Items';
 import Spinner from '../../components/UI/Spinner';
 
 import './styles.css';
+import actions from '../../store/actions';
 
 const equipItem = (member) => (item) => async (e) => {
   // console.log(item, member);
@@ -22,6 +23,17 @@ const equipItem = (member) => (item) => async (e) => {
     });
 
     store.dispatch({ type: 'MEMBER_IS_STALE', payload: member });
+    store.dispatch({
+      type: 'PUSH_NOTIFICATION',
+      payload: {
+        date: new Date().toISOString(),
+        expiry: 86400000,
+        displayProperties: {
+          name: 'ty',
+          timeout: 4,
+        }
+      },
+    });
   } catch (e) {
     store.dispatch({
       type: 'PUSH_NOTIFICATION',
@@ -50,20 +62,24 @@ const bucketsAuxiliary = [enums.DestinyInventoryBucket.Ghost, enums.DestinyInven
 
 const slotsValue = 9;
 
-function Inventory(props) {
+export default function Inventory(props) {
+  const member = useSelector(state => state.member);
+  const auth = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    props.rebindTooltips();
+    dispatch(actions.tooltips.rebind());
   });
 
-  if (!props.member.data.profile.profileInventory?.data && !props.auth) {
+  if (!member.data.profile.profileInventory?.data && !auth) {
     return <NoAuth />;
   }
 
-  if (!props.member.data.profile.profileInventory?.data && props.auth && !props.auth.destinyMemberships.find((m) => m.membershipId === props.member.membershipId)) {
+  if (!member.data.profile.profileInventory?.data && auth && !auth.destinyMemberships.find((m) => m.membershipId === props.member.membershipId)) {
     return <DiffProfile />;
   }
 
-  if (!props.member.data.profile.profileInventory?.data && props.auth && props.auth.destinyMemberships.find((m) => m.membershipId === props.member.membershipId)) {
+  if (!member.data.profile.profileInventory?.data && auth && auth.destinyMemberships.find((m) => m.membershipId === member.membershipId)) {
     return (
       <div className='view' id='inventory'>
         <Spinner />
@@ -71,13 +87,7 @@ function Inventory(props) {
     );
   }
 
-  const member = { membershipType: props.member.membershipType, membershipId: props.member.membershipId, characterId: props.member.characterId };
-
-  const inventory = [
-    ...props.member.data.profile.profileInventory.data.items, // non-instanced quest items, materials, etc.
-    ...props.member.data.profile.characterInventories.data[member.characterId].items, // non-equipped weapons etc
-    ...props.member.data.profile.characterEquipment.data[member.characterId].items, // equipped weapons etc
-  ];
+  const membership = { membershipType: member.membershipType, membershipId: member.membershipId, characterId: member.characterId };
 
   return (
     <div className='view' id='inventory'>
@@ -86,10 +96,10 @@ function Inventory(props) {
           {bucketsWeapons.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(membership)} />
               </ul>
             </div>
           ))}
@@ -98,10 +108,10 @@ function Inventory(props) {
           {bucketsArmor.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(membership)} />
               </ul>
             </div>
           ))}
@@ -110,10 +120,10 @@ function Inventory(props) {
           {bucketsAuxiliary.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(membership)} />
               </ul>
             </div>
           ))}
@@ -122,19 +132,3 @@ function Inventory(props) {
     </div>
   );
 }
-
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-    auth: state.auth,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Inventory);

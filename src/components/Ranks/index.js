@@ -91,7 +91,7 @@ class Mode extends React.Component {
               <li>
                 <ul>
                   <li>{t('Win streak')}</li>
-                  <li>{characterProgressions[characterId].progressions[extras[hash].streakHash].stepIndex}</li>
+                  <li>{characterProgressions[characterId].progressions[extras[hash].streakHash].stepIndex + 1}</li>
                 </ul>
               </li>
               {hash !== 2000925172 ? (

@@ -52,7 +52,7 @@ class Destinations extends React.Component {
                 .join(', ');
 
               return (
-                <li key={d} className={cx('linked', { active: maps[desto.destinationId].destination.id === this.props.destinationId })}>
+                <li key={d} className={cx('linked', 'acrylic', { active: maps[desto.destinationId].destination.id === this.props.destinationId })}>
                   <div className='text'>
                     <div className='name'>{string || desto.destinationId}</div>
                   </div>

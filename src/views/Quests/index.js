@@ -307,13 +307,12 @@ class Quests extends React.Component {
   }
 
   getItems = (items = []) => {
-    const { member } = this.props;
     const filter = this.props.match.params.filter || 'bounties';
 
     return items.map((item, i) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-      item.itemComponents = itemComponents(item, member);
+      item.itemComponents = itemComponents(item, this.props.member);
 
       const expirationDate = item.itemComponents?.item?.expirationDate;
       const timestampExpiry = expirationDate && new Date(expirationDate).getTime();
@@ -368,8 +367,7 @@ class Quests extends React.Component {
       );
     }
 
-    const inventory = [...member.data.profile.profileInventory.data.items, ...member.data.profile.characterInventories.data[member.characterId].items];
-    const total = inventory.filter((item) => {
+    const total = member.data.inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -383,7 +381,7 @@ class Quests extends React.Component {
 
       return false;
     });
-    const context = inventory.filter((item) => {
+    const context = member.data.inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -407,7 +405,7 @@ class Quests extends React.Component {
 
       return false;
     });
-    const filtered = inventory.filter((item) => {
+    const filtered = member.data.inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -437,7 +435,7 @@ class Quests extends React.Component {
     });
 
     const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
-    const newLight = inventory.filter((item) => {
+    const newLight = member.data.inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -606,8 +604,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    rebindTooltips: (value) => {
-      dispatch({ type: 'REBIND_TOOLTIPS', payload: new Date().getTime() });
+    rebindTooltips: () => {
+      dispatch({ type: 'REBIND_TOOLTIPS', });
     },
   };
 }

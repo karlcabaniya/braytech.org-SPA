@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
+
+import ProgressBar from '../../UI/ProgressBar';
 import { Destinations } from '../../../svg';
 
 import './styles.css';
@@ -37,6 +39,8 @@ const vendorBubbleMap = {
   3982706173: 577912749,
 };
 
+const MILESTONE_FLASHPOINT = 463010297;
+
 export default function Flashpoint() {
   const member = useSelector((state) => state.member);
   const milestones = member.data.milestones;
@@ -53,7 +57,9 @@ export default function Flashpoint() {
           <div className='sub-name'>{definitionMilestoneFlashpoint?.displayProperties?.name}</div>
           <div className='name'>{t('Unknown')}</div>
         </div>
-        <div className='info'>{t('Beep-boop?')}</div>
+        <div className='info'>
+          <p>{t('Beep-boop?')}</p>
+        </div>
       </div>
     );
   }
@@ -66,6 +72,8 @@ export default function Flashpoint() {
   const vendorName = definitionFlashpointVendor?.displayProperties?.name;
   const locationName = manifest.DestinyDestinationDefinition[destinationHash]?.bubbles.find((b) => b.hash === vendorBubbleMap[definitionFlashpointVendor.hash])?.displayProperties?.name;
 
+  const objective = member.data.profile?.characterProgressions.data[member.characterId].milestones[MILESTONE_FLASHPOINT]?.availableQuests?.[0]?.status?.stepObjectives?.[0];
+
   return (
     <div className='user-module flashpoint'>
       <div className='icon'>{Icon && <Icon />}</div>
@@ -73,6 +81,7 @@ export default function Flashpoint() {
         <div className='sub-name'>{definitionMilestoneFlashpoint.displayProperties && definitionMilestoneFlashpoint.displayProperties.name}</div>
         <div className='name'>{manifest.DestinyDestinationDefinition[destinationHash].displayProperties.name}</div>
       </div>
+      <ProgressBar {...objective} hideCheck />
       {definitionFlashpointVendor?.displayProperties ? (
         <div className='text'>
           <p>{t('{{vendorName}} is waiting for you at {{destinationName}}.', { vendorName, destinationName: locationName })}</p>
@@ -81,7 +90,9 @@ export default function Flashpoint() {
           </p>
         </div>
       ) : (
-        <div className='info'>{t('Beep-boop?')}</div>
+        <div className='info'>
+          <p>{t('Beep-boop?')}</p>
+        </div>
       )}
     </div>
   );

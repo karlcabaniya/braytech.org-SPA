@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import getMember from '../../utils/getMember';
+import getMemberDataShape from '../../utils/getMemberDataShape';
 
 const AUTO_REFRESH_INTERVAL = 30 * 1000;
 const TIMEOUT = 60 * 60 * 1000;
@@ -122,20 +123,7 @@ class RefreshService extends React.Component {
           membershipType,
           membershipId,
           characterId,
-          data: {
-            profile: data.profile.Response,
-            groups:
-              data.groups?.ErrorCode === 1
-                ? {
-                    ...data.groups.Response,
-                    clan: data.groups.Response?.results?.[0] && {
-                      ...data.groups.Response.results[0].group,
-                      self: data.groups.Response.results[0].member,
-                    },
-                  }
-                : previousMemberLoad.groups,
-            milestones: data.milestones?.ErrorCode === 1 ? data.milestones.Response : previousMemberLoad.milestones,
-          },
+          data: getMemberDataShape(characterId, data),
         });
       }
 

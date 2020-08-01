@@ -62,7 +62,7 @@ export default function Inspect() {
 
   const item = createItem(params.hash, urlSockets);
 
-  // console.log(item);
+  console.log(item);
 
   const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
@@ -83,6 +83,8 @@ export default function Inspect() {
 
   const armor2MasterworkSockets = item.sockets && item.sockets.socketCategories && getSocketsWithStyle(item.sockets, DestinySocketCategoryStyle.EnergyMeter);
 
+  const masterworked = (definitionItem.itemType === DestinyItemType.Armor ? item.masterwork?.stats?.filter((stat) => stat.value > 9).length : item.masterwork?.socketIndex && item.sockets?.sockets?.[item.masterwork.socketIndex]?.plug?.definition?.investmentStats?.filter((stat) => stat.value > 9).length) || item.masterwork?.probably;
+
   const powerCap = definitionItem.inventory.tierType === DestinyTierType.Superior && manifest.DestinyPowerCapDefinition[definitionItem.quality?.versions?.[0]?.powerCapHash]?.powerCap;
 
   const definitionLore = manifest.DestinyLoreDefinition[definitionItem.loreHash];
@@ -97,12 +99,12 @@ export default function Inspect() {
   return (
     <>
       <div className='view' id='inspect'>
-        <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType))} />
+        <div className={cx('item-rarity', itemRarityToString(definitionItem.inventory.tierType), { masterworked })}>
+          <div className='lattice' />
+        </div>
         <div className='wrap'>
           <div className='module header'>
-            <div className='icon'>
-              {definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}
-            </div>
+            <div className={cx('icon', { masterworked, exotic: definitionItem.inventory.tierType === DestinyTierType.Exotic })}>{definitionItem.displayProperties.icon ? <ObservedImage src={`https://www.bungie.net${definitionItem.displayProperties.icon}`} /> : null}</div>
             <div className='text'>
               <div className='name'>{definitionItem.displayProperties.name}</div>
               <div className='type'>{definitionItem.itemTypeDisplayName}</div>
@@ -494,7 +496,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
                   const active = plug.definition.hash === socket.plug.definition?.hash;
 
                   return (
-                    <div key={p} onPointerOver={props.handler_pointerOver(socket.socketIndex, plug.definition.hash)} onPointerOut={props.handler_pointerOut} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-style='ui'>
+                    <div key={p} onPointerOver={props.handler_pointerOver(socket.socketIndex, plug.definition.hash)} onPointerOut={props.handler_pointerOut} className={cx('plug', { active })} data-tooltip={active || 'mouse'} data-hash={plug.definition.hash} data-basehash={itemHash} data-style='ui'>
                       <div className='icon'>
                         <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
                       </div>
@@ -510,7 +512,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
 
             return (
               <div key={s} className={cx('socket', { expanded: socketState.indexOf(socket.socketIndex) > -1 })}>
-                <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} onClick={toggleSocket(socket.socketIndex)}>
+                <div className={cx('plug', 'active', energyAsset?.string !== 'any' && energyAsset?.string)} data-tooltip='mouse' data-hash={socket.plug.definition.hash} data-basehash={itemHash} onClick={toggleSocket(socket.socketIndex)}>
                   <div className='icon'>
                     <ObservedImage src={socket.plug.definition.displayProperties.localIcon ? `${socket.plug.definition.displayProperties.icon}` : `https://www.bungie.net${socket.plug.definition.displayProperties.icon}`} />
                     {socket.plug.definition.plug?.energyCost?.energyCost ? <div className='energy-cost'>{socket.plug.definition.plug.energyCost.energyCost}</div> : null}
@@ -523,9 +525,14 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
         {expandedSocket ? (
           <div className='socket options'>
             {expandedSocket.plugOptions.map((plug, p) => {
+              // relevant energy asset
               const energyAsset = plug.definition.plug?.energyCost?.energyTypeHash && energyTypeToAsset(plug.definition.plug.energyCost.energyTypeHash);
-
+              // got a collectible hash? let's see if you own it
               const collectibleState = getCollectibleState(member, plug.definition.collectibleHash);
+              // if weapon, checks if the masterwork plug options have matching investment stats
+              const mismatchedMasterwork = manifest.DestinyInventoryItemDefinition[itemHash].itemType === DestinyItemType.Weapon && expandedSocket.isMasterwork && plug.definition.investmentStats && plug.definition.investmentStats.filter((stat) => manifest.DestinyInventoryItemDefinition[itemHash].investmentStats?.filter((s) => s.statTypeHash === stat.statTypeHash).length && stat.value > 0).length !== plug.definition.investmentStats.length;
+
+              const unavailable = mismatchedMasterwork;
 
               return (
                 <div
@@ -533,10 +540,12 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
                   className={cx('plug', energyAsset?.string !== 'any' && energyAsset?.string, {
                     // masterworked: plug.stats && Object.keys(plug.stats).filter((key) => plug.stats[key] > 9).length,
                     obtained: collectibleState && member.data ? !enumerateCollectibleState(collectibleState).NotAcquired : true,
+                    unavailable,
                     active: plug.definition.hash === expandedSocket.plug.definition?.hash,
                   })}
                   data-tooltip='mouse'
                   data-hash={plug.definition.hash}
+                  data-basehash={itemHash}
                 >
                   <div className='icon'>
                     <ObservedImage src={plug.definition.displayProperties.localIcon ? `${plug.definition.displayProperties.icon}` : `https://www.bungie.net${plug.definition.displayProperties.icon}`} />
@@ -555,17 +564,14 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
 
 function Emblem({ itemHash, ...props }) {
   const definitionEmblem = manifest.DestinyInventoryItemDefinition[itemHash];
-  
+
   const displayName = useSelector((state) => state.member.data.profile?.profile.data.userInfo.displayName) || 'justrealmilk';
   const light = useSelector((state) => state.member.data.profile?.characters.data[0].light) || '100';
 
   return (
     <div className='emblem'>
       <div className='wrapper'>
-        <ObservedImage
-          className={cx('image', 'secondary-icon', { missing: !definitionEmblem.secondaryIcon, })}
-          src={`https://www.bungie.net${definitionEmblem.secondaryIcon ? definitionEmblem.secondaryIcon : `/img/misc/missing_icon_d2.png`}`}
-        />
+        <ObservedImage className={cx('image', 'secondary-icon', { missing: !definitionEmblem.secondaryIcon })} src={`https://www.bungie.net${definitionEmblem.secondaryIcon ? definitionEmblem.secondaryIcon : `/img/misc/missing_icon_d2.png`}`} />
         <div className='display-name'>{displayName}</div>
         <div className='light'>{light}</div>
       </div>

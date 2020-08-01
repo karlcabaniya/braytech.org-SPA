@@ -1,6 +1,4 @@
 .map-omega .control.settings > .button {
-  background-color: transparent;
-  backdrop-filter: blur(10px) brightness(1.2) saturate(1.2);
   justify-content: center;
 }
 

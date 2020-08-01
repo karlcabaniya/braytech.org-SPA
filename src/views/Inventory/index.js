@@ -73,12 +73,6 @@ function Inventory(props) {
 
   const member = { membershipType: props.member.membershipType, membershipId: props.member.membershipId, characterId: props.member.characterId };
 
-  const inventory = [
-    ...props.member.data.profile.profileInventory.data.items, // non-instanced quest items, materials, etc.
-    ...props.member.data.profile.characterInventories.data[member.characterId].items, // non-equipped weapons etc
-    ...props.member.data.profile.characterEquipment.data[member.characterId].items, // equipped weapons etc
-  ];
-
   return (
     <div className='view' id='inventory'>
       <div className='equipment'>
@@ -86,10 +80,10 @@ function Inventory(props) {
           {bucketsWeapons.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
               </ul>
             </div>
           ))}
@@ -98,10 +92,10 @@ function Inventory(props) {
           {bucketsArmor.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
               </ul>
             </div>
           ))}
@@ -110,10 +104,10 @@ function Inventory(props) {
           {bucketsAuxiliary.map((bucketHash, b) => (
             <div key={b} className='bucket'>
               <ul className='list inventory-items equipped'>
-                <Items items={itemsInBucket(inventory, bucketHash, true)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash, true)} />
               </ul>
               <ul className='list inventory-items'>
-                <Items items={itemsInBucket(inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
+                <Items items={itemsInBucket(member.data.inventory, bucketHash)} placeholders={slotsValue} handler={equipItem(member)} />
               </ul>
             </div>
           ))}

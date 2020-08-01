@@ -4,7 +4,7 @@ import { once } from 'lodash';
 import { t } from './i18n';
 import manifest from './manifest';
 import * as enums from './destinyEnums';
-import { D2SeasonInfo, D2CalculatedSeason } from '../data/d2-additional-info/d2-season-info.ts';
+import { D2SeasonInfo } from '../data/d2-additional-info/d2-season-info.ts';
 import * as SVG from '../svg';
 
 export const neverProfileLinks = ['/maps', '/vaulted'];
