@@ -60,7 +60,8 @@
     gap: 2rem;
   }
 
-  .map-omega .control.settings .dialog ul.list.settings {
+  .map-omega .control.settings .dialog ul.list.settings,
+  .map-omega .control.settings .dialog .groups > div:first-child ul.list.settings {
     grid-template-columns: auto;
   }
 

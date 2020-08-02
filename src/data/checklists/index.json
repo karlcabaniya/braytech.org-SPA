@@ -895,14 +895,16 @@
       "recordHash": 3448739524,
       "activityHash": 521403014,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
       "recordHash": 3448739527,
       "activityHash": 530720427,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -948,7 +950,8 @@
       "recordHash": 3448739523,
       "activityHash": 851841785,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -969,7 +972,8 @@
       "recordHash": 3448739533,
       "activityHash": 160315036,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -7569,7 +7573,10 @@
       "checklistHash": 3240560483,
       "map": {
         "points": [
-          {"x":99,"y":-549}
+          {
+            "x": 99,
+            "y": -549
+          }
         ]
       },
       "extended": {

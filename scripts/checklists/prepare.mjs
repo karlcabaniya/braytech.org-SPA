@@ -20,24 +20,19 @@ Object.keys(lowlinesDump).forEach((key) => {
 
   lowlinesDump[key].map.bubbles.forEach((bubble) => {
     bubble.nodes.forEach((node) => {
-      lowlinesNodes.push(node);
+      lowlinesNodes.push({
+        tId: bubble.id,
+        tName: bubble.name,
+        ...node
+      });
     });
   });
 });
 
+console.log(lowlinesNodes.find(n => n.checklistHash === '1084474591'))
+
 const temp = {};
 
-//{ "414918248": { "x": 115.5, "y": 190.5, "destinationHash": 308080871 }, "449188644": { "x": -29.25, "y": -273.75, "destinationHash": 308080871 }, "841689135": { "x": -397.5, "y": 226.5, "destinationHash": 308080871 }, "1234362125": { "x": -3.5, "y": 76.5, "destinationHash": 308080871 }, "1391560323": { "x": 160, "y": -190.5, "destinationHash": 308080871 }, "1751598777": { "x": 263, "y": -276, "destinationHash": 308080871 }, "2699027578": { "x": -208.5, "y": -1011.5, "destinationHash": 308080871 }, "3050642752": { "x": 37.75, "y": 452.5, "destinationHash": 308080871 }, "3088081032": { "x": -91.5, "y": 273, "destinationHash": 308080871 }, "3503863934": { "x": -94.5, "y": 204.75, "destinationHash": 308080871 } }
-
-//{ "255717559": { "x": 847.25, "y": 203.5, "destinationHash": 2388758973 }, "824584009": { "x": 73.5, "y": -17.5, "destinationHash": 2388758973 }, "831982840": { "x": -298.5, "y": 233.5, "destinationHash": 2388758973 }, "1340167197": { "x": -282, "y": 110, "destinationHash": 2388758973 }, "1484273045": { "x": 670, "y": -53, "destinationHash": 2388758973 }, "2505176711": { "x": -311, "y": 220.5, "destinationHash": 2388758973 }, "2932627380": { "x": 79.5, "y": 13.5, "destinationHash": 2388758973 }, "3116898003": { "x": 105, "y": 76, "destinationHash": 2388758973 }, "4058357578": { "x": 107, "y": 132, "destinationHash": 2388758973 }, "4213313478": { "x": -496.75, "y": 120, "destinationHash": 2388758973 } }
-
-//{"498965462":{"x":-33,"y":117,"destinationHash":1993421442},"1614302450":{"x":506.5,"y":-124,"destinationHash":1993421442},"1653626078":{"x":16.5,"y":-167.5,"destinationHash":1993421442},"2531256337":{"x":-493,"y":-178,"destinationHash":1993421442},"2533169312":{"x":-104,"y":-75,"destinationHash":1993421442},"2843152028":{"x":32.5,"y":-112,"destinationHash":1993421442},"3586865806":{"x":113.5,"y":-164,"destinationHash":1993421442},"3854005997":{"x":106.5,"y":-224,"destinationHash":1993421442},"3885687055":{"x":-33,"y":-228.5,"destinationHash":1993421442},"3945017947":{"x":201,"y":-59,"destinationHash":1993421442}};
-
-//{"498965462":{"x":-33,"y":117,"destinationHash":1993421442},"1614302450":{"x":506.5,"y":-124,"destinationHash":1993421442},"1653626078":{"x":16.5,"y":-167.5,"destinationHash":1993421442},"2531256337":{"x":-493,"y":-178,"destinationHash":1993421442},"2533169312":{"x":-104,"y":-75,"destinationHash":1993421442},"2843152028":{"x":32.5,"y":-112,"destinationHash":1993421442},"3586865806":{"x":113.5,"y":-164,"destinationHash":1993421442},"3854005997":{"x":106.5,"y":-224,"destinationHash":1993421442},"3885687055":{"x":-33,"y":-228.5,"destinationHash":1993421442},"3945017947":{"x":201,"y":-59,"destinationHash":1993421442}}
-
-// For when the mappings generated from lowlines' data don't have a
-// bubbleHash but do have a bubbleId. Inferred by cross-referencing
-// with https://docs.google.com/spreadsheets/d/1qgZtT1qbUFjyV8-ni73m6UCHTcuLmuLBx-zn_B7NFkY/edit#gid=1808601275
 const manualBubbleNames = {
   default: 'The Farm',
   'high-plains': 'High Plains',
@@ -214,6 +209,8 @@ async function run() {
       ...((existing && existing.extended) || {}),
       ...((addins && addins.extended) || {}),
     };
+
+    
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
     const bubbleName = definitionBubble && definitionBubble.displayProperties.name;

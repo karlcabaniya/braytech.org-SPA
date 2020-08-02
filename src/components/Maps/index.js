@@ -276,7 +276,7 @@ class Maps extends React.Component {
           {/* <Graphs {...destination} /> */}
         </Map>
         <Loading loaded={this.state.loaded} />
-        {viewport.width > 1024 ? <Zoom increase={this.handler_zoomIncrease} decrease={this.handler_zoomDecrease} /> : null}
+        {viewport.width > 1024 ? <Zoom increase={this.handler_zoomIncrease} decrease={this.handler_zoomDecrease} now={this.state.viewport.zoom} /> : null}
         {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
         <div className='controls left'>
           {viewport.width > 600 ? <ProfileState /> : null}

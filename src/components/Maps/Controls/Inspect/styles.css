@@ -24,7 +24,7 @@
 .map-omega .control.inspector .wrapper {
   max-height: calc(100vh - (3rem + 40px) - 3rem);
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .map-omega .control.inspector .close .button {

@@ -210,7 +210,7 @@ export default function NotificationService() {
 
     if (postman.displayProperties?.prompt) {
       return (
-        <Dialog type='notification' isError={postman.isError} actions={dialogActions}>
+        <Dialog type='notification' isError={postman.isError} actions={dialogActions} dominant>
           <div className={cx({ 'has-image': postman.displayProperties.image })}>
             <div className='icon'>{postman.displayProperties.image ? <ObservedImage className='image' src={postman.displayProperties.image} /> : postman.displayProperties.icon ? postman.displayProperties.icon : null}</div>
           </div>
