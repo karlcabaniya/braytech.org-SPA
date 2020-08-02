@@ -3,112 +3,180 @@
     "translated": 708,
     "notTranslated": 68,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "debug": {
     "translated": 776,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "en": {
     "translated": 776,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 776,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "es": {
     "translated": 776,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 634,
     "notTranslated": 142,
-    "added": [],
+    "added": [
+      "Maps.Nodes.Unavailable",
+      "Maps.Nodes.UnavailableInGame",
+      "Maps.Nodes.UnavailableUnreliableApi",
+      "Maps.Within.Activity",
+      "Maps.Within.ActivityName",
+      "Maps.Within.AscendantChallenge",
+      "Maps.Within.LostSector",
+      "Maps.Within.Story",
+      "Maps.Within.Strike"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Found within activity",
+      "Found within activity: {{activityName}}",
+      "Found within Ascendant Challenge: {{activityName}}",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}",
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status reliably.",
+      "Unavailable: this node is no longer available in-game."
     ]
   },
   "it": {
-    "translated": 770,
-    "notTranslated": 6,
+    "translated": 776,
+    "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 581,
     "notTranslated": 195,
-    "added": [],
+    "added": [
+      "Maps.Nodes.Unavailable",
+      "Maps.Nodes.UnavailableInGame",
+      "Maps.Nodes.UnavailableUnreliableApi"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status reliably.",
+      "Unavailable: this node is no longer available in-game."
     ]
   },
   "ko": {
     "translated": 510,
     "notTranslated": 266,
-    "added": [],
+    "added": [
+      "Maps.Nodes.Unavailable",
+      "Maps.Nodes.UnavailableInGame",
+      "Maps.Nodes.UnavailableUnreliableApi",
+      "Maps.Within.Activity",
+      "Maps.Within.ActivityName",
+      "Maps.Within.AscendantChallenge",
+      "Maps.Within.LostSector",
+      "Maps.Within.Story",
+      "Maps.Within.Strike"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Found within activity",
+      "Found within activity: {{activityName}}",
+      "Found within Ascendant Challenge: {{activityName}}",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}",
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status reliably.",
+      "Unavailable: this node is no longer available in-game."
     ]
   },
   "pl": {
     "translated": 2,
     "notTranslated": 774,
-    "added": [],
+    "added": [
+      "Maps.Nodes.Unavailable",
+      "Maps.Nodes.UnavailableInGame",
+      "Maps.Nodes.UnavailableUnreliableApi",
+      "Maps.Within.Activity",
+      "Maps.Within.ActivityName",
+      "Maps.Within.AscendantChallenge",
+      "Maps.Within.LostSector",
+      "Maps.Within.Story",
+      "Maps.Within.Strike"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Found within activity",
+      "Found within activity: {{activityName}}",
+      "Found within Ascendant Challenge: {{activityName}}",
+      "Found within Lost Sector: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}",
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status reliably.",
+      "Unavailable: this node is no longer available in-game."
     ]
   },
   "pt-br": {
-    "translated": 679,
-    "notTranslated": 97,
-    "added": [],
+    "translated": 775,
+    "notTranslated": 1,
+    "added": [
+      "Platform"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "latform"
     ]
   },
   "ru": {
     "translated": 776,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 580,
     "notTranslated": 196,
-    "added": [],
+    "added": [
+      "Maps.Nodes.Unavailable",
+      "Maps.Nodes.UnavailableInGame",
+      "Maps.Nodes.UnavailableUnreliableApi",
+      "Maps.Within.AscendantChallenge",
+      "Maps.Within.Story",
+      "Maps.Within.Strike"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Found within Ascendant Challenge: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}",
+      "Unavailable",
+      "Unavailable: something is preventing this node from relaying its status reliably.",
+      "Unavailable: this node is no longer available in-game."
     ]
   },
   "zh-cht": {
     "translated": 634,
     "notTranslated": 142,
-    "added": [],
+    "added": [
+      "Maps.Nodes.UnavailableUnreliableApi",
+      "Maps.Within.AscendantChallenge",
+      "Maps.Within.Story",
+      "Maps.Within.Strike"
+    ],
     "removed": [
-      "Investment stats are interpolated when applied to items, and as such, these values are a guide."
+      "Found within Ascendant Challenge: {{activityName}}",
+      "Found within Story: {{activityName}}",
+      "Found within Strike: {{activityName}}",
+      "Unavailable: something is preventing this node from relaying its status reliably."
     ]
   }
 }

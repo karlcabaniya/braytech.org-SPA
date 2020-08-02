@@ -423,27 +423,27 @@ export function BraytechText(props) {
 
 export function withinString(type, activityName) {
   if (type === 'lost-sector') {
-    return t('Found within Lost Sector: {{activityName}}', { activityName });
+    return t('Maps.Within.LostSector', { activityName });
   } else if (type === 'strike') {
-    return t('Found within Strike: {{activityName}}', { activityName });
+    return t('Maps.Within.Strike', { activityName });
   } else if (type === 'story') {
-    return t('Found within Story: {{activityName}}', { activityName });
+    return t('Maps.Within.Story', { activityName });
   } else if (type === 'ascendant-challenge') {
-    return t('Found within Ascendant Challenge: {{activityName}}', { activityName });
+    return t('Maps.Within.AscendantChallenge', { activityName });
   } else if (activityName) {
-    return t('Found within activity: {{activityName}}', { activityName });
+    return t('Maps.Within.ActivityName', { activityName });
   } else {
-    return t('Found within activity');
+    return t('Maps.Within.Activity');
   }
 }
 
 export function unavailableString(status) {
   if (status === 'removed') {
-    return t('Unavailable: this node is no longer available in-game.');
+    return t('Maps.Nodes.UnavailableInGame');
   } else if (status === 'api') {
-    return t('Unavailable: something is preventing this node from relaying its status reliably.');
+    return t('Maps.Nodes.UnavailableUnreliableApi');
   } else {
-    return t('Unavailable');
+    return t('Maps.Nodes.Unavailable');
   }
 }
 
