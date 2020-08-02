@@ -122,7 +122,7 @@ export function cartographer(search) {
       if (point.bubbleHash) {
         return {
           ...point,
-          screenshot: definitionMaps?.extended?.screenshots.find((screenshot) => screenshot.bubbleHash === point.bubbleHash)?.screenshot,
+          screenshot: definitionMaps?.extended?.screenshots?.find((screenshot) => screenshot.bubbleHash === point.bubbleHash)?.screenshot,
         };
       } else {
         return point;
@@ -273,7 +273,7 @@ export function locationStrings({ activityHash, destinationHash, bubbleHash, map
   const definitionDestination = manifest.DestinyDestinationDefinition[destinationHash];
   const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
   const definitionBubble = definitionDestination?.bubbles?.find((bubble) => bubble.hash === (extended?.bubbleHash || bubbleHash));
-  const definitionAir = map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.bubbleHash);
+  const definitionAir = map?.points?.[0]?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === map.points[0].bubbleHash);
 
   const destinationName = definitionDestination?.displayProperties?.name;
   const placeName = definitionPlace?.displayProperties?.name && definitionPlace.displayProperties.name !== destinationName && definitionPlace.displayProperties.name;

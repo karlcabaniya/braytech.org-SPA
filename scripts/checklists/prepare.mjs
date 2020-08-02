@@ -29,26 +29,7 @@ Object.keys(lowlinesDump).forEach((key) => {
   });
 });
 
-console.log(lowlinesNodes.find(n => n.checklistHash === '1084474591'))
-
 const temp = {};
-
-const manualBubbleNames = {
-  default: 'The Farm',
-  'high-plains': 'High Plains',
-  erebus: 'The Shattered Throne',
-  descent: 'The Shattered Throne',
-  eleusinia: 'The Shattered Throne',
-  'cimmerian-garrison': 'Cimmerian Garrison',
-  'shattered-ruins': 'Shattered Ruins',
-  'agonarch-abyss': 'Agonarch Abyss',
-  'keep-of-honed-edges': 'Keep of Honed Edges',
-  ouroborea: 'Ouroborea',
-  'forfeit-shrine': 'Forfeit Shrine',
-  adytum: 'The Corrupted',
-  'queens-court': 'The Queens Court',
-  'ascendant-plane': 'Dark Monastery',
-};
 
 const itemDeletions = [
   1116662180, // Ghost Scan 74 / The Reservoir, Earth / UNAVAILABLE
@@ -121,6 +102,23 @@ const ascendantChallenges = [
     },
   },
 ];
+
+const manualBubbleNames = {
+  // default: 'The Farm',
+  // 'high-plains': 'High Plains',
+  // erebus: 'The Shattered Throne',
+  // descent: 'The Shattered Throne',
+  // eleusinia: 'The Shattered Throne',
+  'cimmerian-garrison': 'Cimmerian Garrison',
+  'shattered-ruins': 'Shattered Ruins',
+  'agonarch-abyss': 'Agonarch Abyss',
+  'keep-of-honed-edges': 'Keep of Honed Edges',
+  ouroborea: 'Ouroborea',
+  'forfeit-shrine': 'Forfeit Shrine',
+  // adytum: 'The Corrupted',
+  // 'queens-court': 'The Queens Court',
+  // 'ascendant-plane': 'Dark Monastery',
+};
 
 const bubbleHashOverrides = {
   'High Plains': 1519764506,
@@ -208,9 +206,7 @@ async function run() {
     let extended = {
       ...((existing && existing.extended) || {}),
       ...((addins && addins.extended) || {}),
-    };
-
-    
+    };   
 
     const definitionBubble = definitionDestination && _.find(definitionDestination.bubbles, { hash: bubbleHash });
     const bubbleName = definitionBubble && definitionBubble.displayProperties.name;
@@ -239,7 +235,15 @@ async function run() {
 
     const points = (addins && addins.map && addins.map.points) || (existing && existing.map && existing.map.points) || [];
 
+    // const lowlinesNode = lowlinesNodes.find(n => n.checklistHash === checklistItem.hash.toString());
+    // if (lowlinesNode && manualBubbleNames[lowlinesNode.tId]) {
+    //   console.log(manualBubbleNames[lowlinesNode.tId], bubbleHashOverrides[manualBubbleNames[lowlinesNode.tId]])
+
+    //   points[0].bubbleHash = bubbleHashOverrides[manualBubbleNames[lowlinesNode.tId]]
+    // }
+
     // check to see if location is inside lost sector. look up item's bubble hash inside self's lost sector's checklist... unless this is a lost sector item
+    // ??????????
     const withinLostSector = bubbleHash && data[3142056444].find((l) => l.bubbleHash === bubbleHash) && checklistId !== 3142056444;
 
     let within = undefined;
@@ -256,7 +260,7 @@ async function run() {
     } else if (activityHash && checklistId !== 4178338182) {
       // exclude adventures from being located within themselves lol
       within = 'activity';
-    } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === bubbleHash)) {
+    } else if (bubbleHash && ascendantChallenges.find((b) => b.hash === points[0].bubbleHash)) {
       within = 'ascendant-challenge';
     }
 
@@ -268,7 +272,6 @@ async function run() {
       itemHash: checklistItem && checklistItem.itemHash,
       recordHash,
       map: {
-        bubbleHash: undefined,
         points,
         in: within,
       },
