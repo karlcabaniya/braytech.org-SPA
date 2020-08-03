@@ -134,7 +134,6 @@ function Node(props) {
       ) : null} */}
       {unified.related?.records.length || unified.extended?.instructions ? (
         <div className='buff'>
-          
           {unified.extended?.instructions ? (
             <>
               <h4>{t('Instructions')}</h4>
@@ -151,7 +150,7 @@ function Node(props) {
           ) : null}
         </div>
       ) : null}
-      <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} />
+      <ProposeChanges key={unified.nodeHash || unified.checklistHash || unified.recordHash} nodeHash={unified.nodeHash} checklistHash={unified.checklistHash} recordHash={unified.recordHash} description={unified.displayProperties?.description} name={unified.displayProperties?.name} />
     </div>
   );
 }

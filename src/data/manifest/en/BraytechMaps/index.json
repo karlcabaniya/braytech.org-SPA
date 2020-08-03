@@ -4213,5 +4213,17 @@
         }
       }
     }
+  },
+  "595": {
+    "checklistHash": 1067696999,
+    "screenshot": "/static/images/screenshots/checklists/corrupted-eggs/spine-of-keres-1067696999.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 50,
+          "y": 22.5
+        }
+      }
+    }
   }
 }
