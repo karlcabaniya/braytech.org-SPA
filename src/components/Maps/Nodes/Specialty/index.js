@@ -84,20 +84,17 @@ export default function Speciality({ destinationId, destinationHash, ...props })
   const member = useSelector((state) => state.member);
   const history = useHistory();
 
-  const map = maps[destinationId].map;
+  if (!maps[destinationId]?.map) return null;
 
-  const viewWidth = 1920;
-  const viewHeight = 1080;
-
-  const mapXOffset = (map.width - viewWidth) / 2;
-  const mapYOffset = -(map.height - viewHeight) / 2;
+  const mapXOffset = (maps[destinationId].map.width - 1920) / 2;
+  const mapYOffset = -(maps[destinationId].map.height - 1080) / 2;
 
   const nodes = MakeNodes(destinationHash, member, history);
 
   return nodes.map((node, n) => {
     return node.map.points.map((point) => {
-      const markerOffsetX = mapXOffset + viewWidth / 2;
-      const markerOffsetY = mapYOffset + map.height + -viewHeight / 2;
+      const markerOffsetX = mapXOffset + 1920 / 2;
+      const markerOffsetY = mapYOffset + maps[destinationId].map.height + -1080 / 2;
 
       if (!point.x || !point.y) {
         console.warn(node);
