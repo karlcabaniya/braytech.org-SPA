@@ -142,21 +142,27 @@ export const checklists = {
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [airName, bubbleName, activityName, !(airName || activityName) && destinationName].filter((s) => s).join(', ');
+        const isAscendantPlane = i.bubbleHash === 27792021738;
+
+        return [airName, bubbleName, !isAscendantPlane && activityName, !(airName || activityName || isAscendantPlane) && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionBubble = definitionDestination.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionAir = i.map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === i.map.bubbleHash);
 
-        const destinationName = definitionDestination?.displayProperties.name;
+        const destinationName = definitionDestination.displayProperties.name;
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
+        const airName = definitionAir?.displayProperties.name;
 
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
+        const isAscendantPlane = i.bubbleHash === 27792021738;
+
+        return [airName, bubbleName, !isAscendantPlane && activityName, !(airName || activityName) && destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: t('Ahamkara Bones'),
       checklistItemName_plural: t('Ahamkara Bones'),
@@ -181,21 +187,27 @@ export const checklists = {
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [airName, bubbleName, activityName, !(airName || activityName) && destinationName].filter((s) => s).join(', ');
+        const isAscendantPlane = i.bubbleHash === 27792021738;
+
+        return [airName, bubbleName, !isAscendantPlane && activityName, !(airName || activityName || isAscendantPlane) && destinationName].filter((s) => s).join(', ');
       },
       itemLocationExt: (i) => {
         const definitionDestination = manifest.DestinyDestinationDefinition[i.destinationHash];
         const definitionPlace = manifest.DestinyPlaceDefinition[definitionDestination?.placeHash];
-        const definitionBubble = definitionDestination?.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionBubble = definitionDestination.bubbles.find((b) => b.hash === i.bubbleHash);
+        const definitionAir = i.map?.bubbleHash && definitionDestination?.bubbles?.find((bubble) => bubble.hash === i.map.bubbleHash);
 
-        const destinationName = definitionDestination?.displayProperties.name;
+        const destinationName = definitionDestination.displayProperties.name;
         const placeName = definitionPlace?.displayProperties.name !== definitionDestination?.displayProperties.name && definitionPlace.displayProperties.name;
         const bubbleName = definitionBubble?.displayProperties.name;
+        const airName = definitionAir?.displayProperties.name;
 
         const definitionActivity = i.activityHash && manifest.DestinyActivityDefinition[i.activityHash];
         const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name || false;
 
-        return [bubbleName, activityName, destinationName, placeName].filter((s) => s).join(', ');
+        const isAscendantPlane = i.bubbleHash === 27792021738;
+
+        return [airName, bubbleName, !isAscendantPlane && activityName, !(airName || activityName) && destinationName, placeName].filter((s) => s).join(', ');
       },
       checklistItemName: t('Corrupted Egg'),
       checklistItemName_plural: t('Corrupted Eggs'),
