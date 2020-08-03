@@ -7,6 +7,14 @@ export default {
       };
     },
   },
+  theme: {
+    scrollbars: function (payload) {
+      return {
+        type: 'SET_SCROLLBARS',
+        payload,
+      };
+    },
+  },
   notifications: {
     push: function (payload) {
       return {
