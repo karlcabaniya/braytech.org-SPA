@@ -30,6 +30,23 @@ import Surveyor from './Controls/Surveyor';
 
 import './styles.css';
 
+function areThereChanges(name, previous, current) {
+  const diff = Object.keys(previous).reduce((diffs, key) => {
+    if (previous[key] !== current[key]) {
+      diffs[key] = {
+        previous: previous[key],
+        current: current[key]
+      };
+    }
+
+    return diffs;
+  }, {});
+
+  if (Object.keys(diff).length === 0) return;
+
+  console.log(name, diff);
+}
+
 class Maps extends React.Component {
   state = {
     loading: true,
@@ -103,12 +120,12 @@ class Maps extends React.Component {
   }
 
   componentDidUpdate(p, s) {
-    if (p.params.map !== this.props.params.map) {
-      this.setDestination(this.props.params.map);
-    }
+    areThereChanges('Props', p, this.props);
+    areThereChanges('State', s, this.state);
 
-    if (s.inspect !== this.state.inspect) {
-      this.props.rebindTooltips();
+    if (p.params.map !== this.props.params.map) {
+      console.log(p.params.map,this.props.params.map)
+      this.setDestination(this.props.params.map);
     }
   }
 
@@ -165,9 +182,11 @@ class Maps extends React.Component {
     this.setState({ loaded });
   };
 
-  handler_map_layerAdd = debounce((e) => {
-    if (this.mounted) this.props.rebindTooltips();
-  }, 200);
+  // handler_map_layerAdd = debounce((e) => {
+  //   if (this.mounted) this.props.rebindTooltips();
+  // }, 200);
+
+  handler_map_layerAdd = (e) => { };
 
   handler_map_moveEnd = (e) => {
     if (this.mounted) this.props.rebindTooltips();
@@ -230,6 +249,8 @@ class Maps extends React.Component {
 
   render() {
     const { viewport, settings, params } = this.props;
+
+    console.log('rerender')
 
     const destination = resolveMap(params.map);
     const map = maps[destination.destinationId].map;

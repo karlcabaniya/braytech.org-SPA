@@ -61,7 +61,7 @@ function Vendor(props) {
     dispatch(actions.tooltips.rebind());
   }, [dispatch, data.response]);
 
-  console.log(member, auth, data);
+  // console.log(member, auth, data);
 
   const type = findNodeType(props);
   const node = cartographer(type);
