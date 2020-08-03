@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import maps from '../../../data/maps';
 import { Marker } from 'react-leaflet';
 
 import actions from '../../../store/actions';
 import { checklists } from '../../../utils/checklists';
 import { cartographer } from '../../../utils/maps';
-import maps from '../../../data/maps';
 
 import * as marker from '../markers';
 
@@ -58,6 +60,7 @@ function generateLists({ checklists: visibility, noScreenshotHighlight }) {
 export default function Checklists(props) {
   const settings = useSelector((state) => state.settings);
   const member = useSelector((state) => state.member);
+  const params = useParams();
   const dispatch = useDispatch();
   const [lists, setLists] = useState([]);
 
@@ -101,7 +104,7 @@ export default function Checklists(props) {
       .filter((node) => node.destinationHash === maps[props.destinationId].destination.hash)
       .filter((node) => (node.invisible && !settings.maps.debug ? false : true))
       .map((node, n) => {
-        const highlight = props.highlight && +props.highlight === (node.checklistHash || node.recordHash);
+        const highlight = params.highlight && +params.highlight === (node.checklistHash || node.recordHash);
         const selected =
           highlight ||
           (props.selected.checklistHash // check if checklistHash item is selected

@@ -895,14 +895,16 @@
       "recordHash": 3448739524,
       "activityHash": 521403014,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
       "recordHash": 3448739527,
       "activityHash": 530720427,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -948,7 +950,8 @@
       "recordHash": 3448739523,
       "activityHash": 851841785,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -969,7 +972,8 @@
       "recordHash": 3448739533,
       "activityHash": 160315036,
       "map": {
-        "points": []
+        "points": [],
+        "in": "story"
       }
     },
     {
@@ -1174,9 +1178,11 @@
         "points": [
           {
             "x": 1402,
-            "y": 577
+            "y": 577,
+            "bubbleHash": 27792021737
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -1222,9 +1228,11 @@
         "points": [
           {
             "x": 397,
-            "y": -256
+            "y": -256,
+            "bubbleHash": 27792021736
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -1236,9 +1244,11 @@
         "points": [
           {
             "x": 464,
-            "y": -116
+            "y": -116,
+            "bubbleHash": 27792021734
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -1250,13 +1260,16 @@
         "points": [
           {
             "x": -507,
-            "y": -269
+            "y": -269,
+            "bubbleHash": 27792021735
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
       "destinationHash": 2779202173,
+      "bubbleHash": 27792021738,
       "activityHash": 1313738982,
       "checklistHash": 1387596456,
       "recordHash": 1842255615,
@@ -1317,9 +1330,11 @@
         "points": [
           {
             "x": -26,
-            "y": -1092
+            "y": -1092,
+            "bubbleHash": 27792021733
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -1331,9 +1346,11 @@
         "points": [
           {
             "x": -375,
-            "y": 100
+            "y": 100,
+            "bubbleHash": 27792021732
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     }
   ],
@@ -6574,9 +6591,11 @@
         "points": [
           {
             "x": 1227,
-            "y": 255
+            "y": 255,
+            "bubbleHash": 27792021737
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6588,9 +6607,11 @@
         "points": [
           {
             "x": 1354,
-            "y": 730
+            "y": 730,
+            "bubbleHash": 27792021737
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6602,9 +6623,11 @@
         "points": [
           {
             "x": 1507,
-            "y": 382
+            "y": 382,
+            "bubbleHash": 27792021737
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6616,9 +6639,11 @@
         "points": [
           {
             "x": 486,
-            "y": -83
+            "y": -83,
+            "bubbleHash": 27792021734
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6630,9 +6655,11 @@
         "points": [
           {
             "x": 533,
-            "y": -105
+            "y": -105,
+            "bubbleHash": 27792021734
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6644,9 +6671,11 @@
         "points": [
           {
             "x": 490,
-            "y": -347
+            "y": -347,
+            "bubbleHash": 27792021736
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6658,9 +6687,11 @@
         "points": [
           {
             "x": 511,
-            "y": 180
+            "y": 180,
+            "bubbleHash": 27792021736
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6672,9 +6703,11 @@
         "points": [
           {
             "x": 584,
-            "y": -296
+            "y": -296,
+            "bubbleHash": 27792021736
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6686,9 +6719,11 @@
         "points": [
           {
             "x": -752,
-            "y": -326
+            "y": -326,
+            "bubbleHash": 27792021735
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6700,9 +6735,11 @@
         "points": [
           {
             "x": -346,
-            "y": -167
+            "y": -167,
+            "bubbleHash": 27792021735
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6714,9 +6751,11 @@
         "points": [
           {
             "x": -488,
-            "y": -33
+            "y": -33,
+            "bubbleHash": 27792021732
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6728,9 +6767,11 @@
         "points": [
           {
             "x": -400,
-            "y": -158
+            "y": -158,
+            "bubbleHash": 27792021732
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6742,9 +6783,11 @@
         "points": [
           {
             "x": -219,
-            "y": 153
+            "y": 153,
+            "bubbleHash": 27792021732
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6756,9 +6799,11 @@
         "points": [
           {
             "x": -151,
-            "y": -835
+            "y": -835,
+            "bubbleHash": 27792021733
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     },
     {
@@ -6770,9 +6815,11 @@
         "points": [
           {
             "x": -132,
-            "y": -750
+            "y": -750,
+            "bubbleHash": 27792021733
           }
-        ]
+        ],
+        "in": "ascendant-challenge"
       }
     }
   ],
@@ -7569,7 +7616,10 @@
       "checklistHash": 3240560483,
       "map": {
         "points": [
-          {"x":99,"y":-549}
+          {
+            "x": 99,
+            "y": -549
+          }
         ]
       },
       "extended": {

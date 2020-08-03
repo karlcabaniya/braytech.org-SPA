@@ -1,6 +1,10 @@
 .map-omega .leaflet-container .text-marker,
 .map-omega .leaflet-container .icon-marker,
 .map-omega .leaflet-container .icon-marker .wrapper .icon {
+  padding: unset;
+  font-size: unset;
+  line-height: unset;
+  color: unset;
   transition: opacity 0.5s;
 }
 

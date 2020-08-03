@@ -211,7 +211,7 @@ export default function Inspect() {
                         <div key={stat.statHash} className='stat'>
                           <div className='name'>{stat.displayProperties.name}</div>
                           <div className='value'>
-                            <div className={cx('text', { modded: moddedValue !== 0 })}>{stat.value}</div>
+                            <div className={cx('text', { masterwork: masterworkValue !== 0, modded: moddedValue !== 0 })}>{stat.value}</div>
                             <RecoilStat value={stat.value} />
                           </div>
                         </div>

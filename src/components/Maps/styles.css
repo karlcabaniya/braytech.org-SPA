@@ -199,6 +199,9 @@
   justify-content: center;
 }
 
+.map-omega .control.zoom li.disabled {
+  color: rgba(255, 255, 255, 0.4);
+}
 
 
 

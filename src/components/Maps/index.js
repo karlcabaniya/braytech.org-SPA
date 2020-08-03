@@ -1,6 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { debounce } from 'lodash';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import L from 'leaflet';
@@ -9,6 +8,7 @@ import { Map } from 'react-leaflet';
 
 import maps from '../../data/maps';
 
+import actions from '../../store/actions';
 import { resolveMap, getMapCenter } from '../../utils/maps';
 import { checklists, checkup } from '../../utils/checklists';
 
@@ -29,158 +29,156 @@ import Inspect from './Controls/Inspect';
 import Surveyor from './Controls/Surveyor';
 
 import './styles.css';
+import { useParams } from 'react-router-dom';
 
-class Maps extends React.Component {
-  state = {
+function getViewport(viewport, params) {
+  console.log('initialViewport function executed');
+
+  const { destinationId, destinationHash } = resolveMap(params.map);
+
+  let center = getMapCenter(destinationId);
+  let zoom = 0;
+
+  if (params.highlight) {
+    const checklistLookup = checkup({ key: 'checklistHash', value: +params.highlight });
+    const recordLookup = checkup({ key: 'recordHash', value: +params.highlight });
+
+    const entry = (checklistLookup?.checklistId && checklistLookup) || (recordLookup?.checklistId && recordLookup);
+
+    const checklist = entry?.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
+    const checklistItem = checklist?.items?.length && checklist.items[0];
+
+    if (checklistItem?.map?.points?.[0] && checklistItem?.destinationHash === destinationHash) {
+      const markerY = checklistItem.map.points[0].y || 0;
+      const markerX = checklistItem.map.points[0].x || 0;
+
+      center = [maps[destinationId].map.height / 2 + markerY, maps[destinationId].map.width / 2 + markerX];
+    }
+  }
+
+  // Initially display more on high DPI mobile devices
+  if (viewport.width <= 600) {
+    zoom = -1;
+  }
+
+  return {
+    center,
+    zoom,
+    destinationHash,
+  };
+}
+
+export default function Maps() {
+  const settings = useSelector((state) => state.settings);
+  const viewport = useSelector((state) => state.viewport);
+  const params = useParams();
+  const dispatch = useDispatch();
+
+  // map state
+  const [mapState, setMapState] = useState({
     loading: true,
     loaded: [],
     error: false,
-    viewport: undefined,
+  });
+
+  // viewport state
+  const [viewportState, setViewportState] = useState(() => getViewport(viewport, params));
+
+  // controls state
+  const [controlsState, setControlsState] = useState({
     inspect: false,
     debug: {
       clicked: {},
     },
-  };
+  });
 
-  static getDerivedStateFromProps(p, s) {
-    // If viewport defined, skip.
-    if (s.viewport) {
-      return null;
-    }
-
-    // Prepare to define viewport based on props i.e. route params
-    const resolved = resolveMap(p.params.map).destinationId;
-
-    let center = getMapCenter(resolved);
-    let zoom = 0;
-
-    if (p.params.highlight) {
-      const map = maps[resolved].map;
-      const destination = maps[resolved].destination;
-      const hash = +p.params.highlight;
-
-      const checklistLookup = checkup({ key: 'checklistHash', value: hash });
-      const recordLookup = checkup({ key: 'recordHash', value: hash });
-
-      const entry = (checklistLookup?.checklistId && checklistLookup) || (recordLookup?.checklistId && recordLookup);
-
-      const checklist = entry?.checklistId && checklists[entry.checklistId]({ requested: entry.recordHash ? { key: 'recordHash', array: [entry.recordHash] } : { key: 'checklistHash', array: [entry.checklistHash] } });
-      const checklistItem = checklist?.items?.length && checklist.items[0];
-
-      if (checklistItem?.map?.points?.[0] && checklistItem?.destinationHash === destination.hash) {
-        const markerY = checklistItem.map.points[0].y || 0;
-        const markerX = checklistItem.map.points[0].x || 0;
-
-        center = [map.height / 2 + markerY, map.width / 2 + markerX];
-      }
-    }
-
-    // Initially display more on high DPI mobile devices
-    if (p.viewport.width <= 600) {
-      zoom = -1;
-    }
-
-    return {
-      viewport: {
-        center,
-        zoom,
-      },
-    };
-  }
-
-  componentDidMount() {
-    this.mounted = true;
-
+  useEffect(() => {
     window.scrollTo(0, 0);
 
-    this.props.setScrollbars('dark');
-  }
+    dispatch(actions.theme.scrollbars('dark'));
 
-  componentWillUnmount() {
-    this.mounted = false;
+    return () => {
+      dispatch(actions.theme.scrollbars());
+    };
+  }, [dispatch]);
 
-    this.props.setScrollbars();
-  }
+  useEffect(() => {
+    const { destinationId, destinationHash } = resolveMap(params.map);
 
-  componentDidUpdate(p, s) {
-    if (p.params.map !== this.props.params.map) {
-      this.setDestination(this.props.params.map);
+    if (viewportState.destinationHash !== destinationHash) {
+      console.log('Map change');
+
+      const { center } = getViewport(viewport, params);
+
+      setViewportState((state) => ({
+        ...state,
+        center,
+      }));
     }
+  }, [params.map]);
 
-    if (s.inspect !== this.state.inspect) {
-      this.props.rebindTooltips();
-    }
-  }
+  useEffect(() => {
+    dispatch(actions.tooltips.rebind());
+  }, [
+    dispatch,
+    params,
+    mapState.loading, // map loading
+    controlsState.inspect, // inspect
+    viewportState,
+  ]);
 
-  setDestination = (destination) => {
-    const resolved = resolveMap(destination);
+  const handler_hideInspect = (e) => {
+    setControlsState((state) => ({
+      ...state,
+      inspect: false,
+    }));
+  };
 
-    if (this.mounted) {
-      this.setState((state) => ({
-        viewport: {
-          ...state.viewport,
-          center: getMapCenter(resolved.destinationId),
-        },
+  const handler_showInspect = (props) => (e) => {
+    if (viewport.width > 600) {
+      setControlsState((state) => ({
+        ...state,
+        inspect: props,
       }));
     }
   };
 
-  handler_hideInspect = (e) => {
-    this.setState({
-      inspect: false,
-    });
-  };
-
-  handler_showInspect = (props) => (e) => {
-    if (this.props.viewport.width > 600) {
-      this.setState({
-        inspect: props,
-      });
-    }
-  };
-
-  handler_zoomIncrease = (e) => {
-    this.setState((state) => ({
-      viewport: {
-        ...state.viewport,
-        zoom: state.viewport.zoom + 1,
-      },
+  const handler_zoomIncrease = (e) => {
+    setViewportState((state) => ({
+      ...state,
+      zoom: state.zoom + 1,
     }));
   };
 
-  handler_zoomDecrease = (e) => {
-    this.setState((state) => ({
-      viewport: {
-        ...state.viewport,
-        zoom: state.viewport.zoom - 1,
-      },
+  const handler_zoomDecrease = (e) => {
+    setViewportState((state) => ({
+      ...state,
+      zoom: state.zoom - 1,
     }));
   };
 
-  handler_map_layersReady = () => {
-    this.setState({ loading: false });
+  const handler_map_layersReady = () => {
+    setMapState((state) => ({ ...state, loading: false }));
   };
 
-  handler_map_layersPartial = (loaded) => {
-    this.setState({ loaded });
+  const handler_map_layersPartial = (loaded) => {
+    setMapState((state) => ({ ...state, loaded }));
   };
 
-  handler_map_layerAdd = debounce((e) => {
-    if (this.mounted) this.props.rebindTooltips();
-  }, 200);
+  const handler_map_layerAdd = (e) => {};
 
-  handler_map_moveEnd = (e) => {
-    if (this.mounted) this.props.rebindTooltips();
+  const handler_map_moveEnd = (e) => {
+    // if (this.mounted) this.props.rebindTooltips();
   };
 
-  handler_map_zoomEnd = (e) => {
-    if (this.mounted) this.props.rebindTooltips();
+  const handler_map_zoomEnd = (e) => {
+    // if (this.mounted) this.props.rebindTooltips();
   };
 
-  handler_map_mouseDown = (e) => {
-    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
+  const handler_map_mouseDown = (e) => {
+    if (!settings.maps.debug || !settings.maps.logDetails) return;
 
-    const destination = resolveMap(this.props.params.map);
+    const destination = resolveMap(params.map);
 
     const map = maps[destination.destinationId].map;
 
@@ -217,97 +215,74 @@ class Maps extends React.Component {
     // });
   };
 
-  handler_map_viewportChanged = (viewport) => {
-    // if (typeof viewport.zoom === 'number' && viewport.center && viewport.center.length === 2) this.setState({ viewport });
-    if (typeof viewport.zoom === 'number') this.setState((p) => ({ viewport: { ...p.viewport, zoom: viewport.zoom } }));
+  const handler_map_viewportChanged = (viewport) => {
+    if (typeof viewport.zoom === 'number') {
+      setViewportState((state) => ({ ...state, zoom: viewport.zoom }));
+    }
   };
 
-  handler_map_viewportChange = (e) => {
-    if (!this.props.settings.maps.debug || !this.props.settings.maps.logDetails) return;
+  const handler_map_viewportChange = (e) => {
+    if (!settings.maps.debug || !settings.maps.logDetails) return;
 
     // console.log(e);
   };
 
-  render() {
-    const { viewport, settings, params } = this.props;
+  const destination = resolveMap(params.map);
+  const map = maps[destination.destinationId].map;
+  const bounds = [
+    [0, 0],
+    [map.height, map.width],
+  ];
 
-    const destination = resolveMap(params.map);
-    const map = maps[destination.destinationId].map;
-    const bounds = [
-      [0, 0],
-      [map.height, map.width],
-    ];
-
-    return (
-      <div className={cx('map-omega', `zoom-${this.state.viewport.zoom}`, { loading: this.state.loading, debug: settings.maps.debug, 'highlight-no-screenshot': settings.maps.noScreenshotHighlight })}>
-        <div className='leaflet-pane leaflet-background-pane tinted'>
-          <BackgroundLayer {...destination} />
-        </div>
-        <Map
-          // Hello from Seattle
-          center={this.state.viewport.center}
-          zoom={this.state.viewport.zoom}
-          minZoom='-2'
-          maxZoom='2'
-          maxBounds={bounds}
-          crs={L.CRS.Simple}
-          attributionControl={false}
-          zoomControl={false}
-          zoomAnimation={false}
-          onViewportChange={this.handler_map_viewportChange}
-          onViewportChanged={this.handler_map_viewportChanged}
-          onLayerAdd={this.handler_map_layerAdd}
-          onMove={this.handler_map_move}
-          onMoveEnd={this.handler_map_moveEnd}
-          onZoomEnd={this.handler_map_zoomEnd}
-          onMouseDown={this.handler_map_mouseDown}
-        >
-          {/* the Maps */}
-          <Layers {...destination} ready={this.handler_map_layersReady} partial={this.handler_map_layersPartial} />
-          {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
-          <Static {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
-          {/* Checklists... */}
-          <Checklists {...destination} highlight={params.highlight} selected={this.state.inspect} handler={this.handler_showInspect} />
-          {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
-          <Runtime {...destination} selected={this.state.inspect} handler={this.handler_showInspect} />
-          {/* Latent memory fragments on Mars, etc. */}
-          <Speciality {...destination} handler={this.handler_showInspect} />
-          {/* Unique graphs */}
-          {/* <Graphs {...destination} /> */}
-        </Map>
-        <Loading loaded={this.state.loaded} />
-        {viewport.width > 1024 ? <Zoom increase={this.handler_zoomIncrease} decrease={this.handler_zoomDecrease} /> : null}
-        {viewport.width > 600 && this.state.inspect ? <Inspect {...this.state.inspect} handler={this.handler_hideInspect} /> : null}
-        <div className='controls left'>
-          {viewport.width > 600 ? <ProfileState /> : null}
-          <Characters />
-          <div className='coupled'>
-            <Destinations {...destination} />
-            <Settings />
-          </div>
-          {viewport.width > 600 && settings.maps.debug && <Surveyor {...this.state.debug} />}
-        </div>
+  return (
+    <div className={cx('map-omega', `zoom-${viewportState.zoom}`, { loading: mapState.loading, debug: settings.maps.debug, 'highlight-no-screenshot': settings.maps.noScreenshotHighlight })}>
+      <div className='leaflet-pane leaflet-background-pane tinted'>
+        <BackgroundLayer {...destination} />
       </div>
-    );
-  }
+      <Map
+        // Hello from Seattle
+        center={viewportState.center}
+        zoom={viewportState.zoom}
+        minZoom='-2'
+        maxZoom='2'
+        maxBounds={bounds}
+        crs={L.CRS.Simple}
+        attributionControl={false}
+        zoomControl={false}
+        zoomAnimation={false}
+        onViewportChange={handler_map_viewportChange}
+        onViewportChanged={handler_map_viewportChanged}
+        onLayerAdd={handler_map_layerAdd}
+        // onMove={handler_map_move}
+        onMoveEnd={handler_map_moveEnd}
+        onZoomEnd={handler_map_zoomEnd}
+        onMouseDown={handler_map_mouseDown}
+      >
+        {/* the Maps */}
+        <Layers {...destination} ready={handler_map_layersReady} partial={handler_map_layersPartial} />
+        {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
+        <Static {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
+        {/* Checklists... */}
+        <Checklists {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
+        {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
+        <Runtime {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
+        {/* Latent memory fragments on Mars, etc. */}
+        <Speciality {...destination} handler={handler_showInspect} />
+        {/* Unique graphs */}
+        {/* <Graphs {...destination} /> */}
+      </Map>
+      <Loading loaded={mapState.loaded} />
+      {viewport.width > 1024 ? <Zoom increase={handler_zoomIncrease} decrease={handler_zoomDecrease} now={viewportState.zoom} /> : null}
+      {viewport.width > 600 && controlsState.inspect ? <Inspect {...controlsState.inspect} handler={handler_hideInspect} /> : null}
+      <div className='controls left'>
+        {viewport.width > 600 ? <ProfileState /> : null}
+        <Characters />
+        <div className='coupled'>
+          <Destinations {...destination} />
+          <Settings />
+        </div>
+        {viewport.width > 600 && settings.maps.debug && <Surveyor {...controlsState.debug} />}
+      </div>
+    </div>
+  );
 }
-
-function mapStateToProps(state) {
-  return {
-    settings: state.settings,
-    viewport: state.viewport,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS' });
-    },
-    setScrollbars: (payload) => {
-      dispatch({ type: 'SET_SCROLLBARS', payload });
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Maps);

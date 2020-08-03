@@ -160,7 +160,7 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
 }
 
 #header.profile-header .braytech {
-  background-color: rgba(135, 135, 135, 0.2);
+  /* background-color: rgba(135, 135, 135, 0.2); */
   color: rgba(255, 255, 255, 0.8);
 }
 
