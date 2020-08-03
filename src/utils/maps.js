@@ -281,15 +281,33 @@ export function locationStrings({ activityHash, destinationHash, bubbleHash, map
   const airName = definitionAir?.displayProperties?.name;
   const activityName = definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name;
 
-  const destinationString = [bubbleName, activityName, !(airName || activityName) && destinationName, placeName]
+  const isAscendantPlane = bubbleHash === 27792021738;
+
+  const within = map?.in;
+  const withinName =
+    isAscendantPlane && !activityName
+      ? // it's on the ascendant plane and there's no activity i.e. Dark Monastery
+        airName || bubbleName
+      : // the opposite scenario
+        (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) ||
+        // neither of the above - let's see what's left
+        airName ||
+        bubbleName;
+
+  const destinationString = [
+    bubbleName,
+    // only show the activity name if it's not on the ascendant plane
+    !isAscendantPlane && activityName,
+    // only show the destination name if:
+    // it's not on the ascendant plane and there's no activity name
+    !(activityName || isAscendantPlane) && destinationName,
+    placeName,
+  ]
     // remove falsey values
     .filter((string) => string)
     // remove duplicate values
     .filter((a, b, self) => self.indexOf(a) === b)
     .join(', ');
-
-  const within = map?.in;
-  const withinName = within === 'ascendant-challenge' ? airName || bubbleName : (within && (definitionActivity?.originalDisplayProperties?.name || definitionActivity?.displayProperties.name)) || airName || bubbleName;
 
   return {
     destinationString,

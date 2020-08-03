@@ -32,28 +32,8 @@
   "fr": {
     "translated": 634,
     "notTranslated": 142,
-    "added": [
-      "Maps.Nodes.Unavailable",
-      "Maps.Nodes.UnavailableInGame",
-      "Maps.Nodes.UnavailableUnreliableApi",
-      "Maps.Within.Activity",
-      "Maps.Within.ActivityName",
-      "Maps.Within.AscendantChallenge",
-      "Maps.Within.LostSector",
-      "Maps.Within.Story",
-      "Maps.Within.Strike"
-    ],
-    "removed": [
-      "Found within activity",
-      "Found within activity: {{activityName}}",
-      "Found within Ascendant Challenge: {{activityName}}",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}",
-      "Unavailable",
-      "Unavailable: something is preventing this node from relaying its status reliably.",
-      "Unavailable: this node is no longer available in-game."
-    ]
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 776,
@@ -64,78 +44,26 @@
   "ja": {
     "translated": 581,
     "notTranslated": 195,
-    "added": [
-      "Maps.Nodes.Unavailable",
-      "Maps.Nodes.UnavailableInGame",
-      "Maps.Nodes.UnavailableUnreliableApi"
-    ],
-    "removed": [
-      "Unavailable",
-      "Unavailable: something is preventing this node from relaying its status reliably.",
-      "Unavailable: this node is no longer available in-game."
-    ]
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 510,
     "notTranslated": 266,
-    "added": [
-      "Maps.Nodes.Unavailable",
-      "Maps.Nodes.UnavailableInGame",
-      "Maps.Nodes.UnavailableUnreliableApi",
-      "Maps.Within.Activity",
-      "Maps.Within.ActivityName",
-      "Maps.Within.AscendantChallenge",
-      "Maps.Within.LostSector",
-      "Maps.Within.Story",
-      "Maps.Within.Strike"
-    ],
-    "removed": [
-      "Found within activity",
-      "Found within activity: {{activityName}}",
-      "Found within Ascendant Challenge: {{activityName}}",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}",
-      "Unavailable",
-      "Unavailable: something is preventing this node from relaying its status reliably.",
-      "Unavailable: this node is no longer available in-game."
-    ]
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
     "notTranslated": 774,
-    "added": [
-      "Maps.Nodes.Unavailable",
-      "Maps.Nodes.UnavailableInGame",
-      "Maps.Nodes.UnavailableUnreliableApi",
-      "Maps.Within.Activity",
-      "Maps.Within.ActivityName",
-      "Maps.Within.AscendantChallenge",
-      "Maps.Within.LostSector",
-      "Maps.Within.Story",
-      "Maps.Within.Strike"
-    ],
-    "removed": [
-      "Found within activity",
-      "Found within activity: {{activityName}}",
-      "Found within Ascendant Challenge: {{activityName}}",
-      "Found within Lost Sector: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}",
-      "Unavailable",
-      "Unavailable: something is preventing this node from relaying its status reliably.",
-      "Unavailable: this node is no longer available in-game."
-    ]
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 775,
     "notTranslated": 1,
-    "added": [
-      "Platform"
-    ],
-    "removed": [
-      "latform"
-    ]
+    "added": [],
+    "removed": []
   },
   "ru": {
     "translated": 776,
@@ -146,37 +74,13 @@
   "zh-chs": {
     "translated": 580,
     "notTranslated": 196,
-    "added": [
-      "Maps.Nodes.Unavailable",
-      "Maps.Nodes.UnavailableInGame",
-      "Maps.Nodes.UnavailableUnreliableApi",
-      "Maps.Within.AscendantChallenge",
-      "Maps.Within.Story",
-      "Maps.Within.Strike"
-    ],
-    "removed": [
-      "Found within Ascendant Challenge: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}",
-      "Unavailable",
-      "Unavailable: something is preventing this node from relaying its status reliably.",
-      "Unavailable: this node is no longer available in-game."
-    ]
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 634,
     "notTranslated": 142,
-    "added": [
-      "Maps.Nodes.UnavailableUnreliableApi",
-      "Maps.Within.AscendantChallenge",
-      "Maps.Within.Story",
-      "Maps.Within.Strike"
-    ],
-    "removed": [
-      "Found within Ascendant Challenge: {{activityName}}",
-      "Found within Story: {{activityName}}",
-      "Found within Strike: {{activityName}}",
-      "Unavailable: something is preventing this node from relaying its status reliably."
-    ]
+    "added": [],
+    "removed": []
   }
 }

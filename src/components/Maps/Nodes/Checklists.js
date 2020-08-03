@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { useWhatChanged } from '@simbathesailor/use-what-changed';
 
 import maps from '../../../data/maps';
 import { Marker } from 'react-leaflet';
@@ -66,8 +65,6 @@ export default function Checklists(props) {
   const [lists, setLists] = useState([]);
 
   const checklistsVisibilityChange = Object.values(settings.maps.checklists).filter((checklistId) => checklistId).length;
-
-  // useWhatChanged([props.destinationHash, props.destinationId, params.highlight, props.selected, props.type, checklistsVisibilityChange, lists]);
 
   useEffect(() => {
     setLists(generateLists(settings.maps));

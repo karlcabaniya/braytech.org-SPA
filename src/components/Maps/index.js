@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
-import { useWhatChanged } from '@simbathesailor/use-what-changed';
 
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -117,14 +116,6 @@ export default function Maps() {
       }));
     }
   }, [params.map]);
-
-  // useWhatChanged([
-  //   dispatch,
-  //   params,
-  //   mapState.loading, // map loading
-  //   controlsState.inspect, // inspect
-  //   viewportState,
-  // ]);
 
   useEffect(() => {
     dispatch(actions.tooltips.rebind());
