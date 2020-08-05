@@ -1466,7 +1466,15 @@
   },
   "209": {
     "recordHash": 4212118071,
-    "screenshot": "/static/images/screenshots/records/inquisition-of-the-damned/vii-the-severed-and-the-unmade-4212118071.jpg"
+    "screenshot": "/static/images/screenshots/records/inquisition-of-the-damned/vii-the-severed-and-the-unmade-4212118071.jpg",
+    "extended": {
+      "screenshot": {
+        "highlight": {
+          "x": 48.5,
+          "y": 48.5
+        }
+      }
+    }
   },
   "210": {
     "recordHash": 2028468509,

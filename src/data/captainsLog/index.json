@@ -1188,5 +1188,10 @@
     "date": "2020-07-26T01:35:55.026Z",
     "version": "2.28.3",
     "content": "- various significant changes to underlying systems\n- improvemenmts to _Triumphs_\n- _Challenges_ module of _Now_ view now sorts challenges by completion progress"
+  },
+  {
+    "date": "2020-08-05T16:00:50.216Z",
+    "version": "2.28.27",
+    "content": "- _Maps_ have been completely rebuilt under the hood\n- some _Maps_ and _Checklists_ data improved\n- many minor improvements"
   }
 ]
