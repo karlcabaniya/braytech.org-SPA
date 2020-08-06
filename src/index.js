@@ -31,6 +31,12 @@ class AppEntry extends React.Component {
     });
   };
 
+  updateInstalling = (registration) => {
+    this.setState({
+      updateInstalling: registration,
+    });
+  };
+
   beforeInstallPrompt = (event) => {
     this.setState({
       beforeInstallPrompt: event,
@@ -38,7 +44,10 @@ class AppEntry extends React.Component {
   };
 
   componentDidMount() {
-    serviceWorker.register({ updateAvailable: this.updateAvailable });
+    serviceWorker.register({
+      updateAvailable: this.updateAvailable,
+      updateInstalling: this.updateInstalling,
+    });
     serviceWorker.beforeInstallPrompt(this.beforeInstallPrompt);
   }
 

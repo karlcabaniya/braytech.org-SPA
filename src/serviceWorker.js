@@ -68,6 +68,11 @@ function registerValidSW(swUrl, callbacks) {
 
               callbacks.updateAvailable(registration);
             }
+          } else if (installingWorker.state === 'installing') {
+            console.log('installing')
+            //callbacks.updateAvailable(registration);
+          } else {
+
           }
         };
       };
