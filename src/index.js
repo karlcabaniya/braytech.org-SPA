@@ -17,7 +17,6 @@ class AppEntry extends React.Component {
 
     this.state = {
       updateAvailable: false,
-      updateInstalling: false,
       beforeInstallPrompt: undefined,
     };
 
@@ -32,12 +31,6 @@ class AppEntry extends React.Component {
     });
   };
 
-  updateInstalling = () => {
-    this.setState({
-      updateInstalling: true,
-    });
-  };
-
   beforeInstallPrompt = (event) => {
     this.setState({
       beforeInstallPrompt: event,
@@ -47,7 +40,6 @@ class AppEntry extends React.Component {
   componentDidMount() {
     serviceWorker.register({
       updateAvailable: this.updateAvailable,
-      updateInstalling: this.updateInstalling,
     });
     serviceWorker.beforeInstallPrompt(this.beforeInstallPrompt);
   }
