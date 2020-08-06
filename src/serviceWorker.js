@@ -52,7 +52,7 @@ export function register(callbacks) {
   }
 }
 
-function registerValidSW(swUrl, config) {
+function registerValidSW(swUrl, callbacks) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
