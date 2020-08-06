@@ -4233,5 +4233,19 @@
         }
       }
     }
+  },
+  "596": {
+    "displayProperties": {
+      "name": "Salt Mines Cliffs",
+      "description": "A portal to the top of the _Salt Mines_ cliffs, powered by jury-rigged _Fallen_ parts."
+    },
+    "icon": "portal",
+    "type": {
+      "name": "Portal",
+      "hash": "portal"
+    },
+    "destinationHash": 1199524104,
+    "bubbleHash": 3600472775,
+    "screenshot": "/static/images/screenshots/portals/portal_596.jpg"
   }
 }

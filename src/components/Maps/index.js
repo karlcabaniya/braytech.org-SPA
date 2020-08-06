@@ -207,7 +207,7 @@ export default function Maps() {
       originalY = offsetY - midpointY;
     }
 
-    // console.log(JSON.stringify({ x: originalX, y: originalY }));
+    console.log(JSON.stringify({ x: originalX, y: originalY }));
 
     // this.setState({
     //   debug: {
