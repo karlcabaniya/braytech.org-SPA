@@ -49,7 +49,7 @@ class AppEntry extends React.Component {
 
   componentDidMount() {
     serviceWorker.register(this.config);
-    serviceWorker.beforeInstallPrompt(beforeInstallPrompt);
+    serviceWorker.beforeInstallPrompt(this.beforeInstallPrompt);
   }
 
   render() {
