@@ -67,8 +67,6 @@ function registerValidSW(swUrl, callbacks) {
               }
 
               callbacks.updateAvailable(registration);
-            } else {
-              console.log(registration, navigator.serviceWorker)
             }
           }
         };
@@ -128,11 +126,7 @@ export function updateServiceWorker(callback) {
         console.error('Service worker unable to update (manual)', err);
       })
       .then(() => {
-        if (registration.waiting) {
-          console.log('Service worker is ready to update (manual)');
-        } else {
-          console.log('Service worker up to date (manual)');
-        }
+        console.log(registration);
       })
   );
 }
