@@ -43,10 +43,13 @@ class AppEntry extends React.Component {
     }
   };
 
+  beforeInstallPrompt = (event) => {
+    console.log(event)
+  }
+
   componentDidMount() {
     serviceWorker.register(this.config);
-
-    console.log(serviceWorker.installPrompt)
+    serviceWorker.beforeInstallPrompt(beforeInstallPrompt);
   }
 
   render() {

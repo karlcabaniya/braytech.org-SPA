@@ -121,10 +121,10 @@ export function unregister() {
   }
 }
 
-export let installPrompt;
+export function beforeInstallPrompt(callback) {
+  window.addEventListener('beforeinstallprompt', (event) => {
+    // e.preventDefault();
+    callback(event);
+  });
+}
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  // e.preventDefault();
-  console.log(e)
-  installPrompt = e;
-});
