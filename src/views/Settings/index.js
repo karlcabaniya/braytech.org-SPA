@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { updateServiceWorker } from '../../serviceWorker';
 import i18n, { t, BraytechText, getLanguageInfo } from '../../utils/i18n';
 import ls from '../../utils/localStorage';
 import { BungieAuth } from '../../components/BungieAuth';
@@ -71,25 +72,12 @@ class Settings extends React.Component {
     return false;
   };
 
-  handler_swUpdate = () => {
+  handler_swUpdate = async () => {
     if (this.mounted) this.setState({ swUpdateAttempt: true });
 
-    navigator.serviceWorker.getRegistration('/').then((registration) => {
-      registration
-        .update()
-        .catch((error) => {
-          console.error('Service Worker: unable to update service worker', error);
-        })
-        .then(() => {
-          if (registration.waiting) {
-            console.log('Service Worker: updated, but is "waiting"');
-          } else {
-            console.log('Service Worker: updated');
-          }
-
-          if (this.mounted) this.setState({ swUpdateAttempt: false });
-        });
-    });
+    await updateServiceWorker();
+    
+    if (this.mounted) this.setState({ swUpdateAttempt: false });
   };
 
   handler_swDump = () => {
