@@ -17,6 +17,7 @@ class AppEntry extends React.Component {
 
     this.state = {
       updateAvailable: false,
+      updateInstalling: false,
       beforeInstallPrompt: undefined,
     };
 
@@ -31,9 +32,9 @@ class AppEntry extends React.Component {
     });
   };
 
-  updateInstalling = (registration) => {
+  updateInstalling = () => {
     this.setState({
-      updateInstalling: registration,
+      updateInstalling: true,
     });
   };
 

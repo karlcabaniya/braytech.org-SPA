@@ -1,7 +1,7 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.28.37",
+  "version": "2.28.38",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
