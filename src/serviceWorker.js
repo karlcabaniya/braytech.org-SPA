@@ -18,7 +18,7 @@ const isLocalhost = Boolean(
     window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
 );
 
-export function register(config) {
+export function register(callbacks) {
   // if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_BETA === 'true' && 'serviceWorker' in navigator) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -35,16 +35,16 @@ export function register(config) {
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, config);
+        checkValidServiceWorker(swUrl, callbacks);
 
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log('This web app is being served cache-first by a service worker.');
+          console.log('This web app is being served cache-first by a service worker');
         });
       } else {
         // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config);
+        registerValidSW(swUrl, callbacks);
       }
     });
   } else {
@@ -58,28 +58,25 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
+
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
-              console.log('New content is available and will be used when all tabs for this page are closed.');
+              console.log('New content is available and will be used when all tabs for this page are closed');
 
-              // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration);
+              if (registration.waiting) {
+                registration.waiting.postMessage({ type: 'SKIP_WAITING' });
               }
+
+              callbacks.updateAvailable(registration);
             } else {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
-
-              // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+              console.log('Content is cached for offline use');
             }
           }
         };
@@ -90,7 +87,7 @@ function registerValidSW(swUrl, config) {
     });
 }
 
-function checkValidServiceWorker(swUrl, config) {
+function checkValidServiceWorker(swUrl, callbacks) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then((response) => {
@@ -105,7 +102,7 @@ function checkValidServiceWorker(swUrl, config) {
         });
       } else {
         // Service worker found. Proceed as normal.
-        registerValidSW(swUrl, config);
+        registerValidSW(swUrl, callbacks);
       }
     })
     .catch(() => {
@@ -123,8 +120,26 @@ export function unregister() {
 
 export function beforeInstallPrompt(callback) {
   window.addEventListener('beforeinstallprompt', (event) => {
-    // e.preventDefault();
+    // event.preventDefault();
     callback(event);
   });
 }
 
+export function updateServiceWorker(callback) {
+  console.log('Service worker checking for update');
+
+  return navigator.serviceWorker.getRegistration('/')?.then((registration) =>
+    registration
+      ?.update()
+      .catch((err) => {
+        console.error('Service worker unable to update', err);
+      })
+      .then(() => {
+        if (registration.waiting) {
+          console.log('Service worker is ready to update');
+        } else {
+          console.log('Service worker up to date');
+        }
+      })
+  );
+}
