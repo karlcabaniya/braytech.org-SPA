@@ -12,7 +12,7 @@ import App from './App';
 import store from './store';
 
 class AppEntry extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     
     this.state = {
@@ -45,6 +45,8 @@ class AppEntry extends React.Component {
 
   componentDidMount() {
     serviceWorker.register(this.config);
+
+    console.log(serviceWorker.installPrompt)
   }
 
   render() {
