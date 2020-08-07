@@ -26,6 +26,9 @@
 }
 
 .list.modes li .text .name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 16px;
 }
 
@@ -100,15 +103,16 @@
 @media screen and (max-width: 600px) {
 
   .list.modes li .icon {
-    height: 72px;
-    width: 72px;
+    height: 48px;
+    width: 48px;
   }
 
   .list.modes li .text {
-    width: calc(100% - 66px);
-    height: 72px;
+    width: calc(100% - 48px);
+    height: 48px;
     padding: 8px 1rem;
     grid-template-columns: auto 48px;
+    align-content: center;
   }
 
   .list.modes li .text .name {
@@ -116,26 +120,26 @@
   }
 
   .list.modes li .text .minor-stats {
-    margin: 6px 0 0;
+    display: none;
   }
 
-  .list.modes li .text .stat .value {
-    margin: 3px 0 0;
-    font-size: 14px;
+  .list.modes li .text .kdr {
+    grid-row: unset;
   }
 
-  .list.modes li .text .stat .name {
-    font-size: 12px;
+  .list.modes li .text .kdr .name {
+    display: none;
   }
 
   .list.modes li .text .kdr .value {
-    margin: 5px 0 0;
+    margin: 0;
     font-size: 18px;
-    line-height: 14px;
+    line-height: 18px;
   }
 
   .list.modes li .text .no-stats {
-    font-size: 12px;
+    justify-content: unset;
+    font-size: 10px;
   }
 
 }
