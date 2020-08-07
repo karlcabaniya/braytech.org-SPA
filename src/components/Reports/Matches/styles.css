@@ -1,8 +1,26 @@
 .matches {
   position: relative;
+  display: grid;
+  align-content: start;
 }
 
-.matches .state {
+.matches.loading,
+.matches.info {
+  justify-content: center;
+  align-content: center;
+  text-align: center;    
+}
+
+.matches.info {
+  padding: 1rem 0 2rem;
+}
+
+.matches > .spinner {
+  align-self: center;
+  justify-self: center;
+}
+
+.matches > .state {
   position: relative;
   height: 20px;
   margin: 0 0 12px;
@@ -12,7 +30,7 @@
   align-items: center;
 }
 
-.matches .state .spinner {
+.matches > .state .spinner {
   position: absolute;
   right: 0;
 }
@@ -22,11 +40,6 @@
   grid-template-columns: 200px 200px auto;
   grid-gap: 3px;
   margin: 2rem 0 0;
-}
-
-.matches > .info {
-  padding: 1rem 0 2rem;
-  text-align: center;
 }
 
 @media screen and (max-width: 600px) {

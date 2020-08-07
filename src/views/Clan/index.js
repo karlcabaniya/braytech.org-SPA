@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
 import { t } from '../../utils/i18n';
@@ -73,8 +73,9 @@ function NoClan() {
   );
 }
 
-function Clan(props) {
-  const { member, viewport } = props;
+export default function Clan(props) {
+  const viewport = useSelector(state => state.viewport);
+  const member = useSelector(state => state.member);
 
   const views = {
     about: About,
@@ -104,12 +105,3 @@ function Clan(props) {
     </div>
   );
 }
-
-function mapStateToProps(state) {
-  return {
-    viewport: state.viewport,
-    member: state.member,
-  };
-}
-
-export default connect(mapStateToProps)(Clan);

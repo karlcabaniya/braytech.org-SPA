@@ -9,8 +9,6 @@ import Spinner from '../../../components/UI/Spinner';
 import Mode from '../../../components/Reports/Mode';
 import Matches from '../../../components/Reports/Matches';
 
-import ParentModeLinks from '../ParentModeLinks';
-
 async function getStats(member) {
   const stats = {
     all: {
@@ -92,36 +90,26 @@ export default function Crucible(props) {
   }, 60000);
 
   return (
-    <div className='view strikes' id='multiplayer'>
-      <div className='module-l1'>
-        <div className='module-l2'>
-          <div className='content head'>
-            <div className='page-header'>
-              <div className='sub-name'>{t('Post Game Carnage Reports')}</div>
-              <div className='name'>{t('Strikes')}</div>
-            </div>
+    <div className='type'>
+      {state.stats ? (
+        <div className='modes'>
+          <div className='sub-header'>
+            <div>{t('Modes')}</div>
           </div>
-        </div>
-        <div className='module-l2'>
-          <ParentModeLinks />
-        </div>
-        <div className='module-l2'>
           <div className='content'>
-            {state.stats ? (
-              <ul className='list modes'>
-                {Object.values(state.stats.all).map((m) => (
-                  <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />
-                ))}
-              </ul>
-            ) : (
-              <Spinner mini />
-            )}
+            <ul className='list modes'>
+              {Object.values(state.stats.all).map((m) => (
+                <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-      <div className='module-l1'>
-        <Matches mode={props.mode || 18} limit='40' offset={props.offset} root='/reports/strikes' />
-      </div>
+      ) : (
+        <div className='modes loading'>
+          <Spinner mini />
+        </div>
+      )}
+      <Matches mode={props.mode || 18} limit='40' offset={props.offset} root='/reports/strikes' />
     </div>
   );
 }

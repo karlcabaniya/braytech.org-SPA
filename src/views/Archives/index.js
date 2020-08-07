@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import { t, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
@@ -41,7 +40,7 @@ export function NavLinks() {
   );
 }
 
-function Archives() {
+export default function Archives() {
   const entries = [
     {
       name: t('Grimoire'),
@@ -93,11 +92,3 @@ function Archives() {
     </div>
   );
 }
-
-function mapStateToProps(state, ownProps) {
-  return {
-    viewport: state.viewport
-  };
-}
-
-export default connect(mapStateToProps)(Archives);
