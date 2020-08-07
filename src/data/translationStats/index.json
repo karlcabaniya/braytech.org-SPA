@@ -1,86 +1,265 @@
 {
   "de": {
-    "translated": 708,
-    "notTranslated": 68,
-    "added": [],
-    "removed": []
+    "translated": 699,
+    "notTranslated": 70,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "debug": {
-    "translated": 776,
+    "translated": 769,
     "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "en": {
-    "translated": 776,
+    "translated": 769,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "es-mx": {
-    "translated": 776,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 767,
+    "notTranslated": 2,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "es": {
-    "translated": 776,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 767,
+    "notTranslated": 2,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "fr": {
-    "translated": 634,
+    "translated": 627,
     "notTranslated": 142,
-    "added": [],
-    "removed": []
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "it": {
-    "translated": 776,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 767,
+    "notTranslated": 2,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "ja": {
-    "translated": 581,
+    "translated": 574,
     "notTranslated": 195,
-    "added": [],
-    "removed": []
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "ko": {
-    "translated": 510,
+    "translated": 503,
     "notTranslated": 266,
-    "added": [],
-    "removed": []
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 774,
-    "added": [],
-    "removed": []
+    "notTranslated": 767,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "pt-br": {
-    "translated": 775,
-    "notTranslated": 1,
-    "added": [],
-    "removed": []
+    "translated": 766,
+    "notTranslated": 3,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "ru": {
-    "translated": 776,
-    "notTranslated": 0,
-    "added": [],
-    "removed": []
+    "translated": 767,
+    "notTranslated": 2,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "zh-chs": {
-    "translated": 580,
-    "notTranslated": 196,
-    "added": [],
-    "removed": []
+    "translated": 609,
+    "notTranslated": 160,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   },
   "zh-cht": {
-    "translated": 634,
-    "notTranslated": 142,
-    "added": [],
-    "removed": []
+    "translated": 626,
+    "notTranslated": 143,
+    "added": [
+      "Modes",
+      "Raids"
+    ],
+    "removed": [
+      "Out of bounds",
+      "Post Game Carnage Reports",
+      "Progress",
+      "Raid_plural",
+      "Recent activities",
+      "Recent matches",
+      "Recent raids",
+      "Recent strikes",
+      "You shouldn't be here 👀"
+    ]
   }
 }
