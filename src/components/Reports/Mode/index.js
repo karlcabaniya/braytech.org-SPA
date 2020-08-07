@@ -19,7 +19,11 @@ const isActive = (param, mode) => (match, location) => {
 }
 
 function handler_onClick() {
-  document.getElementById('matches').scrollIntoView({behavior: "smooth"});
+  const target = document.getElementsByClassName('matches')?.[0];
+  
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 class Mode extends React.Component {

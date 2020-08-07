@@ -20,13 +20,8 @@ function All(props) {
           <ParentModeLinks />
         </div>
       </div>
-      <div className='module-l1' id='matches'>
-        <div className='content'>
-          <div className='sub-header'>
-            <div>{t('Recent activities')}</div>
-          </div>
-          <Matches mode={false} limit='40' offset={props.offset} root='/reports/all' />
-        </div>
+      <div className='module-l1'>
+        <Matches mode={false} limit='40' offset={props.offset} root='/reports/all' />
       </div>
     </div>
   );

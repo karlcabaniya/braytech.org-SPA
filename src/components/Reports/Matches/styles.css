@@ -2,9 +2,18 @@
   position: relative;
 }
 
-.matches > .spinner {
+.matches .state {
+  position: relative;
+  height: 20px;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto 24px;
+  align-items: center;
+}
+
+.matches .state .spinner {
   position: absolute;
-  top: -2.5rem;
   right: 0;
 }
 

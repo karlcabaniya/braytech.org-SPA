@@ -90,37 +90,6 @@
   opacity: 0.2;
 }
 
-#clan .buff .content .module.header .ttr {
-  width: 100%;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-#clan .buff .content .module.header .ttr .bar {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  animation: animation-ttr 60s linear 0s 1 forwards;
-}
-
-@keyframes animation-ttr {
-  0% {
-    width: 100%;
-    opacity: 0.6;
-  }
-  80% {
-    opacity: 0.4;
-  }
-  90% {
-    opacity: 0.3;
-  }
-  100% {
-    width: 0%;
-    opacity: 0;
-  }
-}
-
 #clan .buff .content .module.header .state {
   min-width: 24px;
 }
