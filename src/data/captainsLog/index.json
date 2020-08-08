@@ -1193,5 +1193,10 @@
     "date": "2020-08-05T16:00:50.216Z",
     "version": "2.28.27",
     "content": "- _Maps_ have been completely rebuilt under the hood\n- some _Maps_ and _Checklists_ data improved\n- many minor improvements"
+  },
+  {
+    "date": "2020-08-08T18:37:07.870Z",
+    "version": "2.29.0",
+    "content": "- _Maps_\n- _Reports_\n- service worker\n- a brand new beta deployment flow"
   }
 ]
