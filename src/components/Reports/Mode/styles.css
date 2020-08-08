@@ -29,7 +29,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .list.modes li .text .minor-stats {
@@ -46,7 +46,7 @@
 .list.modes li .text .stat .name {
   font-size: 14px;
   line-height: 16px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .list.modes li .text .stat .value {
