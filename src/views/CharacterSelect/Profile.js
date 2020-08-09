@@ -6,7 +6,7 @@ import Characters from '../../components/UI/Characters';
 import Flair from '../../components/UI/Flair';
 
 function Profile(props) {
-  const timePlayed = Math.floor(
+  const days = Math.floor(
     Object.keys(props.member.data.profile.characters.data).reduce((sum, key) => {
       return sum + parseInt(props.member.data.profile.characters.data[key].minutesPlayedTotal, 10);
     }, 0) / 1440
@@ -25,7 +25,7 @@ function Profile(props) {
           </div>
           <div>
             <div className='name'>{t('Time played across characters')}</div>
-            <div className='value'>{timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}</div>
+            <div className='value'>{days === 1 ? t('Language.Time.DaysPlayed.Singular') : t('Language.Time.DaysPlayed.Plural', { days })}</div>
           </div>
           <div>
             <div className='name'>{t('Triumph score')}</div>

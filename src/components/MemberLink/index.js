@@ -279,7 +279,7 @@ class MemberLink extends React.Component {
     };
 
     if (this.state.overlay && this.state.all.data) {
-      const timePlayed = Math.floor(
+      const daysPlayed = Math.floor(
         Object.keys(this.state.all.data.characters.data).reduce((sum, key) => {
           return sum + parseInt(this.state.all.data.characters.data[key].minutesPlayedTotal);
         }, 0) / 1440
@@ -333,7 +333,7 @@ class MemberLink extends React.Component {
                           <div>
                             <div className='name'>{t('Time played across characters')}</div>
                             <div className='value'>
-                              {timePlayed === 1 ? t('1 day played') : t('{{timePlayed}} days played', { timePlayed })}
+                              {daysPlayed === 1 ? t('Language.Time.DaysPlayed.Singular') : t('Language.Time.DaysPlayed.Plural', { days: daysPlayed })}
                             </div>
                           </div>
                           <div>
