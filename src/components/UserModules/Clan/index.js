@@ -68,7 +68,7 @@ class Clan extends React.Component {
           <div className='sub-header'>
             <div>{t('Clan')}</div>
           </div>
-          <div className='info'>{t('No clan affiliation')}</div>
+          <div className='info'>{t('Clan.NoClan.Name')}</div>
         </div>
       );
     }

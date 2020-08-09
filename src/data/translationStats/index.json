@@ -1,86 +1,114 @@
 {
   "de": {
     "translated": 695,
-    "notTranslated": 77,
+    "notTranslated": 76,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "debug": {
-    "translated": 772,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "en": {
-    "translated": 772,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "es-mx": {
     "translated": 765,
-    "notTranslated": 7,
+    "notTranslated": 6,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "es": {
     "translated": 765,
-    "notTranslated": 7,
+    "notTranslated": 6,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 149,
+    "notTranslated": 148,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "it": {
     "translated": 763,
-    "notTranslated": 9,
+    "notTranslated": 8,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "ja": {
     "translated": 570,
-    "notTranslated": 202,
+    "notTranslated": 201,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "ko": {
     "translated": 499,
-    "notTranslated": 273,
+    "notTranslated": 272,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 770,
+    "notTranslated": 769,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "pt-br": {
     "translated": 762,
-    "notTranslated": 10,
+    "notTranslated": 9,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "ru": {
-    "translated": 765,
-    "notTranslated": 7,
+    "translated": 771,
+    "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "zh-chs": {
     "translated": 605,
-    "notTranslated": 167,
+    "notTranslated": 166,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   },
   "zh-cht": {
     "translated": 622,
-    "notTranslated": 150,
+    "notTranslated": 149,
     "added": [],
-    "removed": []
+    "removed": [
+      "No clan affiliation"
+    ]
   }
 }

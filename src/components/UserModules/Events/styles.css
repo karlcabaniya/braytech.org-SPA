@@ -83,12 +83,17 @@
   margin: 0 0 3rem;
 }
 
+.group.events .group .module .list.record-items li {
+  backdrop-filter: blur(7px);
+}
+
 #this-week .group.events .group.iron-banner {
   background-color: rgb(66, 107, 75);
 }
 
 #this-week .group.events .group.solstice-of-heroes {
   min-height: 27rem;
+  background-color: #c0b27e;
 }
 
 .group.events .group.solstice-of-heroes .event .text .button {
