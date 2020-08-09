@@ -52,6 +52,10 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
+.group.events .group .module h4:first-child {
+  margin-top: 50px;
+}
+
 .group.events .group .event {
   position: relative;
   grid-column: span 2;
@@ -112,10 +116,18 @@
   .group.events .group .event {
     grid-row: unset;
   }
+
+  .group.events .group .module h4:first-child {
+    margin-top: unset;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .group.events .group {
+  #this-week .group.events .group {
+    padding: 2rem;
+  }
+
+  #this-week .group.events .group:first-child {
     padding: 3rem 2rem 2rem;
   }
 
