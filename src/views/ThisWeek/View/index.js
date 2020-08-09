@@ -180,7 +180,7 @@ class ThisWeek extends React.Component {
     const groups = [
       {
         className: ['full', 'events'],
-        condition: eventsCalendar.filter(e => this.props.member.data.profile.characterActivities.data[this.props.member.characterId].availableActivities.filter(a => a.activityHash === e.activityHash).length).length,
+        condition: eventsCalendar.filter((event) => this.props.member.data.profile.characterActivities.data[this.props.member.characterId].availableActivities.filter((activity) => event.hashes.filter(hash => activity.activityHash === hash).length).length),
         components: ['Events']
       },
       userHeadGroup,

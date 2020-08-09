@@ -1,167 +1,86 @@
 {
   "de": {
     "translated": 695,
-    "notTranslated": 74,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 77,
+    "added": [],
+    "removed": []
   },
   "debug": {
-    "translated": 769,
-    "notTranslated": 0,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
-  },
-  "en": {
-    "translated": 769,
+    "translated": 772,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "removed": []
+  },
+  "en": {
+    "translated": 772,
+    "notTranslated": 0,
+    "added": [],
+    "removed": []
   },
   "es-mx": {
     "translated": 765,
-    "notTranslated": 4,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 7,
+    "added": [],
+    "removed": []
   },
   "es": {
     "translated": 765,
-    "notTranslated": 4,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 7,
+    "added": [],
+    "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 146,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 149,
+    "added": [],
+    "removed": []
   },
   "it": {
     "translated": 763,
-    "notTranslated": 6,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 9,
+    "added": [],
+    "removed": []
   },
   "ja": {
     "translated": 570,
-    "notTranslated": 199,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 202,
+    "added": [],
+    "removed": []
   },
   "ko": {
     "translated": 499,
-    "notTranslated": 270,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 273,
+    "added": [],
+    "removed": []
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 767,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 770,
+    "added": [],
+    "removed": []
   },
   "pt-br": {
     "translated": 762,
-    "notTranslated": 7,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 10,
+    "added": [],
+    "removed": []
   },
   "ru": {
     "translated": 765,
-    "notTranslated": 4,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 7,
+    "added": [],
+    "removed": []
   },
   "zh-chs": {
     "translated": 605,
-    "notTranslated": 164,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 167,
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
     "translated": 622,
-    "notTranslated": 147,
-    "added": [
-      "Clan.NoClan.Description",
-      "Clan.NoClan.Name"
-    ],
-    "removed": [
-      "Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.",
-      "Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net."
-    ]
+    "notTranslated": 150,
+    "added": [],
+    "removed": []
   }
 }

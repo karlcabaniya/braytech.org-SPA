@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation, useParams, Link, NavLink } from 'react-router-dom';
 
-import { t, BungieText } from '../../utils/i18n';
+import { t, BungieText, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { classTypeToString } from '../../utils/destinyConverters';
+
+import { BungieAuthButton } from '../../components/BungieAuth';
 import Items from '../../components/Items';
+import { DestinyKey } from '../../components/UI/Button';
 import ProgressBar from '../../components/UI/ProgressBar';
+import { Common, Views } from '../../svg';
 
 import './styles.css';
+import Records from '../../components/Records';
 
 const RENEWED_HUNTER = 2574248771;
 const RENEWED_TITAN = 2963102071;
@@ -45,7 +51,7 @@ function Objectives({ itemHash }) {
   const member = useSelector((state) => state.member);
 
   const inventory = member.data?.profile?.profileInventory?.data?.items && [
-    ...member.data.profile?.profileInventory?.data?.items, // non-instanced quest items, materials, etc.
+    ...member.data.profile.profileInventory.data.items, // non-instanced quest items, materials, etc.
     ...member.data.profile?.characterInventories?.data?.[member.characterId].items, // non-equipped weapons etc
     ...member.data.profile?.characterEquipment?.data?.[member.characterId].items, // equipped weapons etc
   ];
@@ -64,7 +70,7 @@ function Objectives({ itemHash }) {
           progress: 0,
           completionValue: definitionObjective.completionValue,
           objectiveHash: definitionObjective.hash,
-          ...itemComponents
+          ...itemComponents,
         };
 
         return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
@@ -98,39 +104,113 @@ function Set({ presentationNodeHash }) {
   );
 }
 
+export function NavLinks() {
+  return (
+    <div className='module views'>
+      <ul className='list'>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Index.Collections />
+          </div>
+          <NavLink to='/solstice-of-heroes' exact />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Index.Triumphs />
+          </div>
+          <NavLink to='/solstice-of-heroes/records' exact />
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 export default function SolsticeOfHeroes() {
+  const member = useSelector((state) => state.member);
+
+  const auth = useSelector((state) => state.auth);
+  const authed = auth.destinyMemberships?.find((authMember) => authMember.membershipId === member.membershipId);
+
+  const location = useLocation();
+  const backLinkPath = location.state?.from || '/this-week';
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, [location.pathname])
+
   const SET_TIER_NAME = {
     0: t('Event.SolsticeOfHeroes.ArmorTier.Renewed'),
     1: t('Event.SolsticeOfHeroes.ArmorTier.Majestic'),
     2: t('Event.SolsticeOfHeroes.ArmorTier.Magnificent'),
   };
-  
+
+  const params = useParams();
+  const view = params?.type === 'records' ? 'records' : 'gear-sets';
+
   return (
-    <div className='view' id='solstice-of-heroes'>
-      <div className='module head'>
-        <div className='page-header'>
-          <div className='sub-name'>{t('Event')}</div>
-          <div className='name'>{t('Event.SolsticeOfHeroes.Name')}</div>
+    <>
+      <div className='view' id='solstice-of-heroes'>
+        <div className='module head'>
+          <div className='page-header'>
+            <div className='sub-name'>{t('Event')}</div>
+            <div className='name'>{t('Event.SolsticeOfHeroes.Name')}</div>
+          </div>
+          <div className='text'>
+            <BraytechText className='description' value={t('Event.SolsticeOfHeroes.Description')} />
+          </div>
         </div>
-        <div className='text'>
-          <p>{t('Event.SolsticeOfHeroes.Description')}</p>
-        </div>
-      </div>
-      <div className='buff'>
-        {ALL_SETS.map((tiers, t) => (
-          <div key={t} className='module'>
-            <h3>{SET_TIER_NAME[t]}</h3>
-            <div className='sets'>
-              {tiers.map((presentationNodeHash, s) => (
-                <div key={s} className='set'>
-                  <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
-                  <Set presentationNodeHash={presentationNodeHash} />
-                </div>
-              ))}
+        {!authed ? (
+          <div className='auth-upsell'>
+            <div className='wrap'>
+              <div className='icon'>
+                <Common.SeventhColumn />
+              </div>
+              <BraytechText className='text' value={t('Bungie.Auth.Upsell.Description')} />
+              <BungieAuthButton />
             </div>
           </div>
-        ))}
+        ) : null}
+        <div className='buff'>
+          <NavLinks />
+          <div className='content'>
+            {view === 'records' ? (
+              <div className='module'>
+                <ul className='list record-items'>
+                  <Records hashes={[857016983, 1008946187, 2357163007, 518035568, 3882301596, 52390681]} selfLinkFrom={`/solstice-of-heroes/records`} showInvisible />
+                </ul>
+              </div>
+            ) : (
+              ALL_SETS.map((tiers, t) => (
+                <div key={t} className='module'>
+                  <h3>{SET_TIER_NAME[t]}</h3>
+                  <div className='sets'>
+                    {tiers.map((presentationNodeHash, s) => (
+                      <div key={s} className='set'>
+                        <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
+                        <Set presentationNodeHash={presentationNodeHash} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+      <div className='sticky-nav'>
+        <div className='wrapper'>
+          <div />
+          <ul>
+            <li>
+              <Link className='button' to={backLinkPath}>
+                <DestinyKey type='dismiss' />
+                {t('Back')}
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
 }

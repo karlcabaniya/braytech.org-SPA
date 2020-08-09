@@ -1,30 +1,39 @@
 #this-week .group.full.events {
   padding: 0;
+  gap: 0;
 }
 
-#this-week .group.events .group.iron-banner {
-  margin: 0;
-  padding: 4rem 3rem 3rem;
+#this-week .group.events .group {
+  position: relative;
+  margin: 0 !important;
+  padding: 3rem;
   min-height: 21rem;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.15);
-  background-color: rgb(66, 107, 75);
 }
 
-.group.events .group.iron-banner h4 {
-  color: rgba(255, 255, 255, 0.4);
+#this-week .group.events .group:first-child {
+  padding: 4rem 3rem 3rem;
 }
 
-.group.events .group.iron-banner .event {
-  position: relative;
-  grid-column: span 2;
-}
-
-.group.events .group.iron-banner .event .icon {
+.group.events .group > .background {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.group.events .group > .background .image {
+  background-size: cover;
+}
+
+.group.events .group > .icon {
+  position: absolute;
+  right: 6rem;
+  top: 0;
+  width: 40%;
   height: 100%;
   display: grid;
   align-items: center;
@@ -32,7 +41,7 @@
   pointer-events: none;
 }
 
-.group.events .group.iron-banner .event .icon svg {
+.group.events .group > .icon svg {
   position: absolute;
   fill: white;
   width: 80%;
@@ -40,56 +49,83 @@
   height: auto;
 }
 
-.group.events .group.iron-banner .event .text {
+.group.events .group h4 {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.group.events .group .event {
+  position: relative;
+  grid-column: span 2;
+}
+
+.group.events .group .event .text {
   
 }
 
-#this-week .group.events .group.iron-banner .event .text .description p {
-  max-width: 600px;
+.group.events .group .event .text .description p,
+#this-week .group.events .group .event .text .description p:last-child {
+  max-width: 700px;
+  font-size: 14px;
 }
 
-#this-week .group.events .group.iron-banner .event .text .description p:first-child {
-  font-size: 16px;
+.group.events .group .event .text .description p:first-child {
+  font-size: 18px;
 }
 
-#this-week .group.events .group.iron-banner .module .inventory-items {
+.group.events .group .event .text .button {
+  margin: 2rem 0 0;
+}
+
+.group.events .group .module .inventory-items {
   grid-template-columns: repeat(auto-fill, 64px);
 }
 
-#this-week .group.events .group.iron-banner .module .list:not(:last-child) {
+.group.events .group .module .list:not(:last-child) {
   margin: 0 0 3rem;
+}
+
+#this-week .group.events .group.iron-banner {
+  background-color: rgb(66, 107, 75);
+}
+
+#this-week .group.events .group.solstice-of-heroes {
+  min-height: 27rem;
+}
+
+.group.events .group.solstice-of-heroes .event .text .button {
+  max-width: 300px;
 }
 
 
 
 @media screen and (max-width: 1440px) {
-  .group.events .group.iron-banner .event {
+  .group.events .group .event {
     grid-row: span 2;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .group.events .group.iron-banner .event {
+  .group.events .group .event {
     grid-row: unset;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #this-week .group.events .group.iron-banner {
+  .group.events .group {
     padding: 3rem 2rem 2rem;
   }
 
-  .group.events .group.iron-banner .event {
+  .group.events .group .event {
     grid-column: unset;
   }
 
-  .group.events .group.iron-banner .event .icon svg {
+  .group.events .group .event .icon svg {
     width: auto;
     height: 140%;
     left: 20%;
   }
 
-  #this-week .group.events .group.iron-banner .module .inventory-items {
+  .group.events .group.iron-banner .module .inventory-items {
     grid-template-columns: repeat(auto-fill, 48px);
   }
 }

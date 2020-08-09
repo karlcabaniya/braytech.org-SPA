@@ -80,7 +80,7 @@ class Button extends React.Component {
 
     if (anchor) {
       return (
-        <Link className={cx('button', className, { inverted, lined, disabled })} onClick={action || undefined} to={this.props.to}>
+        <Link className={cx('button', className, { inverted, lined, disabled, cta })} onClick={action || undefined} to={this.props.to}>
           {text ? <div className='text'>{text}</div> : children}
         </Link>
       );

@@ -13,6 +13,7 @@
   display: grid;
   grid-template-columns: max-content min-content;
   justify-content: space-between;
+  align-items: center;
   column-gap: 3px;
   row-gap: 1rem;
 }

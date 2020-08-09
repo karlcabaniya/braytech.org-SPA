@@ -1,26 +1,19 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
-import Markdown from 'react-markdown';
 
+import { t, BraytechText } from '../../../utils/i18n';
 import DismissTip from '../../UI/DismissTip';
 import { Common } from '../../../svg';
 
 import './styles.css';
 
-class CustomiseTip extends React.Component {
-  render() {
-    const { t } = this.props;
-
-    return (
-      <div className='wrap'>
-        <div className='icon'>
-          <Common.Info />
-        </div>
-        <Markdown className='text' source={t("Did you know? You can customise the displayed modules by tapping _Customise_ in the bottom right.")} />
-        <DismissTip value='CustomiseTipModule' />
+export default function CustomiseTip(props) {
+  return (
+    <div className='wrap'>
+      <div className='icon'>
+        <Common.Info />
       </div>
-    );
-  }
+      <BraytechText className='text' value={t('UserModules.CustomiseTip.Description')} />
+      <DismissTip value='CustomiseTipModule' />
+    </div>
+  );
 }
-
-export default withTranslation()(CustomiseTip);
