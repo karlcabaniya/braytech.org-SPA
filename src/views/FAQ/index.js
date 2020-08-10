@@ -6,7 +6,7 @@ import { Views } from '../../svg';
 
 import './styles.css';
 
-export default function FAQ(props) {
+export default function FAQ() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
