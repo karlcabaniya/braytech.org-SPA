@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { t, BraytechText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
-import OberservedImage from '../../../components/ObservedImage';
+// import OberservedImage from '../../../components/ObservedImage';
 // import Collectibles from '../../../components/Collectibles';
 import Records from '../../../components/Records';
 import Button from '../../../components/UI/Button';
@@ -15,7 +15,14 @@ import './styles.css';
 
 const eventsCalendar = [
   {
-    hashes: [3753505781, 158022875, 3840133183, 770505917, 1199493030, 2429391832],
+    hashes: [
+      1309646866, // The Farm
+      158022875,
+      3840133183,
+      770505917,
+      1199493030,
+      2429391832,
+    ],
     component: SolsticeOfHeroes,
   },
   {
@@ -140,12 +147,12 @@ function SolsticeOfHeroes() {
 
   return (
     <div className='group solstice-of-heroes'>
-      <div className='background'>
+      {/* <div className='background'>
         <OberservedImage src='/static/images/events/soh2020.jpg' />
-      </div>
-      {/* <div className='icon'>
-        <SVG.Events.IronBanner />
       </div> */}
+      <div className='icon'>
+        <SVG.Events.SolsticeOfHeroes />
+      </div>
       <div className='module event'>
         <div className='text'>
           <div className='sub-header'>

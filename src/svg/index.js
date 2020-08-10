@@ -158,6 +158,8 @@ import { ReactComponent as GrimoirePlaces } from './grimoire/places.svg';
 
 import { ReactComponent as Diagram1 } from './miscellaneous/collectible-and-record-diagram.svg';
 
+import { ReactComponent as EventSolsticeOfHeroes } from './events/solstice-of-heroes.svg';
+
 const Common = {
   Arc: EnergyArc,
   Solar: EnergySolar,
@@ -207,6 +209,7 @@ const Destinations = {
 
 const Events = {
   IronBanner: TooltipIronBanner,
+  SolsticeOfHeroes: EventSolsticeOfHeroes,
 };
 
 const Flair = {

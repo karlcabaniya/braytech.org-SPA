@@ -6,9 +6,30 @@
 }
 
 #solstice-of-heroes .module.head {
+  position: relative;
   padding: calc(4rem + 40px) 3rem 3rem;
   background-color: rgba(255, 255, 255, 0.05);
   background-color: #c0b27e;
+  overflow: hidden;
+}
+
+#solstice-of-heroes .module.head .icon {
+  position: absolute;
+  right: 6rem;
+  top: 0;
+  width: 32%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+#solstice-of-heroes .module.head .icon svg {
+  position: absolute;
+  fill: white;
+  width: 100%;
+  height: auto;
 }
 
 #solstice-of-heroes .module.head .page-header {
@@ -148,6 +169,11 @@
 @media screen and (max-width: 600px) {
   #solstice-of-heroes .module.head {
     padding: calc(3rem + 40px) 2rem 2rem;
+  }
+
+  #solstice-of-heroes .module.head .icon {
+    right: -7rem;
+    width: 80%;
   }
   
   #solstice-of-heroes .buff {

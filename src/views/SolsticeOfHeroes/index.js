@@ -10,7 +10,7 @@ import { BungieAuthButton } from '../../components/BungieAuth';
 import Items from '../../components/Items';
 import { DestinyKey } from '../../components/UI/Button';
 import ProgressBar from '../../components/UI/ProgressBar';
-import { Common, Views } from '../../svg';
+import { Common, Views, Events } from '../../svg';
 
 import './styles.css';
 import Records from '../../components/Records';
@@ -152,6 +152,9 @@ export default function SolsticeOfHeroes() {
     <>
       <div className='view' id='solstice-of-heroes'>
         <div className='module head'>
+          <div className='icon'>
+            <Events.SolsticeOfHeroes />
+          </div>
           <div className='page-header'>
             <div className='sub-name'>{t('Event')}</div>
             <div className='name'>{t('Event.SolsticeOfHeroes.Name')}</div>
