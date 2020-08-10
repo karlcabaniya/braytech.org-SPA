@@ -54,6 +54,7 @@ import { ReactComponent as Titan } from './common/titan.svg';
 import { ReactComponent as Hunter } from './common/hunter.svg';
 import { ReactComponent as Warlock } from './common/warlock.svg';
 import { ReactComponent as DOC } from './common/doc.svg';
+import { ReactComponent as SeventhColumn } from './common/seventh-column.svg';
 import { ReactComponent as Info } from './common/info.svg';
 import { ReactComponent as Error } from './common/error.svg';
 import { ReactComponent as Completed } from './common/completed.svg';
@@ -155,6 +156,8 @@ import { ReactComponent as GrimoireGuardian } from './grimoire/guardian.svg';
 import { ReactComponent as GrimoireInventory } from './grimoire/inventory.svg';
 import { ReactComponent as GrimoirePlaces } from './grimoire/places.svg';
 
+import { ReactComponent as Diagram1 } from './miscellaneous/collectible-and-record-diagram.svg';
+
 const Common = {
   Arc: EnergyArc,
   Solar: EnergySolar,
@@ -162,12 +165,13 @@ const Common = {
   Ammo: {
     Primary: AmmoPrimary,
     Special: AmmoSpecial,
-    Heavy: AmmoHeavy
+    Heavy: AmmoHeavy,
   },
   Titan,
   Hunter,
   Warlock,
   DOC,
+  SeventhColumn,
   Info,
   Error,
   Completed,
@@ -292,6 +296,9 @@ const Views = {
     Quests: HighlightQuests,
     Reports: HighlightReports,
   },
+  FAQ: {
+    Diagram1,
+  },
   Clan: {
     About: HighlightClan,
     Stats,
@@ -326,7 +333,7 @@ const Views = {
     Seasonal: SeasonArrivals,
     Playlists,
     Exotics: Engram,
-    Past
+    Past,
   },
 };
 

@@ -7,7 +7,7 @@ import * as enums from './destinyEnums';
 import { D2SeasonInfo } from '../data/d2-additional-info/d2-season-info.ts';
 import * as SVG from '../svg';
 
-export const neverProfileLinks = ['/maps', '/vaulted'];
+export const neverProfileLinks = ['/maps', '/vaulted', '/solstice-of-heroes'];
 
 export const isProfileRoute = (location) => {
   // if (location.pathname.indexOf('inventory') > -1) {

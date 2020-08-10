@@ -97,7 +97,7 @@ class ProposeChanges extends React.Component {
       });
     }
 
-    const { screenshots, ...rest } = this.state.values;
+    const { screenshots, name, ...rest } = this.state.values;
 
     try {
       const uploaded = await this.post_screenshots();
@@ -114,6 +114,7 @@ class ProposeChanges extends React.Component {
         },
         body: JSON.stringify({
           ...rest,
+          friendlyName: name,
           screenshots: uploaded.map((post) => ({
             directus_files_id: { id: post.data.id },
           })),

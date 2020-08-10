@@ -263,7 +263,7 @@
 #tooltip .power-cap .text .light::before {
   content: 'l';
   position: absolute;
-  top: 5px;
+  top: 6px;
   left: -8px;
   font-family: 'Braytech' !important;
   font-size: 7px;

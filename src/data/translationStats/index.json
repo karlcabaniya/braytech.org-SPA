@@ -1,86 +1,136 @@
 {
   "de": {
-    "translated": 708,
-    "notTranslated": 68,
+    "translated": 695,
+    "notTranslated": 76,
     "added": [],
     "removed": []
   },
   "debug": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "en": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "fr": {
-    "translated": 634,
-    "notTranslated": 142,
+    "translated": 623,
+    "notTranslated": 148,
     "added": [],
     "removed": []
   },
   "it": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "ja": {
-    "translated": 581,
-    "notTranslated": 195,
+    "translated": 570,
+    "notTranslated": 201,
     "added": [],
     "removed": []
   },
   "ko": {
-    "translated": 510,
-    "notTranslated": 266,
-    "added": [],
-    "removed": []
+    "translated": 499,
+    "notTranslated": 272,
+    "added": [
+      "FAQ.Answers.1.A",
+      "FAQ.Answers.1.Q"
+    ],
+    "removed": [
+      "Braytech won't update to the newest version",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
+    ]
   },
   "pl": {
     "translated": 2,
-    "notTranslated": 774,
-    "added": [],
-    "removed": []
+    "notTranslated": 769,
+    "added": [
+      "FAQ.Answers.0.A",
+      "FAQ.Answers.0.Q",
+      "FAQ.Answers.1.A",
+      "FAQ.Answers.1.Q",
+      "FAQ.Answers.2.A",
+      "FAQ.Answers.2.Q",
+      "FAQ.Answers.3.A",
+      "FAQ.Answers.3.Q"
+    ],
+    "removed": [
+      "Braytech won't update to the newest version",
+      "Clan Historical Stats don't match [other thing]",
+      "Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).",
+      "Describing the anatomy of collectibles and records",
+      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
+      "Something seems wrong with my Valor rank resets",
+      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
+    ]
   },
   "pt-br": {
-    "translated": 775,
-    "notTranslated": 1,
+    "translated": 762,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "ru": {
-    "translated": 776,
+    "translated": 771,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "zh-chs": {
-    "translated": 580,
-    "notTranslated": 196,
-    "added": [],
-    "removed": []
+    "translated": 605,
+    "notTranslated": 166,
+    "added": [
+      "FAQ.Answers.0.A",
+      "FAQ.Answers.1.A",
+      "FAQ.Answers.1.Q",
+      "FAQ.Answers.2.A",
+      "FAQ.Answers.2.Q",
+      "FAQ.Answers.3.A"
+    ],
+    "removed": [
+      "Braytech won't update to the newest version",
+      "Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).",
+      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
+      "Something seems wrong with my Valor rank resets",
+      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
+    ]
   },
   "zh-cht": {
-    "translated": 634,
-    "notTranslated": 142,
-    "added": [],
-    "removed": []
+    "translated": 622,
+    "notTranslated": 149,
+    "added": [
+      "FAQ.Answers.1.A",
+      "FAQ.Answers.1.Q",
+      "FAQ.Answers.2.A",
+      "FAQ.Answers.2.Q",
+      "FAQ.Answers.3.A"
+    ],
+    "removed": [
+      "Braytech won't update to the newest version",
+      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
+      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
+      "Something seems wrong with my Valor rank resets",
+      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
+    ]
   }
 }

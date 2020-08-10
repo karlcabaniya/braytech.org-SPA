@@ -8,27 +8,86 @@
 #solstice-of-heroes .module.head {
   padding: calc(4rem + 40px) 3rem 3rem;
   background-color: rgba(255, 255, 255, 0.05);
+  background-color: #c0b27e;
 }
 
 #solstice-of-heroes .module.head .page-header {
   margin-bottom: 0rem;
 }
 
-#solstice-of-heroes .module.head .text {
-  font-size: 18px;
+#solstice-of-heroes .module.head .text .description {
   margin: 2rem 0 0;
 }
 
-#solstice-of-heroes .module.head .text p {
-  max-width: 550px;
+#solstice-of-heroes .module.head .text .description p {
+  max-width: 700px;
+  font-size: 14px;
+}
+
+#solstice-of-heroes .module.head .text .description p:first-child {
+  font-size: 18px;
 }
 
 #solstice-of-heroes .buff {
   width: 100%;
   padding: 3rem;
   display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 3rem;
+}
+
+#solstice-of-heroes .module.views > .list {
+  position: sticky;
+  top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+  width: 60px;
+}
+
+#solstice-of-heroes .module.views .list li {
+  display: grid;
+  margin: 0;
+  height: 60px;
+}
+
+#solstice-of-heroes .module.views .list li .icon {
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+#solstice-of-heroes .module.views .list li .icon svg {
+  width: 32px;
+  height: 32px;
+  fill: rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}
+
+#solstice-of-heroes .content {
+  display: grid;
   grid-template-columns: auto;
   gap: 3rem;
+}
+
+#solstice-of-heroes .module.views .list li::before {
+  box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.4);
+}
+
+#solstice-of-heroes .module.views .list li.linked:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+#solstice-of-heroes .module.views .list li a.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 1);
+  color: #fff;
+}
+
+#solstice-of-heroes .module.views .list li a:hover {
+  color: #fff;
 }
 
 #solstice-of-heroes .sets {
@@ -90,10 +149,30 @@
   #solstice-of-heroes .module.head {
     padding: calc(3rem + 40px) 2rem 2rem;
   }
-
+  
   #solstice-of-heroes .buff {
-    gap: 2rem;
     padding: 2rem;
+    grid-template-columns: 40px 1fr;
+    gap: 2rem;
+  }
+
+  #solstice-of-heroes .module.views .list {
+    top: 2rem;
+    grid-template-columns: 1fr;
+    width: 40px;
+  }
+
+  #solstice-of-heroes .module.views .list li {
+    height: 40px;
+  }
+
+  #solstice-of-heroes .module.views .list li .icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #solstice-of-heroes .content {
+    gap: 2rem;
   }
 
   #solstice-of-heroes .sets {
@@ -101,4 +180,77 @@
     gap: 2rem;
   }
 
+}
+
+
+
+
+
+#solstice-of-heroes .auth-upsell {
+  overflow: hidden;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: minmax(auto, 1024px);
+  gap: 2rem;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#solstice-of-heroes .auth-upsell .wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: max-content min-content;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 3px;
+  row-gap: 1rem;
+}
+
+#solstice-of-heroes .auth-upsell .wrap .icon {
+  position: absolute;
+  right: 8rem;
+  top: -5rem;
+  height: calc(100% + 10rem);
+  opacity: 0.2;
+}
+
+#solstice-of-heroes .auth-upsell .wrap .icon svg {
+  width: auto;
+  height: 100%;
+}
+
+#solstice-of-heroes .auth-upsell .wrap .text {
+  position: relative;
+  max-width: 500px;
+  font-size: 16px;
+}
+
+#solstice-of-heroes .auth-upsell .wrap .button {
+  backdrop-filter: blur(10px);
+}
+
+#solstice-of-heroes .auth-upsell .wrap .button .text {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1024px) {
+  #solstice-of-heroes .auth-upsell .wrap .icon {
+    right: 4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #solstice-of-heroes .auth-upsell {
+    padding: 2rem;
+  }
+
+  #solstice-of-heroes .auth-upsell .wrap {
+    grid-template-columns: unset;
+  }
+
+  #solstice-of-heroes .auth-upsell .wrap .icon {
+    right: -4rem;
+    top: -4rem;
+    height: calc(100% + 8rem);
+  }
 }

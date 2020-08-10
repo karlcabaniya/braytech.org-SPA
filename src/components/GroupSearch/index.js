@@ -19,7 +19,7 @@ class GroupSearch extends React.Component {
     this.state = {
       results: false,
       search: '',
-      searching: true
+      searching: false
     };
     this.mounted = false;
   }
@@ -47,17 +47,31 @@ class GroupSearch extends React.Component {
     if (!groupName) return;
 
     this.setState({ searching: true });
+
     try {
-      let result = await bungie.GetGroupByName(groupName);
+      const response = await bungie.GetGroupByName({
+        params: {
+          groupName
+        },
+        errors: {
+          hide: true
+        }
+      });
+
       if (this.mounted) {
-        result = responseUtils.groupScrubber(result);
-        this.setState({ result: result, searching: false });
-        voluspa.PostMember({ groupId: result.detail.groupId });
+        if (response && response.ErrorCode === 1) {
+          const result = responseUtils.groupScrubber(response.Response);
+          
+          this.setState({ result: result, searching: false });
+        } else {
+          throw new Error(response);
+        }
       }
     } catch (e) {
       // If we get an error here it's usually because somebody is being cheeky
       // (eg entering invalid search data), so log it only.
       if (this.mounted) this.setState({ result: false, searching: false });
+
       console.warn(`Error while searching for ${groupName}: ${e}`);
     }
   }, 500);
@@ -65,9 +79,9 @@ class GroupSearch extends React.Component {
   componentDidMount() {
     this.mounted = true;
     
-    if (this.props.initial) {
-      this.searchForGroups(this.props.initial);
-    }
+    //if (this.props.initial) {
+      this.searchForGroups('math class');
+    //}
   }
 
   resultsElement = () => {
@@ -101,7 +115,7 @@ class GroupSearch extends React.Component {
               <ReactMarkdown className='bio' escapeHtml disallowedTypes={['image', 'imageReference']} source={result.detail.about} />
             </div>
             <div>
-              <Button text='View clan leaderboard' disabled={false} anchor to={`/leaderboards/group/${result.detail.groupId}`} />
+              <Button text='View clan leaderboard' disabled={false} anchor to={`/clan/${result.detail.groupId}`} />
             </div>
           </div>
         </div>

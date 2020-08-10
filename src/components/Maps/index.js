@@ -12,9 +12,12 @@ import actions from '../../store/actions';
 import { resolveMap, getMapCenter } from '../../utils/maps';
 import { checklists, checkup } from '../../utils/checklists';
 
-import { Layers, BackgroundLayer } from './Layers';
+import MapLayer from './Layers/Map';
+import BackgroundLayer from './Layers/Background';
+import CloudLayer from './Layers/Cloud';
 import Loading from './Loading';
 import Static from './Nodes/Static';
+import Borders from './Nodes/Borders';
 import Checklists from './Nodes/Checklists';
 import Runtime from './Nodes/Runtime';
 import Speciality from './Nodes/Specialty';
@@ -32,8 +35,6 @@ import './styles.css';
 import { useParams } from 'react-router-dom';
 
 function getViewport(viewport, params) {
-  console.log('initialViewport function executed');
-
   const { destinationId, destinationHash } = resolveMap(params.map);
 
   let center = getMapCenter(destinationId);
@@ -62,9 +63,9 @@ function getViewport(viewport, params) {
   }
 
   return {
-    center,
-    zoom,
     destinationHash,
+    zoom,
+    center,
   };
 }
 
@@ -167,6 +168,8 @@ export default function Maps() {
 
   const handler_map_layerAdd = (e) => {};
 
+  const handler_map_move = (e) => { };
+
   const handler_map_moveEnd = (e) => {
     // if (this.mounted) this.props.rebindTooltips();
   };
@@ -174,6 +177,8 @@ export default function Maps() {
   const handler_map_zoomEnd = (e) => {
     // if (this.mounted) this.props.rebindTooltips();
   };
+
+  // const [clicks, setClicks] = useState([]);
 
   const handler_map_mouseDown = (e) => {
     if (!settings.maps.debug || !settings.maps.logDetails) return;
@@ -213,6 +218,9 @@ export default function Maps() {
     //     },
     //   },
     // });
+
+    // setClicks((state) => [...state, [originalX, originalY]])
+    
   };
 
   const handler_map_viewportChanged = (viewport) => {
@@ -259,17 +267,19 @@ export default function Maps() {
         onMouseDown={handler_map_mouseDown}
       >
         {/* the Maps */}
-        <Layers {...destination} ready={handler_map_layersReady} partial={handler_map_layersPartial} />
+        <MapLayer {...destination} ready={handler_map_layersReady} partial={handler_map_layersPartial} />
         {/* Text nodes, fast travels, vendors, dungeons, ascendant challenges, forges, portals */}
         <Static {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
+        {/* <Borders {...destination} debug={clicks} /> */}
         {/* Checklists... */}
         <Checklists {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
         {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
         <Runtime {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
         {/* Latent memory fragments on Mars, etc. */}
-        <Speciality {...destination} handler={handler_showInspect} />
+        <Speciality handler={handler_showInspect} />
         {/* Unique graphs */}
         {/* <Graphs {...destination} /> */}
+        {/* <CloudLayer {...destination} /> */}
       </Map>
       <Loading loaded={mapState.loaded} />
       {viewport.width > 1024 ? <Zoom increase={handler_zoomIncrease} decrease={handler_zoomDecrease} now={viewportState.zoom} /> : null}

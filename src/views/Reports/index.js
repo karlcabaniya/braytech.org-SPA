@@ -1,5 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+
+import { t, BraytechText } from '../../utils/i18n';
+import { removeMemberIds } from '../../utils/paths';
+
+import { ProfileNavLink } from '../../components/ProfileLink';
+import { Views } from '../../svg';
 
 import './styles.css';
 
@@ -9,31 +14,98 @@ import Gambit from './Gambit';
 import Raids from './Raids';
 import Strikes from './Strikes';
 
-class Reports extends React.Component {
-  render() {
-    const type = this.props.match.params.type;
-    const mode = +this.props.match.params.mode || 0;
-    const offset = +this.props.match.params.offset || 0;
-
-    if (type === 'crucible') {
-      return <Crucible mode={mode} offset={offset} />;
-    } else if (type === 'gambit') {
-      return <Gambit mode={mode} offset={offset} />;
-    } else if (type === 'raids') {
-      return <Raids mode={mode} offset={offset} />;
-    } else if (type === 'strikes') {
-      return <Strikes mode={mode} offset={offset} />;
-    } else {
-      return <Root offset={offset} />;
-    }
+function navLinkIsActive(match, location) {
+  if (['/reports', '/reports/all'].includes(removeMemberIds(location.pathname)) || removeMemberIds(location.pathname).includes('/reports/all')) {
+    return true;
+  } else {
+    return false;
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    member: state.member,
-    pgcr: state.pgcr
-  };
+export function NavLinks() {
+  return (
+    <div className='module views'>
+      <ul className='list'>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Reports.Explore />
+          </div>
+          <ProfileNavLink to='/reports' isActive={navLinkIsActive} />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Reports.Crucible />
+          </div>
+          <ProfileNavLink to='/reports/crucible' />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Reports.Gambit />
+          </div>
+          <ProfileNavLink to='/reports/gambit' />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Reports.Strikes />
+          </div>
+          <ProfileNavLink to='/reports/strikes' />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
+            <Views.Reports.Raids />
+          </div>
+          <ProfileNavLink to='/reports/raids' />
+        </li>
+      </ul>
+    </div>
+  );
 }
 
-export default connect(mapStateToProps)(Reports);
+export default function Reports(props) {
+  const mode = +props.match.params.mode || 0;
+  const offset = +props.match.params.offset || 0;
+
+  const views = {
+    crucible: {
+      component: Crucible,
+      displayProperties: {
+        name: t('Crucible'),
+      },
+    },
+    gambit: {
+      component: Gambit,
+      displayProperties: {
+        name: t('Gambit'),
+      },
+    },
+    raids: {
+      component: Raids,
+      displayProperties: {
+        name: t('Raids'),
+      },
+    },
+    strikes: {
+      component: Strikes,
+      displayProperties: {
+        name: t('Strikes'),
+      },
+    },
+    all: {
+      component: Root,
+      displayProperties: {
+        name: t('Explore'),
+      },
+    },
+  };
+
+  const Component = views[props.match.params.type || 'all'].component;
+
+  return (
+    <div className='view' id='multiplayer'>
+      <div className='buff'>
+        <NavLinks />
+        <Component mode={mode} offset={offset} />
+      </div>
+    </div>
+  );
+}

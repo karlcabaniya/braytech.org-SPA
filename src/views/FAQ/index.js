@@ -1,109 +1,101 @@
-import React from 'react';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
-import Markdown from 'react-markdown';
+import React, { useEffect } from 'react';
 
-import { ReactComponent as Diagram1 } from '../../svg/miscellaneous/collectible-and-record-diagram.svg';
+import { t, BraytechText } from '../../utils/i18n';
+
+import { Views } from '../../svg';
 
 import './styles.css';
 
-class FAQ extends React.Component {
-  componentDidMount() {
+export default function FAQ() {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  }
+  }, []);
 
-  handler_scrollTo = id => e => {
+  const handler_scrollTo = (id) => (e) => {
     e.preventDefault();
 
     const element = document.getElementById(id);
     element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  render() {
-    const { t } = this.props;
+  const qa = [
+    {
+      k: 'braytech',
+      i: 0,
+      q: t('FAQ.Answers.0.Q'),
+      a: [<BraytechText key='0' className='markdown' value={t('FAQ.Answers.0.A')} />, <Views.FAQ.Diagram1 key='1' />],
+    },
+    {
+      k: 'braytech',
+      i: 1,
+      q: t('FAQ.Answers.1.Q'),
+      a: [<BraytechText key='0' className='markdown' value={t('FAQ.Answers.1.A')} />],
+    },
+    {
+      k: 'api',
+      i: 2,
+      q: t('FAQ.Answers.2.Q'),
+      a: [<BraytechText key='0' className='markdown' value={t('FAQ.Answers.2.A')} />],
+    },
+    {
+      k: 'api',
+      i: 3,
+      q: t('FAQ.Answers.3.Q'),
+      a: [<BraytechText key='0' className='markdown' value={t('FAQ.Answers.3.A')} />],
+    },
+  ];
 
-    const qa = [
-      {
-        k: 'braytech',
-        i: 0,
-        q: t('Describing the anatomy of collectibles and records'),
-        a: [<Markdown key='0' className='markdown' source={t("Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).")} />, <Diagram1 key='1' />]
-      },
-      {
-        k: 'braytech',
-        i: 1,
-        q: t("Braytech won't update to the newest version"),
-        a: [<Markdown key='0' className='markdown' source={t("From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._")} />]
-      },
-      {
-        k: 'api',
-        i: 2,
-        q: t('Something seems wrong with my Valor rank resets'),
-        a: [<Markdown key='0' className='markdown' source={t("For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.")} />]
-      },
-      {
-        k: 'api',
-        i: 3,
-        q: t("Clan Historical Stats don't match [other thing]"),
-        a: [<Markdown key='0' className='markdown' source={t("There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition.")} />]
-      }
-    ];
-
-    return (
-      <div className='view' id='faq'>
-        <div className='module head'>
-          <div className='page-header'>
-            <div className='name'>{t('Frequently Asked Questions')}</div>
-          </div>
+  return (
+    <div className='view' id='faq'>
+      <div className='module head'>
+        <div className='page-header'>
+          <div className='name'>{t('Frequently Asked Questions')}</div>
         </div>
-        <div className='buff'>
-          <div className='module overview'>
-            <h4>Braytech</h4>
-            <ul>
-              {qa
-                .filter(q => q.k === 'braytech')
-                .map((qa, index) => {
-                  return (
-                    <li key={index} className='qa'>
-                      <a className='hyperlink' href='/' onClick={this.handler_scrollTo(qa.i)}>
-                        {qa.q}
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
-            <h4>API</h4>
-            <ul>
-              {qa
-                .filter(q => q.k === 'api')
-                .map((qa, index) => {
-                  return (
-                    <li key={index} className='qa'>
-                      <a className='hyperlink' href='/' onClick={this.handler_scrollTo(qa.i)}>
-                        {qa.q}
-                      </a>
-                    </li>
-                  );
-                })}
-            </ul>
-          </div>
-          <div className='module faq'>
-            <div className='k'>
-              {qa.map((qa, index) => {
+      </div>
+      <div className='buff'>
+        <div className='module overview'>
+          <h4>Braytech</h4>
+          <ul>
+            {qa
+              .filter((q) => q.k === 'braytech')
+              .map((qa, i) => {
                 return (
-                  <div key={index} id={qa.i} className='qa'>
-                    <div className='q'>{qa.q}</div>
-                    <div className='a'>{qa.a}</div>
-                  </div>
+                  <li key={i} className='qa'>
+                    <a className='hyperlink' href='/' onClick={handler_scrollTo(qa.i)}>
+                      {qa.q}
+                    </a>
+                  </li>
                 );
               })}
-            </div>
+          </ul>
+          <h4>API</h4>
+          <ul>
+            {qa
+              .filter((q) => q.k === 'api')
+              .map((qa, i) => {
+                return (
+                  <li key={i} className='qa'>
+                    <a className='hyperlink' href='/' onClick={handler_scrollTo(qa.i)}>
+                      {qa.q}
+                    </a>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+        <div className='module faq'>
+          <div className='k'>
+            {qa.map((qa, i) => {
+              return (
+                <div key={i} id={qa.i} className='qa'>
+                  <div className='q'>{qa.q}</div>
+                  <div className='a'>{qa.a}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default compose(connect(), withTranslation())(FAQ);

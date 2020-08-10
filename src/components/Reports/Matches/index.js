@@ -1,13 +1,14 @@
 import React from 'react';
-import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { withTranslation } from 'react-i18next';
 import { orderBy, isEqual, flattenDepth } from 'lodash';
 
-import * as bungie from '../../../utils/bungie';
+import { t } from '../../../utils/i18n';
+import { GetActivityHistory } from '../../../utils/bungie';
 import getPGCR from '../../../utils/getPGCR';
+
 import Spinner from '../../UI/Spinner';
 import Button from '../../UI/Button';
+import TimeTilRefresh from '../../UI/TimeTilRefresh';
 
 import PGCR from '../PGCR';
 
@@ -17,25 +18,25 @@ class Matches extends React.Component {
   state = {
     loading: false,
     cacheState: {},
-    instances: []
+    instances: [],
   };
 
   cacheMachine = async (mode, characterId) => {
     const { member, auth, pgcr, limit = 15, offset = 0 } = this.props;
 
-    const charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map(c => c.characterId);
+    const charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map((c) => c.characterId);
 
-    const requests = charactersIds.map(async c => {
-      const response = await bungie.GetActivityHistory({
+    const requests = charactersIds.map(async (c) => {
+      const response = await GetActivityHistory({
         params: {
           membershipType: member.membershipType,
           membershipId: member.membershipId,
           characterId: c,
           count: limit,
           mode,
-          page: offset
+          page: offset,
         },
-        withAuth: Boolean(auth?.destinyMemberships?.find(d => d.membershipId === member.membershipId))
+        withAuth: Boolean(auth?.destinyMemberships?.find((d) => d.membershipId === member.membershipId)),
       });
 
       if (response && response.ErrorCode === 1 && response.Response.activities) {
@@ -47,20 +48,22 @@ class Matches extends React.Component {
 
     let activities = await Promise.all(requests);
     activities = flattenDepth(activities, 1);
-    activities = orderBy(activities, [pgcr => pgcr.period], ['desc']);
+    activities = orderBy(activities, [(pgcr) => pgcr.period], ['desc']);
     activities = activities.slice();
 
     if (this.mounted) {
-      this.setState(p => {
-        const identifier = mode ? mode : 'all';
-        p.cacheState[identifier] = activities.length;
-        p.instances = activities.map(a => a.activityDetails.instanceId);
-        return p;
-      });
+      this.setState((state) => ({
+        ...state,
+        cacheState: {
+          ...state.cacheState,
+          [mode || 'all']: activities.length,
+        },
+        instances: activities.map((a) => a.activityDetails.instanceId),
+      }));
     }
 
-    const reports = activities.map(async activity => {
-      if (pgcr[member.membershipId] && activity && !pgcr[member.membershipId].find(pgcr => pgcr.activityDetails.instanceId === activity.activityDetails.instanceId)) {
+    const reports = activities.map(async (activity) => {
+      if (pgcr[member.membershipId] && activity && !pgcr[member.membershipId].find((pgcr) => pgcr.activityDetails.instanceId === activity.activityDetails.instanceId)) {
         return getPGCR(member.membershipId, activity.activityDetails.instanceId);
       } else if (!pgcr[member.membershipId] && activity) {
         return getPGCR(member.membershipId, activity.activityDetails.instanceId);
@@ -72,7 +75,7 @@ class Matches extends React.Component {
     return await Promise.all(reports);
   };
 
-  run = async force => {
+  run = async (force) => {
     const { member, mode } = this.props;
 
     const run = force ? true : !this.state.loading;
@@ -85,7 +88,7 @@ class Matches extends React.Component {
 
       try {
         let ignition = mode
-          ? await [mode].map(m => {
+          ? await [mode].map((m) => {
               return this.cacheMachine(m, member.characterId);
             })
           : [await this.cacheMachine(false, member.characterId)];
@@ -104,8 +107,12 @@ class Matches extends React.Component {
     }
   };
 
-  handler_scrollToMatches = e => {
-    document.getElementById('matches').scrollIntoView({ behavior: 'smooth' });
+  ref_matches = React.createRef();
+
+  handler_scrollToMatches = (event) => {
+    if (this.ref_matches.current) {
+      this.ref_matches.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   componentDidMount() {
@@ -147,50 +154,52 @@ class Matches extends React.Component {
   }
 
   render() {
-    const { t, member, pgcr, mode, offset, limit = 15, root } = this.props;
-    const { loading, instances } = this.state;
+    const { member, pgcr, mode, offset, limit = 15, root } = this.props;
 
     // get PGCRs for current membership
     let reports = pgcr[member.membershipId] || [];
 
     // filter available PGCRs and ensure uniqueness
     reports = reports
-      .filter(r => (mode && r.activityDetails.modes.indexOf(mode) > -1) || !mode)
-      .filter(pgcr => instances.includes(pgcr.activityDetails.instanceId))
-      .filter((obj, pos, arr) => arr.map(mapObj => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos);
+      .filter((r) => (mode && r.activityDetails.modes.indexOf(mode) > -1) || !mode)
+      .filter((pgcr) => this.state.instances.includes(pgcr.activityDetails.instanceId))
+      .filter((obj, pos, arr) => arr.map((mapObj) => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos);
 
     // ensure order
-    reports = orderBy(reports, [pgcr => pgcr.period], ['desc']);
+    reports = orderBy(reports, [(pgcr) => pgcr.period], ['desc']);
 
     return reports.length ? (
-      <div className='matches'>
-        {loading ? <Spinner mini /> : null}
+      <div ref={this.ref_matches} className='matches'>
+        <div className='state'>
+          <TimeTilRefresh isLoading={this.state.loading} duration='20s' />
+          {this.state.loading ? <Spinner mini /> : null}
+        </div>
         <ul className='list reports'>
-          {reports.map((r, i) => (
+          {reports.map((r) => (
             <PGCR key={r.activityDetails.instanceId} report={r} />
           ))}
         </ul>
         <div className='pages'>
-          <Button classNames='previous' text={t('Previous page')} disabled={loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={this.handler_scrollToMatches} />
-          <Button classNames='next' text={t('Next page')} disabled={loading || reports.length < limit} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={this.handler_scrollToMatches} />
+          <Button classNames='previous' text={t('Previous page')} disabled={this.state.loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={this.handler_scrollToMatches} />
+          <Button classNames='next' text={t('Next page')} disabled={this.state.loading || reports.length < limit} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={this.handler_scrollToMatches} />
         </div>
       </div>
-    ) : loading ? (
-      <Spinner />
-    ) : (
-      <div className='matches'>
-        <div className='info'>{t('No reports available')}</div>
+    ) : this.state.loading ? (
+      <div className='matches loading'>
+        <Spinner mini />
       </div>
+    ) : (
+      <div className='matches info'>{t('No reports available')}</div>
     );
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     member: state.member,
     auth: state.auth,
-    pgcr: state.pgcr
+    pgcr: state.pgcr,
   };
 }
 
-export default compose(connect(mapStateToProps), withTranslation())(Matches);
+export default connect(mapStateToProps)(Matches);

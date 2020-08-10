@@ -1,17 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import cx from 'classnames';
 
-import { t } from '../../utils/i18n';
+import { t, BraytechText } from '../../utils/i18n';
 import { ProfileNavLink } from '../../components/ProfileLink';
-import { Views, Common } from '../../svg';
+import { Views } from '../../svg';
 
 import './styles.css';
 
 import About from './About';
 import Roster from './Roster';
 import RosterAdmin from './RosterAdmin';
-import RosterProgress from './RosterProgress';
 import Stats from './Stats';
 
 export function NavLinks() {
@@ -30,12 +29,6 @@ export function NavLinks() {
           </div>
           <ProfileNavLink to='/clan/roster' />
         </li>
-        {/* <li className='linked'>
-          <div className='icon'>
-            <Common.Tricorn />
-          </div>
-          <ProfileNavLink to='/clan/progress' />
-        </li> */}
         <li className='linked'>
           <div className='icon'>
             <Views.Clan.RosterAdmin />
@@ -57,10 +50,8 @@ function ViewportWidth() {
   return (
     <div className='module'>
       <div className='properties'>
-        <div className='name'>{t('Clan Admin')}</div>
-        <div className='description'>
-          <p>{t('Clan Admin mode is intended for use on larger displays. Please use a display with a viewport of atleast 1280px.')}</p>
-        </div>
+        <div className='name'>{t('Administration')}</div>
+        <BraytechText className='description' value={t('Clan.Administration.ViewportWidth')} />
       </div>
     </div>
   );
@@ -70,24 +61,21 @@ function NoClan() {
   return (
     <div className='module'>
       <div className='properties'>
-        <div className='name'>{t('No clan affiliation')}</div>
-        <div className='description'>
-          <p>{t('Clans are optional groups of friends that enhance your online gaming experience. Coordinate with your clanmates to take on co-op challenges or just simply represent them in your solo play to earn extra rewards.')}</p>
-          <p>{t("Join your friend's clan, meet some new friends, or create your own on the companion app or at bungie.net.")}</p>
-        </div>
+        <div className='name'>{t('Clan.NoClan.Name')}</div>
+        <BraytechText className='description' value={t('Clan.NoClan.Description')} />
       </div>
     </div>
   );
 }
 
-function Clan(props) {
-  const { member, viewport } = props;
+export default function Clan(props) {
+  const viewport = useSelector((state) => state.viewport);
+  const member = useSelector((state) => state.member);
 
   const views = {
     about: About,
     roster: Roster,
     admin: RosterAdmin,
-    progress: RosterProgress,
     stats: Stats,
     'no-clan': NoClan,
     'viewport-width': ViewportWidth,
@@ -96,7 +84,7 @@ function Clan(props) {
   let view = props.match.params.view || 'about';
 
   if (!member.data.groups.clan) view = 'no-clan';
-  if (view === 'admin' && viewport.width < 1280) view = 'viewport-width';
+  if (view === 'admin' && viewport.width < 1500) view = 'viewport-width';
   if (!views[view]) view = 'about';
 
   const Component = views[view];
@@ -112,12 +100,3 @@ function Clan(props) {
     </div>
   );
 }
-
-function mapStateToProps(state) {
-  return {
-    viewport: state.viewport,
-    member: state.member,
-  };
-}
-
-export default connect(mapStateToProps)(Clan);

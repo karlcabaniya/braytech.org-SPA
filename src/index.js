@@ -2,21 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+import packageJSON from '../package.json';
+import runOnceTasks from './utils/runOnceTasks';
 import ErrorBoundary from './components/ErrorBoundary';
 import * as serviceWorker from './serviceWorker';
-import runOnceTasks from './utils/runOnceTasks';
-import packageJSON from '../package.json';
 
 import App from './App';
 
 import store from './store';
 
 class AppEntry extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
-    
+
     this.state = {
-      updateAvailable: false
+      updateAvailable: false,
+      beforeInstallPrompt: undefined,
     };
 
     console.log(`%c Braytech ${packageJSON.version}`, 'font-family: sans-serif; font-size: 24px;');
@@ -24,27 +25,23 @@ class AppEntry extends React.Component {
     runOnceTasks();
   }
 
-  config = {
-    onUpdate: registration => {
-      console.warn('Service worker update available');
-      console.log(registration);
+  updateAvailable = (registration) => {
+    this.setState({
+      updateAvailable: registration,
+    });
+  };
 
-      this.setState({
-        updateAvailable: true
-      });
-
-      if (registration.waiting) {
-        registration.waiting.postMessage({ type: "SKIP_WAITING" });
-      }
-    },
-    onSuccess: registration => {
-      console.warn('Service worker registered');
-      console.log(registration);
-    }
+  beforeInstallPrompt = (event) => {
+    this.setState({
+      beforeInstallPrompt: event,
+    });
   };
 
   componentDidMount() {
-    serviceWorker.register(this.config);
+    serviceWorker.register({
+      updateAvailable: this.updateAvailable,
+    });
+    serviceWorker.beforeInstallPrompt(this.beforeInstallPrompt);
   }
 
   render() {

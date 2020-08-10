@@ -60,6 +60,7 @@
 
 .propose-changes form .selected-screenshots .value ul li {
   line-height: 1.6;
+  word-break: break-all;
 }
 
 .propose-changes .text p {

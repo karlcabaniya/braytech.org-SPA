@@ -24,7 +24,6 @@ async function apiRequest(path, options = {}) {
 
   let tokens = ls.get('setting.auth');
 
-  const stats = options.stats || false;
   options = {
     ...defaults,
     ...options,
@@ -69,7 +68,7 @@ async function apiRequest(path, options = {}) {
     }
   }
 
-  const request = await fetch(`https://${stats ? 'stats' : 'www'}.bungie.net${path}`, options)
+  const request = await fetch(`https://${options.stats ? 'stats' : 'www'}.bungie.net${path}`, options)
     .catch(e => {
       if (!options.errors.hide) {
         store.dispatch({
@@ -297,7 +296,7 @@ export const GetLinkedProfiles = async options => apiRequest(`/Platform/Destiny2
 
 export const GetGroupsForMember = async options => apiRequest(`/Platform/GroupV2/User/${options.params.membershipType}/${options.params.membershipId}/0/1/`, options);
 
-export const GetGroupByName = async (groupName, groupType = 1) => apiRequest(`/Platform/GroupV2/Name/${encodeURIComponent(groupName)}/${groupType}/`);
+export const GetGroupByName = async options => apiRequest(`/Platform/GroupV2/Name/${encodeURIComponent(options.params.groupName)}/${options.params.groupType || 1}/`, options);
 
 export const GetMembersOfGroup = async groupId => apiRequest(`/Platform/GroupV2/${groupId}/Members/`);
 

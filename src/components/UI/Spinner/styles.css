@@ -1,15 +1,15 @@
 .spinner {
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   opacity: 0.5;
   pointer-events: none;
   transition: opacity 0.25s;
 }
 
 .spinner.mini {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 24px;
+  height: 24px;
 }
 
 .spinner svg {

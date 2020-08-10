@@ -11,12 +11,15 @@ import * as voluspa from './utils/voluspa';
 import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 
+// polyfills
 import 'intersection-observer';
 
+// core styles
 import './Core.css';
 import './App.css';
 import './components/PresentationNode.css';
 
+// core components
 import GoogleAnalytics from './components/GoogleAnalytics';
 import Header from './components/UI/Header';
 import Tooltip from './components/Tooltip';
@@ -28,26 +31,31 @@ import RefreshService from './components/RefreshService';
 import ErrorBoundary from './components/ErrorBoundary';
 import { AppLoading, SuspenseLoading } from './components/Loading';
 
+// routes
 import ProfileRoutes from './routes/Profile';
 import ArchivesRoutes from './routes/Archives';
 
+// core views
 import Index from './views/Index';
 import CharacterSelect from './views/CharacterSelect';
 import Settings from './views/Settings';
+import OOB from './views/OOB';
+
+// feature views
+import PGCR from './views/PGCR';
+import Read from './views/Read';
+
+// standalones
 import FAQ from './views/FAQ';
 import Vaulted from './views/Vaulted';
-import OOB from './views/OOB';
-import SolsticeOfHeroes from './views/SolsticeOfHeroes';
-
-import Read from './views/Read';
-import ClanBannerBuilder from './views/ClanBannerBuilder';
-import PGCR from './views/PGCR';
 import Compare from './views/Compare';
 import Commonality from './views/Commonality';
+import ClanBannerBuilder from './views/ClanBannerBuilder';
+import SolsticeOfHeroes from './views/SolsticeOfHeroes';
 
 import Test from './views/Test';
 
-// Slow down lazy imports for testing purposes
+// slow down lazy imports for testing purposes
 export function slowImport(value, ms = 1) {
   if (process.env.NODE_ENV === 'development') {
     return new Promise((resolve) => {
@@ -58,15 +66,15 @@ export function slowImport(value, ms = 1) {
   }
 }
 
-// Lazy components
+// lazy load components
 const Inspect = React.lazy(() => slowImport(import('./views/Inspect')));
 const Maps = React.lazy(() => slowImport(import('./views/Maps')));
 const TestThree = React.lazy(() => slowImport(import('./views/TestThree')));
 
-// Redirects /triumphs to /0/0000000000/0000000000/triumphs
+// redirects /triumphs to /0/0000000000/0000000000/triumphs
 const RedirectRoute = (props) => <Route {...props} render={({ location }) => <Redirect to={{ pathname: '/character-select', state: { from: location } }} />} />;
 
-// Wrap lazy-loaded components with react-router and ErrorBoundary component
+// wrap lazy-loaded components with react-router and ErrorBoundary component
 export const SuspenseRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -80,7 +88,7 @@ export const SuspenseRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-// Print timings of promises to console (and performance logger)
+// print timings of promises to console (and performance logger)
 // if we're running in development mode.
 async function timed(name, promise) {
   if (process.env.NODE_ENV === 'development') console.time(name);
@@ -89,7 +97,7 @@ async function timed(name, promise) {
   return result;
 }
 
-// Girl, bye, Modernizr
+// Girl, bye, modernizr
 function CSSFeatureDetects() {
   if (document.body.style.backdropFilter === undefined) {
     document.documentElement.classList.add('no-backdrop-filter');
@@ -329,7 +337,7 @@ class App extends React.Component {
                         <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                         <Route path='/faq' exact component={FAQ} />
                         <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
-                        <Route path='/solstice-of-heroes' exact component={SolsticeOfHeroes} />
+                        <Route path='/solstice-of-heroes/:type?' exact component={SolsticeOfHeroes} />
 
                         <Route path='/oob' component={OOB} />
                         <Route path='/test' component={Test} />
