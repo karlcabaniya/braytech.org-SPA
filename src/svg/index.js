@@ -156,6 +156,8 @@ import { ReactComponent as GrimoireGuardian } from './grimoire/guardian.svg';
 import { ReactComponent as GrimoireInventory } from './grimoire/inventory.svg';
 import { ReactComponent as GrimoirePlaces } from './grimoire/places.svg';
 
+import { ReactComponent as Diagram1 } from './miscellaneous/collectible-and-record-diagram.svg';
+
 const Common = {
   Arc: EnergyArc,
   Solar: EnergySolar,
@@ -163,7 +165,7 @@ const Common = {
   Ammo: {
     Primary: AmmoPrimary,
     Special: AmmoSpecial,
-    Heavy: AmmoHeavy
+    Heavy: AmmoHeavy,
   },
   Titan,
   Hunter,
@@ -294,6 +296,9 @@ const Views = {
     Quests: HighlightQuests,
     Reports: HighlightReports,
   },
+  FAQ: {
+    Diagram1,
+  },
   Clan: {
     About: HighlightClan,
     Stats,
@@ -328,7 +333,7 @@ const Views = {
     Seasonal: SeasonArrivals,
     Playlists,
     Exotics: Engram,
-    Past
+    Past,
   },
 };
 
