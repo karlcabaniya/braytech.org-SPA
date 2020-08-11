@@ -4,9 +4,9 @@ import { withTranslation } from 'react-i18next';
 import { orderBy } from 'lodash';
 import cx from 'classnames';
 
-import { addTime, fromNow, formatTime } from '../../../utils/i18n';
+import { addTime, fromNow, formatTime, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
-import * as enums from '../../../utils/destinyEnums';
+import { simplifiedAcivityModes } from '../../../utils/destinyEnums';
 import { activityModeExtras } from '../../../utils/destinyUtils';
 import ObservedImage from '../../ObservedImage';
 import { Activities } from '../../../svg';
@@ -27,7 +27,7 @@ class ReportHeader extends React.Component {
     const definitionMode = manifest.DestinyActivityModeDefinition[definitionActivity?.directActivityModeHash];
 
     // get current character entry or entry with longest activityDurationSeconds
-    const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
+    const entry = entries && ((characterIds && entries.find((entry) => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [(e) => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
 
     // add activityDurationSeconds to activity start time
     const realEndTime = addTime(period, entry.values.activityDurationSeconds.basic.value, 'seconds');
@@ -37,16 +37,28 @@ class ReportHeader extends React.Component {
       mode = extras.name;
     } else if (definitionActivity?.directActivityModeType === 37) {
       mode = definitionActivity.displayProperties?.name;
-    } else if (definitionActivity?.hash === 1166905690) {
+    }
+    // Trials of Osiris
+    else if (definitionActivity?.hash === 1166905690) {
+      mode = definitionActivity.displayProperties.name;
+    }
+    // European Aerial Zone
+    else if (
+      definitionActivity?.hash === 770505917 || //Solar
+      definitionActivity?.hash === 1199493030 || //Arc
+      definitionActivity?.hash === 2429391832 //Void
+    ) {
       mode = definitionActivity.displayProperties.name;
     }
 
     return (
       <div className='basic'>
-        <div className='mode'>{mode}</div>
+        <BungieText className='mode' value={mode} textOnly />
         <div className='map'>{definitionMap?.displayProperties?.name}</div>
         <div className='ago'>
-          <time dateTime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>{fromNow(realEndTime, false, true)}</time>
+          <time dateTime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>
+            {fromNow(realEndTime, false, true)}
+          </time>
         </div>
       </div>
     );
@@ -69,7 +81,7 @@ class ReportHeaderLarge extends React.Component {
     const definitionMode = manifest.DestinyActivityModeDefinition[definitionActivity?.directActivityModeHash];
 
     // get current character entry or entry with longest activityDurationSeconds
-    const entry = entries && ((characterIds && entries.find(entry => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [e => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
+    const entry = entries && ((characterIds && entries.find((entry) => characterIds.includes(entry.characterId))) || (entries.length && orderBy(entries, [(e) => e.values && e.values.activityDurationSeconds && e.values.activityDurationSeconds.basic.value], ['desc'])[0]));
 
     // add activityDurationSeconds to activity start time
     const realEndTime = addTime(period, entry.values.activityDurationSeconds.basic.value, 'seconds');
@@ -81,17 +93,17 @@ class ReportHeaderLarge extends React.Component {
     const scoreTotal = entry.values.score ? entries.reduce((v, e) => v + e.values.score.basic.value, 0) : false;
 
     // team scores
-    const alpha = teams && teams.length ? teams.find(t => t.teamId === 17) : false;
-    const bravo = teams && teams.length ? teams.find(t => t.teamId === 18) : false;
+    const alpha = teams && teams.length ? teams.find((t) => t.teamId === 17) : false;
+    const bravo = teams && teams.length ? teams.find((t) => t.teamId === 18) : false;
     const teamScores =
       teams && teams.length && alpha && bravo ? (
         <>
-          <div className={cx('value', 'alpha', { victory: teams.find(t => t.teamId === 17 && t.standing.basic.value === 0) })}>{alpha.score.basic.displayValue}</div>
-          <div className={cx('value', 'bravo', { victory: teams.find(t => t.teamId === 18 && t.standing.basic.value === 0) })}>{bravo.score.basic.displayValue}</div>
+          <div className={cx('value', 'alpha', { victory: teams.find((t) => t.teamId === 17 && t.standing.basic.value === 0) })}>{alpha.score.basic.displayValue}</div>
+          <div className={cx('value', 'bravo', { victory: teams.find((t) => t.teamId === 18 && t.standing.basic.value === 0) })}>{bravo.score.basic.displayValue}</div>
         </>
       ) : null;
-    
-    const simplifiedAcivityMode = enums.simplifiedAcivityModes.find(m => m.modes.indexOf(activityDetails.mode) > -1);
+
+    const simplifiedAcivityMode = simplifiedAcivityModes.find((m) => m.modes.indexOf(activityDetails.mode) > -1);
 
     const StandingVictorySVG = simplifiedAcivityMode?.name === 'gambit' ? Activities.Standing.Gambit.Victory : activityDetails.mode === 84 ? Activities.Standing.Trials.Victory : activityDetails.mode === 43 ? Activities.Standing.IronBanner.Victory : Activities.Standing.Crucible.Victory;
 
@@ -100,7 +112,17 @@ class ReportHeaderLarge extends React.Component {
       mode = extras.name;
     } else if (definitionActivity?.directActivityModeType === 37) {
       mode = definitionActivity.displayProperties?.name;
-    } else if (definitionActivity?.hash === 1166905690) {
+    }
+    // Trials of Osiris
+    else if (definitionActivity?.hash === 1166905690) {
+      mode = definitionActivity.displayProperties.name;
+    }
+    // European Aerial Zone
+    else if (
+      definitionActivity?.hash === 770505917 || //Solar
+      definitionActivity?.hash === 1199493030 || //Arc
+      definitionActivity?.hash === 2429391832 //Void
+    ) {
       mode = definitionActivity.displayProperties.name;
     }
 
@@ -109,13 +131,15 @@ class ReportHeaderLarge extends React.Component {
         {definitionMap?.pgcrImage && <ObservedImage className='image bg' src={`https://www.bungie.net${definitionMap.pgcrImage}`} />}
         <div className='detail'>
           <div>
-            <div className='mode'>{mode}</div>
+            <BungieText className='mode' value={mode} textOnly />
             <div className='map'>{definitionMap?.displayProperties?.name}</div>
           </div>
           <div>
             <div className='duration'>{entry.values.activityDurationSeconds.basic.displayValue}</div>
             <div className='ago'>
-              <time dateTime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>{fromNow(realEndTime, false, true)}</time>
+              <time dateTime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>
+                {fromNow(realEndTime, false, true)}
+              </time>
             </div>
           </div>
         </div>

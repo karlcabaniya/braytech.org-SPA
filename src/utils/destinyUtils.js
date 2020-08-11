@@ -868,6 +868,7 @@ export function activityModeExtras(mode) {
     },
     {
       modes: [38],
+      name: manifest.DestinyActivityDefinition[3646079260].displayProperties.name,
       icon: <SVG.Activities.Crucible.Countdown />,
     },
     {
