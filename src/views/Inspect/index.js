@@ -93,8 +93,8 @@ export default function Inspect() {
   const displayCommonality = definitionItem.collectibleHash && manifest.statistics.collections?.[definitionItem.collectibleHash];
   const displaySource = manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash]?.sourceString && stringBeautifier('source', manifest.DestinyCollectibleDefinition[definitionItem.collectibleHash].sourceString);
   const displayStats = (item.stats?.length && !item.stats.find((stat) => stat.statHash === -1000)) || (item.stats?.length && item.stats.find((s) => s.statHash === -1000));
+  const displayIntrinsic = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => socket.isIntrinsic && socket.plug).length;
   const displaySockets = item.sockets && item.sockets.socketCategories && item.sockets.sockets.filter((socket) => (socket.isPerk || socket.isIntrinsic || socket.isMod || socket.isOrnament || socket.isSpawnFX) && !socket.isTracker && !socket.isShader && socket.plug).length;
-  const displayStatsOrIntrinsic = displayStats || (displaySockets && preparedSockets.filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1))?.length;
 
   return (
     <>
@@ -173,7 +173,7 @@ export default function Inspect() {
               ) : null}
             </div>
           ) : null}
-          {displayStatsOrIntrinsic ? (
+          {displayStats || displayIntrinsic ? (
             <div className={cx('module')}>
               {displayStats ? (
                 <div className='module stats'>
@@ -240,10 +240,11 @@ export default function Inspect() {
                   })}
                 </div>
               ) : null}
-              {displaySockets ? (
+              {displayIntrinsic ? (
                 <div className='module sockets'>
                   {preparedSockets
-                    .filter((socketCategory) => socketCategory.category.categoryStyle === DestinySocketCategoryStyle.LargePerk && socketCategory.sockets.length === 1 && socketCategory.sockets[0].plugOptions.length === 1)
+                    .filter((socketCategory) => socketCategory.sockets.filter((socket) => socket.isIntrinsic && socket.plug).length)
+                    .reduce((array, socketCategory) => [...array, { ...socketCategory, sockets: socketCategory.sockets.filter((socket) => socket.isIntrinsic) }], [])
                     .map((socketCategory, c) => (
                       <Sockets key={c} itemHash={item.itemHash} itemSockets={item.sockets.sockets} {...socketCategory} selected={urlSockets} />
                     ))}
@@ -419,7 +420,7 @@ function Sockets({ itemHash, itemSockets, category, sockets, selected, masterwor
   const socketsToMap = sockets.filter((socket) => socket.socketDefinition.defaultVisible).filter((socket) => !socket.isTracker);
   const expandedSocket = socketsToMap.find((socket) => socketState.indexOf(socket.socketIndex) > -1);
 
-  const isIntrinsic = category.categoryStyle === DestinySocketCategoryStyle.LargePerk && sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
+  const isIntrinsic = sockets.length === 1 && sockets[0].isIntrinsic && sockets[0].plugOptions.length === 1;
   const isEnergyMeter = category.categoryStyle === DestinySocketCategoryStyle.EnergyMeter;
   const isPerks = category.categoryStyle !== DestinySocketCategoryStyle.Consumable;
   const isMods = category.categoryStyle === DestinySocketCategoryStyle.Consumable;
