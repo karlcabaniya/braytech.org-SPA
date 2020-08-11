@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import cx from 'classnames';
 
 import ls from '../../../utils/localStorage';
-import { t } from '../../../utils/i18n';
+import { t, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import actions from '../../../store/actions';
 import { nightfalls, nightmareHunts } from '../../../utils/destinyEnums';
@@ -56,6 +56,10 @@ const groups = [
     967175154, // Shady Schemes (The Drifter) - Reward
     565013971, // Live-Fire Exercises (Shaxx)
     4026431786, // Live-Fire Exercises (Shaxx) - Reward
+  ],
+  [
+    2749094865, // European Aerial Zone Bosses
+    446326564, // European Aerial Zone Chests
   ],
 ];
 
@@ -318,10 +322,8 @@ function Challenges() {
               <li key={i}>
                 <div className='activity'>
                   <div className='text'>
-                    <div className='name'>{name}</div>
-                    <div className='description'>
-                      <p>{description}</p>
-                    </div>
+                    <BungieText className='name' value={name} textOnly />
+                    <BungieText className='description' value={description} />
                   </div>
                   {activities.length ? (
                     <>

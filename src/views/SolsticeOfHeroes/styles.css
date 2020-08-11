@@ -144,7 +144,7 @@
   margin: 0 0 6px;
 }
 
-#solstice-of-heroes .sets .set ul li .text .description {
+#solstice-of-heroes .sets .set ul li > .text > .description {
   font-size: 14px;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
@@ -152,6 +152,18 @@
 
 #solstice-of-heroes .sets .set ul li .objectives {
   margin: 18px 0 0;
+}
+
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete {
+  opacity: 0.8;
+}
+
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete .bar {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete .bar .fill {
+  background-color: rgba(90, 163, 102, 0);
 }
 
 
