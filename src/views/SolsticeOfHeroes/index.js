@@ -63,7 +63,7 @@ function Objectives({ itemHash }) {
       {definitionItem.objectives?.objectiveHashes.map((hash, h) => {
         const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
-        const itemComponents = member.data?.profile?.itemComponents.objectives.data[item?.itemInstanceId]?.objectives || {};
+        const itemComponents = member.data?.profile?.itemComponents.objectives.data[item?.itemInstanceId]?.objectives.find((objective) => objective.objectiveHash === hash) || {};
 
         const playerProgress = {
           complete: false,
@@ -136,8 +136,7 @@ export default function SolsticeOfHeroes() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-  }, [location.pathname])
+  }, [location.pathname]);
 
   const SET_TIER_NAME = {
     0: t('Event.SolsticeOfHeroes.ArmorTier.Renewed'),
