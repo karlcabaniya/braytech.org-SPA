@@ -5,6 +5,7 @@ import { useLocation, useParams, Link, NavLink } from 'react-router-dom';
 import { t, BungieText, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { classTypeToString } from '../../utils/destinyConverters';
+import { enumerateCollectibleState } from '../../utils/destinyEnums';
 
 import { BungieAuthButton } from '../../components/BungieAuth';
 import Items from '../../components/Items';
@@ -45,18 +46,12 @@ const CLASS_MAP = {
 
 const ALL_SETS = [RENEWED, MAJESTIC, MAGNIFICENT];
 
-function Objectives({ itemHash }) {
+function Objectives({ itemHash, falsify }) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
   const member = useSelector((state) => state.member);
 
-  const inventory = member.data?.profile?.profileInventory?.data?.items && [
-    ...member.data.profile.profileInventory.data.items, // non-instanced quest items, materials, etc.
-    ...member.data.profile?.characterInventories?.data?.[member.characterId].items, // non-equipped weapons etc
-    ...member.data.profile?.characterEquipment?.data?.[member.characterId].items, // equipped weapons etc
-  ];
-
-  const item = inventory?.find((item) => item.itemHash === itemHash);
+  const item = member.data?.inventory?.find((item) => item.itemHash === itemHash);
 
   return (
     <div className='objectives'>
@@ -73,14 +68,45 @@ function Objectives({ itemHash }) {
           ...itemComponents,
         };
 
+        if (falsify) {
+          playerProgress.progress = playerProgress.completionValue;
+        }
+
         return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
       })}
     </div>
   );
 }
 
+function getNextPresentationNodeHash(presentationNodeHash) {
+  if (RENEWED.includes(presentationNodeHash)) {
+    return MAJESTIC.find((hash) => CLASS_MAP[hash] === CLASS_MAP[presentationNodeHash]);
+  } else if (MAJESTIC.includes(presentationNodeHash)) {
+    return MAGNIFICENT.find((hash) => CLASS_MAP[hash] === CLASS_MAP[presentationNodeHash]);
+  } else {
+    return null;
+  }
+}
+
+function SetProgress(inventory, presentationNodeHash) {
+  if (!MAGNIFICENT.includes(presentationNodeHash)) {
+    const nextPresentationNodeHash = getNextPresentationNodeHash(presentationNodeHash);
+    const hasNextSet = manifest.DestinyPresentationNodeDefinition[nextPresentationNodeHash].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length;
+
+    if (hasNextSet) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
 function Set({ presentationNodeHash }) {
   const definitionSet = manifest.DestinyPresentationNodeDefinition[presentationNodeHash];
+
+  const member = useSelector((state) => state.member);
+
+  const isCompleted = member.data?.inventory && SetProgress(member.data.inventory, presentationNodeHash);
 
   return (
     <ul>
@@ -95,7 +121,7 @@ function Set({ presentationNodeHash }) {
             <div className='text'>
               <div className='name'>{definitionCollectible.displayProperties.name}</div>
               <BungieText className='description' value={definitionCollectible.displayProperties.description} />
-              <Objectives itemHash={definitionCollectible.itemHash} />
+              <Objectives itemHash={definitionCollectible.itemHash} falsify={isCompleted} />
             </div>
           </li>
         );
