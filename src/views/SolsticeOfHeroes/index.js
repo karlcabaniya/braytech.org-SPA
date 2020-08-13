@@ -90,8 +90,11 @@ function getNextPresentationNodeHash(presentationNodeHash) {
 
 function SetProgress(inventory, presentationNodeHash) {
   if (!MAGNIFICENT.includes(presentationNodeHash)) {
-    const nextPresentationNodeHash = getNextPresentationNodeHash(presentationNodeHash);
-    const hasNextSet = manifest.DestinyPresentationNodeDefinition[nextPresentationNodeHash].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length;
+    const hasNextSet =
+      // get next
+      manifest.DestinyPresentationNodeDefinition[getNextPresentationNodeHash(presentationNodeHash)].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length ||
+      // get next next, but only if it's the majestic
+      (!MAGNIFICENT.includes(getNextPresentationNodeHash(presentationNodeHash)) && manifest.DestinyPresentationNodeDefinition[getNextPresentationNodeHash(getNextPresentationNodeHash(presentationNodeHash))].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length);
 
     if (hasNextSet) {
       return true;
