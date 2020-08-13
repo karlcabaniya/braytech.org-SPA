@@ -665,8 +665,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": 615,
-              "y": 59
+              "x": 500,
+              "y": 160
+            },
+            {
+              "type": "flavour",
+              "x": 500,
+              "y": 80
             },
             {
               "type": "fast-travel",
@@ -811,6 +816,1185 @@
       ]
     }
   },
+  "edz": {
+    "type": "map",
+    "destination": {
+      "hash": 1199524104,
+      "name": "European Dead Zone",
+      "id": "edz"
+    },
+    "map": {
+      "width": 3200,
+      "height": 3200,
+      "center": {
+        "x": 180,
+        "y": 240
+      },
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#6aaf80"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#6283bf"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": -395,
+          "y": -648,
+          "width": 2710,
+          "height": 2377,
+          "nodes": [
+            {
+              "id": "main",
+              "width": 2710,
+              "height": 2377,
+              "image": "/static/images/extracts/maps/map_edz.png",
+              "opacity": 1
+            },
+            {
+              "id": "volundr",
+              "x": -431,
+              "y": 671,
+              "width": 243,
+              "height": 403,
+              "image": "/static/images/extracts/maps/map_edz-volundr.png",
+              "opacity": 1
+            },
+            {
+              "id": "bergusia",
+              "x": -55,
+              "y": -1110,
+              "width": 581,
+              "height": 410,
+              "image": "/static/images/extracts/maps/map_edz-bergusia.png",
+              "opacity": 1
+            }
+          ]
+        }
+      ],
+      "bubbles": [
+        {
+          "hash": 3091570009,
+          "name": "Trostland",
+          "id": "trostland",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "place",
+              "x": 547,
+              "y": 128
+            },
+            {
+              "type": "flavour",
+              "x": 547,
+              "y": 48
+            },
+            {
+              "type": "title",
+              "x": 381,
+              "y": -256
+            },
+            {
+              "type": "fast-travel",
+              "x": 387,
+              "y": -499
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 396892126,
+              "x": 406,
+              "y": -402
+            }
+          ],
+          "borders": [
+            [278,-224],[298,-215],[327,-211],[357,-214],[397,-215],[420,-220],[444,-221],[470,-234],[478,-252],[495,-280],[519,-296],[533,-323],[538,-360],[549,-390],[546,-430],[536,-474],[511,-494],[469,-517],[445,-539],[392,-544],[360,-545],[333,-524],[296,-504],[279,-464],[269,-407],[283,-378],[286,-349],[270,-329],[265,-301],[262,-261],[267,-244]
+          ]
+        },
+        {
+          "hash": 3340296448,
+          "name": "Outskirts",
+          "id": "outskirts",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 44,
+              "y": -580
+            }
+          ],
+          "borders": [[146,-338],[194,-365],[231,-414],[231,-440],[248,-480],[262,-521],[282,-544],[297,-578],[297,-625],[280,-650],[265,-694],[265,-728],[228,-746],[175,-754],[131,-754],[87,-749],[42,-739],[5,-722],[-61,-713],[-128,-712],[-181,-713],[-201,-686],[-209,-637],[-209,-581],[-225,-539],[-229,-484],[-214,-455],[-192,-421],[-186,-382],[-148,-348],[-113,-341],[-70,-346],[-16,-375],[23,-382],[71,-377],[89,-366],[108,-354],[119,-343]]
+        },
+        {
+          "hash": 3854937584,
+          "name": "Winding Cove",
+          "id": "winding-cove",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -504,
+              "y": -485
+            },
+            {
+              "type": "fast-travel",
+              "x": -532,
+              "y": -592
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 2190858386,
+              "x": -528,
+              "y": -304
+            }
+          ]
+        },
+        {
+          "hash": 2212414297,
+          "name": "Firebase Hades",
+          "id": "firebase-hades",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -687,
+              "y": -139
+            }
+          ]
+        },
+        {
+          "hash": 1094980045,
+          "name": "Sunken Isles",
+          "id": "sunken-isles",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -776,
+              "y": 699
+            },
+            {
+              "type": "fast-travel",
+              "x": -616,
+              "y": 767
+            }
+          ]
+        },
+        {
+          "hash": 3861059923,
+          "name": "The Gulch",
+          "id": "gulch",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -236,
+              "y": 122
+            },
+            {
+              "type": "fast-travel",
+              "x": -401,
+              "y": 63
+            }
+          ]
+        },
+        {
+          "hash": 4200309587,
+          "name": "The Sludge",
+          "id": "sludge",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 154,
+              "y": 48
+            },
+            {
+              "type": "fast-travel",
+              "x": 265,
+              "y": 99
+            }
+          ]
+        },
+        {
+          "hash": 3600472775,
+          "name": "Salt Mines",
+          "id": "salt-mines",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 366,
+              "y": -174
+            },
+            {
+              "type": "portal",
+              "nodeHash": 596,
+              "x": 319,
+              "y": -110
+            }
+          ]
+        },
+        {
+          "hash": 3331349367,
+          "name": "Maevic Square",
+          "id": "maevic-square",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 674,
+              "y": -213
+            }
+          ]
+        },
+        {
+          "hash": 3891926329,
+          "name": "The Reservoir",
+          "id": "reservoir",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 741,
+              "y": -672
+            }
+          ]
+        },
+        {
+          "hash": 119587106,
+          "name": "Sojourner's Camp",
+          "id": "sojourners-camp",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 261,
+              "y": -857
+            }
+          ]
+        },
+        {
+          "hash": 3796420578,
+          "name": "Niobe Labs",
+          "id": "niobe-labs",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 22,
+              "y": -1103
+            },
+            {
+              "type": "forge",
+              "x": -10,
+              "y": -1193,
+              "activityHash": 10898844,
+              "playlistHash": 1434072700
+            }
+          ]
+        },
+        {
+          "hash": 4206151375,
+          "name": "Legion's Anchor",
+          "id": "legions-anchor",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -1046,
+              "y": 84
+            }
+          ]
+        },
+        {
+          "hash": 1594246838,
+          "name": "Echion Control",
+          "id": "echion-control",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -1176,
+              "y": 500
+            }
+          ]
+        },
+        {
+          "hash": 2886912260,
+          "name": "Echion Hold",
+          "id": "echion-hold",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -837,
+              "y": 573
+            }
+          ]
+        },
+        {
+          "hash": 11995241042,
+          "name": "Echion Battledeck",
+          "id": "echion-battledeck",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -1044,
+              "y": 644
+            }
+          ]
+        },
+        {
+          "hash": 2168129096,
+          "name": "Firebase Airfield",
+          "id": "firebase-airfield",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 702543394,
+          "name": "The Tunnels",
+          "id": "tunnels",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -375,
+              "y": 505
+            }
+          ]
+        },
+        {
+          "hash": 1663138818,
+          "name": "Smidur's Cavern",
+          "id": "smidurs-cavern",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -310,
+              "y": 600
+            },
+            {
+              "type": "forge",
+              "x": -465,
+              "y": 595,
+              "activityHash": 1019949956,
+              "playlistHash": 1506080581
+            }
+          ]
+        },
+        {
+          "hash": 491961918,
+          "name": "The Dark Forest",
+          "id": "dark-forest",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 171,
+              "y": 587
+            }
+          ]
+        },
+        {
+          "hash": 3331349364,
+          "name": "Hangman's Pass",
+          "id": "hangmans-pass",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 3077328792,
+          "name": "Whispered Falls",
+          "id": "whispered-falls",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 3077328795,
+          "name": "The Drain",
+          "id": "the-drain",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 3077328794,
+          "name": "Scavenger's Den",
+          "id": "scavengers-den",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 48807190,
+          "name": "Quarantine Sector 236",
+          "id": "quarantine-sector-236",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 1943701544,
+          "name": "The Weep",
+          "id": "the-weep",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 698761453,
+          "name": "The Pit",
+          "id": "the-pit",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 698761454,
+          "name": "Pathfinder's Crash",
+          "id": "pathfinders-crash",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 698761455,
+          "name": "Excavation Site XII",
+          "id": "excavation-site-xii",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 486266603,
+          "name": "Flooded Chasm",
+          "id": "flooded-chasm",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 2917555721,
+          "name": "Skydock IV",
+          "id": "skydock-iv",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 2917555722,
+          "name": "The Quarry",
+          "id": "the-quarry",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 3221637869,
+          "name": "Atrium",
+          "id": "atrium",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 3221637870,
+          "name": "Terminus East",
+          "id": "terminus-east",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 3221637871,
+          "name": "Widow's Walk",
+          "id": "widows-walk",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 656412907,
+          "name": "Cavern of Souls",
+          "id": "cavern-of-souls",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 656412904,
+          "name": "Hallowed Grove",
+          "id": "hallowed-grove",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 656412905,
+          "name": "Shaft 13",
+          "id": "shaft-13",
+          "type": "lost-sector",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2583872816,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 1663138818,
+          "name": "Smidur's Cavern",
+          "id": "smidurs-cavern",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 3796420578,
+          "name": "Niobe Labs",
+          "id": "niobe-labs",
+          "type": "suburb",
+          "nodes": []
+        }
+      ]
+    }
+  },
+  "tower": {
+    "type": "map",
+    "destination": {
+      "hash": 333456177,
+      "activityHash": 1502633527,
+      "name": "The Last City",
+      "description": "Last City, Earth",
+      "id": "tower"
+    },
+    "map": {
+      "width": 3800,
+      "height": 2200,
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#35a6ce"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#42d777"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": -800,
+          "y": -600,
+          "width": 3500,
+          "height": 2333,
+          "image": "/static/images/extracts/maps/map_tower.png",
+          "opacity": 0.8
+        }
+      ],
+      "bubbles": [
+        {
+          "hash": 2871560606,
+          "name": "Courtyard",
+          "id": "courtyard",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "place",
+              "x": 0,
+              "y": -500
+            },
+            {
+              "type": "title",
+              "x": -88,
+              "y": -25
+            },
+            {
+              "type": "fast-travel",
+              "x": -64,
+              "y": 56
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3161908920,
+              "x": 49,
+              "y": -92
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3361454721,
+              "x": 31,
+              "y": -149
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 69482069,
+              "x": -8,
+              "y": -384
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 2255782930,
+              "x": -171,
+              "y": -71
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 672118013,
+              "x": -237,
+              "y": -202
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3603221665,
+              "x": -228,
+              "y": -319
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 895295461,
+              "x": -193,
+              "y": -258
+            }
+          ]
+        },
+        {
+          "hash": 4101540847,
+          "name": "Annex",
+          "id": "annex",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -1204,
+              "y": -24
+            },
+            {
+              "type": "fast-travel",
+              "x": -1000,
+              "y": -195
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 1265988377,
+              "x": -1073,
+              "y": 21
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 248695599,
+              "x": -958,
+              "y": -97
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 2917531897,
+              "x": -1300,
+              "y": 178
+            }
+          ]
+        },
+        {
+          "hash": 2372580540,
+          "name": "Bazaar",
+          "id": "bazaar",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -814,
+              "y": 210
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3819664660,
+              "x": -1024,
+              "y": -4
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3347378076,
+              "x": -867,
+              "y": -23
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 1976548992,
+              "x": -778,
+              "y": -31
+            }
+          ]
+        },
+        {
+          "hash": 2192450996,
+          "name": "Hangar",
+          "id": "hangar",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 727,
+              "y": 56
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3354631265,
+              "x": 575,
+              "y": 268
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 2260557667,
+              "x": 641,
+              "y": 145
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 460529231,
+              "x": 633,
+              "y": -13
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 1303210083,
+              "x": 548,
+              "y": -61
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 2190858386,
+              "x": 568,
+              "y": 421
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 765357505,
+              "x": 802,
+              "y": 86
+            }
+          ]
+        },
+        {
+          "hash": 1163419954,
+          "name": "The Last City",
+          "id": "the-last-city",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2179682478,
+          "name": "Tower Watch",
+          "id": "tower-watch",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 272809406,
+          "name": "Exodus",
+          "id": "exodus",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2706472394,
+          "name": "Peregrine District",
+          "id": "peregrine-district",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 4101540847,
+          "name": "Annex",
+          "id": "annex",
+          "type": "suburb",
+          "nodes": []
+        }
+      ]
+    }
+  },
+  "the-farm": {
+    "type": "map",
+    "destination": {
+      "hash": 4188263703,
+      "name": "The Farm",
+      "id": "the-farm"
+    },
+    "map": {
+      "width": 3200,
+      "height": 3200,
+      "center": {
+        "x": -180,
+        "y": 260
+      },
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#6aaf80"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#6283bf"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": 0,
+          "y": 0,
+          "width": 1600,
+          "height": 1600,
+          "image": "/static/images/extracts/maps/map_the-farm.png",
+          "opacity": 0.8
+        }
+      ],
+      "bubbles": [
+        {
+          "name": "The Farm",
+          "id": "default",
+          "type": "region",
+          "nodes": []
+        }
+      ]
+    }
+  },
+  "the-moon": {
+    "type": "map",
+    "destination": {
+      "hash": 290444260,
+      "name": "The Moon",
+      "id": "the-moon"
+    },
+    "map": {
+      "width": 2594,
+      "height": 2779,
+      "center": {
+        "x": -200,
+        "y": 550
+      },
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#ad401f"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#790000"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": -200,
+          "y": -1000,
+          "width": 2594,
+          "height": 2779,
+          "image": "/static/images/extracts/maps/map_the-moon.png",
+          "opacity": 0.6
+        }
+      ],
+      "bubbles": [
+        {
+          "hash": 240420607,
+          "name": "Sanctuary",
+          "id": "sanctuary",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "place",
+              "x": 472,
+              "y": -388
+            },
+            {
+              "type": "flavour",
+              "x": 472,
+              "y": -308
+            },
+            {
+              "type": "title",
+              "x": -185,
+              "y": -844
+            },
+            {
+              "type": "fast-travel",
+              "x": -323,
+              "y": -806
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 1616085565,
+              "x": -247,
+              "y": -768
+            },
+            {
+              "type": "vendor",
+              "vendorHash": 3411552308,
+              "x": -312,
+              "y": -740
+            }
+          ]
+        },
+        {
+          "hash": 3326367698,
+          "name": "Archer's Line",
+          "id": "archers-Line",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -576,
+              "y": -380
+            }
+          ]
+        },
+        {
+          "hash": 4025450777,
+          "name": "Anchor of Light",
+          "id": "anchor-of-light",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -108,
+              "y": -432
+            }
+          ]
+        },
+        {
+          "hash": 4195493657,
+          "name": "Hellmouth",
+          "id": "hellmouth",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -189,
+              "y": 144
+            }
+          ]
+        },
+        {
+          "hash": 417490937,
+          "name": "Sorrow's Harbor",
+          "id": "sorrows-harbor",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "fast-travel",
+              "x": 92,
+              "y": 220
+            },
+            {
+              "type": "title",
+              "x": 267,
+              "y": 231
+            },
+            {
+              "type": "dungeon",
+              "x": 92,
+              "y": 420,
+              "activityHash": 1375089621
+            }
+          ]
+        },
+        {
+          "hash": 1835313730,
+          "name": "Lunar Battlegrounds",
+          "id": "lunar-battlegrounds",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 249,
+              "y": -196
+            }
+          ]
+        },
+        {
+          "hash": 2685756106,
+          "name": "Scarlet Keep",
+          "id": "scarlet-keep",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 693,
+              "y": 763
+            }
+          ]
+        },
+        {
+          "hash": 4033993124,
+          "name": "Hall of Wisdom",
+          "id": "hall-of-wisdom",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": -400,
+              "y": -220
+            }
+          ]
+        },
+        {
+          "hash": 877913945,
+          "name": "Temple of Crota",
+          "id": "temple-of-crota",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": 125,
+              "y": -288
+            }
+          ]
+        },
+        {
+          "hash": 1008270286,
+          "name": "The World's Grave",
+          "id": "the-worlds-grave",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": 60,
+              "y": -133
+            }
+          ]
+        },
+        {
+          "hash": 1973847113,
+          "name": "Chamber of Night",
+          "id": "chamber-of-night",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": -71,
+              "y": -251
+            }
+          ]
+        },
+        {
+          "hash": 1149128373,
+          "name": "The Gatehouse",
+          "id": "the-gatehouse",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": -185,
+              "y": -151
+            }
+          ]
+        },
+        {
+          "hash": 286194652,
+          "name": "Circle of Bones",
+          "id": "circle-of-bones",
+          "type": "suburb",
+          "sub": true,
+          "nodes": [
+            {
+              "type": "title",
+              "x": -185,
+              "y": -81
+            }
+          ]
+        }
+      ]
+    }
+  },
   "hellas-basin": {
     "type": "map",
     "destination": {
@@ -862,8 +2046,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": 507,
-              "y": -213
+              "x": 400,
+              "y": -310
+            },
+            {
+              "type": "flavour",
+              "x": 400,
+              "y": -390
             },
             {
               "type": "title",
@@ -1060,8 +2249,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": 109,
-              "y": -485
+              "x": 0,
+              "y": -370
+            },
+            {
+              "type": "flavour",
+              "x": 0,
+              "y": -450
             },
             {
               "type": "title",
@@ -1293,8 +2487,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": -716,
-              "y": -403
+              "x": -727,
+              "y": -90
+            },
+            {
+              "type": "flavour",
+              "x": -727,
+              "y": -170
             },
             {
               "type": "title",
@@ -1427,330 +2626,6 @@
       ]
     }
   },
-  "tangled-shore": {
-    "type": "map",
-    "destination": {
-      "hash": 359854275,
-      "name": "The Tangled Shore",
-      "id": "tangled-shore"
-    },
-    "map": {
-      "width": 2800,
-      "height": 2800,
-      "center": {
-        "x": 140,
-        "y": 120
-      },
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#6d3c78"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#693435"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": -100,
-          "y": -500,
-          "width": 2357,
-          "height": 2288,
-          "image": "/static/images/extracts/maps/map_tangled-shore.png",
-          "opacity": 1
-        }
-      ],
-      "bubbles": [
-        {
-          "hash": 1635947699,
-          "name": "Jetsam of Saturn",
-          "id": "jetsam-of-saturn",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -262,
-              "y": -282
-            }
-          ]
-        },
-        {
-          "hash": 1026950430,
-          "name": "Four-Horn Gulch",
-          "id": "four-horn-gulch",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 644,
-              "y": -121
-            }
-          ]
-        },
-        {
-          "hash": 3520035140,
-          "name": "Soriks's Cut",
-          "id": "sorikss-cut",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -183,
-              "y": 339
-            },
-            {
-              "type": "fast-travel",
-              "x": -169,
-              "y": 461
-            }
-          ]
-        },
-        {
-          "hash": 1608679832,
-          "name": "Thieves' Landing",
-          "id": "thieves-landing",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "place",
-              "x": 33,
-              "y": -685
-            },
-            {
-              "type": "title",
-              "x": 183,
-              "y": -242
-            },
-            {
-              "type": "fast-travel",
-              "x": 248,
-              "y": -327
-            }
-          ]
-        },
-        {
-          "hash": 168097881,
-          "name": "The Broodhold",
-          "id": "broodhold",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 3598542751,
-          "name": "Sjursrest",
-          "id": "sjursrest",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 881,
-              "y": 121
-            }
-          ]
-        },
-        {
-          "hash": 1690293884,
-          "name": "Hall of the Exalted",
-          "id": "hall-of-the-exalted",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -140,
-              "y": -89
-            }
-          ]
-        },
-        {
-          "hash": 2067748134,
-          "name": "The Cobble",
-          "id": "cobble",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 262,
-              "y": 436
-            }
-          ]
-        },
-        {
-          "hash": 2126142572,
-          "name": "Diaviks Mine",
-          "id": "diaviks-mine",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 699959402,
-          "name": "Trapper's Cave",
-          "id": "trappers-cave",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 1090543652,
-          "name": "Wolfship Turbine",
-          "id": "wolfship-turbine",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 4195387640,
-          "name": "Lookout",
-          "id": "lookout",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 831797607,
-          "name": "Hellrise Canyon",
-          "id": "hellrise-canyon",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2299503584,
-          "name": "Kingship Dock",
-          "id": "kingship-dock",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2403500745,
-          "name": "The Empty Tank",
-          "id": "empty-tank",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 3904624892,
-          "name": "Salvage Zone QX",
-          "id": "salvage-zone-qx",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 628920395,
-          "name": "Shipyard AWO-43",
-          "id": "shipyard-awo-43",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 45224797,
-          "name": "Quitter's Well",
-          "id": "quitters-well",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 824533556,
-          "name": "Spider's Safehouse",
-          "id": "spiders-safehouse",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "vendor",
-              "vendorHash": 863940356,
-              "x": -63,
-              "y": -195
-            }
-          ]
-        },
-        {
-          "hash": 869203377,
-          "name": "The Watchtower",
-          "id": "watchtower",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2128740634,
-          "name": "The Boil",
-          "id": "boil",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -615,
-              "y": 398
-            }
-          ]
-        },
-        {
-          "hash": 974268702,
-          "name": "The Hollowed Lair",
-          "id": "hollowed-lair",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 1519764506,
-          "name": "High Plains",
-          "id": "high-plains",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 638,
-              "y": -738
-            }
-          ]
-        },
-        {
-          "name": "The Arena",
-          "id": "arena",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "name": "Airlock Six",
-          "id": "airlock-six",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "name": "The Cellblocks",
-          "id": "cellblocks",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "name": "The Hole",
-          "id": "hole",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "name": "Correction Labs",
-          "id": "correction-labs",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 1142232514,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        }
-      ]
-    }
-  },
   "arcadian-valley": {
     "type": "map",
     "destination": {
@@ -1831,8 +2706,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": -488,
-              "y": 45
+              "x": -100,
+              "y": -580
+            },
+            {
+              "type": "flavour",
+              "x": -100,
+              "y": -660
             },
             {
               "type": "title",
@@ -2476,6 +3356,335 @@
       ]
     }
   },
+  "tangled-shore": {
+    "type": "map",
+    "destination": {
+      "hash": 359854275,
+      "name": "The Tangled Shore",
+      "id": "tangled-shore"
+    },
+    "map": {
+      "width": 2800,
+      "height": 2800,
+      "center": {
+        "x": 140,
+        "y": 120
+      },
+      "layers": [
+        {
+          "id": "background-upper",
+          "type": "background",
+          "x": -120,
+          "y": -179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_upper.png",
+          "color": "#6d3c78"
+        },
+        {
+          "id": "background-lower",
+          "type": "background",
+          "x": -120,
+          "y": 179,
+          "width": 2160,
+          "height": 1080,
+          "image": "/static/images/extracts/maps/background_lower.png",
+          "color": "#693435"
+        },
+        {
+          "id": "map",
+          "type": "map",
+          "x": -100,
+          "y": -500,
+          "width": 2357,
+          "height": 2288,
+          "image": "/static/images/extracts/maps/map_tangled-shore.png",
+          "opacity": 1
+        }
+      ],
+      "bubbles": [
+        {
+          "hash": 1635947699,
+          "name": "Jetsam of Saturn",
+          "id": "jetsam-of-saturn",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -262,
+              "y": -282
+            }
+          ]
+        },
+        {
+          "hash": 1026950430,
+          "name": "Four-Horn Gulch",
+          "id": "four-horn-gulch",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 644,
+              "y": -121
+            }
+          ]
+        },
+        {
+          "hash": 3520035140,
+          "name": "Soriks's Cut",
+          "id": "sorikss-cut",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -183,
+              "y": 339
+            },
+            {
+              "type": "fast-travel",
+              "x": -169,
+              "y": 461
+            }
+          ]
+        },
+        {
+          "hash": 1608679832,
+          "name": "Thieves' Landing",
+          "id": "thieves-landing",
+          "type": "region",
+          "nodes": [
+            {
+              "type": "place",
+              "x": 28,
+              "y": -620
+            },
+            {
+              "type": "flavour",
+              "x": 28,
+              "y": -700
+            },
+            {
+              "type": "title",
+              "x": 183,
+              "y": -242
+            },
+            {
+              "type": "fast-travel",
+              "x": 248,
+              "y": -327
+            }
+          ]
+        },
+        {
+          "hash": 168097881,
+          "name": "The Broodhold",
+          "id": "broodhold",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 3598542751,
+          "name": "Sjursrest",
+          "id": "sjursrest",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 881,
+              "y": 121
+            }
+          ]
+        },
+        {
+          "hash": 1690293884,
+          "name": "Hall of the Exalted",
+          "id": "hall-of-the-exalted",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -140,
+              "y": -89
+            }
+          ]
+        },
+        {
+          "hash": 2067748134,
+          "name": "The Cobble",
+          "id": "cobble",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 262,
+              "y": 436
+            }
+          ]
+        },
+        {
+          "hash": 2126142572,
+          "name": "Diaviks Mine",
+          "id": "diaviks-mine",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 699959402,
+          "name": "Trapper's Cave",
+          "id": "trappers-cave",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 1090543652,
+          "name": "Wolfship Turbine",
+          "id": "wolfship-turbine",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 4195387640,
+          "name": "Lookout",
+          "id": "lookout",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 831797607,
+          "name": "Hellrise Canyon",
+          "id": "hellrise-canyon",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2299503584,
+          "name": "Kingship Dock",
+          "id": "kingship-dock",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2403500745,
+          "name": "The Empty Tank",
+          "id": "empty-tank",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 3904624892,
+          "name": "Salvage Zone QX",
+          "id": "salvage-zone-qx",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 628920395,
+          "name": "Shipyard AWO-43",
+          "id": "shipyard-awo-43",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 45224797,
+          "name": "Quitter's Well",
+          "id": "quitters-well",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 824533556,
+          "name": "Spider's Safehouse",
+          "id": "spiders-safehouse",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "vendor",
+              "vendorHash": 863940356,
+              "x": -63,
+              "y": -195
+            }
+          ]
+        },
+        {
+          "hash": 869203377,
+          "name": "The Watchtower",
+          "id": "watchtower",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 2128740634,
+          "name": "The Boil",
+          "id": "boil",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": -615,
+              "y": 398
+            }
+          ]
+        },
+        {
+          "hash": 974268702,
+          "name": "The Hollowed Lair",
+          "id": "hollowed-lair",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 1519764506,
+          "name": "High Plains",
+          "id": "high-plains",
+          "type": "suburb",
+          "nodes": [
+            {
+              "type": "title",
+              "x": 638,
+              "y": -738
+            }
+          ]
+        },
+        {
+          "name": "The Arena",
+          "id": "arena",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "name": "Airlock Six",
+          "id": "airlock-six",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "name": "The Cellblocks",
+          "id": "cellblocks",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "name": "The Hole",
+          "id": "hole",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "name": "Correction Labs",
+          "id": "correction-labs",
+          "type": "suburb",
+          "nodes": []
+        },
+        {
+          "hash": 1142232514,
+          "name": "",
+          "id": "",
+          "type": "suburb",
+          "nodes": []
+        }
+      ]
+    }
+  },
   "dreaming-city": {
     "type": "map",
     "destination": {
@@ -2527,8 +3736,13 @@
           "nodes": [
             {
               "type": "place",
-              "x": 595,
-              "y": -556
+              "x": 400,
+              "y": -500
+            },
+            {
+              "type": "flavour",
+              "x": 400,
+              "y": -580
             },
             {
               "type": "title",
@@ -2831,1175 +4045,6 @@
           "hash": 1189331611,
           "name": "The Queenswalk",
           "id": "the-queenswalk",
-          "type": "suburb",
-          "nodes": []
-        }
-      ]
-    }
-  },
-  "edz": {
-    "type": "map",
-    "destination": {
-      "hash": 1199524104,
-      "name": "European Dead Zone",
-      "id": "edz"
-    },
-    "map": {
-      "width": 3200,
-      "height": 3200,
-      "center": {
-        "x": 200,
-        "y": 400
-      },
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#6aaf80"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#6283bf"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": -395,
-          "y": -648,
-          "width": 2710,
-          "height": 2377,
-          "nodes": [
-            {
-              "id": "main",
-              "width": 2710,
-              "height": 2377,
-              "image": "/static/images/extracts/maps/map_edz.png",
-              "opacity": 1
-            },
-            {
-              "id": "volundr",
-              "x": -431,
-              "y": 671,
-              "width": 243,
-              "height": 403,
-              "image": "/static/images/extracts/maps/map_edz-volundr.png",
-              "opacity": 1
-            },
-            {
-              "id": "bergusia",
-              "x": -55,
-              "y": -1110,
-              "width": 581,
-              "height": 410,
-              "image": "/static/images/extracts/maps/map_edz-bergusia.png",
-              "opacity": 1
-            }
-          ]
-        }
-      ],
-      "bubbles": [
-        {
-          "hash": 3091570009,
-          "name": "Trostland",
-          "id": "trostland",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "place",
-              "x": 669,
-              "y": 138
-            },
-            {
-              "type": "title",
-              "x": 381,
-              "y": -256
-            },
-            {
-              "type": "fast-travel",
-              "x": 387,
-              "y": -499
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 396892126,
-              "x": 406,
-              "y": -402
-            }
-          ],
-          "borders": [
-            [278,-224],[298,-215],[327,-211],[357,-214],[397,-215],[420,-220],[444,-221],[470,-234],[478,-252],[495,-280],[519,-296],[533,-323],[538,-360],[549,-390],[546,-430],[536,-474],[511,-494],[469,-517],[445,-539],[392,-544],[360,-545],[333,-524],[296,-504],[279,-464],[269,-407],[283,-378],[286,-349],[270,-329],[265,-301],[262,-261],[267,-244]
-          ]
-        },
-        {
-          "hash": 3340296448,
-          "name": "Outskirts",
-          "id": "outskirts",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 44,
-              "y": -580
-            }
-          ],
-          "borders": [[146,-338],[194,-365],[231,-414],[231,-440],[248,-480],[262,-521],[282,-544],[297,-578],[297,-625],[280,-650],[265,-694],[265,-728],[228,-746],[175,-754],[131,-754],[87,-749],[42,-739],[5,-722],[-61,-713],[-128,-712],[-181,-713],[-201,-686],[-209,-637],[-209,-581],[-225,-539],[-229,-484],[-214,-455],[-192,-421],[-186,-382],[-148,-348],[-113,-341],[-70,-346],[-16,-375],[23,-382],[71,-377],[89,-366],[108,-354],[119,-343]]
-        },
-        {
-          "hash": 3854937584,
-          "name": "Winding Cove",
-          "id": "winding-cove",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -504,
-              "y": -485
-            },
-            {
-              "type": "fast-travel",
-              "x": -532,
-              "y": -592
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 2190858386,
-              "x": -528,
-              "y": -304
-            }
-          ]
-        },
-        {
-          "hash": 2212414297,
-          "name": "Firebase Hades",
-          "id": "firebase-hades",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -687,
-              "y": -139
-            }
-          ]
-        },
-        {
-          "hash": 1094980045,
-          "name": "Sunken Isles",
-          "id": "sunken-isles",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -776,
-              "y": 699
-            },
-            {
-              "type": "fast-travel",
-              "x": -616,
-              "y": 767
-            }
-          ]
-        },
-        {
-          "hash": 3861059923,
-          "name": "The Gulch",
-          "id": "gulch",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -236,
-              "y": 122
-            },
-            {
-              "type": "fast-travel",
-              "x": -401,
-              "y": 63
-            }
-          ]
-        },
-        {
-          "hash": 4200309587,
-          "name": "The Sludge",
-          "id": "sludge",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 154,
-              "y": 48
-            },
-            {
-              "type": "fast-travel",
-              "x": 265,
-              "y": 99
-            }
-          ]
-        },
-        {
-          "hash": 3600472775,
-          "name": "Salt Mines",
-          "id": "salt-mines",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 366,
-              "y": -174
-            },
-            {
-              "type": "portal",
-              "nodeHash": 596,
-              "x": 319,
-              "y": -110
-            }
-          ]
-        },
-        {
-          "hash": 3331349367,
-          "name": "Maevic Square",
-          "id": "maevic-square",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 674,
-              "y": -213
-            }
-          ]
-        },
-        {
-          "hash": 3891926329,
-          "name": "The Reservoir",
-          "id": "reservoir",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 741,
-              "y": -672
-            }
-          ]
-        },
-        {
-          "hash": 119587106,
-          "name": "Sojourner's Camp",
-          "id": "sojourners-camp",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 261,
-              "y": -857
-            }
-          ]
-        },
-        {
-          "hash": 3796420578,
-          "name": "Niobe Labs",
-          "id": "niobe-labs",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 22,
-              "y": -1103
-            },
-            {
-              "type": "forge",
-              "x": -10,
-              "y": -1193,
-              "activityHash": 10898844,
-              "playlistHash": 1434072700
-            }
-          ]
-        },
-        {
-          "hash": 4206151375,
-          "name": "Legion's Anchor",
-          "id": "legions-anchor",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -1046,
-              "y": 84
-            }
-          ]
-        },
-        {
-          "hash": 1594246838,
-          "name": "Echion Control",
-          "id": "echion-control",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -1176,
-              "y": 500
-            }
-          ]
-        },
-        {
-          "hash": 2886912260,
-          "name": "Echion Hold",
-          "id": "echion-hold",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -837,
-              "y": 573
-            }
-          ]
-        },
-        {
-          "hash": 11995241042,
-          "name": "Echion Battledeck",
-          "id": "echion-battledeck",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -1044,
-              "y": 644
-            }
-          ]
-        },
-        {
-          "hash": 2168129096,
-          "name": "Firebase Airfield",
-          "id": "firebase-airfield",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 702543394,
-          "name": "The Tunnels",
-          "id": "tunnels",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -375,
-              "y": 505
-            }
-          ]
-        },
-        {
-          "hash": 1663138818,
-          "name": "Smidur's Cavern",
-          "id": "smidurs-cavern",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -310,
-              "y": 600
-            },
-            {
-              "type": "forge",
-              "x": -465,
-              "y": 595,
-              "activityHash": 1019949956,
-              "playlistHash": 1506080581
-            }
-          ]
-        },
-        {
-          "hash": 491961918,
-          "name": "The Dark Forest",
-          "id": "dark-forest",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 171,
-              "y": 587
-            }
-          ]
-        },
-        {
-          "hash": 3331349364,
-          "name": "Hangman's Pass",
-          "id": "hangmans-pass",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 3077328792,
-          "name": "Whispered Falls",
-          "id": "whispered-falls",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 3077328795,
-          "name": "The Drain",
-          "id": "the-drain",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 3077328794,
-          "name": "Scavenger's Den",
-          "id": "scavengers-den",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 48807190,
-          "name": "Quarantine Sector 236",
-          "id": "quarantine-sector-236",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 1943701544,
-          "name": "The Weep",
-          "id": "the-weep",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 698761453,
-          "name": "The Pit",
-          "id": "the-pit",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 698761454,
-          "name": "Pathfinder's Crash",
-          "id": "pathfinders-crash",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 698761455,
-          "name": "Excavation Site XII",
-          "id": "excavation-site-xii",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 486266603,
-          "name": "Flooded Chasm",
-          "id": "flooded-chasm",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 2917555721,
-          "name": "Skydock IV",
-          "id": "skydock-iv",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 2917555722,
-          "name": "The Quarry",
-          "id": "the-quarry",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 3221637869,
-          "name": "Atrium",
-          "id": "atrium",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 3221637870,
-          "name": "Terminus East",
-          "id": "terminus-east",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 3221637871,
-          "name": "Widow's Walk",
-          "id": "widows-walk",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 656412907,
-          "name": "Cavern of Souls",
-          "id": "cavern-of-souls",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 656412904,
-          "name": "Hallowed Grove",
-          "id": "hallowed-grove",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 656412905,
-          "name": "Shaft 13",
-          "id": "shaft-13",
-          "type": "lost-sector",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2583872816,
-          "name": "",
-          "id": "",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 1663138818,
-          "name": "Smidur's Cavern",
-          "id": "smidurs-cavern",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 3796420578,
-          "name": "Niobe Labs",
-          "id": "niobe-labs",
-          "type": "suburb",
-          "nodes": []
-        }
-      ]
-    }
-  },
-  "the-farm": {
-    "type": "map",
-    "destination": {
-      "hash": 4188263703,
-      "name": "The Farm",
-      "id": "the-farm"
-    },
-    "map": {
-      "width": 3200,
-      "height": 3200,
-      "center": {
-        "x": -180,
-        "y": 260
-      },
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#6aaf80"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#6283bf"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": 0,
-          "y": 0,
-          "width": 1600,
-          "height": 1600,
-          "image": "/static/images/extracts/maps/map_the-farm.png",
-          "opacity": 0.8
-        }
-      ],
-      "bubbles": [
-        {
-          "name": "The Farm",
-          "id": "default",
-          "type": "region",
-          "nodes": []
-        }
-      ]
-    }
-  },
-  "the-moon": {
-    "type": "map",
-    "destination": {
-      "hash": 290444260,
-      "name": "The Moon",
-      "id": "the-moon"
-    },
-    "map": {
-      "width": 2594,
-      "height": 2779,
-      "center": {
-        "x": -200,
-        "y": 550
-      },
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#ad401f"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#790000"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": -200,
-          "y": -1000,
-          "width": 2594,
-          "height": 2779,
-          "image": "/static/images/extracts/maps/map_the-moon.png",
-          "opacity": 0.6
-        }
-      ],
-      "bubbles": [
-        {
-          "hash": 240420607,
-          "name": "Sanctuary",
-          "id": "sanctuary",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "place",
-              "x": 472,
-              "y": -388
-            },
-            {
-              "type": "title",
-              "x": -185,
-              "y": -844
-            },
-            {
-              "type": "fast-travel",
-              "x": -323,
-              "y": -806
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1616085565,
-              "x": -247,
-              "y": -768
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3411552308,
-              "x": -312,
-              "y": -740
-            }
-          ]
-        },
-        {
-          "hash": 3326367698,
-          "name": "Archer's Line",
-          "id": "archers-Line",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -576,
-              "y": -380
-            }
-          ]
-        },
-        {
-          "hash": 4025450777,
-          "name": "Anchor of Light",
-          "id": "anchor-of-light",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -108,
-              "y": -432
-            }
-          ]
-        },
-        {
-          "hash": 4195493657,
-          "name": "Hellmouth",
-          "id": "hellmouth",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -189,
-              "y": 144
-            }
-          ]
-        },
-        {
-          "hash": 417490937,
-          "name": "Sorrow's Harbor",
-          "id": "sorrows-harbor",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "fast-travel",
-              "x": 92,
-              "y": 220
-            },
-            {
-              "type": "title",
-              "x": 267,
-              "y": 231
-            },
-            {
-              "type": "dungeon",
-              "x": 92,
-              "y": 420,
-              "activityHash": 1375089621
-            }
-          ]
-        },
-        {
-          "hash": 1835313730,
-          "name": "Lunar Battlegrounds",
-          "id": "lunar-battlegrounds",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 249,
-              "y": -196
-            }
-          ]
-        },
-        {
-          "hash": 2685756106,
-          "name": "Scarlet Keep",
-          "id": "scarlet-keep",
-          "type": "suburb",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 693,
-              "y": 763
-            }
-          ]
-        },
-        {
-          "hash": 4033993124,
-          "name": "Hall of Wisdom",
-          "id": "hall-of-wisdom",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": -400,
-              "y": -220
-            }
-          ]
-        },
-        {
-          "hash": 877913945,
-          "name": "Temple of Crota",
-          "id": "temple-of-crota",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": 125,
-              "y": -288
-            }
-          ]
-        },
-        {
-          "hash": 1008270286,
-          "name": "The World's Grave",
-          "id": "the-worlds-grave",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": 60,
-              "y": -133
-            }
-          ]
-        },
-        {
-          "hash": 1973847113,
-          "name": "Chamber of Night",
-          "id": "chamber-of-night",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": -71,
-              "y": -251
-            }
-          ]
-        },
-        {
-          "hash": 1149128373,
-          "name": "The Gatehouse",
-          "id": "the-gatehouse",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": -185,
-              "y": -151
-            }
-          ]
-        },
-        {
-          "hash": 286194652,
-          "name": "Circle of Bones",
-          "id": "circle-of-bones",
-          "type": "suburb",
-          "sub": true,
-          "nodes": [
-            {
-              "type": "title",
-              "x": -185,
-              "y": -81
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "tower": {
-    "type": "map",
-    "destination": {
-      "hash": 333456177,
-      "activityHash": 1502633527,
-      "name": "The Last City",
-      "description": "Last City, Earth",
-      "id": "tower"
-    },
-    "map": {
-      "width": 3800,
-      "height": 2200,
-      "layers": [
-        {
-          "id": "background-upper",
-          "type": "background",
-          "x": -120,
-          "y": -179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_upper.png",
-          "color": "#35a6ce"
-        },
-        {
-          "id": "background-lower",
-          "type": "background",
-          "x": -120,
-          "y": 179,
-          "width": 2160,
-          "height": 1080,
-          "image": "/static/images/extracts/maps/background_lower.png",
-          "color": "#42d777"
-        },
-        {
-          "id": "map",
-          "type": "map",
-          "x": -800,
-          "y": -600,
-          "width": 3500,
-          "height": 2333,
-          "image": "/static/images/extracts/maps/map_tower.png",
-          "opacity": 0.8
-        }
-      ],
-      "bubbles": [
-        {
-          "hash": 2871560606,
-          "name": "Courtyard",
-          "id": "courtyard",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "place",
-              "x": 0,
-              "y": -500
-            },
-            {
-              "type": "title",
-              "x": -88,
-              "y": -25
-            },
-            {
-              "type": "fast-travel",
-              "x": -64,
-              "y": 56
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3161908920,
-              "x": 49,
-              "y": -92
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3361454721,
-              "x": 31,
-              "y": -149
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 69482069,
-              "x": -8,
-              "y": -384
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 2255782930,
-              "x": -171,
-              "y": -71
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 672118013,
-              "x": -237,
-              "y": -202
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3603221665,
-              "x": -228,
-              "y": -319
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 895295461,
-              "x": -193,
-              "y": -258
-            }
-          ]
-        },
-        {
-          "hash": 4101540847,
-          "name": "Annex",
-          "id": "annex",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -1204,
-              "y": -24
-            },
-            {
-              "type": "fast-travel",
-              "x": -1000,
-              "y": -195
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1265988377,
-              "x": -1073,
-              "y": 21
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 248695599,
-              "x": -958,
-              "y": -97
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 2917531897,
-              "x": -1300,
-              "y": 178
-            }
-          ]
-        },
-        {
-          "hash": 2372580540,
-          "name": "Bazaar",
-          "id": "bazaar",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": -814,
-              "y": 210
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3819664660,
-              "x": -1024,
-              "y": -4
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3347378076,
-              "x": -867,
-              "y": -23
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1976548992,
-              "x": -778,
-              "y": -31
-            }
-          ]
-        },
-        {
-          "hash": 2192450996,
-          "name": "Hangar",
-          "id": "hangar",
-          "type": "region",
-          "nodes": [
-            {
-              "type": "title",
-              "x": 727,
-              "y": 56
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 3354631265,
-              "x": 575,
-              "y": 268
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 2260557667,
-              "x": 641,
-              "y": 145
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 460529231,
-              "x": 633,
-              "y": -13
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 1303210083,
-              "x": 548,
-              "y": -61
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 2190858386,
-              "x": 568,
-              "y": 421
-            },
-            {
-              "type": "vendor",
-              "vendorHash": 765357505,
-              "x": 802,
-              "y": 86
-            }
-          ]
-        },
-        {
-          "hash": 1163419954,
-          "name": "The Last City",
-          "id": "the-last-city",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2179682478,
-          "name": "Tower Watch",
-          "id": "tower-watch",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 272809406,
-          "name": "Exodus",
-          "id": "exodus",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 2706472394,
-          "name": "Peregrine District",
-          "id": "peregrine-district",
-          "type": "suburb",
-          "nodes": []
-        },
-        {
-          "hash": 4101540847,
-          "name": "Annex",
-          "id": "annex",
           "type": "suburb",
           "nodes": []
         }

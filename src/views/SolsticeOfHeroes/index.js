@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useParams, Link, NavLink } from 'react-router-dom';
+import cx from 'classnames';
 
 import { t, BungieText, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
 import { classTypeToString } from '../../utils/destinyConverters';
-import { enumerateCollectibleState } from '../../utils/destinyEnums';
 
 import { BungieAuthButton } from '../../components/BungieAuth';
 import Items from '../../components/Items';
-import { DestinyKey } from '../../components/UI/Button';
+import Records from '../../components/Records';
+import { Button, DestinyKey } from '../../components/UI/Button';
 import ProgressBar from '../../components/UI/ProgressBar';
 import { Common, Views, Events } from '../../svg';
 
 import './styles.css';
-import Records from '../../components/Records';
 
 const RENEWED_HUNTER = 2574248771;
 const RENEWED_TITAN = 2963102071;
@@ -95,10 +95,10 @@ function SetProgress(inventory, presentationNodeHash) {
 
     if (hasNextSet) {
       return true;
-    } else {
-      return false;
     }
   }
+
+  return false;
 }
 
 function Set({ presentationNodeHash }) {
@@ -153,12 +153,19 @@ export function NavLinks() {
 
 export default function SolsticeOfHeroes() {
   const member = useSelector((state) => state.member);
+  const character = member.data.profile?.characters.data.find((character) => character.characterId === member.characterId);
 
   const auth = useSelector((state) => state.auth);
   const authed = auth.destinyMemberships?.find((authMember) => authMember.membershipId === member.membershipId);
 
   const location = useLocation();
   const backLinkPath = location.state?.from || '/this-week';
+
+  const [classType, setClassType] = useState(-1);
+
+  function handler_toggleClassType() {
+    setClassType(classType > 1 ? -1 : classType + 1);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -201,7 +208,7 @@ export default function SolsticeOfHeroes() {
         ) : null}
         <div className='buff'>
           <NavLinks />
-          <div className='content'>
+          <div className={cx('content', { 'class-specific': classType > -1 && view !== 'records' })}>
             {view === 'records' ? (
               <div className='module'>
                 <ul className='list record-items'>
@@ -213,12 +220,14 @@ export default function SolsticeOfHeroes() {
                 <div key={t} className='module'>
                   <h3>{SET_TIER_NAME[t]}</h3>
                   <div className='sets'>
-                    {tiers.map((presentationNodeHash, s) => (
-                      <div key={s} className='set'>
-                        <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
-                        <Set presentationNodeHash={presentationNodeHash} />
-                      </div>
-                    ))}
+                    {tiers
+                      .filter((presentationNodeHash) => (classType > -1 ? CLASS_MAP[presentationNodeHash] === classType : true))
+                      .map((presentationNodeHash, s) => (
+                        <div key={s} className='set'>
+                          <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
+                          <Set presentationNodeHash={presentationNodeHash} />
+                        </div>
+                      ))}
                   </div>
                 </div>
               ))
@@ -230,6 +239,21 @@ export default function SolsticeOfHeroes() {
         <div className='wrapper'>
           <div />
           <ul>
+            <li>
+              <Button action={handler_toggleClassType}>
+                {classType < 0 ? (
+                  <>
+                    <i className='segoe-uniE16E' />
+                    {t('All classes')}
+                  </>
+                ) : (
+                  <>
+                    <i className='segoe-uniE16E' />
+                    {classTypeToString(classType, character?.genderHash)}
+                  </>
+                )}
+              </Button>
+            </li>
             <li>
               <Link className='button' to={backLinkPath}>
                 <DestinyKey type='dismiss' />

@@ -43,6 +43,12 @@ export const converter = (jsx, classNames = []) =>
     html: ReactDOMServer.renderToString(jsx),
   });
 
+export const label = (classNames = [], name) =>
+  L.divIcon({
+    className: ['label-marker'].concat(classNames).join(' '),
+    html: `<div class='wrapper'><div class='name'>${name}</div></div>`,
+  });
+
 export const text = (classNames = [], name) =>
   L.divIcon({
     className: ['text-marker'].concat(classNames).join(' '),

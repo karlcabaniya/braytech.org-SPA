@@ -86,12 +86,6 @@
   pointer-events: none;
 }
 
-#solstice-of-heroes .content {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 3rem;
-}
-
 #solstice-of-heroes .module.views .list li::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.4);
 }
@@ -109,6 +103,12 @@
 
 #solstice-of-heroes .module.views .list li a:hover {
   color: #fff;
+}
+
+#solstice-of-heroes .content {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3rem;
 }
 
 #solstice-of-heroes .sets {
@@ -167,7 +167,13 @@
   background-color: rgba(90, 163, 102, 0);
 }
 
+#solstice-of-heroes .content.class-specific {
+  grid-template-columns: repeat(3, 1fr);
+}
 
+#solstice-of-heroes .content.class-specific .sets {
+  grid-template-columns: 1fr;
+}
 
 
 
@@ -184,7 +190,7 @@
   }
 
   #solstice-of-heroes .module.head .icon {
-    right: -7rem;
+    right: -6rem;
     width: 80%;
   }
   
@@ -211,6 +217,11 @@
 
   #solstice-of-heroes .content {
     gap: 2rem;
+  }
+
+  #solstice-of-heroes .content.class-specific,
+  #solstice-of-heroes .content.class-specific .sets {
+    grid-template-columns: 1fr;
   }
 
   #solstice-of-heroes .sets {
@@ -287,8 +298,9 @@
   }
 
   #solstice-of-heroes .auth-upsell .wrap .icon {
-    right: -4rem;
+    right: -6rem;
     top: -4rem;
+    width: 80%;
     height: calc(100% + 8rem);
   }
 }

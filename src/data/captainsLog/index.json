@@ -1203,5 +1203,10 @@
     "date": "2020-08-11T09:23:42.186Z",
     "version": "2.30.0",
     "content": "Solstice of Heroes."
+  },
+  {
+    "date": "2020-08-13T03:15:20.521Z",
+    "version": "2.30.7",
+    "content": "Bulk bug fixes and improvements"
   }
 ]

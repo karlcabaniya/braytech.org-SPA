@@ -914,6 +914,7 @@ export const nightfalls = {
     items: [],
     collectibles: [
       1279318110, // D.F.A.
+      2222885351,
       1463718184, // Tree of Probabilities
       3810498719, // Valus Intrigue
       3810498718, // No More Lasers
