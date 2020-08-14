@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
 import { t } from '../../../utils/i18n';
@@ -32,6 +33,14 @@ export default function Dialog({ children, actions, ...props }) {
                       <a className='button' href={action.target} onClick={action.handler || null} target='_blank' rel='noreferrer noopener'>
                         <DestinyKey type={action.key || 'more'} /> {action.text || t('Open')}
                       </a>
+                    </li>
+                  );
+                } else if (action.type === 'internal') {
+                  return (
+                    <li key={a}>
+                      <Link className='button' to={action.target} onClick={action.handler || null}>
+                        <DestinyKey type={action.key || 'more'} /> {action.text || t('Open')}
+                      </Link>
                     </li>
                   );
                 } else if (action.type === 'reload') {

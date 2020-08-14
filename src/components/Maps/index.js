@@ -276,7 +276,7 @@ export default function Maps() {
         {/* Dynamic nodes i.e. those that are bound to weekly cycles */}
         <Runtime {...destination} selected={controlsState.inspect} handler={handler_showInspect} />
         {/* Latent memory fragments on Mars, etc. */}
-        <Speciality handler={handler_showInspect} />
+        <Speciality {...destination} handler={handler_showInspect} />
         {/* Unique graphs */}
         {/* <Graphs {...destination} /> */}
         {/* <CloudLayer {...destination} /> */}

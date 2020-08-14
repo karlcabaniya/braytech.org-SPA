@@ -37,7 +37,7 @@
   height: 100%;
   display: grid;
   align-items: center;
-  opacity: 0.1;
+  opacity: 0.2;
   pointer-events: none;
 }
 
@@ -136,7 +136,7 @@
   }
 
   .group.events .group > .icon {
-    right: -7rem;
+    right: -6rem;
     width: 80%;
   }
 

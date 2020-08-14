@@ -6,9 +6,30 @@
 }
 
 #solstice-of-heroes .module.head {
+  position: relative;
   padding: calc(4rem + 40px) 3rem 3rem;
   background-color: rgba(255, 255, 255, 0.05);
   background-color: #c0b27e;
+  overflow: hidden;
+}
+
+#solstice-of-heroes .module.head .icon {
+  position: absolute;
+  right: 6rem;
+  top: 0;
+  width: 32%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+#solstice-of-heroes .module.head .icon svg {
+  position: absolute;
+  fill: white;
+  width: 100%;
+  height: auto;
 }
 
 #solstice-of-heroes .module.head .page-header {
@@ -65,12 +86,6 @@
   pointer-events: none;
 }
 
-#solstice-of-heroes .content {
-  display: grid;
-  grid-template-columns: auto;
-  gap: 3rem;
-}
-
 #solstice-of-heroes .module.views .list li::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.4);
 }
@@ -90,6 +105,12 @@
   color: #fff;
 }
 
+#solstice-of-heroes .content {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3rem;
+}
+
 #solstice-of-heroes .sets {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -98,6 +119,7 @@
 
 #solstice-of-heroes .sets .inventory-items {
   grid-template-columns: auto;
+  pointer-events: none;
 }
 
 #solstice-of-heroes .sets .set h4 {
@@ -123,18 +145,35 @@
   margin: 0 0 6px;
 }
 
-#solstice-of-heroes .sets .set ul li .text .description {
+#solstice-of-heroes .sets .set ul li > .text > .description {
   font-size: 14px;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.6);
 }
 
 #solstice-of-heroes .sets .set ul li .objectives {
-  grid-column: 2/3;
   margin: 18px 0 0;
 }
 
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete {
+  opacity: 0.8;
+}
 
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete .bar {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#solstice-of-heroes .sets .set ul li .objectives .progress-bar.complete .bar .fill {
+  background-color: rgba(90, 163, 102, 0);
+}
+
+#solstice-of-heroes .content.class-specific {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#solstice-of-heroes .content.class-specific .sets {
+  grid-template-columns: 1fr;
+}
 
 
 
@@ -148,6 +187,11 @@
 @media screen and (max-width: 600px) {
   #solstice-of-heroes .module.head {
     padding: calc(3rem + 40px) 2rem 2rem;
+  }
+
+  #solstice-of-heroes .module.head .icon {
+    right: -6rem;
+    width: 80%;
   }
   
   #solstice-of-heroes .buff {
@@ -173,6 +217,11 @@
 
   #solstice-of-heroes .content {
     gap: 2rem;
+  }
+
+  #solstice-of-heroes .content.class-specific,
+  #solstice-of-heroes .content.class-specific .sets {
+    grid-template-columns: 1fr;
   }
 
   #solstice-of-heroes .sets {
@@ -249,8 +298,9 @@
   }
 
   #solstice-of-heroes .auth-upsell .wrap .icon {
-    right: -4rem;
+    right: -6rem;
     top: -4rem;
+    width: 80%;
     height: calc(100% + 8rem);
   }
 }

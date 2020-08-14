@@ -2519,7 +2519,13 @@
   "356": {
     "recordHash": 2104527482,
     "extended": {
-      "video": "https://www.youtube.com/watch?v=mPYaqgpzbkg"
+      "video": "https://www.youtube.com/watch?v=mPYaqgpzbkg",
+      "screenshot": {
+        "highlight": {
+          "x": 46,
+          "y": 43
+        }
+      }
     },
     "screenshot": "/static/images/screenshots/records/ghost-stories/difference-of-opinion-2104527482.jpg"
   },

@@ -57,9 +57,9 @@ function MakeNodes(destinationHash, member, routerHistory) {
       map: {
         points: [
           {
-            x: 511,
-            y: -280,
-          },
+            x: 494,
+            y: -400
+          }
         ],
       },
       classNames: ['widgets', 'latent-memory-fragment'],

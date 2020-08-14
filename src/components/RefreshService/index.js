@@ -123,7 +123,7 @@ class RefreshService extends React.Component {
           membershipType,
           membershipId,
           characterId,
-          data: getMemberDataShape(characterId, data),
+          data: getMemberDataShape(data),
         });
       }
 

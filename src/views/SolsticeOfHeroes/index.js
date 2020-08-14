@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useParams, Link, NavLink } from 'react-router-dom';
+import cx from 'classnames';
 
 import { t, BungieText, BraytechText } from '../../utils/i18n';
 import manifest from '../../utils/manifest';
@@ -8,12 +9,12 @@ import { classTypeToString } from '../../utils/destinyConverters';
 
 import { BungieAuthButton } from '../../components/BungieAuth';
 import Items from '../../components/Items';
-import { DestinyKey } from '../../components/UI/Button';
+import Records from '../../components/Records';
+import { Button, DestinyKey } from '../../components/UI/Button';
 import ProgressBar from '../../components/UI/ProgressBar';
-import { Common, Views } from '../../svg';
+import { Common, Views, Events } from '../../svg';
 
 import './styles.css';
-import Records from '../../components/Records';
 
 const RENEWED_HUNTER = 2574248771;
 const RENEWED_TITAN = 2963102071;
@@ -45,25 +46,19 @@ const CLASS_MAP = {
 
 const ALL_SETS = [RENEWED, MAJESTIC, MAGNIFICENT];
 
-function Objectives({ itemHash }) {
+function Objectives({ itemHash, falsify }) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
   const member = useSelector((state) => state.member);
 
-  const inventory = member.data?.profile?.profileInventory?.data?.items && [
-    ...member.data.profile.profileInventory.data.items, // non-instanced quest items, materials, etc.
-    ...member.data.profile?.characterInventories?.data?.[member.characterId].items, // non-equipped weapons etc
-    ...member.data.profile?.characterEquipment?.data?.[member.characterId].items, // equipped weapons etc
-  ];
-
-  const item = inventory?.find((item) => item.itemHash === itemHash);
+  const item = member.data?.inventory?.find((item) => item.itemHash === itemHash);
 
   return (
     <div className='objectives'>
       {definitionItem.objectives?.objectiveHashes.map((hash, h) => {
         const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
 
-        const itemComponents = member.data?.profile?.itemComponents.objectives.data[item?.itemInstanceId]?.objectives || {};
+        const itemComponents = member.data?.profile?.itemComponents.objectives.data[item?.itemInstanceId]?.objectives.find((objective) => objective.objectiveHash === hash) || {};
 
         const playerProgress = {
           complete: false,
@@ -73,14 +68,48 @@ function Objectives({ itemHash }) {
           ...itemComponents,
         };
 
+        if (falsify) {
+          playerProgress.progress = playerProgress.completionValue;
+        }
+
         return <ProgressBar key={h} objectiveHash={definitionObjective.hash} {...playerProgress} />;
       })}
     </div>
   );
 }
 
+function getNextPresentationNodeHash(presentationNodeHash) {
+  if (RENEWED.includes(presentationNodeHash)) {
+    return MAJESTIC.find((hash) => CLASS_MAP[hash] === CLASS_MAP[presentationNodeHash]);
+  } else if (MAJESTIC.includes(presentationNodeHash)) {
+    return MAGNIFICENT.find((hash) => CLASS_MAP[hash] === CLASS_MAP[presentationNodeHash]);
+  } else {
+    return null;
+  }
+}
+
+function SetProgress(inventory, presentationNodeHash) {
+  if (!MAGNIFICENT.includes(presentationNodeHash)) {
+    const hasNextSet =
+      // get next
+      manifest.DestinyPresentationNodeDefinition[getNextPresentationNodeHash(presentationNodeHash)].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length ||
+      // get next next, but only if it's the majestic
+      (!MAGNIFICENT.includes(getNextPresentationNodeHash(presentationNodeHash)) && manifest.DestinyPresentationNodeDefinition[getNextPresentationNodeHash(getNextPresentationNodeHash(presentationNodeHash))].children.collectibles.filter((collectible, c) => inventory.find((item) => item.itemHash === manifest.DestinyCollectibleDefinition[collectible.collectibleHash].itemHash)).length);
+
+    if (hasNextSet) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function Set({ presentationNodeHash }) {
   const definitionSet = manifest.DestinyPresentationNodeDefinition[presentationNodeHash];
+
+  const member = useSelector((state) => state.member);
+
+  const isCompleted = member.data?.inventory && SetProgress(member.data.inventory, presentationNodeHash);
 
   return (
     <ul>
@@ -95,7 +124,7 @@ function Set({ presentationNodeHash }) {
             <div className='text'>
               <div className='name'>{definitionCollectible.displayProperties.name}</div>
               <BungieText className='description' value={definitionCollectible.displayProperties.description} />
-              <Objectives itemHash={definitionCollectible.itemHash} />
+              <Objectives itemHash={definitionCollectible.itemHash} falsify={isCompleted} />
             </div>
           </li>
         );
@@ -127,6 +156,7 @@ export function NavLinks() {
 
 export default function SolsticeOfHeroes() {
   const member = useSelector((state) => state.member);
+  const character = member.data.profile?.characters.data.find((character) => character.characterId === member.characterId);
 
   const auth = useSelector((state) => state.auth);
   const authed = auth.destinyMemberships?.find((authMember) => authMember.membershipId === member.membershipId);
@@ -134,10 +164,15 @@ export default function SolsticeOfHeroes() {
   const location = useLocation();
   const backLinkPath = location.state?.from || '/this-week';
 
+  const [classType, setClassType] = useState(-1);
+
+  function handler_toggleClassType() {
+    setClassType(classType > 1 ? -1 : classType + 1);
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-  }, [location.pathname])
+  }, [location.pathname]);
 
   const SET_TIER_NAME = {
     0: t('Event.SolsticeOfHeroes.ArmorTier.Renewed'),
@@ -152,6 +187,9 @@ export default function SolsticeOfHeroes() {
     <>
       <div className='view' id='solstice-of-heroes'>
         <div className='module head'>
+          <div className='icon'>
+            <Events.SolsticeOfHeroes />
+          </div>
           <div className='page-header'>
             <div className='sub-name'>{t('Event')}</div>
             <div className='name'>{t('Event.SolsticeOfHeroes.Name')}</div>
@@ -173,7 +211,7 @@ export default function SolsticeOfHeroes() {
         ) : null}
         <div className='buff'>
           <NavLinks />
-          <div className='content'>
+          <div className={cx('content', { 'class-specific': classType > -1 && view !== 'records' })}>
             {view === 'records' ? (
               <div className='module'>
                 <ul className='list record-items'>
@@ -185,12 +223,14 @@ export default function SolsticeOfHeroes() {
                 <div key={t} className='module'>
                   <h3>{SET_TIER_NAME[t]}</h3>
                   <div className='sets'>
-                    {tiers.map((presentationNodeHash, s) => (
-                      <div key={s} className='set'>
-                        <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
-                        <Set presentationNodeHash={presentationNodeHash} />
-                      </div>
-                    ))}
+                    {tiers
+                      .filter((presentationNodeHash) => (classType > -1 ? CLASS_MAP[presentationNodeHash] === classType : true))
+                      .map((presentationNodeHash, s) => (
+                        <div key={s} className='set'>
+                          <h4>{classTypeToString(CLASS_MAP[presentationNodeHash])}</h4>
+                          <Set presentationNodeHash={presentationNodeHash} />
+                        </div>
+                      ))}
                   </div>
                 </div>
               ))
@@ -202,6 +242,21 @@ export default function SolsticeOfHeroes() {
         <div className='wrapper'>
           <div />
           <ul>
+            <li>
+              <Button action={handler_toggleClassType}>
+                {classType < 0 ? (
+                  <>
+                    <i className='segoe-uniE16E' />
+                    {t('All classes')}
+                  </>
+                ) : (
+                  <>
+                    <i className='segoe-uniE16E' />
+                    {classTypeToString(classType, character?.genderHash)}
+                  </>
+                )}
+              </Button>
+            </li>
             <li>
               <Link className='button' to={backLinkPath}>
                 <DestinyKey type='dismiss' />

@@ -106,7 +106,7 @@ export default function Crucible(props) {
         </div>
       ) : (
         <div className='modes loading'>
-          <Spinner mini />
+          <Spinner />
         </div>
       )}
       <Matches mode={props.mode || 18} limit='40' offset={props.offset} root='/reports/strikes' />

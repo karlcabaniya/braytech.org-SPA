@@ -7,6 +7,27 @@ export default {
       };
     },
   },
+  auth: {
+    set: function (payload) {
+      return {
+        type: 'SET_AUTH',
+        payload,
+      };
+    },
+    reset: function () {
+      return {
+        type: 'RESET_AUTH',
+      };
+    },
+  },
+  member: {
+    load: function (payload) {
+      return {
+        type: 'MEMBER_LOAD_MEMBERSHIP',
+        payload,
+      };
+    },
+  },
   theme: {
     scrollbars: function (payload) {
       return {

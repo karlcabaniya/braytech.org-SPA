@@ -1198,5 +1198,15 @@
     "date": "2020-08-08T18:37:07.870Z",
     "version": "2.29.0",
     "content": "- _Maps_\n- _Reports_\n- service worker\n- a brand new beta deployment flow"
+  },
+  {
+    "date": "2020-08-11T09:23:42.186Z",
+    "version": "2.30.0",
+    "content": "Solstice of Heroes."
+  },
+  {
+    "date": "2020-08-13T03:15:20.521Z",
+    "version": "2.30.7",
+    "content": "Bulk bug fixes and improvements"
   }
 ]

@@ -186,7 +186,7 @@ class Matches extends React.Component {
       </div>
     ) : this.state.loading ? (
       <div className='matches loading'>
-        <Spinner mini />
+        <Spinner />
       </div>
     ) : (
       <div className='matches info'>{t('No reports available')}</div>

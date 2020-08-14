@@ -130,17 +130,8 @@ function Items({ member, items, handler, tooltips, order, noBorder, showQuantity
           ) : null}
           {item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length > 0 && !bucketsToExcludeFromInstanceProgressDisplay.includes(item.bucketHash) ? (
             <ProgressBar
-              progress={{
-                progress: item.itemComponents?.objectives.reduce((acc, curr) => {
-                  return acc + curr.progress;
-                }, 0),
-                objectiveHash: item.itemComponents?.objectives[0].objectiveHash,
-              }}
-              objective={{
-                completionValue: item.itemComponents?.objectives.reduce((acc, curr) => {
-                  return acc + curr.completionValue;
-                }, 0),
-              }}
+              progress={item.itemComponents?.objectives.reduce((progress, objective) => progress + objective.progress, 0)}
+              completionValue={item.itemComponents?.objectives.reduce((completionValue, objective) => completionValue + objective.completionValue, 0)}
               hideCheck
             />
           ) : null}
