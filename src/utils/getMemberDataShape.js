@@ -1,8 +1,16 @@
-export default function getMemberDataShape(characterId, data) {
+function combineCharacterInventories(items) {
+  if (typeof items === 'object') {
+    return Object.keys(items).reduce((array, key) => [...array, ...items[key].items.map((item) => ({ ...item, characterId: key }))], []);
+  }
+
+  return [];
+}
+
+export default function getMemberDataShape(data) {
   const inventory = [
-    ...(data.profile.Response?.characterEquipment.data?.[characterId]?.items || []), // equipped weapons etc
     ...(data.profile.Response?.profileInventory.data?.items || []), // non-instanced quest items, materials, etc.
-    ...(data.profile.Response?.characterInventories.data?.[characterId]?.items || []), // non-equipped weapons etc
+    ...combineCharacterInventories(data.profile.Response?.characterEquipment.data), // equipped weapons etc
+    ...combineCharacterInventories(data.profile.Response?.characterInventories.data), // non-equipped weapons etc
   ];
   const profileCurrencies = data.profile.Response?.profileCurrencies?.data?.items || [];
 

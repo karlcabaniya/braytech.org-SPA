@@ -367,7 +367,9 @@ class Quests extends React.Component {
       );
     }
 
-    const total = member.data.inventory.filter((item) => {
+    const inventory = member.data.inventory.filter((item) => (item.characterId === undefined ? true : item.characterId === member.characterId));
+
+    const total = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -381,7 +383,7 @@ class Quests extends React.Component {
 
       return false;
     });
-    const context = member.data.inventory.filter((item) => {
+    const context = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -405,7 +407,7 @@ class Quests extends React.Component {
 
       return false;
     });
-    const filtered = member.data.inventory.filter((item) => {
+    const filtered = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -435,7 +437,7 @@ class Quests extends React.Component {
     });
 
     const items = orderBy(this.getItems(filtered), [(item) => item.sorts[variable], (item) => item.sorts.timestampExpiry, (item) => item.sorts.name], [order, 'desc', 'asc']);
-    const newLight = member.data.inventory.filter((item) => {
+    const newLight = inventory.filter((item) => {
       const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
       if (!definitionItem) return false;
@@ -605,7 +607,7 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     rebindTooltips: () => {
-      dispatch({ type: 'REBIND_TOOLTIPS', });
+      dispatch({ type: 'REBIND_TOOLTIPS' });
     },
   };
 }

@@ -142,9 +142,12 @@ export default function NotificationService() {
 
   // console.log(trash, notifications)
 
-
-
-  
+  //
+  //
+  //
+  //
+  //
+  //
 
   if (notification) {
     const postman = {
@@ -156,7 +159,14 @@ export default function NotificationService() {
               { ...action, handler: handler_dismiss }
             : action
         ) || [],
-      displayProperties: { ...notification.displayProperties } || {},
+      displayProperties: {
+        ...(notification.displayProperties || {}),
+        image:
+          // live source, from Directus
+          (notification.displayProperties.image?.storage === 'directus' && `https://directus.upliftnaturereserve.com/bt03/assets/${notification.displayProperties.image.privateHash}`) ||
+          // packaged with build
+          notification.displayProperties.image,
+      },
     };
 
     if (notification.error && notification.javascript?.message === 'maintenance') {

@@ -78,7 +78,7 @@ async function loadMember(membershipType, membershipId, characterId) {
           membershipId,
           membershipType,
           characterId: data.profile.Response.characters.data.length && data.profile.Response.characters.data[0].characterId ? data.profile.Response.characters.data[0].characterId : false,
-          data: getMemberDataShape(characterId, data),
+          data: getMemberDataShape(data),
           error: {
             ErrorCode: 'character_unavailable',
             recoverable: true,
@@ -95,7 +95,7 @@ async function loadMember(membershipType, membershipId, characterId) {
         membershipId,
         membershipType,
         characterId,
-        data: getMemberDataShape(characterId, data),
+        data: getMemberDataShape(data),
       },
     });
 
