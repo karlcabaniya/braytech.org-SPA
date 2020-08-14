@@ -13,15 +13,9 @@ import Matches from '../../../components/Reports/Matches';
 async function getStats(member) {
   const stats = {
     all: {
-      pvecomp_mamba: {
-        mode: DestinyActivityModeType.GambitPrime,
-      },
-      pvecomp_gambit: {
-        mode: DestinyActivityModeType.Gambit,
-      },
-      enigma: {
-        mode: DestinyActivityModeType.Reckoning,
-      },
+      dungeon: {
+        mode: DestinyActivityModeType.Dungeon,
+      }
     },
   };
 
@@ -53,7 +47,7 @@ async function getStats(member) {
   return stats;
 }
 
-export default function Crucible(props) {
+export default function Dungeons(props) {
   const member = useSelector((state) => state.member);
 
   const [state, setState] = useState({
@@ -103,7 +97,7 @@ export default function Crucible(props) {
           <div className='content'>
             <ul className='list modes'>
               {Object.values(state.stats.all).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/gambit' defaultMode={DestinyActivityModeType.GambitPrime} />
+                <Mode key={m.mode} stats={m} root='/reports/dungeons' defaultMode={DestinyActivityModeType.Dungeon} />
               ))}
             </ul>
           </div>
@@ -113,7 +107,7 @@ export default function Crucible(props) {
           <Spinner />
         </div>
       )}
-      <Matches mode={props.mode || DestinyActivityModeType.GambitPrime} limit='10' offset={props.offset} root='/reports/gambit' />
+      <Matches mode={props.mode || DestinyActivityModeType.Dungeon} limit='40' offset={props.offset} root='/reports/dungeons' />
     </div>
   );
 }

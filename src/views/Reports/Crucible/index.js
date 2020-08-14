@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import { GetHistoricalStats } from '../../../utils/bungie';
+import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
@@ -13,59 +14,59 @@ async function getStats(member) {
   const stats = {
     all: {
       allPvP: {
-        mode: 5,
+        mode: DestinyActivityModeType.AllPvP,
       },
     },
     core: {
       rumble: {
-        mode: 48,
+        mode: DestinyActivityModeType.Rumble,
       },
       controlQuickplay: {
-        mode: 73,
+        mode: DestinyActivityModeType.ControlQuickplay,
       },
       elimination: {
-        mode: 80,
+        mode: DestinyActivityModeType.Elimination,
       },
       survival: {
-        mode: 37,
+        mode: DestinyActivityModeType.Survival,
       },
       ironBannerControl: {
-        mode: 43,
+        mode: DestinyActivityModeType.IronBannerControl,
       },
       trials_of_osiris: {
-        mode: 84,
+        mode: DestinyActivityModeType.TrialsOfOsiris,
       },
     },
     rotator: {
       clashQuickplay: {
-        mode: 71,
+        mode: DestinyActivityModeType.ClashQuickplay,
       },
       momentum: {
-        mode: 81,
+        mode: DestinyActivityModeType.Momentum,
       },
       doubles: {
-        mode: 50,
+        mode: DestinyActivityModeType.Doubles,
       },
       crimsonDoubles: {
-        mode: 15,
+        mode: DestinyActivityModeType.CrimsonDoubles,
       },
       supremacy: {
-        mode: 31,
+        mode: DestinyActivityModeType.Supremacy,
       },
       lockdown: {
-        mode: 60,
+        mode: DestinyActivityModeType.Lockdown,
       },
       breakthrough: {
-        mode: 65,
+        mode: DestinyActivityModeType.Breakthrough,
       },
       showdown: {
-        mode: 59,
+        mode: DestinyActivityModeType.Showdown,
       },
       countdown: {
-        mode: 38,
+        mode: DestinyActivityModeType.Countdown,
       },
       allMayhem: {
-        mode: 25,
+        mode: DestinyActivityModeType.AllMayhem,
       },
     },
   };
@@ -210,7 +211,7 @@ export default function Crucible(props) {
           <Spinner />
         </div>
       )}
-      <Matches mode={props.mode || 5} limit='40' offset={props.offset} root='/reports/crucible' />
+      <Matches mode={props.mode || DestinyActivityModeType.AllPvP} limit='40' offset={props.offset} root='/reports/crucible' />
     </div>
   );
 }

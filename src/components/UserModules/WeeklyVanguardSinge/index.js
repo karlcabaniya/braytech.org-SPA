@@ -8,7 +8,7 @@ import { Common } from '../../../svg';
 
 import './styles.css';
 
-const singeMap = [
+const SINGE_MAP = [
   {
     hash: 3362074814,
     className: 'void',
@@ -34,7 +34,7 @@ class WeeklyVanguardSinge extends React.Component {
     const characterActivities = this.props.member.data.profile.characterActivities.data;
 
     const vanguardStrikes = characterActivities[this.props.member.characterId].availableActivities.find(a => a.activityHash === 4252456044);
-    const activeSinge = vanguardStrikes && singeMap.find(s => vanguardStrikes.modifierHashes.indexOf(s.hash) > -1);
+    const activeSinge = vanguardStrikes && SINGE_MAP.find(s => vanguardStrikes.modifierHashes.indexOf(s.hash) > -1);
 
     const activityNames = [
       {

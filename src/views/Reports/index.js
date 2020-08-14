@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { t, BraytechText } from '../../utils/i18n';
+import { t } from '../../utils/i18n';
 import { removeMemberIds } from '../../utils/paths';
 
 import { ProfileNavLink } from '../../components/ProfileLink';
@@ -12,6 +12,7 @@ import Root from './Root';
 import Crucible from './Crucible';
 import Gambit from './Gambit';
 import Raids from './Raids';
+import Dungeons from './Dungeons';
 import Strikes from './Strikes';
 
 function navLinkIsActive(match, location) {
@@ -52,6 +53,12 @@ export function NavLinks() {
         </li>
         <li className='linked'>
           <div className='icon'>
+            <Views.Reports.Dungeons />
+          </div>
+          <ProfileNavLink to='/reports/dungeons' />
+        </li>
+        <li className='linked'>
+          <div className='icon'>
             <Views.Reports.Raids />
           </div>
           <ProfileNavLink to='/reports/raids' />
@@ -82,6 +89,12 @@ export default function Reports(props) {
       component: Raids,
       displayProperties: {
         name: t('Raids'),
+      },
+    },
+    dungeons: {
+      component: Dungeons,
+      displayProperties: {
+        name: t('Dungeons'),
       },
     },
     strikes: {
