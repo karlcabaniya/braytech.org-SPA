@@ -7,12 +7,35 @@ function combineCharacterInventories(items) {
 }
 
 export default function getMemberDataShape(data) {
+  if (process.env.NODE_ENV === 'development') console.time('getMemberDataShape');
+
   const inventory = [
     ...(data.profile.Response?.profileInventory.data?.items || []), // non-instanced quest items, materials, etc.
     ...combineCharacterInventories(data.profile.Response?.characterEquipment.data), // equipped weapons etc
     ...combineCharacterInventories(data.profile.Response?.characterInventories.data), // non-equipped weapons etc
   ];
   const profileCurrencies = data.profile.Response?.profileCurrencies?.data?.items || [];
+
+  const currencies = {
+    ...inventory
+      .filter((item) => item.bucketHash === 1469714392)
+      .reduce(
+        (consumables, consumable) => ({
+          ...consumables,
+          [consumable.itemHash]: consumable,
+        }),
+        {}
+      ),
+    ...profileCurrencies.reduce(
+      (currencies, currency) => ({
+        ...currencies,
+        [currency.itemHash]: currency,
+      }),
+      {}
+    ),
+  }
+
+  if (process.env.NODE_ENV === 'development') console.timeEnd('getMemberDataShape');
 
   return {
     profile: data.profile.Response,
@@ -28,23 +51,6 @@ export default function getMemberDataShape(data) {
     },
     milestones: data.milestones.Response,
     inventory,
-    currencies: {
-      ...inventory
-        .filter((item) => item.bucketHash === 1469714392)
-        .reduce(
-          (consumables, consumable) => ({
-            ...consumables,
-            [consumable.itemHash]: consumable,
-          }),
-          {}
-        ),
-      ...profileCurrencies.reduce(
-        (currencies, currency) => ({
-          ...currencies,
-          [currency.itemHash]: currency,
-        }),
-        {}
-      ),
-    },
+    currencies,
   };
 }

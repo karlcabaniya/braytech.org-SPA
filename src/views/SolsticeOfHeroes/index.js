@@ -119,7 +119,7 @@ function Set({ presentationNodeHash }) {
         return (
           <li key={c}>
             <ul className='list inventory-items'>
-              <Items items={[{ itemHash: definitionCollectible.itemHash, state: MAGNIFICENT.includes(presentationNodeHash) && 4 }]} tooltips={null} />
+              <Items items={[{ itemHash: definitionCollectible.itemHash }]} />
             </ul>
             <div className='text'>
               <div className='name'>{definitionCollectible.displayProperties.name}</div>

@@ -119,7 +119,6 @@
 
 #solstice-of-heroes .sets .inventory-items {
   grid-template-columns: auto;
-  pointer-events: none;
 }
 
 #solstice-of-heroes .sets .set h4 {
