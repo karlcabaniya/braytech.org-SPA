@@ -1,136 +1,166 @@
 {
   "de": {
     "translated": 695,
-    "notTranslated": 76,
-    "added": [],
+    "notTranslated": 78,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "debug": {
-    "translated": 771,
+    "translated": 773,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "en": {
-    "translated": 771,
+    "translated": 773,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 771,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 2,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "es": {
     "translated": 771,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 2,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 148,
-    "added": [],
+    "notTranslated": 150,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "it": {
     "translated": 771,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 2,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "ja": {
     "translated": 570,
-    "notTranslated": 201,
-    "added": [],
+    "notTranslated": 203,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "ko": {
     "translated": 499,
-    "notTranslated": 272,
+    "notTranslated": 274,
     "added": [
-      "FAQ.Answers.1.A",
-      "FAQ.Answers.1.Q"
+      "All classes",
+      "Dungeons"
     ],
-    "removed": [
-      "Braytech won't update to the newest version",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._"
-    ]
+    "removed": []
   },
   "pl": {
-    "translated": 2,
-    "notTranslated": 769,
+    "translated": 334,
+    "notTranslated": 439,
     "added": [
-      "FAQ.Answers.0.A",
-      "FAQ.Answers.0.Q",
-      "FAQ.Answers.1.A",
-      "FAQ.Answers.1.Q",
-      "FAQ.Answers.2.A",
-      "FAQ.Answers.2.Q",
-      "FAQ.Answers.3.A",
-      "FAQ.Answers.3.Q"
+      "All classes",
+      "Checklists",
+      "Dungeons",
+      "Invasions",
+      "Jade Rabbit",
+      "Jade Rabbits",
+      "UserModules.EscalationProtocol.BokLitur.Description",
+      "UserModules.EscalationProtocol.BokLitur.Name",
+      "UserModules.EscalationProtocol.Damkath.Description",
+      "UserModules.EscalationProtocol.Damkath.Name",
+      "UserModules.EscalationProtocol.Info",
+      "UserModules.EscalationProtocol.Kathok.Description",
+      "UserModules.EscalationProtocol.Kathok.Name",
+      "UserModules.EscalationProtocol.Naksud.Description",
+      "UserModules.EscalationProtocol.Naksud.Name",
+      "UserModules.EscalationProtocol.NurAbath.Description",
+      "UserModules.EscalationProtocol.NurAbath.Name"
     ],
     "removed": [
-      "Braytech won't update to the newest version",
-      "Clan Historical Stats don't match [other thing]",
-      "Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).",
-      "Describing the anatomy of collectibles and records",
-      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
-      "Something seems wrong with my Valor rank resets",
-      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
+      "A Hive knight, _Kathok_ will continuously bombard players with his boomer. He is protected by shriekers, minions, and an invulnerability shield. Diminish his shield by attacking it with the swords of fallen _Severing Knights_.",
+      "A mostly typical Hive ogre, _Damkath's_ vulnerability is a pulsating cow-sized cyst on his upper-back.",
+      "A mostly typical Hive ogre, _Nur Abath_ is protected by an invulnerability shield that draws its power from nearby minions. Clear them out to disable his shield and proceed to destroy him.",
+      "A typical Hive knight, _Bok Litur_ is well-defended and well-armed. A challenging foe.",
+      "A well-defended ogre, _Naksud_ can be damaged at any time. Although, he regularly calls forth cursed thrall which sprint towards him, bursting upon him, healing him.",
+      "Bok Litur, Hunger of Xol",
+      "Braytech can not determine which Worldline Zero catalyst components you have attained, but it can tell you which bosses drop which items in case you happened to be keeping a list.",
+      "Damkath, The Mask",
+      "#Invasions",
+      "#Jade Rabbit",
+      "#Jade Rabbits",
+      "Kathok, Roar of Xol",
+      "Naksud, the Famine",
+      "Nur Abath, Crest of Xol"
     ]
   },
   "pt-br": {
     "translated": 762,
-    "notTranslated": 9,
-    "added": [],
+    "notTranslated": 11,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "ru": {
     "translated": 771,
-    "notTranslated": 0,
-    "added": [],
+    "notTranslated": 2,
+    "added": [
+      "All classes",
+      "Dungeons"
+    ],
     "removed": []
   },
   "zh-chs": {
     "translated": 605,
-    "notTranslated": 166,
+    "notTranslated": 168,
     "added": [
-      "FAQ.Answers.0.A",
-      "FAQ.Answers.1.A",
-      "FAQ.Answers.1.Q",
-      "FAQ.Answers.2.A",
-      "FAQ.Answers.2.Q",
-      "FAQ.Answers.3.A"
+      "All classes",
+      "Dungeons"
     ],
-    "removed": [
-      "Braytech won't update to the newest version",
-      "Commonly asked, \"What is the funny percentage to the right of collectibles and records?\"\n\nIt's a percentage of players who've either discovered or redeemed the item. Every few days, _VOLUSPA_ collects data from users of _Braytech_ and takes note of who's got what.\n\nIt's been a hot topic as to whether it's accurate or useful and the truth is that all statistics are useless and dumb _unless_ you've included every single piece of data possible.\n\nIt's fair to assume that these stats are bias towards casual players (percentages may appear higher rather than lower due to the skill and attention of the users that are monitored).",
-      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
-      "Something seems wrong with my Valor rank resets",
-      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 622,
-    "notTranslated": 149,
+    "notTranslated": 151,
     "added": [
-      "FAQ.Answers.1.A",
-      "FAQ.Answers.1.Q",
-      "FAQ.Answers.2.A",
-      "FAQ.Answers.2.Q",
-      "FAQ.Answers.3.A"
+      "All classes",
+      "Dungeons",
+      "UserModules.EscalationProtocol.BokLitur.Description",
+      "UserModules.EscalationProtocol.Damkath.Description",
+      "UserModules.EscalationProtocol.Kathok.Description",
+      "UserModules.EscalationProtocol.Naksud.Description",
+      "UserModules.EscalationProtocol.NurAbath.Description"
     ],
     "removed": [
-      "Braytech won't update to the newest version",
-      "For Valor rank resets, Braytech only counts resets made in Season 4 (Forsaken release) and later. This aligns the stat with other metrics such as Infamy.\n\nAdditionally, for the most part, triumph records disregard earlier seasons as well. This is a choice I made for Braytech.\n\nIf for some reason your stats don't align with your expectations, there's a likely chance that this is a reflection of the API, not Braytech.",
-      "From the _Settings_ view, you can try a variety of things. Start with _Update service worker_. Wait a small time and you should be prompted to reload.\n\nIf this fails, you can try refreshing the app by selecting _Reload_. If the problem continues to persist please select _Dump service worker_.\n\n_For the technically inclined, Braytech uses a service worker and sometimes they're fussy._",
-      "Something seems wrong with my Valor rank resets",
-      "There are multiple sources for stats in Destiny. Clan Historical Stats is based on the HistoricalStats API endpoint while others source their data from PGCRs. It's hard to determine which holds the most accurate truth.\n\nTo display stats in the manner seen on Clan Historical Stats would require downloading terabytes of data from Bungie servers and significant compute power. This said, they're accurate enough for some friendly competition."
+      "A Hive knight, _Kathok_ will continuously bombard players with his boomer. He is protected by shriekers, minions, and an invulnerability shield. Diminish his shield by attacking it with the swords of fallen _Severing Knights_.",
+      "A mostly typical Hive ogre, _Damkath's_ vulnerability is a pulsating cow-sized cyst on his upper-back.",
+      "A mostly typical Hive ogre, _Nur Abath_ is protected by an invulnerability shield that draws its power from nearby minions. Clear them out to disable his shield and proceed to destroy him.",
+      "A typical Hive knight, _Bok Litur_ is well-defended and well-armed. A challenging foe.",
+      "A well-defended ogre, _Naksud_ can be damaged at any time. Although, he regularly calls forth cursed thrall which sprint towards him, bursting upon him, healing him."
     ]
   }
 }

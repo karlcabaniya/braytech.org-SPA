@@ -27,7 +27,7 @@ export default function BlackArmoryForges() {
       </div>
       <div className='text'>
         <p>
-          <em>{t('Forges are currently running in low-power mode and will only be available during maintenance periods.')}</em>
+          <em>{t('UserModules.BlackArmoryForges.Description')}</em>
         </p>
       </div>
       <h4>{t('Available activities')}</h4>
