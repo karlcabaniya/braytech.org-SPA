@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
@@ -10,9 +10,10 @@ import ObservedImage from '../../ObservedImage';
 
 import './styles.css';
 
-function Nightfalls(props) {
+export default function Nightfalls() {
+  const member = useSelector((state) => state.member);
   // get all available nightfall strikes
-  const weeklyNightfallStrikeActivities = props.member.data.profile.characterActivities.data[props.member.characterId].availableActivities.filter((a) => {
+  const weeklyNightfallStrikeActivities = member.data.profile.characterActivities.data[member.characterId].availableActivities.filter((a) => {
     if (!a.activityHash) return false;
 
     const definitionActivity = manifest.DestinyActivityDefinition[a.activityHash];
@@ -77,7 +78,7 @@ function Nightfalls(props) {
               })}
             </ul>
           ) : (
-            <div className='info'>{t("Modifiers aren't available right now.")}</div>
+            <div className='info'>{t("UserModules.Nightfalls.ModifiersUnavailable")}</div>
           )}
           <h4>{t('Collectibles')}</h4>
           {enums.nightfalls[definitionNightfall.hash]?.collectibles.length ? (
@@ -89,7 +90,7 @@ function Nightfalls(props) {
           ) : (
             <div className='info'>
               <p>
-                <em>{t("This Nightfall doesn't have any associated collectibles.")}</em>
+                <em>{t("UserModules.Nightfalls.NoCollectibles")}</em>
               </p>
             </div>
           )}
@@ -103,7 +104,7 @@ function Nightfalls(props) {
           ) : (
             <div className='info'>
               <p>
-                <em>{t("This Nightfall doesn't have any associated records.")}</em>
+                <em>{t("UserModules.Nightfalls.NoRecords")}</em>
               </p>
             </div>
           )}
@@ -112,11 +113,3 @@ function Nightfalls(props) {
     );
   });
 }
-
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-  };
-}
-
-export default connect(mapStateToProps)(Nightfalls);

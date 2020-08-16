@@ -416,7 +416,7 @@ class Customise extends React.Component {
     },
     BlackArmoryForges: {
       name: this.props.t('Black Armory Forges'),
-      description: this.props.t('Forges are currently running in low-power mode and will only be available during maintenance periods.')
+      description: this.props.t('UserModules.BlackArmoryForges.Description')
     },
     AltarsOfSorrow: {
       name: manifest.DestinyInventoryItemDefinition[2531049971]?.displayProperties.name,

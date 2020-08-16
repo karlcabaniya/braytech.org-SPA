@@ -78,7 +78,7 @@ function getOverrides({ objectiveHash, activityHash, milestoneHash, ...rest }) {
   } else if (objectiveHash === 3683641566) {
     return {
       name: t('Nightmare Hunts'),
-      description: t('Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian.'),
+      description: t('UserModules.NightmareHunts.Description'),
     };
   } else if (objectiveHash === 2443315975 || objectiveHash === 2498962144) {
     // Nightfall: The Ordeal
