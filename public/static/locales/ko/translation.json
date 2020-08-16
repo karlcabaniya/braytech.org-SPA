@@ -690,7 +690,6 @@
   "Unknown": "알 수 없음",
   "Unknown error": "알 수 없는 오류",
   "Unredeemed triumphs": "획득하지 않은 업적",
-  "unredeemed triumphs": "획득하지 않은 업적",
   "#####Unused": "🌐",
   "UserModules.BlackArmoryForges.Description": "대장간은 현재 저전력 모드로 운영되고 있으며 유지보수 기간동안만 이용 가능할 수 있습니다.",
   "#####UserModules.Challenges.NoChallenges": "🌐",
@@ -772,5 +771,6 @@
   "#####{{players}} players have collected this.": "🌐",
   "#####{{players}} players have redeemed this.": "🌐",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}}이 {{timeRemaining}} 남았습니다.",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}}이/가 {{destinationName}}에서 당신을 기다립니다."
 }

@@ -690,7 +690,6 @@
   "Unknown": "Inconnu",
   "Unknown error": "Erreur inconnue",
   "Unredeemed triumphs": "Triomphes non validés",
-  "unredeemed triumphs": "triomphes non validés",
   "#####Unused": "🌐",
   "UserModules.BlackArmoryForges.Description": "Les forges fonctionnent actuellement en mode basse consommation et ne seront disponibles que pendant les périodes de maintenance.",
   "#####UserModules.Challenges.NoChallenges": "🌐",
@@ -772,5 +771,6 @@
   "#####{{players}} players have collected this.": "🌐",
   "#####{{players}} players have redeemed this.": "🌐",
   "{{seasonName}} has {{timeRemaining}} remaining.": "Il reste {{timeRemaining}} avant la fin de la {{seasonName}}",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} vous attend à {{destinationName}}."
 }

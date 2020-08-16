@@ -690,7 +690,6 @@
   "Unknown": "Unbekannt",
   "Unknown error": "Unbekannter Fehler",
   "Unredeemed triumphs": "Nicht eingelöste Triumphe",
-  "unredeemed triumphs": "nicht eingelöste Triumphe",
   "Unused": "Ungenutzt",
   "UserModules.BlackArmoryForges.Description": "Schmieden sind aktuell im Energiesparmodus und werden nur während Wartungsarbeiten verfügbar sein.",
   "#####UserModules.Challenges.NoChallenges": "🌐",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} haben dieses Item gefunden.",
   "{{players}} players have redeemed this.": "{{players}} haben diesen Triumph errungen.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} läuft noch {{timeRemaining}}.",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} wartet hier auf dich: {{destinationName}}"
 }

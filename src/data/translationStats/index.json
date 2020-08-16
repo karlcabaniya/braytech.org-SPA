@@ -1,149 +1,140 @@
 {
   "de": {
-    "translated": 695,
-    "notTranslated": 79,
+    "translated": 694,
+    "notTranslated": 80,
     "added": [
-      "Vanguard Strikes are unavailable for this character."
+      "{{undredeemed}} unredeemed triumphs"
     ],
-    "removed": []
+    "removed": [
+      "unredeemed triumphs"
+    ]
   },
   "debug": {
     "translated": 774,
     "notTranslated": 0,
     "added": [
-      "Vanguard Strikes are unavailable for this character."
+      "{{undredeemed}} unredeemed triumphs"
     ],
-    "removed": []
+    "removed": [
+      "unredeemed triumphs"
+    ]
   },
   "en": {
     "translated": 774,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "unredeemed triumphs"
+    ]
   },
   "es-mx": {
-    "translated": 771,
-    "notTranslated": 3,
+    "translated": 770,
+    "notTranslated": 4,
     "added": [
-      "Vanguard Strikes are unavailable for this character."
+      "{{undredeemed}} unredeemed triumphs"
     ],
-    "removed": []
+    "removed": [
+      "unredeemed triumphs"
+    ]
   },
   "es": {
-    "translated": 771,
-    "notTranslated": 3,
+    "translated": 770,
+    "notTranslated": 4,
     "added": [
-      "Vanguard Strikes are unavailable for this character."
+      "{{undredeemed}} unredeemed triumphs"
     ],
-    "removed": []
+    "removed": [
+      "unredeemed triumphs"
+    ]
   },
   "fr": {
-    "translated": 623,
-    "notTranslated": 151,
-    "added": [
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": []
-  },
-  "it": {
-    "translated": 771,
-    "notTranslated": 3,
-    "added": [
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": []
-  },
-  "ja": {
-    "translated": 570,
-    "notTranslated": 204,
-    "added": [
-      "UserModules.TrialsOfOsiris.Info",
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": [
-      "Begin your trials by speaking with Saint-14."
-    ]
-  },
-  "ko": {
-    "translated": 499,
-    "notTranslated": 275,
-    "added": [
-      "UserModules.TrialsOfOsiris.Info",
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": [
-      "Begin your trials by speaking with Saint-14."
-    ]
-  },
-  "pl": {
-    "translated": 334,
-    "notTranslated": 440,
-    "added": [
-      "UserModules.BlackArmoryForges.Description",
-      "UserModules.Menagerie.Hasapiko.Name",
-      "UserModules.Menagerie.Pagouri.Name",
-      "UserModules.Nightfalls.ModifiersUnavailable",
-      "UserModules.Nightfalls.NoCollectibles",
-      "UserModules.Nightfalls.NoRecords",
-      "UserModules.NightmareHunts.Description",
-      "UserModules.Reckoning.Description",
-      "UserModules.TrialsOfOsiris.Info",
-      "UserModules.WeeklyVanguardSinge.Description",
-      "UserModules.WeeklyVanguardSinge.StrikesUnavailable"
-    ],
-    "removed": [
-      "Begin your trials by speaking with Saint-14.",
-      "Forges are currently running in low-power mode and will only be available during maintenance periods.",
-      "Hasapiko, Beloved by Calus",
-      "Modifiers aren't available right now.",
-      "Pagouri, Beloved by Calus",
-      "The Drifter's gambit goes deeper than once thought. Annihilate ancient Taken hoards within The Drifter's mysterious haul and gain The Nine's favour.",
-      "The elemental burn shared by most activities this week. These activities include {{activities}}.",
-      "This Nightfall doesn't have any associated collectibles.",
-      "This Nightfall doesn't have any associated records.",
-      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
-    ]
-  },
-  "pt-br": {
-    "translated": 762,
-    "notTranslated": 12,
-    "added": [
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": []
-  },
-  "ru": {
-    "translated": 771,
-    "notTranslated": 3,
-    "added": [
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": []
-  },
-  "zh-chs": {
-    "translated": 605,
-    "notTranslated": 169,
-    "added": [
-      "UserModules.Nightfalls.ModifiersUnavailable",
-      "UserModules.NightmareHunts.Description",
-      "Vanguard Strikes are unavailable for this character."
-    ],
-    "removed": [
-      "Modifiers aren't available right now.",
-      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
-    ]
-  },
-  "zh-cht": {
     "translated": 622,
     "notTranslated": 152,
     "added": [
-      "UserModules.NightmareHunts.Description",
-      "UserModules.Reckoning.Description",
-      "Vanguard Strikes are unavailable for this character."
+      "{{undredeemed}} unredeemed triumphs"
     ],
     "removed": [
-      "The Drifter's gambit goes deeper than once thought. Annihilate ancient Taken hoards within The Drifter's mysterious haul and gain The Nine's favour.",
-      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
+      "unredeemed triumphs"
+    ]
+  },
+  "it": {
+    "translated": 770,
+    "notTranslated": 4,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "ja": {
+    "translated": 569,
+    "notTranslated": 205,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "ko": {
+    "translated": 498,
+    "notTranslated": 276,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "pl": {
+    "translated": 333,
+    "notTranslated": 441,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "pt-br": {
+    "translated": 761,
+    "notTranslated": 13,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "ru": {
+    "translated": 770,
+    "notTranslated": 4,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "zh-chs": {
+    "translated": 604,
+    "notTranslated": 170,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
+    ]
+  },
+  "zh-cht": {
+    "translated": 621,
+    "notTranslated": 153,
+    "added": [
+      "{{undredeemed}} unredeemed triumphs"
+    ],
+    "removed": [
+      "unredeemed triumphs"
     ]
   }
 }

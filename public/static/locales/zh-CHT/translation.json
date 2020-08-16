@@ -690,7 +690,6 @@
   "Unknown": "未知",
   "Unknown error": "未知錯誤",
   "Unredeemed triumphs": "未兌換成就",
-  "unredeemed triumphs": "未兌換成就",
   "Unused": "未使用",
   "UserModules.BlackArmoryForges.Description": "鍛造目前在低功率模式下運行,僅在維護期間可用.",
   "#####UserModules.Challenges.NoChallenges": "🌐",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} 名玩家已经收集。",
   "{{players}} players have redeemed this.": "{{players}}名玩家已兑换。",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} 还有 {{timeRemaining}} 结束。",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} 在 {{destinationName}} 等妳."
 }

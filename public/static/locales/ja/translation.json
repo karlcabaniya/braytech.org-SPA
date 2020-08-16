@@ -690,7 +690,6 @@
   "Unknown": "不明",
   "Unknown error": "不明のエラー",
   "Unredeemed triumphs": "受け取っていない勝利の道のり",
-  "unredeemed triumphs": "受け取っていない勝利の道のり",
   "#####Unused": "🌐",
   "UserModules.BlackArmoryForges.Description": "炉は低火力モードで稼働されており、メンテナンス期間中のみ利用可能だ。",
   "#####UserModules.Challenges.NoChallenges": "🌐",
@@ -772,5 +771,6 @@
   "#####{{players}} players have collected this.": "🌐",
   "#####{{players}} players have redeemed this.": "🌐",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}}は残り{{timeRemaining}}。",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}}は{{destinationName}}で待っている。"
 }

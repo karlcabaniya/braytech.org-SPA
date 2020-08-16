@@ -690,7 +690,6 @@
   "Unknown": "Desconhecido",
   "Unknown error": "Erro desconhecido",
   "Unredeemed triumphs": "Triunfos não resgatados",
-  "unredeemed triumphs": "triunfos não resgatados",
   "Unused": "Não Utilizado",
   "UserModules.BlackArmoryForges.Description": "Forjas estão atualmente rodando com poucos guardiões, por isso, apenas uma forja estará liberada por dia.",
   "UserModules.Challenges.NoChallenges": "Parece que seu Guardião acabou com todos os desafios dessa semana.",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} jogadores coletaram isso.",
   "{{players}} players have redeemed this.": "{{players}} jogadores resgataram isso.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} tem {{timeRemaining}} restantes.",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} está lhe esperando em seu local, {{destinationName}}"
 }

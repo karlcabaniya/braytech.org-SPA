@@ -690,7 +690,6 @@
   "Unknown": "Неизвестно",
   "Unknown error": "Неизвестная ошибка",
   "Unredeemed triumphs": "Неполученные триумфы",
-  "unredeemed triumphs": "неполученные триумфы",
   "Unused": "Не использовано",
   "UserModules.BlackArmoryForges.Description": "Кузницы сейчас работают в режиме экономии энергии и поэтому доступны лишь в короткий промежуток времени.",
   "UserModules.Challenges.NoChallenges": "Ваш Страж выполнил все доступные испытания на этой неделе.",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "Получено {{players}} игроками.",
   "{{players}} players have redeemed this.": "Получено {{players}} игроками.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} завершится через {{timeRemaining}}.",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} ждет тебя в {{destinationName}}."
 }

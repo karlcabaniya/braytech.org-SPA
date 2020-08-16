@@ -690,7 +690,6 @@
   "Unknown": "Desconocido",
   "Unknown error": "Error desconocido",
   "Unredeemed triumphs": "Triunfos sin canjear",
-  "unredeemed triumphs": "triunfos sin canjear",
   "Unused": "Sin usar",
   "UserModules.BlackArmoryForges.Description": "Las fraguas están operando actualmente en modo de bajo consumo y estarán disponibles solo durante los periodos de mantenimiento.",
   "UserModules.Challenges.NoChallenges": "Parece que tu Guardián pulverizó todos los desafíos disponibles esta semana.",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} jugadores consiguieron esto.",
   "{{players}} players have redeemed this.": "{{players}} jugadores canjearon esto.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "A la {{seasonName}} le quedan {{timeRemaining}}.",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} te está esperando en {{destinationName}}."
 }

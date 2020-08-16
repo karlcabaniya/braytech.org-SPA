@@ -690,7 +690,6 @@
   "Unknown": "Sconosciuto",
   "Unknown error": "Errore sconosciuto",
   "Unredeemed triumphs": "Trionfi non riscattati",
-  "unredeemed triumphs": "trionfi non riscattati",
   "Unused": "Inutilizzato",
   "UserModules.BlackArmoryForges.Description": "Le forge sono attualmente in modalità di risparmio energetico e saranno solo disponibili durante periodi di manutenzione.",
   "UserModules.Challenges.NoChallenges": "Sembra che il tuo Guardiano abbia completato tutte le sfide disponibili questa settimana",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} giocatori l'hanno collezionato.",
   "{{players}} players have redeemed this.": "{{players}} giocatori l'hanno riscattato.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "La {{seasonName}} finirà tra {{timeRemaining}}",
+  "#####{{undredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} ti sta aspettando alla sua destinazione: {{destinationName}}"
 }

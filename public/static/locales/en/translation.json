@@ -690,7 +690,6 @@
   "Unknown": "Unknown",
   "Unknown error": "Unknown error",
   "Unredeemed triumphs": "Unredeemed triumphs",
-  "unredeemed triumphs": "unredeemed triumphs",
   "Unused": "Unused",
   "UserModules.BlackArmoryForges.Description": "Forges are currently running in low-power mode and will only be available during maintenance periods.",
   "UserModules.Challenges.NoChallenges": "It seems your Guardian has smashed all of their available challenges this week.",
@@ -772,5 +771,6 @@
   "{{players}} players have collected this.": "{{players}} players have collected this.",
   "{{players}} players have redeemed this.": "{{players}} players have redeemed this.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} has {{timeRemaining}} remaining.",
+  "{{undredeemed}} unredeemed triumphs": "{{undredeemed}} unredeemed triumphs",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} is waiting for you at {{destinationName}}."
 }
