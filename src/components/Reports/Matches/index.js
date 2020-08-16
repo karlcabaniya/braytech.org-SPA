@@ -21,7 +21,7 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
   const auth = useSelector((state) => state.auth);
 
   const ref_matches = useRef();
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
   const [instances, setInstances] = useState([]);
 
   // get history; on mount, on activity mode change, on offset change, on characterId change
@@ -39,9 +39,10 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
   async function history() {
     setLoading(true);
 
-    // get activity history for player's characters with the requested paramters
+    // get activity history
     const activities = (
       await Promise.all(
+        // fetch response for each characterId provided
         [member.characterId].map(
           async (characterId) =>
             await GetActivityHistory({
@@ -57,16 +58,21 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
             })
         )
       )
-    ).reduce((activities, response) => {
-      if (response.ErrorCode === 1) {
-        return [...activities, ...response.Response.activities];
-      } else {
-        return activities;
-      }
-    }, []);
+    )
+      // itterate through each response, collating a single array of activities
+      .reduce((activities, response) => {
+        if (response.ErrorCode === 1 && response.Response.activities?.length) {
+          return [...activities, ...response.Response.activities];
+        } else {
+          return activities;
+        }
+      }, []);
 
-    // get reports themselves
-    const reports = await Promise.all(
+    // set instances state to control which reports are displayed
+    setInstances(activities.map((activity) => activity.activityDetails.instanceId));
+
+    // get reports
+    await Promise.all(
       activities.map(async (activity) => {
         const cached = cache.find((report) => report.activityDetails.instanceId === activity.activityDetails.instanceId);
         if (cached) {
@@ -77,8 +83,6 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
       })
     );
 
-    // set instances state to control which reports are displayed
-    setInstances(activities.map((activity) => activity.activityDetails.instanceId));
     setLoading(false);
   }
 
