@@ -2,8 +2,6 @@ import store from '../store';
 import { PostGameCarnageReport } from './bungie';
 
 export async function getReport(instanceId) {
-  // store.dispatch({ type: 'REPORTS_STATE', payload: true });
-
   try {
     const response = await PostGameCarnageReport(instanceId);
 

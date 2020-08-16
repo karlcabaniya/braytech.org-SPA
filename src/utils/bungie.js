@@ -33,8 +33,10 @@ async function apiRequest(path, options = {}) {
     }
   };
 
+  // API key
   options.headers['X-API-Key'] = process.env.REACT_APP_BUNGIE_API_KEY;
 
+  // if POST, add content-type header
   if (typeof options.body === 'string') {
     options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
   } else {
@@ -42,6 +44,7 @@ async function apiRequest(path, options = {}) {
     options.body = JSON.stringify(options.body);
   }
 
+  // handle adding wuth headers and refreshing tokens
   if (tokens && options.withAuth && !options.headers.Authorization) {
     const now = new Date().getTime() + 10000;
     const then = new Date(tokens.access.expires).getTime();
@@ -68,6 +71,40 @@ async function apiRequest(path, options = {}) {
     }
   }
 
+  if (path.includes('PostGameCarnageReport')) {
+    const reportsCache = await caches.open('reports-1');
+    const absolutePath = `https://${options.stats ? 'stats' : 'www'}.bungie.net${path}`;
+
+    const inCache = await reportsCache.match(absolutePath);
+    
+    if (inCache) {
+      console.log(' Found response in cache:', inCache);
+      return inCache
+    } else {
+        // Otherwise, if there is no entry in the cache for event.request, response will be
+        // undefined, and we need to fetch() the resource.
+        console.log(' No response for %s found in cache. About to fetch ' +
+          'from network...', absolutePath);
+
+        // We call .clone() on the request since we might use it in a call to cache.put() later on.
+        // Both fetch() and cache.put() "consume" the request, so we need to make a copy.
+        // (see https://developer.mozilla.org/en-US/docs/Web/API/Request/clone)
+      const request = await fetch(absolutePath, options);
+      
+      if (request.status < 400) {
+        console.log('  Caching the response to', absolutePath, request.clone());
+        reportsCache.put(absolutePath, request.clone());
+      } else {
+        console.log('  Not caching the response to', absolutePath);
+      }
+      
+      const contentType = request && request.headers.get('content-type');
+      const response = request && contentType.includes('json') && await request.json();
+
+      return response;
+    }
+  }
+
   const request = await fetch(`https://${options.stats ? 'stats' : 'www'}.bungie.net${path}`, options)
     .catch(e => {
       if (!options.errors.hide) {
@@ -88,7 +125,7 @@ async function apiRequest(path, options = {}) {
     });
   
   const contentType = request && request.headers.get('content-type');
-  const response = request && contentType.indexOf("application/json") !== -1 && await request.json();
+  const response = request && contentType.includes('json') && await request.json();
 
   if ((response && response.ErrorCode && response.ErrorCode !== 1) || (response && response.error)) {
     if (!options.errors.hide) {
