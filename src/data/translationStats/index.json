@@ -1,166 +1,149 @@
 {
   "de": {
     "translated": 695,
-    "notTranslated": 78,
+    "notTranslated": 79,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "debug": {
-    "translated": 773,
+    "translated": 774,
     "notTranslated": 0,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "en": {
-    "translated": 773,
+    "translated": 774,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
     "translated": 771,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "es": {
     "translated": 771,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "fr": {
     "translated": 623,
-    "notTranslated": 150,
+    "notTranslated": 151,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "it": {
     "translated": 771,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "ja": {
     "translated": 570,
-    "notTranslated": 203,
+    "notTranslated": 204,
     "added": [
-      "All classes",
-      "Dungeons"
+      "UserModules.TrialsOfOsiris.Info",
+      "Vanguard Strikes are unavailable for this character."
     ],
-    "removed": []
+    "removed": [
+      "Begin your trials by speaking with Saint-14."
+    ]
   },
   "ko": {
     "translated": 499,
-    "notTranslated": 274,
+    "notTranslated": 275,
     "added": [
-      "All classes",
-      "Dungeons"
+      "UserModules.TrialsOfOsiris.Info",
+      "Vanguard Strikes are unavailable for this character."
     ],
-    "removed": []
+    "removed": [
+      "Begin your trials by speaking with Saint-14."
+    ]
   },
   "pl": {
     "translated": 334,
-    "notTranslated": 439,
+    "notTranslated": 440,
     "added": [
-      "All classes",
-      "Checklists",
-      "Dungeons",
-      "Invasions",
-      "Jade Rabbit",
-      "Jade Rabbits",
-      "UserModules.EscalationProtocol.BokLitur.Description",
-      "UserModules.EscalationProtocol.BokLitur.Name",
-      "UserModules.EscalationProtocol.Damkath.Description",
-      "UserModules.EscalationProtocol.Damkath.Name",
-      "UserModules.EscalationProtocol.Info",
-      "UserModules.EscalationProtocol.Kathok.Description",
-      "UserModules.EscalationProtocol.Kathok.Name",
-      "UserModules.EscalationProtocol.Naksud.Description",
-      "UserModules.EscalationProtocol.Naksud.Name",
-      "UserModules.EscalationProtocol.NurAbath.Description",
-      "UserModules.EscalationProtocol.NurAbath.Name"
+      "UserModules.BlackArmoryForges.Description",
+      "UserModules.Menagerie.Hasapiko.Name",
+      "UserModules.Menagerie.Pagouri.Name",
+      "UserModules.Nightfalls.ModifiersUnavailable",
+      "UserModules.Nightfalls.NoCollectibles",
+      "UserModules.Nightfalls.NoRecords",
+      "UserModules.NightmareHunts.Description",
+      "UserModules.Reckoning.Description",
+      "UserModules.TrialsOfOsiris.Info",
+      "UserModules.WeeklyVanguardSinge.Description",
+      "UserModules.WeeklyVanguardSinge.StrikesUnavailable"
     ],
     "removed": [
-      "A Hive knight, _Kathok_ will continuously bombard players with his boomer. He is protected by shriekers, minions, and an invulnerability shield. Diminish his shield by attacking it with the swords of fallen _Severing Knights_.",
-      "A mostly typical Hive ogre, _Damkath's_ vulnerability is a pulsating cow-sized cyst on his upper-back.",
-      "A mostly typical Hive ogre, _Nur Abath_ is protected by an invulnerability shield that draws its power from nearby minions. Clear them out to disable his shield and proceed to destroy him.",
-      "A typical Hive knight, _Bok Litur_ is well-defended and well-armed. A challenging foe.",
-      "A well-defended ogre, _Naksud_ can be damaged at any time. Although, he regularly calls forth cursed thrall which sprint towards him, bursting upon him, healing him.",
-      "Bok Litur, Hunger of Xol",
-      "Braytech can not determine which Worldline Zero catalyst components you have attained, but it can tell you which bosses drop which items in case you happened to be keeping a list.",
-      "Damkath, The Mask",
-      "#Invasions",
-      "#Jade Rabbit",
-      "#Jade Rabbits",
-      "Kathok, Roar of Xol",
-      "Naksud, the Famine",
-      "Nur Abath, Crest of Xol"
+      "Begin your trials by speaking with Saint-14.",
+      "Forges are currently running in low-power mode and will only be available during maintenance periods.",
+      "Hasapiko, Beloved by Calus",
+      "Modifiers aren't available right now.",
+      "Pagouri, Beloved by Calus",
+      "The Drifter's gambit goes deeper than once thought. Annihilate ancient Taken hoards within The Drifter's mysterious haul and gain The Nine's favour.",
+      "The elemental burn shared by most activities this week. These activities include {{activities}}.",
+      "This Nightfall doesn't have any associated collectibles.",
+      "This Nightfall doesn't have any associated records.",
+      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
     ]
   },
   "pt-br": {
     "translated": 762,
-    "notTranslated": 11,
+    "notTranslated": 12,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "ru": {
     "translated": 771,
-    "notTranslated": 2,
+    "notTranslated": 3,
     "added": [
-      "All classes",
-      "Dungeons"
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 605,
-    "notTranslated": 168,
+    "notTranslated": 169,
     "added": [
-      "All classes",
-      "Dungeons"
+      "UserModules.Nightfalls.ModifiersUnavailable",
+      "UserModules.NightmareHunts.Description",
+      "Vanguard Strikes are unavailable for this character."
     ],
-    "removed": []
+    "removed": [
+      "Modifiers aren't available right now.",
+      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
+    ]
   },
   "zh-cht": {
     "translated": 622,
-    "notTranslated": 151,
+    "notTranslated": 152,
     "added": [
-      "All classes",
-      "Dungeons",
-      "UserModules.EscalationProtocol.BokLitur.Description",
-      "UserModules.EscalationProtocol.Damkath.Description",
-      "UserModules.EscalationProtocol.Kathok.Description",
-      "UserModules.EscalationProtocol.Naksud.Description",
-      "UserModules.EscalationProtocol.NurAbath.Description"
+      "UserModules.NightmareHunts.Description",
+      "UserModules.Reckoning.Description",
+      "Vanguard Strikes are unavailable for this character."
     ],
     "removed": [
-      "A Hive knight, _Kathok_ will continuously bombard players with his boomer. He is protected by shriekers, minions, and an invulnerability shield. Diminish his shield by attacking it with the swords of fallen _Severing Knights_.",
-      "A mostly typical Hive ogre, _Damkath's_ vulnerability is a pulsating cow-sized cyst on his upper-back.",
-      "A mostly typical Hive ogre, _Nur Abath_ is protected by an invulnerability shield that draws its power from nearby minions. Clear them out to disable his shield and proceed to destroy him.",
-      "A typical Hive knight, _Bok Litur_ is well-defended and well-armed. A challenging foe.",
-      "A well-defended ogre, _Naksud_ can be damaged at any time. Although, he regularly calls forth cursed thrall which sprint towards him, bursting upon him, healing him."
+      "The Drifter's gambit goes deeper than once thought. Annihilate ancient Taken hoards within The Drifter's mysterious haul and gain The Nine's favour.",
+      "Your most feared, devastating, tormenting nightmares reincarnate―be immovable in your resolve, Guardian."
     ]
   }
 }
