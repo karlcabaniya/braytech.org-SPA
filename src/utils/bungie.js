@@ -312,7 +312,7 @@ export const SearchDestinyPlayer = async (membershipType, displayName) => apiReq
 
 export const GetActivityHistory = async options => apiRequest(`/Platform/Destiny2/${options.params.membershipType}/Account/${options.params.membershipId}/Character/${options.params.characterId}/Stats/Activities/?page=${options.params.page}${options.params.mode ? `&mode=${options.params.mode}` : ''}&count=${options.params.count}`, options);
 
-export const PGCR = async id => apiRequest(`/Platform/Destiny2/Stats/PostGameCarnageReport/${id}/`, { stats: true });
+export const PostGameCarnageReport = async instanceId => apiRequest(`/Platform/Destiny2/Stats/PostGameCarnageReport/${instanceId}/`, { stats: true });
 
 export const GetTrendingCategories = async () => apiRequest(`/Platform/Trending/Categories/`);
 

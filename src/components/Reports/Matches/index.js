@@ -1,10 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { orderBy, isEqual, flattenDepth } from 'lodash';
+import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { orderBy } from 'lodash';
 
 import { t } from '../../../utils/i18n';
+import { useInterval } from '../../../utils/hooks';
 import { GetActivityHistory } from '../../../utils/bungie';
-import getPGCR from '../../../utils/getPGCR';
+import { getReport } from '../../../utils/reports';
 
 import Spinner from '../../UI/Spinner';
 import Button from '../../UI/Button';
@@ -14,192 +15,115 @@ import PGCR from '../PGCR';
 
 import './styles.css';
 
-class Matches extends React.Component {
-  state = {
-    loading: false,
-    cacheState: {},
-    instances: [],
-  };
+export default function Match({ mode, limit = 15, offset = 0, root }) {
+  const cache = useSelector((state) => state.reports.cache);
+  const member = useSelector((state) => state.member);
+  const auth = useSelector((state) => state.auth);
 
-  cacheMachine = async (mode, characterId) => {
-    const { member, auth, pgcr, limit = 15, offset = 0 } = this.props;
+  const ref_matches = useRef();
+  const [loading, setLoading] = useState();
+  const [instances, setInstances] = useState([]);
 
-    const charactersIds = characterId ? [characterId] : member.data.profile.characters.data.map((c) => c.characterId);
+  // get history; on mount, on activity mode change, on offset change, on characterId change
+  useEffect(() => {
+    history();
+  }, [mode, offset, member.characterId]);
 
-    const requests = charactersIds.map(async (c) => {
-      const response = await GetActivityHistory({
-        params: {
-          membershipType: member.membershipType,
-          membershipId: member.membershipId,
-          characterId: c,
-          count: limit,
-          mode,
-          page: offset,
-        },
-        withAuth: Boolean(auth?.destinyMemberships?.find((d) => d.membershipId === member.membershipId)),
-      });
-
-      if (response && response.ErrorCode === 1 && response.Response.activities) {
-        return response.Response.activities;
-      } else {
-        throw Error('privacy');
-      }
-    });
-
-    let activities = await Promise.all(requests);
-    activities = flattenDepth(activities, 1);
-    activities = orderBy(activities, [(pgcr) => pgcr.period], ['desc']);
-    activities = activities.slice();
-
-    if (this.mounted) {
-      this.setState((state) => ({
-        ...state,
-        cacheState: {
-          ...state.cacheState,
-          [mode || 'all']: activities.length,
-        },
-        instances: activities.map((a) => a.activityDetails.instanceId),
-      }));
+  // check for new history every 20 seconds
+  useInterval(() => {
+    if (!loading) {
+      history();
     }
+  }, 20000);
 
-    const reports = activities.map(async (activity) => {
-      if (pgcr[member.membershipId] && activity && !pgcr[member.membershipId].find((pgcr) => pgcr.activityDetails.instanceId === activity.activityDetails.instanceId)) {
-        return getPGCR(member.membershipId, activity.activityDetails.instanceId);
-      } else if (!pgcr[member.membershipId] && activity) {
-        return getPGCR(member.membershipId, activity.activityDetails.instanceId);
-      } else {
-        return true;
-      }
-    });
+  async function history() {
+    setLoading(true);
 
-    return await Promise.all(reports);
-  };
-
-  run = async (force) => {
-    const { member, mode } = this.props;
-
-    const run = force ? true : !this.state.loading;
-
-    if (run) {
-      // console.log('matches refresh start');
-      this.running = true;
-
-      if (this.mounted) this.setState({ loading: true });
-
-      try {
-        let ignition = mode
-          ? await [mode].map((m) => {
-              return this.cacheMachine(m, member.characterId);
+    // get activity history for player's characters with the requested paramters
+    const activities = (
+      await Promise.all(
+        [member.characterId].map(
+          async (characterId) =>
+            await GetActivityHistory({
+              params: {
+                membershipType: member.membershipType,
+                membershipId: member.membershipId,
+                characterId,
+                count: limit,
+                mode,
+                page: offset,
+              },
+              withAuth: auth?.destinyMemberships?.find((d) => d.membershipId === member.membershipId) && true,
             })
-          : [await this.cacheMachine(false, member.characterId)];
-
-        await Promise.all(ignition);
-      } catch (e) {
-        if (this.mounted && e.message === 'privacy') this.setState({ loading: false });
+        )
+      )
+    ).reduce((activities, response) => {
+      if (response.ErrorCode === 1) {
+        return [...activities, ...response.Response.activities];
+      } else {
+        return activities;
       }
+    }, []);
 
-      if (this.mounted) this.setState({ loading: false });
-      this.running = false;
-
-      // console.log('matches refresh end');
-    } else {
-      // console.log('matches refresh skipped');
-    }
-  };
-
-  ref_matches = React.createRef();
-
-  handler_scrollToMatches = (event) => {
-    if (this.ref_matches.current) {
-      this.ref_matches.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  componentDidMount() {
-    this.mounted = true;
-    this.running = false;
-
-    this.run();
-    this.startInterval();
-  }
-
-  componentWillUnmount() {
-    this.mounted = false;
-
-    this.clearInterval();
-  }
-
-  componentDidUpdate(prev) {
-    const { member, mode, offset } = this.props;
-
-    if (prev.member.characterId !== member.characterId) {
-      this.run(true);
-    }
-
-    if (!isEqual(prev.mode, mode)) {
-      this.run(true);
-    }
-
-    if (!isEqual(prev.offset, offset)) {
-      this.run(true);
-    }
-  }
-
-  startInterval() {
-    this.refreshDataInterval = window.setInterval(this.run, 20000);
-  }
-
-  clearInterval() {
-    window.clearInterval(this.refreshDataInterval);
-  }
-
-  render() {
-    const { member, pgcr, mode, offset, limit = 15, root } = this.props;
-
-    // get PGCRs for current membership
-    let reports = pgcr[member.membershipId] || [];
-
-    // filter available PGCRs and ensure uniqueness
-    reports = reports
-      .filter((r) => (mode && r.activityDetails.modes.indexOf(mode) > -1) || !mode)
-      .filter((pgcr) => this.state.instances.includes(pgcr.activityDetails.instanceId))
-      .filter((obj, pos, arr) => arr.map((mapObj) => mapObj.activityDetails.instanceId).indexOf(obj.activityDetails.instanceId) === pos);
-
-    // ensure order
-    reports = orderBy(reports, [(pgcr) => pgcr.period], ['desc']);
-
-    return reports.length ? (
-      <div ref={this.ref_matches} className='matches'>
-        <div className='state'>
-          <TimeTilRefresh isLoading={this.state.loading} duration='20s' />
-          {this.state.loading ? <Spinner mini /> : null}
-        </div>
-        <ul className='list reports'>
-          {reports.map((r) => (
-            <PGCR key={r.activityDetails.instanceId} report={r} />
-          ))}
-        </ul>
-        <div className='pages'>
-          <Button classNames='previous' text={t('Previous page')} disabled={this.state.loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={this.handler_scrollToMatches} />
-          <Button classNames='next' text={t('Next page')} disabled={this.state.loading || reports.length < limit} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={this.handler_scrollToMatches} />
-        </div>
-      </div>
-    ) : this.state.loading ? (
-      <div className='matches loading'>
-        <Spinner />
-      </div>
-    ) : (
-      <div className='matches info'>{t('No reports available')}</div>
+    // get reports themselves
+    const reports = await Promise.all(
+      activities.map(async (activity) => {
+        const cached = cache.find((report) => report.activityDetails.instanceId === activity.activityDetails.instanceId);
+        if (cached) {
+          return cached;
+        } else {
+          return await getReport(activity.activityDetails.instanceId);
+        }
+      })
     );
+
+    // set instances state to control which reports are displayed
+    setInstances(activities.map((activity) => activity.activityDetails.instanceId));
+    setLoading(false);
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    member: state.member,
-    auth: state.auth,
-    pgcr: state.pgcr,
-  };
-}
+  function handler_scrollToMatches(event) {
+    if (ref_matches.current) {
+      ref_matches.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
-export default connect(mapStateToProps)(Matches);
+  const reports =
+    // order reports by period (time ended)
+    orderBy(
+      // from redux
+      cache
+        // filters cache by matching requested mode
+        .filter((report) => (mode ? report.activityDetails.modes.indexOf(mode) > -1 : true))
+        // filters by matching instances as per activity history response
+        .filter((report) => instances.includes(report.activityDetails.instanceId))
+        // filters out unlikely duplicates
+        .filter((report, index, reports) => reports.map((r) => r.activityDetails.instanceId).indexOf(report.activityDetails.instanceId) === index),
+      [(report) => report.period],
+      ['desc']
+    );
+
+  return reports.length ? (
+    <div ref={ref_matches} className='matches'>
+      <div className='state'>
+        <TimeTilRefresh isLoading={loading} duration='20s' />
+        {loading ? <Spinner mini /> : null}
+      </div>
+      <ul className='list reports'>
+        {reports.map((r) => (
+          <PGCR key={r.activityDetails.instanceId} report={r} />
+        ))}
+      </ul>
+      <div className='pages'>
+        <Button classNames='previous' text={t('Previous page')} disabled={loading ? true : offset > 0 ? false : true} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset - 1}`} action={handler_scrollToMatches} />
+        <Button classNames='next' text={t('Next page')} disabled={loading || reports.length < limit} anchor to={`/${member.membershipType}/${member.membershipId}/${member.characterId}${root}/${mode ? mode : '-1'}/${offset + 1}`} action={handler_scrollToMatches} />
+      </div>
+    </div>
+  ) : loading ? (
+    <div className='matches loading'>
+      <Spinner />
+    </div>
+  ) : (
+    <div className='matches info'>{t('No reports available')}</div>
+  );
+}

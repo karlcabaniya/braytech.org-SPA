@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withTranslation } from 'react-i18next';
 
-import getPGCR from '../../utils/getPGCR';
+import {getReport} from '../../utils/getReports';
 
 import { ReportItem } from '../../components/Reports/PGCR';
 import Spinner from '../../components/UI/Spinner';
@@ -52,9 +52,9 @@ class PGCR extends React.Component {
   getReport = async (membershipId, instanceId) => {
 
     if (this.props.pgcr[membershipId] && !this.props.pgcr[membershipId].find(pgcr => pgcr.activityDetails.instanceId === instanceId)) {
-      return getPGCR(membershipId, instanceId);
+      return getReport(membershipId, instanceId);
     } else if (!this.props.pgcr[membershipId] && instanceId) {
-      return getPGCR(membershipId, instanceId);
+      return getReport(membershipId, instanceId);
     } else {
       ////////// ??
       return true;
@@ -98,7 +98,7 @@ class PGCR extends React.Component {
 function mapStateToProps(state, ownProps) {
   return {
     member: state.member,
-    pgcr: state.pgcr
+    pgcr: state.reports
   };
 }
 
