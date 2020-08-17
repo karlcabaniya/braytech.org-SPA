@@ -267,7 +267,7 @@ class Header extends React.Component {
           <div className='wrapper'>
             <div className='logo'>
               <Link to='/' onClick={this.handler_closeNav}>
-                <span className='destiny-clovis_bray_device' />
+                <span className='braytech-clovis_bray_device' />
                 {process.env.REACT_APP_BETA === 'true' ? 'Braytech Beta' : 'Braytech'}
               </Link>
             </div>

@@ -73,32 +73,32 @@ export default function CharacterEquipment() {
         {[
           {
             hash: 2996146975,
-            icon: 'destiny-mobility',
+            icon: 'braytech-mobility',
             char: '',
           },
           {
             hash: 392767087,
-            icon: 'destiny-resilience',
+            icon: 'braytech-resilience',
             char: '',
           },
           {
             hash: 1943323491,
-            icon: 'destiny-recovery',
+            icon: 'braytech-recovery',
             char: '',
           },
           {
             hash: 1735777505,
-            icon: 'destiny-discipline',
+            icon: 'braytech-discipline',
             char: '',
           },
           {
             hash: 144602215,
-            icon: 'destiny-intellect',
+            icon: 'braytech-intellect',
             char: '',
           },
           {
             hash: 4244567218,
-            icon: 'destiny-strength',
+            icon: 'braytech-strength',
             char: '',
           },
         ].map((stat, i) => {

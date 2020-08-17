@@ -139,7 +139,7 @@ class Roster extends React.Component {
               <li className='col member'>
                 <MemberLink type={m.destinyUserInfo.membershipType} id={m.destinyUserInfo.membershipId} groupId={m.destinyUserInfo.groupId} displayName={m.destinyUserInfo.LastSeenDisplayName || m.destinyUserInfo.displayName} hideEmblemIcon={!m.isOnline} />
               </li>
-              <li className='col last-platform'>{<div className={cx('icon', `destiny-platform_${enums.platforms[lastPlatform]}`)} />}</li>
+              <li className='col last-platform'>{<div className={cx('icon', `braytech-platform_${enums.platforms[lastPlatform]}`)} />}</li>
               {!isPrivate ? (
                 <>
                   <li className='col last-character'>
