@@ -36,18 +36,24 @@ async function apiRequest(path, options = {}) {
 
   // handle adding auth headers and refreshing tokens
   if (tokens && options.withAuth && !options.headers.Authorization) {
-    const now = new Date().getTime() + 10000;
+    // time now + 2 seconds, in ms
+    const now = new Date().getTime() + 2 * 1000;
+    // current token expiry, in ms
     const then = new Date(tokens.access.expires).getTime();
 
     // refresh tokens before making auth-full request
     if (now > then) {
       const refreshRequest = await GetOAuthAccessToken(`grant_type=refresh_token&refresh_token=${tokens.refresh.value}`);
 
-      if (refreshRequest && refreshRequest.ErrorCode !== 1) {
+      if (refreshRequest && refreshRequest.ErrorCode === 1) {
+        // use the token from the response for the original request
+        options.headers.Authorization = `Bearer ${refreshRequest.Response.access.value}`;
+      }
+      // token refreshRequest returned with an error...
+      // return that error to whoever asked for this
+      else {
         return await refreshRequest;
       }
-
-      options.headers.Authorization = `Bearer ${tokens.access.value}`;
     } else {
       options.headers.Authorization = `Bearer ${tokens.access.value}`;
     }
