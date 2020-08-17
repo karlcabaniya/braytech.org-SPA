@@ -1,13 +1,3 @@
-async function getCache() {
-  try {
-    return await caches.open('reports');
-  } catch (e) {
-    console.log(e);
-
-    return [];
-  }
-}
-
 function defaultState() {
   return {
     cache: [],

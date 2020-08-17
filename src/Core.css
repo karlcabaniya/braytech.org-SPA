@@ -57,6 +57,11 @@ table {
   color: #fff;
 }
 
+@import './fonts/Braytech/style.css';
+@import './fonts/Destiny-Symbols/style.css';
+@import './fonts/Neue-Haas-Grotesk/style.css';
+@import './fonts/Segoe-MDL2-Assets/style.css';
+
 :root {
   --font-display: 'Neue Haas Grotesk Display', 'Destiny Symbols', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'NotoColorEmoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
   --font-text: 'Neue Haas Grotesk Text', 'Destiny Symbols', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'NotoColorEmoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
