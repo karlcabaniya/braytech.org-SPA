@@ -519,9 +519,9 @@
 }
 
 #tooltip .super .path .text {
-  padding: 18px 0;
+  padding: 18px 0 14px;
   text-align: center;
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;

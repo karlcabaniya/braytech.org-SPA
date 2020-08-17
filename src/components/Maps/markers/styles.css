@@ -35,23 +35,23 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(1);
   white-space: nowrap;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .map-omega .leaflet-container .label-marker.region .wrapper .name {
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .map-omega .leaflet-container .label-marker.suburb .wrapper .name {
-  font-family: 'Crimson Pro', serif;
-  font-size: 16px;
+  font-family: var(--font-serif);
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .map-omega .leaflet-container .label-marker .wrapper .name i {
@@ -237,7 +237,7 @@
   left: 100%;
   transform: translateX(16px) translateY(-50%);
   white-space: nowrap;
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
