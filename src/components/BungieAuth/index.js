@@ -342,7 +342,7 @@ export function BungieAuth() {
             </div>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -351,7 +351,7 @@ export function BungieAuth() {
           <div className='bungie-auth'>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -478,7 +478,7 @@ export function BungieAuthMini() {
             </div>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -487,7 +487,7 @@ export function BungieAuthMini() {
           <div className='bungie-auth'>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -501,7 +501,7 @@ export function BungieAuthButton() {
     <div className='bungie-auth'>
       <Button cta action={handler_goToBungie}>
         <div className='text'>{t('Login with Bungie.net')}</div>
-        <i className='segoe-uniE0AB' />
+        <i className='segoe-mdl-arrow-right' />
       </Button>
     </div>
   );
@@ -523,7 +523,7 @@ export function NoAuth({ inline }) {
           </div>
           <Button cta action={handler_goToBungie}>
             <div className='text'>{t('Authenticate')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Button>
         </div>
       </div>
@@ -627,7 +627,7 @@ export function DiffProfile({ inline }) {
         </div>
         <Button cta action={handler_goToBungie}>
           <div className='text'>{t('Authenticate')}</div>
-          <i className='segoe-uniE0AB' />
+          <i className='segoe-mdl-arrow-right' />
         </Button>
       </div>
     );

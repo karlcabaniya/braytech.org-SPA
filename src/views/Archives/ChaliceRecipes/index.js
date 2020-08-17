@@ -317,7 +317,7 @@ class ChaliceRecipes extends React.Component {
                                             })}
                                             onClick={this.handler_runeItemClick({ slot: key, hash })}
                                           >
-                                            <i className='segoe-uniE176' />
+                                            <i className='segoe-mdl-place-inside' />
                                           </li>
                                         </ul>
                                       );
@@ -415,18 +415,18 @@ class ChaliceRecipes extends React.Component {
                     <Button action={this.handler_filterClassType}>
                       {this.state.armorClassType === -1 ? (
                         <>
-                          <i className='segoe-uniE16E' />
+                          <i className='segoe-mdl-filter' />
                           {t('All class types')}
                         </>
                       ) : (
                         <>
-                          <i className='segoe-uniE16E' />
+                          <i className='segoe-mdl-filter' />
                           {Object.values(manifest.DestinyClassDefinition).find((i) => i.classType === this.state.armorClassType).displayProperties.name}
                         </>
                       )}
                     </Button>
                     <Button action={this.hanlder_resetState}>
-                      <i className='segoe-uniE777' />
+                      <i className='segoe-mdl-reset' />
                       {t('Reset')}
                     </Button>
                   </>

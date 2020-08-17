@@ -79,11 +79,6 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   margin: 0 7px 0 0;
 }
 
-#header .braytech .trigger i.segoe-uniE106 {
-  font-size: 11px;
-  margin: 0 7px 0 0;
-}
-
 #header .ui {
   margin: 0;
   display: flex;
@@ -714,10 +709,6 @@ html.no-backdrop-filter .wrapper.dark #header .braytech {
   
   #header .braytech .trigger i {
     font-size: 13px;
-  }
-  
-  #header .braytech .trigger i.segoe-uniE106 {
-    font-size: 10px;
   }
 
   #header .characters {

@@ -67,7 +67,7 @@ class Static extends React.Component {
           const definitionBubble = bubble.hash && definitionDestination?.bubbles && definitionDestination.bubbles.find((b) => b.hash === bubble.hash);
           const definitionName = definitionBubble && definitionBubble.displayProperties?.name !== '' && definitionBubble.displayProperties.name;
 
-          const name = (bubble.sub && (definitionName || bubble.name) && `<i class='segoe-uniE1761'></i> ${definitionName || bubble.name}`) || definitionName || bubble.name;
+          const name = (bubble.sub && (definitionName || bubble.name) && `<i class='segoe-mdl-stairs'></i> ${definitionName || bubble.name}`) || definitionName || bubble.name;
 
           const icon = marker.label(['interaction-none', bubble.type], name);
 

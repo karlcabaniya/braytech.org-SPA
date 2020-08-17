@@ -60,10 +60,10 @@
   font-size: 16px;
 }
 
-.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-uniE1761 {
-  top: -1px;
-  left: -29px;
-  font-size: 20px;
+.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-mdl-stairs {
+  top: 1px;
+  left: -20px;
+  font-size: 14px;
 }
 
 .map-omega.zoom--1 .leaflet-container .label-marker .wrapper .name {

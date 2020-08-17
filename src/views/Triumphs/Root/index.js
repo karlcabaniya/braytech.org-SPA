@@ -164,7 +164,7 @@ function Root({ settings, member, ...props }) {
             <ul className='list record-items notification-unredeemed'>
               <li className='linked unredeemed'>
                 <div className='text'>{t('{{undredeemed}} unredeemed triumphs', { unredeemed: unredeemedTriumphLength })}</div>
-                <i className='segoe-uniE0AB' />
+                <i className='segoe-mdl-arrow-right' />
                 <ProfileLink to={{ pathname: '/triumphs/unredeemed', state: { from: '/triumphs' } }} />
               </li>
             </ul>

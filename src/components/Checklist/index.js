@@ -17,7 +17,7 @@ const ChecklistItem = ({ completed, suffix, name, location, destinationHash, map
       <div className='location'>{location}</div>
       {destinationHash && (
         <Link className='button' to={`/maps/${destinationHash}/${mapHash}`}>
-          <i className='segoe-uniE0AB' />
+          <i className='segoe-mdl-arrow-right' />
         </Link>
       )}
     </li>
@@ -51,7 +51,7 @@ const Checklist = ({ settings, headless, completedItems, checklistCharacterBound
           <div className='sub-name'>{checklistName}</div>
           {checklistCharacterBound ? (
             <div className='tooltip' data-hash='character_bound' data-type='braytech'>
-              <i className='segoe-uniE902' />
+              <i className='segoe-mdl-character-locked' />
             </div>
           ) : null}
         </div>

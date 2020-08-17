@@ -61,7 +61,7 @@ class CharacterEmblem extends React.Component {
             <div className='abs'>
               <div className='text'>{t('Select a character')}</div>
               <div className='icon'>
-                <i className='segoe-uniE0AB' />
+                <i className='segoe-mdl-arrow-right' />
               </div>
               <Link to={{ pathname: '/character-select', state: { from: { pathname: location.pathname } } }} />
             </div>
@@ -75,7 +75,7 @@ class CharacterEmblem extends React.Component {
             <div className='abs'>
               <div className='text'>{t('Change profile')}</div>
               <div className='icon'>
-                <i className='segoe-uniE0AB' />
+                <i className='segoe-mdl-arrow-right' />
               </div>
               <Link to={{ pathname: '/character-select', state: { from: { pathname: location.pathname } } }} />
             </div>

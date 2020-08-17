@@ -69,7 +69,7 @@ class AddPlayer extends React.Component {
             <li />
             <li>
               <Button className='remove' action={this.handler_hideSearch}>
-                <i className='segoe-uniE8BB' />
+                <i className='segoe-mdl-cancel' />
               </Button>
             </li>
           </ul>

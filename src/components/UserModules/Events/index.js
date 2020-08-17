@@ -194,7 +194,7 @@ function SolsticeOfHeroes() {
             cta
           >
             <div className='text'>{t('Event.SolsticeOfHeroes.CTA')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Button>
         </div>
       </div>

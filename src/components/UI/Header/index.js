@@ -72,14 +72,14 @@ class Header extends React.Component {
     if (state) {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
-          <i className='segoe-uniE106' />
+          <i className='segoe-mdl-cancel' />
           {t('Exit')}
         </div>
       );
     } else {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
-          <i className='segoe-uniEA55' />
+          <i className='segoe-mdl-task-view' />
           {t('Views')}
         </div>
       );

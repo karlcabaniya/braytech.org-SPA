@@ -60,8 +60,15 @@ table {
 @import './fonts/Cromwell/styles.css';
 @import './fonts/Braytech/styles.css';
 @import './fonts/Destiny-Symbols/styles.css';
+
+[class^="segoe-uni"], [class*=" segoe-uni"] {
+  min-width: 16px;
+  min-height: 16px;
+  background-color: red;
+}
+
 @import './fonts/Neue-Haas-Grotesk/styles.css';
-@import './fonts/Segoe-MDL2-Assets/styles.css';
+@import './fonts/Segoe-MDL2/styles.css';
 
 :root {
   --font-display: 'Neue Haas Grotesk Display', 'Destiny Symbols', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'NotoColorEmoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols';
