@@ -51,10 +51,16 @@ class ReportHeader extends React.Component {
       mode = definitionActivity.displayProperties.name;
     }
 
+    let map = definitionMap?.displayProperties.name;
+    // Pit of Heresy: Normal 
+    if (definitionMap.hash === 1375089621) {
+      map = definitionActivity.originalDisplayProperties?.name;
+    }
+
     return (
       <div className='basic'>
         <BungieText className='mode' value={mode} textOnly />
-        <div className='map'>{definitionMap?.displayProperties?.name}</div>
+        <div className='map'>{map}</div>
         <div className='ago'>
           <time dateTime={realEndTime} title={formatTime(realEndTime, 'ISO8601')}>
             {fromNow(realEndTime, false, true)}
@@ -126,13 +132,19 @@ class ReportHeaderLarge extends React.Component {
       mode = definitionActivity.displayProperties.name;
     }
 
+    let map = definitionMap?.displayProperties.name;
+    // Pit of Heresy: Normal 
+    if (definitionMap.hash === 1375089621) {
+      map = definitionActivity.originalDisplayProperties?.name;
+    }
+
     return (
       <div className={cx('head', simplifiedAcivityMode?.name)}>
         {definitionMap?.pgcrImage && <ObservedImage className='image bg' src={`https://www.bungie.net${definitionMap.pgcrImage}`} />}
         <div className='detail'>
           <div>
             <BungieText className='mode' value={mode} textOnly />
-            <div className='map'>{definitionMap?.displayProperties?.name}</div>
+            <div className='map'>{map}</div>
           </div>
           <div>
             <div className='duration'>{entry.values.activityDurationSeconds.basic.displayValue}</div>
