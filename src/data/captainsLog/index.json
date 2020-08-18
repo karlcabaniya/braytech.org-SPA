@@ -1208,5 +1208,10 @@
     "date": "2020-08-13T03:15:20.521Z",
     "version": "2.30.7",
     "content": "Bulk bug fixes and improvements"
+  },
+  {
+    "date": "2020-08-18T17:41:01.813Z",
+    "version": "2.30.29",
+    "content": "- fonts and icons\n- lots of perf. and trans. work\n  - matches\n  - user modules\n  - refresh service\n  - auth\n  - matches"
   }
 ]
