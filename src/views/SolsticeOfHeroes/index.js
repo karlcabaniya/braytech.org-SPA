@@ -252,7 +252,7 @@ export default function SolsticeOfHeroes() {
                 ) : (
                   <>
                     <i className='segoe-mdl-filter' />
-                    {classTypeToString(classType, character?.genderHash)}
+                    {classTypeToString(classType)}
                   </>
                 )}
               </Button>
