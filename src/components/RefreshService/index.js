@@ -76,7 +76,6 @@ class RefreshService extends React.Component {
       displayProperties: {
         name: 'Braytech',
         description: t('RefreshService.Inactive.Description'),
-        timeout: 2 * 60,
       },
     });
   }
