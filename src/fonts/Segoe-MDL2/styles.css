@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Segoe-MDL';
-  src: url('Segoe-MDL.woff?iadnwr') format('woff');
+  src: url('Segoe-MDL.woff?spyo8q') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -59,9 +59,6 @@
 }
 .segoe-mdl-place-inside:before {
   content: '\e176';
-}
-.segoe-mdl-stairs:before {
-  content: '\e900';
 }
 .segoe-mdl-filter:before {
   content: '\e16e';

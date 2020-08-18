@@ -12,7 +12,7 @@ export default function TrialsNodes(props) {
     return (
       <div className='trials-nodes'>
         {definitionLosses.steps.map((step, s) => {
-          if (2 > s) {
+          if (props.value > s) {
             return (
               <div key={s} className='game loss'>
                 <div>

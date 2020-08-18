@@ -60,9 +60,9 @@
   font-size: 16px;
 }
 
-.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-mdl-stairs {
-  top: 1px;
+.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-mdl-place-inside {
   left: -20px;
+  top: 0px;
   font-size: 14px;
 }
 

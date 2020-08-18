@@ -1,16 +1,16 @@
 import store from '../store';
 import ls from './localStorage';
 
-const defaults = {
-  headers: {},
-  stats: false,
-  withAuth: false,
-  errors: {
-    hide: false,
-  },
-};
-
 async function apiRequest(path, options = {}) {
+  const defaults = {
+    headers: {},
+    stats: false,
+    withAuth: false,
+    errors: {
+      hide: false,
+    },
+  };
+
   options = {
     ...defaults,
     ...options,
@@ -39,44 +39,52 @@ async function apiRequest(path, options = {}) {
     // time now + 2 seconds, in ms
     const now = new Date().getTime() + 2 * 1000;
     // current token expiry, in ms
-    const then = new Date(tokens.access.expires).getTime();
+    const then = tokens.access.expires;
 
     // refresh tokens before making auth-full request
     if (now > then) {
+      if (process.env.NODE_ENV === 'development') console.log('Auth tokens have expired...');
       const refreshRequest = await GetOAuthAccessToken(`grant_type=refresh_token&refresh_token=${tokens.refresh.value}`);
 
       if (refreshRequest && refreshRequest.ErrorCode === 1) {
+        if (process.env.NODE_ENV === 'development') console.log('Auth tokens have been replenished.', refreshRequest);
+
         // use the token from the response for the original request
         options.headers.Authorization = `Bearer ${refreshRequest.Response.access.value}`;
       }
       // token refreshRequest returned with an error...
       // return that error to whoever asked for this
       else {
+        if (process.env.NODE_ENV === 'development') console.log('Auth tokens could not be replenished!');
+
         return await refreshRequest;
       }
     } else {
+      if (process.env.NODE_ENV === 'development') console.log('Auth tokens are current.');
       options.headers.Authorization = `Bearer ${tokens.access.value}`;
     }
   }
 
   // perform the request we're here for
-  const request = await fetch(`https://${options.stats ? 'stats' : 'www'}.bungie.net${path}`, options).catch((e) => {
-    if (!options.errors.hide) {
-      store.dispatch({
-        type: 'PUSH_NOTIFICATION',
-        payload: {
-          error: true,
-          date: new Date().toISOString(),
-          expiry: 86400000,
-          displayProperties: {
-            name: `HTTP error`,
-            description: `A network error occured. ${e.message}.`,
-            timeout: 4,
+  const request = await fetch(`https://${options.stats ? 'stats' : 'www'}.bungie.net${path}`, options)
+    // catch here for network errors
+    .catch((error) => {
+      if (!options.errors.hide) {
+        store.dispatch({
+          type: 'PUSH_NOTIFICATION',
+          payload: {
+            error: true,
+            date: new Date().toISOString(),
+            expiry: 86400000,
+            displayProperties: {
+              name: `HTTP error`,
+              description: `A network error occured. ${error.message}.`,
+              timeout: 4,
+            },
           },
-        },
-      });
-    }
-  });
+        });
+      }
+    });
 
   const contentType = request && request.headers.get('content-type');
   const response = request && contentType.includes('json') && (await request.json());
@@ -113,7 +121,7 @@ async function apiRequest(path, options = {}) {
   // looks like we're getting tokens
   else if (request && request.ok) {
     // tokens doesn't get caught by the prior if statement because it
-    // follows a different response structure(no "ErrorCode" property)
+    // follows a different response structure (no "ErrorCode" property)
     if (path === '/Platform/App/OAuth/Token/') {
       const now = new Date().getTime();
 
