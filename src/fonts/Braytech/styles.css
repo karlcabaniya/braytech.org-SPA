@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Braytech';
+  src: url('Braytech.woff?3pm01r') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="braytech-"], [class*=" braytech-"] {
+  font-family: 'Braytech' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.braytech-ammo_heavy:before {
+  content: "\e900";
+  color: #b286ff;
+}
+.braytech-ammo_special:before {
+  content: "\e901";
+  color: #7af48b;
+}
+.braytech-ammo_primary:before {
+  content: "\e902";
+  color: #ffffff;
+}
+.braytech-arrow_right_hollow:before {
+  content: "\e90f";
+}
+.braytech-power:before {
+  content: "\6c";
+}
+.braytech-platform_stadia:before {
+  content: "\e946";
+}
+.braytech-platform_steam:before {
+  content: "\e903";
+}
+.braytech-platform_battlenet:before {
+  content: "\e904";
+}
+.braytech-platform_pc:before {
+  content: "\34";
+}
+.braytech-platform_playstation:before {
+  content: "\32";
+}
+.braytech-platform_xbox:before {
+  content: "\31";
+}
+.braytech-bungie:before {
+  content: "\f133";
+}
+.braytech-fireteams:before {
+  content: "\e939";
+}
+.braytech-ghost:before {
+  content: "\f113";
+}
+.braytech-bungie_fist:before {
+  content: "\e938";
+}
+.braytech-road_kill:before {
+  content: "\f11a";
+}
+.braytech-well_rested:before {
+  content: "\e91e";
+}
+.braytech-mobility:before {
+  content: "\e93b";
+}
+.braytech-resilience:before {
+  content: "\e93c";
+}
+.braytech-recovery:before {
+  content: "\e93d";
+}
+.braytech-discipline:before {
+  content: "\e93e";
+}
+.braytech-intellect:before {
+  content: "\e93f";
+}
+.braytech-strength:before {
+  content: "\e940";
+}
+.braytech-destiny:before {
+  content: "\e90a";
+}
+.braytech-clovis_bray_device:before {
+  content: "\e96b";
+}
+.braytech-ishtar:before {
+  content: "\e90d";
+}
+.braytech-team_alpha_alt:before {
+  content: "\e9f4";
+}
+.braytech-team_bravo_alt:before {
+  content: "\e9f5";
+}
+.braytech-class_titan:before {
+  content: "\e90b";
+}
+.braytech-class_hunter:before {
+  content: "\e90c";
+}
+.braytech-class_warlock:before {
+  content: "\e90e";
+}

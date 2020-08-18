@@ -170,7 +170,7 @@ class PlayerHistory extends React.Component {
           </li>
           <li>
             <Link className='button remove' to={queryString ? `/compare/${object}?members=${queryString}` : `/compare/${object}`}>
-              <i className='segoe-uniE8BB' />
+              <i className='segoe-mdl-cancel' />
             </Link>
           </li>
         </ul>

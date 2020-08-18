@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import { GetHistoricalStats } from '../../../utils/bungie';
+import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
@@ -13,10 +14,10 @@ async function getStats(member) {
   const stats = {
     all: {
       allStrikes: {
-        mode: 18,
+        mode: DestinyActivityModeType.AllStrikes,
       },
       scored_nightfall: {
-        mode: 46,
+        mode: DestinyActivityModeType.ScoredNightfall,
       },
     },
   };
@@ -99,7 +100,7 @@ export default function Crucible(props) {
           <div className='content'>
             <ul className='list modes'>
               {Object.values(state.stats.all).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode='18' />
+                <Mode key={m.mode} stats={m} root='/reports/strikes' defaultMode={DestinyActivityModeType.AllStrikes} />
               ))}
             </ul>
           </div>
@@ -109,7 +110,7 @@ export default function Crucible(props) {
           <Spinner />
         </div>
       )}
-      <Matches mode={props.mode || 18} limit='40' offset={props.offset} root='/reports/strikes' />
+      <Matches mode={props.mode || DestinyActivityModeType.AllStrikes} limit='40' offset={props.offset} root='/reports/strikes' />
     </div>
   );
 }

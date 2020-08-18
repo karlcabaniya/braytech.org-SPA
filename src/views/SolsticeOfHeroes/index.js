@@ -119,7 +119,7 @@ function Set({ presentationNodeHash }) {
         return (
           <li key={c}>
             <ul className='list inventory-items'>
-              <Items items={[{ itemHash: definitionCollectible.itemHash, state: MAGNIFICENT.includes(presentationNodeHash) && 4 }]} tooltips={null} />
+              <Items items={[{ itemHash: definitionCollectible.itemHash }]} />
             </ul>
             <div className='text'>
               <div className='name'>{definitionCollectible.displayProperties.name}</div>
@@ -246,13 +246,13 @@ export default function SolsticeOfHeroes() {
               <Button action={handler_toggleClassType}>
                 {classType < 0 ? (
                   <>
-                    <i className='segoe-uniE16E' />
+                    <i className='segoe-mdl-filter' />
                     {t('All classes')}
                   </>
                 ) : (
                   <>
-                    <i className='segoe-uniE16E' />
-                    {classTypeToString(classType, character?.genderHash)}
+                    <i className='segoe-mdl-filter' />
+                    {classTypeToString(classType)}
                   </>
                 )}
               </Button>

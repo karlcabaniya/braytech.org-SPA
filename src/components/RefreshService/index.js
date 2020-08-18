@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { t } from '../../utils/i18n';
 import getMember from '../../utils/getMember';
 import getMemberDataShape from '../../utils/getMemberDataShape';
 
@@ -19,15 +20,13 @@ class RefreshService extends React.Component {
   }
 
   componentDidUpdate(p) {
-    // if previous member prop data doesn't equal current member prop data
-    if (p.member.data !== this.props.member.data || this.props.member.stale) {
-      // member data is stale -> go now
+    if (p.member.updated !== this.props.member.updated || this.props.member.stale) {
+      // member data is stale
       if (this.props.member.stale) {
         this.track();
         this.service();
-
-        // restart the countdown
-      } else {
+      } // restart the countdown
+      else {
         this.clearInterval();
         this.startInterval();
       }
@@ -68,6 +67,20 @@ class RefreshService extends React.Component {
     return new Date().getTime() - this.lastActivityTimestamp <= timespan;
   }
 
+  inactive() {
+    this.clearInterval();
+
+    this.props.pushNotification({
+      date: new Date().toISOString(),
+      expiry: 86400000,
+      displayProperties: {
+        name: 'Braytech',
+        description: t('RefreshService.Inactive.Description'),
+        timeout: 2 * 60,
+      },
+    });
+  }
+
   startInterval() {
     this.refreshAccountDataInterval = window.setInterval(this.service, AUTO_REFRESH_INTERVAL);
   }
@@ -83,10 +96,13 @@ class RefreshService extends React.Component {
 
     // if was inactive, fire service immediately
     // instead of waiting for interval timer
-    if (wasInactive) this.service();
+    if (wasInactive) {
+      this.startInterval();
+      this.service();
+    }
   };
 
-  handler_visibility = (e) => {
+  handler_visibility = (event) => {
     if (document.hidden === false) {
       this.track();
       this.service();
@@ -103,6 +119,8 @@ class RefreshService extends React.Component {
     // so we'll stop pinging the API
     if (!this.activeWithinTimespan(TIMEOUT)) {
       this.props.setState({ stale: true });
+
+      this.inactive();
 
       return;
     }
@@ -148,8 +166,11 @@ function mapDispatchToProps(dispatch) {
     setMember: (payload) => {
       dispatch({ type: 'MEMBER_LOADED', payload });
     },
-    setState: (value) => {
-      dispatch({ type: 'SET_REFRESH_STATE', payload: value });
+    setState: (payload) => {
+      dispatch({ type: 'REFRESH_STATE', payload });
+    },
+    pushNotification: (payload) => {
+      dispatch({ type: 'PUSH_NOTIFICATION', payload });
     },
   };
 }

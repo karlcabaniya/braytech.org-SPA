@@ -42,7 +42,7 @@ import Settings from './views/Settings';
 import OOB from './views/OOB';
 
 // feature views
-import PGCR from './views/PGCR';
+//import PGCR from './views/PGCR';
 import Read from './views/Read';
 
 // standalones
@@ -328,7 +328,7 @@ class App extends React.Component {
 
                         <SuspenseRoute path='/maps/:map?/:highlight?' component={Maps} />
                         <Route path='/clan-banner-builder/:decalBackgroundColorId?/:decalColorId?/:decalId?/:gonfalonColorId?/:gonfalonDetailColorId?/:gonfalonDetailId?/:gonfalonId?/' exact component={ClanBannerBuilder} />
-                        <Route path='/pgcr/:instanceId?' exact component={PGCR} />
+                        {/* <Route path='/pgcr/:instanceId?' exact component={PGCR} /> */}
                         <SuspenseRoute path='/inspect/:hash?' exact component={Inspect} />
                         <Route path='/read/:kind?/:hash?' exact component={Read} />
                         <Route path='/compare/:object?' exact component={Compare} />

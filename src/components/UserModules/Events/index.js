@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import cx from 'classnames';
 
-import { t, BraytechText } from '../../../utils/i18n';
+import { t, BraytechText, BungieText } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 
 // import OberservedImage from '../../../components/ObservedImage';
@@ -16,7 +17,7 @@ import './styles.css';
 const eventsCalendar = [
   {
     hashes: [
-      1309646866, // The Farm
+      1309646866, // The Farm - just in case
       158022875,
       3840133183,
       770505917,
@@ -142,8 +143,30 @@ function IronBanner() {
   );
 }
 
+const SOLSTICE_OF_HEROES_SINGE_MAP = {
+  2429391832: {
+    className: 'void',
+    svg: SVG.Common.Void,
+  },
+  1199493030: {
+    className: 'arc',
+    svg: SVG.Common.Arc,
+  },
+  770505917: {
+    className: 'solar',
+    svg: SVG.Common.Solar,
+  },
+};
+
 function SolsticeOfHeroes() {
+  const member = useSelector((state) => state.member);
+
+  const characterActivities = member.data.profile.characterActivities.data;
+  const activity = characterActivities[member.characterId].availableActivities.find((activity) => [770505917, 1199493030, 2429391832].includes(activity.activityHash));
+
   const location = useLocation();
+
+  const SingeIcon = SOLSTICE_OF_HEROES_SINGE_MAP[activity.activityHash].svg;
 
   return (
     <div className='group solstice-of-heroes'>
@@ -171,10 +194,29 @@ function SolsticeOfHeroes() {
             cta
           >
             <div className='text'>{t('Event.SolsticeOfHeroes.CTA')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Button>
         </div>
       </div>
+      {/* <div className='module modifier'>
+        <div className='sub-header'>
+          <div>{t('Event.SolsticeOfHeroes.ActivityModifier')}</div>
+        </div>
+        <div className='icon'>
+          <div className='background'>
+            <svg viewBox='0 0 250.6 221.8'>
+              <path
+                d="M141,212.7c-7,12.1-24.4,12.1-31.4,0L56,120L2.5,27.2C-4.5,15.1,4.2,0,18.1,0h107.1h107.1
+                c13.9,0,22.7,15.1,15.7,27.2L194.5,120L141,212.7z"
+              />
+            </svg>
+          </div>
+          <div className={cx('element', SOLSTICE_OF_HEROES_SINGE_MAP[activity.activityHash].className)}>
+            <SingeIcon />
+          </div>
+        </div>
+        <BungieText className='text' value={manifest.DestinyActivityDefinition[activity.activityHash].displayProperties.description} />
+      </div> */}
     </div>
   );
 }

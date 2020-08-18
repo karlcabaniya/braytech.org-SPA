@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import { GetHistoricalStats } from '../../../utils/bungie';
+import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
@@ -13,7 +14,7 @@ async function getStats(member) {
   const stats = {
     all: {
       raid: {
-        mode: 4,
+        mode: DestinyActivityModeType.Raid,
       },
     },
   };
@@ -96,7 +97,7 @@ export default function Crucible(props) {
           <div className='content'>
             <ul className='list modes'>
               {Object.values(state.stats.all).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/raids' defaultMode='4' />
+                <Mode key={m.mode} stats={m} root='/reports/raids' defaultMode={DestinyActivityModeType.Raid} />
               ))}
             </ul>
           </div>
@@ -106,7 +107,7 @@ export default function Crucible(props) {
           <Spinner />
         </div>
       )}
-      <Matches mode={props.mode || 4} limit='40' offset={props.offset} root='/reports/raids' />
+      <Matches mode={props.mode || DestinyActivityModeType.Raid} limit='40' offset={props.offset} root='/reports/raids' />
     </div>
   );
 }

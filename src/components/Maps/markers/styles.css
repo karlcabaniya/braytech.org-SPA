@@ -35,23 +35,23 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%) scale(1);
   white-space: nowrap;
-  line-height: 1.1;
+  line-height: 1;
 }
 
 .map-omega .leaflet-container .label-marker.region .wrapper .name {
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 18px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .map-omega .leaflet-container .label-marker.suburb .wrapper .name {
-  font-family: 'Crimson Pro', serif;
-  font-size: 16px;
+  font-family: var(--font-serif);
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .map-omega .leaflet-container .label-marker .wrapper .name i {
@@ -60,10 +60,10 @@
   font-size: 16px;
 }
 
-.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-uniE1761 {
-  top: -1px;
-  left: -29px;
-  font-size: 20px;
+.map-omega .leaflet-container .label-marker .wrapper .name i.segoe-mdl-place-inside {
+  left: -20px;
+  top: 0px;
+  font-size: 14px;
 }
 
 .map-omega.zoom--1 .leaflet-container .label-marker .wrapper .name {
@@ -237,7 +237,7 @@
   left: 100%;
   transform: translateX(16px) translateY(-50%);
   white-space: nowrap;
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 12px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
@@ -264,7 +264,7 @@
   width: 26px;
 }
 
-.map-omega .leaflet-container .icon-marker .wrapper .icon .destiny-lore_scholar {
+.map-omega .leaflet-container .icon-marker .wrapper .icon .braytech-lore_scholar {
   font-size: 16px;
 }
 

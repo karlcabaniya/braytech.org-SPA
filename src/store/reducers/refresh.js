@@ -5,13 +5,12 @@ export default function reducer(
   },
   action
 ) {
-  switch (action.type) {
-    case 'SET_REFRESH_STATE':
-      return {
-        ...state,
-        ...action.payload,
-      };
-    default:
-      return state;
+  if (action.type === 'REFRESH_STATE') {
+    return {
+      ...state,
+      ...action.payload,
+    };
+  } else {
+    return state;
   }
 }

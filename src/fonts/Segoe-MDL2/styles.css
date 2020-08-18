@@ -1,0 +1,77 @@
+@font-face {
+  font-family: 'Segoe-MDL';
+  src: url('Segoe-MDL.woff?spyo8q') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='segoe-mdl'], [class*=' segoe-mdl'] {
+  font-family: 'Segoe-MDL' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+}
+
+.segoe-mdl-chevron-left:before {
+  content: '\e00e';
+}
+.segoe-mdl-chevron-right:before {
+  content: '\e00f';
+}
+.segoe-mdl-chevron-up:before {
+  content: '\e010';
+}
+.segoe-mdl-chevron-down:before {
+  content: '\e011';
+}
+.segoe-mdl-arrow-left:before {
+  content: '\e0a6';
+}
+.segoe-mdl-arrow-right:before {
+  content: '\e0ab';
+}
+.segoe-mdl-arrow-up:before {
+  content: '\e110';
+}
+.segoe-mdl-arrow-down:before {
+  content: '\e1fd';
+}
+.segoe-mdl-add:before {
+  content: '\e109';
+}
+.segoe-mdl-subtract:before {
+  content: '\e108';
+}
+.segoe-mdl-cancel:before {
+  content: '\e10a';
+}
+.segoe-mdl-ellipsis:before {
+  content: '\e10c';
+}
+.segoe-mdl-global-navigation:before {
+  content: '\e700';
+}
+.segoe-mdl-task-view:before {
+  content: '\e7c4';
+}
+.segoe-mdl-place-inside:before {
+  content: '\e176';
+}
+.segoe-mdl-filter:before {
+  content: '\e16e';
+}
+.segoe-mdl-reset:before {
+  content: '\e777';
+}
+.segoe-mdl-square:before {
+  content: '\f16b';
+}
+.segoe-mdl-square-checked:before {
+  content: '\f16c';
+}
+.segoe-mdl-character-locked:before {
+  content: '\f400';
+}

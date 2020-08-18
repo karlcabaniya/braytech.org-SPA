@@ -90,7 +90,7 @@
   background-size: cover;
 }
 
-.member-link .icon [class^="destiny-"] {
+.member-link .icon [class^="braytech-"] {
   width: 38px;
   height: 38px;
   display: grid;
@@ -101,11 +101,11 @@
   background-color: rgb(75, 127, 149);
 }
 
-.member-link .icon .destiny-class_hunter {
+.member-link .icon .braytech-class_hunter {
   background-color: rgb(127, 98, 76);
 }
 
-.member-link .icon .destiny-class_warlock {
+.member-link .icon .braytech-class_warlock {
   background-color: rgb(42, 120, 99);
 }
 
@@ -328,7 +328,7 @@
   max-width: unset;
 }
 
-#member-overlay .wrapper-inner .characters [class^="destiny-"] {
+#member-overlay .wrapper-inner .characters [class^="braytech-"] {
   width: 38px;
   height: 38px;
   display: grid;
@@ -339,11 +339,11 @@
   background-color: rgb(75, 127, 149);
 }
 
-#member-overlay .wrapper-inner .characters .destiny-class_hunter {
+#member-overlay .wrapper-inner .characters .braytech-class_hunter {
   background-color: rgb(127, 98, 76);
 }
 
-#member-overlay .wrapper-inner .characters .destiny-class_warlock {
+#member-overlay .wrapper-inner .characters .braytech-class_warlock {
   background-color: rgb(42, 120, 99);
 }
 

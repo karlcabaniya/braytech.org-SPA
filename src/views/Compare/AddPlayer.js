@@ -52,7 +52,7 @@ class AddPlayer extends React.Component {
     
     return (
       <li key={i} className='linked'>
-        <div className={cx('icon', `destiny-platform_${enums.platforms[p.membershipType]}`)} />
+        <div className={cx('icon', `braytech-platform_${enums.platforms[p.membershipType]}`)} />
         <div className='displayName'>{p.displayName}</div>
         <Link to={queryString ? `/compare/${object}?members=${queryString}` : `/compare/${object}`} />
       </li>
@@ -69,7 +69,7 @@ class AddPlayer extends React.Component {
             <li />
             <li>
               <Button className='remove' action={this.handler_hideSearch}>
-                <i className='segoe-uniE8BB' />
+                <i className='segoe-mdl-cancel' />
               </Button>
             </li>
           </ul>

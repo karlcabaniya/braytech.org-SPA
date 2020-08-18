@@ -16,7 +16,8 @@ import { Common } from '../../../svg';
 
 import './styles.css';
 
-const appVersion = +packageJSON.version.replace(/\./g, '');
+const appVersion = packageJSON.version;
+const semverCompare = new Intl.Collator("en", { numeric: true }).compare;
 
 export default function NotificationService() {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ export default function NotificationService() {
         .filter((notification) => (notification.release.type === 'dev' ? process.env.NODE_ENV === 'development' : true))
         .filter((notification) => (notification.release.type === 'beta' ? process.env.REACT_APP_BETA === 'true' : true))
         // filter based on release version
-        .filter((notification) => (notification.release.version ? appVersion >= +notification.release.version.replace(/\./g, '') : true))
+        .filter((notification) => (notification.release.version ? semverCompare(appVersion, notification.release.version) > -1 : true))
         // dispatch!
         .forEach(({ expiry, ...notification }) => {
           dispatch(
@@ -245,7 +246,7 @@ export default function NotificationService() {
             <div className='wrapper-inner'>
               <div>
                 <div className='icon'>
-                  <span className='destiny-ghost' />
+                  <span className='braytech-ghost' />
                 </div>
               </div>
               <div>

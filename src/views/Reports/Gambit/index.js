@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
 import { GetHistoricalStats } from '../../../utils/bungie';
+import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
@@ -13,13 +14,13 @@ async function getStats(member) {
   const stats = {
     all: {
       pvecomp_mamba: {
-        mode: 75,
+        mode: DestinyActivityModeType.GambitPrime,
       },
       pvecomp_gambit: {
-        mode: 63,
+        mode: DestinyActivityModeType.Gambit,
       },
       enigma: {
-        mode: 76,
+        mode: DestinyActivityModeType.Reckoning,
       },
     },
   };
@@ -102,7 +103,7 @@ export default function Crucible(props) {
           <div className='content'>
             <ul className='list modes'>
               {Object.values(state.stats.all).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/gambit' defaultMode='75' />
+                <Mode key={m.mode} stats={m} root='/reports/gambit' defaultMode={DestinyActivityModeType.GambitPrime} />
               ))}
             </ul>
           </div>
@@ -112,7 +113,7 @@ export default function Crucible(props) {
           <Spinner />
         </div>
       )}
-      <Matches mode={props.mode || 75} limit='10' offset={props.offset} root='/reports/gambit' />
+      <Matches mode={props.mode || DestinyActivityModeType.GambitPrime} limit='10' offset={props.offset} root='/reports/gambit' />
     </div>
   );
 }

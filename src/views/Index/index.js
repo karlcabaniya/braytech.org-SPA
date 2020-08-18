@@ -131,7 +131,7 @@ class Index extends React.Component {
               <div className='description'>{t("Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud.")}</div>
               <Link className='button cta' to='/now'>
                 <div className='text'>{t('Select your character')}</div>
-                <i className='segoe-uniE0AB' />
+                <i className='segoe-mdl-arrow-right' />
               </Link>
             </div>
             <div className='views'>
@@ -162,7 +162,7 @@ class Index extends React.Component {
               </div>
               <a className='button cta' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
                 <div className='text'>{t('Become a Patron')}</div>
-                <i className='segoe-uniE0AB' />
+                <i className='segoe-mdl-arrow-right' />
               </a>
             </div>
             <div className='module tags'>

@@ -89,23 +89,23 @@
   color: #fff;
 }
 
-.bungie-auth .memberships .list li.linked .icon.destiny-platform_xbox {
+.bungie-auth .memberships .list li.linked .icon.braytech-platform_xbox {
   background-color: var(--platform-xbox);
 }
 
-.bungie-auth .memberships .list li.linked .icon.destiny-platform_playstation {
+.bungie-auth .memberships .list li.linked .icon.braytech-platform_playstation {
   background-color: var(--platform-playstation);
 }
 
-.bungie-auth .memberships .list li.linked .icon.destiny-platform_steam {
+.bungie-auth .memberships .list li.linked .icon.braytech-platform_steam {
   background-color: var(--platform-steam);
 }
 
-.bungie-auth .memberships .list li.linked .icon.destiny-platform_battlenet {
+.bungie-auth .memberships .list li.linked .icon.braytech-platform_battlenet {
   background-color: var(--platform-blizzard);
 }
 
-.bungie-auth .memberships .list li.linked .icon.destiny-platform_stadia {
+.bungie-auth .memberships .list li.linked .icon.braytech-platform_stadia {
   background-color: var(--platform-stadia);
 }
 

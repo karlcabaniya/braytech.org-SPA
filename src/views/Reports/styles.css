@@ -136,6 +136,7 @@
   #multiplayer .type {
     grid-template-columns: 1fr;
     gap: 2rem;
+    align-content: start;
   }
 
 }

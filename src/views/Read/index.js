@@ -82,7 +82,7 @@ class Read extends React.Component {
                           <Link to={`/read/book/${definitionParent?.hash}`} />
                         </li>
                         <li className='linked'>
-                          <span className='destiny-ishtar' />
+                          <span className='braytech-ishtar' />
                           <div className='text'>Ishtar Collective</div>
                           {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
                           <a href={`https://www.ishtar-collective.net/entries/${definitionRecord ? definitionRecord.loreHash : ''}`} target='_blank' rel='noopener noreferrer' />

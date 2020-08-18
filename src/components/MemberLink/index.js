@@ -523,7 +523,7 @@ class MemberLinkButton extends React.Component {
             options.showClassIcon ? (
               <div className='icon'>
                 <i
-                  className={`destiny-class_${classTypeToString(characterBasic.classType)
+                  className={`braytech-class_${classTypeToString(characterBasic.classType)
                     .toString()
                     .toLowerCase()}`}
                 />

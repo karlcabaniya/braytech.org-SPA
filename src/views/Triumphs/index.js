@@ -63,12 +63,12 @@ class Triumphs extends React.Component {
       <Button action={this.handler_toggleCompleted}>
         {this.props.settings.itemVisibility.hideCompletedRecords ? (
           <>
-            <i className='segoe-uniF16E' />
+            <i className='segoe-mdl-square-checked' />
             {t('Show all')}
           </>
         ) : (
           <>
-            <i className='segoe-uniF16B' />
+            <i className='segoe-mdl-square' />
             {t('Hide redeemed')}
           </>
         )}
@@ -79,21 +79,21 @@ class Triumphs extends React.Component {
     if (this.state.almostCompleteSort === 1) {
       almostCompleteSortText = (
         <>
-          <i className='segoe-uniE17D' />
+          <i className='segoe-mdl-filter' />
           {t('Sorted by score')}
         </>
       );
     } else if (this.state.almostCompleteSort === 2) {
       almostCompleteSortText = (
         <>
-          <i className='segoe-uniE17D' />
+          <i className='segoe-mdl-filter' />
           {t('Sorted by rarity')}
         </>
       );
     } else {
       almostCompleteSortText = (
         <>
-          <i className='segoe-uniE17D' />
+          <i className='segoe-mdl-filter' />
           {t('Sorted by completion')}
         </>
       );

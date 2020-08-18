@@ -85,39 +85,38 @@ import { ReactComponent as TraitWeekly } from './common/trait-weekly.svg';
 import { ReactComponent as TraitSeasonal } from './common/trait-seasonal.svg';
 import { ReactComponent as TraitCareer } from './common/trait-career.svg';
 
-import { ReactComponent as CrucibleIconDefault } from './crucible/default.svg';
-import { ReactComponent as CrucibleIconControl } from './crucible/control.svg';
-import { ReactComponent as CrucibleIconElimination } from './crucible/elimination.svg';
-import { ReactComponent as CrucibleIconSurvival } from './crucible/survival.svg';
-import { ReactComponent as CrucibleIconRumble } from './crucible/rumble.svg';
-import { ReactComponent as CrucibleIconMayhem } from './crucible/mayhem.svg';
-import { ReactComponent as CrucibleIconDoubles } from './crucible/doubles.svg';
-import { ReactComponent as CrucibleIconCrimsonDoubles } from './crucible/crimson-doubles.svg';
-import { ReactComponent as CrucibleIconBreakthrough } from './crucible/breakthrough.svg';
-import { ReactComponent as CrucibleIconClash } from './crucible/clash.svg';
-import { ReactComponent as CrucibleIconShowdown } from './crucible/showdown.svg';
-import { ReactComponent as CrucibleIconTeamScorched } from './crucible/team-scorched.svg';
-import { ReactComponent as CrucibleIconCountdown } from './crucible/countdown.svg';
-import { ReactComponent as CrucibleIconSupremacy } from './crucible/supremacy.svg';
-import { ReactComponent as CrucibleIconLockdown } from './crucible/lockdown.svg';
-import { ReactComponent as CrucibleIconMomentumControl } from './crucible/momentum-control.svg';
-import { ReactComponent as CrucibleIconIronBanner } from './crucible/iron-banner.svg';
-import { ReactComponent as CrucibleIconTrialsOfOsiris } from './crucible/trials-of-osiris.svg';
+import { ReactComponent as CrucibleIconDefault } from './activities/crucible/default.svg';
+import { ReactComponent as CrucibleIconControl } from './activities/crucible/control.svg';
+import { ReactComponent as CrucibleIconElimination } from './activities/crucible/elimination.svg';
+import { ReactComponent as CrucibleIconSurvival } from './activities/crucible/survival.svg';
+import { ReactComponent as CrucibleIconRumble } from './activities/crucible/rumble.svg';
+import { ReactComponent as CrucibleIconMayhem } from './activities/crucible/mayhem.svg';
+import { ReactComponent as CrucibleIconDoubles } from './activities/crucible/doubles.svg';
+import { ReactComponent as CrucibleIconCrimsonDoubles } from './activities/crucible/crimson-doubles.svg';
+import { ReactComponent as CrucibleIconBreakthrough } from './activities/crucible/breakthrough.svg';
+import { ReactComponent as CrucibleIconClash } from './activities/crucible/clash.svg';
+import { ReactComponent as CrucibleIconShowdown } from './activities/crucible/showdown.svg';
+import { ReactComponent as CrucibleIconTeamScorched } from './activities/crucible/team-scorched.svg';
+import { ReactComponent as CrucibleIconCountdown } from './activities/crucible/countdown.svg';
+import { ReactComponent as CrucibleIconSupremacy } from './activities/crucible/supremacy.svg';
+import { ReactComponent as CrucibleIconLockdown } from './activities/crucible/lockdown.svg';
+import { ReactComponent as CrucibleIconMomentumControl } from './activities/crucible/momentum-control.svg';
+import { ReactComponent as CrucibleIconIronBanner } from './activities/crucible/iron-banner.svg';
+import { ReactComponent as CrucibleIconTrialsOfOsiris } from './activities/crucible/trials-of-osiris.svg';
+import { ReactComponent as StandingCrucibleVictory } from './activities/crucible/standing-victory.svg';
+import { ReactComponent as StandingCrucibleDefeat } from './activities/crucible/standing-defeat.svg';
+import { ReactComponent as StandingTrialsVictory } from './activities/crucible/standing-victory-trials.svg';
+import { ReactComponent as StandingIronBannerVictory } from './activities/crucible/standing-victory-iron-banner.svg';
 
-import { ReactComponent as GambitIconGambit } from './gambit/gambit.svg';
-import { ReactComponent as GambitIconGambitPrime } from './gambit/gambit-prime.svg';
-import { ReactComponent as GambitIconReckoning } from './gambit/reckoning.svg';
+import { ReactComponent as GambitIconGambit } from './activities/gambit.svg';
+import { ReactComponent as GambitIconGambitPrime } from './activities/gambit-prime.svg';
+import { ReactComponent as GambitIconReckoning } from './activities/reckoning.svg';
+import { ReactComponent as StandingGambitVictory } from './activities/standing-victory-gambit.svg';
 
-import { ReactComponent as VanguardIconStrikes } from './vanguard/strikes.svg';
-import { ReactComponent as VanguardIconScoredNightfallStrikes } from './vanguard/scored-nightfall-strikes.svg';
-
-import { ReactComponent as RaidIcon } from './raid/raid.svg';
-
-import { ReactComponent as StandingCrucibleVictory } from './crucible/standing-victory.svg';
-import { ReactComponent as StandingCrucibleDefeat } from './crucible/standing-defeat.svg';
-import { ReactComponent as StandingTrialsVictory } from './crucible/standing-victory-trials.svg';
-import { ReactComponent as StandingIronBannerVictory } from './crucible/standing-victory-iron-banner.svg';
-import { ReactComponent as StandingGambitVictory } from './gambit/standing-victory.svg';
+import { ReactComponent as VanguardIconStrikes } from './activities/strikes.svg';
+import { ReactComponent as VanguardIconScoredNightfallStrikes } from './activities/scored-nightfall-strikes.svg';
+import { ReactComponent as DungeonIcon } from './activities/dungeon.svg';
+import { ReactComponent as RaidIcon } from './activities/raid.svg';
 
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
 import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
@@ -313,6 +312,7 @@ const Views = {
     Crucible: TooltipCrucible,
     Gambit: TooltipGambit,
     Strikes: TooltipStrike,
+    Dungeons: DungeonIcon,
     Raids: TooltipRaid,
   },
   Archives: {

@@ -40,7 +40,7 @@ class Flair extends React.Component {
     return (
       <div className='stamps'>
         <div className='tooltip' data-hash={`platform_${enums.platforms[type]}`} data-type='braytech'>
-          <div className={cx('icon', `destiny-platform_${enums.platforms[type]}`)} />
+          <div className={cx('icon', `braytech-platform_${enums.platforms[type]}`)} />
         </div>
         {flair.stamps.map((stamp, s) => {
           if (stamp.condition(id)) {

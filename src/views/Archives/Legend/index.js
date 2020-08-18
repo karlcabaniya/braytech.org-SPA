@@ -606,7 +606,7 @@ class Legend extends React.Component {
                       <div key={i} className='col'>
                         <div className={cx('class-bar', enums.classStrings[c.classType])}>
                           <div className='icon'>
-                            <i className={`destiny-class_${enums.classStrings[c.classType]}`} />
+                            <i className={`braytech-class_${enums.classStrings[c.classType]}`} />
                           </div>
                           <div className='class'>{classHashToString(c.classHash)}</div>
                           <div className='light'>{c.light}</div>
@@ -616,27 +616,27 @@ class Legend extends React.Component {
                             {[
                               {
                                 hash: 2996146975,
-                                icon: 'destiny-mobility'
+                                icon: 'braytech-mobility'
                               },
                               {
                                 hash: 392767087,
-                                icon: 'destiny-resilience'
+                                icon: 'braytech-resilience'
                               },
                               {
                                 hash: 1943323491,
-                                icon: 'destiny-recovery'
+                                icon: 'braytech-recovery'
                               },
                               {
                                 hash: 1735777505,
-                                icon: 'destiny-discipline'
+                                icon: 'braytech-discipline'
                               },
                               {
                                 hash: 144602215,
-                                icon: 'destiny-intellect'
+                                icon: 'braytech-intellect'
                               },
                               {
                                 hash: 4244567218,
-                                icon: 'destiny-strength'
+                                icon: 'braytech-strength'
                               }
                             ].map((stat, i) => {
                               return (
@@ -766,7 +766,7 @@ class Legend extends React.Component {
               <div className='row footer-note'>
                 <div className='col'>70 65 72 20 61 75 64 61 63 69 61 20 61 64 20 61 73 74 72 61</div>
                 <div className='col'>
-                  <span className='destiny-clovis_bray_device' />
+                  <span className='braytech-clovis_bray_device' />
                 </div>
                 <div className='col'>{packageJSON.version} / 2 / {time}</div>
               </div>

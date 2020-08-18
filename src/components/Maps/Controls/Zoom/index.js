@@ -6,10 +6,10 @@ export default function Zoom(props) {
     <div className='control zoom'>
       <ul className='list'>
         <li className={cx('linked', 'acrylic', { disabled: props.now > 1 })} onClick={props.increase}>
-          <i className='segoe-uniE1091' />
+          <i className='segoe-mdl-add' />
         </li>
         <li className={cx('linked', 'acrylic', { disabled: props.now < -1 })} onClick={props.decrease}>
-          <i className='segoe-uniE1081' />
+          <i className='segoe-mdl-subtract' />
         </li>
       </ul>
     </div>

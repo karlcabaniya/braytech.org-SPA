@@ -416,7 +416,7 @@ class Customise extends React.Component {
     },
     BlackArmoryForges: {
       name: this.props.t('Black Armory Forges'),
-      description: this.props.t('Forges are currently running in low-power mode and will only be available during maintenance periods.')
+      description: this.props.t('UserModules.BlackArmoryForges.Description')
     },
     AltarsOfSorrow: {
       name: manifest.DestinyInventoryItemDefinition[2531049971]?.displayProperties.name,
@@ -564,7 +564,7 @@ class Customise extends React.Component {
                                         <div className='description'>{t('An error occurred while attempting to render module: {{moduleName}}', { moduleName: mod.component })}</div>
                                       </div>
                                       <Button className='remove' action={this.handler_removeMod(col.id, mod.id)}>
-                                        <i className='segoe-uniE1061' />
+                                        <i className='segoe-mdl-cancel1' />
                                       </Button>
                                     </div>
                                   );
@@ -593,7 +593,7 @@ class Customise extends React.Component {
                                         </div>
                                         {settings ? <ModulesSettings settings={settings} column={col.id} mod={mod.id} setSettings={this.handler_setSettings} /> : null}
                                         <Button className='remove' action={this.handler_removeMod(col.id, mod.id)}>
-                                          <i className='segoe-uniE1061' />
+                                          <i className='segoe-mdl-cancel1' />
                                         </Button>
                                       </div>
                                     )}

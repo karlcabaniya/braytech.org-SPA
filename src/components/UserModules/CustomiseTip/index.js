@@ -6,7 +6,7 @@ import { Common } from '../../../svg';
 
 import './styles.css';
 
-export default function CustomiseTip(props) {
+export default function CustomiseTip() {
   return (
     <div className='wrap'>
       <div className='icon'>
