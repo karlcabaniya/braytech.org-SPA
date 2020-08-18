@@ -480,6 +480,7 @@
   "#####Records": "🌐",
   "Records your Guardian has achieved through their trials": "수호자가 도전을 통해 달성한 기록",
   "#####Redeem these records and increase your triumph score by {{scoreValue}} points.": "🌐",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "지역 상자",
   "Region Chests": "지역 상자",
   "Reload": "새로고침",

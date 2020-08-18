@@ -480,6 +480,7 @@
   "Records": "Triunfos",
   "Records your Guardian has achieved through their trials": "Logros alcanzados por tu Guardián en sus desafíos",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Canjea estos triunfos y aumenta tu puntaje de triunfos en {{scoreValue}} puntos.",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Cofre de región",
   "Region Chests": "Cofres de región",
   "Reload": "Recargar",

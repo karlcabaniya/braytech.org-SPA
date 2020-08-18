@@ -480,6 +480,7 @@
   "Records": "Triomphes",
   "Records your Guardian has achieved through their trials": "Triomphes accomplis par votre gardien pendant ses aventures",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Échangez ces enregistrements et augmentez votre score de triomphe de {{scoreValue}} points.",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Coffre de région",
   "Region Chests": "Coffres de région",
   "Reload": "Recharger",

@@ -480,6 +480,7 @@
   "Records": "成就",
   "Records your Guardian has achieved through their trials": "你的守护者在挑战中曾完成的成就记录",
   "#####Redeem these records and increase your triumph score by {{scoreValue}} points.": "🌐",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "地区宝箱",
   "Region Chests": "地区宝箱",
   "Reload": "重载",

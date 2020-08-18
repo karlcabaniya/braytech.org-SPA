@@ -480,6 +480,7 @@
   "Records": "Triumphe",
   "Records your Guardian has achieved through their trials": "Triumphe die Ihr Hüter durch seine Prüfungen erzielt hat",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Löse diese Triumphe ein und erhöhe deine Triumphpunktzahl um {{scoreValue}}.",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Regions-Truhe",
   "Region Chests": "Regions-Truhen",
   "Reload": "Neu laden",
