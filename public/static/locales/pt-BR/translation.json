@@ -480,6 +480,7 @@
   "Records": "Registros",
   "Records your Guardian has achieved through their trials": "Triunfos que seu Guardião conquistou através de seus desafios",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Resgate esses triunfos e aumente sua pontuação de triunfo em {{scoreValue}} pontos. ",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Baú Regional",
   "Region Chests": "Baús Regionais",
   "Reload": "Recarregar",
@@ -771,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} jogadores coletaram isso.",
   "{{players}} players have redeemed this.": "{{players}} jogadores resgataram isso.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} tem {{timeRemaining}} restantes.",
-  "#####{{undredeemed}} unredeemed triumphs": "🌐",
+  "#####{{unredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} está lhe esperando em seu local, {{destinationName}}"
 }

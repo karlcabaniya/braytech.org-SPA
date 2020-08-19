@@ -480,6 +480,7 @@
   "Records": "Triumphe",
   "Records your Guardian has achieved through their trials": "Triumphe die Ihr Hüter durch seine Prüfungen erzielt hat",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Löse diese Triumphe ein und erhöhe deine Triumphpunktzahl um {{scoreValue}}.",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Regions-Truhe",
   "Region Chests": "Regions-Truhen",
   "Reload": "Neu laden",
@@ -771,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} haben dieses Item gefunden.",
   "{{players}} players have redeemed this.": "{{players}} haben diesen Triumph errungen.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} läuft noch {{timeRemaining}}.",
-  "#####{{undredeemed}} unredeemed triumphs": "🌐",
+  "#####{{unredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} wartet hier auf dich: {{destinationName}}"
 }

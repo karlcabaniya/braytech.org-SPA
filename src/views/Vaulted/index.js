@@ -52,12 +52,12 @@ function ToggleCompletedLink() {
     <Button action={handler}>
       {visible ? (
         <>
-          <i className='segoe-uniF16E' />
+          <i className='segoe-mdl-square-checked' />
           {t('Show all')}
         </>
       ) : (
         <>
-          <i className='segoe-uniF16B' />
+          <i className='segoe-mdl-square' />
           {t('Hide redeemed')}
         </>
       )}

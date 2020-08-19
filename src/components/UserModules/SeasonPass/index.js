@@ -21,7 +21,7 @@ function getSeasonPassItemsPerPage(width) {
   return 3;
 }
 
-function SeasonPass() {
+export default function SeasonPass() {
   const viewport = useSelector((state) => state.viewport);
   const member = useSelector((state) => state.member);
   const dispatch = useDispatch();
@@ -193,7 +193,7 @@ function SeasonPass() {
         <div className='rank'>{seasonRank.level}</div>
       </div>
       <div className='page'>
-        <Button text={<i className='segoe-uniE973' />} action={handler_seasonPassPrev} disabled={state.seasonPassRewardsPage * seasonPassItemsPerPage - seasonPassItemsPerPage < 1} />
+        <Button text={<i className='segoe-mdl-chevron-left' />} action={handler_seasonPassPrev} disabled={state.seasonPassRewardsPage * seasonPassItemsPerPage - seasonPassItemsPerPage < 1} />
       </div>
       <div className='rewards'>
         {[...seasonPass.ranks, { filler: true }, { filler: true }].slice(seasonPass.slice, seasonPass.slice + seasonPass.itemsPerPage).map((r, i) => {
@@ -254,10 +254,8 @@ function SeasonPass() {
         })}
       </div>
       <div className='page'>
-        <Button text={<i className='segoe-uniE974' />} action={handler_seasonPassNext} disabled={seasonPass.slice + seasonPass.itemsPerPage >= 100} />
+        <Button text={<i className='segoe-mdl-chevron-right' />} action={handler_seasonPassNext} disabled={seasonPass.slice + seasonPass.itemsPerPage >= 100} />
       </div>
     </div>
   );
 }
-
-export default SeasonPass;

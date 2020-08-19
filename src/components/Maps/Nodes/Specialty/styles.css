@@ -138,7 +138,7 @@
   justify-items: center;
   width: 200px;
   transform: translate(-50%, 0);
-  font-family: 'Crimson Pro', serif;
+  font-family: var(--font-serif);
   font-size: 17px;
   letter-spacing: 2px;
   line-height: 1;

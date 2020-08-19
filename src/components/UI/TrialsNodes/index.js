@@ -16,7 +16,10 @@ export default function TrialsNodes(props) {
             return (
               <div key={s} className='game loss'>
                 <div>
-                  <i className='segoe-uniEF2C' />
+                  <svg viewBox='0 0 1024 1024'>
+                    <polygon points="883.9,988.6 512,616.7 140.1,988.6 35.4,883.9 407.3,512 35.4,140.1 140.1,35.4 512,407.3 883.9,35.4 988.6,140.1 
+	616.7,512 988.6,883.9" />
+                  </svg>
                 </div>
               </div>
             );

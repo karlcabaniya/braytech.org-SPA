@@ -1,140 +1,112 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 80,
+    "notTranslated": 81,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 774,
+    "translated": 775,
     "notTranslated": 0,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 774,
+    "translated": 775,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "es-mx": {
-    "translated": 770,
-    "notTranslated": 4,
+    "translated": 774,
+    "notTranslated": 1,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "es": {
-    "translated": 770,
-    "notTranslated": 4,
+    "translated": 774,
+    "notTranslated": 1,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 152,
+    "notTranslated": 153,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "it": {
-    "translated": 770,
-    "notTranslated": 4,
+    "translated": 774,
+    "notTranslated": 1,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 569,
-    "notTranslated": 205,
+    "notTranslated": 206,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 498,
-    "notTranslated": 276,
+    "notTranslated": 277,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 333,
-    "notTranslated": 441,
+    "notTranslated": 442,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 761,
-    "notTranslated": 13,
+    "notTranslated": 14,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "ru": {
-    "translated": 770,
-    "notTranslated": 4,
+    "translated": 774,
+    "notTranslated": 1,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 604,
-    "notTranslated": 170,
+    "notTranslated": 171,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 621,
-    "notTranslated": 153,
+    "notTranslated": 154,
     "added": [
-      "{{undredeemed}} unredeemed triumphs"
+      "RefreshService.Inactive.Description"
     ],
-    "removed": [
-      "unredeemed triumphs"
-    ]
+    "removed": []
   }
 }

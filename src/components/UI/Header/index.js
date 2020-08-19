@@ -72,14 +72,14 @@ class Header extends React.Component {
     if (state) {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
-          <i className='segoe-uniE106' />
+          <i className='segoe-mdl-cancel' />
           {t('Exit')}
         </div>
       );
     } else {
       return (
         <div className='trigger' onClick={this.handler_toggleNav}>
-          <i className='segoe-uniEA55' />
+          <i className='segoe-mdl-task-view' />
           {t('Views')}
         </div>
       );
@@ -267,7 +267,7 @@ class Header extends React.Component {
           <div className='wrapper'>
             <div className='logo'>
               <Link to='/' onClick={this.handler_closeNav}>
-                <span className='destiny-clovis_bray_device' />
+                <span className='braytech-clovis_bray_device' />
                 {process.env.REACT_APP_BETA === 'true' ? 'Braytech Beta' : 'Braytech'}
               </Link>
             </div>

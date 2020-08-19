@@ -480,6 +480,7 @@
   "#####Records": "🌐",
   "Records your Guardian has achieved through their trials": "수호자가 도전을 통해 달성한 기록",
   "#####Redeem these records and increase your triumph score by {{scoreValue}} points.": "🌐",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "지역 상자",
   "Region Chests": "지역 상자",
   "Reload": "새로고침",
@@ -771,6 +772,6 @@
   "#####{{players}} players have collected this.": "🌐",
   "#####{{players}} players have redeemed this.": "🌐",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}}이 {{timeRemaining}} 남았습니다.",
-  "#####{{undredeemed}} unredeemed triumphs": "🌐",
+  "#####{{unredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}}이/가 {{destinationName}}에서 당신을 기다립니다."
 }

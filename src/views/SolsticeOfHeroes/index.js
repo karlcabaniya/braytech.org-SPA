@@ -246,13 +246,13 @@ export default function SolsticeOfHeroes() {
               <Button action={handler_toggleClassType}>
                 {classType < 0 ? (
                   <>
-                    <i className='segoe-uniE16E' />
+                    <i className='segoe-mdl-filter' />
                     {t('All classes')}
                   </>
                 ) : (
                   <>
-                    <i className='segoe-uniE16E' />
-                    {classTypeToString(classType, character?.genderHash)}
+                    <i className='segoe-mdl-filter' />
+                    {classTypeToString(classType)}
                   </>
                 )}
               </Button>

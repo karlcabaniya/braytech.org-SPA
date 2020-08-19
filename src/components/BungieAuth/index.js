@@ -297,7 +297,7 @@ export function BungieAuth() {
               {state.memberships.destinyMemberships.map((m) => {
                 return (
                   <li key={m.membershipId} className='linked'>
-                    <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
+                    <div className={cx('icon', `braytech-platform_${enums.platforms[m.membershipType]}`)} />
                     <div className='displayName'>{state.memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? state.memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                     {m.crossSaveOverride === m.membershipType ? (
                       <div className='cross-save'>
@@ -342,7 +342,7 @@ export function BungieAuth() {
             </div>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -351,7 +351,7 @@ export function BungieAuth() {
           <div className='bungie-auth'>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -445,7 +445,7 @@ export function BungieAuthMini() {
               {state.memberships.destinyMemberships.map((m) => {
                 return (
                   <li key={m.membershipId} className='linked'>
-                    <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
+                    <div className={cx('icon', `braytech-platform_${enums.platforms[m.membershipType]}`)} />
                     <div className='displayName'>{state.memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? state.memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                     {m.crossSaveOverride === m.membershipType ? (
                       <div className='cross-save'>
@@ -478,7 +478,7 @@ export function BungieAuthMini() {
             </div>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -487,7 +487,7 @@ export function BungieAuthMini() {
           <div className='bungie-auth'>
             <Button cta action={handler_goToBungie}>
               <div className='text'>{t('Authenticate')}</div>
-              <i className='segoe-uniE0AB' />
+              <i className='segoe-mdl-arrow-right' />
             </Button>
           </div>
         );
@@ -501,7 +501,7 @@ export function BungieAuthButton() {
     <div className='bungie-auth'>
       <Button cta action={handler_goToBungie}>
         <div className='text'>{t('Login with Bungie.net')}</div>
-        <i className='segoe-uniE0AB' />
+        <i className='segoe-mdl-arrow-right' />
       </Button>
     </div>
   );
@@ -523,7 +523,7 @@ export function NoAuth({ inline }) {
           </div>
           <Button cta action={handler_goToBungie}>
             <div className='text'>{t('Authenticate')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Button>
         </div>
       </div>
@@ -627,7 +627,7 @@ export function DiffProfile({ inline }) {
         </div>
         <Button cta action={handler_goToBungie}>
           <div className='text'>{t('Authenticate')}</div>
-          <i className='segoe-uniE0AB' />
+          <i className='segoe-mdl-arrow-right' />
         </Button>
       </div>
     );
@@ -645,7 +645,7 @@ export function DiffProfile({ inline }) {
                   {state.memberships.destinyMemberships.map((m) => {
                     return (
                       <li key={m.membershipId} className='linked'>
-                        <div className={cx('icon', `destiny-platform_${enums.platforms[m.membershipType]}`)} />
+                        <div className={cx('icon', `braytech-platform_${enums.platforms[m.membershipType]}`)} />
                         <div className='displayName'>{state.memberships.bungieNetUser.blizzardDisplayName && m.membershipType === 4 ? state.memberships.bungieNetUser.blizzardDisplayName : m.displayName}</div>
                         {m.crossSaveOverride === m.membershipType ? (
                           <div className='cross-save'>

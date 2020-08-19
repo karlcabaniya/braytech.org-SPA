@@ -90,7 +90,7 @@ class AboutView extends React.Component {
           <ClanBanner bannerData={clan.clanInfo.clanBannerData} />
           <Link className='button cta customise' to={`/clan-banner-builder/${clan.clanInfo.clanBannerData.decalBackgroundColorId}/${clan.clanInfo.clanBannerData.decalColorId}/${clan.clanInfo.clanBannerData.decalId}/${clan.clanInfo.clanBannerData.gonfalonColorId}/${clan.clanInfo.clanBannerData.gonfalonDetailColorId}/${clan.clanInfo.clanBannerData.gonfalonDetailId}/${clan.clanInfo.clanBannerData.gonfalonId}/`}>
             <div className='text'>{t('Clan Banner Builder')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Link>
         </div>
         <div className='module about'>

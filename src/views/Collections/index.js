@@ -45,12 +45,12 @@ class Collections extends React.Component {
       <Button action={this.handler_toggleCompleted}>
         {this.props.settings.itemVisibility.hideCompletedCollectibles ? (
           <>
-            <i className='segoe-uniF16E' />
+            <i className='segoe-mdl-square-checked' />
             {t('Show all')}
           </>
         ) : (
           <>
-            <i className='segoe-uniF16B' />
+            <i className='segoe-mdl-square' />
             {t('Hide acquired')}
           </>
         )}

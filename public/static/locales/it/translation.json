@@ -480,6 +480,7 @@
   "Records": "Trionfi",
   "Records your Guardian has achieved through their trials": "Trionfi ottenuti dal tuo Guardiano tra varie sfide",
   "Redeem these records and increase your triumph score by {{scoreValue}} points.": "Riscatta questi trionfi e aumenta il tuo punteggio trionfale di {{scoreValue}} punti.",
+  "#####RefreshService.Inactive.Description": "🌐",
   "Region Chest": "Forziere della regione",
   "Region Chests": "Forzieri della regione",
   "Reload": "Ricarica",
@@ -771,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} giocatori l'hanno collezionato.",
   "{{players}} players have redeemed this.": "{{players}} giocatori l'hanno riscattato.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "La {{seasonName}} finirà tra {{timeRemaining}}",
-  "{{undredeemed}} unredeemed triumphs": "{{unredeemed}} trionfi non riscattati",
+  "{{unredeemed}} unredeemed triumphs": "{{unredeemed}} trionfi non riscattati",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} ti sta aspettando alla sua destinazione: {{destinationName}}"
 }

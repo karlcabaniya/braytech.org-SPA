@@ -166,7 +166,7 @@ function SolsticeOfHeroes() {
 
   const location = useLocation();
 
-  const SingeIcon = SOLSTICE_OF_HEROES_SINGE_MAP[activity.activityHash].svg;
+  // const SingeIcon = SOLSTICE_OF_HEROES_SINGE_MAP[activity.activityHash].svg;
 
   return (
     <div className='group solstice-of-heroes'>
@@ -194,7 +194,7 @@ function SolsticeOfHeroes() {
             cta
           >
             <div className='text'>{t('Event.SolsticeOfHeroes.CTA')}</div>
-            <i className='segoe-uniE0AB' />
+            <i className='segoe-mdl-arrow-right' />
           </Button>
         </div>
       </div>

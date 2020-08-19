@@ -246,7 +246,7 @@ export default function NotificationService() {
             <div className='wrapper-inner'>
               <div>
                 <div className='icon'>
-                  <span className='destiny-ghost' />
+                  <span className='braytech-ghost' />
                 </div>
               </div>
               <div>

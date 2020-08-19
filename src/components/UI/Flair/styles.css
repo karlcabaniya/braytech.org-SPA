@@ -122,23 +122,23 @@
   color: #fff;
 }
 
-.stamps .icon.destiny-platform_xbox {
+.stamps .icon.braytech-platform_xbox {
   background-color: var(--platform-xbox);
 }
 
-.stamps .icon.destiny-platform_playstation {
+.stamps .icon.braytech-platform_playstation {
   background-color: var(--platform-playstation);
 }
 
-.stamps .icon.destiny-platform_steam {
+.stamps .icon.braytech-platform_steam {
   background-color: var(--platform-steam);
 }
 
-.stamps .icon.destiny-platform_battlenet {
+.stamps .icon.braytech-platform_battlenet {
   background-color: var(--platform-blizzard);
 }
 
-.stamps .icon.destiny-platform_stadia {
+.stamps .icon.braytech-platform_stadia {
   background-color: var(--platform-stadia);
 }
 

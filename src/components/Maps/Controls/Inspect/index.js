@@ -161,7 +161,7 @@ function Inspect(props) {
       <div className='control inspector vendor acrylic'>
         <div className='close'>
           <Button action={props.handler}>
-            <i className='segoe-uniE8BB' />
+            <i className='segoe-mdl-cancel' />
           </Button>
         </div>
         <Vendor {...props} />
@@ -173,7 +173,7 @@ function Inspect(props) {
     <div className='control inspector acrylic'>
       <div className='close'>
         <Button action={props.handler}>
-          <i className='segoe-uniE8BB' />
+          <i className='segoe-mdl-cancel' />
         </Button>
       </div>
       <Node {...props} />

@@ -60,7 +60,7 @@ export const iconPatrolBoss = (tooltip = {}, classNames = []) => {
     <div className='wrapper'>
       <div className='icon' data-tooltip data-context='maps' data-hash={tooltip.hash} data-type={tooltip.type}>
         <div className='patrol-boss'>
-          <span className='destiny-raid' />
+          <span className='braytech-raid' />
         </div>
       </div>
     </div>
