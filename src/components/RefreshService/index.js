@@ -71,6 +71,7 @@ class RefreshService extends React.Component {
     this.clearInterval();
 
     this.props.pushNotification({
+      hash: 'refresh-service-inactive',
       date: new Date().toISOString(),
       expiry: 86400000,
       displayProperties: {
@@ -98,6 +99,8 @@ class RefreshService extends React.Component {
     if (wasInactive) {
       this.startInterval();
       this.service();
+
+      this.props.popNotification('refresh-service-inactive');
     }
   };
 
@@ -170,6 +173,9 @@ function mapDispatchToProps(dispatch) {
     },
     pushNotification: (payload) => {
       dispatch({ type: 'PUSH_NOTIFICATION', payload });
+    },
+    popNotification: (payload) => {
+      dispatch({ type: 'POP_NOTIFICATION', payload });
     },
   };
 }

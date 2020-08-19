@@ -772,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} jugadores consiguieron esto.",
   "{{players}} players have redeemed this.": "{{players}} jugadores canjearon esto.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "A la {{seasonName}} le quedan {{timeRemaining}}.",
-  "{{undredeemed}} unredeemed triumphs": "{{undredeemed}} triunfos sin canjear",
+  "{{unredeemed}} unredeemed triumphs": "{{unredeemed}} triunfos sin canjear",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} te está esperando en {{destinationName}}."
 }

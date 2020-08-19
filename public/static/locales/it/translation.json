@@ -772,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} giocatori l'hanno collezionato.",
   "{{players}} players have redeemed this.": "{{players}} giocatori l'hanno riscattato.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "La {{seasonName}} finirà tra {{timeRemaining}}",
-  "{{undredeemed}} unredeemed triumphs": "{{unredeemed}} trionfi non riscattati",
+  "{{unredeemed}} unredeemed triumphs": "{{unredeemed}} trionfi non riscattati",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} ti sta aspettando alla sua destinazione: {{destinationName}}"
 }

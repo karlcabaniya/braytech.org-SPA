@@ -772,6 +772,6 @@
   "{{players}} players have collected this.": "{{players}} 名玩家已经收集。",
   "{{players}} players have redeemed this.": "{{players}}名玩家已兑换。",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} 还有 {{timeRemaining}} 结束。",
-  "#####{{undredeemed}} unredeemed triumphs": "🌐",
+  "#####{{unredeemed}} unredeemed triumphs": "🌐",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} 在 {{destinationName}} 等你。"
 }

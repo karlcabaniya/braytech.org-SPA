@@ -772,6 +772,6 @@
   "{{players}} players have collected this.": "Получено {{players}} игроками.",
   "{{players}} players have redeemed this.": "Получено {{players}} игроками.",
   "{{seasonName}} has {{timeRemaining}} remaining.": "{{seasonName}} завершится через {{timeRemaining}}.",
-  "{{undredeemed}} unredeemed triumphs": "Неполученных триумфов: {{undredeemed}}",
+  "{{unredeemed}} unredeemed triumphs": "Неполученных триумфов: {{unredeemed}}",
   "{{vendorName}} is waiting for you at {{destinationName}}.": "{{vendorName}} ждет тебя в {{destinationName}}."
 }
