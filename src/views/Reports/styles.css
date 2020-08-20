@@ -78,15 +78,13 @@
 
 #multiplayer .type .modes {
   display: grid;
-}
-
-#multiplayer .type .modes:not(.loading) {
   align-content: start;
 }
 
-#multiplayer .type .modes .spinner {
-  align-self: center;
-  justify-self: center;
+#multiplayer .type .modes.loading {
+  align-content: center;
+  justify-content: center;
+  height: calc(100vh - 152px - 6rem);
 }
 
 
@@ -137,6 +135,20 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     align-content: start;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  #multiplayer .buff {
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  #multiplayer .module.views .list {
+    grid-template-columns: repeat(auto-fill, 40px);
+    width: 100%;
   }
 
 }

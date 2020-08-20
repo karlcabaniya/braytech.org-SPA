@@ -2,154 +2,60 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
-import { GetHistoricalStats } from '../../../utils/bungie';
+import { GetHistoricalStats, GetActivityHistory } from '../../../utils/bungie';
 import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
-import Mode from '../../../components/Reports/Mode';
+import Mode, { Details } from '../../../components/Reports/Mode';
 import Matches from '../../../components/Reports/Matches';
-
-async function getStats(member) {
-  const stats = {
-    all: {
-      allPvP: {
-        mode: DestinyActivityModeType.AllPvP,
-      },
-    },
-    core: {
-      rumble: {
-        mode: DestinyActivityModeType.Rumble,
-      },
-      controlQuickplay: {
-        mode: DestinyActivityModeType.ControlQuickplay,
-      },
-      elimination: {
-        mode: DestinyActivityModeType.Elimination,
-      },
-      survival: {
-        mode: DestinyActivityModeType.Survival,
-      },
-      ironBannerControl: {
-        mode: DestinyActivityModeType.IronBannerControl,
-      },
-      trials_of_osiris: {
-        mode: DestinyActivityModeType.TrialsOfOsiris,
-      },
-    },
-    rotator: {
-      clashQuickplay: {
-        mode: DestinyActivityModeType.ClashQuickplay,
-      },
-      momentum: {
-        mode: DestinyActivityModeType.Momentum,
-      },
-      doubles: {
-        mode: DestinyActivityModeType.Doubles,
-      },
-      crimsonDoubles: {
-        mode: DestinyActivityModeType.CrimsonDoubles,
-      },
-      supremacy: {
-        mode: DestinyActivityModeType.Supremacy,
-      },
-      lockdown: {
-        mode: DestinyActivityModeType.Lockdown,
-      },
-      breakthrough: {
-        mode: DestinyActivityModeType.Breakthrough,
-      },
-      showdown: {
-        mode: DestinyActivityModeType.Showdown,
-      },
-      countdown: {
-        mode: DestinyActivityModeType.Countdown,
-      },
-      allMayhem: {
-        mode: DestinyActivityModeType.AllMayhem,
-      },
-    },
-  };
-
-  let [stats_allPvP, stats_core, stats_rotator] = await Promise.all([
-    GetHistoricalStats(
-      member.membershipType,
-      member.membershipId,
-      member.characterId,
-      '1',
-      Object.values(stats.all).map((m) => m.mode),
-      '0'
-    ),
-    GetHistoricalStats(
-      member.membershipType,
-      member.membershipId,
-      member.characterId,
-      '1',
-      Object.values(stats.core).map((m) => m.mode),
-      '0'
-    ),
-    GetHistoricalStats(
-      member.membershipType,
-      member.membershipId,
-      member.characterId,
-      '1',
-      Object.values(stats.rotator).map((m) => m.mode),
-      '0'
-    ),
-  ]);
-
-  stats_allPvP = (stats_allPvP && stats_allPvP.ErrorCode === 1 && stats_allPvP.Response) || [];
-  stats_core = (stats_core && stats_core.ErrorCode === 1 && stats_core.Response) || [];
-  stats_rotator = (stats_rotator && stats_rotator.ErrorCode === 1 && stats_rotator.Response) || [];
-
-  for (const mode in stats_allPvP) {
-    if (stats_allPvP.hasOwnProperty(mode)) {
-      if (!stats_allPvP[mode].allTime) {
-        continue;
-      }
-
-      Object.entries(stats_allPvP[mode].allTime).forEach(([key, value]) => {
-        stats.all[mode][key] = value;
-      });
-    }
-  }
-
-  for (const mode in stats_core) {
-    if (stats_core.hasOwnProperty(mode)) {
-      if (!stats_core[mode].allTime) {
-        continue;
-      }
-
-      Object.entries(stats_core[mode].allTime).forEach(([key, value]) => {
-        stats.core[mode][key] = value;
-      });
-    }
-  }
-
-  for (const mode in stats_rotator) {
-    if (stats_rotator.hasOwnProperty(mode)) {
-      if (!stats_rotator[mode].allTime) {
-        continue;
-      }
-
-      Object.entries(stats_rotator[mode].allTime).forEach(([key, value]) => {
-        stats.rotator[mode][key] = value;
-      });
-    }
-  }
-
-  return stats;
-}
+import { useParams } from 'react-router-dom';
 
 export default function Crucible(props) {
+  const auth = useSelector((state) => state.auth);
   const member = useSelector((state) => state.member);
 
   const [state, setState] = useState({
     loading: true,
-    stats: undefined,
+    data: undefined,
   });
 
-  async function updateStats() {
+  const options = {
+    defaultMode: DestinyActivityModeType.AllPvP,
+    root: '/reports/crucible',
+    limit: 40,
+    updateInterval: 300000,
+    groups: [
+      {
+        name: t('Reports.Crucible.Modes.Groups.Core.name'),
+        modes: [
+          DestinyActivityModeType.Rumble, //
+          DestinyActivityModeType.ControlQuickplay,
+          DestinyActivityModeType.Elimination,
+          DestinyActivityModeType.Survival,
+          DestinyActivityModeType.IronBannerControl,
+          DestinyActivityModeType.TrialsOfOsiris,
+        ],
+      },
+      {
+        name: t('Reports.Crucible.Modes.Groups.Rotator.Name'),
+        modes: [
+          DestinyActivityModeType.ClashQuickplay,
+          DestinyActivityModeType.Momentum, //
+          DestinyActivityModeType.Doubles,
+          DestinyActivityModeType.CrimsonDoubles,
+          DestinyActivityModeType.Supremacy,
+          DestinyActivityModeType.Lockdown,
+          DestinyActivityModeType.Breakthrough,
+          DestinyActivityModeType.Showdown,
+          DestinyActivityModeType.Countdown,
+          DestinyActivityModeType.AllMayhem,
+        ],
+      },
+    ],
+  };
+
+  async function updateData() {
     const { membershipType, membershipId, characterId } = member;
 
     setState((state) => ({
@@ -157,61 +63,94 @@ export default function Crucible(props) {
       loading: true,
     }));
 
-    const stats = await getStats({
-      membershipType,
-      membershipId,
-      characterId,
-    });
+    const data = await Promise.all(
+      options.groups.map(async (group) => ({
+        ...group,
+        modes: await Promise.all(
+          group.modes.map(async (mode) => {
+            const [historicalStats, activityHistory] = await Promise.all([
+              await GetHistoricalStats(membershipType, membershipId, characterId, '1', mode, '0'),
+              await GetActivityHistory({
+                params: {
+                  membershipType,
+                  membershipId,
+                  characterId,
+                  count: 100,
+                  mode,
+                  page: 0,
+                },
+                withAuth: auth?.destinyMemberships?.find((d) => d.membershipId === membershipId) && true,
+              }),
+            ]);
+
+            return {
+              mode,
+              historicalStats: historicalStats?.ErrorCode === 1 && historicalStats.Response[Object.keys(historicalStats.Response)?.[0]].allTime,
+              activityHistory: activityHistory?.ErrorCode === 1 && activityHistory.Response.activities,
+            };
+          })
+        ),
+      }))
+    );
 
     setState({
       loading: false,
-      stats,
+      data,
     });
   }
 
   useEffect(() => {
-    if (!state.stats) {
-      updateStats();
+    if (!state.data) {
+      updateData();
     }
   }, []);
 
   useInterval(() => {
     if (!state.loading) {
-      updateStats();
+      updateData();
     }
-  }, 60000);
+  }, options.updateInterval);
+
+  const params = useParams();
 
   return (
     <div className='type'>
-      {state.stats ? (
+      {state.data ? (
         <div className='modes'>
-          <div className='sub-header'>
-            <div>{t('Core modes')}</div>
-          </div>
-          <div className='content'>
-            <ul className='list modes'>
-              {Object.values(state.stats.core).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/crucible' />
-              ))}
-            </ul>
-          </div>
-          <div className='sub-header'>
-            <div>{t('Rotator modes')}</div>
-          </div>
-          <div className='content'>
-            <ul className='list modes'>
-              {Object.values(state.stats.rotator).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/crucible' />
-              ))}
-            </ul>
-          </div>
+          {state.data.map((group, g) => (
+            <React.Fragment key={g}>
+              {group.name ? (
+                <div className='sub-header'>
+                  <div>{group.name}</div>
+                </div>
+              ) : null}
+              <div className='content'>
+                <ul className='modes'>
+                  {group.modes.map((data, m) => (
+                    <li key={m}>
+                      <ul>
+                        <li>
+                          <Mode data={data} root={options.root} defaultMode={options.defaultMode} />
+                        </li>
+                        {(params.mode && data.mode === +params.mode) || (!params.mode && data.mode === options.defaultMode) ? (
+                          <li>
+                            <Details data={data} />
+                          </li>
+                        ) : null}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </React.Fragment>
+          ))}
         </div>
       ) : (
         <div className='modes loading'>
-          <Spinner />
+          <Spinner mini />
         </div>
       )}
-      <Matches mode={props.mode || DestinyActivityModeType.AllPvP} limit='40' offset={props.offset} root='/reports/crucible' />
+      <Matches mode={props.mode || options.defaultMode} limit={options.limit} offset={props.offset} root={options.root} />
     </div>
   );
 }
