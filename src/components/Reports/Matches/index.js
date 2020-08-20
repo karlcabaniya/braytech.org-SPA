@@ -125,7 +125,7 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
     </div>
   ) : loading ? (
     <div className='matches loading'>
-      <Spinner />
+      <Spinner mini />
     </div>
   ) : (
     <div className='matches info'>{t('No reports available')}</div>

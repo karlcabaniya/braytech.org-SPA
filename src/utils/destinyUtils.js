@@ -905,6 +905,12 @@ export function activityModeExtras(mode) {
       icon: <SVG.Activities.Raid.Raid />,
     },
 
+    // Dungeon
+    {
+      modes: [82],
+      icon: <SVG.Activities.Strikes.Strikes />,
+    },
+
     // Vanguard
     {
       modes: [18],
