@@ -63,7 +63,7 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
                 </div>
               </div>
             </>
-          ) : null}
+          ) : <div className='info'>{t('Reports.Modes.NoStatsAvailable')}</div>}
         </div>
       </div>
       <ProfileNavLink isActive={isActive(param, data.mode)} to={{ pathname: data.mode === parseInt(defaultMode, 10) ? root : `${root}/${data.mode}`, state: {} }} onClick={handler_onClick} />
@@ -72,14 +72,17 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
 }
 
 export function Details({ data, chart = { key: 'kills' } }) {
-  if (!data.activityHistory || !data.activityHistory[0].values.standing) return null;
-  
-  const wins = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing.basic.value === 0 ? 20 : 0 }));
-  const losses = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing.basic.value > 0 ? 20 : 0 }));
+  console.log(data);
+  if (!data.activityHistory) return null;
+
+  const hasStanding = data.activityHistory[0].values.standing;
+
+  const wins = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing?.basic.value === 0 || !activity.values.standing ? 20 : 0 }));
+  const losses = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing?.basic.value > 0 ? 20 : 0 }));
 
   return (
     <div className='modes details'>
-      <h4>Last 100</h4>
+      <h4>{t('Reports.Modes.Details.Last100.Name')}</h4>
       {/* <div className='chart'>
         <ResponsiveContainer width='100%' height={240} debounce={200}>
           <AreaChart data={data.activityHistory.map((activity, a) => ({ name: a, kills: activity.values.kills.basic.value, deaths: activity.values.deaths.basic.value }))}>
@@ -96,19 +99,19 @@ export function Details({ data, chart = { key: 'kills' } }) {
         </ResponsiveContainer>
       </div> */}
       <div className='chart'>
-        <ResponsiveContainer width='100%' height={240} debounce={200}>
+        <ResponsiveContainer width='100%' height={250} debounce={200}>
           <ScatterChart margin={{ left: 0, right: 5, top: 5, bottom: 5 }}>
             <CartesianGrid strokeOpacity='0.4' vertical={false} />
             <XAxis dataKey='x' type='number' domain={[0, 'dataMax']} hide={true} />
             <YAxis dataKey='y' strokeOpacity='0' tick={{ fill: '#ffffff', fillOpacity: '0.6' }} label={{ value: 'Kills', angle: -90, position: 'insideLeft', fill: '#ffffff', fillOpacity: '0.6', offset: 15 }} />
             <ZAxis dataKey='z' range={[0, 20]} />
             <Scatter name='wins' data={wins} fill='#ffffff' />
-            <Scatter name='losses' data={losses} fill='#dc513b' />
+            {hasStanding && <Scatter name='losses' data={losses} fill='#dc513b' />}
           </ScatterChart>
         </ResponsiveContainer>
       </div>
-      <h4>Lifetime</h4>
-      <div className='info'>More historical stats</div>
+      <h4>{t('Reports.Modes.Details.Lifetime.Name')}</h4>
+      <div>More historical stats</div>
     </div>
   );
 }

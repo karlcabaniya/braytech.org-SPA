@@ -27,7 +27,7 @@ export default function Crucible(props) {
     updateInterval: 300000,
     groups: [
       {
-        name: t('Reports.Crucible.Modes.Groups.Core.name'),
+        name: t('Reports.Crucible.Modes.Groups.Core.Name'),
         modes: [
           DestinyActivityModeType.Rumble, //
           DestinyActivityModeType.ControlQuickplay,

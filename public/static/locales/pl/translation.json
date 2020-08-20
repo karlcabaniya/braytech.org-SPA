@@ -419,7 +419,7 @@
   "No medals awarded": "Nie otrzymano medali",
   "No profiles found": "Nie znaleniono profilu",
   "No reports available": "Nie znaleziono raportu",
-  "No stats available": "Nie znaleziono statystyk",
+  "Reports.Modes.NoStatsAvailable": "Nie znaleziono statystyk",
   "No stats were recorded": "Statystyki nie były zapisane",
   "#####Nodes hacked": "🌐",
   "#####Noteworthy records and collectibles which are available at a weekly cadence": "🌐",
