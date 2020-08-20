@@ -1,111 +1,124 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 81,
+    "notTranslated": 85,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "debug": {
-    "translated": 775,
+    "translated": 779,
     "notTranslated": 0,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "en": {
-    "translated": 775,
+    "translated": 779,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 774,
-    "notTranslated": 1,
+    "translated": 773,
+    "notTranslated": 6,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "es": {
-    "translated": 774,
-    "notTranslated": 1,
+    "translated": 773,
+    "notTranslated": 6,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 153,
+    "notTranslated": 157,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "it": {
-    "translated": 774,
-    "notTranslated": 1,
+    "translated": 773,
+    "notTranslated": 6,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "ja": {
     "translated": 569,
-    "notTranslated": 206,
+    "notTranslated": 210,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "ko": {
     "translated": 498,
-    "notTranslated": 277,
+    "notTranslated": 281,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "pl": {
     "translated": 333,
-    "notTranslated": 442,
+    "notTranslated": 446,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "pt-br": {
     "translated": 761,
-    "notTranslated": 14,
+    "notTranslated": 18,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "ru": {
     "translated": 774,
-    "notTranslated": 1,
+    "notTranslated": 5,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "zh-chs": {
     "translated": 604,
-    "notTranslated": 171,
+    "notTranslated": 175,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   },
   "zh-cht": {
-    "translated": 621,
-    "notTranslated": 154,
+    "translated": 620,
+    "notTranslated": 159,
     "added": [
-      "RefreshService.Inactive.Description"
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
+      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
     ],
     "removed": []
   }

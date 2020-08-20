@@ -27,7 +27,7 @@ export default function Crucible(props) {
     updateInterval: 300000,
     groups: [
       {
-        name: t('Reports.Crucible.Modes.Groups.Core.Name'),
+        name: t('Reports.Modes.Groups.Crucible.Core.Name'),
         modes: [
           DestinyActivityModeType.Rumble, //
           DestinyActivityModeType.ControlQuickplay,
@@ -38,7 +38,7 @@ export default function Crucible(props) {
         ],
       },
       {
-        name: t('Reports.Crucible.Modes.Groups.Rotator.Name'),
+        name: t('Reports.Modes.Groups.Crucible.Rotator.Name'),
         modes: [
           DestinyActivityModeType.ClashQuickplay,
           DestinyActivityModeType.Momentum, //

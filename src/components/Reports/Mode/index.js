@@ -6,7 +6,7 @@ import manifest from '../../../utils/manifest';
 import { activityModeExtras } from '../../../utils/destinyUtils';
 import { ProfileNavLink } from '../../ProfileLink';
 
-import { ResponsiveContainer, CartesianGrid, AreaChart, Area, Scatter, ScatterChart, XAxis, YAxis, Tooltip, ZAxis } from 'recharts';
+import { ResponsiveContainer, CartesianGrid, XAxis, YAxis, ZAxis, Legend, ReferenceLine, Tooltip, ScatterChart, Scatter } from 'recharts';
 
 import './styles.css';
 
@@ -63,7 +63,9 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
                 </div>
               </div>
             </>
-          ) : <div className='info'>{t('Reports.Modes.NoStatsAvailable')}</div>}
+          ) : (
+            <div className='info'>{t('Reports.Modes.NoStatsAvailable')}</div>
+          )}
         </div>
       </div>
       <ProfileNavLink isActive={isActive(param, data.mode)} to={{ pathname: data.mode === parseInt(defaultMode, 10) ? root : `${root}/${data.mode}`, state: {} }} onClick={handler_onClick} />
@@ -77,36 +79,32 @@ export function Details({ data, chart = { key: 'kills' } }) {
 
   const hasStanding = data.activityHistory[0].values.standing;
 
-  const wins = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing?.basic.value === 0 || !activity.values.standing ? 20 : 0 }));
-  const losses = data.activityHistory.map((activity, a) => ({ x: a, y: activity.values[chart.key].basic.value, z: activity.values.standing?.basic.value > 0 ? 20 : 0 }));
+  const average = data.activityHistory.reduce((sum, activity) => sum + activity.values[chart.key].basic.value, 0) / data.activityHistory.length;
+  const wins = data.activityHistory.map((activity, a) => ({
+    x: a,
+    y: activity.values[chart.key].basic.value,
+    z: activity.values.standing?.basic.value === 0 || !activity.values.standing ? 20 : 0,
+  }));
+  const losses = data.activityHistory.map((activity, a) => ({
+    x: a,
+    y: activity.values[chart.key].basic.value,
+    z: activity.values.standing?.basic.value > 0 ? 20 : 0,
+  }));
 
   return (
     <div className='modes details'>
-      <h4>{t('Reports.Modes.Details.Last100.Name')}</h4>
-      {/* <div className='chart'>
-        <ResponsiveContainer width='100%' height={240} debounce={200}>
-          <AreaChart data={data.activityHistory.map((activity, a) => ({ name: a, kills: activity.values.kills.basic.value, deaths: activity.values.deaths.basic.value }))}>
-            <CartesianGrid strokeOpacity='0.2' horizontal={false} />
-            <defs>
-              <linearGradient id='deaths' x1='0' y1='0' x2='0' y2='1'>
-                <stop offset='5%' stopColor='#dc513b' stopOpacity={0.8} />
-                <stop offset='95%' stopColor='#dc513b' stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <Area type='monotone' dataKey='kills' stroke='#ffffff' fillOpacity={0} />
-            <Area type='monotone' dataKey='deaths' stroke='#dc513b' fillOpacity={1} fill='url(#deaths)' />
-          </AreaChart>
-        </ResponsiveContainer>
-      </div> */}
+      <h4>{hasStanding ? t('Reports.Modes.Details.Last100.PvP.Name') : t('Reports.Modes.Details.Last100.PvE.Name')}</h4>
       <div className='chart'>
         <ResponsiveContainer width='100%' height={250} debounce={200}>
-          <ScatterChart margin={{ left: 0, right: 5, top: 5, bottom: 5 }}>
-            <CartesianGrid strokeOpacity='0.4' vertical={false} />
+          <ScatterChart margin={{ left: 0, right: 5, top: 5, bottom: 15 }}>
+            <CartesianGrid strokeOpacity='0.4' vertical={false} stroke='#ffffff' strokeOpacity='0.2' />
             <XAxis dataKey='x' type='number' domain={[0, 'dataMax']} hide={true} />
-            <YAxis dataKey='y' strokeOpacity='0' tick={{ fill: '#ffffff', fillOpacity: '0.6' }} label={{ value: 'Kills', angle: -90, position: 'insideLeft', fill: '#ffffff', fillOpacity: '0.6', offset: 15 }} />
+            <YAxis dataKey='y' strokeOpacity='0' tick={{ fill: '#ffffff', fillOpacity: '0.6' }} label={{ value: manifest.DestinyHistoricalStatsDefinition[chart.key].statName, angle: -90, position: 'insideLeft', fill: '#ffffff', fillOpacity: '0.6', offset: 15 }} />
             <ZAxis dataKey='z' range={[0, 20]} />
-            <Scatter name='wins' data={wins} fill='#ffffff' />
-            {hasStanding && <Scatter name='losses' data={losses} fill='#dc513b' />}
+            <ReferenceLine y={average} stroke='#ffffff' strokeOpacity='0.6' strokeDasharray='4 5' />
+            <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name')} data={wins} fill='#ffffff' />
+            {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name')} data={losses} fill='#dc513b' />}
+            {hasStanding && <Legend align='center' iconSize={5} wrapperStyle={{ bottom: -10, color: 'rgba(255, 255, 255, 0.6)' }} />}
           </ScatterChart>
         </ResponsiveContainer>
       </div>
