@@ -23,7 +23,7 @@ export default function Crucible(props) {
   const options = {
     defaultMode: DestinyActivityModeType.AllPvP,
     root: '/reports/crucible',
-    limit: 40,
+    limit: 50,
     updateInterval: 300000,
     groups: [
       {
@@ -120,9 +120,7 @@ export default function Crucible(props) {
           {state.data.map((group, g) => (
             <React.Fragment key={g}>
               {group.name ? (
-                <div className='sub-header'>
-                  <div>{group.name}</div>
-                </div>
+                <h4>{group.name}</h4>
               ) : null}
               <div className='content'>
                 <ul className='modes'>

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { t } from '../../../utils/i18n';
 import manifest from '../../../utils/manifest';
 import { activityModeExtras } from '../../../utils/destinyUtils';
+import { formatHistoricalStatValue } from '../../../utils/destinyConverters';
 import { ProfileNavLink } from '../../ProfileLink';
 
 import { ResponsiveContainer, CartesianGrid, XAxis, YAxis, ZAxis, Legend, ReferenceLine, Tooltip, ScatterChart, Scatter } from 'recharts';
@@ -41,15 +42,15 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
           <div className='name'>{(extras && extras.name) || definitionActivityMode?.displayProperties?.name}</div>
           {data.historicalStats ? (
             <>
-              <div className='matches'>{data.historicalStats.activitiesEntered.basic.value.toLocaleString()}</div>
+              <div className='activities-entered'>{formatHistoricalStatValue('activitiesEntered', data.historicalStats.activitiesEntered.basic.value)}</div>
               <div className='stats'>
                 <div>
                   <div className='name'>{definitionActivityMode?.activityModeCategory > 1 ? t('Matches') : t('Activities')}</div>
-                  <div className='value'>{data.historicalStats.activitiesEntered.basic.value.toLocaleString()}</div>
+                  <div className='value'>{formatHistoricalStatValue('activitiesEntered', data.historicalStats.activitiesEntered.basic.value)}</div>
                 </div>
                 {data.historicalStats.activitiesWon ? (
                   <div>
-                    <div className='name'>Win rate</div>
+                    <div className='name'>{t('Win rate')}</div>
                     <div className='value'>{Number.parseFloat((data.historicalStats.activitiesWon.basic.value / data.historicalStats.activitiesEntered.basic.value) * 100).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}%</div>
                   </div>
                 ) : null}
@@ -58,8 +59,8 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
                   <div className='value'>{data.historicalStats.kills.basic.value.toLocaleString()}</div>
                 </div>
                 <div>
-                  <div className='name'>K/D</div>
-                  <div className='value'>{Number.parseFloat(data.historicalStats.killsDeathsRatio.basic.value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                  <div className='name'>{manifest.DestinyHistoricalStatsDefinition['killsDeathsRatio'].statName}</div>
+                  <div className='value'>{formatHistoricalStatValue('killsDeathsRatio', data.historicalStats.killsDeathsRatio.basic.value)}</div>
                 </div>
               </div>
             </>
@@ -72,6 +73,24 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
     </div>
   );
 }
+
+const LIFETIME_STAT_KEYS = {
+  PRIMARY: ['opponentsDefeated', 'kills', 'assists', 'deaths', 'killsDeathsRatio', 'killsDeathsAssists', 'efficiency'],
+  AUXILIARY: [
+    'averageLifespan',
+    'longestSingleLife',
+    'suicides',
+    // 'averageDeathDistance',
+    // 'bestSingleGameScore',
+    'longestKillSpree',
+    'bestSingleGameKills',
+    'averageKillDistance',
+    // 'precisionKills',
+    // 'resurrectionsPerformed',
+    // 'resurrectionsReceived',
+    'secondsPlayed',
+  ],
+};
 
 export function Details({ data, chart = { key: 'kills' } }) {
   console.log(data);
@@ -93,7 +112,7 @@ export function Details({ data, chart = { key: 'kills' } }) {
 
   return (
     <div className='modes details'>
-      <h4>{hasStanding ? t('Reports.Modes.Details.Last100.PvP.Name') : t('Reports.Modes.Details.Last100.PvE.Name')}</h4>
+      <h5>{hasStanding ? t('Reports.Modes.Details.Last100.PvP.Name') : t('Reports.Modes.Details.Last100.PvE.Name')}</h5>
       <div className='chart'>
         <ResponsiveContainer width='100%' height={250} debounce={200}>
           <ScatterChart margin={{ left: 0, right: 5, top: 5, bottom: 15 }}>
@@ -108,8 +127,29 @@ export function Details({ data, chart = { key: 'kills' } }) {
           </ScatterChart>
         </ResponsiveContainer>
       </div>
-      <h4>{t('Reports.Modes.Details.Lifetime.Name')}</h4>
-      <div>More historical stats</div>
+      <h5>{t('Reports.Modes.Details.Lifetime.Name')}</h5>
+      <div className='lifetime'>
+        <ul>
+          {LIFETIME_STAT_KEYS.PRIMARY.filter((key) => data.historicalStats[key]?.basic).map((key, k) => (
+            <li key={k}>
+              <ul>
+                <li>{manifest.DestinyHistoricalStatsDefinition[key].statName}</li>
+                <li>{formatHistoricalStatValue(key, data.historicalStats[key].basic.value)}</li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <ul>
+          {LIFETIME_STAT_KEYS.AUXILIARY.filter((key) => data.historicalStats[key]?.basic).map((key, k) => (
+            <li key={k}>
+              <ul>
+                <li>{manifest.DestinyHistoricalStatsDefinition[key].statName}</li>
+                <li>{formatHistoricalStatValue(key, data.historicalStats[key].basic.value)}</li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

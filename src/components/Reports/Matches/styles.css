@@ -6,13 +6,10 @@
 
 .matches.loading,
 .matches.info {
-  justify-content: center;
+  min-height: calc(100vh - 152px - 6rem);
   align-content: center;
-  text-align: center;    
-}
-
-.matches.info {
-  padding: 1rem 0 2rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .matches > .spinner {

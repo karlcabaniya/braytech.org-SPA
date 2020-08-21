@@ -72,8 +72,9 @@
 
 #multiplayer .type {
   display: grid;
-  grid-template-columns: minmax(320px, 500px) auto;
+  grid-template-columns: 2fr 4fr;
   gap: 3rem;
+  align-items: start;
 }
 
 #multiplayer .type .modes {
@@ -97,7 +98,11 @@
 
 
 
-
+@media screen and (max-width: 1400px) {
+  #multiplayer .type {
+    grid-template-columns: 2fr 3fr;
+  }
+}
 
 @media screen and (max-width: 1024px) {
   #multiplayer .buff {
@@ -143,7 +148,6 @@
   #multiplayer .buff {
     grid-template-rows: 40px 1fr;
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   #multiplayer .module.views .list {

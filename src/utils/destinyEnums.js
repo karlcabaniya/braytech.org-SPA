@@ -245,6 +245,23 @@ export const DestinyActivityModeType = {
   TrialsOfOsiris: 84,
 };
 
+export const DestinyHistoricalStatsUnitType = {
+  None: 0,
+  Count: 1, // Indicates the statistic is a simple count of something.
+  PerGame: 2, // Indicates the statistic is a per game average.
+  Seconds: 3, // Indicates the number of seconds
+  Points: 4, // Indicates the number of points earned
+  Team: 5, // Values represents a team ID
+  Distance: 6, // Values represents a distance (units to-be-determined)
+  Percent: 7, // Ratio represented as a whole value from 0 to 100.
+  Ratio: 8, // Ratio of something, shown with decimal places
+  Boolean: 9, // True or false
+  WeaponType: 10, // The stat is actually a weapon type.
+  Standing: 11, // Indicates victory, defeat, or something in between.
+  Milliseconds: 12, // Number of milliseconds some event spanned. For example, race time, or lap time.
+  CompletionReason: 13, // The value is a enumeration of the Completion Reason type.
+};
+
 const ENERGY_CAPACITY_SOLAR = 2018193158;
 const ENERGY_CAPACITY_ARC = 3625423501;
 const ENERGY_CAPACITY_VOID = 16120457;

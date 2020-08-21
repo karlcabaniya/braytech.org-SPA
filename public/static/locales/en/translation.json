@@ -309,6 +309,8 @@
   "Kills + assists": "Kills + assists",
   "Kills secured": "Kills secured",
   "Language": "Language",
+  "Language.Distance.Metres.Plural": "{{metres}} Metres",
+  "Language.Distance.Metres.Plural.Abbr": "{{metres}} Mtrs",
   "Language.Time.Days.Plural": "{{days}} Days",
   "Language.Time.Days.Plural.Abbr": "{{days}} Days",
   "Language.Time.Days.Singluar": "1 Day",

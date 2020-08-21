@@ -98,11 +98,7 @@ export default function Crucible(props) {
         <div className='modes'>
           {state.data.map((group, g) => (
             <React.Fragment key={g}>
-              {group.name ? (
-                <div className='sub-header'>
-                  <div>{group.name}</div>
-                </div>
-              ) : null}
+              {group.name ? <h4>{group.name}</h4> : null}
               <div className='content'>
                 <ul className='modes'>
                   {group.modes.map((data, m) => (
