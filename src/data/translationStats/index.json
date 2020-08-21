@@ -2,17 +2,13 @@
   "de": {
     "translated": 694,
     "notTranslated": 87,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 781,
     "notTranslated": 0,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -24,89 +20,91 @@
   "es-mx": {
     "translated": 774,
     "notTranslated": 7,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "es": {
     "translated": 774,
     "notTranslated": 7,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "fr": {
     "translated": 622,
     "notTranslated": 159,
     "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+      "ContentVault.Header.Text",
+      "ContentVault.Info"
     ],
-    "removed": []
+    "removed": [
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Guide/dcv)"
+    ]
   },
   "it": {
     "translated": 779,
     "notTranslated": 2,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "ja": {
     "translated": 569,
     "notTranslated": 212,
     "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+      "ContentVault.Header.Text",
+      "ContentVault.Info"
     ],
-    "removed": []
+    "removed": [
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Guide/dcv)"
+    ]
   },
   "ko": {
     "translated": 498,
     "notTranslated": 283,
     "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+      "ContentVault.Header.Text",
+      "ContentVault.Info"
     ],
-    "removed": []
+    "removed": [
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Guide/dcv)"
+    ]
   },
   "pl": {
     "translated": 333,
     "notTranslated": 448,
     "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+      "ContentVault.Header.Text",
+      "ContentVault.Info"
     ],
-    "removed": []
+    "removed": [
+      "For convenience, only significant collectibles and records have been marked and sorted.",
+      "For more information on the _Destiny Content Vault_, please visit [Bungie.net](https://www.bungie.net/en/Guide/dcv)"
+    ]
   },
   "pt-br": {
     "translated": 761,
     "notTranslated": 20,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "ru": {
     "translated": 779,
     "notTranslated": 2,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-chs": {
     "translated": 604,
     "notTranslated": 177,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   },
   "zh-cht": {
     "translated": 620,
     "notTranslated": 161,
-    "added": [
-      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
-    ],
+    "added": [],
     "removed": []
   }
 }

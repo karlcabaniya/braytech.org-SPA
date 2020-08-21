@@ -116,7 +116,7 @@ export function Details({ data, chart = { key: 'kills' } }) {
   const flawless = data.activityHistory.map((activity, a) => ({
     x: a,
     y: activity.values[chart.key].basic.value,
-    z: activity.values.deaths?.basic.value === 0 ? 20 : 0,
+    z: activity.values.deaths?.basic.value === 0 && activity.values.completionReason?.basic.value === 0 ? 20 : 0,
   }));
   const stat = data.activityHistory.map((activity, a) => ({
     x: a,
@@ -138,7 +138,7 @@ export function Details({ data, chart = { key: 'kills' } }) {
             {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name')} data={wins} fill='#ffffff' />}
             {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name')} data={losses} fill='var(--error)' />}
             {!hasStanding && <Scatter name='stat' legendType='none' data={stat} fill='#ffffff' />}
-            {!hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name')} data={flawless} fill='hsl(var(--tier-exotic))' />}
+            {!hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name')} data={flawless} fill='#f7dc6e' />}
             <Legend align='center' iconSize={5} wrapperStyle={{ bottom: -10, color: 'rgba(255, 255, 255, 0.6)' }} />
           </ScatterChart>
         </ResponsiveContainer>
