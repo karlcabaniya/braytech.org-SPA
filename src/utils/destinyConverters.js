@@ -131,11 +131,13 @@ export function formatHistoricalStatValue(statHash, value) {
   }
 
   if (enums.DestinyHistoricalStatsUnitType.Count === manifest.DestinyHistoricalStatsDefinition[statHash].unitType) {
-    return value.toLocaleString();;
+    return value.toLocaleString();
   } else if (enums.DestinyHistoricalStatsUnitType.Seconds === manifest.DestinyHistoricalStatsDefinition[statHash].unitType) {
     return duration(unixTimestampToDuration(value * 1000), { abbreviated: true });
   } else if (enums.DestinyHistoricalStatsUnitType.Distance === manifest.DestinyHistoricalStatsDefinition[statHash].unitType) {
     return t('Language.Distance.Metres.Plural.Abbr', { metres: Number.parseFloat(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) });
+  } else if (enums.DestinyHistoricalStatsUnitType.Percent === manifest.DestinyHistoricalStatsDefinition[statHash].unitType) {
+    return `${value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}%`;
   } else if (enums.DestinyHistoricalStatsUnitType.Ratio === manifest.DestinyHistoricalStatsDefinition[statHash].unitType) {
     return Number.parseFloat(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   } else {

@@ -309,6 +309,7 @@
   "Kills + assists": "Bajas + asistencias",
   "Kills secured": "Bajas aseguradas",
   "Language": "Idioma",
+  "#####Language.Distance.Metres.Plural.Abbr": "🌐",
   "Language.Time.Days.Plural": "{{days}} días",
   "Language.Time.Days.Plural.Abbr": "{{days}} d",
   "Language.Time.Days.Singluar": "1 día",

@@ -73,7 +73,7 @@
 
 .modes .button.mode .basics .text .stats {
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
   line-height: 1;
 }
 
@@ -97,6 +97,7 @@
   }
 
   .modes .button.mode .basics .text {
+    grid-template-columns: unset;
     grid-auto-flow: column;
     justify-content: space-between;
   }

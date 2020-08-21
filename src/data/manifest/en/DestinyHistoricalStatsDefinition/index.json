@@ -153,5 +153,9 @@
   },
   "killsDeathsRatio": {
     "statName": "K/D"
+  },
+  "winRate": {
+    "statName": "Win rate",
+    "unitType": 7
   }
 }

@@ -309,6 +309,7 @@
   "Kills + assists": "Убийств + помощи",
   "Kills secured": "Убийств защищено",
   "Language": "Язык",
+  "#####Language.Distance.Metres.Plural.Abbr": "🌐",
   "Language.Time.Days.Plural": "{{days}} дня",
   "Language.Time.Days.Plural.Abbr": "{{days}} дня",
   "Language.Time.Days.Singluar": "1 день",

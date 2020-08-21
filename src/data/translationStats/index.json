@@ -1,125 +1,114 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 85,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 86,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "debug": {
-    "translated": 779,
-    "notTranslated": 0,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
-  },
-  "en": {
-    "translated": 779,
+    "translated": 780,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "Win rate"
+    ]
+  },
+  "en": {
+    "translated": 780,
+    "notTranslated": 0,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "es-mx": {
-    "translated": 773,
+    "translated": 774,
     "notTranslated": 6,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "es": {
-    "translated": 773,
+    "translated": 774,
     "notTranslated": 6,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 157,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 158,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "it": {
-    "translated": 773,
-    "notTranslated": 6,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "translated": 779,
+    "notTranslated": 1,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "ja": {
     "translated": 569,
-    "notTranslated": 210,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 211,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "ko": {
     "translated": 498,
-    "notTranslated": 281,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 282,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "pl": {
     "translated": 333,
-    "notTranslated": 446,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 447,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "pt-br": {
     "translated": 761,
-    "notTranslated": 18,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 19,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "ru": {
-    "translated": 774,
-    "notTranslated": 5,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "translated": 779,
+    "notTranslated": 1,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "zh-chs": {
     "translated": 604,
-    "notTranslated": 175,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 176,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   },
   "zh-cht": {
     "translated": 620,
-    "notTranslated": 159,
-    "added": [
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name",
-      "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name"
-    ],
-    "removed": []
+    "notTranslated": 160,
+    "added": [],
+    "removed": [
+      "Win rate"
+    ]
   }
 }

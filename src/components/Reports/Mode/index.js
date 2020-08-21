@@ -50,8 +50,8 @@ export default function Mode({ data, root = '/multiplayer/crucible', defaultMode
                 </div>
                 {data.historicalStats.activitiesWon ? (
                   <div>
-                    <div className='name'>{t('Win rate')}</div>
-                    <div className='value'>{Number.parseFloat((data.historicalStats.activitiesWon.basic.value / data.historicalStats.activitiesEntered.basic.value) * 100).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 })}%</div>
+                    <div className='name'>{manifest.DestinyHistoricalStatsDefinition['winRate'].statName}</div>
+                    <div className='value'>{formatHistoricalStatValue('winRate', Number.parseFloat((data.historicalStats.activitiesWon.basic.value / data.historicalStats.activitiesEntered.basic.value) * 100))}</div>
                   </div>
                 ) : null}
                 <div>

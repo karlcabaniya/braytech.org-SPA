@@ -309,6 +309,7 @@
   "Kills + assists": "Uccisioni + assist",
   "Kills secured": "Uccisioni assicurate",
   "Language": "Lingua",
+  "#####Language.Distance.Metres.Plural.Abbr": "🌐",
   "Language.Time.Days.Plural": "{{days}} Giorni",
   "Language.Time.Days.Plural.Abbr": "{{days}} g",
   "Language.Time.Days.Singluar": "1 Giorno",
