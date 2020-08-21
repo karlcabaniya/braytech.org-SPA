@@ -1,0 +1,8 @@
+{
+  "killsDeathsRatio": {
+    "statName": "B/M"
+  },
+  "winRate": {
+    "statName": "Índice de victorias"
+  }
+}
