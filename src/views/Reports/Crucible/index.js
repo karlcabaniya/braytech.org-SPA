@@ -103,6 +103,8 @@ export default function Crucible(props) {
     if (!state.data) {
       updateData();
     }
+
+    window.scrollTo(0, 0);
   }, []);
 
   useInterval(() => {

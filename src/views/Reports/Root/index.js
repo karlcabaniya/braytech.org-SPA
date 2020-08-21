@@ -84,6 +84,8 @@ export default function Root(props) {
     if (!state.data) {
       updateData();
     }
+
+    window.scrollTo(0, 0);
   }, []);
 
   useInterval(() => {

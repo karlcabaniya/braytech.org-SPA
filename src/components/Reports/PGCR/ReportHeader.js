@@ -30,7 +30,13 @@ export function ReportHeader({ characterIds, activityDetails, period, entries })
   let mode = definitionMode?.displayProperties?.name;
   if (extras?.name) {
     mode = extras.name;
-  } else if (definitionActivity?.directActivityModeType === 37) {
+  }
+  // Dungeon (i fiddled with the plural)
+  else if (definitionMode?.hash === 608898761) {
+    mode = manifest.DestinyActivityTypeDefinition[608898761]?.displayProperties.name;
+  }
+  // Survival
+  else if (definitionActivity?.directActivityModeType === 37) {
     mode = definitionActivity.displayProperties?.name;
   }
   // Trials of Osiris
@@ -39,9 +45,9 @@ export function ReportHeader({ characterIds, activityDetails, period, entries })
   }
   // European Aerial Zone
   else if (
-    definitionActivity?.hash === 770505917 || //Solar
-    definitionActivity?.hash === 1199493030 || //Arc
-    definitionActivity?.hash === 2429391832 //Void
+    definitionActivity?.hash === 770505917 || // Solar
+    definitionActivity?.hash === 1199493030 || // Arc
+    definitionActivity?.hash === 2429391832 // Void
   ) {
     mode = definitionActivity.displayProperties.name;
   }
@@ -107,7 +113,13 @@ export function ReportHeaderLarge({ characterIds, activityDetails, period, entri
   let mode = definitionMode?.displayProperties?.name;
   if (extras?.name) {
     mode = extras.name;
-  } else if (definitionActivity?.directActivityModeType === 37) {
+  }
+  // Dungeon (i fiddled with the plural)
+  else if (definitionMode?.hash === 608898761) {
+    mode = manifest.DestinyActivityTypeDefinition[608898761]?.displayProperties.name;
+  }
+  // Survival
+  else if (definitionActivity?.directActivityModeType === 37) {
     mode = definitionActivity.displayProperties?.name;
   }
   // Trials of Osiris
@@ -116,9 +128,9 @@ export function ReportHeaderLarge({ characterIds, activityDetails, period, entri
   }
   // European Aerial Zone
   else if (
-    definitionActivity?.hash === 770505917 || //Solar
-    definitionActivity?.hash === 1199493030 || //Arc
-    definitionActivity?.hash === 2429391832 //Void
+    definitionActivity?.hash === 770505917 || // Solar
+    definitionActivity?.hash === 1199493030 || // Arc
+    definitionActivity?.hash === 2429391832 // Void
   ) {
     mode = definitionActivity.displayProperties.name;
   }

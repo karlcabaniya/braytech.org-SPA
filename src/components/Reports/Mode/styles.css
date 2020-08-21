@@ -334,6 +334,17 @@
   animation-delay: 1.5s;
 }
 
+/* dungeon icon */
+.icon.mode svg .dungeon .inner,
+.icon.mode svg .dungeon .outer {
+  animation: rotate-linear 90s linear infinite;
+  transform-origin: center;
+}
+
+.icon.mode svg .dungeon .inner {
+  animation-direction: reverse;
+}
+
 .wrapper.reduced-motion .icon.mode svg * {
   animation: unset !important;
 }

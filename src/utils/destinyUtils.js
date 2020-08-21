@@ -902,14 +902,14 @@ export function activityModeExtras(mode) {
     // Raid
     {
       modes: [4],
-      name: manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name,
+      name: manifest.DestinyPresentationNodeDefinition[1162218545]?.displayProperties.name,
       icon: <SVG.Activities.Raid.Raid />,
     },
 
     // Dungeon
     {
       modes: [82],
-      icon: <SVG.Activities.Strikes.Strikes />,
+      icon: <SVG.Activities.Dungeon.Dungeon />,
     },
 
     // Vanguard
