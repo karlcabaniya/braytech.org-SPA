@@ -486,6 +486,7 @@
   "Remove group": "Удалить группу",
   "Report player": "Пожаловаться на игрока",
   "Reports": "Активности",
+  "#####Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name": "🌐",
   "Reports.Modes.Details.Last100.PvE.Name": "Последние 100 активностей",
   "Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name": "Поражения",
   "Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name": "Победы",

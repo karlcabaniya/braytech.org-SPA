@@ -105,9 +105,13 @@ class RefreshService extends React.Component {
   };
 
   handler_visibility = (event) => {
+    const wasInactive = !this.activeWithinTimespan(TIMEOUT);
+
     if (document.hidden === false) {
       this.track();
       this.service();
+
+      this.props.popNotification('refresh-service-inactive');
     }
   };
 

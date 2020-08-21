@@ -486,6 +486,7 @@
   "Remove group": "Retirer le groupe",
   "Report player": "Signaler le joueur",
   "Reports": "Rapports",
+  "#####Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvE.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name": "🌐",

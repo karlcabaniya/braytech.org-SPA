@@ -1,114 +1,112 @@
 {
   "de": {
     "translated": 694,
-    "notTranslated": 86,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 87,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "debug": {
-    "translated": 780,
+    "translated": 781,
     "notTranslated": 0,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "en": {
-    "translated": 780,
+    "translated": 781,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 774,
-    "notTranslated": 6,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 7,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "es": {
     "translated": 774,
-    "notTranslated": 6,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 7,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "fr": {
     "translated": 622,
-    "notTranslated": 158,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 159,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "it": {
     "translated": 779,
-    "notTranslated": 1,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 2,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "ja": {
     "translated": 569,
-    "notTranslated": 211,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 212,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "ko": {
     "translated": 498,
-    "notTranslated": 282,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 283,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "pl": {
     "translated": 333,
-    "notTranslated": 447,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 448,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "pt-br": {
     "translated": 761,
-    "notTranslated": 19,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 20,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "ru": {
     "translated": 779,
-    "notTranslated": 1,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 2,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "zh-chs": {
     "translated": 604,
-    "notTranslated": 176,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 177,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   },
   "zh-cht": {
     "translated": 620,
-    "notTranslated": 160,
-    "added": [],
-    "removed": [
-      "Win rate"
-    ]
+    "notTranslated": 161,
+    "added": [
+      "Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name"
+    ],
+    "removed": []
   }
 }

@@ -486,6 +486,7 @@
   "Remove group": "刪除組",
   "Report player": "玩家報告",
   "Reports": "報告",
+  "#####Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvE.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name": "🌐",
   "#####Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name": "🌐",

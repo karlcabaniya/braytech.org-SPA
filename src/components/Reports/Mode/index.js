@@ -99,15 +99,29 @@ export function Details({ data, chart = { key: 'kills' } }) {
   const hasStanding = data.activityHistory[0].values.standing;
 
   const average = data.activityHistory.reduce((sum, activity) => sum + activity.values[chart.key].basic.value, 0) / data.activityHistory.length;
+
+  // PvP modes with standing
   const wins = data.activityHistory.map((activity, a) => ({
     x: a,
     y: activity.values[chart.key].basic.value,
-    z: activity.values.standing?.basic.value === 0 || !activity.values.standing ? 20 : 0,
+    z: activity.values.standing?.basic.value === 0 ? 20 : 0,
   }));
   const losses = data.activityHistory.map((activity, a) => ({
     x: a,
     y: activity.values[chart.key].basic.value,
     z: activity.values.standing?.basic.value > 0 ? 20 : 0,
+  }));
+
+  // PvE modes
+  const flawless = data.activityHistory.map((activity, a) => ({
+    x: a,
+    y: activity.values[chart.key].basic.value,
+    z: activity.values.deaths?.basic.value === 0 ? 20 : 0,
+  }));
+  const stat = data.activityHistory.map((activity, a) => ({
+    x: a,
+    y: activity.values[chart.key].basic.value,
+    z: flawless[a].z === 0 ? 20 : 0,
   }));
 
   return (
@@ -118,12 +132,14 @@ export function Details({ data, chart = { key: 'kills' } }) {
           <ScatterChart margin={{ left: 0, right: 5, top: 5, bottom: 15 }}>
             <CartesianGrid strokeOpacity='0.4' vertical={false} stroke='#ffffff' strokeOpacity='0.2' />
             <XAxis dataKey='x' type='number' domain={[0, 'dataMax']} hide={true} />
-            <YAxis dataKey='y' strokeOpacity='0' tick={{ fill: '#ffffff', fillOpacity: '0.6' }} label={{ value: manifest.DestinyHistoricalStatsDefinition[chart.key].statName, angle: -90, position: 'insideLeft', fill: '#ffffff', fillOpacity: '0.6', offset: 15 }} />
+            <YAxis dataKey='y' strokeOpacity='0' tick={{ fill: '#ffffff', fillOpacity: '0.6' }} label={{ value: manifest.DestinyHistoricalStatsDefinition[chart.key].statName, angle: -90, position: 'insideLeft', fill: '#ffffff', fillOpacity: '0.6', offset: 10 }} />
             <ZAxis dataKey='z' range={[0, 20]} />
             <ReferenceLine y={average} stroke='#ffffff' strokeOpacity='0.6' strokeDasharray='4 5' />
-            <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name')} data={wins} fill='#ffffff' />
-            {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name')} data={losses} fill='#dc513b' />}
-            {hasStanding && <Legend align='center' iconSize={5} wrapperStyle={{ bottom: -10, color: 'rgba(255, 255, 255, 0.6)' }} />}
+            {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Wins.Name')} data={wins} fill='#ffffff' />}
+            {hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvP.DataPoint.Losses.Name')} data={losses} fill='var(--error)' />}
+            {!hasStanding && <Scatter name='stat' legendType='none' data={stat} fill='#ffffff' />}
+            {!hasStanding && <Scatter name={t('Reports.Modes.Details.Last100.PvE.DataPoint.Flawless.Name')} data={flawless} fill='hsl(var(--tier-exotic))' />}
+            <Legend align='center' iconSize={5} wrapperStyle={{ bottom: -10, color: 'rgba(255, 255, 255, 0.6)' }} />
           </ScatterChart>
         </ResponsiveContainer>
       </div>
