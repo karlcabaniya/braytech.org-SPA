@@ -216,7 +216,7 @@ class Header extends React.Component {
       {
         name: t('Content Vault'),
         desc: t('An exhaustive list of collectibles and records as requisitioned by the _Destiny Content Vault_'),
-        path: '/vaulted',
+        path: '/content-vault',
         exact: false,
         profile: false,
         group: 1,
