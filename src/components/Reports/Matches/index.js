@@ -40,48 +40,41 @@ export default function Match({ mode, limit = 15, offset = 0, root }) {
     setLoading(true);
 
     // get activity history
-    const activities = (
+    const activities = await GetActivityHistory({
+      params: {
+        membershipType: member.membershipType,
+        membershipId: member.membershipId,
+        characterId: member.characterId,
+        count: limit,
+        mode,
+        page: offset,
+      },
+      withAuth: auth?.destinyMemberships?.find((d) => d.membershipId === member.membershipId) && true,
+    }).then((response) => {
+      if (response?.ErrorCode === 1) {
+        return response.Response.activities;
+      } else {
+        return false;
+      }
+    });
+
+    if (activities) {
+      // set instances state to control which reports are displayed
+      setInstances(activities.map((activity) => activity.activityDetails.instanceId));
+
+      // get reports
       await Promise.all(
-        // fetch response for each characterId provided
-        [member.characterId].map(
-          async (characterId) =>
-            await GetActivityHistory({
-              params: {
-                membershipType: member.membershipType,
-                membershipId: member.membershipId,
-                characterId,
-                count: limit,
-                mode,
-                page: offset,
-              },
-              withAuth: auth?.destinyMemberships?.find((d) => d.membershipId === member.membershipId) && true,
-            })
-        )
-      )
-    )
-      // itterate through each response, collating a single array of activities
-      .reduce((activities, response) => {
-        if (response.ErrorCode === 1 && response.Response.activities?.length) {
-          return [...activities, ...response.Response.activities];
-        } else {
-          return activities;
-        }
-      }, []);
+        activities.map(async (activity) => {
+          const cached = cache.find((report) => report.activityDetails.instanceId === activity.activityDetails.instanceId);
 
-    // set instances state to control which reports are displayed
-    setInstances(activities.map((activity) => activity.activityDetails.instanceId));
-
-    // get reports
-    await Promise.all(
-      activities.map(async (activity) => {
-        const cached = cache.find((report) => report.activityDetails.instanceId === activity.activityDetails.instanceId);
-        if (cached) {
-          return cached;
-        } else {
-          return await getReport(activity.activityDetails.instanceId);
-        }
-      })
-    );
+          if (cached) {
+            return cached;
+          } else {
+            return await getReport(activity.activityDetails.instanceId);
+          }
+        })
+      );
+    }
 
     setLoading(false);
   }
