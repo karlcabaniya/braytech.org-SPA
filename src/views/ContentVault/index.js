@@ -24,7 +24,7 @@ export function NavLinks() {
           <div className='icon'>
             <Common.Seasons />
           </div>
-          <NavLink to='/vaulted' exact />
+          <NavLink to='/content-vault' exact />
         </li>
       </ul>
     </div>
@@ -65,7 +65,7 @@ function ToggleCompletedLink() {
   );
 }
 
-export default function Vaulted(props) {
+export default function ContentVault(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,11 +76,10 @@ export default function Vaulted(props) {
   }, []);
 
   const season = +props.match.params.season;
-  const hash = +props.match.params.hash;
+  const slug = props.match.params.slug;
   const data = DestinyContentVault[0];
 
-  const selectedVault = (hash && data.vault.find((selectedVault) => hash === (selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash || selectedVault.activityModeHash))) || data.vault[0];
-  const selectedHash = selectedVault.bucketHash || selectedVault.placeHash || selectedVault.activityHash || selectedVault.activityModeHash;
+  const selectedVault = (slug && data.vault.find((vault) => slug === vault.slug)) || data.vault[0];
 
   const collectibles =
     selectedVault &&
@@ -113,7 +112,7 @@ export default function Vaulted(props) {
 
   return (
     <>
-      <div className='view' id='vaulted'>
+      <div className='view' id='content-vault'>
         <div className='module head'>
           <div className='page-header'>
             <div className='sub-name'>{t('Content Vault')}</div>
@@ -129,10 +128,8 @@ export default function Vaulted(props) {
                 <h4>{t('Areas')}</h4>
                 <ul className='list secondary'>
                   {data.vault.map((vault, v) => {
-                    const vaultHash = vault.bucketHash || vault.placeHash || vault.activityHash || vault.activityModeHash;
-
                     const isActive = (match, location) => {
-                      if (selectedHash === vaultHash || hash === vaultHash) {
+                      if (selectedVault.slug === vault.slug) {
                         return true;
                       } else if (match) {
                         return true;
@@ -141,23 +138,12 @@ export default function Vaulted(props) {
                       }
                     };
 
-                    const name =
-                      // bucketHash
-                      (vault.bucketHash && manifest.DestinyInventoryBucketDefinition[vault.bucketHash].displayProperties.name) ||
-                      // placeHash
-                      (vault.placeHash && manifest.DestinyPlaceDefinition[vault.placeHash].displayProperties.name) ||
-                      // activityHash
-                      (vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].originalDisplayProperties.name) ||
-                      // activityModeHash
-                      (vault.activityModeHash && manifest.DestinyActivityModeDefinition[vault.activityModeHash].displayProperties.name);
-                    const prefix = vault.placeHash ? `${manifest.DestinyActivityModeDefinition[3497767639].displayProperties.name}: ` : vault.activityHash && manifest.DestinyActivityDefinition[vault.activityHash].directActivityModeType === 4 ? `${manifest.DestinyActivityModeDefinition[2043403989]?.displayProperties.name}: ` : '';
-
                     return (
                       <li key={v} className={cx('linked', { active: isActive })}>
                         <div className='text'>
-                          <div className='name'>{prefix + name}</div>
+                          <div className='name'>{vault.name}</div>
                         </div>
-                        <NavLink isActive={isActive} to={`/vaulted/${data.season}/${vaultHash}`} />
+                        <NavLink isActive={isActive} to={`/content-vault/${data.season}/${vault.slug}`} />
                       </li>
                     );
                   })}
@@ -169,7 +155,7 @@ export default function Vaulted(props) {
                   <>
                     <h4>{t('Collectibles')}</h4>
                     <ul className='list collection-items'>
-                      <Collectibles hashes={collectibles} suppressVaultWarning selfLinkFrom={`/vaulted/${data.season}/${selectedHash}`} showInvisible />
+                      <Collectibles hashes={collectibles} suppressVaultWarning selfLinkFrom={`/content-vault/${data.season}/${selectedVault.slug}`} showInvisible />
                     </ul>
                   </>
                 ) : null}
@@ -177,7 +163,7 @@ export default function Vaulted(props) {
                   <>
                     <h4>{t('Records')}</h4>
                     <ul className='list record-items'>
-                      <Records hashes={records} suppressVaultWarning selfLinkFrom={`/vaulted/${data.season}/${selectedHash}`} showInvisible />
+                      <Records hashes={records} suppressVaultWarning selfLinkFrom={`/content-vault/${data.season}/${selectedVault.slug}`} showInvisible />
                     </ul>
                   </>
                 ) : null}

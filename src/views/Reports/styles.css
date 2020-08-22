@@ -144,7 +144,7 @@
 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   #multiplayer .buff {
     grid-template-rows: 40px 1fr;
     grid-template-columns: 1fr;
