@@ -14,6 +14,8 @@ import BraytechMaps_RU from '../data/manifest/ru/BraytechMaps/';
 
 import DestinyActivityDefinition_EN from '../data/manifest/en/DestinyActivityDefinition/';
 
+import DestinyActivityModeDefinition_EN from '../data/manifest/en/DestinyActivityModeDefinition/';
+
 import DestinyActivityModifierDefinition_EN from '../data/manifest/en/DestinyActivityModifierDefinition/';
 import DestinyActivityModifierDefinition_ES from '../data/manifest/es/DestinyActivityModifierDefinition/';
 import DestinyActivityModifierDefinition_ESMX from '../data/manifest/es-MX/DestinyActivityModifierDefinition/';
@@ -42,6 +44,7 @@ const customs = {
     Braytech: Braytech_EN,
     BraytechMaps: BraytechMaps_EN,
     DestinyActivityDefinition: DestinyActivityDefinition_EN,
+    DestinyActivityModeDefinition: DestinyActivityModeDefinition_EN,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_EN,
     DestinyClanBannerDefinition: DestinyClanBannerDefinition_EN,
     DestinyDestinationDefinition: DestinyDestinationDefinition_EN,
@@ -109,6 +112,7 @@ const manifest = {
     newManifest.DestinyClanBannerDefinition = customs.en.DestinyClanBannerDefinition;
 
     customsMerge(newManifest.DestinyActivityDefinition, customsMerge(customs.en.DestinyActivityDefinition, customs[lang].DestinyActivityDefinition));
+    customsMerge(newManifest.DestinyActivityModeDefinition, customsMerge(customs.en.DestinyActivityModeDefinition, customs[lang].DestinyActivityModeDefinition));
     customsMerge(newManifest.DestinyDestinationDefinition, customsMerge(customs.en.DestinyDestinationDefinition, customs[lang].DestinyDestinationDefinition));
     customsMerge(newManifest.DestinyEnemyRaceDefinition, customsMerge(customs.en.DestinyEnemyRaceDefinition, customs[lang].DestinyEnemyRaceDefinition));
     customsMerge(newManifest.DestinyHistoricalStatsDefinition, customsMerge(customs.en.DestinyHistoricalStatsDefinition, customs[lang].DestinyHistoricalStatsDefinition));

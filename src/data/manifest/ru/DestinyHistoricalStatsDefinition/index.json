@@ -1,0 +1,8 @@
+{
+  "killsDeathsRatio": {
+    "statName": "У/С"
+  },
+  "winRate": {
+    "statName": "Процент побед"
+  }
+}

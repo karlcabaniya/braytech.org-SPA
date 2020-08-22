@@ -1208,5 +1208,25 @@
     "date": "2020-08-13T03:15:20.521Z",
     "version": "2.30.7",
     "content": "Bulk bug fixes and improvements"
+  },
+  {
+    "date": "2020-08-18T17:41:01.813Z",
+    "version": "2.30.29",
+    "content": "- fonts and icons\n- lots of perf. and trans. work\n  - matches\n  - user modules\n  - refresh service\n  - auth\n  - matches"
+  },
+  {
+    "date": "2020-08-21T03:31:12.936Z",
+    "version": "2.31.0",
+    "content": "- postmaster and inactivity notifications are now self-dissmissing for when they detect that they are no longer relevant\n- added charts, statistics, more icons, and more stats, to the _Reports_ view\n- started preparing for November 10"
+  },
+  {
+    "date": "2020-08-21T06:54:57.167Z",
+    "version": "2.31.1",
+    "content": "- additions to _Content Vault_ view"
+  },
+  {
+    "date": "2020-08-22T04:16:39.943Z",
+    "version": "2.31.3",
+    "content": "- additions to _Content Vault_ view"
   }
 ]

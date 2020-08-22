@@ -2,60 +2,39 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { t } from '../../../utils/i18n';
-import { GetHistoricalStats } from '../../../utils/bungie';
+import { GetHistoricalStats, GetActivityHistory } from '../../../utils/bungie';
 import { DestinyActivityModeType } from '../../../utils/destinyEnums';
 import { useInterval } from '../../../utils/hooks';
 
 import Spinner from '../../../components/UI/Spinner';
-import Mode from '../../../components/Reports/Mode';
+import Mode, { Details } from '../../../components/Reports/Mode';
 import Matches from '../../../components/Reports/Matches';
+import { useParams } from 'react-router-dom';
 
-async function getStats(member) {
-  const stats = {
-    all: {
-      dungeon: {
-        mode: DestinyActivityModeType.Dungeon,
-      }
-    },
-  };
-
-  let [stats_all] = await Promise.all([
-    GetHistoricalStats(
-      member.membershipType,
-      member.membershipId,
-      member.characterId,
-      '1',
-      Object.values(stats.all).map((m) => m.mode),
-      '0'
-    ),
-  ]);
-
-  stats_all = (stats_all && stats_all.ErrorCode === 1 && stats_all.Response) || [];
-
-  for (const mode in stats_all) {
-    if (stats_all.hasOwnProperty(mode)) {
-      if (!stats_all[mode].allTime) {
-        continue;
-      }
-
-      Object.entries(stats_all[mode].allTime).forEach(([key, value]) => {
-        stats.all[mode][key] = value;
-      });
-    }
-  }
-
-  return stats;
-}
-
-export default function Dungeons(props) {
+export default function Crucible(props) {
+  const auth = useSelector((state) => state.auth);
   const member = useSelector((state) => state.member);
 
   const [state, setState] = useState({
     loading: true,
-    stats: undefined,
+    data: undefined,
   });
 
-  async function updateStats() {
+  const options = {
+    defaultMode: DestinyActivityModeType.Dungeon,
+    root: '/reports/dungeons',
+    limit: 20,
+    updateInterval: 300000,
+    groups: [
+      {
+        modes: [
+          DestinyActivityModeType.Dungeon, //
+        ],
+      },
+    ],
+  };
+
+  async function updateData() {
     const { membershipType, membershipId, characterId } = member;
 
     setState((state) => ({
@@ -63,51 +42,92 @@ export default function Dungeons(props) {
       loading: true,
     }));
 
-    const stats = await getStats({
-      membershipType,
-      membershipId,
-      characterId,
-    });
+    const data = await Promise.all(
+      options.groups.map(async (group) => ({
+        ...group,
+        modes: await Promise.all(
+          group.modes.map(async (mode) => {
+            const [historicalStats, activityHistory] = await Promise.all([
+              await GetHistoricalStats(membershipType, membershipId, characterId, '1', mode, '0'),
+              await GetActivityHistory({
+                params: {
+                  membershipType,
+                  membershipId,
+                  characterId,
+                  count: 100,
+                  mode,
+                  page: 0,
+                },
+                withAuth: auth?.destinyMemberships?.find((d) => d.membershipId === membershipId) && true,
+              }),
+            ]);
+
+            return {
+              mode,
+              historicalStats: historicalStats?.ErrorCode === 1 && historicalStats.Response[Object.keys(historicalStats.Response)?.[0]].allTime,
+              activityHistory: activityHistory?.ErrorCode === 1 && activityHistory.Response.activities,
+            };
+          })
+        ),
+      }))
+    );
 
     setState({
       loading: false,
-      stats,
+      data,
     });
   }
 
   useEffect(() => {
-    if (!state.stats) {
-      updateStats();
+    if (!state.data) {
+      updateData();
     }
+
+    window.scrollTo(0, 0);
   }, []);
 
   useInterval(() => {
     if (!state.loading) {
-      updateStats();
+      updateData();
     }
-  }, 60000);
+  }, options.updateInterval);
+
+  const params = useParams();
 
   return (
     <div className='type'>
-      {state.stats ? (
+      {state.data ? (
         <div className='modes'>
-          <div className='sub-header'>
-            <div>{t('Modes')}</div>
-          </div>
-          <div className='content'>
-            <ul className='list modes'>
-              {Object.values(state.stats.all).map((m) => (
-                <Mode key={m.mode} stats={m} root='/reports/dungeons' defaultMode={DestinyActivityModeType.Dungeon} />
-              ))}
-            </ul>
-          </div>
+          {state.data.map((group, g) => (
+            <React.Fragment key={g}>
+              {group.name ? <h4>{group.name}</h4> : null}
+              <div className='content'>
+                <ul className='modes'>
+                  {group.modes.map((data, m) => (
+                    <li key={m}>
+                      <ul>
+                        <li>
+                          <Mode data={data} root={options.root} defaultMode={options.defaultMode} />
+                        </li>
+                        {(params.mode && data.mode === +params.mode) || (!params.mode && data.mode === options.defaultMode) ? (
+                          <li>
+                            <Details data={data} />
+                          </li>
+                        ) : null}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </React.Fragment>
+          ))}
         </div>
       ) : (
         <div className='modes loading'>
-          <Spinner />
+          <Spinner mini />
         </div>
       )}
-      <Matches mode={props.mode || DestinyActivityModeType.Dungeon} limit='40' offset={props.offset} root='/reports/dungeons' />
+      <Matches mode={props.mode || options.defaultMode} limit={options.limit} offset={props.offset} root={options.root} />
     </div>
   );
 }

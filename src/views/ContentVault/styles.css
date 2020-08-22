@@ -1,20 +1,20 @@
-#vaulted {
+#content-vault {
   padding: 0;
   margin: -40px auto 0;
   width: 100%;
   display: grid;
 }
 
-#vaulted .module.head {
+#content-vault .module.head {
   padding: calc(4rem + 40px) 3rem 3rem;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#vaulted .module.head .page-header:last-child {
+#content-vault .module.head .page-header:last-child {
   margin-bottom: 0;
 }
 
-#vaulted .buff {
+#content-vault .buff {
   width: 100%;
   padding: 3rem;
   display: grid;
@@ -23,7 +23,7 @@
   row-gap: 3rem;
 }
 
-#vaulted .module.views > .list {
+#content-vault .module.views > .list {
   position: sticky;
   top: 3rem;
   display: grid;
@@ -32,119 +32,119 @@
   width: 60px;
 }
 
-#vaulted .module.views .list li {
+#content-vault .module.views .list li {
   display: grid;
   margin: 0;
   height: 60px;
 }
 
-#vaulted .module.views .list li .icon {
+#content-vault .module.views .list li .icon {
   width: 100%;
   display: grid;
   justify-items: center;
   align-items: center;
 }
 
-#vaulted .module.views .list li .icon svg {
+#content-vault .module.views .list li .icon svg {
   width: 32px;
   height: 32px;
   fill: rgba(255, 255, 255, 0.8);
   pointer-events: none;
 }
 
-#vaulted .module.views .list li::before {
+#content-vault .module.views .list li::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.4);
 }
 
-#vaulted .module.views .list li.linked:hover {
+#content-vault .module.views .list li.linked:hover {
   background-color: rgba(255, 255, 255, 0.4);
   z-index: 2;
 }
 
-#vaulted .module.views .list li a.active {
+#content-vault .module.views .list li a.active {
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 1);
   color: #fff;
 }
 
-#vaulted .module.views .list li a:hover {
+#content-vault .module.views .list li a:hover {
   color: #fff;
 }
 
-#vaulted .content {
+#content-vault .content {
   display: grid;
   grid-template-columns: auto;
   gap: 3rem;
 }
 
-#vaulted .module > .text { 
+#content-vault .module > .text { 
   max-width: 600px;
   font-size: 16px;
 }
 
-#vaulted .module .text p:not(:first-child) {
+#content-vault .module .text p:not(:first-child) {
   font-size: 14px;
 }
 
-#vaulted .module .text ~ .button {
+#content-vault .module .text ~ .button {
   margin: 1rem 0 0;
 }
 
-#vaulted .presentation-node .node .children .info {
+#content-vault .presentation-node .node .children .info {
   margin: 1rem 0 0;
 }
 
 @media screen and (max-width: 1280px) {
-  #vaulted .entries > .list.record-items {
+  #content-vault .entries > .list.record-items {
     grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  #vaulted .buff {
+  #content-vault .buff {
     grid-template-columns: 60px 1fr;
   }
 
-  #vaulted .content {
+  #content-vault .content {
     grid-template-columns: auto;
   }
 
-  #vaulted .entries > .list.collection-items {
+  #content-vault .entries > .list.collection-items {
     grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 600px) {
-  #vaulted .module.head {
+  #content-vault .module.head {
     padding: calc(3rem + 40px) 2rem 2rem;
   }
 
-  #vaulted .buff {
+  #content-vault .buff {
     padding: 2rem;
     grid-template-columns: 40px 1fr;
     gap: 2rem;
   }
 
-  #vaulted .module.views .list {
+  #content-vault .module.views .list {
     top: 2rem;
     grid-template-columns: 1fr;
     width: 40px;
   }
 
-  #vaulted .module.views .list li {
+  #content-vault .module.views .list li {
     height: 40px;
   }
 
-  #vaulted .module.views .list li .icon svg {
+  #content-vault .module.views .list li .icon svg {
     width: 24px;
     height: 24px;
   }
 
-  #vaulted .content {
+  #content-vault .content {
     gap: 2rem;
   }
 
-  #vaulted .module > .text {
+  #content-vault .module > .text {
     font-size: 14px;
   }
 }

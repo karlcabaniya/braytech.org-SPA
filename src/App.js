@@ -47,7 +47,7 @@ import Read from './views/Read';
 
 // standalones
 import FAQ from './views/FAQ';
-import Vaulted from './views/Vaulted';
+import ContentVault from './views/ContentVault';
 import Compare from './views/Compare';
 import Commonality from './views/Commonality';
 import ClanBannerBuilder from './views/ClanBannerBuilder';
@@ -336,7 +336,7 @@ class App extends React.Component {
                         <Route path='/commonality' exact component={Commonality} />
                         <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
                         <Route path='/faq' exact component={FAQ} />
-                        <Route path='/vaulted/:season([0-9]+)?/:hash([0-9]+)?' exact component={Vaulted} />
+                        <Route path='/content-vault/:season([0-9]+)?/:slug?' exact component={ContentVault} />
                         <Route path='/solstice-of-heroes/:type?' exact component={SolsticeOfHeroes} />
 
                         <Route path='/oob' component={OOB} />

@@ -1,88 +1,27 @@
-.list.modes li {
-  height: unset;
-  align-items: flex-start;
-  background-color: rgba(255, 255, 255, 0.04);
-  user-select: none;
+.modes {
+  gap: 3px;
 }
 
-.list.modes li:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 1);
+.modes .button.mode {
+  max-width: unset;
+  height: unset;
+  display: grid;
+  --icon-size: 96px;
+}
+
+.modes .button.mode a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
   z-index: 2;
 }
 
-.list.modes li .icon {
-  background-color: rgba(255, 255, 255, 0.04);
-  height: 96px;
-  width: 96px;
-}
-
-.list.modes li .text {
-  width: calc(100% - 96px);
-  height: 96px;
-  padding: 10px 1rem;
-  display: grid;
-  grid-template-columns: auto 72px;
-}
-
-.list.modes li .text .name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 18px;
-}
-
-.list.modes li .text .minor-stats {
-  align-self: flex-end;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-}
-
-.list.modes li .text .stat {
-  
-}
-
-.list.modes li .text .stat .name {
-  font-size: 14px;
-  line-height: 16px;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.list.modes li .text .stat .value {
-  margin: 7px 0 0;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.list.modes li .text .kdr {
-  text-align: right;
-  align-self: flex-start;
-  grid-column: 2/2;
-  grid-row: 1/3;
-}
-
-.list.modes li .text .kdr .name {
-  font-size: 16px;
-}
-
-.list.modes li .text .kdr .value {
-  font-size: 32px;
-  line-height: 28px;
-}
-
-.list.modes li .text .no-stats {
-  grid-row: 2/3;
-  grid-column: 1/3;
-  font-style: italic;
-  letter-spacing: 1px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
-  display: grid;
-  justify-content: center;
-}
-
-.list.modes li a::before {
+.modes .button.mode a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -95,54 +34,141 @@
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0);
 }
 
-.list.modes li a.active::before {
+.modes .button.mode a.active::before {
   background-color: rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 1);
 }
 
-@media screen and (max-width: 600px) {
-
-  .list.modes li .icon {
-    height: 48px;
-    width: 48px;
-  }
-
-  .list.modes li .text {
-    width: calc(100% - 48px);
-    height: 48px;
-    padding: 8px 1rem;
-    grid-template-columns: auto 48px;
-    align-content: center;
-  }
-
-  .list.modes li .text .name {
-    font-size: 14px;
-  }
-
-  .list.modes li .text .minor-stats {
-    display: none;
-  }
-
-  .list.modes li .text .kdr {
-    grid-row: unset;
-  }
-
-  .list.modes li .text .kdr .name {
-    display: none;
-  }
-
-  .list.modes li .text .kdr .value {
-    margin: 0;
-    font-size: 18px;
-    line-height: 18px;
-  }
-
-  .list.modes li .text .no-stats {
-    justify-content: unset;
-    font-size: 10px;
-  }
-
+.modes .button.mode .basics {
+  display: grid;
+  grid-template-columns: var(--icon-size) 1fr;
+  align-items: center;
 }
+
+.modes .button.mode .basics .icon {
+  pointer-events: none;
+  height: var(--icon-size);
+  width: var(--icon-size);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.modes .button.mode .basics .text {
+  padding: 0 1rem;
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 7px;
+  align-items: center;
+}
+
+.modes .button.mode .basics .text > .name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 18px;
+}
+
+.modes .button.mode .basics .text > .activities-entered {
+  display: none;
+}
+
+.modes .button.mode .basics .text .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  line-height: 1;
+}
+
+.modes .button.mode .basics .text .stats > div {
+  display: grid;
+  row-gap: 5px;
+}
+
+.modes .button.mode .basics .text .stats .name {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.modes .button.mode .basics .text .stats .value {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .modes .button.mode {
+    --icon-size: 64px;
+  }
+
+  .modes .button.mode .basics .text {
+    grid-template-columns: unset;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+
+  .modes .button.mode .basics .text > .activities-entered {
+    display: unset;
+  }
+
+  .modes .button.mode .basics .text .stats {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+.modes.details {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.modes.details .lifetime {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.modes.details .lifetime ul {
+  display: grid;
+  row-gap: 10px;
+}
+
+.modes.details .lifetime ul li ul {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+
+.modes.details .lifetime ul li ul li {
+  height: unset;
+  line-height: 1.4;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modes.details .lifetime ul li ul li:first-child {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -306,6 +332,17 @@
 
 .icon.mode svg .falling-3 {
   animation-delay: 1.5s;
+}
+
+/* dungeon icon */
+.icon.mode svg .dungeon .inner,
+.icon.mode svg .dungeon .outer {
+  animation: rotate-linear 90s linear infinite;
+  transform-origin: center;
+}
+
+.icon.mode svg .dungeon .inner {
+  animation-direction: reverse;
 }
 
 .wrapper.reduced-motion .icon.mode svg * {

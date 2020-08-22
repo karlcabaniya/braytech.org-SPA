@@ -5,6 +5,7 @@ import { ReactComponent as TooltipStory } from './tooltips/story.svg';
 import { ReactComponent as TooltipCrucible } from './tooltips/crucible.svg';
 import { ReactComponent as TooltipStrike } from './tooltips/strike.svg';
 import { ReactComponent as TooltipDungeon } from './tooltips/dungeon.svg';
+import { ReactComponent as TooltipDungeonMono } from './tooltips/dungeon-mono.svg';
 import { ReactComponent as TooltipForgeIgnition } from './tooltips/forge-ignition.svg';
 import { ReactComponent as TooltipShadowkeep } from './tooltips/shadowkeep.svg';
 import { ReactComponent as TooltipGambit } from './tooltips/gambit.svg';
@@ -115,8 +116,8 @@ import { ReactComponent as StandingGambitVictory } from './activities/standing-v
 
 import { ReactComponent as VanguardIconStrikes } from './activities/strikes.svg';
 import { ReactComponent as VanguardIconScoredNightfallStrikes } from './activities/scored-nightfall-strikes.svg';
-import { ReactComponent as DungeonIcon } from './activities/dungeon.svg';
 import { ReactComponent as RaidIcon } from './activities/raid.svg';
+import { ReactComponent as DungeonIcon } from './activities/dungeon.svg';
 
 import { ReactComponent as FlairClovisBray } from './flair/clovis-bray.svg';
 import { ReactComponent as FlairSuperintendent } from './flair/superintendent.svg';
@@ -312,7 +313,7 @@ const Views = {
     Crucible: TooltipCrucible,
     Gambit: TooltipGambit,
     Strikes: TooltipStrike,
-    Dungeons: DungeonIcon,
+    Dungeons: TooltipDungeonMono,
     Raids: TooltipRaid,
   },
   Archives: {
@@ -387,6 +388,9 @@ const Activities = {
   },
   Raid: {
     Raid: RaidIcon,
+  },
+  Dungeon: {
+    Dungeon: DungeonIcon,
   },
 };
 

@@ -43,11 +43,11 @@ async function apiRequest(path, options = {}) {
 
     // refresh tokens before making auth-full request
     if (now > then) {
-      if (process.env.NODE_ENV === 'development') console.log('Auth tokens have expired...');
+      if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens have expired...', 'font-style: italic');
       const refreshRequest = await GetOAuthAccessToken(`grant_type=refresh_token&refresh_token=${tokens.refresh.value}`);
 
       if (refreshRequest && refreshRequest.ErrorCode === 1) {
-        if (process.env.NODE_ENV === 'development') console.log('Auth tokens have been replenished.', refreshRequest);
+        if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens have been replenished.', 'font-style: italic', refreshRequest);
 
         // use the token from the response for the original request
         options.headers.Authorization = `Bearer ${refreshRequest.Response.access.value}`;
@@ -55,12 +55,12 @@ async function apiRequest(path, options = {}) {
       // token refreshRequest returned with an error...
       // return that error to whoever asked for this
       else {
-        if (process.env.NODE_ENV === 'development') console.log('Auth tokens could not be replenished!');
+        if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens could not be replenished!', 'font-style: italic');
 
         return await refreshRequest;
       }
     } else {
-      if (process.env.NODE_ENV === 'development') console.log('Auth tokens are current.');
+      if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens are current.', 'font-style: italic');
       options.headers.Authorization = `Bearer ${tokens.access.value}`;
     }
   }
@@ -109,7 +109,7 @@ async function apiRequest(path, options = {}) {
 
     // if it's auth related, abandon all hope and reset
     if (path === '/Platform/App/OAuth/Token/') {
-      console.log(`There was an OAuth token error so I'm going to go ahead and reset your tokens for you.`);
+      console.log(`%cThere was an OAuth token error so I'm going to go ahead and reset your tokens for you.`, 'font-style: italic');
 
       store.dispatch({
         type: 'RESET_AUTH',

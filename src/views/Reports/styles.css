@@ -72,21 +72,20 @@
 
 #multiplayer .type {
   display: grid;
-  grid-template-columns: minmax(320px, 500px) auto;
+  grid-template-columns: 2fr 4fr;
   gap: 3rem;
+  align-items: start;
 }
 
 #multiplayer .type .modes {
   display: grid;
-}
-
-#multiplayer .type .modes:not(.loading) {
   align-content: start;
 }
 
-#multiplayer .type .modes .spinner {
-  align-self: center;
-  justify-self: center;
+#multiplayer .type .modes.loading {
+  align-content: center;
+  justify-content: center;
+  height: calc(100vh - 152px - 6rem);
 }
 
 
@@ -99,7 +98,11 @@
 
 
 
-
+@media screen and (max-width: 1400px) {
+  #multiplayer .type {
+    grid-template-columns: 2fr 3fr;
+  }
+}
 
 @media screen and (max-width: 1024px) {
   #multiplayer .buff {
@@ -137,6 +140,19 @@
     grid-template-columns: 1fr;
     gap: 2rem;
     align-content: start;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  #multiplayer .buff {
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  #multiplayer .module.views .list {
+    grid-template-columns: repeat(auto-fill, 40px);
+    width: 100%;
   }
 
 }

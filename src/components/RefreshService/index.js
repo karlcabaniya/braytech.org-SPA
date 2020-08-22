@@ -71,12 +71,12 @@ class RefreshService extends React.Component {
     this.clearInterval();
 
     this.props.pushNotification({
+      hash: 'refresh-service-inactive',
       date: new Date().toISOString(),
       expiry: 86400000,
       displayProperties: {
         name: 'Braytech',
         description: t('RefreshService.Inactive.Description'),
-        timeout: 2 * 60,
       },
     });
   }
@@ -99,13 +99,19 @@ class RefreshService extends React.Component {
     if (wasInactive) {
       this.startInterval();
       this.service();
+
+      this.props.popNotification('refresh-service-inactive');
     }
   };
 
   handler_visibility = (event) => {
+    const wasInactive = !this.activeWithinTimespan(TIMEOUT);
+
     if (document.hidden === false) {
       this.track();
       this.service();
+
+      this.props.popNotification('refresh-service-inactive');
     }
   };
 
@@ -171,6 +177,9 @@ function mapDispatchToProps(dispatch) {
     },
     pushNotification: (payload) => {
       dispatch({ type: 'PUSH_NOTIFICATION', payload });
+    },
+    popNotification: (payload) => {
+      dispatch({ type: 'POP_NOTIFICATION', payload });
     },
   };
 }

@@ -7,7 +7,7 @@ import * as enums from './destinyEnums';
 import { D2SeasonInfo } from '../data/d2-additional-info/d2-season-info.ts';
 import * as SVG from '../svg';
 
-export const neverProfileLinks = ['/maps', '/vaulted', '/solstice-of-heroes'];
+export const neverProfileLinks = ['/maps', '/content-vault', '/solstice-of-heroes'];
 
 export const isProfileRoute = (location) => {
   // if (location.pathname.indexOf('inventory') > -1) {
@@ -807,7 +807,7 @@ export function activityModeExtras(mode) {
   const extras = [
     {
       modes: [73],
-      name: manifest.DestinyActivityDefinition[3176544780].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[3176544780]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.Control />,
     },
     {
@@ -816,7 +816,7 @@ export function activityModeExtras(mode) {
     },
     {
       modes: [71],
-      name: manifest.DestinyActivityDefinition[2303927902].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[2303927902]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.Clash />,
     },
     {
@@ -825,17 +825,17 @@ export function activityModeExtras(mode) {
     },
     {
       modes: [43],
-      name: manifest.DestinyActivityDefinition[3753505781].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[3753505781]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.IronBanner />,
     },
     {
       modes: [31],
-      name: manifest.DestinyActivityDefinition[3780095688].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[3780095688]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.Supremacy />,
     },
     {
       modes: [79],
-      name: manifest.DestinyActivityTypeDefinition[332181804].displayProperties.name,
+      name: manifest.DestinyActivityTypeDefinition[332181804]?.displayProperties.name,
     },
     {
       modes: [48],
@@ -843,7 +843,7 @@ export function activityModeExtras(mode) {
     },
     {
       modes: [81],
-      name: manifest.DestinyActivityDefinition[952904835].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[952904835]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.MomentumControl />,
     },
     {
@@ -868,7 +868,7 @@ export function activityModeExtras(mode) {
     },
     {
       modes: [38],
-      name: manifest.DestinyActivityDefinition[3646079260].displayProperties.name,
+      name: manifest.DestinyActivityDefinition[3646079260]?.displayProperties.name,
       icon: <SVG.Activities.Crucible.Countdown />,
     },
     {
@@ -886,7 +886,8 @@ export function activityModeExtras(mode) {
 
     // Gambit
     {
-      modes: [63],
+      modes: [63, 64],
+      name: manifest.DestinyActivityModeDefinition[1848252830]?.displayProperties.name,
       icon: <SVG.Activities.Gambit.Gambit />,
     },
     {
@@ -901,8 +902,14 @@ export function activityModeExtras(mode) {
     // Raid
     {
       modes: [4],
-      name: manifest.DestinyActivityModeDefinition[2043403989].displayProperties.name,
+      name: manifest.DestinyPresentationNodeDefinition[1162218545]?.displayProperties.name,
       icon: <SVG.Activities.Raid.Raid />,
+    },
+
+    // Dungeon
+    {
+      modes: [82],
+      icon: <SVG.Activities.Dungeon.Dungeon />,
     },
 
     // Vanguard

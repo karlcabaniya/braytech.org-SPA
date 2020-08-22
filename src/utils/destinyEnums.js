@@ -245,6 +245,23 @@ export const DestinyActivityModeType = {
   TrialsOfOsiris: 84,
 };
 
+export const DestinyHistoricalStatsUnitType = {
+  None: 0,
+  Count: 1, // Indicates the statistic is a simple count of something.
+  PerGame: 2, // Indicates the statistic is a per game average.
+  Seconds: 3, // Indicates the number of seconds
+  Points: 4, // Indicates the number of points earned
+  Team: 5, // Values represents a team ID
+  Distance: 6, // Values represents a distance (units to-be-determined)
+  Percent: 7, // Ratio represented as a whole value from 0 to 100.
+  Ratio: 8, // Ratio of something, shown with decimal places
+  Boolean: 9, // True or false
+  WeaponType: 10, // The stat is actually a weapon type.
+  Standing: 11, // Indicates victory, defeat, or something in between.
+  Milliseconds: 12, // Number of milliseconds some event spanned. For example, race time, or lap time.
+  CompletionReason: 13, // The value is a enumeration of the Completion Reason type.
+};
+
 const ENERGY_CAPACITY_SOLAR = 2018193158;
 const ENERGY_CAPACITY_ARC = 3625423501;
 const ENERGY_CAPACITY_VOID = 16120457;
@@ -1270,7 +1287,8 @@ export const DestinyContentVault = [
     season: 12,
     vault: [
       {
-        bucketHash: 138197802, // General
+        name: 'General',
+        slug: 'general',
         buckets: {
           nodes: [],
           collectibles: [],
@@ -1278,11 +1296,36 @@ export const DestinyContentVault = [
             565725664, // Uldren Sov
             2122886722, // Ghost Stories
             1971661116, // The Awoken of the Reef
+            2478001043,
+            3367594762,
+            581089627,
+            1879702969,
+            3957303142,
+            3985356666,
           ],
         },
       },
       {
-        placeHash: 4251857532, // Io
+        name: 'Crucible',
+        slug: 'crucible',
+        buckets: {
+          nodes: [],
+          collectibles: [],
+          records: [2356701558, 653350487, 1914666283, 2417378659, 3709742728, 4166658100, 3762058492, 3762058493, 3762058494, 3778836048, 3778836051, 1290309452, 1290309453, 1290309454, 1307087008, 1307087011, 3664890052, 4150117620, 395207948, 4150117621, 4150117622, 4166895176, 4166895179, 708283993, 708283995, 706112207, 708283994, 758616720, 758616723],
+        },
+      },
+      {
+        name: 'Forges',
+        slug: 'forges',
+        buckets: {
+          nodes: [],
+          collectibles: [3544133726, 1181037746, 1589426903, 1663762675, 3433736744, 3162294999, 222871486, 39133431, 1453679214, 1453679213, 1453679212, 1453679215, 2769022687, 3689404793, 2339248920, 2339248923, 2339248922, 2339248921, 2339248924, 2339248925, 4222686428, 2743329589, 4051858721, 3401803999, 3017091086, 3120678156, 4239793204, 626854170, 3011708183, 1485243211, 1664725735, 2591241632, 2699493144, 1279908542, 2080377747],
+          records: [],
+        },
+      },
+      {
+        name: 'Explore: IO',
+        slug: 'io',
         buckets: {
           nodes: [
             4139791846, // Gensym Knight Suit
@@ -1334,7 +1377,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        placeHash: 386951460, // Titan, Moon of Saturn
+        name: 'Explore: Titan',
+        slug: 'titan',
         buckets: {
           nodes: [
             4139791844, // Lost Pacific Suit
@@ -1388,7 +1432,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        placeHash: 1259908504, // Mercury
+        name: 'Explore: Mercury',
+        slug: 'mercury',
         buckets: {
           nodes: [
             4139791842, // Kairos Function Suit
@@ -1450,7 +1495,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        placeHash: 2426873752, // Mars
+        name: 'Explore: Mars',
+        slug: 'mars',
         buckets: {
           nodes: [
             4139791843, // BrayTech Suit
@@ -1537,7 +1583,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityModeHash: 547513715, // Scored Nightfall Strikes
+        name: 'Nightfall Strikes',
+        slug: 'nightfall-strikes',
         buckets: {
           nodes: [],
           collectibles: [
@@ -1597,7 +1644,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 2693136600, // Leviathan
+        name: 'Raid: Leviathan',
+        slug: 'leviathan',
         buckets: {
           nodes: [
             1375933822, // Fulminator Suit
@@ -1637,7 +1685,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 3089205900, // Leviathan, Eater of Worlds
+        name: 'Raid: Leviathan, Eater of Worlds',
+        slug: 'eater-of-worlds',
         buckets: {
           nodes: [
             1375933820, // Sekris Suit
@@ -1675,7 +1724,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 119944200, // Leviathan, Spire of Stars
+        name: 'Raid: Leviathan, Spire of Stars',
+        slug: 'spire-of-stars',
         buckets: {
           nodes: [
             1375933818, // Insigne Shade Suit
@@ -1715,7 +1765,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 548750096, // Scourge of the Past
+        name: 'Raid: Scourge of the Past',
+        slug: 'scourge-of-the-past',
         buckets: {
           nodes: [
             1114960391, // Gunsmith's Devotion Suit
@@ -1742,7 +1793,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 3333172150, // Crown of Sorrow
+        name: 'Raid: Crown of Sorrow',
+        slug: 'crown-of-sorrow',
         buckets: {
           nodes: [
             714676221, // Shadow of Judgment Suit
@@ -1772,7 +1824,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 352668024, // The Menagerie
+        name: 'The Menagerie',
+        slug: 'the-menagerie',
         buckets: {
           nodes: [
             2551808106, // Opulent Scholar Suit
@@ -1821,7 +1874,8 @@ export const DestinyContentVault = [
         },
       },
       {
-        activityHash: 3858493935, // The Tribute Hall
+        name: 'The Tribute Hall',
+        slug: 'tribute-hall',
         buckets: {
           nodes: [
             3892601654, // The Tribute Hall
