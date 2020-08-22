@@ -46,4 +46,4 @@ SET   Origin Header       https://localhost:3000
 ```
 npm start
 ```
-5.  Join the [Discord server](https://discordapp.com/invite/Y68xDsG)
+5.  Join the [Discord server](https://discord.braytech.org)
