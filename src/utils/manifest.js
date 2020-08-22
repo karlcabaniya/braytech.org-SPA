@@ -33,6 +33,8 @@ import DestinyDestinationDefinition_RU from '../data/manifest/ru/DestinyDestinat
 import DestinyEnemyRaceDefinition_EN from '../data/manifest/en/DestinyEnemyRaceDefinition/';
 
 import DestinyHistoricalStatsDefinition_EN from '../data/manifest/en/DestinyHistoricalStatsDefinition/';
+import DestinyHistoricalStatsDefinition_IT from '../data/manifest/it/DestinyHistoricalStatsDefinition/';
+import DestinyHistoricalStatsDefinition_RU from '../data/manifest/ru/DestinyHistoricalStatsDefinition/';
 
 import DestinyInventoryItemDefinition_EN from '../data/manifest/en/DestinyInventoryItemDefinition/';
 import DestinyInventoryItemDefinition_IT from '../data/manifest/it/DestinyInventoryItemDefinition/';
@@ -70,6 +72,7 @@ const customs = {
     BraytechMaps: BraytechMaps_IT,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_IT,
     DestinyDestinationDefinition: DestinyDestinationDefinition_IT,
+    DestinyHistoricalStatsDefinition: DestinyHistoricalStatsDefinition_IT,
     DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_IT,
   },
   ja: {},
@@ -81,6 +84,7 @@ const customs = {
     BraytechMaps: BraytechMaps_RU,
     DestinyActivityModifierDefinition: DestinyActivityModifierDefinition_RU,
     DestinyDestinationDefinition: DestinyDestinationDefinition_RU,
+    DestinyHistoricalStatsDefinition: DestinyHistoricalStatsDefinition_RU,
     DestinyInventoryItemDefinition: DestinyInventoryItemDefinition_RU,
   },
   'zh-chs': {},
