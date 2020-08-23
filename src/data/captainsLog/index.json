@@ -1228,5 +1228,10 @@
     "date": "2020-08-22T04:16:39.943Z",
     "version": "2.31.3",
     "content": "- additions to _Content Vault_ view"
+  },
+  {
+    "date": "2020-08-23T02:27:23.800Z",
+    "version": "2.31.6",
+    "content": "- additions to _Content Vault_ view\n- language additions\n- valor resets bug\n- installed a fully sick subwoofer"
   }
 ]

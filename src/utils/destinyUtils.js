@@ -114,6 +114,10 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
   });
 
   const valorSeasons = [
+    // {
+    //   recordHash: 3641080561, // Season 3
+    //   objectiveHash: 4212711651,
+    // },
     {
       recordHash: 1341325320,
       objectiveHash: 1089010148,
@@ -141,6 +145,10 @@ export const calculateResets = (progressionHash, characterId, characterProgressi
     {
       recordHash: 1745319359,
       objectiveHash: 1305109085,
+    },
+    {
+      recordHash: 623937160,
+      objectiveHash: 346050916,
     },
   ].map((season) => {
     const definitionRecord = manifest.DestinyRecordDefinition[season.recordHash];
