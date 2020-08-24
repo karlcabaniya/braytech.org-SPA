@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, useParams } from 'react-router-dom';
 import cx from 'classnames';
+import queryString from 'query-string';
 
 import * as enums from '../../../utils/destinyEnums';
 import manifest from '../../../utils/manifest';
@@ -9,15 +10,14 @@ import manifest from '../../../utils/manifest';
 import './styles.css';
 import ObservedImage from '../../../components/ObservedImage';
 
-function talentGrid(itemHash, itemComponents, itemInstanceId) {
+function talentGrid(itemHash, selectedNodes) {
   const definitionInventoryItem = manifest.DestinyInventoryItemDefinition[itemHash];
   const definitionTalentGrid = manifest.DestinyTalentGridDefinition[definitionInventoryItem?.talentGrid?.talentGridHash];
-  const itemInstance = itemComponents?.talentGrids.data[itemInstanceId];
 
   if (!definitionTalentGrid) return {};
 
-  const talentGridHash = itemInstance?.talentGridHash || definitionTalentGrid.hash;
-  const nodes = itemInstance?.nodes.filter((node) => !node.hidden) || definitionTalentGrid.nodes.filter((node, n) => definitionTalentGrid.independentNodeIndexes.includes(n));
+  const talentGridHash = definitionTalentGrid.hash;
+  const nodes = definitionTalentGrid.nodes.filter((node, n) => definitionTalentGrid.independentNodeIndexes.includes(n));
 
   return {
     talentGridHash,
@@ -48,7 +48,7 @@ function talentGrid(itemHash, itemComponents, itemInstanceId) {
         column: talentNodeGroup.column,
         row: talentNodeGroup.row,
         // Is the node selected (lit up in the grid)
-        isActivated: node.isActivated,
+        isActivated: selectedNodes.includes(step.nodeStepHash),
         // The item level at which this node can be unlocked
         activatedAtGridLevel,
         // Only one node in this column can be selected (scopes, etc)
@@ -62,14 +62,18 @@ function talentGrid(itemHash, itemComponents, itemInstanceId) {
 }
 
 export default function Talents() {
-  const member = useSelector((state) => state.member);
+  // const member = useSelector((state) => state.member);
 
+  const location = useLocation();
   const params = useParams();
   const itemHash = params.itemHash && +params.itemHash;
 
-  const { itemInstanceId } = member.data.inventory?.find((item) => item.itemHash === itemHash) || {};
+  // const { itemInstanceId } = member.data.inventory?.find((item) => item.itemHash === itemHash) || {};
+  
+  const query = queryString.parse(location.search);
+  const urlNodes = query.nodes?.split('/').map(node => +node || false);
 
-  const { talentGridHash, nodes } = talentGrid(itemHash, member.data.profile?.itemComponents, itemInstanceId);
+  const { talentGridHash, nodes } = talentGrid(itemHash, urlNodes);
 
   console.log(talentGridHash, nodes);
 
