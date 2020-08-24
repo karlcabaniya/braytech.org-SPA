@@ -7,6 +7,7 @@ import * as enums from '../../../utils/destinyEnums';
 import manifest from '../../../utils/manifest';
 
 import './styles.css';
+import ObservedImage from '../../../components/ObservedImage';
 
 function talentGrid(itemHash, itemComponents, itemInstanceId) {
   const definitionInventoryItem = manifest.DestinyInventoryItemDefinition[itemHash];
@@ -44,8 +45,8 @@ function talentGrid(itemHash, itemComponents, itemInstanceId) {
         groupHash: talentNodeGroup.groupHash,
         displayProperties: step.displayProperties,
         // Position in the grid
-        column: talentNodeGroup.column / 8,
-        row: talentNodeGroup.row / 8,
+        column: talentNodeGroup.column,
+        row: talentNodeGroup.row,
         // Is the node selected (lit up in the grid)
         isActivated: node.isActivated,
         // The item level at which this node can be unlocked
@@ -54,6 +55,7 @@ function talentGrid(itemHash, itemComponents, itemInstanceId) {
         exclusiveInColumn,
         // Some nodes don't show up in the grid, like purchased ascend nodes
         hidden: node.hidden,
+        layoutIdentifier: talentNodeGroup.layoutIdentifier,
       };
     }),
   };
@@ -75,26 +77,27 @@ export default function Talents() {
   const nodePadding = 4;
   const totalNodeSize = nodeSize + nodePadding;
 
-  const numColumns = nodes
+  const maxColumns = nodes
     .filter((node) => !node.hidden)
     .reduce((max, node) => {
-      return Math.max(max, node.column + 1);
+      return Math.max(max, node.column);
     }, 0);
-  const numRows = nodes
-    .filter((node) => !node.hidden)
-    .reduce((max, node) => {
-      return Math.max(max, node.row + 1);
-    }, 0);
+
+  // console.log(maxColumns)
 
   const groups = nodes.reduce((groups, node) => {
     const group = groups.find((group) => group.groupHash === node.groupHash);
 
     if (group) {
+      const nodes = [...group.nodes, node];
+
       return [
         ...groups.filter((g) => g.groupHash !== group.groupHash),
         {
           groupHash: group.groupHash,
-          nodes: [...group.nodes, node],
+          nodes,
+          column: nodes.reduce((sum, node) => sum + node.column, 0) / nodes.length,
+          row: nodes.reduce((sum, node) => sum + node.row, 0) / nodes.length,
         },
       ];
     } else {
@@ -103,42 +106,48 @@ export default function Talents() {
         {
           groupHash: node.groupHash,
           nodes: [node],
+          column: node.column,
+          row: node.row,
         },
       ];
     }
   }, []);
 
+  console.log(groups);
+
   return (
     <div className='view' id='inspect'>
-      <svg preserveAspectRatio='xMaxYMin meet' viewBox={`0 0 ${numColumns * totalNodeSize - nodePadding} ${numRows * totalNodeSize - nodePadding + 1}`} className='talent-grid'>
+      <div className='talent-grid'>
         {groups.map((group, g) =>
           group.nodes.length > 1 ? (
-            <g key={g} className='group'>
+            <div key={g} className='group'>
+              <div className='border' style={{ left: `${group.column}%`, top: `${group.row + 10}%` }} />
               {group.nodes.map((node, n) => (
-                <TalentGridNode key={n} node={node} totalNodeSize={totalNodeSize} isGrouped />
+                <TalentGridNode key={n} node={node} />
               ))}
-            </g>
+            </div>
           ) : (
-            group.nodes.map((node, n) => <TalentGridNode key={n} node={node} totalNodeSize={totalNodeSize} />)
+            group.nodes.map((node, n) => <TalentGridNode key={n} node={node} />)
           )
         )}
-      </svg>
+      </div>
     </div>
   );
 }
 
-function TalentGridNode({ node, totalNodeSize, isGrouped }) {
+function TalentGridNode({ node }) {
   return (
-    <g
-      transform={`translate(${node.column * totalNodeSize},${node.row * totalNodeSize})`}
-      className={cx('talent-node', {
-        'talent-node-activated': node.isActivated,
-        'talent-node-default': node.isActivated && !node.exclusiveInColumn && node.column < 1,
+    <div
+      className={cx('node', {
+        selected: node.isActivated,
+        default: node.isActivated && !node.exclusiveInColumn && node.column < 1,
+        super: node.layoutIdentifier === 'super',
       })}
+      style={{ left: `${node.column}%`, top: `${node.row + 10}%` }}
     >
-      {isGrouped ? <rect x='-16' y='8' width='32' height='32' transform='rotate(-45)' className='talent-node-xp' /> : <rect x='-18' y='6' width='36' height='36' transform='rotate(-45)' className='talent-node-xp' />}
-      <image className='talent-node-img' href={`https://www.bungie.net${node.displayProperties.icon}`} x='20' y='20' height='96' width='96' transform='scale(0.25)' />
-      <title>{node.displayProperties.name}</title>
-    </g>
+      <div className='border' />
+      <div className='button' />
+      <ObservedImage src={`https://www.bungie.net${node.displayProperties.icon}`} />
+    </div>
   );
 }
