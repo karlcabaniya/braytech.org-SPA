@@ -31,6 +31,8 @@ function shuffle(array) {
   return array;
 }
 
+const android = document.referrer.includes('android-app://');
+
 export default function Index() {
   const [index, setIndex] = useState(0);
 
@@ -115,7 +117,7 @@ export default function Index() {
         <div className='wrapper'>
           <div className='large-text'>
             <div className='name'>Braytech</div>
-            <div className='description'>{t("Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud.")}</div>
+            <div className='description'>{t("Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud.")} {android && 'test'}</div>
             <Link className='button cta' to='/now'>
               <div className='text'>{t('Select your character')}</div>
               <i className='segoe-mdl-arrow-right' />
