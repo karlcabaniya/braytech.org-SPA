@@ -144,7 +144,7 @@ export default function Index() {
           </div>
           <div className='module'>
             <h3>{t('Support Braytech')}</h3>
-            <BraytechText className='description' value={t("Landing.Support")} />
+            <BraytechText className='description' value={t('Landing.Support')} />
             <a className='button cta' href='https://www.patreon.com/braytech' target='_blank' rel='noreferrer noopener'>
               <div className='text'>{t('Become a Patron')}</div>
               <i className='segoe-mdl-arrow-right' />
@@ -161,16 +161,16 @@ export default function Index() {
         <div className='wrapper'>
           <div className='module'>
             <h3>{t('What is Braytech')}</h3>
-            <BraytechText className='description' value={t("Landing.About.What")} />
+            <BraytechText className='description' value={t('Landing.About.What')} />
           </div>
           <div className='module'>
             <h3>{t('Who builds it')}</h3>
-            <BraytechText className='description' value={t("Landing.About.Who")} />
+            <BraytechText className='description' value={t('Landing.About.Who')} />
           </div>
           {manifest.statistics.scrapes?.last?.tracking ? (
             <div className='module stats'>
               <h3>{t('VOLUSPA statistics')}</h3>
-              <BraytechText className='description' value={t("Landing.VOLUSPA")} />
+              <BraytechText className='description' value={t('Landing.VOLUSPA')} />
               <ul>
                 <li>
                   <div className='value'>{manifest.statistics.scrapes.last.tracking.toLocaleString()}</div>
@@ -183,7 +183,7 @@ export default function Index() {
                   <div className='value'>{manifest.statistics.scrapes.last.season.toLocaleString()}</div>
                   <div className='name'>{t('Landing.VOLUSPA.PlayedSeason.Name')}</div>
                   <div className='description'>
-                    <p>{t("Landing.VOLUSPA.TrackedPlayers.Description")}</p>
+                    <p>{t('Landing.VOLUSPA.PlayedSeason.Description')}</p>
                   </div>
                 </li>
               </ul>

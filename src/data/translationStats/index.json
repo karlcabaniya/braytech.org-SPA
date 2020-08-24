@@ -1,24 +1,14 @@
 {
   "de": {
-    "translated": 694,
-    "notTranslated": 91,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 698,
+    "notTranslated": 87,
+    "added": [],
     "removed": []
   },
   "debug": {
     "translated": 785,
     "notTranslated": 0,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "added": [],
     "removed": []
   },
   "en": {
@@ -28,130 +18,85 @@
     "removed": []
   },
   "es-mx": {
-    "translated": 781,
-    "notTranslated": 4,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 785,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "es": {
-    "translated": 781,
-    "notTranslated": 4,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 785,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "fr": {
-    "translated": 622,
-    "notTranslated": 163,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 626,
+    "notTranslated": 159,
+    "added": [],
     "removed": []
   },
   "it": {
-    "translated": 781,
-    "notTranslated": 4,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 785,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "ja": {
-    "translated": 569,
-    "notTranslated": 216,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 573,
+    "notTranslated": 212,
+    "added": [],
     "removed": []
   },
   "ko": {
-    "translated": 498,
-    "notTranslated": 287,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 502,
+    "notTranslated": 283,
+    "added": [],
     "removed": []
   },
   "pl": {
-    "translated": 333,
-    "notTranslated": 452,
+    "translated": 337,
+    "notTranslated": 448,
     "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
+      "Landing.VOLUSPA.PlayedSeason.Description",
+      "Landing.VOLUSPA.TrackedPlayers.Description"
     ],
-    "removed": []
+    "removed": [
+      "Number of players VOLUSPA is tracking through their activities and accomplishments",
+      "Number of tracked players who've played this season"
+    ]
   },
   "pt-br": {
-    "translated": 761,
-    "notTranslated": 24,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 765,
+    "notTranslated": 20,
+    "added": [],
     "removed": []
   },
   "ru": {
-    "translated": 781,
-    "notTranslated": 4,
-    "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!"
-    ],
+    "translated": 785,
+    "notTranslated": 0,
+    "added": [],
     "removed": []
   },
   "zh-chs": {
-    "translated": 605,
-    "notTranslated": 180,
+    "translated": 609,
+    "notTranslated": 176,
     "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!",
-      "Landing.Flair"
+      "Landing.VOLUSPA.PlayedSeason.Description",
+      "Landing.VOLUSPA.TrackedPlayers.Description"
     ],
     "removed": [
-      "Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud."
+      "Number of players VOLUSPA is tracking through their activities and accomplishments",
+      "Number of tracked players who've played this season"
     ]
   },
   "zh-cht": {
-    "translated": 662,
-    "notTranslated": 123,
+    "translated": 666,
+    "notTranslated": 119,
     "added": [
-      "Braytech is an app and it wants to be your best Destiny sidekick.\n\nBraytech's features include _Clan_, _Collections_, _Triumphs_, _Trackers_, _Checklists_, _Maps_, _Quests_, _Reports_, as well as curated and customisable views.\n\nJust as Destiny is a game for all Guardians, available in various languages, so is Braytech. It's beautiful on both desktop computers and smaller touch devices, accessible by anyone from anywhere.\n\nThe name, Braytech, is that which Clovis Bray, one of several of the franchise's fictional entities, designates their consumer products line; weapons, armour, etc. As such, I thought it fitting as a name for what I endeavour to be one of Destiny's best third-party resources.",
-      "Building these beautiful interfaces and fencing with Bungie's APIs takes effort and time. I can only devote so much of it to hobby ventures, which also cost money to keep online. I have a firm stance against ads on web sites as we know them. As such, I prefer to support these projects out of my own pocket and depend on the generosity of my community.\n\nBy supporting me, you can help ensure that I can keep these projects online, as well as help enable me to continue adding cool new features.",
-      "For the most part, Braytech is a simple front-end application. Although, beneath lies VOLUSPA, named after of one of _Rasputin's_ subminds. VOLUSPA records user profiles' unique identifier and regularly collates statistics based upon them. These statistics are displayed throughout the app in the form of record and collectible _commonality_—the term I've given the statistics that denotes how common a collectible or record is between players.",
-      "Hi, my name's Tom, and I'm addicted to Destiny. Okay, so not addicted—I've had time to build this web app. Truthfully, I'm an avid Destiny enthusiast who needs both an outlet for letting off steam and for developing my web skills further for use in my professional activities.\n\nBraytech is a stringent exercise in mimicry—and to a small degree, reimagining—Destiny's UI for web and mobile. This has been my first React project, the first time I've heavily used the command line, the first time I've had to use NPM... And it's been super fun and rewarding, most of the time!",
-      "Landing.Flair"
+      "Landing.VOLUSPA.TrackedPlayers.Description"
     ],
     "removed": [
-      "Welcome. This is Braytech—a fan-built companion app for Bungie's Destiny. Unleash your potential and make Shaxx proud."
+      "Number of players VOLUSPA is tracking through their activities and accomplishments"
     ]
   }
 }
