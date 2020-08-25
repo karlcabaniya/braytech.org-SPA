@@ -1,10 +1,17 @@
 .talent-grid {
   position: relative;
-  width: 100vh;
-  height: 100vh;
+  --dimensions: 100vh;
+  width: var(--dimensions);
+  height: var(--dimensions);
   --energy-solar: rgba(241, 101, 25, 0.5);
   --energy-arc: rgba(121, 190, 232, 0.5);
   --energy-void: rgba(167, 119, 197, 0.5);
+}
+
+@media (orientation: portrait) {
+  .talent-grid {
+    --dimensions: 100vw;
+  }
 }
 
 .talent-grid .node {
@@ -79,8 +86,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 270%;
-  height: 270%;
+  width: 274%;
+  height: 274%;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
   pointer-events: none;

@@ -87,13 +87,8 @@ export default function Talents() {
 
 function talentGridUrl(itemHash, nodeCategories, nodes, nodeIndex) {
   const target = nodeCategories.find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex));
-  const selectedPath = nodeCategories.find(({ nodeIndexes, isSubclassPath }) => isSubclassPath && nodeIndexes.find((i) => nodes[i].isActivated));
 
-  if (target.identifier.includes('Path')) console.log(target.identifier);
-  if (target.identifier.includes('Path')) console.log(target, selectedPath);
-  if (target.identifier.includes('Path')) console.log(nodeCategories, nodes, nodeIndex);
-
-  const r = nodeCategories.map(({ nodeIndexes, isSubclassPath }) => {
+  const configuration = nodeCategories.map(({ nodeIndexes, isSubclassPath }) => {
     const includesTargetIndex = nodeIndexes.includes(nodeIndex);
 
     return nodeIndexes.map((n) => {
@@ -102,29 +97,25 @@ function talentGridUrl(itemHash, nodeCategories, nodes, nodeIndex) {
         if (includesTargetIndex) {
           return nodes[n].hash;
         }
-        //
+        // else leave whatever is activated, activated, unless the target is a node group
         else if (nodes[n].isActivated && !target.isSubclassPath) {
           return nodes[n].hash;
-        }
-        //
-        else {
-          return 'zzz';
+        } else {
+          return false;
         }
       }
 
       if (includesTargetIndex) {
-        return n === nodeIndex ? nodes[n].hash : 'hhh';
+        return n === nodeIndex ? nodes[n].hash : false;
       }
 
-      return nodes[n].isActivated ? nodes[n].hash : 'eee';
+      return nodes[n].isActivated ? nodes[n].hash : false;
     });
   });
 
-  if (target.identifier.includes('Path')) console.log(r);
-
-  return `/inspect/talents/${itemHash}?nodes=${r
+  return `/inspect/talents/${itemHash}?nodes=${configuration
     .flat()
-    .map((n) => n || '')
+    .map((hash) => hash || '')
     .join('/')}`;
 }
 
