@@ -16,12 +16,29 @@
   --selected: var(--energy-void);
 }
 
+.group .path {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.group .path svg {
+  pointer-events: none;
+}
+
+.group .path.selected {
+  opacity: 0.1;
+}
+
 .talent-grid .group .border {
   position: absolute;
   width: 15%;
   height: 15%;
   transform: translate(-50%, -50%) rotate(45deg);
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
 .talent-grid .group .node .border {

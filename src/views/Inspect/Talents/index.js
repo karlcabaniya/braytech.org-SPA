@@ -17,9 +17,6 @@ function talentGrid(itemHash, selectedNodes) {
 
   if (!definitionTalentGrid) return {};
 
-  const talentGridHash = definitionTalentGrid.hash;
-  //  const nodes = .filter((node, n) => definitionTalentGrid.independentNodeIndexes.includes(n));
-
   const nodes = definitionTalentGrid.nodes.map((node) => {
     const talentNodeGroup = definitionTalentGrid.nodes[node.nodeIndex];
     const step = talentNodeGroup.steps[0];
@@ -31,13 +28,13 @@ function talentGrid(itemHash, selectedNodes) {
       displayProperties: step.displayProperties,
       hidden: Boolean(node.hidden),
       isActivated: selectedNodes.includes(step.nodeStepHash),
-      column: talentNodeGroup.column + 20,
-      row: talentNodeGroup.row + 12,
+      column: talentNodeGroup.column + 9,
+      row: talentNodeGroup.row + 14,
     };
   });
 
   return {
-    talentGridHash,
+    talentGridHash: definitionTalentGrid.hash,
     nodeCategories: definitionTalentGrid.nodeCategories.map(({ nodeHashes, ...category }) => ({
       ...category,
       nodeIndexes: nodeHashes,
@@ -48,28 +45,14 @@ function talentGrid(itemHash, selectedNodes) {
 }
 
 export default function Talents() {
-  // const member = useSelector((state) => state.member);
-
   const location = useLocation();
   const params = useParams();
   const itemHash = params.itemHash && +params.itemHash;
 
-  // const { itemInstanceId } = member.data.inventory?.find((item) => item.itemHash === itemHash) || {};
-
   const query = queryString.parse(location.search);
   const urlNodes = query.nodes?.split('/').map((node) => +node || false);
 
-  const { talentGridHash, nodeCategories, nodes } = talentGrid(itemHash, urlNodes);
-
-  // console.log(talentGridHash, nodeCategories, nodes);
-
-  const maxColumns = nodes
-    .filter((node) => !node.hidden)
-    .reduce((max, node) => {
-      return Math.max(max, node.column);
-    }, 0);
-
-  // console.log(maxColumns)
+  const { nodeCategories, nodes } = talentGrid(itemHash, urlNodes);
 
   return (
     <div className='view' id='inspect'>
@@ -79,6 +62,9 @@ export default function Talents() {
 
           return category.isSubclassPath ? (
             <div key={c} className='group'>
+              <div className={cx('path', { selected: category.nodeIndexes.filter((nodeIndex) => nodes[nodeIndex].isActivated).length })} style={{ left: `${columnAvg}%`, top: `${rowAvg}%` }}>
+                <Miscellaneous.SubclassSelected />
+              </div>
               <div className='border' style={{ left: `${columnAvg}%`, top: `${rowAvg}%` }} />
               {category.nodeIndexes.map((nodeIndex, n) => {
                 const to = hyperlink(nodeCategories, nodes, nodeIndex);
@@ -100,33 +86,44 @@ export default function Talents() {
 }
 
 function hyperlink(nodeCategories, nodes, nodeIndex) {
-  // console.log(nodeCategories, nodes, nodeIndex);
+  console.log(nodeCategories, nodes, nodeIndex);
 
-  const selectedSuperCategory = nodeCategories.find(({ nodeIndexes, isSubclassPath }) => isSubclassPath && nodeIndexes.find((i) => nodes[i].isActivated));
+  // const selectedSuperCategory = nodeCategories.find(({ nodeIndexes, isSubclassPath }) => isSubclassPath && nodeIndexes.find((i) => nodes[i].isActivated));
   // const superCategories = nodeCategories.filter(({ isSubclassPath }) => isSubclassPath);
 
   // console.log(selectedSuperCategory);
 
-  const r = nodeCategories.map(({ nodeIndexes, isSubclassPath, ...category }) => {
+  const r = nodeCategories.map(({ nodeIndexes, isSubclassPath }) => {
     const includesTargetIndex = nodeIndexes.includes(nodeIndex);
 
     if (isSubclassPath) {
       return nodeIndexes.map((n) => {
-        // the target node index isn't in this category
-        if (!includesTargetIndex) {
-          if (
-            nodeCategories
-              .filter(({ isSubclassPath }) => isSubclassPath) // just super categories
-              .filter(({ nodeIndexes }) => !nodeIndexes.includes(n)) // just super categories that aren't this category
-              .find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)) // belongs to a different super category
-          ) {
-            return false;
-          }
+        // the target node isn't in this category
 
-          // return false;
+        // console.log(nodeCategories
+        //   .filter(({ isSubclassPath }) => isSubclassPath) // get super categories
+        //   .filter(({ nodeIndexes }) => nodeIndexes.includes(n)))
+
+        // if (          ) {
+        //   return false;
+        // }
+
+        // const isAdjacentSubclassPath = nodeCategories
+        //   .filter(({ isSubclassPath }) => isSubclassPath) // just super categories
+        //   .filter(({ nodeIndexes }) => !nodeIndexes.includes(n)) // just super categories that aren't this category
+        //   .find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)); // belongs to a different super category
+
+        // if (isAdjacentSubclassPath) {
+        //   return false;
+        // }
+
+        // return false;
+
+        if (includesTargetIndex) {
+          return nodes[n].hash;
+        } else {
+          return false;
         }
-
-        return nodes[n].hash;
       });
     } else {
       return nodeIndexes.map((n) => {
@@ -139,7 +136,7 @@ function hyperlink(nodeCategories, nodes, nodeIndex) {
     }
   });
 
-  // console.log(r);
+  console.log(r);
 
   return `/inspect/talents/3887892656?nodes=${r
     .flat()
