@@ -102,30 +102,41 @@ export default function Talents() {
 function hyperlink(nodeCategories, nodes, nodeIndex) {
   // console.log(nodeCategories, nodes, nodeIndex);
 
-  // const selectedSuperCategory = nodeCategories.find(({ nodeIndexes, isSubclassPath }) => isSubclassPath && nodeIndexes.find(i => nodes[i].isActivated));
+  const selectedSuperCategory = nodeCategories.find(({ nodeIndexes, isSubclassPath }) => isSubclassPath && nodeIndexes.find((i) => nodes[i].isActivated));
   // const superCategories = nodeCategories.filter(({ isSubclassPath }) => isSubclassPath);
 
-  // console.log(superCategories)
+  // console.log(selectedSuperCategory);
 
   const r = nodeCategories.map(({ nodeIndexes, isSubclassPath, ...category }) => {
     const includesTargetIndex = nodeIndexes.includes(nodeIndex);
 
-    return nodeIndexes.map((n) => {
-      if (isSubclassPath) {
-        console.log(nodeIndex, n, nodeIndexes, category)
-        if (!nodeIndexes.includes(nodeIndex)) {
-          return nodes[n].isActivated ? nodes[n].hash : false;
+    if (isSubclassPath) {
+      return nodeIndexes.map((n) => {
+        // the target node index isn't in this category
+        if (!includesTargetIndex) {
+          if (
+            nodeCategories
+              .filter(({ isSubclassPath }) => isSubclassPath) // just super categories
+              .filter(({ nodeIndexes }) => !nodeIndexes.includes(n)) // just super categories that aren't this category
+              .find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)) // belongs to a different super category
+          ) {
+            return false;
+          }
+
+          // return false;
         }
 
         return nodes[n].hash;
-      }
+      });
+    } else {
+      return nodeIndexes.map((n) => {
+        if (includesTargetIndex) {
+          return n === nodeIndex ? nodes[n].hash : false;
+        }
 
-      if (includesTargetIndex) {
-        return n === nodeIndex ? nodes[n].hash : false;
-      }
-
-      return nodes[n].isActivated ? nodes[n].hash : false;
-    });
+        return nodes[n].isActivated ? nodes[n].hash : false;
+      });
+    }
   });
 
   // console.log(r);
