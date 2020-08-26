@@ -6,56 +6,12 @@ import queryString from 'query-string';
 
 import * as enums from '../../../utils/destinyEnums';
 import manifest from '../../../utils/manifest';
-import { SUBCLASS_PATHS } from '../../../utils/destinyTalentGrids';
+import { talentGrid, activatedPath } from '../../../utils/destinyTalentGrids';
 import ObservedImage from '../../../components/ObservedImage';
 import { Miscellaneous } from '../../../svg';
 
 import './styles.css';
 import actions from '../../../store/actions';
-
-function talentGrid(itemHash, selectedNodes) {
-  const definitionInventoryItem = manifest.DestinyInventoryItemDefinition[itemHash];
-  const definitionTalentGrid = manifest.DestinyTalentGridDefinition[definitionInventoryItem?.talentGrid?.talentGridHash];
-
-  if (!definitionTalentGrid) return {};
-
-  const nodes = definitionTalentGrid.nodes.map((node) => {
-    const step = node.steps[0];
-
-    return {
-      hash: step.nodeStepHash,
-      groupHash: node.groupHash,
-      layoutIdentifier: node.layoutIdentifier,
-      displayProperties: step.displayProperties,
-      hidden: Boolean(node.hidden),
-      isActivated: selectedNodes.includes(step.nodeStepHash),
-      column: node.column + 9,
-      row: node.row + 14,
-    };
-  });
-
-  return {
-    talentGridHash: definitionTalentGrid.hash,
-    nodeCategories: definitionTalentGrid.nodeCategories.map(({ nodeHashes, ...category }) => ({
-      ...category,
-      nodeIndexes: nodeHashes,
-      isSubclassPath: Boolean(SUBCLASS_PATHS.find((path) => nodeHashes.find((nodeHash) => nodes[nodeHash].hash === path.nodeStepHash))),
-    })),
-    nodes,
-  };
-}
-
-function activatedPath(nodeCategories, nodes) {
-  const path = SUBCLASS_PATHS.find((path) => nodes.find((node) => node.isActivated && node.hash === path.nodeStepHash)) || {};
-  const nodeIndex = nodes.findIndex((node) => node.hash === path.nodeStepHash);
-  const { displayProperties, nodeIndexes } = nodeCategories.filter(({ isSubclassPath }) => isSubclassPath).find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)) || {};
-
-  return {
-    ...path,
-    pathName: displayProperties?.name,
-    nodeIndexes,
-  };
-}
 
 export default function Talents() {
   const dispatch = useDispatch();
@@ -77,7 +33,7 @@ export default function Talents() {
 
   const { talentGridHash, nodeCategories, nodes } = talentGrid(itemHash, urlNodes);
 
-  const { art, damageType, pathName } = activatedPath(nodeCategories, nodes);
+  const { art, damageType, attunement } = activatedPath(nodeCategories, nodes);
 
   return (
     <div className='view talents' id='inspect'>
@@ -89,7 +45,7 @@ export default function Talents() {
           {art && <ObservedImage src={`/static/images/extracts/subclass-art/${art}`} />}
           <div className='text'>
             <div className='border' />
-            {pathName}
+            {attunement?.name}
             <div className='border' />
           </div>
         </div>

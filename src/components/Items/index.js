@@ -7,6 +7,7 @@ import cx from 'classnames';
 import manifest from '../../utils/manifest';
 import { DestinyItemType, enumerateVendorItemStatus, enumerateItemState } from '../../utils/destinyEnums';
 import { displayValue } from '../../utils/destinyConverters';
+import { activatedNodes } from '../../utils/destinyTalentGrids';
 import itemComponents from '../../utils/destinyItems/itemComponents';
 import { sockets, defaultPlugs } from '../../utils/destinyItems/sockets';
 import { stats } from '../../utils/destinyItems/stats';
@@ -44,12 +45,10 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
 function inspectPathProperties(item) {
   const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
 
-  if (definitionItem?.itemType === DestinyItemType.Subclass && manifest.DestinyTalentGridDefinition[definitionItem?.talentGrid?.talentGridHash]) {
-    const definitionTalentGrid = manifest.DestinyTalentGridDefinition[definitionItem.talentGrid.talentGridHash];
-
+  if (definitionItem?.itemType === DestinyItemType.Subclass && manifest.DestinyTalentGridDefinition[definitionItem?.talentGrid?.talentGridHash]) {console.log(item)
     return {
       pathname: `/inspect/talents/${item.itemHash}`,
-      search: `?nodes=${item.itemComponents?.talentGrids.nodes.map((node) => node.isActivated ? definitionTalentGrid.nodes[node.nodeIndex]?.steps?.[0].nodeStepHash : '').join('/')}`,
+      search: `?nodes=${activatedNodes(definitionItem.talentGrid.talentGridHash, item.itemComponents.talentGrids).join('/')}`,
     };
   }
 
