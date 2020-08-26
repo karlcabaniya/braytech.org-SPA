@@ -48,14 +48,11 @@ function talentGrid(itemHash, selectedNodes) {
 function activatedPath(nodeCategories, nodes) {
   const path = SUBCLASS_PATHS.find((path) => nodes.find((node) => node.isActivated && node.hash === path.nodeStepHash)) || {};
   const nodeIndex = nodes.findIndex((node) => node.hash === path.nodeStepHash);
-  const {
-    displayProperties: { name },
-    nodeIndexes,
-  } = nodeCategories.filter(({ isSubclassPath }) => isSubclassPath).find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)) || {};
+  const { displayProperties, nodeIndexes } = nodeCategories.filter(({ isSubclassPath }) => isSubclassPath).find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex)) || {};
 
   return {
     ...path,
-    pathName: name,
+    pathName: displayProperties?.name,
     nodeIndexes,
   };
 }
@@ -83,7 +80,7 @@ export default function Talents() {
   const { art, damageType, pathName } = activatedPath(nodeCategories, nodes);
 
   return (
-    <div className='view' id='inspect'>
+    <div className='view talents' id='inspect'>
       <div className='bg'>
         <div className={cx('grad', enums.DAMAGE_STRINGS[damageType])} />
       </div>

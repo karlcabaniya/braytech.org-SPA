@@ -3,7 +3,7 @@
 
 
 
-#inspect .bg {
+#inspect.talents .bg {
   position: absolute;
   left: 0;
   top: 0;
@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-#inspect .bg .grad {
+#inspect.talents .bg .grad {
   position: absolute;
   left: 0;
   top: 0;
@@ -30,7 +30,7 @@
   background: linear-gradient(210deg, var(--color-a-0), var(--color-a-1) 70.71%), linear-gradient(175deg, var(--color-b-0), var(--color-c-1) 70.71%), linear-gradient(0deg, var(--color-c-0), var(--color-c-1) 90.71%), var(--color-d-0);
 }
 
-#inspect .bg .grad.solar {
+#inspect.talents .bg .grad.solar {
   --color-a-0: #634636;
   --color-a-1: #63463600;
   --color-b-0: #1b1918;
@@ -40,7 +40,7 @@
   --color-d-0: #ffbd99;
 }
 
-#inspect .bg .grad.arc {
+#inspect.talents .bg .grad.arc {
   --color-a-0: #454e54;
   --color-a-1: #454e5400;
   --color-b-0: #0f1c24;
@@ -54,7 +54,7 @@
 
 
 
-#inspect .wrapper {
+#inspect.talents .wrapper {
   position: relative;
   width: 100%;
   max-width: calc(1920px - 6rem);
@@ -66,7 +66,7 @@
 
 
 
-#inspect .art {
+#inspect.talents .art {
   position: absolute;
   right: -5vh;
   top: 5vh;
@@ -75,12 +75,12 @@
   pointer-events: none;
 }
 
-#inspect .art .image {
+#inspect.talents .art .image {
   background-size: cover;
   background-position: left top;
 }
 
-#inspect .art .text {
+#inspect.talents .art .text {
   position: absolute;
   left: 50%;
   top: 75%;
@@ -95,7 +95,7 @@
   color: #ffffff;
 }
 
-#inspect .art .text .border {
+#inspect.talents .art .text .border {
   position: absolute;
   left: -3rem;
   top: -24px;
@@ -104,8 +104,8 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-#inspect .art .text .border::before,
-#inspect .art .text .border::after {
+#inspect.talents .art .text .border::before,
+#inspect.talents .art .text .border::after {
   content: ' ';
   position: absolute;
   left: 0;
@@ -116,18 +116,18 @@
   opacity: 0.6;
 }
 
-#inspect .art .text .border::after {
+#inspect.talents .art .text .border::after {
   left: unset;
   right: 0;
 }
 
-#inspect .art .text .border:last-child {
+#inspect.talents .art .text .border:last-child {
   top: unset;
   bottom: -20px;
 }
 
-#inspect .art .text .border:last-child::before,
-#inspect .art .text .border:last-child::after {
+#inspect.talents .art .text .border:last-child::before,
+#inspect.talents .art .text .border:last-child::after {
   top: unset;
   bottom: -3px;
 }
@@ -135,7 +135,7 @@
 
 
 
-#inspect .header {
+#inspect.talents .header {
   position: absolute;
   left: 7rem;
   top: calc(40px + 2rem);
@@ -145,19 +145,19 @@
   pointer-events: none;
 }
 
-#inspect .header .icon {
+#inspect.talents .header .icon {
   position: relative;
   width: 128px;
   height: 128px;
 }
 
-#inspect .header .text {
+#inspect.talents .header .text {
   display: grid;
   align-content: center;
   gap: 7px;
 }
 
-#inspect .header .text .name {
+#inspect.talents .header .text .name {
   position: relative;
   word-break: break-all;
   font-family: var(--font-text);
@@ -168,7 +168,7 @@
   color: #ffffff;
 }
 
-#inspect .header .text .name::before {
+#inspect.talents .header .text .name::before {
   content: ' ';
   position: absolute;
   left: 0;
@@ -179,7 +179,7 @@
   opacity: 0.6;
 }
 
-#inspect .header .text .type {
+#inspect.talents .header .text .type {
   position: relative;
   word-break: break-all;
   font-size: 16px;
@@ -188,7 +188,7 @@
   color: rgba(255, 255, 255, 0.4);
 }
 
-#inspect .header .text .type::after {
+#inspect.talents .header .text .type::after {
   content: ' ';
   position: absolute;
   left: 0;
@@ -202,7 +202,7 @@
 
 
 
-#inspect .talent-grid {
+#inspect.talents .talent-grid {
   position: relative;
   margin: 5vh 0 0 5vh;
   --dimensions: 95vh;
@@ -214,13 +214,13 @@
 }
 
 @media (orientation: portrait) {
-  #inspect .talent-grid {
+  #inspect.talents .talent-grid {
     margin: 0;
     --dimensions: 100vw;
   }
 }
 
-#inspect .talent-grid .node {
+#inspect.talents .talent-grid .node {
   position: absolute;
   width: 7.4%;
   height: 7.4%;
@@ -229,15 +229,15 @@
   --selected: var(--energy-void);
 }
 
-#inspect .talent-grid.solar .node {
+#inspect.talents .talent-grid.solar .node {
   --selected: var(--energy-solar);
 }
 
-#inspect .talent-grid.arc .node {
+#inspect.talents .talent-grid.arc .node {
   --selected: var(--energy-arc);
 }
 
-#inspect .talent-grid .group .path {
+#inspect.talents .talent-grid .group .path {
   position: absolute;
   width: 25%;
   height: 25%;
@@ -246,17 +246,17 @@
   transition: opacity 0.5s;
 }
 
-#inspect .talent-grid .group .path svg {
+#inspect.talents .talent-grid .group .path svg {
   animation: rotate-linear 90s linear infinite;
   transform-origin: center;
   pointer-events: none;
 }
 
-#inspect .talent-grid .group.selected .path {
+#inspect.talents .talent-grid .group.selected .path {
   opacity: 0.1;
 }
 
-#inspect .talent-grid .group .border {
+#inspect.talents .talent-grid .group .border {
   position: absolute;
   width: 15%;
   height: 15%;
@@ -265,11 +265,11 @@
   transition: box-shadow 0.5s;
 }
 
-#inspect .talent-grid .group.selected .border {
+#inspect.talents .talent-grid .group.selected .border {
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-#inspect .talent-grid .group .node .border {
+#inspect.talents .talent-grid .group .node .border {
   left: 50%;
   top: 50%;
   width: 96%;
@@ -277,20 +277,20 @@
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.05);
 }
 
-#inspect .talent-grid .group .node {
+#inspect.talents .talent-grid .group .node {
   width: 6%;
   height: 6%;
   transform: translate(-50%, -50%);
 }
 
-#inspect .talent-grid .node.super {
+#inspect.talents .talent-grid .node.super {
   width: 18%;
   height: 18%;
   z-index: 1;
   transform: translate(-50%, -50%);
 }
 
-#inspect .talent-grid .node.super .border {
+#inspect.talents .talent-grid .node.super .border {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -302,7 +302,7 @@
   pointer-events: none;
 }
 
-#inspect .talent-grid .node.super .border::before {
+#inspect.talents .talent-grid .node.super .border::before {
   content: ' ';
   position: absolute;
   left: 50%;
@@ -314,7 +314,7 @@
   pointer-events: none;
 }
 
-#inspect .talent-grid .node.super .border-left {
+#inspect.talents .talent-grid .node.super .border-left {
   position: absolute;
   left: -84%;
   top: -12%;
@@ -326,7 +326,7 @@
   pointer-events: none;
 }
 
-#inspect .talent-grid .node.super .border-left::before {
+#inspect.talents .talent-grid .node.super .border-left::before {
   content: ' ';
   position: absolute;
   left: 0%;
@@ -337,17 +337,17 @@
   pointer-events: none;
 }
 
-#inspect .talent-grid .node.super.selected .image {
+#inspect.talents .talent-grid .node.super.selected .image {
   transform: scale(0.98);
 }
 
-#inspect .talent-grid .node .button {
+#inspect.talents .talent-grid .node .button {
   height: 100%;
   width: 100%;
   transform: rotate(45deg);
 }
 
-#inspect .talent-grid .node .button a {
+#inspect.talents .talent-grid .node .button a {
   position: absolute;
   left: 0;
   top: 0;
@@ -355,7 +355,7 @@
   height: 100%;
 }
 
-#inspect .talent-grid .node .button .shadow {
+#inspect.talents .talent-grid .node .button .shadow {
   position: absolute;
   left: 10%;
   top: 10%;
@@ -365,51 +365,51 @@
   pointer-events: none;
 }
 
-#inspect .talent-grid .node.super .button .shadow {
+#inspect.talents .talent-grid .node.super .button .shadow {
   left: 4%;
   top: 4%;
 }
 
-#inspect .talent-grid .node .image {
+#inspect.talents .talent-grid .node .image {
   z-index: 2;
   transform: scale(0.6);
   transition: opacity 0.25s, transform 0.25s;
   pointer-events: none;
 }
 
-#inspect .talent-grid .node .image.dl {
+#inspect.talents .talent-grid .node .image.dl {
   opacity: 0.2;
 }
 
-#inspect .talent-grid .node:hover .image.dl {
+#inspect.talents .talent-grid .node:hover .image.dl {
   opacity: 0.8;
 }
 
-#inspect .talent-grid .node.selected .image {
+#inspect.talents .talent-grid .node.selected .image {
   transform: scale(0.78);
 }
 
-#inspect .talent-grid .node.selected .image.dl {
+#inspect.talents .talent-grid .node.selected .image.dl {
   opacity: 0.8;
 }
 
-#inspect .talent-grid .node .button {
+#inspect.talents .talent-grid .node .button {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-#inspect .talent-grid .node.selected .button {
+#inspect.talents .talent-grid .node.selected .button {
   background-color: var(--selected);
 }
 
-#inspect .talent-grid .node .button::before {
+#inspect.talents .talent-grid .node .button::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.2);
 }
 
-#inspect .talent-grid .node.selected .button::before {
+#inspect.talents .talent-grid .node.selected .button::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 0.8);
 }
 
-#inspect .talent-grid .node .button:hover::before,
-#inspect .talent-grid .node.selected .button:hover::before {
+#inspect.talents .talent-grid .node .button:hover::before,
+#inspect.talents .talent-grid .node.selected .button:hover::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 1);
 }

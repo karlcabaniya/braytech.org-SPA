@@ -41,7 +41,25 @@ function socketsUrl(itemHash, sockets, selectedSockets, socketIndex, plugHash) {
   };
 }
 
-function Items({ member, items, handler, tooltips, order, noBorder, showQuantity, hideQuantity, asPanels, placeholders = 0, showHash, selfLinkFrom, inspect }) {
+function inspectPathProperties(item) {
+  const definitionItem = manifest.DestinyInventoryItemDefinition[item.itemHash];
+
+  if (definitionItem?.itemType === DestinyItemType.Subclass && manifest.DestinyTalentGridDefinition[definitionItem?.talentGrid?.talentGridHash]) {
+    const definitionTalentGrid = manifest.DestinyTalentGridDefinition[definitionItem.talentGrid.talentGridHash];
+
+    return {
+      pathname: `/inspect/talents/${item.itemHash}`,
+      search: `?nodes=${item.itemComponents?.talentGrids.nodes.map((node) => node.isActivated ? definitionTalentGrid.nodes[node.nodeIndex]?.steps?.[0].nodeStepHash : '').join('/')}`,
+    };
+  }
+
+  return {
+    pathname: `/inspect/item/${item.itemHash}`,
+    search: `?sockets=${socketsUrl(item.itemHash, item.sockets.sockets).sockets}`,
+  };
+}
+
+function Items({ member, items, handler, tooltips, order, noBorder, showQuantity, hideQuantity, asPanels, placeholders = 0, showHash, selfLinkFrom, ...props }) {
   const location = useLocation();
 
   if (!items || !items.length) {
@@ -80,6 +98,8 @@ function Items({ member, items, handler, tooltips, order, noBorder, showQuantity
       ? `https://www.bungie.net${ornamentSocket.plug.definition.displayProperties.icon}`
       : // default
         `https://www.bungie.net${definitionItem.displayProperties.icon}`;
+
+    const inspect = props.inspect && inspectPathProperties(item);
 
     return {
       name: definitionItem.displayProperties.name,
@@ -128,15 +148,9 @@ function Items({ member, items, handler, tooltips, order, noBorder, showQuantity
               {showHash ? <div className='hash'>{definitionItem.hash}</div> : null}
             </div>
           ) : null}
-          {item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length > 0 && !bucketsToExcludeFromInstanceProgressDisplay.includes(item.bucketHash) ? (
-            <ProgressBar
-              progress={item.itemComponents?.objectives.reduce((progress, objective) => progress + objective.progress, 0)}
-              completionValue={item.itemComponents?.objectives.reduce((completionValue, objective) => completionValue + objective.completionValue, 0)}
-              hideCheck
-            />
-          ) : null}
+          {item.itemComponents?.objectives && item.itemComponents?.objectives.filter((o) => !o.complete).length > 0 && !bucketsToExcludeFromInstanceProgressDisplay.includes(item.bucketHash) ? <ProgressBar progress={item.itemComponents?.objectives.reduce((progress, objective) => progress + objective.progress, 0)} completionValue={item.itemComponents?.objectives.reduce((completionValue, objective) => completionValue + objective.completionValue, 0)} hideCheck /> : null}
           {(showQuantity || item.quantity > 1) && !hideQuantity ? <div className={cx('quantity', { 'max-stack': definitionItem.inventory && definitionItem.inventory.maxStackSize === item.quantity })}>{displayValue(item.quantity || 0)}</div> : null}
-          {inspect ? <Link to={{ pathname: `/inspect/item/${item.itemHash}`, search: `?sockets=${socketsUrl(item.itemHash, item.sockets.sockets).sockets}`, state: { from: selfLinkFrom || location.pathname } }} /> : null}
+          {inspect ? <Link to={{ pathname: inspect.pathname, search: inspect.search, state: { from: selfLinkFrom || location.pathname } }} /> : null}
         </li>
       ),
     };
