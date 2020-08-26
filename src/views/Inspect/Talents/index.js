@@ -139,7 +139,7 @@ function TalentGridNode({ talentGridHash, node, to }) {
         default: node.isActivated && !node.exclusiveInColumn && node.column < 1,
         super: node.layoutIdentifier === 'super',
       })}
-      data-tooltip
+      data-tooltip={node.isActivated || 'mouse'}
       data-type='talent'
       data-hash={node.hash}
       data-talentgridhash={talentGridHash}

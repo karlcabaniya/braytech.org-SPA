@@ -135,6 +135,8 @@
 
 
 
+
+
 #inspect.talents .header {
   position: absolute;
   left: 7rem;
@@ -412,4 +414,89 @@
 #inspect.talents .talent-grid .node .button:hover::before,
 #inspect.talents .talent-grid .node.selected .button:hover::before {
   box-shadow: inset 0 0 0 1px rgba(214, 214, 214, 1);
+}
+
+
+
+
+
+
+@media screen and (max-width: 1280px) {
+  #inspect.talents .header {
+    left: 5rem;
+    grid-template-columns: 96px 1fr;
+  }
+  
+  #inspect.talents .header .icon {
+    width: 96px;
+    height: 96px;
+  }
+  
+  #inspect.talents .header .text .name {
+    font-size: 36px;
+    line-height: 36px;
+  }
+  
+  #inspect.talents .header .text .type {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #inspect.talents .wrapper {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #inspect.talents .talent-grid {
+    margin: 0;
+  }
+
+  #inspect.talents .art {
+    display: none;
+  }
+
+  #inspect.talents .header {
+    left: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #inspect.talents .talent-grid {
+    --dimensions: 90vw;
+  }
+
+  #inspect.talents .header {
+    left: 2rem;
+    grid-template-columns: 80px 1fr;
+  }
+  
+  #inspect.talents .header .icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  #inspect.talents .header .text {
+    gap: 4px;
+  }
+  
+  #inspect.talents .header .text .name {
+    font-size: 26px;
+    line-height: 26px;
+  }
+
+  #inspect.talents .talent-grid .group .border {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+
+  #inspect.talents .talent-grid .group.selected .border {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  #inspect.talents .talent-grid .group .node .border {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+  }
 }
