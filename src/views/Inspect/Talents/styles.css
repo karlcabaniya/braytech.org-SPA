@@ -56,9 +56,10 @@
 
 #inspect.talents .wrapper {
   position: relative;
-  width: 100%;
-  max-width: calc(1920px - 6rem);
   margin: 0 auto;
+  padding: 0 3rem;
+  width: 100%;
+  max-width: 1920px;
 }
 
 
@@ -139,8 +140,8 @@
 
 #inspect.talents .header {
   position: absolute;
-  left: 7rem;
-  top: calc(40px + 2rem);
+  left: 3rem;
+  top: calc(40px + 3rem);
   display: grid;
   grid-template-columns: 128px 1fr;
   gap: 1rem;
@@ -218,7 +219,7 @@
 @media (orientation: portrait) {
   #inspect.talents .talent-grid {
     margin: 0;
-    --dimensions: 100vw;
+    --dimensions: calc(100vw - 6rem);
   }
 }
 
@@ -423,7 +424,6 @@
 
 @media screen and (max-width: 1280px) {
   #inspect.talents .header {
-    left: 5rem;
     grid-template-columns: 96px 1fr;
   }
   
@@ -458,15 +458,15 @@
   #inspect.talents .art {
     display: none;
   }
-
-  #inspect.talents .header {
-    left: 3rem;
-  }
 }
 
 @media screen and (max-width: 600px) {
+  #inspect.talents .wrapper {
+    padding: 0 2rem;
+  }
+
   #inspect.talents .talent-grid {
-    --dimensions: 90vw;
+    --dimensions: calc(100vw - 4rem);
   }
 
   #inspect.talents .header {

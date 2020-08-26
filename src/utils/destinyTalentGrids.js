@@ -52,8 +52,8 @@ export function activatedPath(nodeCategories, nodes) {
     },
     ability: {
       ...path.ability,
-      name: manifest.DestinySandboxPerkDefinition[path.ability.sandboxPerk]?.displayProperties.name,
-      description: manifest.DestinySandboxPerkDefinition[path.ability.sandboxPerk]?.displayProperties.description
+      name: manifest.DestinySandboxPerkDefinition[path.ability?.sandboxPerk]?.displayProperties.name,
+      description: manifest.DestinySandboxPerkDefinition[path.ability?.sandboxPerk]?.displayProperties.description
     },
     nodeIndexes,
   };
