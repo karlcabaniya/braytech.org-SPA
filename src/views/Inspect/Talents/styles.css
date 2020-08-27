@@ -60,6 +60,9 @@
   padding: 0 3rem;
   width: 100%;
   max-width: 1920px;
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
 }
 
 
@@ -445,10 +448,7 @@
 
 @media screen and (max-width: 1024px) {
   #inspect.talents .wrapper {
-    min-height: 100vh;
-    display: grid;
     justify-content: center;
-    align-content: center;
   }
 
   #inspect.talents .talent-grid {
@@ -498,5 +498,11 @@
 
   #inspect.talents .talent-grid .group .node .border {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media screen and (min-height: 1050px) {
+  #inspect.talents .talent-grid {
+    --dimensions: 26vw;
   }
 }
