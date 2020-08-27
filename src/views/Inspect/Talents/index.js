@@ -1,144 +1,157 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useParams, Link } from 'react-router-dom';
 import cx from 'classnames';
+import queryString from 'query-string';
 
 import * as enums from '../../../utils/destinyEnums';
 import manifest from '../../../utils/manifest';
+import { talentGrid, activatedPath } from '../../../utils/destinyTalentGrids';
+import ObservedImage from '../../../components/ObservedImage';
+import { Miscellaneous } from '../../../svg';
 
 import './styles.css';
-
-function talentGrid(itemHash, itemComponents, itemInstanceId) {
-  const definitionInventoryItem = manifest.DestinyInventoryItemDefinition[itemHash];
-  const definitionTalentGrid = manifest.DestinyTalentGridDefinition[definitionInventoryItem?.talentGrid?.talentGridHash];
-  const itemInstance = itemComponents?.talentGrids.data[itemInstanceId];
-
-  if (!definitionTalentGrid) return {};
-
-  const talentGridHash = itemInstance?.talentGridHash || definitionTalentGrid.hash;
-  const nodes = itemInstance?.nodes.filter((node) => !node.hidden) || definitionTalentGrid.nodes.filter((node, n) => definitionTalentGrid.independentNodeIndexes.includes(n));
-
-  return {
-    talentGridHash,
-    nodes: nodes.map((node) => {
-      const talentNodeGroup = definitionTalentGrid.nodes[node.nodeIndex];
-      const step = talentNodeGroup.steps[0];
-
-      if (!step) {
-        return undefined;
-      }
-
-      // Filter out some weird bogus nodes
-      if (!step.displayProperties.name || talentNodeGroup.column < 0) {
-        return undefined;
-      }
-
-      // Only one node in this column can be selected (scopes, etc)
-      const exclusiveInColumn = Boolean(talentNodeGroup.exclusiveWithNodeHashes && talentNodeGroup.exclusiveWithNodeHashes.length > 0);
-
-      const activatedAtGridLevel = step.activationRequirement.gridLevel;
-
-      // There's a lot more here, but we're taking just what we need
-      return {
-        hash: step.nodeStepHash,
-        groupHash: talentNodeGroup.groupHash,
-        displayProperties: step.displayProperties,
-        // Position in the grid
-        column: talentNodeGroup.column / 8,
-        row: talentNodeGroup.row / 8,
-        // Is the node selected (lit up in the grid)
-        isActivated: node.isActivated,
-        // The item level at which this node can be unlocked
-        activatedAtGridLevel,
-        // Only one node in this column can be selected (scopes, etc)
-        exclusiveInColumn,
-        // Some nodes don't show up in the grid, like purchased ascend nodes
-        hidden: node.hidden,
-      };
-    }),
-  };
-}
+import actions from '../../../store/actions';
 
 export default function Talents() {
-  const member = useSelector((state) => state.member);
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(actions.tooltips.rebind());
+  }, []);
+
+  const location = useLocation();
   const params = useParams();
   const itemHash = params.itemHash && +params.itemHash;
 
-  const { itemInstanceId } = member.data.inventory?.find((item) => item.itemHash === itemHash) || {};
+  const definitionInventoryItem = manifest.DestinyInventoryItemDefinition[itemHash];
 
-  const { talentGridHash, nodes } = talentGrid(itemHash, member.data.profile?.itemComponents, itemInstanceId);
+  if (!definitionInventoryItem) return null;
 
-  console.log(talentGridHash, nodes);
+  const query = queryString.parse(location.search);
+  const urlNodes = query.nodes?.split('/').map((node) => +node || false) || [];
 
-  const nodeSize = 40;
-  const nodePadding = 4;
-  const totalNodeSize = nodeSize + nodePadding;
+  const { talentGridHash, nodeCategories, nodes } = talentGrid(itemHash, urlNodes);
 
-  const numColumns = nodes
-    .filter((node) => !node.hidden)
-    .reduce((max, node) => {
-      return Math.max(max, node.column + 1);
-    }, 0);
-  const numRows = nodes
-    .filter((node) => !node.hidden)
-    .reduce((max, node) => {
-      return Math.max(max, node.row + 1);
-    }, 0);
-
-  const groups = nodes.reduce((groups, node) => {
-    const group = groups.find((group) => group.groupHash === node.groupHash);
-
-    if (group) {
-      return [
-        ...groups.filter((g) => g.groupHash !== group.groupHash),
-        {
-          groupHash: group.groupHash,
-          nodes: [...group.nodes, node],
-        },
-      ];
-    } else {
-      return [
-        ...groups,
-        {
-          groupHash: node.groupHash,
-          nodes: [node],
-        },
-      ];
-    }
-  }, []);
+  const { art, damageType, attunement } = activatedPath(nodeCategories, nodes);
 
   return (
-    <div className='view' id='inspect'>
-      <svg preserveAspectRatio='xMaxYMin meet' viewBox={`0 0 ${numColumns * totalNodeSize - nodePadding} ${numRows * totalNodeSize - nodePadding + 1}`} className='talent-grid'>
-        {groups.map((group, g) =>
-          group.nodes.length > 1 ? (
-            <g key={g} className='group'>
-              {group.nodes.map((node, n) => (
-                <TalentGridNode key={n} node={node} totalNodeSize={totalNodeSize} isGrouped />
-              ))}
-            </g>
-          ) : (
-            group.nodes.map((node, n) => <TalentGridNode key={n} node={node} totalNodeSize={totalNodeSize} />)
-          )
-        )}
-      </svg>
+    <div className='view talents' id='inspect'>
+      <div className='bg'>
+        <div className={cx('grad', enums.DAMAGE_STRINGS[damageType])} />
+      </div>
+      <div className='wrapper'>
+        <div className='art'>
+          {art && <ObservedImage src={`/static/images/extracts/subclass-art/${art}`} />}
+          <div className='text'>
+            <div className='border' />
+            {attunement?.name}
+            <div className='border' />
+          </div>
+        </div>
+        <div className={cx('talent-grid', enums.DAMAGE_STRINGS[damageType])}>
+          {nodeCategories.map((category, c) => {
+            const { columnAvg, rowAvg } = categoryAverage(category, nodes);
+
+            return category.isSubclassPath ? (
+              <div key={c} className={cx('group', { selected: category.nodeIndexes.filter((nodeIndex) => nodes[nodeIndex].isActivated).length })}>
+                <div className='path' style={{ left: `${columnAvg}%`, top: `${rowAvg}%` }}>
+                  <Miscellaneous.SubclassSelected />
+                </div>
+                <div className='border' style={{ left: `${columnAvg}%`, top: `${rowAvg}%` }} />
+                {category.nodeIndexes.map((nodeIndex, n) => {
+                  const to = talentGridUrl(itemHash, nodeCategories, nodes, nodeIndex);
+
+                  return <TalentGridNode key={n} talentGridHash={talentGridHash} node={nodes[nodeIndex]} to={to} />;
+                })}
+              </div>
+            ) : (
+              category.nodeIndexes.map((nodeIndex, n) => {
+                const to = talentGridUrl(itemHash, nodeCategories, nodes, nodeIndex);
+
+                return <TalentGridNode key={n} talentGridHash={talentGridHash} node={nodes[nodeIndex]} to={to} />;
+              })
+            );
+          })}
+        </div>
+        <div className='header'>
+          <div className='icon'>
+            <ObservedImage src={`https://www.bungie.net${definitionInventoryItem.displayProperties.icon}`} />
+          </div>
+          <div className='text'>
+            <div className='name'>{definitionInventoryItem.displayProperties.name}</div>
+            <div className='type'>{definitionInventoryItem.itemTypeDisplayName}</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-function TalentGridNode({ node, totalNodeSize, isGrouped }) {
+function talentGridUrl(itemHash, nodeCategories, nodes, nodeIndex) {
+  const target = nodeCategories.find(({ nodeIndexes }) => nodeIndexes.includes(nodeIndex));
+
+  const configuration = nodeCategories.map(({ nodeIndexes, isSubclassPath }) => {
+    const includesTargetIndex = nodeIndexes.includes(nodeIndex);
+
+    return nodeIndexes.map((n) => {
+      if (isSubclassPath) {
+        // this will catch super nodes themselves
+        if (includesTargetIndex) {
+          return nodes[n].hash;
+        }
+        // else leave whatever is activated, activated, unless the target is a node group
+        else if (nodes[n].isActivated && !target.isSubclassPath) {
+          return nodes[n].hash;
+        } else {
+          return false;
+        }
+      }
+
+      if (includesTargetIndex) {
+        return n === nodeIndex ? nodes[n].hash : false;
+      }
+
+      return nodes[n].isActivated ? nodes[n].hash : false;
+    });
+  });
+
+  return `/inspect/talents/${itemHash}?nodes=${configuration
+    .flat()
+    .map((hash) => hash || '')
+    .join('/')}`;
+}
+
+function categoryAverage({ nodeIndexes }, nodes) {
+  const group = nodes.filter((node, n) => nodeIndexes.includes(n));
+
+  return {
+    columnAvg: group.reduce((sum, node) => sum + node.column, 0) / group.length,
+    rowAvg: group.reduce((sum, node) => sum + node.row, 0) / group.length,
+  };
+}
+
+function TalentGridNode({ talentGridHash, node, to }) {
   return (
-    <g
-      transform={`translate(${node.column * totalNodeSize},${node.row * totalNodeSize})`}
-      className={cx('talent-node', {
-        'talent-node-activated': node.isActivated,
-        'talent-node-default': node.isActivated && !node.exclusiveInColumn && node.column < 1,
+    <div
+      className={cx('node', {
+        selected: node.isActivated,
+        default: node.isActivated && !node.exclusiveInColumn && node.column < 1,
+        super: node.layoutIdentifier === 'super',
       })}
+      data-tooltip={node.isActivated || 'mouse'}
+      data-type='talent'
+      data-hash={node.hash}
+      data-talentgridhash={talentGridHash}
+      style={{ left: `${node.column}%`, top: `${node.row}%` }}
     >
-      {isGrouped ? <rect x='-16' y='8' width='32' height='32' transform='rotate(-45)' className='talent-node-xp' /> : <rect x='-18' y='6' width='36' height='36' transform='rotate(-45)' className='talent-node-xp' />}
-      <image className='talent-node-img' href={`https://www.bungie.net${node.displayProperties.icon}`} x='20' y='20' height='96' width='96' transform='scale(0.25)' />
-      <title>{node.displayProperties.name}</title>
-    </g>
+      <div className='border' />
+      {node.layoutIdentifier === 'super' && <div className='border-left' />}
+      <div className='button'>
+        <div className='shadow' />
+        {to && <Link to={to} />}
+      </div>
+      <ObservedImage src={`https://www.bungie.net${node.displayProperties.icon}`} />
+    </div>
   );
 }
