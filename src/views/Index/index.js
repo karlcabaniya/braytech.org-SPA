@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -36,7 +37,9 @@ function shuffle(array) {
 }
 
 export default function Index() {
-  const supporters = manifest.statistics?.patrons && shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter((m) => manifest.statistics.patrons.alpha.indexOf(m) < 0)]).slice(0, 14);
+  const viewport = useSelector((state) => state.viewport);
+
+  const supporters = manifest.statistics?.patrons && shuffle([...manifest.statistics.patrons.alpha, ...manifest.statistics.patrons.beta.filter((m) => manifest.statistics.patrons.alpha.indexOf(m) < 0)]).slice(0, viewport.width < 1025 && viewport.width > 600 ? 10 : viewport.width > 600 ? 21 : 7);
 
   const [changeLogIndex, setChangeLogIndex] = useState(0);
   const logs = [...captainsLog].reverse();

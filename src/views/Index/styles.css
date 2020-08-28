@@ -175,10 +175,10 @@
 
 #index .row.patreon .module.tags {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   align-content: start;
   gap: 3px;
-  grid-column: 3/3;
+  grid-column: 2/4;
 }
 
 #index .row.patreon .module.tags .member-link {
@@ -364,6 +364,7 @@
   }
 
   #index .row.patreon .module.tags {
+    grid-template-columns: repeat(3, 1fr);
     grid-column: unset;
   }
 }
@@ -376,6 +377,11 @@
 
   #index .row.header .views {
     row-gap: 1rem;
+  }
+
+  #index .row.patreon .module.tags {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: unset;
   }
 }
 
