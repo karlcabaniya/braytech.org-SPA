@@ -466,6 +466,18 @@
     top: calc(16rem + 15px);
   }
 
+  #index .row.development .blog .header {
+    column-gap: 1rem;
+  }
+
+  #index .row.development .header .text {
+    grid-template-columns: 1fr;
+  }
+
+  #index .row.development .header .text h3 {
+    grid-column: unset;
+  }
+
   #index .row.development .blog .post {
     gap: 1rem;
   }
