@@ -116,7 +116,7 @@ p code {
   line-height: 1;
 }
 
-.image:not(.padding) {
+.image:not(.padded) {
   position: absolute;
   top: 0;
   left: 0;
@@ -129,7 +129,7 @@ p code {
   transition: opacity 0.5s;
 }
 
-.image.padding {
+.image.padded {
   position: relative;
   width: 100%;
   background-repeat: no-repeat;

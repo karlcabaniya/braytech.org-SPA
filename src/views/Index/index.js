@@ -250,12 +250,16 @@ export default function Index() {
                 </div>
                 <div className='post'>
                   {blog.posts[blogPostsIndex].content.map((block, b) =>
-                    block.media ? (
-                      <div key={b} className='block media'>
-                        <ObservedImage padded ratio={block.media.height / block.media.width} src={block.media.storage === 'directus' && `https://directus.upliftnaturereserve.com/bt03/assets/${block.media.privateHash}`} />
+                    block.files.length ? (
+                      <div key={b} className='block files'>
+                        {block.files.map((file, f) => (
+                          <div key={f} className='file'>
+                            <ObservedImage padded ratio={file.height / file.width} src={file.storage === 'directus' && `https://directus.upliftnaturereserve.com/bt03/assets/${file.privateHash}`} />
+                          </div>
+                        ))}
                       </div>
                     ) : (
-                      <BraytechText key={b} className='block markdown' value={block.markdown} />
+                      <BraytechText key={b} className='block text' value={block.text} />
                     )
                   )}
                 </div>

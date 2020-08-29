@@ -309,14 +309,19 @@
   gap: 2rem;
 }
 
-#index .row.development .blog .post .block.media {
+#index .row.development .blog .post .block.files {
+  display: grid;
+  gap: 2rem;
+}
+
+#index .row.development .blog .post .block.files .file {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-#index .row.development .blog .post .block.media .image {
-  position: relative;
+#index .row.development .blog .post .block.text p {
+  max-width: 1024px;
+  line-height: 1.6;
 }
-
 
 
 
@@ -464,6 +469,10 @@
     right: unset;
     left: 4rem;
     top: calc(16rem + 15px);
+  }
+
+  #index .row.development .module {
+    min-height: unset;
   }
 
   #index .row.development .blog .header {
