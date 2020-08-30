@@ -1243,5 +1243,10 @@
     "date": "2020-08-29T18:45:22.046Z",
     "version": "2.31.26",
     "content": "- added a blog"
+  },
+  {
+    "date": "2020-08-30T07:31:50.542Z",
+    "version": "2.31.27",
+    "content": "- improved blog\n- breaking changes to base layout components\n- common UI improvements"
   }
 ]
