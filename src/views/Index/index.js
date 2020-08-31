@@ -12,7 +12,7 @@ import Spinner from '../../components/UI/Spinner';
 import ObservedImage from '../../components/ObservedImage';
 import { Common, Views } from '../../svg';
 
-import captainsLog from '../../data/captainsLog';
+import captainsLog from '../../data/captains-log';
 
 import './styles.css';
 

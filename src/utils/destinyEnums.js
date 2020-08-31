@@ -1328,7 +1328,6 @@ export const DestinyContentVault = [
             1840126886, // SCRAP CF-717-91
           ],
           records: [
-            3812674679, // Amidst the Wreckage
             3758540824, // Expedited Exfiltration
           ],
         },
