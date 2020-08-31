@@ -1248,5 +1248,10 @@
     "date": "2020-08-30T07:31:50.542Z",
     "version": "2.31.27",
     "content": "- improved blog\n- breaking changes to base layout components\n- common UI improvements"
+  },
+  {
+    "date": "2020-08-31T13:14:17.408Z",
+    "version": "2.31.30",
+    "content": "- additions to _Content Vault_ view"
   }
 ]
