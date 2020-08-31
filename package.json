@@ -1,18 +1,18 @@
 {
   "name": "braytech.org",
   "author": "Tom Chapman <twitter://BraytechHelp> (https://thomchap.com.au)",
-  "version": "2.31.28",
+  "version": "2.31.29",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:beta": "env-cmd -f .env.beta npm run build",
-    "analyze": "node scripts/analyzeBundle.js",
-    "translations": "node scripts/extractTranslations2.js --stats --delete-unused",
+    "build:beta": "env-cmd -f .env.beta npm run build && node scripts/build-beta-post-deploy.js",
+    "analyze": "node scripts/build-analyze-bundle.js",
+    "translations": "node scripts/extract-translations.js --stats --delete-unused",
     "checklists": "node --experimental-modules --experimental-json-modules scripts/checklists/prepare.mjs",
-    "records": "node --experimental-modules scripts/prepareUnobtainableRecords.mjs",
-    "nightfalls": "node --experimental-modules scripts/prepareNightfallsData.mjs",
-    "story-missions": "node --experimental-modules scripts/prepareStoryMissionData.mjs"
+    "records": "node --experimental-modules scripts/prepare-unobtainable-records.mjs",
+    "nightfalls": "node --experimental-modules scripts/prepare-nightfalls-data.mjs",
+    "story-missions": "node --experimental-modules scripts/prepare-story-data.mjs"
   },
   "dependencies": {
     "@types/jest": "^26.0.10",
