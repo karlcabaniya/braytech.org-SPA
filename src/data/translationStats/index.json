@@ -1,94 +1,86 @@
 {
   "de": {
-    "translated": 695,
-    "notTranslated": 90,
+    "translated": 688,
+    "notTranslated": 96,
     "added": [],
     "removed": []
   },
   "debug": {
-    "translated": 785,
+    "translated": 784,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "en": {
-    "translated": 785,
+    "translated": 784,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 782,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "es": {
-    "translated": 782,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "fr": {
-    "translated": 623,
-    "notTranslated": 162,
+    "translated": 616,
+    "notTranslated": 168,
     "added": [],
     "removed": []
   },
   "it": {
-    "translated": 782,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "ja": {
-    "translated": 570,
-    "notTranslated": 215,
+    "translated": 564,
+    "notTranslated": 220,
     "added": [],
     "removed": []
   },
   "ko": {
-    "translated": 499,
-    "notTranslated": 286,
+    "translated": 492,
+    "notTranslated": 292,
     "added": [],
     "removed": []
   },
   "pl": {
-    "translated": 488,
-    "notTranslated": 297,
+    "translated": 485,
+    "notTranslated": 299,
     "added": [],
     "removed": []
   },
   "pt-br": {
-    "translated": 762,
-    "notTranslated": 23,
+    "translated": 755,
+    "notTranslated": 29,
     "added": [],
     "removed": []
   },
   "ru": {
-    "translated": 782,
-    "notTranslated": 3,
+    "translated": 775,
+    "notTranslated": 9,
     "added": [],
     "removed": []
   },
   "zh-chs": {
-    "translated": 606,
-    "notTranslated": 179,
-    "added": [
-      "Landing.Header.Flair"
-    ],
-    "removed": [
-      "Landing.Flair"
-    ]
+    "translated": 599,
+    "notTranslated": 185,
+    "added": [],
+    "removed": []
   },
   "zh-cht": {
-    "translated": 663,
-    "notTranslated": 122,
-    "added": [
-      "Landing.Header.Flair"
-    ],
-    "removed": [
-      "Landing.Flair"
-    ]
+    "translated": 657,
+    "notTranslated": 127,
+    "added": [],
+    "removed": []
   }
 }
