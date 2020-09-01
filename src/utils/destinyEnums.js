@@ -1616,6 +1616,7 @@ export const DestinyContentVault = [
             2716100025, // Sonata-48
             3895764279, // Guseva-C
             3875807583, // Whisper of the Worm
+            3142437750, // A Thousand Wings
           ],
           records: [
             1289798960, // The Tortured Scientist
@@ -1873,6 +1874,7 @@ export const DestinyContentVault = [
             1279318110, // D.F.A.
             2466440635, // Worm God Incarnation
             1534387877, // BrayTech Osprey
+            319846607, // After the Nightfall
           ],
           records: [
             3054774873, // A Garden World
