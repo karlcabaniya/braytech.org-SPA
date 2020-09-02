@@ -280,9 +280,23 @@
 }
 
 #index .row.development .changes .content ul li {
+  position: relative;
+  list-style-type: none;
   line-height: 1.6;
   margin: 0 0 6px;
   max-width: 600px;
+}
+
+#index .row.development .changes .content ul li::before {
+  content: '🛠';
+  position: absolute;
+  left: -27px;
+  top: 2px;
+  font-size: 14px;
+}
+
+#index .row.development .changes .content ul li.sparkle::before {
+  content: '✨';
 }
 
 #index .row.development .changes .content ul li:last-child {
@@ -516,6 +530,12 @@
 
   #index .row.development .changes .header {
     margin: 0;
+  }
+
+  #index .row.development .changes .content ul li::before {
+    left: -27px;
+    top: 2px;
+    font-size: 12px;
   }
 
   #index .row.development .blog .header {

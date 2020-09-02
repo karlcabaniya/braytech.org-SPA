@@ -2085,7 +2085,6 @@ export const DestinyContentVault = [
             1366523382, // Hive Repurposing
             753635605, // Shadow of Earth Shell
             3171386139, // Crown of Sorrow
-            3171386140, // Heavy Is the Crown
             2168196994, // Imperial Opulence
             2168196995, // Imperial Dress
           ],
