@@ -631,6 +631,10 @@
     grid-column: unset;
   }
 
+  #index .row.development .blog .post .block.text blockquote p {
+    font-size: 16px;
+  }
+
   #index .row.development .blog .posts {
     gap: 1rem;
   }
