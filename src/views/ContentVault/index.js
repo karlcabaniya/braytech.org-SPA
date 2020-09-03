@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
@@ -69,19 +69,22 @@ function ToggleCompletedLink() {
 export default function ContentVault(props) {
   const dispatch = useDispatch();
   const member = useSelector(state => state.member);
+  const nodes = useRef();
 
   const slug = props.match.params.slug;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(actions.tooltips.rebind());
   }, []);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
+  function scrollTo() {
+    if (nodes.current) {
+      nodes.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   const data = DestinyContentVault[0];
-
   const selectedVault = (slug && data.vault.find((vault) => slug === vault.slug)) || data.vault[0];
 
   const collectibles =
@@ -123,12 +126,12 @@ export default function ContentVault(props) {
           </div>
           <BraytechText className='text' value={t('ContentVault.Header.Text')} />
         </div>
-        {!member.data ? (
+        {!member.loading && !member.data ? (
           <Upsell />
         ) : null}
         <div className='buff'>
           <NavLinks />
-          <div className='presentation-node'>
+          <div ref={nodes} className='presentation-node'>
             <div className='node'>
               <div className='children'>
                 <h4>{t('Areas')}</h4>
@@ -149,7 +152,7 @@ export default function ContentVault(props) {
                         <div className='text'>
                           <div className='name'>{vault.name}</div>
                         </div>
-                        <NavLink isActive={isActive} to={`/content-vault/${data.season}/${vault.slug}`} />
+                        <NavLink isActive={isActive} to={`/content-vault/${data.season}/${vault.slug}`} onClick={scrollTo} />
                       </li>
                     );
                   })}
