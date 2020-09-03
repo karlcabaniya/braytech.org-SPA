@@ -231,386 +231,388 @@ class Records extends React.Component {
     const { settings, lists, member, triumphs, ordered, limit, selfLinkFrom, readLink, showCompleted, showInvisible } = this.props;
     const highlight = +this.props.highlight || false;
     const suppressVaultWarning = this.props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
-    const recordsRequested = this.props.hashes || [];
+    const hashes = this.props.hashes || [];
+
     const characterRecords = member.data.profile?.characterRecords.data;
     const profileRecords = member.data.profile?.profileRecords.data.records;
     const profileRecordsTracked = member.data.profile?.profileRecords.data.trackedRecordHash ? [member.data.profile.profileRecords.data.trackedRecordHash] : [];
-    const tracked = triumphs.tracked;
 
-    let recordsOutput = [];
-    recordsRequested.forEach((hash, h) => {
-      const definitionRecord = manifest.DestinyRecordDefinition[hash];
+    const output = hashes
+      .map((hash, h) => {
+        const definitionRecord = manifest.DestinyRecordDefinition[hash];
 
-      if (!definitionRecord) return;
+        if (!definitionRecord) return false;
 
-      // console.log(definitionRecord.displayProperties.name);
+        // console.log(definitionRecord.displayProperties.name);
 
-      const recordScope = definitionRecord.scope || 0;
-      const recordData = recordScope === 1 ? characterRecords?.[member.characterId]?.records[definitionRecord.hash] : profileRecords?.[definitionRecord.hash];
+        const recordScope = definitionRecord.scope || 0;
+        const recordData = recordScope === 1 ? characterRecords?.[member.characterId]?.records[definitionRecord.hash] : profileRecords?.[definitionRecord.hash];
 
-      // if (definitionRecord.intervalInfo.intervalObjectives.length)
+        // if (definitionRecord.intervalInfo.intervalObjectives.length)
 
-      // if (definitionRecord.hash === 3996842932) console.log(recordData, enumerateRecordState(recordData.state));
+        // if (definitionRecord.hash === 3996842932) console.log(recordData, enumerateRecordState(recordData.state));
 
-      const recordState = {
-        distance: 0,
-        score: {
-          value: 0,
-          progress: 0,
-          next: 0,
-        },
-        objectives: [],
-        intervals: [],
-        intervalEl: null,
-      };
-
-      if (definitionRecord.objectiveHashes) {
-        recordState.score = {
-          value: definitionRecord.completionInfo.ScoreValue,
-          progress: definitionRecord.completionInfo.ScoreValue,
-          next: definitionRecord.completionInfo.ScoreValue,
+        const recordState = {
+          distance: 0,
+          score: {
+            value: 0,
+            progress: 0,
+            next: 0,
+          },
+          objectives: [],
+          intervals: [],
+          intervalEl: null,
         };
 
-        recordState.objectives = definitionRecord.objectiveHashes
-          .filter((hash) => {
-            const data = recordData?.objectives.find((objective) => objective.objectiveHash === hash);
-            const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
+        if (definitionRecord.objectiveHashes) {
+          recordState.score = {
+            value: definitionRecord.completionInfo.ScoreValue,
+            progress: definitionRecord.completionInfo.ScoreValue,
+            next: definitionRecord.completionInfo.ScoreValue,
+          };
 
-            if (data && data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
-              return false;
+          recordState.objectives = definitionRecord.objectiveHashes
+            .filter((hash) => {
+              const data = recordData?.objectives.find((objective) => objective.objectiveHash === hash);
+              const definitionObjective = manifest.DestinyObjectiveDefinition[hash];
+
+              if (data && data.completionValue === 1 && data.progress <= data.completionValue && definitionObjective?.progressDescription === '') {
+                return false;
+              }
+
+              return true;
+            })
+            .map((hash, h) => {
+              const data = {
+                objectiveHash: hash,
+                ...(recordData?.objectives.find((objective) => objective.objectiveHash === hash) || {}),
+              };
+
+              return {
+                ...data,
+                score: definitionRecord.completionInfo.ScoreValue,
+                el: <ProgressBar key={h} {...data} />,
+              };
+            });
+
+          const distance = recordState.objectives.reduce(
+            (a, v) => {
+              return {
+                completionValueDiviser: (a.completionValueDiviser += 1),
+                progressValueDecimal: (a.progressValueDecimal += Math.min(v.progress / v.completionValue, 1) || 0),
+              };
+            },
+            {
+              completionValueDiviser: 0,
+              progressValueDecimal: 0,
             }
+          );
 
-            return true;
-          })
-          .map((hash, h) => {
-            const data = {
-              objectiveHash: hash,
-              ...(recordData?.objectives.find((objective) => objective.objectiveHash === hash) || {}),
-            };
+          recordState.distance = distance.completionValueDiviser > 0 ? distance.progressValueDecimal / distance.completionValueDiviser : 0;
+        }
+
+        if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
+          recordState.intervals = definitionRecord.intervalInfo.intervalObjectives.map((interval, i) => {
+            const definitionInterval = manifest.DestinyObjectiveDefinition[interval.intervalObjectiveHash];
+            const data = recordData?.intervalObjectives.find((objective) => objective.objectiveHash === interval.intervalObjectiveHash) || {};
+            const unredeemed = i + 1 > recordData?.intervalsRedeemedCount && data.complete;
 
             return {
+              objectiveHash: definitionInterval.hash,
+              completionValue: definitionInterval.completionValue,
+              progress: 0,
               ...data,
-              score: definitionRecord.completionInfo.ScoreValue,
-              el: <ProgressBar key={h} {...data} />,
+              unredeemed,
+              score: interval.intervalScoreValue,
+              el: <ProgressBar key={definitionInterval.hash} {...data} />,
             };
           });
 
-        const distance = recordState.objectives.reduce(
-          (a, v) => {
-            return {
-              completionValueDiviser: (a.completionValueDiviser += 1),
-              progressValueDecimal: (a.progressValueDecimal += Math.min(v.progress / v.completionValue, 1) || 0),
-            };
-          },
-          {
-            completionValueDiviser: 0,
-            progressValueDecimal: 0,
-          }
-        );
-
-        recordState.distance = distance.completionValueDiviser > 0 ? distance.progressValueDecimal / distance.completionValueDiviser : 0;
-      }
-
-      if (definitionRecord.intervalInfo?.intervalObjectives?.length) {
-        recordState.intervals = definitionRecord.intervalInfo.intervalObjectives.map((interval, i) => {
-          const definitionInterval = manifest.DestinyObjectiveDefinition[interval.intervalObjectiveHash];
-          const data = recordData?.intervalObjectives.find((objective) => objective.objectiveHash === interval.intervalObjectiveHash) || {};
-          const unredeemed = i + 1 > recordData?.intervalsRedeemedCount && data.complete;
-
-          return {
-            objectiveHash: definitionInterval.hash,
-            completionValue: definitionInterval.completionValue,
-            progress: 0,
-            ...data,
-            unredeemed,
-            score: interval.intervalScoreValue,
-            el: <ProgressBar key={definitionInterval.hash} {...data} />,
-          };
-        });
-
-        recordState.score = {
-          value: definitionRecord.intervalInfo.intervalObjectives.reduce((a, v) => {
-            return a + (v.intervalScoreValue || 0);
-          }, 0),
-          progress: definitionRecord.intervalInfo.intervalObjectives.reduce((a, v, i) => {
-            if (recordData && recordData.intervalsRedeemedCount > i) {
+          recordState.score = {
+            value: definitionRecord.intervalInfo.intervalObjectives.reduce((a, v) => {
               return a + (v.intervalScoreValue || 0);
-            } else {
-              return a;
-            }
-          }, 0),
-          next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0,
-        };
+            }, 0),
+            progress: definitionRecord.intervalInfo.intervalObjectives.reduce((a, v, i) => {
+              if (recordData && recordData.intervalsRedeemedCount > i) {
+                return a + (v.intervalScoreValue || 0);
+              } else {
+                return a;
+              }
+            }, 0),
+            next: (recordData && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount] && definitionRecord.intervalInfo.intervalObjectives[recordData.intervalsRedeemedCount].intervalScoreValue) || 0,
+          };
 
-        const nextIndex = recordData?.intervalObjectives.findIndex((objective) => !objective.complete) || 0;
-        const lastIndex =
-          nextIndex > 0
-            ? nextIndex - 1
-            : recordData
-            ? // record data is available
-              recordData.intervalObjectives.length - 1
-            : // record data is not available
-              recordState.intervals.length;
-        const lastInterval = recordData?.intervalObjectives[recordData.intervalObjectives.length - 1] || recordState.intervals[recordState.intervals.length - 1];
+          const nextIndex = recordData?.intervalObjectives.findIndex((objective) => !objective.complete) || 0;
+          const lastIndex =
+            nextIndex > 0
+              ? nextIndex - 1
+              : recordData
+              ? // record data is available
+                recordData.intervalObjectives.length - 1
+              : // record data is not available
+                recordState.intervals.length;
+          const lastInterval = recordData?.intervalObjectives[recordData.intervalObjectives.length - 1] || recordState.intervals[recordState.intervals.length - 1];
 
-        const progress =
-          recordData && nextIndex > -1
-            ? // if recordData and record not complete
-              lastIndex > -1
-              ? // if not first interval
-                recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue
-              : // is first interval
-                recordData.intervalObjectives[nextIndex].progress
-            : // must be complete so set to 1
-              1;
-        const completionValue =
-          recordData && nextIndex > -1 // if recordData and record not complete
-            ? lastIndex > -1
-              ? // if not first interval
-                recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue
-              : // is first interval
-                recordData.intervalObjectives[nextIndex].completionValue
-            : // must be complete so set to 1
-              1;
+          const progress =
+            recordData && nextIndex > -1
+              ? // if recordData and record not complete
+                lastIndex > -1
+                ? // if not first interval
+                  recordData.intervalObjectives[nextIndex].progress - recordData.intervalObjectives[lastIndex].completionValue
+                : // is first interval
+                  recordData.intervalObjectives[nextIndex].progress
+              : // must be complete so set to 1
+                1;
+          const completionValue =
+            recordData && nextIndex > -1 // if recordData and record not complete
+              ? lastIndex > -1
+                ? // if not first interval
+                  recordData.intervalObjectives[nextIndex].completionValue - recordData.intervalObjectives[lastIndex].completionValue
+                : // is first interval
+                  recordData.intervalObjectives[nextIndex].completionValue
+              : // must be complete so set to 1
+                1;
 
-        const completionValueDiviser = 1;
-        const progressValueDecimal = Math.min(progress / completionValue, 1);
+          const completionValueDiviser = 1;
+          const progressValueDecimal = Math.min(progress / completionValue, 1);
 
-        recordState.distance = progressValueDecimal / completionValueDiviser;
+          recordState.distance = progressValueDecimal / completionValueDiviser;
 
-        recordState.intervalEl = (
-          <div className='progress-bar intervals'>
-            <div className='bar full'>
-              <div className='text'>
-                <div className='description'>{lastInterval.objectiveHash && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash] && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash].progressDescription}</div>
-                {lastInterval.completionValue ? (
-                  <div className='fraction'>
-                    {displayValue(lastInterval.progress)}/{displayValue(lastInterval.completionValue)}
-                  </div>
-                ) : null}
-              </div>
-              <div className='bars'>
-                {recordState.intervals.map((interval, i) => {
-                  const previousInterval = recordState.intervals[Math.max(i - 1, 0)];
+          recordState.intervalEl = (
+            <div className='progress-bar intervals'>
+              <div className='bar full'>
+                <div className='text'>
+                  <div className='description'>{lastInterval.objectiveHash && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash] && manifest.DestinyObjectiveDefinition[lastInterval.objectiveHash].progressDescription}</div>
+                  {lastInterval.completionValue ? (
+                    <div className='fraction'>
+                      {displayValue(lastInterval.progress)}/{displayValue(lastInterval.completionValue)}
+                    </div>
+                  ) : null}
+                </div>
+                <div className='bars'>
+                  {recordState.intervals.map((interval, i) => {
+                    const previousInterval = recordState.intervals[Math.max(i - 1, 0)];
 
-                  if (interval.complete) {
-                    return (
-                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
-                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
-                      </div>
-                    );
-                  } else if (interval.complete && !interval.unredeemed) {
-                    return (
-                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
-                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
-                      </div>
-                    );
-                  } else if (previousInterval && previousInterval.complete) {
-                    return (
-                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
-                        <div className='fill' style={{ width: `${((interval.progress - previousInterval.completionValue) / (interval.completionValue - previousInterval.completionValue)) * 100}%` }} />
-                      </div>
-                    );
-                  } else if (i === 0) {
-                    return (
-                      <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
-                        <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
-                      </div>
-                    );
-                  } else {
-                    return <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })} />;
-                  }
-                })}
+                    if (interval.complete) {
+                      return (
+                        <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                          <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
+                        </div>
+                      );
+                    } else if (interval.complete && !interval.unredeemed) {
+                      return (
+                        <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                          <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
+                        </div>
+                      );
+                    } else if (previousInterval && previousInterval.complete) {
+                      return (
+                        <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                          <div className='fill' style={{ width: `${((interval.progress - previousInterval.completionValue) / (interval.completionValue - previousInterval.completionValue)) * 100}%` }} />
+                        </div>
+                      );
+                    } else if (i === 0) {
+                      return (
+                        <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })}>
+                          <div className='fill' style={{ width: `${(interval.progress / interval.completionValue) * 100}%` }} />
+                        </div>
+                      );
+                    } else {
+                      return <div key={i} className={cx('bar', { completed: interval.complete, unredeemed: interval.unredeemed })} />;
+                    }
+                  })}
+                </div>
               </div>
             </div>
-          </div>
-        );
-      }
+          );
+        }
 
-      const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
-      const enumeratedState = enumerateRecordState(enumerableState);
+        const enumerableState = recordData && Number.isInteger(recordData.state) ? recordData.state : 4;
+        const enumeratedState = enumerateRecordState(enumerableState);
 
-      // if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
-      //   return;
-      // }
-      if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Invisible) {
-        return;
-      }
+        // if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && (enumeratedState.Invisible || enumeratedState.Obscured)) {
+        //   return;
+        // }
+        if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Invisible) {
+          return false;
+        }
 
-      if (!showCompleted && settings.itemVisibility.hideCompletedRecords && enumeratedState.RecordRedeemed) {
-        return;
-      }
+        if (!showCompleted && settings.itemVisibility.hideCompletedRecords && enumeratedState.RecordRedeemed) {
+          return false;
+        }
 
-      const ref = highlight === definitionRecord.hash ? this.ref_scrollTo : undefined;
+        const ref = highlight === definitionRecord.hash ? this.ref_scrollTo : undefined;
 
-      if (definitionRecord.redacted) {
-        recordsOutput.push({
-          completed: enumeratedState.RecordRedeemed,
-          progressDistance: recordState.distance,
-          hash: definitionRecord.hash,
-          element: (
-            <li
-              key={h}
-              ref={ref}
-              className={cx('redacted', {
-                highlight: highlight === definitionRecord.hash,
-              })}
-            >
-              <div className='properties'>
-                <div className='icon'>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                </div>
-                <div className='text'>
-                  <div className='name'>{t('Classified record')}</div>
-                  <div className='description'>{t('This record is classified and may be revealed at a later time.')}</div>
-                </div>
-              </div>
-            </li>
-          ),
-        });
-      } else if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Obscured) {
-        recordsOutput.push({
-          completed: enumeratedState.RecordRedeemed,
-          progressDistance: recordState.distance,
-          hash: definitionRecord.hash,
-          element: (
-            <li
-              key={h}
-              ref={ref}
-              className={cx('redacted', {
-                highlight: highlight === definitionRecord.hash,
-              })}
-            >
-              <div className='properties'>
-                <div className='icon'>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                </div>
-                <div className='text'>
-                  <div className='name'>{t('Secret Triumph')}</div>
-                  <div className='meta'>
-                    {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
-                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
-                    {manifest.statistics.triumphs ? (
-                      <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
-                        {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
-                      </div>
-                    ) : null}
-                    {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
-                      <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
-                        {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
-                      </div>
-                    ) : null}
-                    {recordState.score.value !== 0 ? (
-                      <div className='score tooltip' data-hash='score' data-type='braytech'>
-                        {recordState.intervals.length && recordState.score.progress !== recordState.score.value ? `${recordState.score.next}/${recordState.score.value}` : recordState.score.value}
-                      </div>
-                    ) : null}
+        if (definitionRecord.redacted) {
+          return {
+            completed: enumeratedState.RecordRedeemed,
+            progressDistance: recordState.distance,
+            hash: definitionRecord.hash,
+            element: (
+              <li
+                key={h}
+                ref={ref}
+                className={cx('redacted', {
+                  highlight: highlight === definitionRecord.hash,
+                })}
+              >
+                <div className='properties'>
+                  <div className='icon'>
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
                   </div>
-                  <div className='description'>{t('Triumphs.State.SecretTriumph')}</div>
-                </div>
-              </div>
-            </li>
-          ),
-        });
-      } else {
-        const isCollectionBadge = associationsCollectionsBadges.find((badge) => badge.recordHash === definitionRecord.hash);
-
-        const link = this.makeLink(hash, isCollectionBadge);
-
-        const rewards = definitionRecord.rewardItems
-          ?.map((reward) => {
-            const definitionItem = manifest.DestinyInventoryItemDefinition[reward.itemHash];
-            const definitionCollectible = manifest.DestinyCollectibleDefinition[definitionItem?.collectibleHash];
-
-            if (definitionCollectible && !definitionCollectible.redacted) {
-              return definitionCollectible.hash;
-            } else {
-              return false;
-            }
-          })
-          .filter((r) => r);
-
-        const description = recordDescription(definitionRecord.hash);
-
-        const isVaultedRecord = !suppressVaultWarning && isContentVaulted(definitionRecord.hash);
-
-        recordsOutput.push({
-          completed: enumeratedState.RecordRedeemed,
-          progressDistance: recordState.distance,
-          hash: definitionRecord.hash,
-          element: (
-            <li
-              key={h}
-              ref={ref}
-              className={cx({
-                linked: link && true,
-                highlight: highlight === definitionRecord.hash,
-                completed: enumeratedState.RecordRedeemed,
-                unredeemed: !enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
-                tracked: tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted,
-                'no-description': !description,
-                'has-intervals': recordState.intervals.length,
-                selected: settings.developer.lists && lists.records.includes(definitionRecord.hash),
-                expired: !suppressVaultWarning && isVaultedRecord,
-              })}
-              onClick={settings.developer.lists ? this.props.addToList({ type: 'records', value: definitionRecord.hash }) : undefined}
-            >
-              {!enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
-                <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
-                  <Common.Tracking />
-                </div>
-              ) : null}
-              <div className='properties'>
-                <div className='icon'>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${recordIcon(definitionRecord.hash)}`} />
-                </div>
-                <div className='text'>
-                  <div className='name'>{definitionRecord.displayProperties.name}</div>
-                  <div className='meta'>
-                    {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
-                    {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
-                    {manifest.statistics.triumphs ? (
-                      <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
-                        {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
-                      </div>
-                    ) : null}
-                    {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
-                      <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
-                        {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
-                      </div>
-                    ) : null}
-                    {recordState.score.value !== 0 ? (
-                      <div className='score tooltip' data-hash='score' data-type='braytech'>
-                        {recordState.intervals.length && recordState.score.progress !== recordState.score.value ? `${recordState.score.next}/${recordState.score.value}` : recordState.score.value}
-                      </div>
-                    ) : null}
+                  <div className='text'>
+                    <div className='name'>{t('Classified record')}</div>
+                    <div className='description'>{t('This record is classified and may be revealed at a later time.')}</div>
                   </div>
-                  <div className='description'>{description}</div>
                 </div>
-              </div>
-              {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
-              {rewards && rewards.length ? (
-                <ul className='list rewards collection-items'>
-                  <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} suppressVaultWarning={this.props.suppressVaultWarning} showCompleted showInvisible showHidden />
-                </ul>
-              ) : null}
-              {!suppressVaultWarning && isVaultedRecord && (
-                <BraytechText
-                  className='highlight major'
-                  value={t('This record will be added to the _Content Vault_ in {{duration}}', {
-                    duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),
-                  })}
-                />
-              )}
-              {!settings.developer.lists && link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
-            </li>
-          ),
-        });
-      }
-    });
+              </li>
+            ),
+          };
+        } else if (!showInvisible && settings.itemVisibility.hideInvisibleRecords && enumeratedState.Obscured) {
+          return {
+            completed: enumeratedState.RecordRedeemed,
+            progressDistance: recordState.distance,
+            hash: definitionRecord.hash,
+            element: (
+              <li
+                key={h}
+                ref={ref}
+                className={cx('redacted', {
+                  highlight: highlight === definitionRecord.hash,
+                })}
+              >
+                <div className='properties'>
+                  <div className='icon'>
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                  </div>
+                  <div className='text'>
+                    <div className='name'>{t('Secret Triumph')}</div>
+                    <div className='meta'>
+                      {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
+                      {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
+                      {manifest.statistics.triumphs ? (
+                        <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
+                          {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                        </div>
+                      ) : null}
+                      {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
+                        <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
+                          {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
+                        </div>
+                      ) : null}
+                      {recordState.score.value !== 0 ? (
+                        <div className='score tooltip' data-hash='score' data-type='braytech'>
+                          {recordState.intervals.length && recordState.score.progress !== recordState.score.value ? `${recordState.score.next}/${recordState.score.value}` : recordState.score.value}
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className='description'>{t('Triumphs.State.SecretTriumph')}</div>
+                  </div>
+                </div>
+              </li>
+            ),
+          };
+        } else {
+          const isCollectionBadge = associationsCollectionsBadges.find((badge) => badge.recordHash === definitionRecord.hash);
 
-    if (recordsRequested.length > 0 && recordsOutput.length === 0 && settings.itemVisibility.hideCompletedRecords && !showCompleted) {
-      recordsOutput.push({
+          const link = this.makeLink(hash, isCollectionBadge);
+
+          const rewards = definitionRecord.rewardItems
+            ?.map((reward) => {
+              const definitionItem = manifest.DestinyInventoryItemDefinition[reward.itemHash];
+              const definitionCollectible = manifest.DestinyCollectibleDefinition[definitionItem?.collectibleHash];
+
+              if (definitionCollectible && !definitionCollectible.redacted) {
+                return definitionCollectible.hash;
+              } else {
+                return false;
+              }
+            })
+            .filter((r) => r);
+
+          const description = recordDescription(definitionRecord.hash);
+
+          const isVaultedRecord = !suppressVaultWarning && isContentVaulted(definitionRecord.hash);
+
+          return {
+            completed: enumeratedState.RecordRedeemed,
+            progressDistance: recordState.distance,
+            hash: definitionRecord.hash,
+            name: definitionRecord.displayProperties.name,
+            element: (
+              <li
+                key={h}
+                ref={ref}
+                className={cx({
+                  linked: link && true,
+                  highlight: highlight === definitionRecord.hash,
+                  completed: enumeratedState.RecordRedeemed,
+                  unredeemed: !enumeratedState.RecordRedeemed && !enumeratedState.ObjectiveNotCompleted,
+                  tracked: triumphs.tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted,
+                  'no-description': !description,
+                  'has-intervals': recordState.intervals.length,
+                  selected: settings.developer.lists && lists.records.includes(definitionRecord.hash),
+                  expired: !suppressVaultWarning && isVaultedRecord,
+                })}
+                onClick={settings.developer.lists ? this.props.addToList({ type: 'records', value: definitionRecord.hash }) : undefined}
+              >
+                {!enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted && !profileRecordsTracked.includes(definitionRecord.hash) ? (
+                  <div className='track' onClick={this.handler_toggleTrack} data-hash={definitionRecord.hash}>
+                    <Common.Tracking />
+                  </div>
+                ) : null}
+                <div className='properties'>
+                  <div className='icon'>
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${recordIcon(definitionRecord.hash)}`} />
+                  </div>
+                  <div className='text'>
+                    <div className='name'>{definitionRecord.displayProperties.name}</div>
+                    <div className='meta'>
+                      {process.env.NODE_ENV === 'development' ? <div>{definitionRecord.hash}</div> : null}
+                      {process.env.NODE_ENV === 'development' ? <div>{recordState.distance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div> : null}
+                      {manifest.statistics.triumphs ? (
+                        <div className='commonality tooltip' data-hash='commonality' data-type='braytech' data-related={definitionRecord.hash}>
+                          {commonality(manifest.statistics.triumphs[definitionRecord.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                        </div>
+                      ) : null}
+                      {recordState.intervals.length && recordState.intervals.filter((i) => i.complete).length !== recordState.intervals.length ? (
+                        <div className='intervals tooltip' data-hash='record_intervals' data-type='braytech'>
+                          {t('{{a}} of {{b}}', { a: recordState.intervals.filter((i) => i.complete).length, b: recordState.intervals.length })}
+                        </div>
+                      ) : null}
+                      {recordState.score.value !== 0 ? (
+                        <div className='score tooltip' data-hash='score' data-type='braytech'>
+                          {recordState.intervals.length && recordState.score.progress !== recordState.score.value ? `${recordState.score.next}/${recordState.score.value}` : recordState.score.value}
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className='description'>{description}</div>
+                  </div>
+                </div>
+                {recordState.intervals.length ? <div className='objectives'>{recordState.intervalEl}</div> : recordState.objectives.length ? <div className='objectives'>{recordState.objectives.map((objective) => objective.el)}</div> : null}
+                {rewards && rewards.length ? (
+                  <ul className='list rewards collection-items'>
+                    <Collectibles selfLinkFrom={removeMemberIds(this.props.location.pathname)} hashes={rewards} suppressVaultWarning={this.props.suppressVaultWarning} showCompleted showInvisible showHidden />
+                  </ul>
+                ) : null}
+                {!suppressVaultWarning && isVaultedRecord && (
+                  <BraytechText
+                    className='highlight major'
+                    value={t('This record will be added to the _Content Vault_ in {{duration}}', {
+                      duration: duration(timestampToDifference(`${isVaultedRecord.releaseDate}T${isVaultedRecord.resetTime}`, 'days'), { unit: 'days' }),
+                    })}
+                  />
+                )}
+                {!settings.developer.lists && link ? !selfLinkFrom && readLink ? <Link to={link} /> : <ProfileLink to={link} /> : null}
+              </li>
+            ),
+          };
+        }
+      })
+      .filter((record) => record);
+
+    if (output.length > 0 && output.length === 0 && settings.itemVisibility.hideCompletedRecords && !showCompleted) {
+      output.push({
         element: (
           <li key='all-completed' className='all-completed'>
             <div className='info'>{t('All acquired')}</div>
@@ -620,16 +622,19 @@ class Records extends React.Component {
     }
 
     if (ordered === 'progress') {
-      recordsOutput = orderBy(recordsOutput, [(item) => item.progressDistance], ['desc']);
+      output
+        .sort((a, b) => a.name - b.name)
+        .sort((a, b) => b.progressDistance - a.progressDistance)
+        .sort((a, b) => Number(a.completed) - Number(b.completed));
     } else if (ordered) {
-      recordsOutput = orderBy(recordsOutput, [(item) => item.completed], ['asc']);
+      output.sort((a, b) => a.completed - b.completed);
     }
 
     if (limit) {
-      recordsOutput = recordsOutput.slice(0, limit);
+      return output.slice(0, limit).map((record) => record.element);
     }
 
-    return recordsOutput.map((obj) => obj.element);
+    return output.map((record) => record.element);
   }
 }
 
