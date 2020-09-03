@@ -1,86 +1,133 @@
 {
   "de": {
     "translated": 688,
-    "notTranslated": 96,
-    "added": [],
-    "removed": []
+    "notTranslated": 97,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "debug": {
-    "translated": 784,
+    "translated": 785,
     "notTranslated": 0,
-    "added": [],
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "en": {
-    "translated": 784,
+    "translated": 785,
     "notTranslated": 0,
     "added": [],
     "removed": []
   },
   "es-mx": {
-    "translated": 775,
-    "notTranslated": 9,
-    "added": [],
+    "translated": 784,
+    "notTranslated": 1,
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "es": {
-    "translated": 775,
-    "notTranslated": 9,
-    "added": [],
+    "translated": 784,
+    "notTranslated": 1,
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "fr": {
     "translated": 616,
-    "notTranslated": 168,
-    "added": [],
-    "removed": []
+    "notTranslated": 169,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "it": {
     "translated": 775,
-    "notTranslated": 9,
-    "added": [],
+    "notTranslated": 10,
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "ja": {
     "translated": 564,
-    "notTranslated": 220,
-    "added": [],
-    "removed": []
+    "notTranslated": 221,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "ko": {
     "translated": 492,
-    "notTranslated": 292,
-    "added": [],
-    "removed": []
+    "notTranslated": 293,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "pl": {
     "translated": 485,
-    "notTranslated": 299,
-    "added": [],
-    "removed": []
+    "notTranslated": 300,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "pt-br": {
     "translated": 755,
-    "notTranslated": 29,
-    "added": [],
-    "removed": []
+    "notTranslated": 30,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   },
   "ru": {
-    "translated": 775,
-    "notTranslated": 9,
-    "added": [],
+    "translated": 784,
+    "notTranslated": 1,
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "zh-chs": {
-    "translated": 599,
-    "notTranslated": 185,
-    "added": [],
+    "translated": 638,
+    "notTranslated": 147,
+    "added": [
+      "Upsell.Profile.Description"
+    ],
     "removed": []
   },
   "zh-cht": {
     "translated": 657,
-    "notTranslated": 127,
-    "added": [],
-    "removed": []
+    "notTranslated": 128,
+    "added": [
+      "Upsell.Auth.Description",
+      "Upsell.Profile.Description"
+    ],
+    "removed": [
+      "Bungie.Auth.Upsell.Description"
+    ]
   }
 }
