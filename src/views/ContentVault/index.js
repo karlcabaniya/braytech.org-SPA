@@ -11,6 +11,7 @@ import { DestinyContentVault } from '../../utils/destinyEnums';
 import Collectibles from '../../components/Collectibles';
 import Records from '../../components/Records';
 import Button from '../../components/UI/Button';
+import Upsell from '../../components/UI/Upsell';
 
 import { Common } from '../../svg';
 
@@ -67,6 +68,7 @@ function ToggleCompletedLink() {
 
 export default function ContentVault(props) {
   const dispatch = useDispatch();
+  const member = useSelector(state => state.member);
 
   const slug = props.match.params.slug;
 
@@ -121,6 +123,9 @@ export default function ContentVault(props) {
           </div>
           <BraytechText className='text' value={t('ContentVault.Header.Text')} />
         </div>
+        {!member.data ? (
+          <Upsell />
+        ) : null}
         <div className='buff'>
           <NavLinks />
           <div className='presentation-node'>
