@@ -69,18 +69,19 @@ function ToggleCompletedLink() {
 export default function ContentVault(props) {
   const dispatch = useDispatch();
   const member = useSelector(state => state.member);
-  const nodes = useRef();
+  const entries = useRef();
 
   const slug = props.match.params.slug;
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     dispatch(actions.tooltips.rebind());
   }, []);
 
-  function scrollTo() {
-    if (nodes.current) {
-      nodes.current.scrollIntoView({ behavior: 'smooth' });
+  function scrollIntoView() {
+    if (entries.current) {
+      entries.current.scrollIntoView({ behavior: 'smooth' });
     }
   }
 
@@ -131,7 +132,7 @@ export default function ContentVault(props) {
         ) : null}
         <div className='buff'>
           <NavLinks />
-          <div ref={nodes} className='presentation-node'>
+          <div className='presentation-node'>
             <div className='node'>
               <div className='children'>
                 <h4>{t('Areas')}</h4>
@@ -152,14 +153,13 @@ export default function ContentVault(props) {
                         <div className='text'>
                           <div className='name'>{vault.name}</div>
                         </div>
-                        <NavLink isActive={isActive} to={`/content-vault/${data.season}/${vault.slug}`} onClick={scrollTo} />
+                        <NavLink isActive={isActive} to={`/content-vault/${data.season}/${vault.slug}`} onClick={scrollIntoView} />
                       </li>
                     );
                   })}
                 </ul>
-                <BraytechText className='info' value={t('ContentVault.Info')} />
               </div>
-              <div className='entries'>
+              <div ref={entries} className='entries'>
                 {collectibles.length ? (
                   <>
                     <h4>{t('Collectibles')}</h4>
