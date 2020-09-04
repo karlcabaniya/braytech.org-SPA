@@ -57,4 +57,20 @@ export default {
       };
     },
   },
+  triumphs: {
+    toggle: function (payload) {
+      return {
+        type: 'TRIUMPHS_TOGGLE_TRACK',
+        payload,
+      };
+    },
+  },
+  lists: {
+    toggle: function (payload) {
+      return {
+        type: 'LISTS_TOGGLE',
+        payload,
+      };
+    },
+  },
 };

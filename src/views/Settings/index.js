@@ -109,7 +109,7 @@ class Settings extends React.Component {
   };
 
   handler_resetTrackedTriumphs = (e) => {
-    this.props.setTrackedTriumphs([]);
+    this.props.resetTrackedTriumphs();
   };
 
   handler_resetTipsState = (e) => {
@@ -338,8 +338,8 @@ function mapDispatchToProps(dispatch) {
     setTheme: (value) => {
       dispatch({ type: 'SET_THEME', payload: value });
     },
-    setTrackedTriumphs: (value) => {
-      dispatch({ type: 'SET_TRACKED_TRIUMPHS', payload: value });
+    resetTrackedTriumphs: () => {
+      dispatch({ type: 'TRIUMPHS_RESET_TRACKED'});
     },
     setTips: (value) => {
       dispatch({ type: 'SET_TIPS', payload: value });

@@ -73,9 +73,7 @@ class Collectibles extends React.Component {
     const highlight = this.props.match?.params.quinary ? +this.props.match.params.quinary : +this.props.highlight || false;
 
     if (highlight && this.ref_scrollTo.current !== null) {
-      window.scrollTo({
-        top: this.ref_scrollTo.current.offsetTop + this.ref_scrollTo.current.offsetHeight / 2 - window.innerHeight / 2,
-      });
+      this.ref_scrollTo.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
     }
   }
 
@@ -397,7 +395,7 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: 'REBIND_TOOLTIPS' });
     },
     addToList: (payload) => (e) => {
-      dispatch({ type: 'ADD_TO_LIST', payload });
+      dispatch({ type: 'LISTS_TOGGLE', payload });
     },
   };
 }
