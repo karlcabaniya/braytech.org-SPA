@@ -189,6 +189,10 @@ function Records({ ordered, limit, showCompleted, showInvisible, ...props }) {
     }
   }, []);
 
+  useEffect(() => {
+    dispatch(actions.tooltips.rebind());
+  }, [settings.itemVisibility.hideCompletedRecords]);
+
   const handler_toggleTrack = (value) => (event) => {
     dispatch(actions.triumphs.toggle(value));
   }

@@ -75,6 +75,8 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
   const member = useSelector((state) => state.member);
 
   const highlight = params.quinary ? +params.quinary : +props.highlight || false;
+  const suppressVaultWarning = props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
+  const hashes = props.hashes?.filter((hash) => hash) || [];
 
   useEffect(() => {
     if (highlight && ref_scrollTo.current !== null) {
@@ -84,15 +86,12 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
 
   useEffect(() => {
     dispatch(actions.tooltips.rebind());
-  }, [settings.itemVisibility]);
+  }, [settings.itemVisibility.hideCompletedCollectibles]);
 
   const handler_toggleLists = (value) => (event) => {
     dispatch(actions.lists.toggle({ type: 'records', value }));
   };
 
-  const suppressVaultWarning = props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
-  const hashes = props.hashes?.filter((hash) => hash);
-  const characterId = member.characterId;
   const characterCollectibles = member.data.profile?.characterCollectibles.data;
   const profileCollectibles = member.data.profile?.profileCollectibles.data;
 
@@ -107,7 +106,7 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
         const set = definitionNode.children.collectibles.map((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
+          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[member.characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
           const state = data?.state || 0;
 
           if (
@@ -222,7 +221,7 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
         .map((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
+          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[member.characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
           const state = data?.state || 0;
 
           if (
@@ -318,7 +317,7 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
 
         if (!definitionCollectible) return false;
 
-        const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
+        const data = definitionCollectible.scope === 1 ? characterCollectibles?.[member.characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
         const state = data?.state || 0;
 
         if (
