@@ -91,24 +91,20 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
   };
 
   const suppressVaultWarning = props.suppressVaultWarning || settings.itemVisibility.suppressVaultWarnings;
-  const collectiblesRequested = props.hashes?.filter((h) => h);
+  const hashes = props.hashes?.filter((hash) => hash);
   const characterId = member.characterId;
   const characterCollectibles = member.data.profile?.characterCollectibles.data;
   const profileCollectibles = member.data.profile?.profileCollectibles.data;
-
-  let collectiblesOutput = [];
 
   if (props.node) {
     const tertiaryDefinition = manifest.DestinyPresentationNodeDefinition[props.node];
 
     // Collection Nodes with Nodes for Sets
     if (tertiaryDefinition.children.presentationNodes.length > 0) {
-      tertiaryDefinition.children.presentationNodes.forEach((node, n) => {
+      const output = tertiaryDefinition.children.presentationNodes.map((node, n) => {
         const definitionNode = manifest.DestinyPresentationNodeDefinition[node.presentationNodeHash];
 
-        const set = [];
-
-        definitionNode.children.collectibles.forEach((collectible, c) => {
+        const set = definitionNode.children.collectibles.map((collectible, c) => {
           const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
           const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
@@ -118,16 +114,14 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
             (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
             (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
           ) {
-            set.push({
+            return {
               hash: definitionCollectible.hash,
               state,
-            });
-
-            return;
+            };
           }
 
           if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
-            set.push({
+            return {
               hash: definitionCollectible.hash,
               state,
               element: (
@@ -148,11 +142,11 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
                   </div>
                 </li>
               ),
-            });
+            };
           } else {
             const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
-            set.push({
+            return {
               hash: definitionCollectible.hash,
               state,
               element: (
@@ -183,124 +177,130 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
                   {!settings.developer.lists && props.inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/item/${definitionCollectible.itemHash}`, state: { from: props.selfLinkFrom } }} /> : null}
                 </li>
               ),
-            });
+            };
           }
         });
 
         const ref = definitionNode.children.collectibles.find((c) => c.collectibleHash === highlight) ? ref_scrollTo : null;
 
         if (settings.itemVisibility.hideInvisibleCollectibles && set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length === set.length) {
-          return;
+          return false;
         }
 
-        collectiblesOutput.push(
-          <li
-            key={n}
-            ref={ref}
-            className={cx('is-set', {
-              completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length,
-              selected: settings.developer.lists && lists.nodes.includes(definitionNode.hash),
-            })}
-          >
-            <div className='text' onClick={settings.developer.lists ? handler_toggleLists({ type: 'nodes', value: definitionNode.hash }) : undefined}>
-              <div className='name'>{definitionNode.displayProperties.name}</div>
-            </div>
-            <div className='set'>
-              {set.filter((collectible) => collectible.element).length ? ( // collectibles avaiable to display
-                <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
-              ) : settings.itemVisibility.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
-                <div className='info'>{t('All acquired')}</div>
-              ) : (
-                <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>
-              )}
-            </div>
-          </li>
-        );
+        return {
+          element: (
+            <li
+              key={n}
+              ref={ref}
+              className={cx('is-set', {
+                completed: set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length,
+                selected: settings.developer.lists && lists.nodes.includes(definitionNode.hash),
+              })}
+            >
+              <div className='text' onClick={settings.developer.lists ? handler_toggleLists({ type: 'nodes', value: definitionNode.hash }) : undefined}>
+                <div className='name'>{definitionNode.displayProperties.name}</div>
+              </div>
+              <div className='set'>
+                {set.filter((collectible) => collectible.element).length ? ( // collectibles avaiable to display
+                  <ul className='list collection-items'>{set.map((collectible) => collectible.element)}</ul>
+                ) : settings.itemVisibility.hideCompletedCollectibles && set.filter((collectible) => !enumerateCollectibleState(collectible.state).NotAcquired).length === set.length ? ( // no collectibles to display, but hide completed collectibles is true
+                  <div className='info'>{t('All acquired')}</div>
+                ) : (
+                  <div className='info'>{t('Some acquired, {{invisible}} invisible', { invisible: set.filter((collectible) => enumerateCollectibleState(collectible.state).Invisible).length })}</div>
+                )}
+              </div>
+            </li>
+          ),
+        };
       });
+
+      return output.map((node) => node.element);
     }
     // Collection Nodes with Collectibles
     else {
-      tertiaryDefinition.children.collectibles.forEach((collectible, c) => {
-        const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
+      const output = tertiaryDefinition.children.collectibles
+        .map((collectible, c) => {
+          const definitionCollectible = manifest.DestinyCollectibleDefinition[collectible.collectibleHash];
 
-        const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
-        const state = data?.state || 0;
+          const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
+          const state = data?.state || 0;
 
-        if (
-          (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
-          (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
-        ) {
-          return;
-        }
+          if (
+            (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+            (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
+          ) {
+            return false;
+          }
 
-        const ref = highlight === definitionCollectible.hash ? ref_scrollTo : null;
+          const ref = highlight === definitionCollectible.hash ? ref_scrollTo : null;
 
-        if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
-          collectiblesOutput.push({
-            hash: definitionCollectible.hash,
-            element: (
-              <li
-                key={c}
-                ref={ref}
-                className={cx('linked', 'redacted', {
-                  highlight: highlight === definitionCollectible.hash,
-                })}
-                data-tooltip
-                data-hash='343'
-              >
-                <div className='icon'>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                </div>
-                <div className='text'>
-                  <div className='name'>{t('Classified')}</div>
-                  {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
-                </div>
-              </li>
-            ),
-          });
-        } else {
-          const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
-          const energyAsset = definitionItem?.plug?.energyCost?.energyTypeHash && energyTypeToAsset(definitionItem.plug.energyCost.energyTypeHash);
+          if (definitionCollectible.redacted || definitionCollectible.itemHash === 0) {
+            return {
+              hash: definitionCollectible.hash,
+              element: (
+                <li
+                  key={c}
+                  ref={ref}
+                  className={cx('linked', 'redacted', {
+                    highlight: highlight === definitionCollectible.hash,
+                  })}
+                  data-tooltip
+                  data-hash='343'
+                >
+                  <div className='icon'>
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                  </div>
+                  <div className='text'>
+                    <div className='name'>{t('Classified')}</div>
+                    {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
+                  </div>
+                </li>
+              ),
+            };
+          } else {
+            const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
+            const energyAsset = definitionItem?.plug?.energyCost?.energyTypeHash && energyTypeToAsset(definitionItem.plug.energyCost.energyTypeHash);
 
-          const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
+            const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
-          collectiblesOutput.push({
-            hash: definitionCollectible.hash,
-            element: (
-              <li
-                key={c}
-                ref={ref}
-                className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
-                  completed: !enumerateCollectibleState(state).NotAcquired,
-                  highlight: highlight === definitionCollectible.hash,
-                  selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
-                  expired: !suppressVaultWarning && isVaultedCollectible,
-                })}
-                data-tooltip={mouseTooltips ? 'mouse' : true}
-                data-hash={definitionCollectible.itemHash}
-                onClick={settings.developer.lists ? handler_toggleLists({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
-              >
-                <div className='icon'>
-                  <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
-                  {!suppressVaultWarning && isVaultedCollectible && (
-                    <div className='expired'>
-                      <Common.Expired />
-                    </div>
-                  )}
-                </div>
-                <div className='text'>
-                  <div className='name'>{definitionCollectible.displayProperties.name}</div>
-                  {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
-                </div>
-                {!settings.developer.lists && props.inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/item/${definitionCollectible.itemHash}`, state: { from: props.selfLinkFrom } }} /> : null}
-              </li>
-            ),
-          });
-        }
-      });
+            return {
+              hash: definitionCollectible.hash,
+              element: (
+                <li
+                  key={c}
+                  ref={ref}
+                  className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
+                    completed: !enumerateCollectibleState(state).NotAcquired,
+                    highlight: highlight === definitionCollectible.hash,
+                    selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
+                    expired: !suppressVaultWarning && isVaultedCollectible,
+                  })}
+                  data-tooltip={mouseTooltips ? 'mouse' : true}
+                  data-hash={definitionCollectible.itemHash}
+                  onClick={settings.developer.lists ? handler_toggleLists({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
+                >
+                  <div className='icon'>
+                    <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon || manifest.settings.destiny2CoreSettings.undiscoveredCollectibleImage}`} />
+                    {!suppressVaultWarning && isVaultedCollectible && (
+                      <div className='expired'>
+                        <Common.Expired />
+                      </div>
+                    )}
+                  </div>
+                  <div className='text'>
+                    <div className='name'>{definitionCollectible.displayProperties.name}</div>
+                    {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
+                  </div>
+                  {!settings.developer.lists && props.inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/item/${definitionCollectible.itemHash}`, state: { from: props.selfLinkFrom } }} /> : null}
+                </li>
+              ),
+            };
+          }
+        })
+        .filter((collectible) => collectible);
 
-      if (collectiblesOutput.filter((c) => c).length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
-        collectiblesOutput.push({
+      if (output.length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
+        output.push({
           element: (
             <li key='all-completed' className='all-completed'>
               <div className='info'>{t('All acquired')}</div>
@@ -309,67 +309,69 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
         });
       }
 
-      collectiblesOutput = collectiblesOutput.filter((c) => c).map((obj) => obj.element);
+      return output.map((collectible) => collectible.element);
     }
   } else {
-    collectiblesRequested.forEach((hash) => {
-      const definitionCollectible = manifest.DestinyCollectibleDefinition[hash];
+    const output = hashes
+      .map((hash) => {
+        const definitionCollectible = manifest.DestinyCollectibleDefinition[hash];
 
-      if (!definitionCollectible) return null;
+        if (!definitionCollectible) return false;
 
-      const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
-      const state = data?.state || 0;
+        const data = definitionCollectible.scope === 1 ? characterCollectibles?.[characterId].collectibles[definitionCollectible.hash] : profileCollectibles?.collectibles[definitionCollectible.hash];
+        const state = data?.state || 0;
 
-      if (
-        (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
-        (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
-      ) {
-        return;
-      }
+        if (
+          (settings.itemVisibility.hideInvisibleCollectibles && enumerateCollectibleState(state).Invisible && !showInvisible) || // hide invisibles
+          (settings.itemVisibility.hideCompletedCollectibles && !enumerateCollectibleState(state).NotAcquired && !showCompleted) // hide completed
+        ) {
+          return false;
+        }
 
-      const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
-      const energyAsset = definitionItem?.plug?.energyCost?.energyTypeHash && energyTypeToAsset(definitionItem.plug.energyCost.energyTypeHash);
+        const definitionItem = manifest.DestinyInventoryItemDefinition[definitionCollectible.itemHash];
+        const energyAsset = definitionItem?.plug?.energyCost?.energyTypeHash && energyTypeToAsset(definitionItem.plug.energyCost.energyTypeHash);
 
-      const link = selfLinkCollectible(definitionCollectible.hash);
+        const link = selfLinkCollectible(definitionCollectible.hash);
 
-      const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
+        const isVaultedCollectible = !suppressVaultWarning && isContentVaulted(definitionCollectible.hash);
 
-      collectiblesOutput.push({
-        hash: definitionCollectible.hash,
-        element: (
-          <li
-            key={definitionCollectible.hash}
-            className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
-              linked: link && props.selfLinkFrom,
-              completed: !enumerateCollectibleState(state).NotAcquired,
-              selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
-              expired: !suppressVaultWarning && isVaultedCollectible,
-            })}
-            data-tooltip={mouseTooltips ? 'mouse' : true}
-            data-hash={definitionCollectible.itemHash}
-            onClick={settings.developer.lists ? handler_toggleLists({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
-          >
-            <div className='icon'>
-              <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
-              {!suppressVaultWarning && isVaultedCollectible && (
-                <div className='expired'>
-                  <Common.Expired />
-                </div>
-              )}
-            </div>
-            <div className='text'>
-              <div className='name'>{definitionCollectible.displayProperties.name}</div>
-              {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
-            </div>
-            {!settings.developer.lists && link && props.selfLinkFrom && !props.inspect ? <ProfileLink to={{ pathname: link, state: { from: props.selfLinkFrom } }} /> : null}
-            {!settings.developer.lists && props.inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/item/${definitionCollectible.itemHash}`, state: { from: props.selfLinkFrom } }} /> : null}
-          </li>
-        ),
-      });
-    });
+        return {
+          hash: definitionCollectible.hash,
+          element: (
+            <li
+              key={definitionCollectible.hash}
+              className={cx('linked', energyAsset?.string !== 'any' && energyAsset?.string, {
+                linked: link && props.selfLinkFrom,
+                completed: !enumerateCollectibleState(state).NotAcquired,
+                selected: settings.developer.lists && lists.collectibles.includes(definitionCollectible.hash),
+                expired: !suppressVaultWarning && isVaultedCollectible,
+              })}
+              data-tooltip={mouseTooltips ? 'mouse' : true}
+              data-hash={definitionCollectible.itemHash}
+              onClick={settings.developer.lists ? handler_toggleLists({ type: 'collectibles', value: definitionCollectible.hash }) : undefined}
+            >
+              <div className='icon'>
+                <ObservedImage className='image icon' src={`https://www.bungie.net${definitionCollectible.displayProperties.icon}`} />
+                {!suppressVaultWarning && isVaultedCollectible && (
+                  <div className='expired'>
+                    <Common.Expired />
+                  </div>
+                )}
+              </div>
+              <div className='text'>
+                <div className='name'>{definitionCollectible.displayProperties.name}</div>
+                {manifest.statistics.collections ? <div className='commonality'>{commonality(manifest.statistics.collections[definitionCollectible.hash]).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%</div> : null}
+              </div>
+              {!settings.developer.lists && link && props.selfLinkFrom && !props.inspect ? <ProfileLink to={{ pathname: link, state: { from: props.selfLinkFrom } }} /> : null}
+              {!settings.developer.lists && props.inspect && definitionCollectible.itemHash ? <Link to={{ pathname: `/inspect/item/${definitionCollectible.itemHash}`, state: { from: props.selfLinkFrom } }} /> : null}
+            </li>
+          ),
+        };
+      })
+      .filter((collectible) => collectible);
 
-    if (collectiblesRequested?.length > 0 && collectiblesOutput.length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
-      collectiblesOutput.push({
+    if (hashes.length > 0 && output.length === 0 && settings.itemVisibility.hideCompletedCollectibles && !showCompleted) {
+      output.push({
         element: (
           <li key='all-completed' className='all-completed'>
             <div className='info'>{t('All acquired')}</div>
@@ -378,8 +380,6 @@ export default function Collectibles({ showCompleted, showInvisible, mouseToolti
       });
     }
 
-    collectiblesOutput = collectiblesOutput.filter((c) => c).map((obj) => obj.element);
+    return output.map((collectible) => collectible.element);
   }
-
-  return collectiblesOutput;
 }
