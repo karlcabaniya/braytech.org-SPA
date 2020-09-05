@@ -1262,6 +1262,6 @@
   {
     "date": "2020-09-05T10:11:59.077Z",
     "version": "2.31.44",
-    "content": "- improvements to _Content Vault_ view\n- refactored Records component\n- refactored Collectibles component\n- refactored Character Select component\n- added \\[REDACTED\\]"
+    "content": "- improvements to _Content Vault_ view\n- refactored _Character select_ view\n- refactored records component\n- refactored collectibles component\n- added \\[REDACTED\\]"
   }
 ]

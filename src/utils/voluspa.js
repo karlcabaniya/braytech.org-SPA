@@ -7,7 +7,30 @@ const defaults = {
 
 export function PostMember(payload) {
   try {
-    fetch('https://voluspa.braytech.org/Enqueue/Store', {
+    fetch('https://voluspa.braytech.org/Member', {
+      ...defaults,
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  } catch (e) {
+    return false;
+  }
+}
+
+export function GetMemberSettings(payload) {
+  try {
+    fetch(`https://voluspa.braytech.org/Member/Settings?membershipId=${payload}`, {
+      ...defaults,
+      method: 'GET',
+    });
+  } catch (e) {
+    return false;
+  }
+}
+
+export function PostMemberSettings(payload) {
+  try {
+    fetch('https://voluspa.braytech.org/Member/Settings', {
       ...defaults,
       method: 'POST',
       body: JSON.stringify(payload),
