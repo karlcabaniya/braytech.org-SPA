@@ -7,6 +7,7 @@ import queryString from 'query-string';
 
 import actions from '../../store/actions';
 import { t, formatTime } from '../../utils/i18n';
+import { useIsMounted } from '../../utils/hooks';
 import * as bungie from '../../utils/bungie';
 import * as voluspa from '../../utils/voluspa';
 import * as enums from '../../utils/destinyEnums';
@@ -23,6 +24,7 @@ const authUrl = `https://www.bungie.net/en/OAuth/Authorize?client_id=${process.e
 
 export function PatreonAssociation({ destinyMemberships, primaryMembershipId, ...props }) {
   const dispatch = useDispatch();
+  const isMounted = useIsMounted();
 
   const [state, setState] = useState({
     loading: false,
@@ -39,12 +41,12 @@ export function PatreonAssociation({ destinyMemberships, primaryMembershipId, ..
   }, []);
 
   function handler_onSearchChange(event) {
-    // if (this.mounted) {
-    setInput({
-      value: event.target.value.trim(),
-      isValid: RegExpEmail.test(event.target.value.trim()),
-    });
-    //}
+    if (isMounted.current) {
+      setInput({
+        value: event.target.value.trim(),
+        isValid: RegExpEmail.test(event.target.value.trim()),
+      });
+    }
   }
 
   function handler_onSubmit(event) {
@@ -60,76 +62,76 @@ export function PatreonAssociation({ destinyMemberships, primaryMembershipId, ..
 
     if (!membershipIds.length || input.value === '') return;
 
-    // if (this.mounted) {
-    setState({
-      loading: true,
-      error: false,
-    });
+    if (isMounted.current) {
+      setState({
+        loading: true,
+        error: false,
+      });
+    }
 
     try {
       const response = await voluspa.PostPatreon({ membershipIds, primaryMembershipId, email: input.value });
 
-      // if (this.mounted) {
-      setState({
-        loading: false,
-        error: false,
-      });
+      if (isMounted.current) {
+        setState({
+          loading: false,
+          error: false,
+        });
 
-      setInput({
-        value: response.ErrorCode === 1 ? '' : input.value,
-        isValid: response.ErrorCode === 1 ? false : true,
-      });
+        setInput({
+          value: response.ErrorCode === 1 ? '' : input.value,
+          isValid: response.ErrorCode === 1 ? false : true,
+        });
 
-      if (response.ErrorCode === 1) {
-        dispatch(
-          actions.notifications.push({
-            date: new Date().toISOString(),
-            expiry: 86400000,
-            displayProperties: {
-              name: 'Braytech',
-              description: t('Thanks! Your email is now associated with your profiles'),
-              timeout: 10,
-            },
-          })
-        );
+        if (response.ErrorCode === 1) {
+          dispatch(
+            actions.notifications.push({
+              date: new Date().toISOString(),
+              expiry: 86400000,
+              displayProperties: {
+                name: 'Braytech',
+                description: t('Thanks! Your email is now associated with your profiles'),
+                timeout: 10,
+              },
+            })
+          );
 
-        props.handler();
-      } else if (response.ErrorCode !== 1) {
+          props.handler();
+        } else if (response.ErrorCode !== 1) {
+          dispatch(
+            actions.notifications.push({
+              error: true,
+              date: new Date().toISOString(),
+              expiry: 86400000,
+              displayProperties: {
+                name: 'VOLUSPA',
+                description: `${response.ErrorCode} ${response.ErrorStatus}`,
+                timeout: 30,
+              },
+            })
+          );
+        }
+      }
+    } catch (error) {
+      if (isMounted.current) {
+        setState({
+          loading: false,
+          error: true,
+        });
+
         dispatch(
           actions.notifications.push({
             error: true,
             date: new Date().toISOString(),
             expiry: 86400000,
             displayProperties: {
-              name: 'VOLUSPA',
-              description: `${response.ErrorCode} ${response.ErrorStatus}`,
-              timeout: 30,
+              name: `HTTP error`,
+              description: `A network error occured. ${error.message}.`,
+              timeout: 4,
             },
           })
         );
       }
-      // }
-    } catch (e) {
-      //if (this.mounted) {
-      setState({
-        loading: false,
-        error: true,
-      });
-
-      dispatch(
-        actions.notifications.push({
-          error: true,
-          date: new Date().toISOString(),
-          expiry: 86400000,
-          displayProperties: {
-            name: `HTTP error`,
-            description: `A network error occured. ${e.message}.`,
-            timeout: 4,
-          },
-        })
-      );
-
-      //}
     }
   }
 
@@ -160,6 +162,7 @@ export function PatreonAssociation({ destinyMemberships, primaryMembershipId, ..
 export function BungieAuth() {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const isMounted = useIsMounted();
 
   const location = useLocation();
   const authorization_code = queryString.parse(location.search)?.code;
@@ -195,21 +198,19 @@ export function BungieAuth() {
     }));
   }
 
-  const handler_loadMembership = (membership) => (e) => {
+  const handler_loadMembership = (membership) => (event) => {
     window.scrollTo(0, 0);
 
     dispatch(actions.member.load(membership));
   };
 
   useEffect(() => {
-    let mounted = true;
-
     if (authorization_code) {
       getAccessTokens(authorization_code);
     } else if (auth) {
       getMemberships();
     } else {
-      if (mounted) {
+      if (isMounted.current) {
         setState({
           loading: false,
           error: false,
@@ -221,15 +222,15 @@ export function BungieAuth() {
     async function getAccessTokens(code) {
       await bungie.GetOAuthAccessToken(`client_id=${process.env.REACT_APP_BUNGIE_CLIENT_ID}&grant_type=authorization_code&code=${code}`);
 
-      if (mounted) {
+      if (isMounted.current) {
         getMemberships();
       }
     }
 
     async function getMemberships() {
       const response = await bungie.GetMembershipDataForCurrentUser();
-
-      if (mounted) {
+console.log('hello', isMounted)
+      if (isMounted.current) {console.log('hello 2')
         if (response && response.ErrorCode === 1) {
           setState({
             loading: false,
@@ -257,10 +258,6 @@ export function BungieAuth() {
         }
       }
     }
-
-    return () => {
-      mounted = false;
-    };
   }, []);
 
   if (state.authorization_code) {
@@ -272,7 +269,11 @@ export function BungieAuth() {
   }
 
   if (state.loading) {
-    return <Spinner mini />;
+    return (
+      <div className='bungie-auth loading'>
+        <Spinner />
+      </div>
+    );
   } else {
     if (state.memberships && !state.error) {
       return (
@@ -363,6 +364,7 @@ export function BungieAuth() {
 export function BungieAuthMini() {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const isMounted = useIsMounted();
 
   const [state, setState] = useState({
     loading: true,
@@ -376,19 +378,17 @@ export function BungieAuthMini() {
     }
   }
 
-  const handler_loadMembership = (membership) => (e) => {
+  const handler_loadMembership = (membership) => (event) => {
     window.scrollTo(0, 0);
 
     dispatch(actions.member.load(membership));
   };
 
   useEffect(() => {
-    let mounted = true;
-
     if (auth) {
       getMemberships();
     } else {
-      if (mounted) {
+      if (isMounted.current) {
         setState({
           loading: false,
           error: false,
@@ -400,7 +400,7 @@ export function BungieAuthMini() {
     async function getMemberships() {
       const response = await bungie.GetMembershipDataForCurrentUser();
 
-      if (mounted) {
+      if (isMounted.current) {
         if (response && response.ErrorCode === 1) {
           setState({
             loading: false,
@@ -428,10 +428,6 @@ export function BungieAuthMini() {
         }
       }
     }
-
-    return () => {
-      mounted = false;
-    };
   }, []);
 
   if (state.loading) {
@@ -534,6 +530,7 @@ export function NoAuth({ inline }) {
 export function DiffProfile({ inline }) {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
+  const isMounted = useIsMounted();
 
   const location = useLocation();
   const pathname = paths.removeMemberIds(location.pathname);
@@ -544,15 +541,13 @@ export function DiffProfile({ inline }) {
     memberships: undefined,
   });
 
-  const handler_loadMembership = (membership) => (e) => {
+  const handler_loadMembership = (membership) => (event) => {
     window.scrollTo(0, 0);
 
     dispatch(actions.member.load(membership));
   };
 
   useEffect(() => {
-    let mounted = true;
-
     if (auth) {
       getMemberships();
     }
@@ -560,7 +555,7 @@ export function DiffProfile({ inline }) {
     async function getMemberships() {
       const response = await bungie.GetMembershipDataForCurrentUser();
 
-      if (mounted) {
+      if (isMounted.current) {
         if (response && response.ErrorCode === 1) {
           setState({
             loading: false,
@@ -582,10 +577,6 @@ export function DiffProfile({ inline }) {
         }
       }
     }
-
-    return () => {
-      mounted = false;
-    };
   }, []);
 
   let properties;

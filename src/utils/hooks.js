@@ -30,5 +30,5 @@ export function useIsMounted() {
     return () => (isMounted.current = false);
   }, []);
 
-  return isMounted.current ? true : false;
-};
+  return isMounted;
+}

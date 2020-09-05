@@ -109,13 +109,13 @@ function Common() {
   return (
     <div className='content common'>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Bungie.net profile')}</div>
         </div>
         <BungieAuth />
       </div>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Theme')}</div>
         </div>
         <ul className='list settings'>
@@ -129,7 +129,7 @@ function Common() {
             <Checkbox linked checked={!theme.user} text={t('Settings.Theme.SystemPreference')} action={handler_theme('system')} />
           </li>
         </ul>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Item visibility')}</div>
         </div>
         <ul className='list settings'>
@@ -168,7 +168,7 @@ function Common() {
         </ul>
       </div>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Language')}</div>
         </div>
         <ul className='list settings'>
@@ -230,7 +230,7 @@ function Advanced() {
     (async function () {
       const installed = await serviceWorkerInstalled();
 
-      if (isMounted && installed) {
+      if (isMounted.current && installed) {
         setServiceWorker((state) => ({
           ...state,
           installed,
@@ -240,7 +240,7 @@ function Advanced() {
   }, []);
 
   async function handler_serviceWorkerUpdate() {
-    if (isMounted) {
+    if (isMounted.current) {
       setServiceWorker((state) => ({
         ...state,
         updateAttempt: true,
@@ -249,7 +249,7 @@ function Advanced() {
 
     await updateServiceWorker();
 
-    if (isMounted) {
+    if (isMounted.current) {
       setServiceWorker((state) => ({
         ...state,
         updateAttempt: false,
@@ -258,7 +258,7 @@ function Advanced() {
   }
 
   function handler_serviceWorkerDump() {
-    if (isMounted) {
+    if (isMounted.current) {
       setServiceWorker((state) => ({
         ...state,
         unregisterAttempt: true,
@@ -315,7 +315,7 @@ function Advanced() {
   return (
     <div className='content'>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Visual fidelity')}</div>
         </div>
         <ul className='list settings'>
@@ -340,7 +340,7 @@ function Advanced() {
         </ul>
       </div>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Developer')}</div>
         </div>
         <ul className='list settings'>
@@ -367,7 +367,7 @@ function Advanced() {
         </ul>
       </div>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Local data')}</div>
         </div>
         <div className='buttons'>
@@ -386,7 +386,7 @@ function Advanced() {
         </div>
       </div>
       <div className='module'>
-        <div className='sub-header sub'>
+        <div className='sub-header'>
           <div>{t('Troubleshooting')}</div>
         </div>
         <div className='buttons'>

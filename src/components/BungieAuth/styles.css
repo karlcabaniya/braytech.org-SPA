@@ -1,3 +1,10 @@
+.bungie-auth.loading {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 500px;
+}
+
 .bungie-auth .text ~ .button {
   margin: 1rem 0 0;
 }
