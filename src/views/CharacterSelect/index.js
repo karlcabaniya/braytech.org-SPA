@@ -59,7 +59,7 @@ export default function CharacterSelect() {
   ) : member.data && member.characterId ? (
     <>
       <div className='sub-header'>
-        <div>{t(member && member.membershipId === savedProfile.membershipId ? 'Saved profile' : 'Active profile')}</div>
+        <div>{member && member.membershipId === savedProfile.membershipId ? t('Saved profile') : t('Active profile')}</div>
       </div>
       {member.data && <Profile member={member} onClickCharacter={handler_clickCharacter} />}
     </>

@@ -1,133 +1,153 @@
 {
   "de": {
-    "translated": 688,
-    "notTranslated": 97,
+    "translated": 784,
+    "notTranslated": 2,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "debug": {
-    "translated": 785,
+    "translated": 786,
     "notTranslated": 0,
     "added": [
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
-    "removed": []
+    "removed": [
+      "ContentVault.Info"
+    ]
   },
   "en": {
-    "translated": 785,
+    "translated": 786,
     "notTranslated": 0,
     "added": [],
-    "removed": []
+    "removed": [
+      "ContentVault.Info"
+    ]
   },
   "es-mx": {
-    "translated": 784,
-    "notTranslated": 1,
+    "translated": 783,
+    "notTranslated": 3,
     "added": [
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
-    "removed": []
+    "removed": [
+      "ContentVault.Info"
+    ]
   },
   "es": {
-    "translated": 784,
-    "notTranslated": 1,
+    "translated": 783,
+    "notTranslated": 3,
     "added": [
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
-    "removed": []
+    "removed": [
+      "ContentVault.Info"
+    ]
   },
   "fr": {
     "translated": 616,
-    "notTranslated": 169,
+    "notTranslated": 170,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "it": {
-    "translated": 775,
-    "notTranslated": 10,
+    "translated": 784,
+    "notTranslated": 2,
     "added": [
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
-    "removed": []
+    "removed": [
+      "ContentVault.Info"
+    ]
   },
   "ja": {
     "translated": 564,
-    "notTranslated": 221,
+    "notTranslated": 222,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "ko": {
     "translated": 492,
-    "notTranslated": 293,
+    "notTranslated": 294,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "pl": {
     "translated": 485,
-    "notTranslated": 300,
+    "notTranslated": 301,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "pt-br": {
-    "translated": 755,
-    "notTranslated": 30,
+    "translated": 754,
+    "notTranslated": 32,
     "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
     ]
   },
   "ru": {
     "translated": 784,
-    "notTranslated": 1,
+    "notTranslated": 2,
     "added": [
-      "Upsell.Profile.Description"
-    ],
-    "removed": []
-  },
-  "zh-chs": {
-    "translated": 638,
-    "notTranslated": 147,
-    "added": [
-      "Upsell.Profile.Description"
-    ],
-    "removed": []
-  },
-  "zh-cht": {
-    "translated": 657,
-    "notTranslated": 128,
-    "added": [
-      "Upsell.Auth.Description",
-      "Upsell.Profile.Description"
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
     ],
     "removed": [
-      "Bungie.Auth.Upsell.Description"
+      "ContentVault.Info"
+    ]
+  },
+  "zh-chs": {
+    "translated": 637,
+    "notTranslated": 149,
+    "added": [
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
+    ],
+    "removed": [
+      "ContentVault.Info"
+    ]
+  },
+  "zh-cht": {
+    "translated": 656,
+    "notTranslated": 130,
+    "added": [
+      "Profile banned",
+      "This Destiny profile has been banned from this app. This isn't an error."
+    ],
+    "removed": [
+      "ContentVault.Info"
     ]
   }
 }
