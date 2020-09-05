@@ -59,7 +59,7 @@ export default function CharacterSelect() {
   ) : member.data && member.characterId ? (
     <>
       <div className='sub-header'>
-        <div>{member && member.membershipId === savedProfile.membershipId ? t('Saved profile') : t('Active profile')}</div>
+        <div>{member && member.membershipId === savedProfile.membershipId ? t('CharacterSelect.SavedProfile') : t('CharacterSelect.ActiveProfile')}</div>
       </div>
       {member.data && <Profile member={member} onClickCharacter={handler_clickCharacter} />}
     </>
@@ -71,7 +71,7 @@ export default function CharacterSelect() {
     <div className={cx('view', { loading: member.loading })} id='character-select'>
       <div className='module head'>
         <div className='page-header'>
-          <div className='name'>{t('Character Select')}</div>
+          <div className='name'>{t('Character select')}</div>
         </div>
       </div>
       <div className='padder'>
@@ -80,11 +80,11 @@ export default function CharacterSelect() {
         </div>
         {reverseUI && profileCharacterSelect && !(member.error && !member.error.recoverable) ? <div className='module profile'>{profileCharacterSelect}</div> : null}
         <div className='module search'>
-          {member.error && <ProfileError error={member.error} />}
           <div className='sub-header'>
             <div>{t('Bungie.net profile')}</div>
           </div>
           <BungieAuthMini />
+          {member.error && <ProfileError error={member.error} />}
           <ProfileSearch resultsListItems={resultsListItems} />
         </div>
         {!reverseUI && profileCharacterSelect && !(member.error && !member.error.recoverable) ? <div className='module profile'>{profileCharacterSelect}</div> : null}
