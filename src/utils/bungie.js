@@ -71,7 +71,7 @@ async function apiRequest(path, options = {}) {
     .catch((error) => {
       if (!options.errors.hide) {
         store.dispatch({
-          type: 'PUSH_NOTIFICATION',
+          type: 'NOTIFICATIONS_PUSH',
           payload: {
             error: true,
             date: new Date().toISOString(),
@@ -93,7 +93,7 @@ async function apiRequest(path, options = {}) {
   if ((response && response.ErrorCode && response.ErrorCode !== 1) || (response && response.error)) {
     if (!options.errors.hide) {
       store.dispatch({
-        type: 'PUSH_NOTIFICATION',
+        type: 'NOTIFICATIONS_PUSH',
         payload: {
           error: true,
           date: new Date().toISOString(),
@@ -112,7 +112,7 @@ async function apiRequest(path, options = {}) {
       console.log(`%cThere was an OAuth token error so I'm going to go ahead and reset your tokens for you.`, 'font-style: italic');
 
       store.dispatch({
-        type: 'RESET_AUTH',
+        type: 'AUTH_RESET',
       });
     }
 
@@ -143,7 +143,7 @@ async function apiRequest(path, options = {}) {
         };
 
         store.dispatch({
-          type: 'SET_AUTH',
+          type: 'AUTH_SET',
           payload: tokens,
         });
 
@@ -164,7 +164,7 @@ async function apiRequest(path, options = {}) {
   else if (request) {
     if (!options.errors.hide) {
       store.dispatch({
-        type: 'PUSH_NOTIFICATION',
+        type: 'NOTIFICATIONS_PUSH',
         payload: {
           error: true,
           date: new Date().toISOString(),

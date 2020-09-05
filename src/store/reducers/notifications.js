@@ -23,7 +23,7 @@ function defaultState() {
 }
 
 export default function reducer(state = defaultState(), action) {
-  if (action.type === 'PUSH_NOTIFICATION') {
+  if (action.type === 'NOTIFICATIONS_PUSH') {
     // assign a hash if there is none
     if (!action.payload.hash) {
       action.payload.hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -38,7 +38,7 @@ export default function reducer(state = defaultState(), action) {
       ...state,
       objects: [...state.objects, action.payload],
     };
-  } else if (action.type === 'POP_NOTIFICATION') {
+  } else if (action.type === 'NOTIFICATIONS_POP') {
     const trash = [...state.trash];
 
     // only push to trash if showOnce === true
@@ -54,7 +54,7 @@ export default function reducer(state = defaultState(), action) {
       objects: state.objects.filter((n) => n.hash !== action.payload),
       trash,
     };
-  } else if (action.type === 'RESET_NOTIFICATIONS') {
+  } else if (action.type === 'NOTIFICATIONS_RESET') {
     // fresh
     ls.set('history.notifications', []);
 

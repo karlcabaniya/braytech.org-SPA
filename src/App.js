@@ -217,10 +217,9 @@ class App extends React.Component {
     }
 
     tmpManifest.settings = bungieSettings && bungieSettings.ErrorCode === 1 && bungieSettings.Response;
-
-    this.availableLanguages = Object.keys(manifestIndex.Response.jsonWorldContentPaths);
-
-    if (process.env.NODE_ENV === 'development') this.availableLanguages.unshift('debug');
+    
+    tmpManifest.languages = Object.keys(manifestIndex.Response.jsonWorldContentPaths)
+    if (process.env.NODE_ENV === 'development') tmpManifest.languages.unshift('debug');
 
     tmpManifest.statistics = (await this.startupRequests.voluspaStatistics).Response?.data || {};
 
@@ -337,7 +336,7 @@ class App extends React.Component {
                         <Route path='/compare/:object?' exact component={Compare} />
 
                         <Route path='/commonality' exact component={Commonality} />
-                        <Route path='/settings' exact render={(route) => <Settings {...route} availableLanguages={this.availableLanguages} />} />
+                        <Route path='/settings/:view?' exact component={Settings} />
                         <Route path='/faq' exact component={FAQ} />
                         <Route path='/content-vault/:season([0-9]+)?/:slug?' exact component={ContentVault} />
                         <Route path='/solstice-of-heroes/:type?' exact component={SolsticeOfHeroes} />

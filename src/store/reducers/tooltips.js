@@ -5,7 +5,7 @@ export default function reducer(
   action
 ) {
   switch (action.type) {
-    case 'REBIND_TOOLTIPS':
+    case 'TOOLTIPS_REBIND':
       return {
         ...state,
         bindTime: new Date().getTime(),

@@ -51,7 +51,7 @@ const history = merge({ ...initial }, ls.get('settings'));
 
 export default function reducer(state = history, action) {
   switch (action.type) {
-    case 'SET_SETTING':
+    case 'SETTINGS_SET':
       const adjusted = merge({ ...state }, action.payload);
 
       ls.set('settings', adjusted);
