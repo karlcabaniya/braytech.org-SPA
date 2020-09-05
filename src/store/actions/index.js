@@ -27,6 +27,12 @@ export default {
         payload,
       };
     },
+    setCharacterID: function (payload) {
+      return {
+        type: 'MEMBER_SET_CHARACTERID',
+        payload,
+      };
+    },
   },
   theme: {
     scrollbars: function (payload) {
