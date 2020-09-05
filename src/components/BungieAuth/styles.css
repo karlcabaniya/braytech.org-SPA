@@ -17,7 +17,7 @@
 .bungie-auth .member .details {
   position: absolute;  
   bottom: 2rem;
-  left: 1rem;
+  left: 2rem;
   display: grid;
   grid-template-columns: 48px auto;
   grid-gap: 1rem;

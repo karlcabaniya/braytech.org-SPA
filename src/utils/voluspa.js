@@ -17,29 +17,6 @@ export function PostMember(payload) {
   }
 }
 
-export function GetMemberSettings(payload) {
-  try {
-    fetch(`https://voluspa.braytech.org/Member/Settings?membershipId=${payload}`, {
-      ...defaults,
-      method: 'GET',
-    });
-  } catch (e) {
-    return false;
-  }
-}
-
-export function PostMemberSettings(payload) {
-  try {
-    fetch('https://voluspa.braytech.org/Member/Settings', {
-      ...defaults,
-      method: 'POST',
-      body: JSON.stringify(payload),
-    });
-  } catch (e) {
-    return false;
-  }
-}
-
 export async function PostPatreon(payload) {
   try {
     const request = await fetch('https://voluspa.braytech.org/Patreon/Set', {

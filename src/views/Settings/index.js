@@ -65,6 +65,7 @@ function Common() {
   const dispatch = useDispatch();
   const settings = useSelector((state) => state.settings);
   const theme = useSelector((state) => state.theme);
+  const dim = useSelector((state) => state.dim);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -129,6 +130,12 @@ function Common() {
             <Checkbox linked checked={!theme.user} text={t('Settings.Theme.SystemPreference')} action={handler_theme('system')} />
           </li>
         </ul>
+        <div className='sub-header'>
+          <div>{t('DIM Sync')}</div>
+        </div>
+        dimApiEnabled: {dim.dimApiEnabled && 'true'}
+      </div>
+      <div className='module'>
         <div className='sub-header'>
           <div>{t('Item visibility')}</div>
         </div>

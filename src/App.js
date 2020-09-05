@@ -8,6 +8,7 @@ import ls from './utils/localStorage';
 import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
+import * as thirdPartyApis from './utils/thirdPartyApis';
 import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 
@@ -97,7 +98,6 @@ async function timed(name, promise) {
   return result;
 }
 
-// Girl, bye, modernizr
 function CSSFeatureDetects() {
   if (document.body.style.backdropFilter === undefined) {
     document.documentElement.classList.add('no-backdrop-filter');
@@ -127,6 +127,7 @@ class App extends React.Component {
       storedManifest: timed('getStoredManifest', this.getStoredManifest()),
       manifestIndex: timed('GetDestinyManifest', bungie.GetDestinyManifest({ errors: { hide: true } })),
       bungieSettings: timed('GetCommonSettings', bungie.GetCommonSettings({ errors: { hide: true } })),
+      dimSettings: timed('GetDIMCommonSettings', thirdPartyApis.GetDIMCommonSettings()),
       voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics()),
     };
 
@@ -143,17 +144,27 @@ class App extends React.Component {
   // Upon App.js mount; bind window reisze handler,
   // check if client online, start fetching manifest
   async componentDidMount() {
+    // set viewport now
     this.handler_resizeViewport();
 
+    // start watching viewport
     window.addEventListener('resize', this.handler_resizeViewport);
 
+    // run feature detects
     CSSFeatureDetects();
 
+    // is the network available
     if (!window.navigator.onLine) {
       this.setState({ status: { code: 'navigator_offline' } });
+
       return;
     }
 
+    // fetch DIM settings
+    const dimSettings = await this.startupRequests.dimSettings;
+    if (dimSettings?.settings) this.props.setDimSettings(dimSettings.settings);
+
+    // setup the manifest
     try {
       await timed('setUpManifest', this.setUpManifest());
     } catch (e) {
@@ -376,11 +387,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setViewport: (value) => {
-      dispatch({ type: 'VIEWPORT_CHANGED', payload: value });
+    setViewport: (payload) => {
+      dispatch({ type: 'VIEWPORT_CHANGED', payload });
     },
-    setMemberByRoute: (value) => {
-      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload: value });
+    setMemberByRoute: (payload) => {
+      dispatch({ type: 'MEMBER_SET_BY_PROFILE_ROUTE', payload });
+    },
+    setDimSettings: (payload) => {
+      dispatch({ type: 'DIM_SETINGS_SET', payload });
     },
   };
 }

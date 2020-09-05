@@ -229,8 +229,8 @@ export function BungieAuth() {
 
     async function getMemberships() {
       const response = await bungie.GetMembershipDataForCurrentUser();
-console.log('hello', isMounted)
-      if (isMounted.current) {console.log('hello 2')
+
+      if (isMounted.current) {
         if (response && response.ErrorCode === 1) {
           setState({
             loading: false,
