@@ -40,7 +40,7 @@ function NavLinks() {
 }
 
 export default function Settings() {
-  const { view } = useParams();
+  const { category } = useParams();
 
   return (
     <div className='view' id='settings'>
@@ -50,12 +50,12 @@ export default function Settings() {
         </div>
         <div className='page-header'>
           <div className='sub-name'>{t('Settings')}</div>
-          <div className='name'>{view === 'advanced' ? t('Settings.Category.Advanced.Name') : t('Settings.Category.Common.Name')}</div>
+          <div className='name'>{category === 'advanced' ? t('Settings.Category.Advanced.Name') : t('Settings.Category.Common.Name')}</div>
         </div>
       </div>
       <div className='buff'>
         <NavLinks />
-        {view === 'advanced' ? <Advanced /> : <Common />}
+        {category === 'advanced' ? <Advanced /> : <Common />}
       </div>
     </div>
   );

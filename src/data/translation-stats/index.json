@@ -1,153 +1,125 @@
 {
   "de": {
     "translated": 784,
-    "notTranslated": 2,
+    "notTranslated": 4,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "debug": {
-    "translated": 786,
+    "translated": 788,
     "notTranslated": 0,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "en": {
-    "translated": 786,
+    "translated": 788,
     "notTranslated": 0,
     "added": [],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "es-mx": {
     "translated": 783,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "es": {
     "translated": 783,
-    "notTranslated": 3,
+    "notTranslated": 5,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "fr": {
     "translated": 616,
-    "notTranslated": 170,
+    "notTranslated": 172,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "it": {
-    "translated": 784,
+    "translated": 786,
     "notTranslated": 2,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "ja": {
     "translated": 564,
-    "notTranslated": 222,
+    "notTranslated": 224,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "ko": {
     "translated": 492,
-    "notTranslated": 294,
+    "notTranslated": 296,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "pl": {
     "translated": 485,
-    "notTranslated": 301,
+    "notTranslated": 303,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "pt-br": {
     "translated": 754,
-    "notTranslated": 32,
+    "notTranslated": 34,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "ru": {
-    "translated": 784,
+    "translated": 786,
     "notTranslated": 2,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "zh-chs": {
     "translated": 637,
-    "notTranslated": 149,
+    "notTranslated": 151,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   },
   "zh-cht": {
     "translated": 656,
-    "notTranslated": 130,
+    "notTranslated": 132,
     "added": [
-      "Profile banned",
-      "This Destiny profile has been banned from this app. This isn't an error."
+      "Settings.Category.Advanced.Name",
+      "Settings.Category.Common.Name"
     ],
-    "removed": [
-      "ContentVault.Info"
-    ]
+    "removed": []
   }
 }

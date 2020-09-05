@@ -336,7 +336,7 @@ class App extends React.Component {
                         <Route path='/compare/:object?' exact component={Compare} />
 
                         <Route path='/commonality' exact component={Commonality} />
-                        <Route path='/settings/:view?' exact component={Settings} />
+                        <Route path='/settings/:category?' exact component={Settings} />
                         <Route path='/faq' exact component={FAQ} />
                         <Route path='/content-vault/:season([0-9]+)?/:slug?' exact component={ContentVault} />
                         <Route path='/solstice-of-heroes/:type?' exact component={SolsticeOfHeroes} />
