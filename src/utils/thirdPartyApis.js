@@ -1,10 +1,3 @@
-const defaults = {
-  cache: 'no-cache',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
-
 // Destiny Tracker
 export async function GetElo(options = { params: { mode: 84, membershipId: 0, season: 10 } }) {
   try {
@@ -21,36 +14,3 @@ export async function GetElo(options = { params: { mode: 84, membershipId: 0, se
     return false;
   }
 }
-
-export async function GetDIMCommonSettings() {
-  try {
-    const request = await fetch('https://api.destinyitemmanager.com/platform_info', defaults);
-
-    if (request.ok) {
-      const response = await request.json();
-
-      return response;
-    } else {
-      return false;
-    }
-  } catch (e) {
-    return false;
-  }
-}
-
-export async function GetDIMPlatformInfo2() {
-  try {
-    const request = await fetch('https://api.destinyitemmanager.com/platform_info', defaults);
-
-    if (request.ok) {
-      const response = await request.json();
-
-      return response;
-    } else {
-      return false;
-    }
-  } catch (e) {
-    return false;
-  }
-}
-

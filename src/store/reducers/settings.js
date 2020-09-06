@@ -1,4 +1,5 @@
 import { merge } from 'lodash';
+
 import ls from '../../utils/localStorage';
 
 const initial = {
@@ -46,16 +47,55 @@ const initial = {
   developer: {
     lists: false,
   },
+  triumphs: {
+    tracked: [1549003459, 2398356743, 1575460005, 2027886756, 221857936, 3985015094, 50106418, 3232635341, 2748367119, 2417378659, 1485121063, 122129118, 2157758001, 3949040536, 2422246607, 2422246593, 3819920005, 452100546, 2422246601, 2646738884, 1962727403, 3783249575, 1025917306, 2422246600, 2633814448, 3723768609, 2172518965, 3417737709],
+  },
 };
-const history = merge({ ...initial }, ls.get('settings'));
 
-export default function reducer(state = history, action) {
+const defaults = merge({ ...initial }, ls.get('settings'));
+
+function save(payload) {
+  ls.set('settings', payload);
+}
+
+export default function reducer(state = defaults, action) {
+  // accepts shapes
   if (action.type === 'SETTINGS_SET') {
-    const adjusted = merge({ ...state }, action.payload);
+    const settings = merge({ ...state }, action.payload);
 
-    ls.set('settings', adjusted);
+    save(settings);
 
-    return adjusted;
+    return settings;
+  }
+  // accepts a hash
+  else if (action.type === 'SETTINGS_TRIUMPHS_TRACKED_TOGGLE') {
+    const settings = {
+      ...state,
+      triumphs: {
+        ...state.triumphs,
+        tracked: state.triumphs.tracked.includes(action.payload)
+          ? // untrack triumph
+            [...state.triumphs.tracked].filter((hash) => action.payload !== hash)
+          : // track triumph
+            [...state.triumphs.tracked, action.payload],
+      },
+    };
+
+    save(settings);
+
+    return settings;
+  } else if (action.type === 'SETTINGS_TRIUMPHS_TRACKED_RESET') {
+    const settings = {
+      ...state,
+      triumphs: {
+        ...state.triumphs,
+        tracked: [],
+      },
+    };
+
+    save(settings);
+
+    return settings;
   } else {
     return state;
   }

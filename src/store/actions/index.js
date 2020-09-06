@@ -7,6 +7,14 @@ export default {
       };
     },
   },
+  sync: {
+    set: function (payload) {
+      return {
+        type: 'SYNC_SET',
+        payload,
+      };
+    },
+  },
   auth: {
     set: function (payload) {
       return {
@@ -84,13 +92,13 @@ export default {
   triumphs: {
     toggle: function (payload) {
       return {
-        type: 'TRIUMPHS_TOGGLE_TRACK',
+        type: 'SETTINGS_TRIUMPHS_TRACKED_TOGGLE',
         payload,
       };
     },
     reset: function () {
       return {
-        type: 'TRIUMPHS_RESET_TRACKED',
+        type: 'SETTINGS_TRIUMPHS_TRACKED_RESET',
       };
     },
   },

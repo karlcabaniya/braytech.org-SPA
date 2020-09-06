@@ -17,6 +17,42 @@ export function PostMember(payload) {
   }
 }
 
+export async function PostMemberSettings(payload) {
+  try {
+    const request = await fetch('https://voluspa.braytech.org/Member/Settings', {
+      ...defaults,
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+
+    if (request.ok) {
+      const response = await request.json();
+
+      return response;
+    } else {
+      return false;
+    }
+  } catch (e) {
+    return false;
+  }
+}
+
+export async function GetMemberSettings({ params }) {
+  try {
+    const request = await fetch(`https://voluspa.braytech.org/Member/Settings?membershipId=${params.membershipId}`, defaults);
+
+    if (request.ok) {
+      const response = await request.json();
+
+      return response;
+    } else {
+      return false;
+    }
+  } catch (e) {
+    return false;
+  }
+}
+
 export async function PostPatreon(payload) {
   try {
     const request = await fetch('https://voluspa.braytech.org/Patreon/Set', {

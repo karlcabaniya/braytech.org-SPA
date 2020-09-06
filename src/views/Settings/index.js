@@ -66,6 +66,7 @@ function Common() {
   const settings = useSelector((state) => state.settings);
   const theme = useSelector((state) => state.theme);
   const dim = useSelector((state) => state.dim);
+  const member = useSelector((state) => state.member);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -106,6 +107,10 @@ function Common() {
       window.location.reload();
     }, 50);
   }
+
+  // (async function () {
+  //   console.log(await GetProfile({ params: { membershipId: member.membershipId } }))
+  // }())
 
   return (
     <div className='content common'>

@@ -175,7 +175,6 @@ function Records({ ordered, limit, showCompleted, showInvisible, ...props }) {
   const ref_scrollTo = useRef();
   const location = useLocation();
   const settings = useSelector((state) => state.settings);
-  const triumphs = useSelector((state) => state.triumphs);
   const lists = useSelector((state) => state.lists);
   const member = useSelector((state) => state.member);
 
@@ -432,7 +431,7 @@ function Records({ ordered, limit, showCompleted, showInvisible, ...props }) {
       }
 
       const ref = highlight === definitionRecord.hash ? ref_scrollTo : undefined;
-      const tracked = triumphs.tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted;
+      const tracked = settings.triumphs.tracked.concat(profileRecordsTracked).includes(definitionRecord.hash) && !enumeratedState.RecordRedeemed && enumeratedState.ObjectiveNotCompleted;
 
       if (definitionRecord.redacted) {
         return {

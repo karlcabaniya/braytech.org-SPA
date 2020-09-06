@@ -8,7 +8,6 @@ import ls from './utils/localStorage';
 import dexie from './utils/dexie';
 import * as bungie from './utils/bungie';
 import * as voluspa from './utils/voluspa';
-import * as thirdPartyApis from './utils/thirdPartyApis';
 import * as enums from './utils/destinyEnums';
 import manifest from './utils/manifest';
 
@@ -29,6 +28,7 @@ import NotificationService from './components/Notifications/NotificationService'
 import NotificationProgress from './components/Notifications/NotificationProgress';
 import ServiceWorkerUpdate from './components/Notifications/ServiceWorkerUpdate';
 import RefreshService from './components/RefreshService';
+import SyncService from './components/SyncService';
 import ErrorBoundary from './components/ErrorBoundary';
 import { AppLoading, SuspenseLoading } from './components/Loading';
 
@@ -127,7 +127,7 @@ class App extends React.Component {
       storedManifest: timed('getStoredManifest', this.getStoredManifest()),
       manifestIndex: timed('GetDestinyManifest', bungie.GetDestinyManifest({ errors: { hide: true } })),
       bungieSettings: timed('GetCommonSettings', bungie.GetCommonSettings({ errors: { hide: true } })),
-      dimSettings: timed('GetDIMCommonSettings', thirdPartyApis.GetDIMCommonSettings()),
+      // dimSettings: timed('GetDIMCommonSettings', dim.GetCommonSettings()),
       voluspaStatistics: timed('GetStatistics', voluspa.GetStatistics()),
     };
 
@@ -161,8 +161,8 @@ class App extends React.Component {
     }
 
     // fetch DIM settings
-    const dimSettings = await this.startupRequests.dimSettings;
-    if (dimSettings?.settings) this.props.setDimSettings(dimSettings.settings);
+    // const dimSettings = await this.startupRequests.dimSettings;
+    // if (dimSettings?.settings) this.props.setDimSettings(dimSettings.settings);
 
     // setup the manifest
     try {
@@ -364,6 +364,7 @@ class App extends React.Component {
                     a character, as the refresh will cause the member to
                     continually reload itself */}
                     <Route path='/character-select' children={(route) => !route.match && <RefreshService {...route} />} />
+                    <SyncService />
 
                     <Route component={Footer} />
                   </>

@@ -1,6 +1,44 @@
 import store from '../store';
 import ls from './localStorage';
 
+export async function BungieAuth() {
+  // get saved auth tokes
+  const tokens = ls.get('setting.auth');
+
+  if (tokens?.access?.value) {
+    // time now + 2 seconds, in ms
+    const now = new Date().getTime() + 2 * 1000;
+    // current token expiry, in ms
+    const then = tokens.access.expires;
+
+    // refresh tokens before making auth-full request
+    if (now > then) {
+      if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens have expired...', 'font-style: italic');
+      const refreshRequest = await GetOAuthAccessToken(`grant_type=refresh_token&refresh_token=${tokens.refresh.value}`);
+
+      if (refreshRequest && refreshRequest.ErrorCode === 1) {
+        if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens have been replenished.', 'font-style: italic', refreshRequest);
+
+        // use the token from the response for the original request
+        return refreshRequest.Response.access.value;
+      }
+      // token refreshRequest returned with an error...
+      // return that error to whoever asked for this
+      else {
+        if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens could not be replenished!', 'font-style: italic');
+
+        return await refreshRequest;
+      }
+    } else {
+      if (process.env.NODE_ENV === 'development') console.log('%cAuth tokens are current.', 'font-style: italic');
+      
+      return tokens;
+    }
+  } else {
+    console.log('uh oh')
+  }
+}
+
 async function apiRequest(path, options = {}) {
   const defaults = {
     headers: {},

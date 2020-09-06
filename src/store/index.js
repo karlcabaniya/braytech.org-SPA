@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 
 import settings from './reducers/settings.js';
+import sync from './reducers/sync.js';
 import auth from './reducers/auth.js';
 import member from './reducers/member.js';
 import theme from './reducers/theme.js';
@@ -18,6 +19,7 @@ import dim from './reducers/dim.js';
 
 const rootReducer = combineReducers({
   settings,
+  sync,
   auth,
   member,
   theme,
