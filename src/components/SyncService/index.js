@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import actions from '../../store/actions';
-import { useIsMounted } from '../../utils/hooks';
+import ls from '../../utils/localStorage';
+import { useIsMounted, useInterval } from '../../utils/hooks';
 import { BungieAuth } from '../../utils/bungie';
 import { GetMemberSettings, PostMemberSettings } from '../../utils/voluspa';
 
+function save(payload) {
+  ls.set('settings', payload);
+}
+
 export default function SyncService() {
   const dispatch = useDispatch();
-  const sync = useSelector(state => state.sync);
-  const settings = useSelector(state => state.settings);
-  const member = useSelector(state => state.member);
+  const sync = useSelector((state) => state.sync);
+  const { visual, developer, ...settings } = useSelector((state) => state.settings);
+  const member = useSelector((state) => state.member);
   const isMounted = useIsMounted();
 
   const [isSetup, setIsSetup] = useState(false);
@@ -23,34 +28,61 @@ export default function SyncService() {
   }, []);
 
   // download state
-  useEffect(() => {
-    async function download() {
-      const response = await GetMemberSettings({
-        params: {
-          membershipId: member.membershipId,
-        }
-      });
+  async function download() {
+    console.log(`%cSettings downloading...`, 'color:cyan');
 
-      console.log(response);
+    const response = await GetMemberSettings({
+      params: {
+        membershipId: member.membershipId,
+      },
+    });
 
-      if (response?.ErrorCodee === 1) {
-        const settings = JSON.parse(response.Response);
+    if (response?.ErrorCode === 1) {
+      const settings = JSON.parse(response.Response.settings);
 
-        if (settings) {
-          dispatch(actions.settings.set(settings));
+      if (settings) {
+        if (response.Response.updated > sync.updated) {
+          dispatch(actions.sync.set({ updated: response.Response.updated }));
+          dispatch(
+            actions.settings.sync({
+              ...settings,
+              updated: response.Response.updated,
+            })
+          );
+
+          save({
+            ...settings,
+            updated: response.Response.updated,
+          });
+
+          console.log(`%cSettings downloaded: last updated ${response.Response.updated}`, 'color:cyan');
+        } else {
+          console.log(`%cSettings downloaded: current ${response.Response.updated}`, 'color:cyan');
         }
       }
+    } else {
+      console.log(`%cSettings download failed.`, 'color:cyan');
+      console.log(response);
     }
+  }
 
+  useEffect(() => {
     if (isMounted.current && sync.enabled) {
-      console.log('downloading');
       download();
     }
   }, []);
 
+  useInterval(() => {
+    if (isMounted.current && sync.enabled) {
+      download();
+    }
+  }, 1800 * 1000);
+
   // sync changes
   useEffect(() => {
     async function distribute() {
+      console.log(`%cSettings syncing...`, 'color:lime');
+
       const auth = await BungieAuth();
       const response = await PostMemberSettings({
         bnetMembershipId: auth.bnetMembershipId,
@@ -58,14 +90,26 @@ export default function SyncService() {
         settings,
       });
 
-      console.log(response);
+      if (response?.ErrorCode === 1) {
+        dispatch(actions.sync.set({ updated: response.Response.updated }));
+
+        console.log(`%cSettings synced at: ${response.Response.updated}`, 'color:lime');
+      } else {
+        console.log(`%cSettings sync failed.`, 'color:lime');
+      }
+
+      save(settings);
     }
 
-    if (isMounted.current && isSetup && sync.enabled) {
-      console.log('syncing');
+    // if sync is enabled, sync then save
+    if (isMounted.current && isSetup && sync.enabled && settings.updated > sync.updated) {
       distribute();
     }
-  }, [settings]);
-  
+    // just save
+    else {
+      save(settings);
+    }
+  }, [settings.updated]);
+
   return null;
 }

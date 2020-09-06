@@ -6,6 +6,12 @@ export default {
         payload,
       };
     },
+    sync: function (payload) {
+      return {
+        type: 'SETTINGS_SYNC',
+        payload,
+      };
+    },
   },
   sync: {
     set: function (payload) {
